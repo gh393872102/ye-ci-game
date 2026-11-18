@@ -1,0 +1,398 @@
+{
+  "review_scope": "64 张逐张观察。优先处理回执所指的西式画法、祠用物与职分辨识。此审核服务 P11 图鉴，最终发行逐图审美验收继续适用。",
+  "reference": "第17、20号稿，GDD 19.8、评审回执 2.2",
+  "existing_visual_review_boards": "docs/phase-reports/p8-portrait-qa-shots",
+  "replacement_pngs": [
+    "G11",
+    "G17",
+    "G19",
+    "G32"
+  ],
+  "original_drawn_independently": 64,
+  "rows": [
+    {
+      "id": "H01",
+      "review": "P11 retained",
+      "observed": "青灰交领、折头巾、香与翻开的册，守香主位。",
+      "sha256": "d40e54027d1e70f42ae38d4659f58247242bb9ea519072052f521f99931cf9c6"
+    },
+    {
+      "id": "H02",
+      "review": "P11 retained",
+      "observed": "灰鬓编束、褐色暖层和手中香碗，火光明暗分开。",
+      "sha256": "200a07f3e57e7045e1e85b7931b29681743184b5a9571a7488e35b248a1b1a40"
+    },
+    {
+      "id": "H03",
+      "review": "P11 retained",
+      "observed": "高冠、窄札与笔，青笺与主点册者可区分。",
+      "sha256": "e161f3e42d17e3cacf75b12594158045ae0004d9617c71584bf6b70b558f1164"
+    },
+    {
+      "id": "H04",
+      "review": "P11 retained",
+      "observed": "灰衣童形、灰杯互倾，两手是职分中心。",
+      "sha256": "807b14c5c2f926903de0f6277bd3dccdd50fa8b90b5f2c1583fe0bb19a297c41"
+    },
+    {
+      "id": "H05",
+      "review": "P11 retained",
+      "observed": "覆口布与摊出的灰纸扇，素衣剪影。",
+      "sha256": "c1aebad5e10efbcd206f1b2b076f4a45064bdad17b4c3325c5cddce357d5d2f8"
+    },
+    {
+      "id": "H06",
+      "review": "P11 retained",
+      "observed": "短青衣、木窗冷光与青色提灯。",
+      "sha256": "5fb6af40cd7f49161f9db84892bff650607d060a89765fcfcf51991c3926a918"
+    },
+    {
+      "id": "H07",
+      "review": "P11 retained",
+      "observed": "布带、木柝和敲棒是夜巡身份。",
+      "sha256": "8adf2c1997f5c09832474d49790d99e310dd5ffbbe68dbd46cfb4d2dce65e36a"
+    },
+    {
+      "id": "H08",
+      "review": "P11 retained",
+      "observed": "长髯深袍和怀里重册，重心近胸腹。",
+      "sha256": "78db5cb46330fef89466bd6139eb84862e1ebf46e7b127a4b002c8d2da99481e"
+    },
+    {
+      "id": "H09",
+      "review": "P11 retained",
+      "observed": "黑漆札甲、门板盾和后置的刀，厚重门卫。",
+      "sha256": "a6fffbbdc10adb6599655eff31a51a426f5340e0fb0663195417e82990eabe8d"
+    },
+    {
+      "id": "H10",
+      "review": "P11 retained",
+      "observed": "束髻、臂甲与缺刃，刀刃低垂。",
+      "sha256": "31222e057cbc62c4a5f10718c609a63931a9ba4ebb2d633f08848958743a21a5"
+    },
+    {
+      "id": "H11",
+      "review": "P11 retained",
+      "observed": "灰头巾、石件和长槌，保留石婆成熟体量。",
+      "sha256": "88703fc3748a2c5e6562f01bffe202de0bbbfd9cec423eb202b57f68c2192b7e"
+    },
+    {
+      "id": "H12",
+      "review": "P11 retained",
+      "observed": "直冠、腰链与勾锁，面部与铁肩不同。",
+      "sha256": "23ede33d2ebf9a59129d76ecb4d4d08786272c9994bb3f84e3d04f3b80747b39"
+    },
+    {
+      "id": "H13",
+      "review": "P11 retained",
+      "observed": "红襟短甲和铜钺，颜色主动与器械并用。",
+      "sha256": "aa1a60a912970bb47fd76580279ff3be0e47148f353340ee14a2c6e7d1243000"
+    },
+    {
+      "id": "H14",
+      "review": "P11 retained",
+      "observed": "圆形铜锣和锣槌形状直接。",
+      "sha256": "92f197d8a822b9e807c66d1b55c2d84bf5c266589ecf90b3d3bdf5b51db50aa0"
+    },
+    {
+      "id": "H15",
+      "review": "P11 retained",
+      "observed": "白绑脚、钩和落地低姿，行动身份明显。",
+      "sha256": "fa8756c3897b166de8bf98e1cf1f4e0abe7ab1ada48bee71774a454b7e98c83d"
+    },
+    {
+      "id": "H16",
+      "review": "P11 retained",
+      "observed": "白麻穗、丧杖与黑灰披褂。",
+      "sha256": "e42df8c6f9bcbcc81ea3efb58afb2b526ce6635e46d87e5ddf5eee2426e59579"
+    },
+    {
+      "id": "H17",
+      "review": "P11 retained",
+      "observed": "朱红襟和素符纸，手位不与焚词混。",
+      "sha256": "779bc44cac805a2fa9917ecdeb2bd40b8a07f2cb55bbc99d266ed568e930c353"
+    },
+    {
+      "id": "H18",
+      "review": "P11 retained",
+      "observed": "旧铜镜边和硬领，金色限定在器物。",
+      "sha256": "906a7557bec68f33bff3104fca720eec3ddac65d1b457ca3bbcc4a2b41bb2151"
+    },
+    {
+      "id": "H19",
+      "review": "P11 retained",
+      "observed": "别枝木灯与向上询问的手势。",
+      "sha256": "4975ad49c3d632eb51e453546c02c72ae5e1ae82fbe11db0724678a9569962b8"
+    },
+    {
+      "id": "H20",
+      "review": "P11 retained",
+      "observed": "焚纸与灶旁暖火，持物和朱砂区分。",
+      "sha256": "8a80a0070f80071e5a01746e83305ebacb3b51683c7198ec36b2de1cf1425f71"
+    },
+    {
+      "id": "H21",
+      "review": "P11 retained",
+      "observed": "水脚边的冷光、青披衣和手托莲灯。",
+      "sha256": "ec604ff0ed9bd57371e5cf58a5c1377bc2a24056b2043908c0254b5c171a40a0"
+    },
+    {
+      "id": "H22",
+      "review": "P11 retained",
+      "observed": "三环、素袍与戒手，剃发僧形。",
+      "sha256": "c50ffa7bb30eed1564d40c98276b87862c4a6893b1d3ad644cb954cfff9c9b7b"
+    },
+    {
+      "id": "H23",
+      "review": "P11 retained",
+      "observed": "月簪、历书和上抬的手，不靠脸色区分。",
+      "sha256": "29816eb93a9ae330bd6489e2fa2d8612aae97bcbca92445bbcb004f006121ed5"
+    },
+    {
+      "id": "H24",
+      "review": "P11 retained",
+      "observed": "青长衣、竖针套和举针手形，工具方向清楚。",
+      "sha256": "495244f551cbd14dd358289c75a4fc677499c8f47597eef88af4474ba976bac0"
+    },
+    {
+      "id": "H25",
+      "review": "P11 retained",
+      "observed": "工衣罩裙与榫卯板，木材色有区分。",
+      "sha256": "790ec79f70b00c71bff5ad54d651282899b6b7b528257a8fbe0206887d61f170"
+    },
+    {
+      "id": "H26",
+      "review": "P11 retained",
+      "observed": "硝火、胸前爆竹串、深蓝工衣。",
+      "sha256": "b086acc7f80e37f184028c377d556069819f97f9aa81a968f48b40edd3ff6000"
+    },
+    {
+      "id": "H27",
+      "review": "P11 retained",
+      "observed": "羽披、腕上墨鸦，禽鸟与祠工关系。",
+      "sha256": "2b72d463691ac8b55bafb1d16a6849a0ff409dca763a11580f91e0117f1090ff"
+    },
+    {
+      "id": "H28",
+      "review": "P11 retained",
+      "observed": "扁帽、肩扁担、两个旧灯具，货郎姿态。",
+      "sha256": "69d1faf69ddb6d116a2becb7168c5da9355b74ba5c983c906658203a2d15ac5e"
+    },
+    {
+      "id": "H29",
+      "review": "P11 retained",
+      "observed": "覆眼布、扣弦手和中式拉弦器，比纯斗篷好认。",
+      "sha256": "24a57b5bde54fc415a1715bcef4cd2c0a3f7b3b053959faca37930432c08224f"
+    },
+    {
+      "id": "H30",
+      "review": "P11 retained",
+      "observed": "纸帽角与抱牌，高挑度低于成人人像。",
+      "sha256": "571bce10f2bd4fd4065a8c03fec218e04d259171e295dd07d05895d7cfad9a55"
+    },
+    {
+      "id": "H31",
+      "review": "P11 retained",
+      "observed": "蓑草层、行囊角和短刀，衣面保留异乡来客。",
+      "sha256": "fa775e36a3333d60c30de3c3436aca6fd3793d00be373603dcd6270ebfd2d822"
+    },
+    {
+      "id": "H32",
+      "review": "P11 retained",
+      "observed": "工具围裙与手上薄面，祠匠身份明确。",
+      "sha256": "4f53aad596bd43f1788f79caa4b5a670b03a56dc83eb5a910517c8ca6704343f"
+    },
+    {
+      "id": "G01",
+      "review": "P11 retained",
+      "observed": "空面、倾身与下坠白衣，形象与战斗潮一致。",
+      "sha256": "4816e41e5f53130f8c02fdfb04f01ba848febb090cd03e265f937a550248cf02"
+    },
+    {
+      "id": "G02",
+      "review": "P11 retained",
+      "observed": "求名伸钵，姿势比衣料亮度更醒目。",
+      "sha256": "678b83f535032e87d1d982dad24b5c2e525d4a1e8a5510b4af3be321c232fe04"
+    },
+    {
+      "id": "G03",
+      "review": "P11 retained",
+      "observed": "长袖拭哭和上带凉气，哭姿清楚。",
+      "sha256": "56a1efa41a081a637c3d2e046e3ee5284d62b6b3d4c8a5f280f0ae3ad1549e10"
+    },
+    {
+      "id": "G04",
+      "review": "P11 retained",
+      "observed": "贴柱抓握、深幕轮廓，无需面孔。",
+      "sha256": "32b33b4a879f16d3c4a93cfa994b2c254bdb1a8e1c207a6f15b78d1a95057c7e"
+    },
+    {
+      "id": "G05",
+      "review": "P11 retained",
+      "observed": "嵌深的饿腹、捧钵和黄旧衣，与 G02 姿态区分。",
+      "sha256": "f58dd8f3ee2ab195ec2bc86ffac4c93d9ebfde57f5a81352bab75c8ab08e2424"
+    },
+    {
+      "id": "G06",
+      "review": "P11 retained",
+      "observed": "发束后垂，单边指形伸长，读长肢。",
+      "sha256": "d338206fbadfabe3168f47f0f426ff655ae10857342ff9db09b1e3a657cbd186"
+    },
+    {
+      "id": "G07",
+      "review": "P11 retained",
+      "observed": "绳、窗和抓梁动作，保留童形。",
+      "sha256": "8fb7241aab6cba0a21cef71a99f266dfa7fb6dbdd8fbb76c0b28521dbdabdca6"
+    },
+    {
+      "id": "G08",
+      "review": "P11 retained",
+      "observed": "碎落衣带与零星香火余烬，辨散香。",
+      "sha256": "392b641debce836dff84cd06d7d04a63e309f19e9f3cacdabc83c08b229c8452"
+    },
+    {
+      "id": "G09",
+      "review": "P11 retained",
+      "observed": "掩住脸方向、握绳上梁，线索比白衣本身更强。",
+      "sha256": "1fc4a03efad86841b924436acf338c9e069940936c7279944bbd107dda35017c"
+    },
+    {
+      "id": "G10",
+      "review": "P11 retained",
+      "observed": "湿发、入水边和水中手势，有别于泛蓝鬼。",
+      "sha256": "13a43cef7692693a20599773ea124299db278b2f07bf4fb7d6d4f527a5b5a64e"
+    },
+    {
+      "id": "G11",
+      "review": "P11 revised",
+      "observed": "旧图裸露头骨与完整西式骸骨；改纸衣、两枚祖面、竹制机关手与木框青灯。",
+      "sha256": "1a7ae63327d849741553f3c2ccf8a40c80157d8e88bfd9afbeb35af55d7e8ade"
+    },
+    {
+      "id": "G12",
+      "review": "P11 retained",
+      "observed": "厚肩、肩扛旧梁、粗脚步；近身破门体量。",
+      "sha256": "2d6171daf028d976f4a15e053e99b204518e8cd8a1913cbfb2b5363454ef1375"
+    },
+    {
+      "id": "G13",
+      "review": "P11 retained",
+      "observed": "肩杠上可见两只轿夫与轿边，身份有多肢层次。",
+      "sha256": "7aa5ae6e00f5638563325cc26f822911ceda30cca50ad8a185c03470ee07df87"
+    },
+    {
+      "id": "G14",
+      "review": "P11 retained",
+      "observed": "红盖头和交袖，保留俗厉婚衣。",
+      "sha256": "39f863c8ac10427997da10c2504b40096a36add2b94a88bd4a676e68ff7a898b"
+    },
+    {
+      "id": "G15",
+      "review": "P11 retained",
+      "observed": "寿衣布团与缝具，手位与白衣不同。",
+      "sha256": "cbb55afe73a99793dd241458bc993a00dbfcffeac5336ebc339f7082bc15fa03"
+    },
+    {
+      "id": "G16",
+      "review": "P11 retained",
+      "observed": "直冠、簿板与链，腐差的差役衣甲。",
+      "sha256": "50f4160de8ca20b1f7c3616d1a48815fa8c26defb37584b50282088505a5bfa1"
+    },
+    {
+      "id": "G17",
+      "review": "P11 revised",
+      "observed": "旧图藤根身体接近西式树魔；改雨蚀山界石像、麻绳关节和断斗栱。",
+      "sha256": "8accbb5efbb2d740d5aa22c53dfd59a2f90aaef2e2e959f1ef50063071e7fdca"
+    },
+    {
+      "id": "G18",
+      "review": "P11 retained",
+      "observed": "领口空洞和整排仪仗旗，保留山祠军伍。",
+      "sha256": "13a24d0a7bfb4cda78563dbec515734ee9eaf9e0c97aac33c649b0dc3f4eab68"
+    },
+    {
+      "id": "G19",
+      "review": "P11 revised",
+      "observed": "旧图晶状甲衣与浮晶欠中式；改手执旧铜镜，神情留在镜里。",
+      "sha256": "c170fbbc9abb74e7017d459ae561451b238712f044f4be1d2949f85d0709aa92"
+    },
+    {
+      "id": "G20",
+      "review": "P11 retained",
+      "observed": "有雾势但中式札甲、小旗、辔头与军骑身份完整，先保留。",
+      "sha256": "8694b6be339bc553a56afe8e4ada356eb74507816df941159d83ab9401f50d7b"
+    },
+    {
+      "id": "G21",
+      "review": "P11 retained",
+      "observed": "倒扣大钟、铜唇、槌，主识别物是祠钟。",
+      "sha256": "e82c2e6cf58df12b2dd85271bd7cc5799ea011901ad6fdead3bc1e6b6a8f0315"
+    },
+    {
+      "id": "G22",
+      "review": "P11 retained",
+      "observed": "灰纱包覆与松卷长形，保留梦茧。",
+      "sha256": "641694d215618a9772f873afc2893b6950513eed54f72bbb7b90dd3fa5414e37"
+    },
+    {
+      "id": "G23",
+      "review": "P11 retained",
+      "observed": "斜抬并叠置脸面，借脸机制要能被看到。",
+      "sha256": "ba75071802c4dfff5d4bb7d2b58f42911153324537f4f5c01a624bc70eb381ea"
+    },
+    {
+      "id": "G24",
+      "review": "P11 retained",
+      "observed": "旧梁枷、束带、悬挂木格与祠役形。",
+      "sha256": "73781f168da0b5d4071d859485c432943e73062599ec6704614ef06c80cc90ec"
+    },
+    {
+      "id": "G25",
+      "review": "P11 retained",
+      "observed": "长吏冠、笔与账册，正面识别是擦名动作。",
+      "sha256": "783b0522ad35e3070c6d215914aa801d144e933a7eddfbd36c592dcafe08d1b9"
+    },
+    {
+      "id": "G26",
+      "review": "P11 retained",
+      "observed": "空页和纸褶比身体更突出，保留。",
+      "sha256": "3d248f1ef5dee1426e13b19b48d50a9424d5a48546144b95f3c69dbcc819f71c"
+    },
+    {
+      "id": "G27",
+      "review": "P11 retained",
+      "observed": "头顶倒香炉与偏下手势，香器作用明确。",
+      "sha256": "07602bb8950dd84438952c020afb065a23fb9c55927cb2489181d406f808d4b0"
+    },
+    {
+      "id": "G28",
+      "review": "P11 retained",
+      "observed": "提挂多张借来的薄脸，袍领与抹名吏不同。",
+      "sha256": "8cfcf2a8aa2a7ba18bfd1fbb972fbe7b5d8b63482cb5b55c08ae2694e107a85b"
+    },
+    {
+      "id": "G29",
+      "review": "P11 retained",
+      "observed": "错置笔向、打开的抄簿和折页，仍具中式吏服。",
+      "sha256": "a4d409a79806cca88a6c839604e2a3e41f19ad8811376e7e40a06b0062bf0903"
+    },
+    {
+      "id": "G30",
+      "review": "P11 retained",
+      "observed": "空神龛端坐、牌座冠、空面，表现神位。",
+      "sha256": "aa8fbba8d97fa141b5f23fc6b022f4a95c4b11ff62422ba9b1fad6e7245456be"
+    },
+    {
+      "id": "G31",
+      "review": "P11 retained",
+      "observed": "重身上堆叠众脸名牌，群体一尸的体量。",
+      "sha256": "5a0f26efa55ae4574b1b89739c02528fa2cef813a6e010d1b5dfacf5c7308327"
+    },
+    {
+      "id": "G32",
+      "review": "P11 revised",
+      "observed": "旧图王冠与书翼偏法师；改暗漆吏冠、无脸、线装空册和无字薄纸。",
+      "sha256": "4213c723bec3b02405c41bdd17817cf3b4156a4c8a205f83c8faaca30f56ec87"
+    }
+  ]
+}

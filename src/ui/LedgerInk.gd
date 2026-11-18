@@ -1,15 +1,18 @@
 extends RefCounted
 ## Shared visual treatment for the night ledger and its four reference books.
-const PAPER := Color("dfddd0")
-const MUTED := Color("a7b3a4")
-const ASH := Color("828f86")
-const COPPER := Color("acccba")
-const RUST := Color("d69d82")
-const RULE := Color("44574f")
-const DARK := Color("101718")
-const PLATE := Color("1b2524")
+const PAPER := Color("ece0cb")
+const MUTED := Color("bab09d")
+const ASH := Color("989284")
+const COPPER := Color("cca875")
+const RUST := Color("e2a389")
+const RULE := Color("5e4e3b")
+const DARK := Color("101013")
+const PLATE := Color("211d1c")
+const SEAL := Color("72382f")
 const ASSETS := "res://assets/ui/night/"
+const PAPER_SHADER = preload("res://assets/ui/night/ink_paper.gdshader")
 static var _serif: SystemFont
+static var _paper_material: ShaderMaterial
 
 static func box(parent: Node, rect: Rect2, fill: Color, border := Color.TRANSPARENT) -> ColorRect:
 	var panel := ColorRect.new()
@@ -35,23 +38,70 @@ static func skin(fill: Color, border: Color, line := 1) -> StyleBoxFlat:
 	style.content_margin_right = 12
 	return style
 
+static func folio(parent: Node, rect: Rect2, tone := Color("151315f9"), border := RULE) -> ColorRect:
+	var surface := box(parent, rect, tone)
+	if _paper_material == null:
+		_paper_material = ShaderMaterial.new()
+		_paper_material.shader = PAPER_SHADER
+	surface.material = _paper_material
+	binding(surface, Rect2(Vector2.ZERO, rect.size), border)
+	return surface
+
+static func binding(parent: Node, rect: Rect2, color := RULE) -> Control:
+	var line := Control.new()
+	line.position = rect.position
+	line.size = rect.size
+	line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(line)
+	line.draw.connect(func(): draw_binding(line, line.size, color))
+	return line
+
+static func draw_binding(canvas: CanvasItem, bounds: Vector2, color := RULE) -> void:
+	var inner := Rect2(Vector2(1, 1), bounds - Vector2(2, 2))
+	canvas.draw_rect(inner, color, false, 1)
+	canvas.draw_rect(inner.grow(-5), Color(color, 0.42), false, 1)
+	for corner in [Vector2(8, 8), Vector2(bounds.x - 8, 8), Vector2(8, bounds.y - 8), bounds - Vector2(8, 8)]:
+		var direction := Vector2(1 if corner.x < bounds.x / 2 else -1, 1 if corner.y < bounds.y / 2 else -1)
+		var key := PackedVector2Array([corner + direction * Vector2(0, 17), corner, corner + direction * Vector2(17, 0)])
+		var inner_key := PackedVector2Array([corner + direction * Vector2(5, 11), corner + direction * Vector2(5, 5), corner + direction * Vector2(11, 5)])
+		canvas.draw_polyline(key, color, 1.3)
+		canvas.draw_polyline(inner_key, color, 1.0)
+
+static func ruling(parent: Node, rect: Rect2, color := RULE) -> void:
+	var line := Control.new()
+	line.position = rect.position
+	line.size = rect.size
+	line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(line)
+	line.draw.connect(func():
+		var center := line.size / 2
+		line.draw_line(Vector2(0, center.y), center - Vector2(16, 0), color, 1)
+		line.draw_line(center + Vector2(16, 0), Vector2(line.size.x, center.y), color, 1)
+		for offset in [-8.0, 0.0, 8.0]:
+			var at := center + Vector2(offset, 0)
+			line.draw_polyline(PackedVector2Array([at - Vector2(4, 0), at - Vector2(0, 4), at + Vector2(4, 0), at + Vector2(0, 4), at - Vector2(4, 0)]), color, 1)
+	)
+
+static func serif_font() -> Font:
+	if _serif == null:
+		_serif = SystemFont.new()
+		_serif.font_names = PackedStringArray(["Songti SC", "Noto Serif CJK SC", "SimSun", "PingFang SC"])
+		var shared := ThemeDB.get_project_theme()
+		if shared != null and shared.default_font != null:
+			_serif.fallbacks = [shared.default_font]
+	return _serif
+
 static func label(parent: Node, value: String, rect: Rect2, points: int, ink := PAPER, serif := false) -> Label:
 	var field := Label.new()
-	field.text = value
+	field.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	field.position = rect.position
 	field.size = rect.size
 	field.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	field.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	field.add_theme_font_size_override("font_size", points)
 	field.add_theme_color_override("font_color", ink)
 	if serif:
-		if _serif == null:
-			_serif = SystemFont.new()
-			_serif.font_names = PackedStringArray(["Songti SC", "Noto Serif CJK SC", "SimSun", "PingFang SC"])
-			var shared := ThemeDB.get_project_theme()
-			if shared != null and shared.default_font != null:
-				_serif.fallbacks = [shared.default_font]
-		field.add_theme_font_override("font", _serif)
+		field.add_theme_font_override("font", serif_font())
+	field.text = value
 	parent.add_child(field)
 	return field
 
@@ -78,10 +128,10 @@ static func button_ink(control: Button, accent: bool) -> void:
 	control.add_theme_color_override("font_focus_color", PAPER)
 	control.add_theme_color_override("font_pressed_color", PAPER)
 	control.add_theme_color_override("font_disabled_color", MUTED)
-	control.add_theme_stylebox_override("normal", skin(Color("354b43") if accent else PLATE, COPPER if accent else RULE))
-	control.add_theme_stylebox_override("hover", skin(Color("3b5349"), COPPER))
-	control.add_theme_stylebox_override("pressed", skin(Color("2a3d36"), COPPER, 2))
-	control.add_theme_stylebox_override("disabled", skin(Color("181e1e"), Color("354540")))
+	control.add_theme_stylebox_override("normal", skin(Color("493025") if accent else PLATE, COPPER if accent else RULE))
+	control.add_theme_stylebox_override("hover", skin(Color("483127"), COPPER))
+	control.add_theme_stylebox_override("pressed", skin(Color("5e3328"), COPPER, 2))
+	control.add_theme_stylebox_override("disabled", skin(Color("161417"), Color("3b332c")))
 	control.add_theme_stylebox_override("focus", skin(Color.TRANSPARENT, Color("e3ce9e"), 3))
 
 static func texture(parent: Node, source: Texture2D, rect: Rect2, crop := true) -> TextureRect:
@@ -135,6 +185,15 @@ static func scroll_rows(parent: Node, rect: Rect2, gap := 8) -> VBoxContainer:
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.follow_focus = true
 	parent.add_child(scroll)
+	var bar := scroll.get_v_scroll_bar()
+	var track := skin(Color("221b1b"), Color("4d3c2e"))
+	var grip := skin(Color("8c704d"), Color("a68a60"))
+	track.set_content_margin_all(4)
+	grip.set_content_margin_all(4)
+	for key in ["scroll", "scroll_focus"]:
+		bar.add_theme_stylebox_override(key, track)
+	for key in ["grabber", "grabber_highlight", "grabber_pressed"]:
+		bar.add_theme_stylebox_override(key, grip)
 	var rows := VBoxContainer.new()
 	rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	rows.add_theme_constant_override("separation", gap)

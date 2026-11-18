@@ -4,12 +4,15 @@
   "source": "Project-generated portrait source (local generation metadata withheld)",
   "path": "res://assets/portraits/p8/G11.png",
   "status": "placeholder",
-  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "qa": "P11 design review color portrait; 1024×1536, independent source revision. 纸衣和双面灯架替换裸露骨架。",
   "size": [
     1024,
     1536
   ],
-  "sha256": "c7a324f29a1700ab1d37b7060def64606311741f5710128610378010f5c39bef",
+  "sha256": "1a7ae63327d849741553f3c2ccf8a40c80157d8e88bfd9afbeb35af55d7e8ade",
   "replacement_required": true,
-  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+  "previous_sha256": "c7a324f29a1700ab1d37b7060def64606311741f5710128610378010f5c39bef",
+  "review_art": "P11-revised",
+  "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
 }

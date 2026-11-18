@@ -1,0 +1,2415 @@
+{
+  "engine": "4.7.2-stable (official)",
+  "checks": 96,
+  "failed": 0,
+  "results": [
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G02",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G03",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G04",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G05",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G06",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G07",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G08",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G09",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G10",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G11",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G12",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G13",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G14",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G15",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G16",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G17",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G18",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G19",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G20",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G21",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G22",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G23",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G24",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G25",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G26",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G27",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G28",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G29",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G30",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G31",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for G32",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H02",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H03",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H04",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H05",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H06",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H07",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H08",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H09",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H10",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H11",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H12",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H13",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H14",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H15",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H16",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H17",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H18",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H19",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H20",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H21",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H22",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H23",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H24",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H25",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H26",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H27",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H28",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H29",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H30",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H31",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for H32",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for T01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for T02",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for T03",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Independent in-bounds atlas cell for T04",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "The full 32 + 32 + 4 roster and at least 20 pose sets cover live combat",
+      "observed": {
+        "identities": 68,
+        "three_pose_sets": 20
+      }
+    },
+    {
+      "ok": true,
+      "check": "Revised panel portrait loads through production entry G11",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Revised panel portrait loads through production entry G17",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Revised panel portrait loads through production entry G19",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Revised panel portrait loads through production entry G32",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Dedicated inherited-height fusion sprite for F01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Dedicated inherited-height fusion sprite for F02",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Dedicated inherited-height fusion sprite for F03",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Native viewport and production data",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "The authored court, main hall, upper rooms and ledger compose",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "The battle uses the combat scene entry point",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Legal cover post for H09",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Legal cover post for H01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Legal cover post for H17",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Legal cover post for T02",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Legal cover post for H06",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "44 real tide actors occupy four authored lane levels",
+      "observed": {
+        "0": 646.0,
+        "1": 664.0,
+        "2": 682.0,
+        "3": 700.0
+      }
+    },
+    {
+      "ok": true,
+      "check": "The defenders are on indoor side of doors, windows and tables",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ordinary actors and the stone mountain giant keep their roster heights",
+      "observed": {
+        "H09": 80.0,
+        "H01": 80.0,
+        "H17": 80.0,
+        "T02": 80.0,
+        "H06": 80.0,
+        "G01": 80.0,
+        "G09": 80.0,
+        "G17": 160.0,
+        "G12": 80.0,
+        "G11": 80.0
+      }
+    },
+    {
+      "ok": true,
+      "check": "Native default crop 01-unit-roles-and-tide",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Screenshot writes 01-unit-roles-and-tide",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real face theft updates the illustrated reader",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Native default crop 02-live-face-theft",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Screenshot writes 02-live-face-theft",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real mask restoration returns the illustrated face",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Native default crop 03-live-face-restored",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Screenshot writes 03-live-face-restored",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Face pixels change on theft and restore while simulation is still paused",
+      "observed": null
+    }
+  ],
+  "shots": {
+    "01-unit-roles-and-tide": {
+      "resolution": [
+        1920,
+        1080
+      ],
+      "zoom": 1.0,
+      "camera_left": 6080.0,
+      "reader_head_xy": [
+        1281.0,
+        631.0
+      ],
+      "sha256": "f1fc252990609d753c1ab04df63f83f867ef82e44e019cdf4b189b14c8981a90",
+      "reader_pixels": "6c2a8b69b6b86350cd1d390c726c4a1a3e6bac50b6d04a53a587abf487a8a540",
+      "file": "01-unit-roles-and-tide.png"
+    },
+    "02-live-face-theft": {
+      "resolution": [
+        1920,
+        1080
+      ],
+      "zoom": 1.0,
+      "camera_left": 6080.0,
+      "reader_head_xy": [
+        1281.0,
+        631.0
+      ],
+      "sha256": "0a02e03de7cbcb57b974c25593aa198ef9e38df71bd8c6832e3c5fe37cfcac0c",
+      "reader_pixels": "14f57522016888ce87100e9ac3c21fdf1d30bf810440ec4601ceff0ac909b62c",
+      "file": "02-live-face-theft.png"
+    },
+    "03-live-face-restored": {
+      "resolution": [
+        1920,
+        1080
+      ],
+      "zoom": 1.0,
+      "camera_left": 6080.0,
+      "reader_head_xy": [
+        1281.0,
+        631.0
+      ],
+      "sha256": "ad7d1a780d4dc2b6b1ab499b042b16fdac0e1faa80802980c03e81308c5b892f",
+      "reader_pixels": "6c2a8b69b6b86350cd1d390c726c4a1a3e6bac50b6d04a53a587abf487a8a540",
+      "file": "03-live-face-restored.png"
+    }
+  },
+  "native_scope": "加载正式 Combat 场景与生产镜头，合法室内防守岗位；44 鬼潮由夹具按四条原生 lane 起步。G28 夺面与 H32 给脸走实际 Session 指令。",
+  "face_detail": {
+    "file": "04-face-detail.png",
+    "description": "前、中、后均从 1920×1080 原生截图裁片后按 3 倍整数近邻放大。",
+    "sha256": "e55a2ebd7776b81342c73ad83a89fd3fab96adaabf61903d091bf9c593f066c8"
+  },
+  "packed_frames": {
+    "source_mode": "built-in ImageGen + transparent cell packing",
+    "atlas_count": 10,
+    "native_cell_sizes": [
+      144,
+      84
+    ],
+    "unit_id_count": 68,
+    "fusion_count": 3,
+    "independent_pose_unit_count": 20,
+    "frame_count": 117,
+    "measurements": {
+      "G01": {
+        "frames": [
+          {
+            "face": [
+              16,
+              -63
+            ],
+            "bounds": [
+              47,
+              4,
+              49,
+              80
+            ],
+            "alpha_pixels": 2133
+          },
+          {
+            "face": [
+              18,
+              -64
+            ],
+            "bounds": [
+              40,
+              4,
+              63,
+              80
+            ],
+            "alpha_pixels": 2353
+          },
+          {
+            "face": [
+              35,
+              -67
+            ],
+            "bounds": [
+              24,
+              4,
+              96,
+              80
+            ],
+            "alpha_pixels": 4036
+          }
+        ]
+      },
+      "G02": {
+        "frames": [
+          {
+            "face": [
+              15,
+              -68
+            ],
+            "bounds": [
+              39,
+              4,
+              66,
+              80
+            ],
+            "alpha_pixels": 2532
+          }
+        ]
+      },
+      "G03": {
+        "frames": [
+          {
+            "face": [
+              17,
+              -68
+            ],
+            "bounds": [
+              44,
+              4,
+              56,
+              80
+            ],
+            "alpha_pixels": 2526
+          }
+        ]
+      },
+      "G04": {
+        "frames": [
+          {
+            "face": [
+              7,
+              -66
+            ],
+            "bounds": [
+              39,
+              4,
+              67,
+              80
+            ],
+            "alpha_pixels": 2288
+          }
+        ]
+      },
+      "G05": {
+        "frames": [
+          {
+            "face": [
+              -4,
+              -64
+            ],
+            "bounds": [
+              45,
+              4,
+              53,
+              80
+            ],
+            "alpha_pixels": 2081
+          }
+        ]
+      },
+      "G06": {
+        "frames": [
+          {
+            "face": [
+              8,
+              -70
+            ],
+            "bounds": [
+              54,
+              4,
+              36,
+              80
+            ],
+            "alpha_pixels": 1660
+          },
+          {
+            "face": [
+              12,
+              -70
+            ],
+            "bounds": [
+              41,
+              4,
+              61,
+              80
+            ],
+            "alpha_pixels": 2185
+          },
+          {
+            "face": [
+              28,
+              -63
+            ],
+            "bounds": [
+              26,
+              4,
+              91,
+              80
+            ],
+            "alpha_pixels": 3095
+          }
+        ]
+      },
+      "G07": {
+        "frames": [
+          {
+            "face": [
+              17,
+              -69
+            ],
+            "bounds": [
+              37,
+              4,
+              69,
+              80
+            ],
+            "alpha_pixels": 2293
+          }
+        ]
+      },
+      "G08": {
+        "frames": [
+          {
+            "face": [
+              -10,
+              -55
+            ],
+            "bounds": [
+              27,
+              5,
+              89,
+              79
+            ],
+            "alpha_pixels": 3945
+          }
+        ]
+      },
+      "G09": {
+        "frames": [
+          {
+            "face": [
+              16,
+              -71
+            ],
+            "bounds": [
+              49,
+              4,
+              45,
+              80
+            ],
+            "alpha_pixels": 1798
+          },
+          {
+            "face": [
+              22,
+              -72
+            ],
+            "bounds": [
+              40,
+              4,
+              63,
+              80
+            ],
+            "alpha_pixels": 2082
+          },
+          {
+            "face": [
+              28,
+              -72
+            ],
+            "bounds": [
+              31,
+              4,
+              82,
+              80
+            ],
+            "alpha_pixels": 2398
+          }
+        ]
+      },
+      "G10": {
+        "frames": [
+          {
+            "face": [
+              17,
+              -68
+            ],
+            "bounds": [
+              50,
+              4,
+              44,
+              80
+            ],
+            "alpha_pixels": 2066
+          },
+          {
+            "face": [
+              22,
+              -66
+            ],
+            "bounds": [
+              38,
+              4,
+              69,
+              80
+            ],
+            "alpha_pixels": 2184
+          },
+          {
+            "face": [
+              34,
+              -62
+            ],
+            "bounds": [
+              18,
+              4,
+              107,
+              80
+            ],
+            "alpha_pixels": 3635
+          }
+        ]
+      },
+      "G11": {
+        "frames": [
+          {
+            "face": [
+              3,
+              -68
+            ],
+            "bounds": [
+              54,
+              4,
+              36,
+              80
+            ],
+            "alpha_pixels": 1736
+          },
+          {
+            "face": [
+              11,
+              -69
+            ],
+            "bounds": [
+              44,
+              4,
+              56,
+              80
+            ],
+            "alpha_pixels": 2246
+          },
+          {
+            "face": [
+              13,
+              -71
+            ],
+            "bounds": [
+              30,
+              4,
+              84,
+              80
+            ],
+            "alpha_pixels": 3001
+          }
+        ]
+      },
+      "G12": {
+        "frames": [
+          {
+            "face": [
+              10,
+              -70
+            ],
+            "bounds": [
+              46,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 3032
+          },
+          {
+            "face": [
+              4,
+              -70
+            ],
+            "bounds": [
+              38,
+              4,
+              68,
+              80
+            ],
+            "alpha_pixels": 3008
+          },
+          {
+            "face": [
+              26,
+              -72
+            ],
+            "bounds": [
+              21,
+              4,
+              102,
+              80
+            ],
+            "alpha_pixels": 4914
+          }
+        ]
+      },
+      "G13": {
+        "frames": [
+          {
+            "face": [
+              21,
+              -72
+            ],
+            "bounds": [
+              33,
+              4,
+              78,
+              80
+            ],
+            "alpha_pixels": 3578
+          }
+        ]
+      },
+      "G14": {
+        "frames": [
+          {
+            "face": [
+              15,
+              -71
+            ],
+            "bounds": [
+              44,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2304
+          }
+        ]
+      },
+      "G15": {
+        "frames": [
+          {
+            "face": [
+              15,
+              -72
+            ],
+            "bounds": [
+              48,
+              4,
+              49,
+              80
+            ],
+            "alpha_pixels": 2377
+          }
+        ]
+      },
+      "G16": {
+        "frames": [
+          {
+            "face": [
+              10,
+              -65
+            ],
+            "bounds": [
+              39,
+              4,
+              66,
+              80
+            ],
+            "alpha_pixels": 3229
+          }
+        ]
+      },
+      "G17": {
+        "frames": [
+          {
+            "face": [
+              19,
+              -69
+            ],
+            "bounds": [
+              47,
+              4,
+              50,
+              80
+            ],
+            "alpha_pixels": 2896
+          },
+          {
+            "face": [
+              20,
+              -69
+            ],
+            "bounds": [
+              39,
+              4,
+              65,
+              80
+            ],
+            "alpha_pixels": 3226
+          },
+          {
+            "face": [
+              -10,
+              -75
+            ],
+            "bounds": [
+              23,
+              4,
+              98,
+              80
+            ],
+            "alpha_pixels": 4817
+          }
+        ]
+      },
+      "G18": {
+        "frames": [
+          {
+            "face": [
+              6,
+              -68
+            ],
+            "bounds": [
+              52,
+              4,
+              40,
+              80
+            ],
+            "alpha_pixels": 1748
+          },
+          {
+            "face": [
+              10,
+              -71
+            ],
+            "bounds": [
+              44,
+              4,
+              56,
+              80
+            ],
+            "alpha_pixels": 1859
+          },
+          {
+            "face": [
+              18,
+              -70
+            ],
+            "bounds": [
+              33,
+              4,
+              77,
+              80
+            ],
+            "alpha_pixels": 2366
+          }
+        ]
+      },
+      "G19": {
+        "frames": [
+          {
+            "face": [
+              23,
+              -69
+            ],
+            "bounds": [
+              44,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2604
+          }
+        ]
+      },
+      "G20": {
+        "frames": [
+          {
+            "face": [
+              11,
+              -67
+            ],
+            "bounds": [
+              32,
+              4,
+              79,
+              80
+            ],
+            "alpha_pixels": 3241
+          },
+          {
+            "face": [
+              15,
+              -60
+            ],
+            "bounds": [
+              26,
+              4,
+              91,
+              80
+            ],
+            "alpha_pixels": 3431
+          },
+          {
+            "face": [
+              16,
+              -64
+            ],
+            "bounds": [
+              17,
+              4,
+              109,
+              80
+            ],
+            "alpha_pixels": 4206
+          }
+        ]
+      },
+      "G21": {
+        "frames": [
+          {
+            "face": [
+              2,
+              -67
+            ],
+            "bounds": [
+              43,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2827
+          }
+        ]
+      },
+      "G22": {
+        "frames": [
+          {
+            "face": [
+              6,
+              -64
+            ],
+            "bounds": [
+              56,
+              4,
+              32,
+              80
+            ],
+            "alpha_pixels": 1689
+          }
+        ]
+      },
+      "G23": {
+        "frames": [
+          {
+            "face": [
+              14,
+              -68
+            ],
+            "bounds": [
+              50,
+              4,
+              43,
+              80
+            ],
+            "alpha_pixels": 2062
+          }
+        ]
+      },
+      "G24": {
+        "frames": [
+          {
+            "face": [
+              6,
+              -71
+            ],
+            "bounds": [
+              41,
+              4,
+              61,
+              80
+            ],
+            "alpha_pixels": 3023
+          }
+        ]
+      },
+      "G25": {
+        "frames": [
+          {
+            "face": [
+              14,
+              -62
+            ],
+            "bounds": [
+              50,
+              4,
+              43,
+              80
+            ],
+            "alpha_pixels": 1893
+          },
+          {
+            "face": [
+              14,
+              -64
+            ],
+            "bounds": [
+              44,
+              4,
+              55,
+              80
+            ],
+            "alpha_pixels": 2109
+          },
+          {
+            "face": [
+              11,
+              -60
+            ],
+            "bounds": [
+              31,
+              4,
+              82,
+              80
+            ],
+            "alpha_pixels": 2889
+          }
+        ]
+      },
+      "G26": {
+        "frames": [
+          {
+            "face": [
+              6,
+              -74
+            ],
+            "bounds": [
+              52,
+              4,
+              40,
+              80
+            ],
+            "alpha_pixels": 1884
+          },
+          {
+            "face": [
+              9,
+              -74
+            ],
+            "bounds": [
+              44,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2060
+          },
+          {
+            "face": [
+              2,
+              -73
+            ],
+            "bounds": [
+              31,
+              4,
+              83,
+              80
+            ],
+            "alpha_pixels": 3198
+          }
+        ]
+      },
+      "G27": {
+        "frames": [
+          {
+            "face": [
+              -1,
+              -50
+            ],
+            "bounds": [
+              44,
+              4,
+              55,
+              80
+            ],
+            "alpha_pixels": 2372
+          }
+        ]
+      },
+      "G28": {
+        "frames": [
+          {
+            "face": [
+              -1,
+              -71
+            ],
+            "bounds": [
+              42,
+              4,
+              60,
+              80
+            ],
+            "alpha_pixels": 2216
+          }
+        ]
+      },
+      "G29": {
+        "frames": [
+          {
+            "face": [
+              4,
+              -67
+            ],
+            "bounds": [
+              52,
+              4,
+              39,
+              80
+            ],
+            "alpha_pixels": 2026
+          }
+        ]
+      },
+      "G30": {
+        "frames": [
+          {
+            "face": [
+              -6,
+              -52
+            ],
+            "bounds": [
+              40,
+              4,
+              64,
+              80
+            ],
+            "alpha_pixels": 3085
+          }
+        ]
+      },
+      "G31": {
+        "frames": [
+          {
+            "face": [
+              -4,
+              -62
+            ],
+            "bounds": [
+              39,
+              4,
+              66,
+              80
+            ],
+            "alpha_pixels": 3881
+          }
+        ]
+      },
+      "G32": {
+        "frames": [
+          {
+            "face": [
+              5,
+              -64
+            ],
+            "bounds": [
+              57,
+              4,
+              30,
+              80
+            ],
+            "alpha_pixels": 1628
+          },
+          {
+            "face": [
+              10,
+              -64
+            ],
+            "bounds": [
+              45,
+              4,
+              53,
+              80
+            ],
+            "alpha_pixels": 2111
+          },
+          {
+            "face": [
+              6,
+              -62
+            ],
+            "bounds": [
+              38,
+              4,
+              68,
+              80
+            ],
+            "alpha_pixels": 2671
+          }
+        ]
+      },
+      "H01": {
+        "frames": [
+          {
+            "face": [
+              -1,
+              -69
+            ],
+            "bounds": [
+              53,
+              4,
+              38,
+              80
+            ],
+            "alpha_pixels": 1694
+          },
+          {
+            "face": [
+              5,
+              -68
+            ],
+            "bounds": [
+              46,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 2010
+          },
+          {
+            "face": [
+              0,
+              -67
+            ],
+            "bounds": [
+              52,
+              4,
+              39,
+              80
+            ],
+            "alpha_pixels": 1728
+          }
+        ]
+      },
+      "H02": {
+        "frames": [
+          {
+            "face": [
+              -1,
+              -68
+            ],
+            "bounds": [
+              51,
+              4,
+              41,
+              80
+            ],
+            "alpha_pixels": 1887
+          }
+        ]
+      },
+      "H03": {
+        "frames": [
+          {
+            "face": [
+              -2,
+              -64
+            ],
+            "bounds": [
+              51,
+              4,
+              42,
+              80
+            ],
+            "alpha_pixels": 1927
+          }
+        ]
+      },
+      "H04": {
+        "frames": [
+          {
+            "face": [
+              -4,
+              -67
+            ],
+            "bounds": [
+              53,
+              4,
+              37,
+              80
+            ],
+            "alpha_pixels": 1401
+          }
+        ]
+      },
+      "H05": {
+        "frames": [
+          {
+            "face": [
+              -2,
+              -68
+            ],
+            "bounds": [
+              46,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 1851
+          }
+        ]
+      },
+      "H06": {
+        "frames": [
+          {
+            "face": [
+              -3,
+              -68
+            ],
+            "bounds": [
+              53,
+              4,
+              37,
+              80
+            ],
+            "alpha_pixels": 1669
+          },
+          {
+            "face": [
+              3,
+              -67
+            ],
+            "bounds": [
+              46,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 1907
+          },
+          {
+            "face": [
+              -2,
+              -68
+            ],
+            "bounds": [
+              51,
+              4,
+              42,
+              80
+            ],
+            "alpha_pixels": 1884
+          }
+        ]
+      },
+      "H07": {
+        "frames": [
+          {
+            "face": [
+              2,
+              -66
+            ],
+            "bounds": [
+              52,
+              4,
+              40,
+              80
+            ],
+            "alpha_pixels": 1944
+          },
+          {
+            "face": [
+              7,
+              -67
+            ],
+            "bounds": [
+              46,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 2018
+          },
+          {
+            "face": [
+              -14,
+              -71
+            ],
+            "bounds": [
+              41,
+              4,
+              62,
+              80
+            ],
+            "alpha_pixels": 2290
+          }
+        ]
+      },
+      "H08": {
+        "frames": [
+          {
+            "face": [
+              1,
+              -72
+            ],
+            "bounds": [
+              51,
+              4,
+              42,
+              80
+            ],
+            "alpha_pixels": 2492
+          }
+        ]
+      },
+      "H09": {
+        "frames": [
+          {
+            "face": [
+              0,
+              -68
+            ],
+            "bounds": [
+              47,
+              4,
+              49,
+              80
+            ],
+            "alpha_pixels": 2729
+          },
+          {
+            "face": [
+              5,
+              -68
+            ],
+            "bounds": [
+              43,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2782
+          },
+          {
+            "face": [
+              10,
+              -65
+            ],
+            "bounds": [
+              43,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2938
+          }
+        ]
+      },
+      "H10": {
+        "frames": [
+          {
+            "face": [
+              6,
+              -66
+            ],
+            "bounds": [
+              49,
+              4,
+              46,
+              80
+            ],
+            "alpha_pixels": 2014
+          },
+          {
+            "face": [
+              11,
+              -67
+            ],
+            "bounds": [
+              44,
+              4,
+              55,
+              80
+            ],
+            "alpha_pixels": 2095
+          },
+          {
+            "face": [
+              6,
+              -64
+            ],
+            "bounds": [
+              34,
+              4,
+              76,
+              80
+            ],
+            "alpha_pixels": 2687
+          }
+        ]
+      },
+      "H11": {
+        "frames": [
+          {
+            "face": [
+              5,
+              -71
+            ],
+            "bounds": [
+              43,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2678
+          }
+        ]
+      },
+      "H12": {
+        "frames": [
+          {
+            "face": [
+              -7,
+              -67
+            ],
+            "bounds": [
+              45,
+              4,
+              54,
+              80
+            ],
+            "alpha_pixels": 2076
+          }
+        ]
+      },
+      "H13": {
+        "frames": [
+          {
+            "face": [
+              -7,
+              -67
+            ],
+            "bounds": [
+              43,
+              4,
+              57,
+              80
+            ],
+            "alpha_pixels": 2115
+          }
+        ]
+      },
+      "H14": {
+        "frames": [
+          {
+            "face": [
+              -7,
+              -69
+            ],
+            "bounds": [
+              39,
+              4,
+              65,
+              80
+            ],
+            "alpha_pixels": 2977
+          }
+        ]
+      },
+      "H15": {
+        "frames": [
+          {
+            "face": [
+              -8,
+              -67
+            ],
+            "bounds": [
+              37,
+              4,
+              69,
+              80
+            ],
+            "alpha_pixels": 2149
+          }
+        ]
+      },
+      "H16": {
+        "frames": [
+          {
+            "face": [
+              12,
+              -64
+            ],
+            "bounds": [
+              45,
+              4,
+              54,
+              80
+            ],
+            "alpha_pixels": 2433
+          }
+        ]
+      },
+      "H17": {
+        "frames": [
+          {
+            "face": [
+              0,
+              -69
+            ],
+            "bounds": [
+              56,
+              4,
+              31,
+              80
+            ],
+            "alpha_pixels": 1592
+          },
+          {
+            "face": [
+              4,
+              -68
+            ],
+            "bounds": [
+              46,
+              4,
+              51,
+              80
+            ],
+            "alpha_pixels": 1742
+          },
+          {
+            "face": [
+              0,
+              -68
+            ],
+            "bounds": [
+              40,
+              4,
+              63,
+              80
+            ],
+            "alpha_pixels": 2190
+          }
+        ]
+      },
+      "H18": {
+        "frames": [
+          {
+            "face": [
+              -3,
+              -69
+            ],
+            "bounds": [
+              46,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 2099
+          }
+        ]
+      },
+      "H19": {
+        "frames": [
+          {
+            "face": [
+              0,
+              -69
+            ],
+            "bounds": [
+              47,
+              4,
+              50,
+              80
+            ],
+            "alpha_pixels": 2169
+          }
+        ]
+      },
+      "H20": {
+        "frames": [
+          {
+            "face": [
+              5,
+              -70
+            ],
+            "bounds": [
+              52,
+              4,
+              40,
+              80
+            ],
+            "alpha_pixels": 2078
+          }
+        ]
+      },
+      "H21": {
+        "frames": [
+          {
+            "face": [
+              2,
+              -67
+            ],
+            "bounds": [
+              45,
+              4,
+              54,
+              80
+            ],
+            "alpha_pixels": 2380
+          }
+        ]
+      },
+      "H22": {
+        "frames": [
+          {
+            "face": [
+              0,
+              -73
+            ],
+            "bounds": [
+              49,
+              4,
+              45,
+              80
+            ],
+            "alpha_pixels": 1979
+          }
+        ]
+      },
+      "H23": {
+        "frames": [
+          {
+            "face": [
+              4,
+              -70
+            ],
+            "bounds": [
+              53,
+              5,
+              38,
+              79
+            ],
+            "alpha_pixels": 1894
+          }
+        ]
+      },
+      "H24": {
+        "frames": [
+          {
+            "face": [
+              -5,
+              -72
+            ],
+            "bounds": [
+              44,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 2190
+          }
+        ]
+      },
+      "H25": {
+        "frames": [
+          {
+            "face": [
+              6,
+              -69
+            ],
+            "bounds": [
+              52,
+              4,
+              39,
+              80
+            ],
+            "alpha_pixels": 1878
+          },
+          {
+            "face": [
+              8,
+              -69
+            ],
+            "bounds": [
+              44,
+              4,
+              55,
+              80
+            ],
+            "alpha_pixels": 2010
+          },
+          {
+            "face": [
+              14,
+              -72
+            ],
+            "bounds": [
+              33,
+              4,
+              77,
+              80
+            ],
+            "alpha_pixels": 2900
+          }
+        ]
+      },
+      "H26": {
+        "frames": [
+          {
+            "face": [
+              -6,
+              -68
+            ],
+            "bounds": [
+              47,
+              4,
+              49,
+              80
+            ],
+            "alpha_pixels": 2274
+          }
+        ]
+      },
+      "H27": {
+        "frames": [
+          {
+            "face": [
+              4,
+              -68
+            ],
+            "bounds": [
+              46,
+              4,
+              52,
+              80
+            ],
+            "alpha_pixels": 2242
+          }
+        ]
+      },
+      "H28": {
+        "frames": [
+          {
+            "face": [
+              4,
+              -68
+            ],
+            "bounds": [
+              39,
+              4,
+              66,
+              80
+            ],
+            "alpha_pixels": 2546
+          }
+        ]
+      },
+      "H29": {
+        "frames": [
+          {
+            "face": [
+              -3,
+              -74
+            ],
+            "bounds": [
+              43,
+              4,
+              54,
+              80
+            ],
+            "alpha_pixels": 2454
+          }
+        ]
+      },
+      "H30": {
+        "frames": [
+          {
+            "face": [
+              -3,
+              -72
+            ],
+            "bounds": [
+              55,
+              4,
+              34,
+              80
+            ],
+            "alpha_pixels": 1794
+          }
+        ]
+      },
+      "H31": {
+        "frames": [
+          {
+            "face": [
+              11,
+              -68
+            ],
+            "bounds": [
+              48,
+              4,
+              47,
+              80
+            ],
+            "alpha_pixels": 2520
+          },
+          {
+            "face": [
+              11,
+              -68
+            ],
+            "bounds": [
+              40,
+              4,
+              63,
+              80
+            ],
+            "alpha_pixels": 2655
+          },
+          {
+            "face": [
+              15,
+              -60
+            ],
+            "bounds": [
+              44,
+              4,
+              55,
+              80
+            ],
+            "alpha_pixels": 2706
+          }
+        ]
+      },
+      "H32": {
+        "frames": [
+          {
+            "face": [
+              0,
+              -68
+            ],
+            "bounds": [
+              46,
+              4,
+              51,
+              80
+            ],
+            "alpha_pixels": 2209
+          }
+        ]
+      },
+      "T01": {
+        "frames": [
+          {
+            "face": [
+              -2,
+              -70
+            ],
+            "bounds": [
+              53,
+              5,
+              37,
+              79
+            ],
+            "alpha_pixels": 1707
+          }
+        ]
+      },
+      "T02": {
+        "frames": [
+          {
+            "face": [
+              -7,
+              -69
+            ],
+            "bounds": [
+              44,
+              4,
+              55,
+              80
+            ],
+            "alpha_pixels": 2010
+          }
+        ]
+      },
+      "T03": {
+        "frames": [
+          {
+            "face": [
+              1,
+              -71
+            ],
+            "bounds": [
+              50,
+              4,
+              43,
+              80
+            ],
+            "alpha_pixels": 1975
+          }
+        ]
+      },
+      "T04": {
+        "frames": [
+          {
+            "face": [
+              -2,
+              -72
+            ],
+            "bounds": [
+              52,
+              4,
+              40,
+              80
+            ],
+            "alpha_pixels": 1699
+          }
+        ]
+      },
+      "F01": {
+        "frames": [
+          {
+            "face": [
+              10,
+              -69
+            ],
+            "bounds": [
+              58,
+              4,
+              28,
+              80
+            ],
+            "alpha_pixels": 1609
+          },
+          {
+            "face": [
+              10,
+              -70
+            ],
+            "bounds": [
+              48,
+              4,
+              47,
+              80
+            ],
+            "alpha_pixels": 1980
+          },
+          {
+            "face": [
+              7,
+              -68
+            ],
+            "bounds": [
+              40,
+              4,
+              64,
+              80
+            ],
+            "alpha_pixels": 2378
+          }
+        ]
+      },
+      "F02": {
+        "frames": [
+          {
+            "face": [
+              1,
+              -67
+            ],
+            "bounds": [
+              38,
+              4,
+              68,
+              80
+            ],
+            "alpha_pixels": 2758
+          },
+          {
+            "face": [
+              0,
+              -68
+            ],
+            "bounds": [
+              34,
+              4,
+              75,
+              80
+            ],
+            "alpha_pixels": 2899
+          },
+          {
+            "face": [
+              1,
+              -68
+            ],
+            "bounds": [
+              37,
+              4,
+              69,
+              80
+            ],
+            "alpha_pixels": 2753
+          }
+        ]
+      },
+      "F03": {
+        "frames": [
+          {
+            "face": [
+              4,
+              -70
+            ],
+            "bounds": [
+              51,
+              4,
+              41,
+              80
+            ],
+            "alpha_pixels": 2222
+          },
+          {
+            "face": [
+              5,
+              -70
+            ],
+            "bounds": [
+              47,
+              4,
+              50,
+              80
+            ],
+            "alpha_pixels": 2484
+          },
+          {
+            "face": [
+              2,
+              -70
+            ],
+            "bounds": [
+              35,
+              4,
+              73,
+              80
+            ],
+            "alpha_pixels": 3188
+          }
+        ]
+      }
+    }
+  },
+  "proof_inputs": {
+    "src/units/UnitAppearance.gd": "5840676f0612966a9fb9aed94d6b21fb717e2fa9bec687a2431efbac4d32707b",
+    "src/units/CombatUnit.gd": "3c78cf42e906be8c80a8d672c7f77644c397c041ceac8bde162a5142fe0388f2",
+    "src/roster/HumanAbilities.gd": "0cdc02a3c0550613eb1dbd12b22610ee0302fcdcad1aea64999b2b735482656d",
+    "tools/p11r_unit_art_smoke.gd": "1e2fda5248ae7567d8a32fc2a9a4e511228ead5ed8bb2e2c4265123922cf2fc0",
+    "data/units/p11_sprite_atlas.json": "2d80dae678d00986babc4b2b944a2e97082cbc26151e4652de98b9c616e9816a",
+    "assets/sprites/units/p11r/prompts.json": "f90a7ab2bbc0877116b4d0c1e6cea1a2ba84fc61f6fc7090767b74360c2359e1"
+  },
+  "rendered_atlases": {
+    "apparitions.png": "b7a7d96abfcdb99053c329bcaca80b550fc05ca3fcbcb1774f9d60ea571508be",
+    "fusion_poses.png": "5613eb796a7474f0fbc5a35f27af3b2b49fc3870aaa8b6eefdd5db90dd7ad035",
+    "ghosts_clerks_troops.png": "83cab6bcaefb1217ae14fae80eba4a0d3c06815c391682f72232e7d30cf4aa26",
+    "ghosts_court.png": "c98e33e5308a800edb197c90985e8b4b700d984c7c7056f845e4b603ca1c6821",
+    "humans_records.png": "a362c583a52cc53bd11946d1c7fb15b5a3341a0ea1b258e99c0cb960618e1219",
+    "humans_tools.png": "094675b420b55b7a08faf1a84cae8f9d5b118e445443c5d2139bac7bbf13563e",
+    "keepers.png": "3d3b6d4f309be8d28d5b340ada61faff4a4fe71c23ca2ddc5960bdc71081b460",
+    "names.png": "f14d2e7ce8b01d7fcfe12068802a4d9f93b90c5a036da5e1ec13fdf1efabc441",
+    "tide.png": "66ed1d2f0321e98c9c964421f2a4b02047d1dc54cdeb76d56fdc709e852cc348",
+    "watch.png": "bb843d76ed1abd508735f9d1183d6227b7ee0f214c4ef1ea8c2fc54408e67807"
+  },
+  "review_limits": "本专项检查单位轮廓、图集、角色比例和暂停表情反馈。场景照明、界面风格、正式游玩与 P12 性能各有独立验收。",
+  "native_fusion": {
+    "file": "05-fusion-arrival.png",
+    "sha256": "928ab50e0e21dd17a6e1c8bb3ff0e79fce95ba7c4d252741b2436930eb30ae0e",
+    "camera_zoom": 1.0,
+    "companion_suite_passed": 39,
+    "companion_suite_failed": 0,
+    "observation": {
+      "gate_damage": 72.0,
+      "height": 144.0,
+      "incense_cost": 20.0,
+      "name": "门骑",
+      "recipe": "F02",
+      "source_consumed": true
+    },
+    "height_note": "144 为 F02 指令结算当时的形态高度。后续画面仍按每帧现有 CombatUnit.height_px 绘制。带铃黑骥与红缰为专属轮廓证据。"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "sample_date": "2026-11-18",
+  "runtime_and_board_size": [
+    1920,
+    1080
+  ],
+  "comparisons": [
+    {
+      "design_no": 13,
+      "design_url": "https://gh393872102.github.io/ye-ci/art/13-%E5%AE%9E%E6%9C%BA-%E9%95%9C%E5%A4%B4%E5%88%87%E7%89%87%E4%B8%8E%E5%85%A8%E5%9B%BE.jpg",
+      "reference_size": [
+        1280,
+        720
+      ],
+      "reference_sha256": "35fadc5565b24dcfb67817f8a25831284716c0df0412a0d420b4008683cccbbe",
+      "runtime_png": "p11r-shots/world/00-default-tide.png",
+      "runtime_sha256": "ec1450e85f842e79c09596a6451f60cca98f2481a7e0df51fa79b1d225f8c950",
+      "board": "p11r-shots/compare/13.jpg",
+      "board_sha256": "c907f665178402c2d8e9cd43a5484c3153a348c1c438a88e169a097ed26cb0ef"
+    },
+    {
+      "design_no": 14,
+      "design_url": "https://gh393872102.github.io/ye-ci/art/14-UI-%E8%B4%AD%E5%85%A5%E4%B8%8E%E9%83%A8%E7%BD%B2.jpg",
+      "reference_size": [
+        1280,
+        720
+      ],
+      "reference_sha256": "06b1e727447d4066184142d03ff83c574ed7d99cbfff33001bb0a6e73d81fea6",
+      "runtime_png": "p11r-shots/ui/14-reference-purchase-dock.png",
+      "runtime_sha256": "428b62f59b527d6aadc3a485b0dd3fa9301e262fc907f3bdba8dcc12bedbe943",
+      "board": "p11r-shots/compare/14.jpg",
+      "board_sha256": "e9ac321f50f07f504e90da897fa736001ec5e216a1481723d24716f4e6c0ed30"
+    },
+    {
+      "design_no": 17,
+      "design_url": "https://gh393872102.github.io/ye-ci/art/17-UI-%E7%AB%8B%E7%BB%98%E9%9D%A2%E6%9D%BF.jpg",
+      "reference_size": [
+        1280,
+        720
+      ],
+      "reference_sha256": "cb302d9bb534e5a3ab621e3b5a6e6b1da0cd5cbe80a4566695f7a7ba0168693f",
+      "runtime_png": "p11r-shots/ui/17-reference-wan-card.png",
+      "runtime_sha256": "e5b3579c24725011e2bdb1aa7dc176f44c47bea174a65d68fcfd8a9de0223911",
+      "board": "p11r-shots/compare/17.jpg",
+      "board_sha256": "031f00baea5920174a95bf8bcda7057b650db2f224c060c9e3bbca5a4d3ce720"
+    },
+    {
+      "design_no": 20,
+      "design_url": "https://gh393872102.github.io/ye-ci/art/20-UI-%E5%9B%BE%E9%89%B4.jpg",
+      "reference_size": [
+        1280,
+        720
+      ],
+      "reference_sha256": "46aa8b629489793952d3db6441a78f28be1027605eb7e312a9cbcca132a5391e",
+      "runtime_png": "p11r-shots/ui/20-reference-codex-wan.png",
+      "runtime_sha256": "fd7190183798759e399e846728c97a32e9a2bcec479a3ca5bebbb85721b211bd",
+      "board": "p11r-shots/compare/20.jpg",
+      "board_sha256": "7e1023923f8612571cec329aaf93ac5f4596463d5e6ae2daed0d93a6fffadea2"
+    },
+    {
+      "design_no": 21,
+      "design_url": "https://gh393872102.github.io/ye-ci/art/21-UI-%E7%BB%93%E5%A4%9C%E7%BB%93%E7%AE%97.jpg",
+      "reference_size": [
+        1280,
+        720
+      ],
+      "reference_sha256": "1d89da75018c371460d6b40197b72d9e2ab0f1091a18439896863d180d52a847",
+      "runtime_png": "p11r-shots/ui/p11-ending-e02.png",
+      "runtime_sha256": "dd7d535bf42809dd474af2bc35dc0a1295dd82eaa1a1ff65bd33e7a6a16cca7e",
+      "board": "p11r-shots/compare/21.jpg",
+      "board_sha256": "f181fbc597ebf2ff6034d1eb4478dd6d6512a51b951a2ef258213e988d37aebf"
+    },
+    {
+      "design_no": 24,
+      "design_url": "https://gh393872102.github.io/ye-ci/art/24-%E5%AE%9E%E6%9C%BA-%E4%BA%BA%E7%B1%BB%E6%8A%80%E8%83%BD%E7%89%B9%E6%95%88.jpg",
+      "reference_size": [
+        1280,
+        720
+      ],
+      "reference_sha256": "512d4e1751c99abcdfb913019bea278dfbcaa5ca24c2c6f72cd8e2e50b17e013",
+      "runtime_png": "p11r-shots/world/01-k4-five-skills.png",
+      "runtime_sha256": "b78d8e14be3591db50172b5ff9a36e9b07dc7777f9e376e5a6d0ff2d77330b03",
+      "board": "p11r-shots/compare/24.jpg",
+      "board_sha256": "78269f5a5e9225c706ef1a94837fdf2c452ff4b67351a63a1071c6e8b940598a"
+    },
+    {
+      "design_no": 25,
+      "design_url": "https://gh393872102.github.io/ye-ci/art/25-%E5%AE%9E%E6%9C%BA-%E6%8E%A9%E4%BD%93%E4%B8%8E%E5%9F%BA%E5%9C%B0%E5%86%85%E9%98%B2%E5%AE%88.jpg",
+      "reference_size": [
+        1280,
+        720
+      ],
+      "reference_sha256": "7cedb7684a0ab89bd28ede48b42b6343ccadc9ac4780d31461305af8b48a7a17",
+      "runtime_png": "p11r-shots/world/00a-inner-cover.png",
+      "runtime_sha256": "0fa1993e913156812d2c0106015764c941cddbc4e40a98d6b03527a1c2ad3111",
+      "board": "p11r-shots/compare/25.jpg",
+      "board_sha256": "76437fbdaeb38bd5075b719053eab2b1d30c21fd2fdac382dce2d8ed2c36b9e6"
+    }
+  ]
+}

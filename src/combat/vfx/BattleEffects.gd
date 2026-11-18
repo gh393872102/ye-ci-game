@@ -1,5 +1,6 @@
 extends "res://src/combat/vfx/EffectCanvas.gd"
 ## Presentation only. Live pose/cast state draws the five scene prefabs; short impacts follow real events.
+const IMPACT := preload("res://assets/vfx/ink/impact.png")
 const BONE := Color("d1d0b8")
 const DUST := Color("87968a")
 const BRICK := Color("ae7559")
@@ -234,6 +235,10 @@ func _fusion(at: Vector2, other: Vector2, height: float, phase: float) -> void:
 			var span := clampf((i * .064) + phase * 2.1, 0, 1)
 			var speck := source.lerp(meeting, span) + Vector2(0, sin(span * PI) * (i * 11 % 55 - 29))
 			fleck(speck, Vector2(4, 4), Color(DUST, life * (1.0 - span) * .82))
+	var landing := smoothstep(0, .20, phase)
+	var span := lerpf(80, 315, landing) + 30 * phase
+	var plume_height := (29 + 64 * landing) * (1.0 - phase * .33)
+	draw_texture_rect(IMPACT, Rect2(at.x-span*.5, at.y-plume_height+8, span, plume_height), false, Color(1, 1, 1, life))
 	var spread := 54.0 + phase * 106
 	var ground := PackedVector2Array([at + Vector2(-spread, -2), at + Vector2(-spread * .55, -14), at + Vector2(spread * .41, -19), at + Vector2(spread, -4), at + Vector2(spread * .52, 2), at + Vector2(-spread * .43, 3)])
 	draw_colored_polygon(ground, Color("1f302d", life * .72))

@@ -88,6 +88,7 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 				else:
 					ally.roster.face_state = "faced"
 					ally.roster.statuses.erase("faceless")
+					ally.queue_redraw()
 					if growth.state.get("ritual_flag","") in ["kaimian","开面"]: engine.restore_names(float(p.kaimian_names),unit)
 				return _done(unit,id,"named_ward" if id == "H03" else "temporary_face",ally)
 			return engine.reject()
@@ -482,7 +483,7 @@ func _sacrifice_name(source: Node2D) -> bool:
 
 func draw_effects(canvas: Node2D) -> void:
 	for effect in engine.state.get("effects",[]):
-		if effect.kind in ["incense_transfer", "incense_restored", "cold_light", "river_lantern", "crow_path", "seal", "gold_mirror", "dispel", "false_god_unmasked", "misname", "crossbow_shot"]:
+		if effect.kind in ["hold_gate", "incense_transfer", "incense_restored", "cold_light", "river_lantern", "crow_path", "seal", "gold_mirror", "dispel", "false_god_unmasked", "misname", "crossbow_shot"]:
 			continue
 		var a := Vector2(float(effect.source[0]),float(effect.source[1])).snapped(Vector2(2,2))
 		var b := Vector2(float(effect.point[0]),float(effect.point[1])).snapped(Vector2(2,2))
@@ -512,9 +513,6 @@ func draw_effects(canvas: Node2D) -> void:
 			"H08":
 				canvas.draw_colored_polygon(PackedVector2Array([a+Vector2(-70,-35),a+Vector2(70,-35),a+Vector2(50,45),a+Vector2(0,70),a+Vector2(-50,45)]),Color(cold,.28))
 				canvas.draw_line(a+Vector2(-50,-8),a+Vector2(50,-8),ink,6)
-			"H09":
-				canvas.draw_rect(Rect2(a-Vector2(45,45),Vector2(90,95)),red,false,7)
-				canvas.draw_line(a+Vector2(-65,0),a+Vector2(65,0),ink,8)
 			"H10","H13","H31":
 				canvas.draw_line(b+Vector2(-60,-48),b+Vector2(65,40),red if str(effect.unit_id)=="H13" else ink,8)
 				canvas.draw_line(b+Vector2(-50,40),b+Vector2(58,-44),cold,4)

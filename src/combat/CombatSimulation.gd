@@ -18,6 +18,7 @@ var targets: Array[Node2D] = []
 var projectiles: Array[Node2D] = []
 var corpses: Array[Node2D] = []
 var floor_units: Dictionary = {}
+var floor_defenders: Dictionary = {}
 var defense_data: Dictionary
 var events: Array[Dictionary] = []
 var damage_log: Array[Dictionary] = []
@@ -231,10 +232,15 @@ func advance(delta: float) -> void:
 func _update_units() -> void:
 	world.combatants.assign(humans + targets)
 	floor_units.clear()
+	floor_defenders.clear()
 	for unit in world.combatants:
 		if not floor_units.has(unit.floor_id):
 			floor_units[unit.floor_id] = []
 		floor_units[unit.floor_id].append(unit)
+		if unit.side == "xianghuo":
+			if not floor_defenders.has(unit.floor_id):
+				floor_defenders[unit.floor_id] = []
+			floor_defenders[unit.floor_id].append(unit)
 
 func next_post(post_id: String) -> String:
 	return defense_data.posts.get(post_id, {}).get("next", "")
@@ -315,8 +321,8 @@ func nearest_enemy(unit: Node2D, radius: float, same_floor: bool) -> Node2D:
 func nearest_human(unit: Node2D, radius: float) -> Node2D:
 	var best: Node2D
 	var best_distance := radius
-	for target in floor_units.get(unit.floor_id, []):
-		if target.dead or target.side != "xianghuo":
+	for target in floor_defenders.get(unit.floor_id, []):
+		if target.dead:
 			continue
 		var distance: float = unit.position.distance_to(target.position)
 		if distance <= best_distance:
@@ -480,15 +486,17 @@ func record_event(kind: String, unit: Node2D, detail: String) -> void:
 func _draw() -> void:
 	if world == null:
 		return
-	for door in world.doors:
-		var p: Vector2 = door.position - Vector2(40, Rules.DOOR_HEIGHT_PX + 28)
-		draw_rect(Rect2(p, Vector2(80, 6)), Color("101a20"))
-		draw_rect(Rect2(p, Vector2(80 * door.durability / door.max_durability, 6)), Color("ab9b78"))
-		draw_string(world.font, p + Vector2(0,-5), "%d/%d" % [door.durability,door.max_durability], HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("bcbca3"))
+	if debug_rays:
+		for door in world.doors:
+			var p: Vector2 = door.position - Vector2(40, Rules.DOOR_HEIGHT_PX + 28)
+			draw_rect(Rect2(p, Vector2(80, 6)), Color("101a20"))
+			draw_rect(Rect2(p, Vector2(80 * door.durability / door.max_durability, 6)), Color("ab9b78"))
+			draw_string(world.font, p + Vector2(0,-5), "%d/%d" % [door.durability,door.max_durability], HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("bcbca3"))
+		if tide_enabled:
+			var rope_a := Vector2(Rules.body_to_px(tide.config.climb.from_x),Rules.HORIZON_Y - 30)
+			var rope_b := Vector2(Rules.body_to_px(tide.config.climb.to_x),world.floor_y(2) - 30)
+			draw_dashed_line(rope_a,rope_b,Color("788a81"),2,8)
 	if tide_enabled:
-		var rope_a := Vector2(Rules.body_to_px(tide.config.climb.from_x),Rules.HORIZON_Y - 30)
-		var rope_b := Vector2(Rules.body_to_px(tide.config.climb.to_x),world.floor_y(2) - 30)
-		draw_dashed_line(rope_a,rope_b,Color("788a81"),2,8)
 		for effect in tide.effects:
 			if effect.kind in ["door_break", "upper_entry", "purified"]:
 				continue

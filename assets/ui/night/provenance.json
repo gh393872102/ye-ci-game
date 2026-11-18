@@ -14,6 +14,13 @@
         1254
       ],
       "prompt": "Use case: stylized-concept. A square original museum contact sheet of four Chinese folk-horror ritual object illustrations for the game 夜祠. Exactly four separate centered objects in a strictly even two-by-two grid with enough black margin to crop each quadrant. Top left: dark oxidized bronze three-foot incense burner with three slender incense sticks and thin muted smoke. Top right: a folded old blank rice-paper register bound with red-grey thread and a small dull carved jade weight. Bottom left: one warm slate-grey ceramic incense cup with a dying ember reflected on dark stone, some scattered white ash. Bottom right: one strange corroded bronze half-mask and tiny pale bone bead, adult folk-horror restraint. Every object appears in its own black vignette with the same understated dry-brush ink and mineral pigment technique, restrained grey/olive/oxidized copper, object details picked out by a thin soft light. Plain uniform almost-black (#141919) background, no figures, no panels or grid lines, no words or legible characters, no letters, no logos. Objects occupy around 60% width and height within their quadrant, no object crosses any quadrant boundary."
+    },
+    "lantern-court.webp": {
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: historical-scene. Asset: 16:9 full-bleed background painting for the playable game 夜祠's night market, reward, and end-of-night screens. Generate an original environment only, no UI and absolutely no lettering, glyphs, tabs, symbols, icons or people. Eye-level, strictly symmetrical view down a Qing-era Chinese ancestral shrine courtyard on a moonless wet night. Broad charcoal-black rain-polished flat slate paving fills lower third, with restrained tiny reflections from a single red silk lantern on each extreme side under black-lacquer timber galleries. The axial corridor retreats into mist and shadow; the CENTRAL 60 percent of the composition is particularly dark and quiet so live cream UI typography will be readable. Both sides show authentic black lacquer, red-ochre rubbed wood, latticework and tiled eaves in soft shadow, richly observant texture at edges. Restrained Song-era ink palette adapted to sophisticated Chinese folk-horror museum concept art, black charcoal, gray-blue stone, varnished near-black wood, small muted dark vermilion accents, cold low light. No Western fantasy, no Japanese features, no lantern writing, no tiled pattern dominating, no neon, no blooming overexposure. High fidelity minimal cinematic atmosphere. Output landscape wide with smooth dark areas, not flat black everywhere."
     }
   }
 }

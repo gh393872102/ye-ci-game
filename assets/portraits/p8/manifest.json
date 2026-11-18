@@ -2,7 +2,7 @@
   "phase": "P8",
   "kind": "high-resolution portrait placeholders",
   "generator": "builtin image_gen.imagegen",
-  "replacement_plan": "All 64 remain authored high-resolution placeholders for P8; final 1.0 illustration review will replace or approve each id independently. No battlefield use.",
+  "replacement_plan": "P8 established 64 independent placeholders. P11 reviewed all 64 and revised G11, G17, G19 and G32; final 1.0 art approval remains per portrait. No battlefield use.",
   "assets": {
     "H01": {
       "path": "res://assets/portraits/p8/H01.png",
@@ -635,14 +635,17 @@
       "source": "Project-generated portrait source (local generation metadata withheld)",
       "path": "res://assets/portraits/p8/G11.png",
       "status": "placeholder",
-      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "qa": "P11 design review color portrait; 1024×1536, independent source revision. 纸衣和双面灯架替换裸露骨架。",
       "size": [
         1024,
         1536
       ],
-      "sha256": "c7a324f29a1700ab1d37b7060def64606311741f5710128610378010f5c39bef",
+      "sha256": "1a7ae63327d849741553f3c2ccf8a40c80157d8e88bfd9afbeb35af55d7e8ade",
       "replacement_required": true,
-      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+      "previous_sha256": "c7a324f29a1700ab1d37b7060def64606311741f5710128610378010f5c39bef",
+      "review_art": "P11-revised",
+      "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
     },
     "G12": {
       "id": "G12",
@@ -728,15 +731,18 @@
       "source": "Project-generated portrait source (local generation metadata withheld)",
       "path": "res://assets/portraits/p8/G17.png",
       "status": "placeholder",
-      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "qa": "P11 design review color portrait; 1024×1536, independent source revision. 山界石像、榫卯断梁和麻绳替换藤根堆积。",
       "attempt": 1,
       "size": [
         1024,
         1536
       ],
-      "sha256": "153479d9d125814d472c96a227b3806eb033aafc2087251dedd21b8bed130d28",
+      "sha256": "8accbb5efbb2d740d5aa22c53dfd59a2f90aaef2e2e959f1ef50063071e7fdca",
       "replacement_required": true,
-      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+      "previous_sha256": "153479d9d125814d472c96a227b3806eb033aafc2087251dedd21b8bed130d28",
+      "review_art": "P11-revised",
+      "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
     },
     "G18": {
       "id": "G18",
@@ -760,15 +766,18 @@
       "source": "Project-generated portrait source (local generation metadata withheld)",
       "path": "res://assets/portraits/p8/G19.png",
       "status": "placeholder",
-      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "qa": "P11 design review color portrait; 1024×1536, independent source revision. 旧铜镜里分离的倒影替换晶面甲衣。",
       "attempt": 1,
       "size": [
         1024,
         1536
       ],
-      "sha256": "7eebbac297f2f5837939ce7d139a5cc0c613f331ae24d69afec26a6d465091f1",
+      "sha256": "c170fbbc9abb74e7017d459ae561451b238712f044f4be1d2949f85d0709aa92",
       "replacement_required": true,
-      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+      "previous_sha256": "7eebbac297f2f5837939ce7d139a5cc0c613f331ae24d69afec26a6d465091f1",
+      "review_art": "P11-revised",
+      "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
     },
     "G20": {
       "id": "G20",
@@ -958,14 +967,17 @@
       "source": "Project-generated portrait source (local generation metadata withheld)",
       "path": "res://assets/portraits/p8/G32.png",
       "status": "placeholder",
-      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "qa": "P11 design review color portrait; 1024×1536, independent source revision. 无面的祠吏、线装空册和叠纸替换王冠与书翼。",
       "size": [
         1024,
         1536
       ],
-      "sha256": "c47446ca2d836d1746f868a02f2a4db41f1e433108af185ffd16fbb4bf97f286",
+      "sha256": "4213c723bec3b02405c41bdd17817cf3b4156a4c8a205f83c8faaca30f56ec87",
       "replacement_required": true,
-      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+      "previous_sha256": "c47446ca2d836d1746f868a02f2a4db41f1e433108af185ffd16fbb4bf97f286",
+      "review_art": "P11-revised",
+      "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
     }
   },
   "prompt_file": "res://assets/portraits/p8/prompts.json",

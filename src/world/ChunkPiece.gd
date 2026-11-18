@@ -19,10 +19,12 @@ func _ready() -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	if spec.is_empty():
+	# Installed pieces use the common stained timber and stone atlas. Keep the individual
+	# chunk scene callable for geometry inspection, including its original guide marks.
+	if spec.is_empty() or is_instance_valid(world):
 		return
 	var art: Dictionary = spec.visual
-	var y: float = world.floor_y(int(art.floor_id)) if is_instance_valid(world) else Rules.HORIZON_Y
+	var y := float(Rules.HORIZON_Y)
 	var left := Vector2(Rules.body_to_px(art.start), y)
 	var width := Rules.body_to_px(art.end - art.start)
 	match art.motif:
@@ -94,7 +96,7 @@ func _draw() -> void:
 				draw_line(peg, peg + Vector2(0,12), Ink, 2)
 				draw_rect(Rect2(peg + Vector2(-15,15),Vector2(30,44)), Color("394049"))
 				draw_line(peg + Vector2(-8,29), peg + Vector2(8,29), Paper, 2)
-	var font: Font = world.font if is_instance_valid(world) else preload("res://resources/p9_theme.tres").default_font
+	var font: Font = preload("res://resources/p9_theme.tres").default_font
 	draw_string(font, left + Vector2(14,-77), str(spec.title), HORIZONTAL_ALIGNMENT_LEFT, -1, 23, Paper)
 
 func _intact(object_id: String) -> bool:

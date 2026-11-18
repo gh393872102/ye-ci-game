@@ -1,5 +1,6 @@
 extends "res://src/combat/vfx/EffectCanvas.gd"
 ## Ragged paper, fold, stamp and ink strokes shared by the door seal, mirror and exorcism.
+const PAPER := preload("res://assets/vfx/ink/seal.png")
 const AMBER := Color("e4ad76")
 const INK := Color("5c2a26")
 const RED := Color("cb6b48")
@@ -53,14 +54,7 @@ func _draw_cast(effect: Dictionary) -> void:
 			fleck(crumb, Vector2(4, 3), Color(AMBER, alpha * .65))
 
 func _paper(at: Vector2, size: float, alpha: float, reverse: bool) -> void:
-	var lean := -1.0 if reverse else 1.0
-	var corners: Array[Vector2] = [Vector2(-14, -40), Vector2(12, -40), Vector2(16, 18), Vector2(10, 33), Vector2(3, 30), Vector2(-5, 38), Vector2(-13, 32), Vector2(-17, -10)]
-	var cut := PackedVector2Array()
-	for offset in corners:
-		cut.append(pixel(at + offset * Vector2(lean, 1) * size))
-	draw_colored_polygon(cut, Color(AMBER, alpha * .83))
-	path(at, [Vector2(-12, -39) * size, Vector2(13, -39) * size], Color(RED, alpha), 5)
-	path(at, [Vector2(-10, -29) * size, Vector2(9, -29) * size, Vector2(8, -11) * size, Vector2(-9, -12) * size, Vector2(-10, -29) * size], Color(INK, alpha), 2)
-	path(at, [Vector2(-3, -31) * size, Vector2(2, -19) * size, Vector2(-8, -5) * size, Vector2(10, 1) * size, Vector2(1, 13) * size, Vector2(10, 25) * size], Color(INK, alpha), 4 * size)
-	path(at, [Vector2(-10, 4) * size, Vector2(4, 5) * size, Vector2(-6, 23) * size], Color(INK, alpha), 3 * size)
-	fleck(at + Vector2(-6, 21) * size, Vector2(4, 6) * size, Color(RED, alpha))
+	var paper_size := Vector2(53, 107) * size
+	draw_set_transform(pixel(at), -.10 if reverse else .07, Vector2.ONE)
+	draw_texture_rect(PAPER, Rect2(-paper_size / 2, paper_size), false, Color(1, 1, 1, alpha))
+	draw_set_transform(Vector2.ZERO)

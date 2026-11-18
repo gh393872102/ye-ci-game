@@ -120,7 +120,11 @@ def steps():
 def brush(finish=False):
     mix = track(0.40 if finish else 0.32)
     for start, strength in [(0.01, 0.45), (0.078, 1.0), (0.141, 0.58)]:
-        put(mix, start, grain(0.14, 1350, 6800, 0.017, 0.046), strength)
+        rub = grain(0.14, 1350, 6800, 0.017, 0.046)
+        put(mix, start, rub, strength * 0.56)
+        # Three wooden counts under the dry brush contrast with the longer paper rustle.
+        taps = [math.sin(math.tau * 640 * i / RATE) * math.exp(-i / (RATE * 0.016)) for i in range(round(RATE * 0.06))]
+        put(mix, start, taps, strength * 0.48)
     if finish:
         put(mix, 0.168, resonances(0.22, [(428, 0.57, 0.035), (1051, 0.32, 0.022),
                                          (2090, 0.19, 0.018)]), 0.7)
@@ -187,12 +191,23 @@ def loud(kind, damped):
         "cry": [(322, 0.46, 0.21), (512, 0.38, 0.24), (1038, 0.35, 0.22),
                 (1470, 0.24, 0.21), (2689, 0.18, 0.15)],
     }
-    mix = track(0.30 if damped else 1.42)
+    length = 0.30 if damped else {"gong": 0.98, "bell": 1.60, "cry": 1.22}[kind]
+    mix = track(length)
     modes = source_modes[kind]
     if damped:
         modes = [(freq * 0.82, gain, decay * 0.13) for freq, gain, decay in modes[:3]]
     rise = 0.047 if kind == "cry" and not damped else 0.006
-    put(mix, 0.012, resonances(0.24 if damped else 1.28, modes, rise, -0.64 if kind == "cry" else 0.04))
+    if not damped and kind == "gong":
+        modes = [(freq * .77, gain, decay * .72) for freq, gain, decay in modes]
+    if not damped and kind == "bell":
+        modes = [(freq * 1.53, gain, decay * 1.25) for freq, gain, decay in modes]
+    body = resonances(0.24 if damped else length - .05, modes, rise, -0.64 if kind == "cry" else 0.04)
+    if not damped and kind == "cry":
+        for i in range(len(body)):
+            body[i] *= .3 + .7 * math.sin(math.pi * i / (RATE * .44)) ** 2
+    put(mix, 0.012, body)
+    if not damped and kind == "bell":
+        put(mix, .26, body, .48)
     put(mix, 0.01, grain(0.16 if damped else 0.49, 560, 5600, rise, 0.059 if damped else 0.19),
         0.9 if kind == "cry" else 0.55)
     return mix

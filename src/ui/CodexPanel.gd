@@ -24,8 +24,8 @@ var current_book := "humans"
 var current_id := ""
 
 var _prior_focus: Control
-var _stages: Array[Label] = []
-var _stage_plates: Array[ColorRect] = []
+var _stages: Array[Button] = []
+var _stat_plate: ColorRect
 var _stage_note: Label
 var _affiliation: Label
 var _stats: Label
@@ -61,57 +61,59 @@ func _ready() -> void:
 	var backdrop := Ink.art("night-court")
 	if backdrop != null:
 		Ink.texture(surface, backdrop, Rect2(0, 0, 1920, 1080))
-		Ink.box(surface, Rect2(0, 0, 1920, 1080), Color("101717d4"))
-	Ink.box(surface, Rect2(64, 50, 4, 72), Ink.COPPER)
-	Ink.label(surface, tr("P9_CODEX_TITLE"), Rect2(86, 34, 1020, 88), 62, Ink.PAPER, true)
-	Ink.label(surface, tr("P9_CODEX_HELP"), Rect2(88, 127, 1580, 36), 22, Ink.MUTED)
-	Ink.box(surface, Rect2(64, 185, 1792, 1), Ink.RULE)
-	_button(surface, "close", tr("P9_CODEX_RETURN"), Rect2(1668, 50, 188, 48), close)
-	Ink.box(surface, Rect2(64, 208, 436, 752), Color("151f1ff5"), Ink.RULE)
+		Ink.box(surface, Rect2(0, 0, 1920, 1080), Color("100c13a8"))
+	var cover := Ink.label(surface, tr("P9_CODEX_TITLE"), Rect2(635, 26, 650, 99), 71, Ink.COPPER, true)
+	cover.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	Ink.ruling(surface, Rect2(643, 119, 634, 19), Ink.COPPER)
+	_button(surface, "close", tr("P9_CODEX_RETURN"), Rect2(1668, 53, 188, 47), close)
+	Ink.folio(surface, Rect2(69, 158, 1783, 821), Color("141114f8"), Color("8e6e51"))
+	Ink.box(surface, Rect2(521, 174, 1, 786), Ink.RULE)
+	Ink.box(surface, Rect2(1163, 174, 1, 786), Ink.RULE)
 	for index in BOOKS.size():
 		var book: String = BOOKS[index]
-		_button(surface, "book_" + book, tr("P8_CODEX_" + book.to_upper()), Rect2(76 + index * 104, 222, 100, 50), show_book.bind(book))
+		var tab := _button(surface, "book_" + book, tr("P8_CODEX_" + book.to_upper()), Rect2(90 + index * 101, 182, 96, 50), show_book.bind(book))
+		tab.add_theme_font_override("font", Ink.serif_font())
 	var final_tab: Button = buttons.book_customs
 	final_tab.focus_neighbor_right = final_tab.get_path_to(buttons.close)
 	buttons.close.focus_neighbor_left = buttons.close.get_path_to(final_tab)
-	rows = Ink.scroll_rows(surface, Rect2(76, 292, 412, 650), 7)
+	rows = Ink.scroll_rows(surface, Rect2(90, 254, 406, 695), 5)
 
-	for index in 4:
-		var rect := Rect2(518 + 337 * index, 208, 327, 80)
-		var stage := Ink.box(surface, rect, Ink.PLATE, Ink.RULE)
-		_stage_plates.append(stage)
-		var anchor := Ink.label(stage, tr("P9_CODEX_STAGE_%d" % index), Rect2(21, 14, 286, 52), 25, Ink.MUTED, true)
-		_stages.append(anchor)
-
-	Ink.box(surface, Rect2(518, 309, 738, 651), Color("151f1ff6"), Ink.RULE)
-	heading = Ink.label(surface, "", Rect2(548, 328, 672, 76), 46, Ink.PAPER, true)
+	heading = Ink.label(surface, "", Rect2(550, 184, 583, 85), 57, Ink.PAPER, true)
 	Ink.one_line(heading)
-	_affiliation = Ink.label(surface, "", Rect2(550, 413, 670, 41), 22, Ink.MUTED)
-	Ink.box(surface, Rect2(548, 474, 678, 66), Color("22312d"), Ink.RULE)
-	_stats = Ink.label(surface, "", Rect2(566, 484, 642, 46), 21, Ink.COPPER)
-	var detail_rows := Ink.scroll_rows(surface, Rect2(550, 556, 679, 386))
+	_affiliation = Ink.label(surface, "", Rect2(552, 272, 582, 36), 21, Ink.MUTED)
+	for index in 4:
+		var rect := Rect2(549 + 147 * index, 325, 142, 47)
+		var tab := _button(surface, "stage_%d" % index, tr("P9_CODEX_STAGE_%d" % index), rect, show_stage.bind(index))
+		tab.add_theme_font_size_override("font_size", 18)
+		_stages.append(tab)
+	_stat_plate = Ink.folio(surface, Rect2(549, 391, 586, 61), Color("2a201df8"))
+	_stats = Ink.label(_stat_plate, "", Rect2(16, 12, 554, 38), 19, Ink.COPPER)
+	var detail_rows := Ink.scroll_rows(surface, Rect2(550, 478, 582, 440))
 	_details_scroll = detail_rows.get_parent() as ScrollContainer
 	_details_scroll.focus_mode = Control.FOCUS_ALL
 	details = Label.new()
 	details.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	details.add_theme_font_size_override("font_size", 21)
+	details.add_theme_font_size_override("font_size", 22)
+	details.add_theme_constant_override("line_spacing", 7)
 	details.add_theme_color_override("font_color", Ink.PAPER)
 	detail_rows.add_child(details)
+	for tab in _stages:
+		tab.focus_neighbor_bottom = tab.get_path_to(_details_scroll)
 
-	Ink.box(surface, Rect2(1274, 309, 582, 651), Color("10191af7"), Ink.RULE)
-	Ink.box(surface, Rect2(1294, 330, 542, 538), Color("131d1d"), Ink.RULE)
-	portrait = Ink.texture(surface, null, Rect2(1295, 331, 540, 536), false)
+	Ink.box(surface, Rect2(1184, 179, 646, 723), Color("100e12"))
+	portrait = Ink.texture(surface, null, Rect2(1186, 181, 642, 719), false)
+	Ink.binding(surface, Rect2(1184, 179, 646, 723), Color("72563e"))
 	silhouette = HiddenFigure.new()
-	silhouette.position = Vector2(1564, 824)
+	silhouette.position = Vector2(1508, 846)
 	var shadow := ShaderMaterial.new()
 	shadow.shader = ShadowShader
 	silhouette.material = shadow
 	surface.add_child(silhouette)
-	note = Ink.label(surface, "", Rect2(1295, 885, 540, 51), 18, Ink.MUTED)
+	note = Ink.label(surface, "", Rect2(1184, 912, 646, 47), 18, Ink.MUTED)
 	note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	Ink.box(surface, Rect2(64, 994, 1792, 1), Ink.RULE)
-	_stage_note = Ink.label(surface, "", Rect2(66, 1005, 1315, 50), 19, Ink.MUTED)
-	var failure_log := _button(surface, "failure_log", tr("P11_CODEX_FAILURE_TITLE"), Rect2(1550, 1007, 306, 47), _show_failures)
+	Ink.box(surface, Rect2(69, 994, 1783, 1), Ink.RULE)
+	_stage_note = Ink.label(surface, "", Rect2(70, 1011, 1315, 42), 19, Ink.MUTED)
+	var failure_log := _button(surface, "failure_log", tr("P11_CODEX_FAILURE_TITLE"), Rect2(1547, 1007, 305, 46), _show_failures)
 	buttons.close.focus_neighbor_bottom = buttons.close.get_path_to(failure_log)
 	failure_log.focus_neighbor_top = failure_log.get_path_to(buttons.close)
 	_build_failures()
@@ -173,12 +175,13 @@ func show_book(book: String) -> void:
 	for index in entries.size():
 		var entry: Dictionary = entries[index]
 		var id := str(entry.id)
-		var title := tr("P9_CODEX_ENTRY") % [_folio(entry, index), entry.name, tr("P9_CODEX_STAGE_%d" % int(entry.stage))]
-		var button := _button(rows, "entry_" + id, title, Rect2(0, 0, 408, 54), select_entry.bind(id))
-		button.custom_minimum_size.y = 54
+		var title := tr("P11R_CODEX_ENTRY") % [entry.name, tr("P9_CODEX_STAGE_%d" % int(entry.stage))]
+		var button := _button(rows, "entry_" + id, title, Rect2(0, 0, 404, 58), select_entry.bind(id))
+		button.custom_minimum_size.y = 58
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-		button.add_theme_font_size_override("font_size", 17)
+		button.add_theme_font_override("font", Ink.serif_font())
+		button.add_theme_font_size_override("font_size", 21)
 		button.focus_neighbor_left = button.get_path_to(buttons["book_" + book])
 		button.focus_neighbor_right = button.get_path_to(_details_scroll)
 		if index == 0:
@@ -188,9 +191,6 @@ func show_book(book: String) -> void:
 	if not entries.is_empty():
 		select_entry(last_entry if buttons.has("entry_" + last_entry) else str(entries[0].id))
 	_refresh_failures()
-
-func _folio(entry: Dictionary, index: int) -> String:
-	return "%02d" % (index + 1) if entry.book == "customs" else str(entry.id)
 
 func select_entry(id: String) -> void:
 	var entry: Dictionary = store.entry(id)
@@ -202,36 +202,45 @@ func select_entry(id: String) -> void:
 	if buttons.has("entry_" + id):
 		Ink.button_ink(buttons["entry_" + id], true)
 		_details_scroll.focus_neighbor_left = _details_scroll.get_path_to(buttons["entry_" + id])
-	_details_scroll.scroll_vertical = 0
-	var stage := int(entry.stage)
+	show_stage(int(entry.stage))
+
+func show_stage(stage: int) -> void:
+	var entry: Dictionary = store.entry(current_id)
+	if entry.is_empty() or stage < 0 or stage > int(entry.stage):
+		return
 	var known := stage >= 2
+	var folio := stage == 3
 	var source: Dictionary = entry.source
-	heading.text = str(entry.name)
+	heading.text = tr("P9_CODEX_UNKNOWN") if stage == 0 else str(entry.name)
 	portrait.hide()
 	silhouette.hide()
 	portrait.material = null
 	portrait.texture = null
-	_update_stages(stage)
+	_stat_plate.visible = not folio
+	_details_scroll.position.y = 403 if folio else 478
+	_details_scroll.size.y = 515 if folio else 440
+	_details_scroll.scroll_vertical = 0
+	_update_stages(stage, int(entry.stage))
+	if folio:
+		details.add_theme_font_override("font", Ink.serif_font())
+		details.add_theme_font_size_override("font_size", 29)
+	else:
+		details.remove_theme_font_override("font")
+		details.add_theme_font_size_override("font_size", 22)
 	if entry.book in ["humans", "ghosts"]:
 		_show_figure(entry, stage)
-		var card := CardContent.format(id)
+		var card := CardContent.format(current_id)
 		_affiliation.text = str(card.affiliation) if known else tr("P9_CODEX_CLASS_PENDING")
 		_stats.text = str(card.stats) if known else tr("P9_CODEX_UNKNOWN_STATS")
-		var lines: Array[String] = []
 		if known:
-			lines.append(str(card.skill))
-			lines.append(str(card.trait))
-			lines.append(str(card.slots))
-			lines.append(str(card.tags))
-			lines.append(tr("P9_CODEX_EQUIPMENT_SCOPE"))
+			details.text = "\n\n".join([str(card.skill), str(card.trait), str(card.slots), str(card.tags), tr("P9_CODEX_EQUIPMENT_SCOPE")])
 		else:
-			lines.append(tr("P9_CODEX_CONTENT_PENDING"))
-		details.text = "\n".join(lines)
+			details.text = tr("P9_CODEX_CONTENT_PENDING")
 	else:
 		var is_item: bool = entry.book == "items"
 		_affiliation.text = tr("P8_CODEX_ITEMS") if is_item else tr("P8_CODEX_CUSTOMS")
 		_stats.text = tr("P9_CODEX_CENSER_SLOT") if is_item else tr("P9_CODEX_CUSTOM_" + str(source.get("kind", "ritual")).to_upper())
-		_show_object(is_item, stage, id)
+		_show_object(is_item, stage, current_id)
 		if not known:
 			details.text = tr("P9_CODEX_CONTENT_PENDING")
 		elif source.get("implemented", true):
@@ -240,8 +249,8 @@ func select_entry(id: String) -> void:
 				details.text += "\n\n" + (tr("P7_ITEM_FEES") % [source.get("equip_cost", 0), source.get("remove_cost", 0)])
 		else:
 			details.text = tr("P9_CODEX_CUSTOM_PENDING")
-	if stage == 3:
-		details.text += "\n\n" + tr("P9_CODEX_NAMED") + "\n" + str(entry.get("epilogue", tr("P9_CODEX_NAMED_RECORD")))
+	if folio:
+		details.text = tr("P9_CODEX_NAMED") + "\n\n" + str(entry.get("epilogue", tr("P9_CODEX_NAMED_RECORD")))
 
 func _show_figure(entry: Dictionary, stage: int) -> void:
 	var id := str(entry.id)
@@ -262,7 +271,7 @@ func _show_figure(entry: Dictionary, stage: int) -> void:
 		portrait.material = material
 		portrait.texture = art
 		portrait.show()
-	note.text = tr("P8_PORTRAIT_NOTE") % tr("P9_CODEX_STAGE_%d" % stage)
+	note.text = ""
 
 func _show_object(is_item: bool, stage: int, id: String) -> void:
 	portrait.texture = Ink.censer_art(id) if is_item else Ink.object_art(1)
@@ -277,12 +286,14 @@ func _show_object(is_item: bool, stage: int, id: String) -> void:
 		portrait.show()
 	note.text = tr("P9_CODEX_OBJECT_ART" if is_item else "P9_CODEX_CUSTOM_ART")
 
-func _update_stages(stage: int) -> void:
+func _update_stages(stage: int, unlocked: int) -> void:
 	for index in _stages.size():
-		_stage_plates[index].color = Color("314a41") if index == stage else Ink.PLATE
-		_stages[index].add_theme_color_override("font_color", Ink.PAPER if index == stage else Ink.MUTED)
-		var status := "P9_CODEX_STAGE_HERE" if index == stage else ("P9_CODEX_STAGE_DONE" if index < stage else "P9_CODEX_STAGE_LATER")
-		_stages[index].text = tr(status) % tr("P9_CODEX_STAGE_%d" % index)
+		var tab := _stages[index]
+		tab.disabled = index > unlocked
+		Ink.button_ink(tab, index == stage)
+		var status := "P9_CODEX_STAGE_HERE" if index == stage else ("P9_CODEX_STAGE_DONE" if index <= unlocked else "P9_CODEX_STAGE_LATER")
+		tab.tooltip_text = tr(status) % tr("P9_CODEX_STAGE_%d" % index)
+	_details_scroll.focus_neighbor_top = _details_scroll.get_path_to(_stages[stage])
 	_stage_note.text = tr("P11_CODEX_NAMING_HINT" if stage == 2 else "P9_CODEX_NEXT_%d" % stage)
 
 func _build_failures() -> void:
@@ -290,15 +301,16 @@ func _build_failures() -> void:
 	_history.size = Vector2(1920, 1080)
 	_history.mouse_filter = Control.MOUSE_FILTER_STOP
 	surface.add_child(_history)
-	Ink.box(_history, Rect2(0, 0, 1920, 1080), Color("0a1112eb"))
-	Ink.box(_history, Rect2(388, 208, 1144, 660), Ink.DARK, Ink.RULE)
+	Ink.box(_history, Rect2(0, 0, 1920, 1080), Color("100a10e7"))
+	Ink.folio(_history, Rect2(388, 208, 1144, 660), Color("1a1417fa"), Ink.COPPER)
 	Ink.label(_history, tr("P11_CODEX_FAILURE_TITLE"), Rect2(422, 232, 700, 80), 45, Ink.PAPER, true)
 	_button(_history, "failure_back", tr("P4_CLOSE"), Rect2(1320, 250, 176, 48), _hide_failures)
-	Ink.box(_history, Rect2(420, 333, 1076, 1), Ink.RULE)
+	Ink.ruling(_history, Rect2(420, 326, 1076, 17), Ink.COPPER)
 	var listing := Ink.scroll_rows(_history, Rect2(421, 363, 1080, 469))
 	failure_text = Label.new()
 	failure_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	failure_text.add_theme_font_size_override("font_size", 21)
+	failure_text.add_theme_font_override("font", Ink.serif_font())
+	failure_text.add_theme_font_size_override("font_size", 27)
 	failure_text.add_theme_color_override("font_color", Ink.PAPER)
 	listing.add_child(failure_text)
 	_history.hide()
@@ -312,7 +324,10 @@ func _refresh_failures() -> void:
 		var killer := Codex.unit_text(id, "NAME", str(source.get("姓名", source.get("名称", tr("P11_CODEX_FAILURE_UNKNOWN")))))
 		if str(record.reason) == "P4_END_DAYBREAK":
 			killer = tr("P11_CODEX_FAILURE_TIME")
-		lines.append(tr("P8_CODEX_FAILURE_ROW") % [record.seed, killer, tr(str(record.reason))])
+		var reason := tr(str(record.reason))
+		if reason == str(record.reason):
+			reason = tr("P11R_FAILURE_UNRECORDED")
+		lines.append(tr("P11R_FAILURE_ROW") % [killer, reason])
 	failure_text.text = "\n\n".join(lines) if not lines.is_empty() else tr("P11_CODEX_FAILURE_NONE")
 
 func _show_failures() -> void:

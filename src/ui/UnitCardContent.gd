@@ -41,7 +41,7 @@ static func format(unit_id: String, live_unit: Node2D = null) -> Dictionary:
 		legacy_gear = live_unit.equipment_id
 		state = TranslationServer.translate("P4_CARD_STATE") % [TranslationServer.translate(live_unit.current_post.to_upper()), live_unit.floor_id, TranslationServer.translate(live_unit.ai_state)]
 	return {
-		"title": TranslationServer.translate("P9_CARD_TITLE") % [name, unit_id],
+		"title": name,
 		"affiliation": TranslationServer.translate("P9_CARD_ROLE") % [affiliation, role],
 		"stats": TranslationServer.translate("P4_CARD_STATS") % [hp, max_hp, attack, defense, speed],
 		"skill": TranslationServer.translate("P4_CARD_SKILL") % [cost, skill if skill else TranslationServer.translate("P4_NO_SKILL")],

@@ -219,8 +219,9 @@ func _defeat_path() -> void:
 	await _shot("21-summary-defeat-720", Vector2i(1280, 720))
 	await _click(host.panel.buttons.codex)
 	await _click(host.codex_panel.buttons.failure_log)
-	_check(host.codex_panel.failure_text.text.contains(LOSS_SEED) and host.codex_panel.failure_text.text.contains("抹名吏"),
-		"Failure register displays the real loss seed and identity")
+	_check(not host.codex_panel.failure_text.text.contains(LOSS_SEED) and host.codex_panel.failure_text.text.contains("抹名吏")
+		and host.codex_panel.failure_text.text.contains(str(data.tr("P4_END_REGISTER_EXTINGUISHED"))),
+		"Failure register shows its real eraser and reason and withholds the recorded seed")
 	await _joy(JOY_BUTTON_B)
 	_check(not host.codex_panel.buttons.failure_back.is_visible_in_tree() and host.codex_panel.surface.visible,
 		"Joypad cancel closes the failure history without closing its codex")

@@ -126,6 +126,7 @@ func _run() -> void:
 	await _ritual_fixture()
 	await _group_fixture()
 	if native:
+		await _review_framing()
 		root.size = Vector2i(1280, 720)
 		await process_frame
 		await process_frame
@@ -198,6 +199,42 @@ func _ritual_fixture() -> void:
 	check(hud.door_heading.text.contains("门将破") and hud.register_status.text.contains("告急") and hud.upper_status.text.contains("来犯") and hud.goal_label.text.contains("天亮将至"), "Danger, book, tide above and dawn read in text at the same time")
 	check(panel.warning_plate.visible and panel.warning_plate.position.x < 30 and panel.warning_plate.size.x < 540 and panel.warning_plate.mouse_filter == Control.MOUSE_FILTER_IGNORE, "Warnings are nonmodal and confined to a corner")
 	await _shot("23-pressure")
+
+func _review_framing() -> void:
+	_start("shouxiang")
+	session.configure_growth("P11R-approach-cards", {"inventory":{"I17":1}})
+	session.configure_roster("P11R-approach-cards")
+	sim.clear_targets()
+	# Assign a fixed tide on the visible approach to compare composition at the
+	# stock camera size. The panel, pause and purchase commands stay live.
+	for lane in 4:
+		for index in 10:
+			var kind := "G12" if lane == 2 and index == 6 else "G01"
+			var x: float = camera.left() + 26 + (index * 84) + (lane * 19)
+			var actor: Node2D = sim.tide.spawn(kind, lane, x)
+			actor.motion_enabled = false
+			actor.attacks_enabled = false
+	var reader := _human("H01")
+	var cover := "post_table_hall"
+	var legal: bool = session.deployment_reason(cover, reader.unit_id).is_empty()
+	check(legal, "P11R reference capture positions Wan at a genuine indoor cover position")
+	if not legal:
+		return
+	reader.current_post = cover
+	reader.position = sim.post_destination(reader, cover)
+	reader.brain.settled_position = reader.position
+	sim._update_units()
+	var stock := _view()
+	await _key(KEY_Q)
+	check(sim.targets.size() == 40 and _view() == stock and panel.current_panel == "purchase", "P11R purchase with forty visible tide bodies preserves the exact camera and realm scale")
+	await _shot("14-reference-purchase-dock")
+	await _click(panel.buttons.buy_T02)
+	check(panel.current_panel == "deploy" and panel.legal_post_ids.all(func(id): return world.can_deploy_at(id)), "P11R deployment stays in the original legal-purchase flow")
+	await _shot("14-reference-deployment-posts")
+	await _pad(JOY_BUTTON_B)
+	await _mouse_world(reader.aim_point(), true)
+	check(panel.unit_panel.visible and panel.selected == reader and panel.details.text.contains("H01") and _view() == stock, "P11R visible Wan can be clicked for the complete body and folio in a stable slice")
+	await _shot("17-reference-wan-card")
 
 func _group_fixture() -> void:
 	camera.set_left(7000)

@@ -1,13 +1,30 @@
 extends RefCounted
 ## Pixel body only. CombatUnit retains gameplay bounds, selection and status overlays.
 static var fallback: Dictionary = {}
+static var sprite_specs: Dictionary = {}
+static var sprite_sheets: Dictionary = {}
+static var sprite_catalog_loaded := false
+const ATLAS_PATH := "res://data/units/p11_sprite_atlas.json"
+const SHEET_PATH := "res://assets/sprites/units/p11r/"
+const FRAME_SIZE := Vector2(144, 84)
+static var contact_shadow := PackedVector2Array([
+	Vector2(-24, 0), Vector2(-15, -3), Vector2(14, -3), Vector2(25, 0),
+	Vector2(18, 3), Vector2(-15, 3)
+])
+static var paper_face := PackedVector2Array([
+	Vector2(-3, -5), Vector2(2, -5), Vector2(4, -2), Vector2(4, 1),
+	Vector2(1, 5), Vector2(-2, 4), Vector2(-4, 1)
+])
 
 static func describe(id: String) -> Dictionary:
-	var rules = Data.get("appearance_rules")
-	if not rules is Dictionary or rules.is_empty():
+	return _appearance_spec(id).duplicate(true)
+
+static func _appearance_spec(id: String) -> Dictionary:
+	var rules: Dictionary = Data.appearance_rules
+	if rules.is_empty():
 		if fallback.is_empty(): fallback = JSON.parse_string(FileAccess.get_file_as_string("res://data/units/p8_appearance.json"))
 		rules = fallback
-	return rules.get("units",{}).get(id,{}).duplicate(true)
+	return rules.get("units",{}).get(id,{})
 
 static func portrait_texture(id: String) -> Texture2D:
 	if id.begins_with("T"): return null
@@ -26,8 +43,10 @@ static func face_state(unit: Node2D) -> String:
 	return str(roster.get("face_state",describe(unit.unit_id).get("default_face","faced"))) if roster is Dictionary else str(describe(unit.unit_id).get("default_face","faced"))
 
 static func draw(unit: Node2D) -> void:
-	var spec := describe(str(unit.unit_id))
+	var spec := _appearance_spec(str(unit.unit_id))
 	if spec.is_empty(): return
+	if _draw_sprite(unit, spec):
+		return
 	var palette: Dictionary = spec.palette
 	var cloth := Color(str(palette.cloth))
 	var trim := Color(str(palette.trim))
@@ -59,6 +78,108 @@ static func draw(unit: Node2D) -> void:
 		_head(unit,str(spec.headgear),skin,cloth,metal,skin_visible,spec.family == "troop")
 		_weapon(unit,str(spec.weapon),cloth,trim,skin,metal,glow,cast)
 	unit.draw_set_transform(Vector2.ZERO)
+
+static func _sprite_spec(id: String) -> Dictionary:
+	if not sprite_catalog_loaded:
+		sprite_catalog_loaded = true
+		if FileAccess.file_exists(ATLAS_PATH):
+			var catalog: Variant = JSON.parse_string(FileAccess.get_file_as_string(ATLAS_PATH))
+			if catalog is Dictionary:
+				sprite_specs = catalog.get("units", {})
+	return sprite_specs.get(id, {})
+
+static func _sprite_sheet(sheet: String) -> Texture2D:
+	if not sprite_sheets.has(sheet):
+		var path := SHEET_PATH + sheet + ".png"
+		if ResourceLoader.exists(path):
+			sprite_sheets[sheet] = load(path)
+		elif FileAccess.file_exists(path):
+			var pixels := Image.load_from_file(ProjectSettings.globalize_path(path))
+			if pixels != null and not pixels.is_empty():
+				sprite_sheets[sheet] = ImageTexture.create_from_image(pixels)
+	return sprite_sheets.get(sheet)
+
+static func _draw_sprite(unit: Node2D, appearance: Dictionary) -> bool:
+	var sprite := _sprite_spec(unit.unit_id)
+	var live := is_instance_valid(unit.simulation)
+	if live:
+		var fusion: String = unit.growth.get("fusion_id", "")
+		if not fusion.is_empty():
+			var fused := _sprite_spec(fusion)
+			if not fused.is_empty():
+				sprite = fused
+	if sprite.is_empty():
+		return false
+	var atlas := _sprite_sheet(sprite.sheet)
+	if atlas == null:
+		return false
+	var advancing: bool = unit.current_speed > 1.0
+	var facing := -1.0 if unit.side == "xianghuo" else 1.0
+	var scale: float = unit.height_px / 80.0
+	var frames: Array = sprite.frames
+	if unit.texture_filter != CanvasItem.TEXTURE_FILTER_NEAREST:
+		unit.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	if unit.dead:
+		_draw_fallen(unit, atlas, frames[0], facing, scale)
+		return true
+	var cycle := 0.0
+	var depth := 1.0
+	if live:
+		if advancing and absf(unit.velocity.x) > 6.0:
+			facing = signf(unit.velocity.x)
+		if unit.lane_index >= 0:
+			depth = minf(1.0, 0.78 + float(unit.lane_index) * 0.074)
+		cycle = float(unit.simulation.simulation_time) * 21.0 + float(unit.instance_id.hash() % 17)
+	var acting: bool = unit.attack_left >= Rules.ATTACK_INTERVAL - 0.25 or unit.ai_state in [
+		"Channel", "Ritual", "Skill", "Climb", "WindowCrawl", "Repair"
+	] or unit.roster.get("statuses", {}).has("gate_guard")
+	var step := sin(cycle)
+	var pose := 0
+	if frames.size() > 1:
+		pose = 2 if acting else (1 if advancing and step > -0.12 else 0)
+	var frame: Array = frames[pose]
+	var light := Color(depth * 1.05, depth * 1.02, depth)
+	if unit.hit_flash > 0.0:
+		light = Color(1.28, 1.18, 1.10)
+	if live:
+		unit.draw_set_transform(Vector2.ZERO, 0.0, Vector2(scale, 1.0))
+		unit.draw_colored_polygon(contact_shadow, Color(0.03, 0.035, 0.034, 0.43))
+	# The feet stay at the route/floor position as the torso leans or rises through a gait.
+	var lean := 0.0
+	var rise := 1.0
+	if frames.size() == 1:
+		lean = -0.060 if acting else (-0.038 + step * 0.026 if advancing else 0.0)
+		rise = 0.983 + absf(step) * 0.017 if advancing else 1.0
+	unit.draw_set_transform_matrix(Transform2D(Vector2(facing * scale, 0.0),
+		Vector2(facing * lean * scale, scale * rise), Vector2.ZERO))
+	_draw_frame(unit, atlas, frame, light)
+	var native_face: String = appearance.get("default_face", "faced")
+	var current_face: String = unit.roster.get("face_state", native_face)
+	if live and current_face != native_face:
+		_draw_face_change(unit, appearance, Vector2(float(frame[2]), float(frame[3])), light, current_face)
+	unit.draw_set_transform(Vector2.ZERO)
+	return true
+
+static func _draw_frame(unit: Node2D, atlas: Texture2D, frame: Array, light: Color) -> void:
+	unit.draw_texture_rect_region(atlas, Rect2(Vector2(-FRAME_SIZE.x / 2.0, -FRAME_SIZE.y), FRAME_SIZE),
+		Rect2(Vector2(float(frame[0]), float(frame[1])) * FRAME_SIZE, FRAME_SIZE), light)
+
+static func _draw_fallen(unit: Node2D, atlas: Texture2D, frame: Array, facing: float, scale: float) -> void:
+	unit.draw_set_transform_matrix(Transform2D(Vector2(0.0, -0.23 * scale),
+		Vector2(-0.72 * facing * scale, 0.08 * scale), Vector2(-facing * 28.0, -12.0) * scale))
+	var life := clampf(unit.corpse_left / Rules.CORPSE_SECONDS, 0.18, 1.0)
+	_draw_frame(unit, atlas, frame, Color(0.69, 0.68, 0.63, life * 0.8))
+	unit.draw_set_transform(Vector2.ZERO)
+
+static func _draw_face_change(unit: Node2D, spec: Dictionary, center: Vector2, light: Color, state: String) -> void:
+	var points := PackedVector2Array()
+	for point in paper_face:
+		points.append(center + point)
+	var paper := Color(str(spec.palette.skin)).lerp(Color("d9ccae"), 0.52) * light
+	unit.draw_colored_polygon(points, paper)
+	if state == "faced":
+		unit.draw_rect(Rect2(center + Vector2(1, -2), Vector2(2, 1)), Color("263535"))
+		unit.draw_rect(Rect2(center + Vector2(1, 2), Vector2(2, 1)), paper.darkened(0.37))
 
 static func _r(u: Node2D,x: float,y: float,w: float,h: float,c: Color) -> void:
 	u.draw_rect(Rect2(x,y,w,h),c)

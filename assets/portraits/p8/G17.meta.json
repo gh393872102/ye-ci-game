@@ -4,13 +4,16 @@
   "source": "Project-generated portrait source (local generation metadata withheld)",
   "path": "res://assets/portraits/p8/G17.png",
   "status": "placeholder",
-  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "qa": "P11 design review color portrait; 1024×1536, independent source revision. 山界石像、榫卯断梁和麻绳替换藤根堆积。",
   "attempt": 1,
   "size": [
     1024,
     1536
   ],
-  "sha256": "153479d9d125814d472c96a227b3806eb033aafc2087251dedd21b8bed130d28",
+  "sha256": "8accbb5efbb2d740d5aa22c53dfd59a2f90aaef2e2e959f1ef50063071e7fdca",
   "replacement_required": true,
-  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+  "previous_sha256": "153479d9d125814d472c96a227b3806eb033aafc2087251dedd21b8bed130d28",
+  "review_art": "P11-revised",
+  "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
 }

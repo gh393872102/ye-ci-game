@@ -743,3 +743,12 @@ P10_END_UPPER_LOST,上层失守
 P10_UPPER_TOP_LOST,回廊失守 · 名册告急
 P10_UPPER_LOST,上层无人镇守 · 名册受压
 P11_REPLAY_FROM_RESUME,从接回处起录
+P11R_RESTORE_CAUSE,几夜点册送回的名字远多于刀下抹去的名字，攒下的名分又让祠里守得住旧例。
+P11R_RELEASE_CAUSE,你曾走完一夜夺名。守香时放行了余名，潮仍未散尽。结夜剩下的 %.1f 名分居中，足以守住祠。
+P11R_SELF_CAUSE,已付 %.0f 名分。晚以 %.0f 点最大生命出战，直到结夜都不能重新购入。
+P11R_DURATION,战斗累计  %02d:%04.1f
+P11R_MARKET_PRICE,购入  ·  香火 %.0f
+P11R_CODEX_ENTRY,%s　·　%s
+P11R_FAILURE_ROW,%s　·　%s
+P11R_FAILURE_UNRECORDED,断线原因失载
+P11R_CARD_FOLIO,档号 %s

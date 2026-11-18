@@ -1,6 +1,7 @@
 extends RefCounted
 ## Applies one night's owned roster and data profiles to the existing G0 simulator.
 # The shipped P10 source at 10d8719. Its actions cannot be replayed under P11.
+const P11_REVIEW_RULES := "1f94085406a4fd4ca08507962d8998ba590faa5d11bcdd2db02a57ce89ae9b9c"
 const P10_RULES := "8554a9e4eed596d0f7db6b2e434f17b7800ad5a9fc9e708edb53e1aa9a5f4671"
 const GROWTH_CARRY_FIELDS := ["roster","growth","side","tags","skill_id","trait_id","skill_cost","skill_text","trait_text","display_name","role","profile","speed_stat"]
 const RITUAL_WARD_UID := "ritual_ward"
@@ -395,8 +396,8 @@ func restore(combat: Node, run: RefCounted, state: Dictionary) -> Dictionary:
 	if not sim.unit_allegiance_changed.is_connected(_allegiance_changed):
 		sim.unit_allegiance_changed.connect(_allegiance_changed)
 	var checkpoint: Dictionary = bridge_state.get("recording",{})
-	var from_p10 := _old_recording(checkpoint)
-	_begin_recording(combat,run,{} if from_p10 else checkpoint,from_p10)
+	var migrated := not _prior_recording_rules(bridge_state, checkpoint).is_empty()
+	_begin_recording(combat,run,{} if migrated else checkpoint,migrated)
 	return answer
 
 func _begin_recording(combat: Node, run: RefCounted, resume: Dictionary = {}, migrated := false) -> void:
@@ -407,8 +408,11 @@ func _begin_recording(combat: Node, run: RefCounted, resume: Dictionary = {}, mi
 	recording = Record.new()
 	recording.begin(combat,details,resume)
 
-func _old_recording(checkpoint: Variant) -> bool:
-	return checkpoint is Dictionary and checkpoint.get("rules_hash") == P10_RULES
+func _prior_recording_rules(bridge: Dictionary, checkpoint: Variant) -> String:
+	if not checkpoint is Dictionary:
+		return ""
+	var expected := P11_REVIEW_RULES if bridge.has("renown_peak") else P10_RULES
+	return expected if checkpoint.get("rules_hash") == expected else ""
 
 func _valid_bridge_state(combat: Node, run: RefCounted, state: Dictionary) -> bool:
 	if not state.get("bridge") is Dictionary or not state.get("session") is Dictionary or not state.get("simulation") is Dictionary or not state.get("tide") is Dictionary:
@@ -457,7 +461,7 @@ func _valid_bridge_state(combat: Node, run: RefCounted, state: Dictionary) -> bo
 		if state.tide.pending[index] != record.id or not bridge.tracked.has(record.uid):
 			return false
 	if bridge.has("recording"):
-		var prior := P10_RULES if not bridge.has("renown_peak") and _old_recording(bridge.recording) else ""
+		var prior := _prior_recording_rules(bridge, bridge.recording)
 		var checked := Archive.validate_checkpoint(bridge.recording,prior)
 		if not checked.ok or not Snapshot._valid_snapshot(combat,bridge.recording.initial):
 			return false

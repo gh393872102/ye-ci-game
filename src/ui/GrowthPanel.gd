@@ -1,5 +1,7 @@
 extends CanvasLayer
 ## Inventory is supplied by the current night or an explicitly authored trial.
+const Ink = preload("res://src/ui/LedgerInk.gd")
+
 var decisions: CanvasLayer
 var unit: Node2D
 var surface: PanelContainer
@@ -30,13 +32,11 @@ func _ready() -> void:
 	surface.position = decisions.ACTION_RECT.position
 	surface.size = decisions.ACTION_RECT.size
 	surface.theme = preload("res://resources/p9_theme.tres")
-	var skin := StyleBoxFlat.new()
-	skin.bg_color = Color("121a1cf9")
-	skin.border_color = Color("42534d")
-	skin.set_border_width_all(1)
-	skin.set_content_margin_all(14)
+	var skin := Ink.skin(Color("181419f9"), Color("866448"), 2)
+	skin.set_content_margin_all(16)
 	surface.add_theme_stylebox_override("panel", skin)
 	add_child(surface)
+	surface.draw.connect(func(): Ink.draw_binding(surface, surface.size, Color("836247")))
 	scroll = ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.follow_focus = true
@@ -74,9 +74,10 @@ func render() -> void:
 	var tabs := HBoxContainer.new()
 	tabs.add_theme_constant_override("separation", 8)
 	content.add_child(tabs)
-	var heading := _label(tabs, tr("P7_GROWTH_TITLE") % unit.display_name, 24)
+	var heading := _label(tabs, tr("P7_GROWTH_TITLE") % unit.display_name, 28)
 	heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	heading.add_theme_color_override("font_color", Color("c7b78e"))
+	heading.add_theme_font_override("font", Ink.serif_font())
+	heading.add_theme_color_override("font_color", Ink.COPPER)
 	_button(tabs,"equipment",tr("P7_EQUIPMENT"),_tab.bind("equipment"))
 	if unit.side == "yegui":
 		_button(tabs,"forms",tr("P7_MUTATIONS"),_tab.bind("forms"))
@@ -307,7 +308,7 @@ func _label(parent: Node,text: String,size := 20) -> Label:
 	var result := Label.new()
 	result.text = text
 	result.add_theme_font_size_override("font_size",size)
-	result.add_theme_color_override("font_color",Color("d1d0b7"))
+	result.add_theme_color_override("font_color", Ink.PAPER)
 	result.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	parent.add_child(result)
 	return result
@@ -319,6 +320,7 @@ func _button(parent: Node,id: String,text: String,callback: Callable,allowed := 
 	result.custom_minimum_size.y = 42
 	result.disabled = not allowed
 	result.pressed.connect(callback)
+	Ink.button_ink(result, false)
 	parent.add_child(result)
 	buttons[id] = result
 	return result

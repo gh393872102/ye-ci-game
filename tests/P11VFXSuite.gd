@@ -37,6 +37,7 @@ func _run() -> void:
 		_finish()
 		return
 	root.size = Vector2i(1920, 1080)
+	await _cover_views()
 	await _skills()
 	await _paper()
 	await _breach()
@@ -46,6 +47,32 @@ func _run() -> void:
 		combat.free()
 	await process_frame
 	_finish()
+
+func _approach_wave() -> void:
+	# The four authored approach lanes; seed a density slice without advancing the battle clock.
+	for column in 12:
+		for lane in 4:
+			var id := "G01"
+			if (column + lane * 3) % 13 == 5: id = "G09"
+			if column == 7 and lane == 1: id = "G12"
+			var x := CAMERA_LEFT + 33 + column * 70 + ((lane * 29 + column * 11) % 48)
+			sim.tide.spawn(id, lane, x)
+
+func _cover_views() -> void:
+	var roster := [["H01", "post_table_hall"], ["H09", "post_hall_door"], ["H17", "post_window_1"], ["T02", "post_window_2"]]
+	if not _check(_open(CORE_CHUNKS, "shouxiang", roster), "Review composition uses legal assigned human cover"):
+		return
+	_approach_wave()
+	_steps(7)
+	var positions: Array = []
+	for unit in sim.humans:
+		positions.append({"id":unit.unit_id,"post":unit.current_post,"world_x":unit.position.x,"world_y":unit.position.y,"floor":unit.floor_id,"protected":_protected(unit)})
+	_check(sim.humans.all(func(unit): return _protected(unit)) and sim.targets.size()==48, "All defenders inside cover, 48 live tide actors in four approach ranks")
+	observations.cover = {"defenders":positions,"tide_count":sim.targets.size(),"camera_left":camera.left(),"camera_zoom":camera.zoom.x,"map_width":9600,"viewport_width":1920}
+	await _shot("00-default-tide")
+	# Let the same crowd approach the posts. The camera and deployment remain unchanged.
+	_steps(135)
+	await _shot("00a-inner-cover")
 
 func _skills() -> void:
 	var roster := [["H01", "post_table_hall"], ["H17", "post_hall_door"], ["H04", "post_hall_door"], ["H06", "post_window_1"], ["T02", "post_window_2"]]
@@ -95,6 +122,13 @@ func _skills() -> void:
 	var progress: float = reader.brain.channel.progress()
 	var same_posts: bool = _protected(reader) and _protected(signer) and _protected(joss) and _protected(light) and _protected(crossbow)
 	_check(progress > 0.0 and sim.projectiles.any(func(shot): return shot.kind == "bolt") and same_posts, "All effects operate from cover while the reading and bolt are in flight")
+	_approach_wave()
+	var points := {"register":reader.position, "incense":joss.position, "lantern":light.position, "seal":sim.world.get_node("door_hall").position, "bolt":sim.projectiles[0].position}
+	var anchors := {}
+	for key in points:
+		var point: Vector2 = camera.get_canvas_transform() * points[key]
+		anchors[key] = [roundi(point.x),roundi(point.y)]
+	observations.skill_anchors = anchors
 	await _shot("01-k4-five-skills")
 	var before_impact: float = bolt_target.hp
 	var landed := _until(1.3, func(): return _cue("bolt_hit"))

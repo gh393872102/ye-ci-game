@@ -115,54 +115,17 @@ func hit_rect() -> Rect2:
 	return Rect2(position - Vector2(18, height_px), Vector2(36, height_px))
 
 func _draw() -> void:
-	if dead:
-		draw_rect(Rect2(-30, -13, 60, 13), Color("59665f"))
-		return
-	var ink := Color("b8bca9") if hit_flash <= 0 else Color("f0e9cd")
-	if selected:
+	if selected and not dead:
 		draw_arc(Vector2(0, -3), 28, 0, TAU, 20, Color("b4d5bc"), 2)
-	if simulation.roster_engine()!=null:
-		preload("res://src/units/UnitAppearance.gd").draw(self)
-	else:
-		if side == "yegui":
-			draw_set_transform(Vector2.ZERO, 0, Vector2(height_px / 80.0, height_px / 80.0))
-			draw_rect(Rect2(-10, -80, 20, 20), ink)
-			draw_colored_polygon(PackedVector2Array([Vector2(-11,-60), Vector2(11,-60), Vector2(23,0), Vector2(0,-9), Vector2(-23,0)]), Color("a4b7b9") if hit_flash <= 0 else ink)
-			if unit_id == "G12":
-				draw_rect(Rect2(-24,-56,48,40), Color("687775"))
-				draw_line(Vector2(15,-52), Vector2(35,-30), ink, 8)
-			elif unit_id == "G09":
-				draw_line(Vector2(0,-76),Vector2(8,-48),Color("a18b76"),3)
-				draw_line(Vector2(-10,-54),Vector2(-26,-72),ink,4)
-			draw_set_transform(Vector2.ZERO)
-		else:
-			draw_rect(Rect2(-10,-80,20,17), ink)
-			var robe := Color("77514a") if role in ["guard", "talisman"] else Color("526b68")
-			draw_rect(Rect2(-15,-63,30,45), robe if hit_flash <= 0 else ink)
-			draw_rect(Rect2(-13,-18,10,18), Color("9da499"))
-			draw_rect(Rect2(3,-18,10,18), Color("9da499"))
-			match role:
-				"guard":
-					draw_rect(Rect2(-14,-80,28,8), Color("83938e"))
-					draw_rect(Rect2(-23,-58,17,38), Color("61776f"))
-					draw_line(Vector2(20,-62),Vector2(20,-5),ink,4)
-				"crossbow":
-					draw_line(Vector2(-28,-44),Vector2(23,-44),ink,5)
-					draw_line(Vector2(-20,-59),Vector2(-20,-29),ink,3)
-					draw_line(Vector2(-20,-59),Vector2(-8,-44),Color("8b9f96"),2)
-					draw_line(Vector2(-20,-29),Vector2(-8,-44),Color("8b9f96"),2)
-				"talisman":
-					draw_rect(Rect2(-30,-60,13,23),Color("c2ac78"))
-					draw_line(Vector2(-24,-57),Vector2(-23,-40),Color("8e4b40"),3)
-				"ritual":
-					draw_line(Vector2(-24,-78),Vector2(-24,0),Color("b8b29a"),4)
-					draw_rect(Rect2(-32,-70,16,20),Color("83afa0"))
-					draw_rect(Rect2(8,-48,19,13),Color("baad8a"))
+	preload("res://src/units/UnitAppearance.gd").draw(self)
+	if dead:
+		return
 	if bool(growth.get("gray",false)):
 		draw_rect(Rect2(-24,-height_px-3,48,height_px+7),Color("a2aca7"),false,3)
-	var ratio := hp / max_hp
-	draw_rect(Rect2(-24,-height_px-12,48,5),Color("141d20"))
-	draw_rect(Rect2(-24,-height_px-12,48 * ratio,5),Color("94b69b") if side == "xianghuo" else Color("a1766c"))
+	if selected or hp < max_hp or simulation.debug_rays:
+		var ratio := hp / max_hp
+		draw_rect(Rect2(-24,-height_px-12,48,5),Color("141d20"))
+		draw_rect(Rect2(-24,-height_px-12,48 * ratio,5),Color("94b69b") if side == "xianghuo" else Color("a1766c"))
 	if hold_lock:
 		draw_rect(Rect2(-5,-101,10,6),Color("c5b47c"))
 	if role == "ritual" and brain != null and brain.channel.active:

@@ -1,0 +1,1064 @@
+{
+  "frame_width": 144,
+  "frame_height": 84,
+  "standing_height": 80,
+  "units": {
+    "G01": {
+      "sheet": "tide",
+      "frames": [
+        [
+          0,
+          0,
+          16,
+          -63
+        ],
+        [
+          0,
+          1,
+          18,
+          -64
+        ],
+        [
+          0,
+          2,
+          35,
+          -67
+        ]
+      ]
+    },
+    "G02": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          0,
+          0,
+          15,
+          -68
+        ]
+      ]
+    },
+    "G03": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          1,
+          0,
+          17,
+          -68
+        ]
+      ]
+    },
+    "G04": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          2,
+          0,
+          7,
+          -66
+        ]
+      ]
+    },
+    "G05": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          3,
+          0,
+          -4,
+          -64
+        ]
+      ]
+    },
+    "G06": {
+      "sheet": "apparitions",
+      "frames": [
+        [
+          0,
+          0,
+          8,
+          -70
+        ],
+        [
+          0,
+          1,
+          12,
+          -70
+        ],
+        [
+          0,
+          2,
+          28,
+          -63
+        ]
+      ]
+    },
+    "G07": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          0,
+          1,
+          17,
+          -69
+        ]
+      ]
+    },
+    "G08": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          1,
+          1,
+          -10,
+          -55
+        ]
+      ]
+    },
+    "G09": {
+      "sheet": "tide",
+      "frames": [
+        [
+          1,
+          0,
+          16,
+          -71
+        ],
+        [
+          1,
+          1,
+          22,
+          -72
+        ],
+        [
+          1,
+          2,
+          28,
+          -72
+        ]
+      ]
+    },
+    "G10": {
+      "sheet": "apparitions",
+      "frames": [
+        [
+          1,
+          0,
+          17,
+          -68
+        ],
+        [
+          1,
+          1,
+          22,
+          -66
+        ],
+        [
+          1,
+          2,
+          34,
+          -62
+        ]
+      ]
+    },
+    "G11": {
+      "sheet": "tide",
+      "frames": [
+        [
+          2,
+          0,
+          3,
+          -68
+        ],
+        [
+          2,
+          1,
+          11,
+          -69
+        ],
+        [
+          2,
+          2,
+          13,
+          -71
+        ]
+      ]
+    },
+    "G12": {
+      "sheet": "tide",
+      "frames": [
+        [
+          3,
+          0,
+          10,
+          -70
+        ],
+        [
+          3,
+          1,
+          4,
+          -70
+        ],
+        [
+          3,
+          2,
+          26,
+          -72
+        ]
+      ]
+    },
+    "G13": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          2,
+          1,
+          21,
+          -72
+        ]
+      ]
+    },
+    "G14": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          3,
+          1,
+          15,
+          -71
+        ]
+      ]
+    },
+    "G15": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          0,
+          2,
+          15,
+          -72
+        ]
+      ]
+    },
+    "G16": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          1,
+          2,
+          10,
+          -65
+        ]
+      ]
+    },
+    "G17": {
+      "sheet": "apparitions",
+      "frames": [
+        [
+          2,
+          0,
+          19,
+          -69
+        ],
+        [
+          2,
+          1,
+          20,
+          -69
+        ],
+        [
+          2,
+          2,
+          -10,
+          -75
+        ]
+      ]
+    },
+    "G18": {
+      "sheet": "names",
+      "frames": [
+        [
+          1,
+          0,
+          6,
+          -68
+        ],
+        [
+          1,
+          1,
+          10,
+          -71
+        ],
+        [
+          1,
+          2,
+          18,
+          -70
+        ]
+      ]
+    },
+    "G19": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          2,
+          2,
+          23,
+          -69
+        ]
+      ]
+    },
+    "G20": {
+      "sheet": "names",
+      "frames": [
+        [
+          2,
+          0,
+          11,
+          -67
+        ],
+        [
+          2,
+          1,
+          15,
+          -60
+        ],
+        [
+          2,
+          2,
+          16,
+          -64
+        ]
+      ]
+    },
+    "G21": {
+      "sheet": "ghosts_court",
+      "frames": [
+        [
+          3,
+          2,
+          2,
+          -67
+        ]
+      ]
+    },
+    "G22": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          0,
+          0,
+          6,
+          -64
+        ]
+      ]
+    },
+    "G23": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          1,
+          0,
+          14,
+          -68
+        ]
+      ]
+    },
+    "G24": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          2,
+          0,
+          6,
+          -71
+        ]
+      ]
+    },
+    "G25": {
+      "sheet": "apparitions",
+      "frames": [
+        [
+          3,
+          0,
+          14,
+          -62
+        ],
+        [
+          3,
+          1,
+          14,
+          -64
+        ],
+        [
+          3,
+          2,
+          11,
+          -60
+        ]
+      ]
+    },
+    "G26": {
+      "sheet": "names",
+      "frames": [
+        [
+          3,
+          0,
+          6,
+          -74
+        ],
+        [
+          3,
+          1,
+          9,
+          -74
+        ],
+        [
+          3,
+          2,
+          2,
+          -73
+        ]
+      ]
+    },
+    "G27": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          3,
+          0,
+          -1,
+          -50
+        ]
+      ]
+    },
+    "G28": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          0,
+          1,
+          -1,
+          -71
+        ]
+      ]
+    },
+    "G29": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          1,
+          1,
+          4,
+          -67
+        ]
+      ]
+    },
+    "G30": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          2,
+          1,
+          -6,
+          -52
+        ]
+      ]
+    },
+    "G31": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          3,
+          1,
+          -4,
+          -62
+        ]
+      ]
+    },
+    "G32": {
+      "sheet": "names",
+      "frames": [
+        [
+          0,
+          0,
+          5,
+          -64
+        ],
+        [
+          0,
+          1,
+          10,
+          -64
+        ],
+        [
+          0,
+          2,
+          6,
+          -62
+        ]
+      ]
+    },
+    "H01": {
+      "sheet": "keepers",
+      "frames": [
+        [
+          0,
+          0,
+          -1,
+          -69
+        ],
+        [
+          0,
+          1,
+          5,
+          -68
+        ],
+        [
+          0,
+          2,
+          0,
+          -67
+        ]
+      ]
+    },
+    "H02": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          0,
+          0,
+          -1,
+          -68
+        ]
+      ]
+    },
+    "H03": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          1,
+          0,
+          -2,
+          -64
+        ]
+      ]
+    },
+    "H04": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          2,
+          0,
+          -4,
+          -67
+        ]
+      ]
+    },
+    "H05": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          3,
+          0,
+          -2,
+          -68
+        ]
+      ]
+    },
+    "H06": {
+      "sheet": "keepers",
+      "frames": [
+        [
+          3,
+          0,
+          -3,
+          -68
+        ],
+        [
+          3,
+          1,
+          3,
+          -67
+        ],
+        [
+          3,
+          2,
+          -2,
+          -68
+        ]
+      ]
+    },
+    "H07": {
+      "sheet": "watch",
+      "frames": [
+        [
+          2,
+          0,
+          2,
+          -66
+        ],
+        [
+          2,
+          1,
+          7,
+          -67
+        ],
+        [
+          2,
+          2,
+          -14,
+          -71
+        ]
+      ]
+    },
+    "H08": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          0,
+          1,
+          1,
+          -72
+        ]
+      ]
+    },
+    "H09": {
+      "sheet": "keepers",
+      "frames": [
+        [
+          1,
+          0,
+          0,
+          -68
+        ],
+        [
+          1,
+          1,
+          5,
+          -68
+        ],
+        [
+          1,
+          2,
+          10,
+          -65
+        ]
+      ]
+    },
+    "H10": {
+      "sheet": "watch",
+      "frames": [
+        [
+          0,
+          0,
+          6,
+          -66
+        ],
+        [
+          0,
+          1,
+          11,
+          -67
+        ],
+        [
+          0,
+          2,
+          6,
+          -64
+        ]
+      ]
+    },
+    "H11": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          1,
+          1,
+          5,
+          -71
+        ]
+      ]
+    },
+    "H12": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          2,
+          1,
+          -7,
+          -67
+        ]
+      ]
+    },
+    "H13": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          3,
+          1,
+          -7,
+          -67
+        ]
+      ]
+    },
+    "H14": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          0,
+          2,
+          -7,
+          -69
+        ]
+      ]
+    },
+    "H15": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          1,
+          2,
+          -8,
+          -67
+        ]
+      ]
+    },
+    "H16": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          2,
+          2,
+          12,
+          -64
+        ]
+      ]
+    },
+    "H17": {
+      "sheet": "keepers",
+      "frames": [
+        [
+          2,
+          0,
+          0,
+          -69
+        ],
+        [
+          2,
+          1,
+          4,
+          -68
+        ],
+        [
+          2,
+          2,
+          0,
+          -68
+        ]
+      ]
+    },
+    "H18": {
+      "sheet": "humans_records",
+      "frames": [
+        [
+          3,
+          2,
+          -3,
+          -69
+        ]
+      ]
+    },
+    "H19": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          0,
+          0,
+          0,
+          -69
+        ]
+      ]
+    },
+    "H20": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          1,
+          0,
+          5,
+          -70
+        ]
+      ]
+    },
+    "H21": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          2,
+          0,
+          2,
+          -67
+        ]
+      ]
+    },
+    "H22": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          3,
+          0,
+          0,
+          -73
+        ]
+      ]
+    },
+    "H23": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          0,
+          1,
+          4,
+          -70
+        ]
+      ]
+    },
+    "H24": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          1,
+          1,
+          -5,
+          -72
+        ]
+      ]
+    },
+    "H25": {
+      "sheet": "watch",
+      "frames": [
+        [
+          1,
+          0,
+          6,
+          -69
+        ],
+        [
+          1,
+          1,
+          8,
+          -69
+        ],
+        [
+          1,
+          2,
+          14,
+          -72
+        ]
+      ]
+    },
+    "H26": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          2,
+          1,
+          -6,
+          -68
+        ]
+      ]
+    },
+    "H27": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          3,
+          1,
+          4,
+          -68
+        ]
+      ]
+    },
+    "H28": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          0,
+          2,
+          4,
+          -68
+        ]
+      ]
+    },
+    "H29": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          1,
+          2,
+          -3,
+          -74
+        ]
+      ]
+    },
+    "H30": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          2,
+          2,
+          -3,
+          -72
+        ]
+      ]
+    },
+    "H31": {
+      "sheet": "watch",
+      "frames": [
+        [
+          3,
+          0,
+          11,
+          -68
+        ],
+        [
+          3,
+          1,
+          11,
+          -68
+        ],
+        [
+          3,
+          2,
+          15,
+          -60
+        ]
+      ]
+    },
+    "H32": {
+      "sheet": "humans_tools",
+      "frames": [
+        [
+          3,
+          2,
+          0,
+          -68
+        ]
+      ]
+    },
+    "T01": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          0,
+          2,
+          -2,
+          -70
+        ]
+      ]
+    },
+    "T02": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          1,
+          2,
+          -7,
+          -69
+        ]
+      ]
+    },
+    "T03": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          2,
+          2,
+          1,
+          -71
+        ]
+      ]
+    },
+    "T04": {
+      "sheet": "ghosts_clerks_troops",
+      "frames": [
+        [
+          3,
+          2,
+          -2,
+          -72
+        ]
+      ]
+    },
+    "F01": {
+      "sheet": "fusion_poses",
+      "frames": [
+        [
+          0,
+          0,
+          10,
+          -69
+        ],
+        [
+          0,
+          1,
+          10,
+          -70
+        ],
+        [
+          0,
+          2,
+          7,
+          -68
+        ]
+      ]
+    },
+    "F02": {
+      "sheet": "fusion_poses",
+      "frames": [
+        [
+          1,
+          0,
+          1,
+          -67
+        ],
+        [
+          1,
+          1,
+          0,
+          -68
+        ],
+        [
+          1,
+          2,
+          1,
+          -68
+        ]
+      ]
+    },
+    "F03": {
+      "sheet": "fusion_poses",
+      "frames": [
+        [
+          2,
+          0,
+          4,
+          -70
+        ],
+        [
+          2,
+          1,
+          5,
+          -70
+        ],
+        [
+          2,
+          2,
+          2,
+          -70
+        ]
+      ]
+    }
+  }
+}

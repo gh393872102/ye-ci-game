@@ -1,0 +1,443 @@
+{
+	"checks": 39,
+	"display": "macOS",
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"method": "Native viewport capture of normal combat with manual fixed-step fixtures. Real mouse confirmation for DianCe, shared commands for skills and fusion, authored AI stage behaviors for B01 and B02.",
+	"observations": {
+		"breach": {
+			"approach_lanes": 4,
+			"damage": [
+				{
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_50",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				}
+			],
+			"entered": [
+				"G01_tide_51",
+				"G01_tide_52",
+				"G01_tide_53"
+			],
+			"first_breach": {
+				"door": "door_hall",
+				"time": 4.83333333333332
+			},
+			"held_posts": true,
+			"live_follow_up_ghosts": 28
+		},
+		"cover": {
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"defenders": [
+				{
+					"floor": 0,
+					"id": "H01",
+					"post": "post_table_hall",
+					"protected": true,
+					"world_x": 7360.0,
+					"world_y": 700.0
+				},
+				{
+					"floor": 0,
+					"id": "H09",
+					"post": "post_hall_door",
+					"protected": true,
+					"world_x": 7160.0,
+					"world_y": 700.0
+				},
+				{
+					"floor": 2,
+					"id": "H17",
+					"post": "post_window_1",
+					"protected": true,
+					"world_x": 7360.0,
+					"world_y": 500.0
+				},
+				{
+					"floor": 3,
+					"id": "T02",
+					"post": "post_window_2",
+					"protected": true,
+					"world_x": 7360.0,
+					"world_y": 300.0
+				}
+			],
+			"map_width": 9600,
+			"tide_count": 48,
+			"viewport_width": 1920
+		},
+		"fusion": {
+			"gate_damage": 72.0,
+			"height": 144.0,
+			"incense_cost": 20.0,
+			"name": "门骑",
+			"recipe": "F02",
+			"source_consumed": true
+		},
+		"k4": {
+			"channel_progress_in_frame": 0.0625,
+			"names_after": 10.0,
+			"names_before": 9.0,
+			"prefabs": [
+				"DianCeCircle.tscn",
+				"GreenLantern.tscn",
+				"TalismanSeal.tscn",
+				"IncenseSmoke.tscn",
+				"CrossbowTrail.tscn"
+			],
+			"protected_posts": true,
+			"reader_post": "post_table_hall",
+			"reader_room": "hall",
+			"revealed": 3,
+			"transfer_credit": 2.0
+		},
+		"skill_anchors": {
+			"bolt": [
+				1392,
+				258
+			],
+			"incense": [
+				1116,
+				700
+			],
+			"lantern": [
+				1280,
+				500
+			],
+			"register": [
+				1280,
+				700
+			],
+			"seal": [
+				960,
+				700
+			]
+		},
+		"upper": {
+			"actor": "G09_tide_21",
+			"entry_floor": 2,
+			"entry_room": "gallery",
+			"held_posts": true,
+			"names_after_loss": 8.95916666666667,
+			"names_before_loss": 9.0
+		}
+	},
+	"reference": [
+		13,
+		24,
+		25
+	],
+	"results": [
+		{
+			"check": "Native display and production data",
+			"ok": true
+		},
+		{
+			"check": "Review composition uses legal assigned human cover",
+			"ok": true
+		},
+		{
+			"check": "All defenders inside cover, 48 live tide actors in four approach ranks",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 00-default-tide",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 00a-inner-cover",
+			"ok": true
+		},
+		{
+			"check": "Default camera, real combat scene and five legal cover posts",
+			"ok": true
+		},
+		{
+			"check": "Five independent packed scenes are mounted in normal combat",
+			"ok": true
+		},
+		{
+			"check": "The hall reader has a legal, indoor reading on a live elite",
+			"ok": true
+		},
+		{
+			"check": "Native mouse opens the real ritual action and its target confirmation",
+			"ok": true
+		},
+		{
+			"check": "The selected confirmation starts the paid channel",
+			"ok": true
+		},
+		{
+			"check": "Cold light reveals three actual actors on the gallery",
+			"ok": true
+		},
+		{
+			"check": "The real seal applies to the hall doorway",
+			"ok": true
+		},
+		{
+			"check": "The real transfer moves incense to the reader",
+			"ok": true
+		},
+		{
+			"check": "The real crossbow command launches a swept bolt",
+			"ok": true
+		},
+		{
+			"check": "All effects operate from cover while the reading and bolt are in flight",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 01-k4-five-skills",
+			"ok": true
+		},
+		{
+			"check": "The bolt streak ends where the real projectile hits",
+			"ok": true
+		},
+		{
+			"check": "Paused rendering keeps the channel and effects still",
+			"ok": true
+		},
+		{
+			"check": "A completed reading sends the elite off and relights the register only with real names credit",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 02a-purification-send-off",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 02-register-relight",
+			"ok": true
+		},
+		{
+			"check": "Mirror and dispel have legal starting posts",
+			"ok": true
+		},
+		{
+			"check": "Mirror and dispel create real ward and unmasking events using the shared paper preset",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 08-k4-mirror-and-dispel",
+			"ok": true
+		},
+		{
+			"check": "Authored B01 loads the real rammer and gate pressure",
+			"ok": true
+		},
+		{
+			"check": "A real G12 hit opens the hall gate and triggers the wood splinters",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 03-k5-gate-splinters",
+			"ok": true
+		},
+		{
+			"check": "At least two actual attackers cross past the opened gate and trigger the moving dust",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 04-k5-tide-enters",
+			"ok": true
+		},
+		{
+			"check": "Authored B02 loads the real climb route and empty upper defense line",
+			"ok": true
+		},
+		{
+			"check": "Real G09 reaches the gallery along the wall route and leaves a pounce trail",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 05-k5-gallery-pounce",
+			"ok": true
+		},
+		{
+			"check": "The unstaffed gallery trips the real failure line and drains names",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 06-k5-gallery-lost",
+			"ok": true
+		},
+		{
+			"check": "Room loss stays visible on the non-modal stage warning and top status",
+			"ok": true
+		},
+		{
+			"check": "Normal attacker combat for the paid fusion",
+			"ok": true
+		},
+		{
+			"check": "The actual F02 command consumes the second unit and incense and reveals the heavy fusion",
+			"ok": true
+		},
+		{
+			"check": "Native 1080p frame at production zoom 07-fusion-arrival",
+			"ok": true
+		},
+		{
+			"check": "Fused Door Rider's real charge damages the next gate",
+			"ok": true
+		}
+	],
+	"screenshots": {
+		"00-default-tide": {
+			"battle_seconds": 0.116666666666667,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "00-default-tide.png",
+			"height": 1080,
+			"sha256": "ec1450e85f842e79c09596a6451f60cca98f2481a7e0df51fa79b1d225f8c950",
+			"stage_event": "",
+			"stage_status": "",
+			"width": 1920
+		},
+		"00a-inner-cover": {
+			"battle_seconds": 2.36666666666666,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "00a-inner-cover.png",
+			"height": 1080,
+			"sha256": "0fa1993e913156812d2c0106015764c941cddbc4e40a98d6b03527a1c2ad3111",
+			"stage_event": "",
+			"stage_status": "",
+			"width": 1920
+		},
+		"01-k4-five-skills": {
+			"battle_seconds": 0.2,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "01-k4-five-skills.png",
+			"height": 1080,
+			"sha256": "b78d8e14be3591db50172b5ff9a36e9b07dc7777f9e376e5a6d0ff2d77330b03",
+			"stage_event": "",
+			"stage_status": "",
+			"width": 1920
+		},
+		"02-register-relight": {
+			"battle_seconds": 3.38333333333333,
+			"camera_left": 7680.0,
+			"camera_zoom": 1.0,
+			"file": "02-register-relight.png",
+			"height": 1080,
+			"sha256": "a32a5bf94258cc076200e7b8885ac9164e10b3db820a4ff8d10347acdc2da59f",
+			"stage_event": "",
+			"stage_status": "",
+			"width": 1920
+		},
+		"02a-purification-send-off": {
+			"battle_seconds": 3.38333333333333,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "02a-purification-send-off.png",
+			"height": 1080,
+			"sha256": "7fe0060e10c09245cb031887be41dff633f2d5da1fe587306543696bb6d6cf42",
+			"stage_event": "",
+			"stage_status": "",
+			"width": 1920
+		},
+		"03-k5-gate-splinters": {
+			"battle_seconds": 5.01666666666665,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "03-k5-gate-splinters.png",
+			"height": 1080,
+			"sha256": "0bc06e506704702716f2ef71fbac403c471d9b8b89b258b0ebe3027c0ebd7116",
+			"stage_event": "殿门碎裂",
+			"stage_status": "殿门已破 · 潮正向门厅移动",
+			"width": 1920
+		},
+		"04-k5-tide-enters": {
+			"battle_seconds": 10.3666666666668,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "04-k5-tide-enters.png",
+			"height": 1080,
+			"sha256": "24c385aee4737e2ae1ae371c07e948480370356026f75f3adda72d44ea934b10",
+			"stage_event": "潮沿门洞灌入",
+			"stage_status": "潮已灌入门厅 · 守住楼梯和名册",
+			"width": 1920
+		},
+		"05-k5-gallery-pounce": {
+			"battle_seconds": 2.71666666666666,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "05-k5-gallery-pounce.png",
+			"height": 1080,
+			"sha256": "55380ff479ef80c976bbd0738e8515afe8dfbdbe5668c91f2000a2590ace99e4",
+			"stage_event": "缢鬼扑入上层",
+			"stage_status": "回廊无守 0.1 / 8.0 秒",
+			"width": 1920
+		},
+		"06-k5-gallery-lost": {
+			"battle_seconds": 10.7166666666668,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "06-k5-gallery-lost.png",
+			"height": 1080,
+			"sha256": "3e15cdf085ec0dd5693a6ec5545c5da8fd83454641bd6a1a13fb589b95e9b625",
+			"stage_event": "上层无人镇守 · 名册受压",
+			"stage_status": "回廊失守 · 名册正在失火",
+			"width": 1920
+		},
+		"07-fusion-arrival": {
+			"battle_seconds": 0.166666666666667,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "07-fusion-arrival.png",
+			"height": 1080,
+			"sha256": "501ada864be2a30e395734a0d75f3e9c02353b37b04fa6ab56bc851cf953aa49",
+			"stage_event": "",
+			"stage_status": "",
+			"width": 1920
+		},
+		"08-k4-mirror-and-dispel": {
+			"battle_seconds": 0.2,
+			"camera_left": 6080.0,
+			"camera_zoom": 1.0,
+			"file": "08-k4-mirror-and-dispel.png",
+			"height": 1080,
+			"sha256": "b9bd357019064e2876b0df310c511f10fb50fc8319942c0799c86149eac9e624",
+			"stage_event": "",
+			"stage_status": "",
+			"width": 1920
+		}
+	},
+	"source_sha256": {
+		"scenes/combat/vfx/BattleEffects.tscn": "ec78c2653c6816b12adf7b672ad3deddb6249cd85eec84d2077a25ba44b9432c",
+		"scenes/combat/vfx/CrossbowTrail.tscn": "46e9efa991ea864ea7dd61fdcd916cb035b3557b4ab324e1578b5fb80d86ba6e",
+		"scenes/combat/vfx/DianCeCircle.tscn": "631e5edbd2f78f0adbd84de4e33d1d4855496df72d1875cb7b5554fcb29eff67",
+		"scenes/combat/vfx/GreenLantern.tscn": "12cacf9856a1a7a1bf44481ea64ad177a930c81d596a4c50e512240df9ade66e",
+		"scenes/combat/vfx/IncenseSmoke.tscn": "560bcbd8173b943c21a8610b76c696ea6f3c6f2efb7527fc43ec53ac386767b2",
+		"scenes/combat/vfx/TalismanSeal.tscn": "0bc4c95aeaa6edfe51fcd8ee05c277073e2b154c53e76d51e53c89c883a015be",
+		"src/camera/BattleCamera.gd": "ccd6ad9d28d4aedc440366cfde53e2d01e9bd9c23f663456c2c88869e3a6fce8",
+		"src/combat/BattleSession.gd": "1272e4efa8cf25a1b830993d9a1a265c857af0b96be45a12b381e44a732be6b2",
+		"src/combat/CombatSimulation.gd": "4e14fd7837bab60958b52b6ee20fc5f29c80765e03ba5ee9e83612f5c135732a",
+		"src/combat/P10Stage.gd": "3b6b71f0319052ad6076a349552543606a7cc930e3165e9354e5178e61f90588",
+		"src/combat/Projectile.gd": "a10c016687a43bd417a33d9eb0080414a2cb850d56b93e891093510ed8be5d6d",
+		"src/combat/vfx/BattleEffects.gd": "31dd621d627d50499dbbe799271ce9352c3133a010b776e76c798394b8b9646e",
+		"src/combat/vfx/CrossbowTrail.gd": "91753f0b8ef8177f60230adc5dbf597d076ed2763a790d85868e2f5e1411a5e6",
+		"src/combat/vfx/DianCeCircle.gd": "6b63cfed2ab4f5ede00c6e4762344bd74851e3cbb14a3d98f8495a228b68584f",
+		"src/combat/vfx/EffectCanvas.gd": "bc34bd863de45fa4f1844c77645a22ef36aca75413d3f243beb486addd1d1122",
+		"src/combat/vfx/GreenLantern.gd": "486f6b13460fd7dc99e3cb803d6d7c3df217769f13a1fdf8dfba78386957e617",
+		"src/combat/vfx/IncenseSmoke.gd": "7bd74e63ffd268c972cb01a0cea2b3b372768b269743938ee691fc04484480aa",
+		"src/combat/vfx/TalismanSeal.gd": "8371437531d94d483e52f6f15125d79bdd521f95aea532509c36308f392528b5",
+		"src/growth/GrowthEngine.gd": "fae600e51a2ba1ddfd9ecd8b764c1966222bcb085233d84b68b8b3ce2ac01bbf",
+		"src/roster/GhostAbilities.gd": "7f4756e1598e40f0d75c165ff998ea4dd1079b7341a5c4913f0830a28a8f07e6",
+		"src/roster/HumanAbilities.gd": "0cdc02a3c0550613eb1dbd12b22610ee0302fcdcad1aea64999b2b735482656d",
+		"tests/P11VFXSuite.gd": "49d3b1dcde0f002f8097d2c13ef1564ed7d900800aca4b22c56089de24a88af9"
+	}
+}

@@ -6,12 +6,16 @@
 - [原始设计方案](https://gh393872102.github.io/ye-ci/) · [P11 验收规范](https://gh393872102.github.io/ye-ci/dev.html#d-p11)
 - [P11 阶段报告、三条结局的复核路径与证据](phase-reports/P11.md) · [上一阶段 G2 交接](phase-reports/P10.md)
 
+## 设计回执后的第二次评审
+
+本轮请检出 `p11-design-revision-2026-11-18`。先核对第 13、24、25 号图及四张界面对照，再看放野结算、青灯骨余文、失败记录与 150 人鬼同屏的帧耗。请回答回执 1.1、1.2、1.3、2.4 是否通过，以及具体仍需修改的画面或文字。下文历史说明和旧标签可用于前后比对。[本轮完整报告和原图](phase-reports/P11-revision.md) · [本轮源码快照](https://github.com/gh393872102/ye-ci-game/tree/p11-design-revision-2026-11-18)
+
 ## 从哪里开始
 
 能运行桌面工程时，请安装 Godot 4.7.2 stable，检出这次评审的标签，在编辑器导入根目录的 `project.godot` 后按 F5 从正式标题进入。macOS 也可运行以下命令。请从标题开始，使用新存档或独立系统用户。
 
 ```sh
-git clone --branch p11-review-2026-11-18 --single-branch https://github.com/gh393872102/ye-ci-game.git
+git clone --branch p11-design-revision-2026-11-18 --single-branch https://github.com/gh393872102/ye-ci-game.git
 cd ye-ci-game
 ./run.command
 ```

@@ -1,14 +1,15 @@
 extends Control
 
 const MiniMap = preload("res://src/ui/Minimap.gd")
+const Ledger = preload("res://src/ui/LedgerInk.gd")
 const StageOptions = preload("res://src/data/StageOptions.gd")
-const INK := Color("0b0f11")
-const PANEL := Color("12191a")
-const RULE := Color("354340")
-const PAPER := Color("e6dfcc")
-const MUTED := Color("aab5ac")
-const COPPER := Color("b7a67f")
-const ALERT := Color("f1ad91")
+const INK := Color("0a0a0d")
+const PANEL := Color("161318")
+const RULE := Color("534231")
+const PAPER := Color("ebdfc7")
+const MUTED := Color("c1ad90")
+const COPPER := Color("d7aa72")
+const ALERT := Color("f4ab92")
 const COMMANDS := {
 	"shouxiang": [
 		["BUY", "P9_BUY_COMMAND", "buy"], ["DEPLOY", "P9_DEPLOY_COMMAND", "deploy"],
@@ -65,14 +66,14 @@ func _ready() -> void:
 	_panel(Rect2(0, 0, Rules.DESIGN_WIDTH, Rules.TOP_BAR_HEIGHT), PANEL)
 	_panel(Rect2(0, Rules.HORIZON_Y, Rules.DESIGN_WIDTH, Rules.DESIGN_HEIGHT - Rules.HORIZON_Y), INK)
 	_panel(Rect2(0, Rules.TOP_BAR_HEIGHT - 1, Rules.DESIGN_WIDTH, 1), RULE)
-	_panel(Rect2(0, Rules.HORIZON_Y, Rules.DESIGN_WIDTH, 2), Color("282e2a"))
-	for x in [229, 413, 593, 743, 851, 1184, 1460]:
-		_panel(Rect2(x, 10, 1, 34), RULE)
-	ritual = _metric("P9_HUD_RITUAL", Rect2(26, 0, 190, 56), 21)
-	goal_label = _metric("P9_HUD_DAWN", Rect2(247, 0, 154, 56), 20)
-	register_status = _metric("P9_HUD_REGISTER", Rect2(455, 0, 131, 56), 18)
-	incense = _metric("P9_HUD_INCENSE", Rect2(610, 0, 125, 56), 20)
-	names = _metric("P9_HUD_NAMES", Rect2(760, 0, 79, 56), 20)
+	_panel(Rect2(0, Rules.HORIZON_Y, Rules.DESIGN_WIDTH, 2), Color("3b2e26"))
+	_panel(Rect2(196, 11, 1, 34), RULE)
+	_panel(Rect2(1458, 11, 1, 34), RULE)
+	goal_label = _metric("P9_HUD_DAWN", Rect2(24, 0, 164, 56), 26)
+	ritual = _metric("P9_HUD_RITUAL", Rect2(217, 0, 186, 56), 22)
+	register_status = _metric("P9_HUD_REGISTER", Rect2(455, 0, 138, 56), 19)
+	incense = _metric("P9_HUD_INCENSE", Rect2(621, 0, 128, 56), 23)
+	names = _metric("P9_HUD_NAMES", Rect2(770, 0, 79, 56), 23)
 	door_heading = _line(self, tr("P9_HUD_DOORS"), Rect2(898, 4, 270, 21), 15, MUTED)
 	door_status = _line(self, "", Rect2(898, 23, 274, 27), 17)
 	upper_status = _metric("P9_HUD_UPPER", Rect2(1202, 0, 246, 56), 18)
@@ -81,7 +82,7 @@ func _ready() -> void:
 	_button(self, "two", tr("P9_SPEED_TWO"), func(): Clock.set_speed(2.0), Rect2(1688, 8, 60, 39))
 	var menu := _button(self, "menu", tr("P9_HUD_MENU"), _open_menu, Rect2(1760, 8, 136, 39))
 	menu.hide()
-	ward_status = _line(self, "", Rect2(1370, 65, 526, 30), 20, PAPER)
+	ward_status = _line(self, "", Rect2(1370, 154, 526, 30), 20, PAPER)
 	ward_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	ward_status.hide()
 
@@ -91,26 +92,27 @@ func _ready() -> void:
 	minimap.camera = camera
 	minimap.world = world
 	add_child(minimap)
-	_panel(Rect2(24, 894, 512, 1), RULE)
+	Ledger.ruling(self, Rect2(24, 878, 512, 20), RULE)
 	phase_label = _line(self, "", Rect2(26, 908, 490, 25), 18, COPPER)
 	roster = _line(self, "", Rect2(26, 941, 504, 30), 22)
 	roster_detail = _line(self, "", Rect2(26, 977, 504, 25), 17, MUTED)
 	resources_label = _line(self, "", Rect2(26, 1011, 500, 25), 17, MUTED)
 	status = _line(self, "", Rect2(26, 1044, 510, 24), 16, MUTED)
 
-	command_title = _line(self, "", Rect2(558, 950, 700, 33), 18, COPPER)
-	command_hint = _line(self, "", Rect2(1020, 950, 874, 36), 17, MUTED)
+	Ledger.folio(self, Rect2(556, 945, 1341, 124), Color("171218f3"), Color("72563d"))
+	command_title = _line(self, "", Rect2(574, 955, 672, 30), 18, COPPER)
+	command_hint = _line(self, "", Rect2(1009, 955, 869, 31), 17, MUTED)
 	command_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_panel(Rect2(558, 987, 1338, 1), RULE)
+	_panel(Rect2(574, 986, 1304, 1), RULE)
 	command_bar = HBoxContainer.new()
-	command_bar.position = Vector2(558, 999)
-	command_bar.size = Vector2(1338, 48)
+	command_bar.position = Vector2(573, 992)
+	command_bar.size = Vector2(1306, 54)
 	command_bar.add_theme_constant_override("separation", 10)
 	add_child(command_bar)
 	debug_text = _line(self, "", Rect2(586, 746, 1280, 183), 18, MUTED)
 	debug_text.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	stopwatch = _line(self, "", Rect2(26, 1011, 502, 24), 17, MUTED)
-	feedback = _line(self, "", Rect2(560, 1050, 1318, 24), 17, COPPER)
+	feedback = _line(self, "", Rect2(576, 1046, 1301, 22), 16, COPPER)
 	stage_title = _line(self, "", Rect2(1420, 829, 474, 29), 22, COPPER)
 	stage_pressure = _line(self, "", Rect2(1420, 860, 474, 26), 17, PAPER)
 	stage_modifiers = _line(self, "", Rect2(1420, 889, 474, 26), 17, MUTED)
@@ -135,10 +137,10 @@ func _panel(rect: Rect2, color: Color) -> void:
 
 func _line(parent: Node, value: String, rect: Rect2, font_size: int, color := PAPER) -> Label:
 	var label := Label.new()
-	label.text = value
 	label.position = rect.position
 	label.size = rect.size
 	label.clip_text = true
+	label.text = value
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -147,12 +149,14 @@ func _line(parent: Node, value: String, rect: Rect2, font_size: int, color := PA
 
 func _button(parent: Node, id: String, value: String, callback: Callable, rect := Rect2()) -> Button:
 	var button := Button.new()
+	button.name = id.validate_node_name()
 	button.text = value
 	button.position = rect.position
 	button.size = rect.size
 	button.focus_mode = Control.FOCUS_NONE
 	button.pressed.connect(callback)
-	button.add_theme_font_size_override("font_size", 19)
+	button.add_theme_font_size_override("font_size", 20)
+	Ledger.button_ink(button, false)
 	parent.add_child(button)
 	buttons[id] = button
 	return button
@@ -189,13 +193,59 @@ func _rebuild_commands(seat: String) -> void:
 	for entry in entries:
 		var callback: Callable = _placeholder_feedback if seat == "debug" else decisions.show_command.bind(entry[0])
 		var button := _button(command_bar, entry[0], tr(entry[1]), callback)
-		button.custom_minimum_size = Vector2(210, 48)
+		button.custom_minimum_size = Vector2(207, 54)
 		button.size_flags_horizontal = Control.SIZE_FILL if seat == "duoming" else Control.SIZE_EXPAND_FILL
+		_command_icon(button, str(entry[2]))
 	_update_command_shortcuts()
 	command_bar.show()
 	command_title.text = tr("P9_COMMANDS") if not seat.is_empty() else ""
 	command_title.visible = not seat.is_empty()
 	command_hint.visible = not seat.is_empty()
+
+func _command_icon(button: Button, kind: String) -> void:
+	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	for state_name in ["normal", "hover", "pressed", "disabled"]:
+		var style := button.get_theme_stylebox(state_name).duplicate() as StyleBoxFlat
+		style.content_margin_left = 58
+		button.add_theme_stylebox_override(state_name, style)
+	var icon := Control.new()
+	icon.position = Vector2(16, 11)
+	icon.size = Vector2(32, 32)
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(icon)
+	icon.draw.connect(_draw_command_icon.bind(icon, kind))
+
+func _draw_command_icon(icon: Control, kind: String) -> void:
+	var color := COPPER
+	match kind:
+		"buy":
+			icon.draw_polyline(PackedVector2Array([Vector2(4, 23), Vector2(9, 28), Vector2(23, 28), Vector2(28, 23)]), color, 2, true)
+			for x in [10, 16, 22]:
+				icon.draw_line(Vector2(x, 20), Vector2(x, 7 if x == 16 else 10), color, 2, true)
+		"deploy":
+			icon.draw_polyline(PackedVector2Array([Vector2(3, 26), Vector2(3, 15), Vector2(28, 15), Vector2(28, 26)]), color, 2, true)
+			icon.draw_polyline(PackedVector2Array([Vector2(9, 9), Vector2(16, 3), Vector2(23, 9)]), color, 2, true)
+			icon.draw_line(Vector2(16, 5), Vector2(16, 25), color, 2, true)
+		"upgrade":
+			for y in [10, 19]:
+				icon.draw_polyline(PackedVector2Array([Vector2(5, y + 3), Vector2(16, y - 6), Vector2(27, y + 3)]), color, 2, true)
+			icon.draw_line(Vector2(7, 27), Vector2(25, 27), color, 2, true)
+		"register":
+			icon.draw_polyline(PackedVector2Array([Vector2(3, 23), Vector2(3, 7), Vector2(16, 10), Vector2(29, 7), Vector2(29, 23), Vector2(16, 26), Vector2(3, 23)]), color, 2, true)
+			icon.draw_line(Vector2(16, 10), Vector2(16, 26), color, 2, true)
+		"repair":
+			icon.draw_line(Vector2(8, 27), Vector2(22, 8), color, 3, true)
+			icon.draw_polyline(PackedVector2Array([Vector2(13, 4), Vector2(26, 4), Vector2(28, 13), Vector2(18, 11), Vector2(13, 4)]), color, 2, true)
+		"equipment":
+			icon.draw_arc(Vector2(16, 13), 10, 0, PI, 12, color, 2, true)
+			icon.draw_line(Vector2(5, 13), Vector2(27, 13), color, 2, true)
+			icon.draw_line(Vector2(10, 27), Vector2(22, 27), color, 2, true)
+			icon.draw_line(Vector2(16, 23), Vector2(16, 27), color, 2, true)
+		_:
+			icon.draw_arc(Vector2(16, 16), 11, PI, TAU, 12, color, 2, true)
+			icon.draw_polyline(PackedVector2Array([Vector2(5, 15), Vector2(5, 27), Vector2(11, 23), Vector2(16, 27), Vector2(22, 23), Vector2(27, 27), Vector2(27, 15)]), color, 2, true)
+			icon.draw_circle(Vector2(13, 15), 1.5, color)
+			icon.draw_circle(Vector2(20, 15), 1.5, color)
 
 func _update_command_shortcuts() -> void:
 	for entry in COMMANDS.get(command_seat, []):
@@ -252,6 +302,9 @@ func _update_battle() -> void:
 		ward_status.text = tr("P10_WARD_ALIVE") % [ward.name,ceili(ward.hp),ceili(ward.max_hp)] if ward.alive else tr("P10_WARD_DEFEATED") % ward.name
 		ward_status.add_theme_color_override("font_color", PAPER if ward.alive else ALERT)
 	var remaining := ceili(session.remaining)
+	var clock_size := 20 if remaining <= 30 or ended else 26
+	if goal_label.get_theme_font_size("font_size") != clock_size:
+		goal_label.add_theme_font_size_override("font_size", clock_size)
 	goal_label.text = tr("P9_COUNTDOWN") % [remaining / 60, remaining % 60]
 	if session.running and remaining <= 30:
 		goal_label.text = tr("P9_DAWN_NEAR") % remaining

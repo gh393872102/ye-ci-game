@@ -1,0 +1,2313 @@
+{
+  "engine": "4.7.2-stable (official)",
+  "platform": "macOS",
+  "display_driver": "headless",
+  "audio_driver": "CoreAudio",
+  "mix_rate_hz": 48000.0,
+  "scope": "Controlled positions with the live Combat scene, battle steps, paid actions, and Godot output. The Master capture is before its fader. Godot peak meters observe the Master fader.",
+  "checks": [
+    {
+      "ok": true,
+      "check": "Actual bus exists: Master",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Actual bus exists: SFX",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Actual bus exists: Music",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Actual bus exists: Ritual",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 01-start",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX01 mixer signal after battle_start",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -16.8740946501505
+      }
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 06-footsteps",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX06 mixer signal after tide_approaching",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -28.534026892625
+      }
+    },
+    {
+      "ok": true,
+      "check": "Approach stays audible after a complete 3.72-second loop",
+      "observed": {
+        "playback_seconds": 1.03999996185303
+      }
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 06-paused",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Pause stops the continuous footstep signal",
+      "observed": -200.0
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 01-minute",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX01 mixer signal after minute_pressure",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -19.967436255284
+      }
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Watch drum command succeeds",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 01-watch",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX01 mixer signal after roster_watch_drum",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -16.9267224683274
+      }
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 02-door-critical",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX02 mixer signal after door_critical",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -17.3730045773136
+      }
+    },
+    {
+      "ok": true,
+      "check": "Gate damage crosses the configured warning threshold",
+      "observed": 106.5
+    },
+    {
+      "ok": true,
+      "check": "Iron Shoulder activates gate guard",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 12-iron-shoulder",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX12 mixer signal after roster_gate_transferred",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -16.0299696496111
+      }
+    },
+    {
+      "ok": true,
+      "check": "Would-be lethal gate hit is transferred",
+      "observed": {
+        "guard_hp_before": 110.0,
+        "guard_hp_after": 15.0,
+        "gate_remaining": 7.0
+      }
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 08-gate-break",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX02 mixer signal after door_break",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -12.9372084546981
+      }
+    },
+    {
+      "ok": true,
+      "check": "SFX08 mixer signal after hall_gate_break",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -12.9372084546981
+      }
+    },
+    {
+      "ok": true,
+      "check": "The shattered hall gate is traversable",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 08-tide-flood",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX08 mixer signal after tide_through_gate",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -14.8513513663084
+      }
+    },
+    {
+      "ok": true,
+      "check": "Two actual GhostBrain paths move through the gate",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 03-beam-climb",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX03 mixer signal after climb_start",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -20.8426215110187
+      }
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 09-upper-pounce",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX09 mixer signal after upper_entry",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -15.7972529809337
+      }
+    },
+    {
+      "ok": true,
+      "check": "Rope climber reaches the upper room on its real route",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Mountain ghost command breaks the beam",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 03-beam-smash",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX03 mixer signal after roster_beam_smashed",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -16.8402067334234
+      }
+    },
+    {
+      "ok": true,
+      "check": "Beam crossing becomes unusable",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\", \"C05\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R02",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R02",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 04-water-entry",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX04 mixer signal after water_entry",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -21.8410017261443
+      }
+    },
+    {
+      "ok": true,
+      "check": "Water ghost follows authored sluice route",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Water ghost uses its real drag skill",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 04-water-drag",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX04 mixer signal after roster_water_drag",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -12.8311612249471
+      }
+    },
+    {
+      "ok": true,
+      "check": "Drag actually displaces the defender",
+      "observed": 104.0
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Register protection succeeds",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 05-guard-ledger",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX05 mixer signal after roster_register_guard",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -18.9744984382061
+      }
+    },
+    {
+      "ok": true,
+      "check": "Paid reading starts against a valid target",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 05-register-open",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX05 mixer signal after ritual_start",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -18.9747859836819
+      }
+    },
+    {
+      "ok": true,
+      "check": "SFX07 mixer signal after reading",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -18.9747859836819
+      }
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 07-register-brush",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX07 mixer signal after reading",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -21.3308162268727
+      }
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 07-11-register-finish",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX07 mixer signal after channel_complete",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -13.8382724243283
+      }
+    },
+    {
+      "ok": true,
+      "check": "SFX11 mixer signal after purified",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -13.8382724243283
+      }
+    },
+    {
+      "ok": true,
+      "check": "Paid completion sends the ghost off and credits the ledger",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Face-maker applies a face",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 11-new-face",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX11 mixer signal after roster_temporary_face",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -18.8849180160553
+      }
+    },
+    {
+      "ok": true,
+      "check": "Paid reading starts against Unregistered",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 05-naming-window",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX05 mixer signal after roster_naming_window",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -15.3434752284154
+      }
+    },
+    {
+      "ok": true,
+      "check": "The actual Unregistered naming window opens",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: 10-extinguish",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX10 mixer signal after register_extinguishing",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -15.8758281670528
+      }
+    },
+    {
+      "ok": true,
+      "check": "The real recoverable extinguish window opens",
+      "observed": 9.98333333333333
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\", \"C12\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "R01 actual skill succeeds: gong",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: R01-gong",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "gong mixer signal after roster_gong",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -14.787876152837
+      }
+    },
+    {
+      "ok": true,
+      "check": "R01 gong behavior matches the active rule",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "R01 actual skill succeeds: bell",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: R01-bell",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "bell mixer signal after roster_bell_shock",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -14.8883851281157
+      }
+    },
+    {
+      "ok": true,
+      "check": "R01 actual skill backlash: bell",
+      "observed": 0.0
+    },
+    {
+      "ok": true,
+      "check": "R01 actual skill succeeds: cry",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: R01-cry",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "cry mixer signal after roster_mourning_cry",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -14.5360794214262
+      }
+    },
+    {
+      "ok": true,
+      "check": "R01 actual skill backlash: cry",
+      "observed": 0.0
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\", \"C12\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R07",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R07",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "R07 actual skill succeeds: gong",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: R07-gong",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "gong mixer signal after roster_silent_taunt",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -38.8658625509315
+      }
+    },
+    {
+      "ok": true,
+      "check": "R07 gong behavior matches the active rule",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "R07 actual skill succeeds: bell",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: R07-bell",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "bell mixer signal after roster_bell_backlash",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -38.8682446490177
+      }
+    },
+    {
+      "ok": true,
+      "check": "R07 actual skill backlash: bell",
+      "observed": 13.5
+    },
+    {
+      "ok": true,
+      "check": "R07 actual skill succeeds: cry",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: R07-cry",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "cry mixer signal after roster_cry_backlash",
+      "observed": {
+        "cue_seen": true,
+        "peak_dbfs": -38.9135455638562
+      }
+    },
+    {
+      "ok": true,
+      "check": "R07 actual skill backlash: cry",
+      "observed": 4.0
+    },
+    {
+      "ok": true,
+      "check": "R07 reduces actual mixer output: gong",
+      "observed": {
+        "r01_peak_dbfs": -14.787876152837,
+        "r07_peak_dbfs": -38.8658625509315,
+        "peak_attenuation_db": 24.0779863980945,
+        "rms_attenuation_db": 28.7104223583713,
+        "r01_stream_seconds": 0.98,
+        "r07_stream_seconds": 0.3
+      }
+    },
+    {
+      "ok": true,
+      "check": "R07 reduces actual mixer output: bell",
+      "observed": {
+        "r01_peak_dbfs": -14.8883851281157,
+        "r07_peak_dbfs": -38.8682446490177,
+        "peak_attenuation_db": 23.979859520902,
+        "rms_attenuation_db": 31.1350926490454,
+        "r01_stream_seconds": 1.6,
+        "r07_stream_seconds": 0.3
+      }
+    },
+    {
+      "ok": true,
+      "check": "R07 reduces actual mixer output: cry",
+      "observed": {
+        "r01_peak_dbfs": -14.5360794214262,
+        "r07_peak_dbfs": -38.9135455638562,
+        "peak_attenuation_db": 24.37746614243,
+        "rms_attenuation_db": 33.1005999590446,
+        "r01_stream_seconds": 1.22,
+        "r07_stream_seconds": 0.3
+      }
+    },
+    {
+      "ok": true,
+      "check": "Real chunks compose: [\"C01\", \"C03\", \"C04\"]",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Real battle starts: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Both seats use the real command path",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual configured: R01",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Reference gong at full Master",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: settings-master-full",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Settings commits Master at 50%",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Reference gong at half Master",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: settings-master-50",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Master meter follows the real fader",
+      "observed": {
+        "full_dbfs": -14.7878751754761,
+        "half_dbfs": -20.8084754943848
+      }
+    },
+    {
+      "ok": true,
+      "check": "Settings commits Ritual mute",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Muted gong still resolves as a skill",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: settings-ritual-muted",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Ritual mute removes the gong from the Master mix",
+      "observed": -200.0
+    },
+    {
+      "ok": true,
+      "check": "Settings commits SFX mute",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Muted watch drum still resolves as a skill",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Captured PCM WAV: settings-sfx-muted",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "SFX mute removes the watch drum from the Master mix",
+      "observed": -200.0
+    },
+    {
+      "ok": true,
+      "check": "Settings commits reserved Music and Master mute",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Music fader and Master mute reach Godot and persist",
+      "observed": null
+    },
+    {
+      "ok": true,
+      "check": "Isolated settings return to defaults",
+      "observed": null
+    }
+  ],
+  "passed": 149,
+  "failed": 0,
+  "cue_playbacks": [
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX06",
+      "trigger": "tide_approaching",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "tide_steps.wav",
+      "gain_db": -58.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 3.72,
+      "battle_seconds": 0.0166666666666667
+    },
+    {
+      "id": "SFX01",
+      "trigger": "minute_pressure",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -16.0,
+      "pitch": 0.910000026226044,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 60.0066666666667
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX01",
+      "trigger": "roster_watch_drum",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.03999996185303,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX02",
+      "trigger": "door_critical",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "door_split.wav",
+      "gain_db": -14.0,
+      "pitch": 1.12999999523163,
+      "playing": true,
+      "stream_seconds": 0.55,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX12",
+      "trigger": "roster_gate_transferred",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "iron_shoulder.wav",
+      "gain_db": -12.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.8,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX02",
+      "trigger": "door_break",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "door_split.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.55,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX08",
+      "trigger": "hall_gate_break",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "gate_rush.wav",
+      "gain_db": -14.0,
+      "pitch": 0.879999995231628,
+      "playing": true,
+      "stream_seconds": 1.22,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX08",
+      "trigger": "tide_through_gate",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "gate_rush.wav",
+      "gain_db": -11.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 1.22,
+      "battle_seconds": 0.133333333333333
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX03",
+      "trigger": "climb_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "beam_creak.wav",
+      "gain_db": -17.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.78,
+      "battle_seconds": 0.0166666666666667
+    },
+    {
+      "id": "SFX09",
+      "trigger": "upper_entry",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "rope_pounce.wav",
+      "gain_db": -12.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.82,
+      "battle_seconds": 0.15
+    },
+    {
+      "id": "SFX03",
+      "trigger": "roster_beam_smashed",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "beam_creak.wav",
+      "gain_db": -13.0,
+      "pitch": 0.759999990463257,
+      "playing": true,
+      "stream_seconds": 0.78,
+      "battle_seconds": 0.283333333333333
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX04",
+      "trigger": "water_entry",
+      "ritual": "R02",
+      "bus": "SFX",
+      "stream": "water_alley.wav",
+      "gain_db": -18.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.87,
+      "battle_seconds": 2.3
+    },
+    {
+      "id": "SFX04",
+      "trigger": "growth_water_drag",
+      "ritual": "R02",
+      "bus": "SFX",
+      "stream": "water_alley.wav",
+      "gain_db": -15.0,
+      "pitch": 0.910000026226044,
+      "playing": true,
+      "stream_seconds": 0.87,
+      "battle_seconds": 3.79999999999999
+    },
+    {
+      "id": "SFX04",
+      "trigger": "roster_water_drag",
+      "ritual": "R02",
+      "bus": "SFX",
+      "stream": "water_alley.wav",
+      "gain_db": -15.0,
+      "pitch": 0.910000026226044,
+      "playing": true,
+      "stream_seconds": 0.87,
+      "battle_seconds": 3.79999999999999
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX05",
+      "trigger": "roster_register_guard",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "ledger_page.wav",
+      "gain_db": -15.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.68,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX05",
+      "trigger": "ritual_start",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "ledger_page.wav",
+      "gain_db": -15.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.68,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX07",
+      "trigger": "reading",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "register_brush.wav",
+      "gain_db": -17.5,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.32,
+      "battle_seconds": 0.0166666666666667
+    },
+    {
+      "id": "SFX07",
+      "trigger": "reading",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "register_brush.wav",
+      "gain_db": -17.5,
+      "pitch": 1.02499997615814,
+      "playing": true,
+      "stream_seconds": 0.32,
+      "battle_seconds": 0.900000000000001
+    },
+    {
+      "id": "SFX07",
+      "trigger": "channel_complete",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "register_close.wav",
+      "gain_db": -12.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.4,
+      "battle_seconds": 1.01666666666667
+    },
+    {
+      "id": "SFX11",
+      "trigger": "purified",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "send_off.wav",
+      "gain_db": -12.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 1.54,
+      "battle_seconds": 1.01666666666667
+    },
+    {
+      "id": "SFX11",
+      "trigger": "roster_temporary_face",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "send_off.wav",
+      "gain_db": -15.0,
+      "pitch": 1.12000000476837,
+      "playing": true,
+      "stream_seconds": 1.54,
+      "battle_seconds": 1.01666666666667
+    },
+    {
+      "id": "SFX05",
+      "trigger": "ritual_start",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "ledger_page.wav",
+      "gain_db": -15.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.68,
+      "battle_seconds": 1.01666666666667
+    },
+    {
+      "id": "SFX07",
+      "trigger": "channel_complete",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "register_close.wav",
+      "gain_db": -12.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.4,
+      "battle_seconds": 1.01666666666667
+    },
+    {
+      "id": "SFX05",
+      "trigger": "roster_naming_window",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "ledger_page.wav",
+      "gain_db": -15.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.68,
+      "battle_seconds": 1.01666666666667
+    },
+    {
+      "id": "SFX10",
+      "trigger": "register_extinguishing",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "dying_ember.wav",
+      "gain_db": -12.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 1.15,
+      "battle_seconds": 1.03333333333333
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "gong",
+      "trigger": "roster_gong",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "gong.wav",
+      "gain_db": -11.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.98,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "bell",
+      "trigger": "roster_bell_shock",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "bell.wav",
+      "gain_db": -11.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 1.6,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "cry",
+      "trigger": "roster_mourning_cry",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "cry.wav",
+      "gain_db": -11.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 1.22,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "gong",
+      "trigger": "roster_silent_taunt",
+      "ritual": "R07",
+      "bus": "Ritual",
+      "stream": "gong_damped.wav",
+      "gain_db": -35.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.3,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "bell",
+      "trigger": "roster_bell_backlash",
+      "ritual": "R07",
+      "bus": "Ritual",
+      "stream": "bell_damped.wav",
+      "gain_db": -35.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.3,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "cry",
+      "trigger": "roster_cry_backlash",
+      "ritual": "R07",
+      "bus": "Ritual",
+      "stream": "cry_damped.wav",
+      "gain_db": -35.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.3,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX01",
+      "trigger": "battle_start",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "gong",
+      "trigger": "roster_gong",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "gong.wav",
+      "gain_db": -11.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.98,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "gong",
+      "trigger": "roster_gong",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "gong.wav",
+      "gain_db": -11.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.98,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "gong",
+      "trigger": "roster_gong",
+      "ritual": "R01",
+      "bus": "Ritual",
+      "stream": "gong.wav",
+      "gain_db": -11.0,
+      "pitch": 1.0,
+      "playing": true,
+      "stream_seconds": 0.98,
+      "battle_seconds": 0.0
+    },
+    {
+      "id": "SFX01",
+      "trigger": "roster_watch_drum",
+      "ritual": "R01",
+      "bus": "SFX",
+      "stream": "watch_drum.wav",
+      "gain_db": -13.0,
+      "pitch": 1.03999996185303,
+      "playing": true,
+      "stream_seconds": 0.96,
+      "battle_seconds": 0.0
+    }
+  ],
+  "native_mix_captures": {
+    "01-start": {
+      "file": "01-start.wav",
+      "sha256": "bfebff8fc402eb12308665d89ec234028fc87bb84075b92603784dfa72d3f936",
+      "frames": 53248,
+      "peak_dbfs": -16.8740946501505,
+      "rms_dbfs": -33.4003747350286,
+      "master_meter_dbfs": -16.8740940093994,
+      "cues": [
+        {
+          "id": "SFX01",
+          "trigger": "battle_start",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "watch_drum.wav",
+          "gain_db": -13.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.96,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "06-footsteps": {
+      "file": "06-footsteps.wav",
+      "sha256": "c3151bb6ee98ca60a509f9c543c1027839a4eef9778a249aeabd4fb0c2b9b777",
+      "frames": 225280,
+      "peak_dbfs": -28.534026892625,
+      "rms_dbfs": -49.0897226622248,
+      "master_meter_dbfs": -28.5340251922607,
+      "cues": [
+        {
+          "id": "SFX06",
+          "trigger": "tide_approaching",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "tide_steps.wav",
+          "gain_db": -58.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 3.72,
+          "battle_seconds": 0.0166666666666667
+        }
+      ]
+    },
+    "06-paused": {
+      "file": "06-paused.wav",
+      "sha256": "07bf4d296b16029624c2d438db396f7d053699a5be5bf69baa5769cdeb3d503a",
+      "frames": 16896,
+      "peak_dbfs": -200.0,
+      "rms_dbfs": -200.0,
+      "master_meter_dbfs": -199.999984741211,
+      "cues": []
+    },
+    "01-minute": {
+      "file": "01-minute.wav",
+      "sha256": "913fd2b5b837805fbea3d658f23f0d830e73c5634426af1f5b3671448e1336bf",
+      "frames": 53760,
+      "peak_dbfs": -19.967436255284,
+      "rms_dbfs": -35.7820578399448,
+      "master_meter_dbfs": -19.9674339294434,
+      "cues": [
+        {
+          "id": "SFX01",
+          "trigger": "minute_pressure",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "watch_drum.wav",
+          "gain_db": -16.0,
+          "pitch": 0.910000026226044,
+          "playing": true,
+          "stream_seconds": 0.96,
+          "battle_seconds": 60.0066666666667
+        }
+      ]
+    },
+    "01-watch": {
+      "file": "01-watch.wav",
+      "sha256": "62a305fd500b7de2ed4300acab071dd0aac00d992b15a73bdf98c224aa9136b2",
+      "frames": 49152,
+      "peak_dbfs": -16.9267224683274,
+      "rms_dbfs": -33.2232295431393,
+      "master_meter_dbfs": -16.926721572876,
+      "cues": [
+        {
+          "id": "SFX01",
+          "trigger": "roster_watch_drum",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "watch_drum.wav",
+          "gain_db": -13.0,
+          "pitch": 1.03999996185303,
+          "playing": true,
+          "stream_seconds": 0.96,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "02-door-critical": {
+      "file": "02-door-critical.wav",
+      "sha256": "cb69e31fc21399c360414140efd516c245f5dc64434aa081c75c2b138555b3fa",
+      "frames": 34816,
+      "peak_dbfs": -17.3730045773136,
+      "rms_dbfs": -40.653029730988,
+      "master_meter_dbfs": -17.3730049133301,
+      "cues": [
+        {
+          "id": "SFX02",
+          "trigger": "door_critical",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "door_split.wav",
+          "gain_db": -14.0,
+          "pitch": 1.12999999523163,
+          "playing": true,
+          "stream_seconds": 0.55,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "12-iron-shoulder": {
+      "file": "12-iron-shoulder.wav",
+      "sha256": "89fd539a1ae2d18d6135861cac3f60fa5bf71171393c71a6ff29df19af65fdee",
+      "frames": 45568,
+      "peak_dbfs": -16.0299696496111,
+      "rms_dbfs": -35.8471677510539,
+      "master_meter_dbfs": -16.0299682617188,
+      "cues": [
+        {
+          "id": "SFX12",
+          "trigger": "roster_gate_transferred",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "iron_shoulder.wav",
+          "gain_db": -12.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.8,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "08-gate-break": {
+      "file": "08-gate-break.wav",
+      "sha256": "d448d82e0a5f6cd088bec2f61a639356d3e87aedde36ffcc28e1a05b72befad0",
+      "frames": 69632,
+      "peak_dbfs": -12.9372084546981,
+      "rms_dbfs": -35.2387618301838,
+      "master_meter_dbfs": -12.9372081756592,
+      "cues": [
+        {
+          "id": "SFX02",
+          "trigger": "door_break",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "door_split.wav",
+          "gain_db": -13.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.55,
+          "battle_seconds": 0.0
+        },
+        {
+          "id": "SFX08",
+          "trigger": "hall_gate_break",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "gate_rush.wav",
+          "gain_db": -14.0,
+          "pitch": 0.879999995231628,
+          "playing": true,
+          "stream_seconds": 1.22,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "08-tide-flood": {
+      "file": "08-tide-flood.wav",
+      "sha256": "2c1dbfae29b492b6687f80e39842db9342508ddc636e34a7fd0c0d8b1ce03306",
+      "frames": 67584,
+      "peak_dbfs": -14.8513513663084,
+      "rms_dbfs": -33.6316405268089,
+      "master_meter_dbfs": -14.8513507843018,
+      "cues": [
+        {
+          "id": "SFX08",
+          "trigger": "tide_through_gate",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "gate_rush.wav",
+          "gain_db": -11.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 1.22,
+          "battle_seconds": 0.133333333333333
+        }
+      ]
+    },
+    "03-beam-climb": {
+      "file": "03-beam-climb.wav",
+      "sha256": "3ef2fca7ecc8f53893ca79318bd6a7e05b75b6aedf20b76d687ae6b97e6e18f3",
+      "frames": 44032,
+      "peak_dbfs": -20.8426215110187,
+      "rms_dbfs": -39.6134330150508,
+      "master_meter_dbfs": -20.8426208496094,
+      "cues": [
+        {
+          "id": "SFX03",
+          "trigger": "climb_start",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "beam_creak.wav",
+          "gain_db": -17.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.78,
+          "battle_seconds": 0.0166666666666667
+        }
+      ]
+    },
+    "09-upper-pounce": {
+      "file": "09-upper-pounce.wav",
+      "sha256": "f86b2491784e8ac4793b0f8da2e8b99c2e5476edd21dafd085154371262ba109",
+      "frames": 48128,
+      "peak_dbfs": -15.7972529809337,
+      "rms_dbfs": -36.3374720136213,
+      "master_meter_dbfs": -15.797251701355,
+      "cues": [
+        {
+          "id": "SFX09",
+          "trigger": "upper_entry",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "rope_pounce.wav",
+          "gain_db": -12.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.82,
+          "battle_seconds": 0.15
+        }
+      ]
+    },
+    "03-beam-smash": {
+      "file": "03-beam-smash.wav",
+      "sha256": "9a9910e2c509b45d2a8805e93598e3bf4861349198d6785f24e76034e8a2a473",
+      "frames": 48128,
+      "peak_dbfs": -16.8402067334234,
+      "rms_dbfs": -34.8079283619499,
+      "master_meter_dbfs": -16.8402061462402,
+      "cues": [
+        {
+          "id": "SFX03",
+          "trigger": "roster_beam_smashed",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "beam_creak.wav",
+          "gain_db": -13.0,
+          "pitch": 0.759999990463257,
+          "playing": true,
+          "stream_seconds": 0.78,
+          "battle_seconds": 0.283333333333333
+        }
+      ]
+    },
+    "04-water-entry": {
+      "file": "04-water-entry.wav",
+      "sha256": "0064126981c9c1de22894547d24f7a56998fccc2af5b7e8e5feeff9e3cafbdce",
+      "frames": 48640,
+      "peak_dbfs": -21.8410017261443,
+      "rms_dbfs": -41.3455500931676,
+      "master_meter_dbfs": -21.8410015106201,
+      "cues": [
+        {
+          "id": "SFX04",
+          "trigger": "water_entry",
+          "ritual": "R02",
+          "bus": "SFX",
+          "stream": "water_alley.wav",
+          "gain_db": -18.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.87,
+          "battle_seconds": 2.3
+        }
+      ]
+    },
+    "04-water-drag": {
+      "file": "04-water-drag.wav",
+      "sha256": "90438483ed30b576a5b6866b3bd8ac5d4bd94298cef777a74bc675aab93e2892",
+      "frames": 49664,
+      "peak_dbfs": -12.8311612249471,
+      "rms_dbfs": -32.0064692902844,
+      "master_meter_dbfs": -12.8311605453491,
+      "cues": [
+        {
+          "id": "SFX04",
+          "trigger": "growth_water_drag",
+          "ritual": "R02",
+          "bus": "SFX",
+          "stream": "water_alley.wav",
+          "gain_db": -15.0,
+          "pitch": 0.910000026226044,
+          "playing": true,
+          "stream_seconds": 0.87,
+          "battle_seconds": 3.79999999999999
+        },
+        {
+          "id": "SFX04",
+          "trigger": "roster_water_drag",
+          "ritual": "R02",
+          "bus": "SFX",
+          "stream": "water_alley.wav",
+          "gain_db": -15.0,
+          "pitch": 0.910000026226044,
+          "playing": true,
+          "stream_seconds": 0.87,
+          "battle_seconds": 3.79999999999999
+        }
+      ]
+    },
+    "05-guard-ledger": {
+      "file": "05-guard-ledger.wav",
+      "sha256": "189950d441a3e55d79b5a7ec006427f6d50cb9fbc0bc7171f82b1d5f3adfc9fd",
+      "frames": 40960,
+      "peak_dbfs": -18.9744984382061,
+      "rms_dbfs": -36.2276888879571,
+      "master_meter_dbfs": -18.9744968414307,
+      "cues": [
+        {
+          "id": "SFX05",
+          "trigger": "roster_register_guard",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "ledger_page.wav",
+          "gain_db": -15.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.68,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "05-register-open": {
+      "file": "05-register-open.wav",
+      "sha256": "74ff89dc7787ac864d0d0644459e1e85e1635b5a08fda8b46d5f2bfaad86a3f7",
+      "frames": 43520,
+      "peak_dbfs": -18.9747859836819,
+      "rms_dbfs": -35.3992651849244,
+      "master_meter_dbfs": -18.9747848510742,
+      "cues": [
+        {
+          "id": "SFX05",
+          "trigger": "ritual_start",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "ledger_page.wav",
+          "gain_db": -15.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.68,
+          "battle_seconds": 0.0
+        },
+        {
+          "id": "SFX07",
+          "trigger": "reading",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "register_brush.wav",
+          "gain_db": -17.5,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.32,
+          "battle_seconds": 0.0166666666666667
+        }
+      ]
+    },
+    "07-register-brush": {
+      "file": "07-register-brush.wav",
+      "sha256": "db46bc7fb3fa29e57ff4dfb7bfa6689ffb96932bdc4ed5c9679ca26ecbf8087a",
+      "frames": 31232,
+      "peak_dbfs": -21.3308162268727,
+      "rms_dbfs": -40.5487685118918,
+      "master_meter_dbfs": -21.3308162689209,
+      "cues": [
+        {
+          "id": "SFX07",
+          "trigger": "reading",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "register_brush.wav",
+          "gain_db": -17.5,
+          "pitch": 1.02499997615814,
+          "playing": true,
+          "stream_seconds": 0.32,
+          "battle_seconds": 0.900000000000001
+        }
+      ]
+    },
+    "07-11-register-finish": {
+      "file": "07-11-register-finish.wav",
+      "sha256": "76ad1b6d83f3dc8c3e0dbb328448f0656afdea21a56a5ee57874e7de48f65bf0",
+      "frames": 82432,
+      "peak_dbfs": -13.8382724243283,
+      "rms_dbfs": -32.4104212756151,
+      "master_meter_dbfs": -13.8382711410522,
+      "cues": [
+        {
+          "id": "SFX07",
+          "trigger": "channel_complete",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "register_close.wav",
+          "gain_db": -12.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.4,
+          "battle_seconds": 1.01666666666667
+        },
+        {
+          "id": "SFX11",
+          "trigger": "purified",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "send_off.wav",
+          "gain_db": -12.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 1.54,
+          "battle_seconds": 1.01666666666667
+        }
+      ]
+    },
+    "11-new-face": {
+      "file": "11-new-face.wav",
+      "sha256": "50a99f549c61d7dd97d7a9f5a98c612c06f7c0fa5f4744f1f45736d06b8bb781",
+      "frames": 70144,
+      "peak_dbfs": -18.8849180160553,
+      "rms_dbfs": -36.3647366616433,
+      "master_meter_dbfs": -18.884916305542,
+      "cues": [
+        {
+          "id": "SFX11",
+          "trigger": "roster_temporary_face",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "send_off.wav",
+          "gain_db": -15.0,
+          "pitch": 1.12000000476837,
+          "playing": true,
+          "stream_seconds": 1.54,
+          "battle_seconds": 1.01666666666667
+        }
+      ]
+    },
+    "05-naming-window": {
+      "file": "05-naming-window.wav",
+      "sha256": "a54b9b8951dfba4a6ac87adc1b1bfb6d69aae38ae17800239210b5992a6dbde6",
+      "frames": 44544,
+      "peak_dbfs": -15.3434752284154,
+      "rms_dbfs": -33.3235753171206,
+      "master_meter_dbfs": -15.3434743881226,
+      "cues": [
+        {
+          "id": "SFX07",
+          "trigger": "channel_complete",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "register_close.wav",
+          "gain_db": -12.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.4,
+          "battle_seconds": 1.01666666666667
+        },
+        {
+          "id": "SFX05",
+          "trigger": "roster_naming_window",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "ledger_page.wav",
+          "gain_db": -15.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.68,
+          "battle_seconds": 1.01666666666667
+        }
+      ]
+    },
+    "10-extinguish": {
+      "file": "10-extinguish.wav",
+      "sha256": "5828c6b997c60ced20ad46710f8a1df52ba7b0652803a8310d3f96dc46ee4999",
+      "frames": 65024,
+      "peak_dbfs": -15.8758281670528,
+      "rms_dbfs": -29.9626382048796,
+      "master_meter_dbfs": -15.8758277893066,
+      "cues": [
+        {
+          "id": "SFX10",
+          "trigger": "register_extinguishing",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "dying_ember.wav",
+          "gain_db": -12.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 1.15,
+          "battle_seconds": 1.03333333333333
+        }
+      ]
+    },
+    "R01-gong": {
+      "file": "R01-gong.wav",
+      "sha256": "c028f26b2d46da273c894f5cd461803da0bfd1cc9cd5884ff006e3fcf689ec32",
+      "frames": 81920,
+      "peak_dbfs": -14.787876152837,
+      "rms_dbfs": -34.0032213363525,
+      "master_meter_dbfs": -14.7878751754761,
+      "cues": [
+        {
+          "id": "gong",
+          "trigger": "roster_gong",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "gong.wav",
+          "gain_db": -11.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.98,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "R01-bell": {
+      "file": "R01-bell.wav",
+      "sha256": "2f688c3de5dbd76d06ba8a93d7361127fe15396495fcb0e4a932611d6d9dadd6",
+      "frames": 81408,
+      "peak_dbfs": -14.8883851281157,
+      "rms_dbfs": -31.9451258233594,
+      "master_meter_dbfs": -14.8883848190308,
+      "cues": [
+        {
+          "id": "bell",
+          "trigger": "roster_bell_shock",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "bell.wav",
+          "gain_db": -11.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 1.6,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "R01-cry": {
+      "file": "R01-cry.wav",
+      "sha256": "6482b7e5a4c9ed8996aeb14a4baae10b1c55d68b05a7f0f088af17e04106ae84",
+      "frames": 81408,
+      "peak_dbfs": -14.5360794214262,
+      "rms_dbfs": -33.8468473231346,
+      "master_meter_dbfs": -14.536078453064,
+      "cues": [
+        {
+          "id": "cry",
+          "trigger": "roster_mourning_cry",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "cry.wav",
+          "gain_db": -11.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 1.22,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "R07-gong": {
+      "file": "R07-gong.wav",
+      "sha256": "d041ea38c41740db44df2c6815d316467f9d350a794bbb2926c2c9ce7e85ea1c",
+      "frames": 81920,
+      "peak_dbfs": -38.8658625509315,
+      "rms_dbfs": -62.7136436947238,
+      "master_meter_dbfs": -38.8658638000488,
+      "cues": [
+        {
+          "id": "gong",
+          "trigger": "roster_silent_taunt",
+          "ritual": "R07",
+          "bus": "Ritual",
+          "stream": "gong_damped.wav",
+          "gain_db": -35.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.3,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "R07-bell": {
+      "file": "R07-bell.wav",
+      "sha256": "b73d3b2d1364ca3e35264e1280e06491d167348546826a1fb8311771054aca83",
+      "frames": 81920,
+      "peak_dbfs": -38.8682446490177,
+      "rms_dbfs": -63.0802184724047,
+      "master_meter_dbfs": -38.8682441711426,
+      "cues": [
+        {
+          "id": "bell",
+          "trigger": "roster_bell_backlash",
+          "ritual": "R07",
+          "bus": "Ritual",
+          "stream": "bell_damped.wav",
+          "gain_db": -35.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.3,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "R07-cry": {
+      "file": "R07-cry.wav",
+      "sha256": "9685e40295d4df82f3b0dbb5d6008020958b86a326b5572dfaa547a5d8576478",
+      "frames": 81408,
+      "peak_dbfs": -38.9135455638562,
+      "rms_dbfs": -66.9474472821792,
+      "master_meter_dbfs": -38.9135437011719,
+      "cues": [
+        {
+          "id": "cry",
+          "trigger": "roster_cry_backlash",
+          "ritual": "R07",
+          "bus": "Ritual",
+          "stream": "cry_damped.wav",
+          "gain_db": -35.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.3,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "settings-master-full": {
+      "file": "settings-master-full.wav",
+      "sha256": "a592d2f9097933702cdaed1fe5e4816e4ccbc75adf1b78503ddeb81d681ddd61",
+      "frames": 78848,
+      "peak_dbfs": -14.787876152837,
+      "rms_dbfs": -33.8372287181579,
+      "master_meter_dbfs": -14.7878751754761,
+      "cues": [
+        {
+          "id": "gong",
+          "trigger": "roster_gong",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "gong.wav",
+          "gain_db": -11.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.98,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "settings-master-50": {
+      "file": "settings-master-50.wav",
+      "sha256": "a592d2f9097933702cdaed1fe5e4816e4ccbc75adf1b78503ddeb81d681ddd61",
+      "frames": 78848,
+      "peak_dbfs": -14.787876152837,
+      "rms_dbfs": -33.8372287181579,
+      "master_meter_dbfs": -20.8084754943848,
+      "cues": [
+        {
+          "id": "gong",
+          "trigger": "roster_gong",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "gong.wav",
+          "gain_db": -11.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.98,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "settings-ritual-muted": {
+      "file": "settings-ritual-muted.wav",
+      "sha256": "5c60eade85ce8ffeb3767993ce08e19b4f16dfb8e27f97508c63ce195f23617b",
+      "frames": 71168,
+      "peak_dbfs": -200.0,
+      "rms_dbfs": -200.0,
+      "master_meter_dbfs": -199.999984741211,
+      "cues": [
+        {
+          "id": "gong",
+          "trigger": "roster_gong",
+          "ritual": "R01",
+          "bus": "Ritual",
+          "stream": "gong.wav",
+          "gain_db": -11.0,
+          "pitch": 1.0,
+          "playing": true,
+          "stream_seconds": 0.98,
+          "battle_seconds": 0.0
+        }
+      ]
+    },
+    "settings-sfx-muted": {
+      "file": "settings-sfx-muted.wav",
+      "sha256": "74418463edc86fdba40d298a330b60fc5d235053d5d0488e18e0e261ab30722c",
+      "frames": 49152,
+      "peak_dbfs": -200.0,
+      "rms_dbfs": -200.0,
+      "master_meter_dbfs": -199.999984741211,
+      "cues": [
+        {
+          "id": "SFX01",
+          "trigger": "roster_watch_drum",
+          "ritual": "R01",
+          "bus": "SFX",
+          "stream": "watch_drum.wav",
+          "gain_db": -13.0,
+          "pitch": 1.03999996185303,
+          "playing": true,
+          "stream_seconds": 0.96,
+          "battle_seconds": 0.0
+        }
+      ]
+    }
+  },
+  "r07_comparison": {
+    "gong": {
+      "r01_peak_dbfs": -14.787876152837,
+      "r07_peak_dbfs": -38.8658625509315,
+      "peak_attenuation_db": 24.0779863980945,
+      "rms_attenuation_db": 28.7104223583713,
+      "r01_stream_seconds": 0.98,
+      "r07_stream_seconds": 0.3
+    },
+    "bell": {
+      "r01_peak_dbfs": -14.8883851281157,
+      "r07_peak_dbfs": -38.8682446490177,
+      "peak_attenuation_db": 23.979859520902,
+      "rms_attenuation_db": 31.1350926490454,
+      "r01_stream_seconds": 1.6,
+      "r07_stream_seconds": 0.3
+    },
+    "cry": {
+      "r01_peak_dbfs": -14.5360794214262,
+      "r07_peak_dbfs": -38.9135455638562,
+      "peak_attenuation_db": 24.37746614243,
+      "rms_attenuation_db": 33.1005999590446,
+      "r01_stream_seconds": 1.22,
+      "r07_stream_seconds": 0.3
+    }
+  },
+  "run_diagnostics": [],
+  "sample_assets": {
+    "beam_creak.wav": "73c788f3d3c6b3b7ecb9940c216d1e420bdb86b120fb48a0d1dfdf0e4baa9de3",
+    "bell.wav": "a7de1a0632a0a8442d60b7d5c17b7584abf41ed293822bb87d93baa7310bbd90",
+    "bell_damped.wav": "c2333b8eeecda95b89634d5a05a6dbafadf026b31e511f2f1c55733c4c3b6073",
+    "cry.wav": "0a414f0449bd9dbde28eaf9c46a79143542c9a6773a5612eebe171cb89c7c05d",
+    "cry_damped.wav": "377de7794238f2a37ba24254bb6368446140872dec1623c4439f11bbda9e9cd1",
+    "door_split.wav": "8942efd2d08311877206cdb9b81fadcc7d3ef932cb5670d7f0e8c78901bfa94b",
+    "dying_ember.wav": "82c6cf014e7db908fb780e68408ada49499519d5c931f87b9036f806d76f7b80",
+    "gate_rush.wav": "45f49712fc34acd84f366151902447e4d7cf81e291bc9ec85f5f6d8ce1eb01c0",
+    "gong.wav": "97de0d1b9d2269ff5752c0424128dd09939778d7d4721d31130e3dddb430a151",
+    "gong_damped.wav": "ed472949feec7dd52f197a710ec1e61c147ce74e288c90e2cd35d680c3640932",
+    "iron_shoulder.wav": "c0f94c346cc40710af514f49c8fee8b63b737534ee6e4788b98065538305c78e",
+    "ledger_page.wav": "435bf9916b9eb987073844313151d601b93d9d6bbca597608c4493fc7c98ad81",
+    "register_brush.wav": "7acf38ac7e5fea3024801524e568bef738339cf5df4860b37632cb4ac896f823",
+    "register_close.wav": "65c88302ef86fd110c0781f85f4f6f1bff8ccb406a7e0699332b660b3f149a62",
+    "rope_pounce.wav": "ea5ef60b8db1fc5985e7fddf0bcd6cd93a6a3d4b8e3da1307242789d275ae913",
+    "send_off.wav": "d8f436df863fcf4417868d2a258c49213e522f960fb6382278b0af846ea9dd3d",
+    "tide_steps.wav": "d88ae994fc592b13c0b853e3ac00d6f309988d94542f5378708f943f9206b0a1",
+    "watch_drum.wav": "46beb659a404f1fcc8699a79aff0c69670d3378e86893af23e49199522e434bc",
+    "water_alley.wav": "78308eaa34aa586000bcb72f25c0a9e93c6d37fba1eac2c04936b408a96b857d"
+  },
+  "implementation": {
+    "src/audio/BattleAudio.gd": "8a1c00f8634629a5ff1552c9eb5e10f312c401b0d671511c2f1ee445729d0cb7",
+    "src/combat/Combat.gd": "82ecb522944ba7a20d3d0d9c99fc95e863e856e90122d778be62b3cd49c131d7",
+    "src/combat/CombatSimulation.gd": "7ebdf728b99f8b2079a8f9a49bb06edf2916eba060d4e0144f1a0ef161408205",
+    "src/combat/BattleSession.gd": "1272e4efa8cf25a1b830993d9a1a265c857af0b96be45a12b381e44a732be6b2",
+    "default_bus_layout.tres": "d54e8be39db2a73865b752843279c5ff4eb9865f84f82e451cdf7c93508bafa5",
+    "src/autoload/Settings.gd": "3db439326b055ad353f9a52cdaf7f0355e57ab81ddea07ffbfe0b16a2321a22b"
+  },
+  "listening_excerpts": {
+    "p11-foley-showcase.wav": {
+      "sha256": "91e4359f2a182bdd0c03c2ae6fc045b3a8b4979ef2e9877c333d9279d228beda",
+      "editing": "Native stereo PCM excerpts concatenated at measured gain, 0.24 seconds of silence between excerpts.",
+      "chapters": [
+        {
+          "label": "SFX01",
+          "source_capture": "01-start",
+          "start_seconds": 0.0,
+          "duration_seconds": 1.1
+        },
+        {
+          "label": "SFX02",
+          "source_capture": "02-door-critical",
+          "start_seconds": 1.34,
+          "duration_seconds": 0.72
+        },
+        {
+          "label": "SFX03",
+          "source_capture": "03-beam-climb",
+          "start_seconds": 2.3,
+          "duration_seconds": 0.91
+        },
+        {
+          "label": "SFX04",
+          "source_capture": "04-water-entry",
+          "start_seconds": 3.45,
+          "duration_seconds": 0.95
+        },
+        {
+          "label": "SFX05",
+          "source_capture": "05-guard-ledger",
+          "start_seconds": 4.64,
+          "duration_seconds": 0.85
+        },
+        {
+          "label": "SFX06",
+          "source_capture": "06-footsteps",
+          "start_seconds": 5.73,
+          "duration_seconds": 2.25
+        },
+        {
+          "label": "SFX07",
+          "source_capture": "07-register-brush",
+          "start_seconds": 8.22,
+          "duration_seconds": 0.62
+        },
+        {
+          "label": "SFX08",
+          "source_capture": "08-tide-flood",
+          "start_seconds": 9.08,
+          "duration_seconds": 1.4
+        },
+        {
+          "label": "SFX09",
+          "source_capture": "09-upper-pounce",
+          "start_seconds": 10.72,
+          "duration_seconds": 1.0
+        },
+        {
+          "label": "SFX10",
+          "source_capture": "10-extinguish",
+          "start_seconds": 11.96,
+          "duration_seconds": 1.35
+        },
+        {
+          "label": "SFX11",
+          "source_capture": "11-new-face",
+          "start_seconds": 13.55,
+          "duration_seconds": 1.46
+        },
+        {
+          "label": "SFX12",
+          "source_capture": "12-iron-shoulder",
+          "start_seconds": 15.25,
+          "duration_seconds": 0.94
+        }
+      ]
+    },
+    "p11-r07-comparison.wav": {
+      "sha256": "e17f38937c4e5398d0b228db09f03d4de209981372f8ac670731f14cca22d4e5",
+      "editing": "Native stereo PCM excerpts concatenated at measured gain, 0.24 seconds of silence between excerpts.",
+      "chapters": [
+        {
+          "label": "R01 gong",
+          "source_capture": "R01-gong",
+          "start_seconds": 0.0,
+          "duration_seconds": 1.7
+        },
+        {
+          "label": "R07 gong",
+          "source_capture": "R07-gong",
+          "start_seconds": 1.94,
+          "duration_seconds": 1.7
+        },
+        {
+          "label": "R01 bell",
+          "source_capture": "R01-bell",
+          "start_seconds": 3.88,
+          "duration_seconds": 1.696
+        },
+        {
+          "label": "R07 bell",
+          "source_capture": "R07-bell",
+          "start_seconds": 5.816,
+          "duration_seconds": 1.7
+        },
+        {
+          "label": "R01 cry",
+          "source_capture": "R01-cry",
+          "start_seconds": 7.756,
+          "duration_seconds": 1.696
+        },
+        {
+          "label": "R07 cry",
+          "source_capture": "R07-cry",
+          "start_seconds": 9.692,
+          "duration_seconds": 1.696
+        }
+      ]
+    }
+  }
+}

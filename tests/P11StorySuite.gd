@@ -59,7 +59,7 @@ func _host(filename: String) -> void:
 
 func _restore_path() -> void:
 	_host("restore")
-	host.start_p10_night("shouxiang", "example", "P11-return-to-rite-1", "R01", [])
+	host.start_p10_night("shouxiang", "example", "旧页初燃", "R01", [])
 	if not check(host.run.story_enabled() and _act() == "P11_ACT_REKINDLE", "Restoration starts in the actual opening act"):
 		return
 	check(not host.run.choose_self_listing().ok, "Self-listing is rejected away from the designated rite and final node")
@@ -69,7 +69,7 @@ func _restore_path() -> void:
 	var first: Dictionary = host.run.summary().story
 	check(first.ending.is_empty() and first.flags.exorcise_count == 4 and first.flags.register_held == 5,
 		"Four actual exorcisms and five held registers are saved without granting restoration early", first)
-	host.start_p10_night("shouxiang", "example", "P11-return-to-rite-2", "R01", [])
+	host.start_p10_night("shouxiang", "example", "门槛余声", "R01", [])
 	check(host.run.state.story.flags.exorcise_count == 4 and not host.run.state.story.flags.finished_seize_night, "The next hosted night reads its exact prior tally and needs no competing seat")
 	if not _walk(func(node): return _restore_behavior(node), "n05"):
 		return
@@ -86,6 +86,7 @@ func _restore_path() -> void:
 		"Eight paid successful readings across two nights and one paid execution qualify for E01", result.story)
 	check(result.story.flags.renown >= 8 and result.story.flags.renown_peak >= 10 and result.story.flags.register_held == 10,
 		"The actual night preserves final and peak names and held-register history", result.story.flags)
+	check(_display_text("EndingCause") == str(data.tr("P11R_RESTORE_CAUSE")), "The restoration recap explains its natural-language cause")
 	observations.E01 = _route_evidence(result)
 	await _shot("p11-ending-e01")
 	await _codex_epilogue("ghosts", "G01", "P11_EPILOGUE_G01", "p11-epilogue-e01")
@@ -134,7 +135,7 @@ func _restore_behavior(node: String) -> bool:
 
 func _release_path() -> void:
 	_host("release")
-	host.start_p10_night("duoming", "example", "P11-listened-from-the-tide", "R01", [])
+	host.start_p10_night("duoming", "example", "潮后闻钟", "R01", [])
 	if not _walk():
 		return
 	var tide: Dictionary = host.run.summary()
@@ -142,7 +143,7 @@ func _release_path() -> void:
 		"Only a legal terminal result records the other seat, with no Keeper ending", tide.story)
 	observations.seize = _route_evidence(tide)
 	await _shot("p11-seize-seat")
-	host.start_p10_night("shouxiang", "example", "P11-let-the-tide-go", "R01", [])
+	host.start_p10_night("shouxiang", "example", "江祠灯影", "R01", [])
 	check(host.run.state.story.flags.finished_seize_night, "The actual played Seize Name result crosses into the next Keeper night")
 	if not _walk(func(node): return _release_behavior(node), "n10"):
 		return
@@ -151,6 +152,7 @@ func _release_path() -> void:
 	var result: Dictionary = host.run.summary()
 	check(result.story.ending == "E02" and result.story.flags.release_or_recruit_count >= 1 and result.story.flags.renown >= 4 and result.story.flags.renown <= 7,
 		"A real lamp reading, unfinished tide, past Seize Name night and moderate settled names qualify for E02", result.story)
+	check(_display_text("EndingCause") == str(data.tr("P11R_RELEASE_CAUSE")) % result.names, "The release recap explains the other seat, spared names and real settled renown")
 	observations.E02 = _route_evidence(result)
 	await _shot("p11-ending-e02")
 	await _codex_epilogue("ghosts", "G11", "P11_EPILOGUE_G11", "p11-epilogue-e02")
@@ -164,7 +166,7 @@ func _release_behavior(node: String) -> bool:
 
 func _self_path() -> void:
 	_host("self")
-	host.start_p10_night("shouxiang", "fierce", "P11-name-in-ink", "R08", [])
+	host.start_p10_night("shouxiang", "fierce", "晚墨入册", "R08", [])
 	if not _walk(Callable(), "n10"):
 		return
 	var option: Dictionary = host.run.self_listing_choice()
@@ -192,12 +194,37 @@ func _self_path() -> void:
 	host.combat.get_node("BattleCamera").set_left(7680.0)
 	host.combat.get_node("Decisions").select_unit(wan)
 	await _shot("p11-self-listing-battle")
+	var initial_remaining: float = session.remaining
+	var planned: float = session.rules.duration
+	var battle_hud: Control = host.combat.get_node("CanvasLayer/HUD")
+	var initial_display: String = battle_hud.goal_label.text
+	# Clock-control fixture only. Put the real tide behind the gates to hold it away
+	# from the final register. Advance every real simulation step of the final profile.
+	sim.unit_spawned.connect(_contain_tide)
+	for target in sim.targets:
+		_contain_tide(target)
+	_ticks(int(ceil(initial_remaining / STEP)) + 4)
+	var combat_duration: float = sim.simulation_time
+	var final_reason: String = str(session.result.get("reason", ""))
+	check(initial_remaining == planned and absf(combat_duration - planned) <= STEP + 0.001 and final_reason == "P4_END_HELD_TO_DAYBREAK",
+		"The unshortened final clock ends via the real daybreak rule", {"planned":planned, "actual":combat_duration, "opening_display":initial_display, "reason":final_reason})
+	host._process(0)
 	if not _walk():
 		return
 	var result: Dictionary = host.run.summary()
 	check(result.story.ending == "E03" and result.story.self_listing == listed,
 		"The self-listing ending is set only after the real final win and reward", result.story)
 	observations.E03 = _route_evidence(result)
+	var totaled := 0.0
+	for battle in result.battles:
+		totaled += float(battle.elapsed)
+	var tenths := roundi(totaled * 10.0)
+	var actual_display := _display_text("BattleDuration")
+	check(is_equal_approx(totaled, float(result.elapsed)) and is_equal_approx(float(result.battles[-1].elapsed), combat_duration)
+		and actual_display == str(data.tr("P11R_DURATION")) % [floori(float(tenths) / 600.0), float(tenths % 600) / 10.0],
+		"Finale elapsed time and the displayed total match the summed live battle records")
+	observations.E03_timing = {"opening_hud":initial_display, "final_profile_seconds":planned, "final_elapsed":combat_duration,
+		"sum_of_battle_records":totaled, "display":actual_display, "scope":"Earlier route nodes use shortened timers; final profile runs without timer reduction. Enemies are held outside to measure the clock."}
 	await _shot("p11-ending-e03")
 	await _codex_epilogue("humans", "H01", "P11_EPILOGUE_H01", "p11-epilogue-e03")
 	await _codex_epilogue("customs", "ritual_lieming", "P11_EPILOGUE_R08", "p11-epilogue-rite")
@@ -244,8 +271,9 @@ func _loss_path() -> void:
 	check(host.run.state.phase == "ended" and host.run.state.story.ending.is_empty(), "A failed terminal state records the loss while withholding victory endings")
 	host.open_codex()
 	await _activate(host.codex_panel.buttons.failure_log)
-	check(str(host.codex_panel.failure_text.text).contains("抹名吏") and str(host.codex_panel.failure_text.text).contains(seed_text),
-		"The live codex failure window names the actual eraser and the night seed")
+	var failure_copy: String = host.codex_panel.failure_text.text
+	check(failure_copy.contains("抹名吏") and failure_copy.contains(str(data.tr("P4_END_REGISTER_EXTINGUISHED"))) and not failure_copy.contains(seed_text),
+		"The live codex failure window shows the eraser and reason without exposing the night seed")
 	var records: Array = host.run.codex.failures.filter(func(entry): return str(entry.seed).begins_with(seed_text))
 	check(records.size() == 1, "The same failure cause is recorded once across battle and night settlement", records)
 	observations.loss = {"seed":seed_text, "failure_records":host.run.codex.failures, "flags":host.run.state.story.flags}
@@ -368,6 +396,15 @@ func _place_ghost(id: String, near: Node2D) -> Node2D:
 	actor.attacks_enabled = false
 	return actor
 
+func _contain_tide(actor: Node2D) -> void:
+	if actor.side == "yegui":
+		actor.motion_enabled = false
+		actor.attacks_enabled = false
+		var lane: int = actor.lane_index
+		var height: float = sim.world.floor_y(0) + float(sim.tide.config.lane_offsets[lane])
+		actor.position = Vector2(8, height)
+		actor.floor_id = 0
+
 func _ticks(count: int) -> void:
 	for _tick in count:
 		if not session.running:
@@ -397,8 +434,16 @@ func _codex_epilogue(book: String, id: String, key: String, filename: String) ->
 	host.open_codex()
 	host.codex_panel.show_book(book)
 	host.codex_panel.select_entry(id)
-	check(host.run.codex.entry(id).stage == 3 and str(host.codex_panel.details.text).contains(TranslationServer.translate(key)),
-		"The live codex panel exposes the completed epilogue for " + id)
+	var codex: CanvasLayer = host.codex_panel
+	await _activate(codex.buttons.stage_2)
+	check(not str(codex.details.text).contains(TranslationServer.translate(key)), "The complete record and named passage have separate tabs for " + id)
+	if id == "H01":
+		await _shot("20-reference-codex-wan")
+	await _activate(codex.buttons.stage_3)
+	var visible_passage := str(codex.details.text)
+	check(host.run.codex.entry(id).stage == 3 and visible_passage.begins_with("%s\n\n%s" % [data.tr("P9_CODEX_NAMED"), TranslationServer.translate(key)])
+		and int(codex.details.get_parent().get_parent().scroll_vertical) == 0,
+		"The actual named tab shows the first lines of the complete passage for " + id)
 	await _shot(filename)
 	host.codex_panel.close()
 
@@ -408,6 +453,10 @@ func _route_evidence(summary: Dictionary) -> Dictionary:
 
 func _act() -> String:
 	return str(host.run.story_act().get("title_key", ""))
+
+func _display_text(node_name: String) -> String:
+	var label: Label = host.panel.find_child(node_name, true, false) as Label
+	return "" if label == null else label.text
 
 func _activate(button: Button) -> void:
 	button.grab_focus()

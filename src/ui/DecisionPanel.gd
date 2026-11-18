@@ -1,13 +1,19 @@
 extends CanvasLayer
 ## Player decisions are input only. BattleSession owns validation, payment and settlement.
 const Card = preload("res://src/ui/UnitCardContent.gd")
+const Ink = preload("res://src/ui/LedgerInk.gd")
+const Appearance = preload("res://src/units/UnitAppearance.gd")
 const PAPER := Color("e6dfcc")
 const MUTED := Color("aab5ac")
 const COPPER := Color("c7b78e")
 const ALERT := Color("f1ad91")
-const PURCHASE_PAGE_SIZE := 6
+const PURCHASE_PAGE_SIZE := 3
 const DRAG_THRESHOLD := 12.0
 const ACTION_RECT := Rect2(558, 712, 1338, 273)
+const PURCHASE_RECT := Rect2(1225, 568, 668, 418)
+const DEPLOY_RECT := Rect2(1179, 720, 714, 268)
+const UPGRADE_RECT := Rect2(83, 152, 594, 487)
+const PORTRAIT_RECT := Rect2(83, 141, 1036, 784)
 const RITUAL_INTERRUPTS := ["P4_RITUAL_INTERRUPTED_DAMAGE", "P4_RITUAL_INTERRUPTED_MOVEMENT",
 	"CHANNEL_RETREAT", "CHANNEL_CANCELLED", "CHANNEL_BROKEN"]
 const SHOU_COMMANDS := [
@@ -40,6 +46,8 @@ var purchase_page := 0
 var offer_status: Dictionary = {}
 var target_hint: Label
 var warning_plate: PanelContainer
+var register_warning_plate: PanelContainer
+var register_warning: Label
 var activity_plate: PanelContainer
 var channel_progress: ProgressBar
 var active_channels: Array[RefCounted] = []
@@ -65,6 +73,20 @@ var skill_target_ids: Array[String] = []
 var skill_target_picker: OptionButton
 var skill_mode_picker: OptionButton
 
+class PurchaseFigure extends Node2D:
+	var unit_id := ""
+	var side := "xianghuo"
+	var height_px := 80.0
+	var hit_flash := 0.0
+	var current_speed := 0.0
+	var attack_left := 0.0
+	var ai_state := "Idle"
+	var dead := false
+	var simulation: Node2D
+	var roster := {}
+	func _draw() -> void:
+		Appearance.draw(self)
+
 func _ready() -> void:
 	layer = 8
 	host = Control.new()
@@ -82,7 +104,7 @@ func _ready() -> void:
 	content.add_theme_constant_override("separation", 8)
 	panel_scroll.add_child(content)
 	panel.hide()
-	unit_panel = _panel(host, Rect2(24, 198, 804, 482))
+	unit_panel = _panel(host, PORTRAIT_RECT)
 	unit_panel.hide()
 	feedback = _label(host, "", 17)
 	feedback.position = Vector2(558, 1050)
@@ -90,22 +112,30 @@ func _ready() -> void:
 	feedback.clip_text = true
 	feedback.add_theme_color_override("font_color", COPPER)
 
-	warning_plate = _notice_plate(Rect2(24, 72, 454, 30), Color("814b3e"))
-	warnings = _label(warning_plate, "", 18)
-	warnings.add_theme_color_override("font_color", ALERT)
-	warnings.add_theme_constant_override("line_spacing", 2)
+	warning_plate = _notice_plate(Rect2(24, 75, 376, 40), Color("a57b51"), Color("dbc8aa"))
+	warnings = _label(warning_plate, "", 23)
+	warnings.add_theme_font_override("font", Ink.serif_font())
+	warnings.add_theme_color_override("font_color", Color("281c19"))
 	warning_plate.hide()
+
+	register_warning_plate = _notice_plate(Rect2(1502, 75, 392, 40), Color("a76a4d"), Color("642820"))
+	register_warning = _label(register_warning_plate, "", 24)
+	register_warning.add_theme_font_override("font", Ink.serif_font())
+	register_warning.add_theme_color_override("font_color", Ink.PAPER)
+	register_warning_plate.hide()
 
 	activity_plate = _notice_plate(Rect2(1516, 72, 380, 30), Color("897750"))
 	var activity_column := VBoxContainer.new()
 	activity_column.add_theme_constant_override("separation", 6)
 	activity_plate.add_child(activity_column)
-	activity = _label(activity_column, "", 18)
+	activity = _label(activity_column, "", 21)
 	activity.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	channel_progress = ProgressBar.new()
 	channel_progress.max_value = 1.0
 	channel_progress.show_percentage = false
-	channel_progress.custom_minimum_size.y = 6
+	channel_progress.custom_minimum_size.y = 10
+	channel_progress.add_theme_stylebox_override("background", Ink.skin(Color("1c1418"), Ink.RULE))
+	channel_progress.add_theme_stylebox_override("fill", Ink.skin(Color("c67c51"), Ink.COPPER))
 	channel_progress.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	activity_column.add_child(channel_progress)
 	activity_plate.hide()
@@ -141,25 +171,21 @@ func _panel(parent: Node, rect: Rect2) -> PanelContainer:
 	var result := PanelContainer.new()
 	result.position = rect.position
 	result.size = rect.size
-	var skin := StyleBoxFlat.new()
-	skin.bg_color = Color("121a1cf9")
-	skin.border_color = Color("42534d")
-	skin.set_border_width_all(1)
-	skin.set_content_margin_all(14)
+	var skin := Ink.skin(Color("161216f9"), Color("846449"), 2)
+	skin.set_content_margin_all(16)
 	result.add_theme_stylebox_override("panel", skin)
 	parent.add_child(result)
+	if rect.size.x >= 520 and rect.size.y >= 200:
+		result.draw.connect(func(): Ink.draw_binding(result, result.size, Color("836247")))
 	return result
 
-func _notice_plate(rect: Rect2, rule_color: Color) -> PanelContainer:
+func _notice_plate(rect: Rect2, rule_color: Color, paper := Color("1c1517f6")) -> PanelContainer:
 	var plate := _panel(host, rect)
 	plate.custom_minimum_size.x = rect.size.x
 	plate.z_index = 4
-	var skin := StyleBoxFlat.new()
-	skin.bg_color = Color("101719ee")
-	skin.border_color = rule_color
-	skin.border_width_left = 4
-	skin.set_content_margin_all(8)
-	skin.content_margin_left = 12
+	var skin := Ink.skin(paper, rule_color, 2)
+	skin.set_content_margin_all(11)
+	skin.content_margin_left = 17
 	plate.add_theme_stylebox_override("panel", skin)
 	plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return plate
@@ -194,6 +220,7 @@ func _button(parent: Node, id: String, text: String, callback: Callable, allowed
 	button.disabled = not allowed
 	button.tooltip_text = tr(reason) if not reason.is_empty() else text
 	button.pressed.connect(callback)
+	Ink.button_ink(button, false)
 	parent.add_child(button)
 	buttons[id] = button
 	return button
@@ -220,8 +247,13 @@ func _clear_content(title: String) -> void:
 	panel_scroll.scroll_vertical = 0
 	offer_status.clear()
 	target_hint = null
+	var rect: Rect2 = {"purchase":PURCHASE_RECT, "deploy":DEPLOY_RECT, "upgrade":UPGRADE_RECT}.get(current_panel, ACTION_RECT)
+	panel.position = rect.position
+	panel.size = rect.size
 	if not title.is_empty():
-		_label(content, title, 24).add_theme_color_override("font_color", COPPER)
+		var heading := _label(content, title, 32)
+		heading.add_theme_color_override("font_color", Ink.COPPER)
+		heading.add_theme_font_override("font", Ink.serif_font())
 	panel.show()
 	Clock.set_paused(true)
 
@@ -229,9 +261,10 @@ func _panel_header(title: String) -> HBoxContainer:
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 10)
 	content.add_child(row)
-	var heading := _label(row, title, 24)
+	var heading := _label(row, title, 29)
 	heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	heading.add_theme_color_override("font_color", COPPER)
+	heading.add_theme_color_override("font_color", Ink.COPPER)
+	heading.add_theme_font_override("font", Ink.serif_font())
 	return row
 
 func _clear_selected() -> void:
@@ -327,6 +360,13 @@ func open_purchase() -> void:
 func _build_purchase() -> void:
 	_clear_content("")
 	var offers: Array = _query("purchase_options")
+	offers.sort_custom(func(a, b):
+		var first := str(a.id)
+		var second := str(b.id)
+		if first.begins_with("T") != second.begins_with("T"):
+			return first.begins_with("T")
+		return first < second
+	)
 	var pages := maxi(1, ceili(offers.size() / float(PURCHASE_PAGE_SIZE)))
 	purchase_page = clampi(purchase_page, 0, pages - 1)
 	var nav := _panel_header(tr("P4_BUY_TITLE"))
@@ -334,7 +374,9 @@ func _build_purchase() -> void:
 	_label(nav, tr("P9_PAGE_COUNT") % [purchase_page + 1, pages], 17)
 	_button(nav, "purchase_next", tr("P9_PAGE_NEXT"), _purchase_page.bind(1), purchase_page + 1 < pages)
 	_button(nav, "close", tr("P9_BATTLE_CLOSE"), close_panel)
-	_label(content, tr("P9_PURCHASE_HELP"), 17).add_theme_color_override("font_color", MUTED)
+	var hint := _label(content, tr("P9_PURCHASE_HELP"), 16)
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hint.add_theme_color_override("font_color", Ink.MUTED)
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
 	content.add_child(row)
@@ -349,21 +391,34 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	var profile: Dictionary = Data.combat_profiles.get(id, {})
 	var plate := _panel(row, Rect2())
 	plate.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	plate.custom_minimum_size.x = 186
+	plate.custom_minimum_size.x = 195
 	var skin: StyleBoxFlat = plate.get_theme_stylebox("panel").duplicate()
-	skin.bg_color = Color("182223")
-	skin.set_content_margin_all(6)
+	skin.bg_color = Color("21191a")
+	skin.set_content_margin_all(8)
 	plate.add_theme_stylebox_override("panel", skin)
 	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 1)
+	column.add_theme_constant_override("separation", 5)
 	plate.add_child(column)
-	_label(column, data.get("姓名", id), 22)
-	var stats := _label(column, tr("P9_PURCHASE_STATS") % [data.get("生命", "?"), data.get("攻击", "?"), data.get("防御", "?"), float(profile.get("range_body", 1))], 17)
-	stats.add_theme_color_override("font_color", MUTED)
-	stats.add_theme_constant_override("line_spacing", -3)
+	var name := _label(column, Card.format(id).title, 25)
+	name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name.add_theme_font_override("font", Ink.serif_font())
+	var illustration := ColorRect.new()
+	illustration.custom_minimum_size.y = 126
+	illustration.color = Color("130f13")
+	illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	column.add_child(illustration)
+	var figure := PurchaseFigure.new()
+	figure.unit_id = id
+	figure.height_px = 110.0
+	illustration.add_child(figure)
+	illustration.resized.connect(func(): figure.position = Vector2(illustration.size.x / 2, 119))
+	var stats := _label(column, tr("P9_PURCHASE_STATS") % [data.get("生命", "?"), data.get("攻击", "?"), data.get("防御", "?"), float(profile.get("range_body", 1))], 16)
+	stats.add_theme_color_override("font_color", Ink.PAPER)
+	stats.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var caption := _label(column, tr("P4_AVAILABLE") if offer.allowed else tr(offer.reason), 15)
 	caption.clip_text = true
 	caption.add_theme_color_override("font_color", COPPER if offer.allowed else MUTED)
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	offer_status[id] = caption
 	var button := _button(column, "buy_" + id, tr("P9_PAY_INCENSE") % offer.cost, _purchase.bind(id), offer.allowed, offer.reason)
 	button.add_theme_font_size_override("font_size", 18)
@@ -385,14 +440,13 @@ func _build_deploy() -> void:
 	_clear_content("")
 	var header := _panel_header(tr("P4_DEPLOY_TITLE") % Data.get_unit(session.pending_purchase).get("姓名", ""))
 	_button(header, "close", tr("P9_BATTLE_CLOSE"), _cancel_purchase)
-	var notes := HBoxContainer.new()
-	notes.add_theme_constant_override("separation", 28)
-	content.add_child(notes)
-	_label(notes, tr("P9_DEPLOY_HELP"), 17).add_theme_color_override("font_color", MUTED)
-	target_hint = _label(notes, tr("P9_DEPLOY_NO_POST") if legal_post_ids.is_empty() else "", 17)
+	var hint := _label(content, tr("P9_DEPLOY_HELP"), 17)
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hint.add_theme_color_override("font_color", MUTED)
+	target_hint = _label(content, tr("P9_DEPLOY_NO_POST") if legal_post_ids.is_empty() else "", 17)
 	target_hint.add_theme_color_override("font_color", COPPER)
 	var row := GridContainer.new()
-	row.columns = 4
+	row.columns = 2
 	row.add_theme_constant_override("h_separation", 10)
 	row.add_theme_constant_override("v_separation", 8)
 	content.add_child(row)
@@ -405,7 +459,8 @@ func _build_deploy() -> void:
 		if not reason.is_empty():
 			text += " · " + tr(reason)
 		var button := _button(row, "post_" + id, text, select_post.bind(id), reason.is_empty(), reason)
-		button.custom_minimum_size.x = 306
+		button.custom_minimum_size.x = 325
+		button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		button.add_theme_font_size_override("font_size", 17)
 		button.focus_entered.connect(_focus_post.bind(id))
 	if not _focus_first(row):
@@ -459,14 +514,14 @@ func _build_card() -> void:
 	column.add_theme_constant_override("separation", 9)
 	unit_panel.add_child(column)
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 16)
+	row.add_theme_constant_override("separation", 26)
 	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	column.add_child(row)
 	var image_column := VBoxContainer.new()
-	image_column.custom_minimum_size.x = 229
+	image_column.custom_minimum_size.x = 452
 	row.add_child(image_column)
 	portrait = TextureRect.new()
-	portrait.custom_minimum_size = Vector2(229, 342)
+	portrait.custom_minimum_size = Vector2(452, 655)
 	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	portrait.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
@@ -487,20 +542,22 @@ func _build_card() -> void:
 	else:
 		image_column.hide()
 	image_column.add_child(portrait)
-	portrait_note = _label(image_column, tr("P4_PORTRAIT_NOTE"), 14)
+	Ink.binding(portrait, Rect2(1, 1, 450, 653), Color("876349"))
+	portrait_note = _label(image_column, tr("P4_PORTRAIT_NOTE"), 16)
 	portrait_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	portrait_note.add_theme_color_override("font_color", MUTED)
 
 	var right := VBoxContainer.new()
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	right.add_theme_constant_override("separation", 4)
+	right.add_theme_constant_override("separation", 9)
 	row.add_child(right)
 	details = RichTextLabel.new()
 	details.bbcode_enabled = true
 	details.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	details.add_theme_font_size_override("normal_font_size", 18)
+	details.add_theme_font_size_override("normal_font_size", 21)
+	details.add_theme_font_override("bold_font", Ink.serif_font())
 	details.add_theme_color_override("default_color", PAPER)
-	details.add_theme_constant_override("line_separation", 1)
+	details.add_theme_constant_override("line_separation", 4)
 	scroll_style(details.get_v_scroll_bar())
 	right.add_child(details)
 	_refresh_card()
@@ -528,12 +585,11 @@ func _refresh_card() -> void:
 	if not is_instance_valid(selected) or not is_instance_valid(details):
 		return
 	var info := Card.format(selected.unit_id, selected)
-	var body: String = "\n".join([
-		"[font_size=31][color=#c7b78e]%s[/color][/font_size]" % info.title,
-		"[color=#aab5ac]%s[/color]" % info.affiliation,
-		"[font_size=20]%s[/font_size]" % info.stats,
+	var body: String = "\n\n".join([
+		"[font_size=53][color=#e7c496][b]%s[/b][/color][/font_size]\n[color=#c8b596]%s　·　%s[/color]" % [info.title, info.affiliation, tr("P11R_CARD_FOLIO") % selected.unit_id],
+		"[font_size=21][color=#e3c39e]%s[/color][/font_size]" % info.stats,
 		info.skill, info.trait, info.slots,
-		"[color=#aab5ac]%s\n%s[/color]" % [info.tags, info.state]
+		"[color=#bcb29e]%s\n%s[/color]" % [info.tags, info.state]
 	])
 	if details.text != body:
 		var offset: float = details.get_v_scroll_bar().value
@@ -543,7 +599,7 @@ func _refresh_card() -> void:
 		var state: String = preload("res://src/units/UnitAppearance.gd").face_state(selected)
 		if portrait.material is ShaderMaterial:
 			portrait.material.set_shader_parameter("face_hidden", state == "faceless")
-		portrait_note.text = tr("P8_PORTRAIT_NOTE") % tr("P8_FACE_FACELESS" if state == "faceless" else "P8_FACE_FACED")
+		portrait_note.text = tr("P8_FACE_FACELESS" if state == "faceless" else "P8_FACE_FACED")
 
 func roster_enabled() -> bool:
 	var engine = session.get("roster")
@@ -613,12 +669,27 @@ func open_upgrade() -> void:
 		return
 	if not session.pending_purchase.is_empty():
 		close_panel()
+	unit_panel.hide()
 	current_panel = "upgrade"
 	var preview: Dictionary = _query("preview_upgrade", {"unit_id":selected.instance_id})
-	_clear_content(tr("P4_UPGRADE_TITLE") % selected.display_name)
-	_label(content, tr("P9_UPGRADE_NOW") % Card.format(selected.unit_id, selected).stats, 18)
-	_label(content, tr("P4_UPGRADE_PREVIEW") % [preview.cost, preview.current_hp, preview.next_hp, preview.current_defense, preview.next_defense], 21)
-	_label(content, growth_slots_summary(selected), 18)
+	_clear_content(selected.display_name)
+	var current := _label(content, Card.format(selected.unit_id, selected).stats, 22)
+	current.add_theme_color_override("font_color", Ink.COPPER)
+	var plate := _panel(content, Rect2())
+	var prospect := HBoxContainer.new()
+	prospect.add_theme_constant_override("separation", 15)
+	plate.add_child(prospect)
+	var ember := TextureRect.new()
+	ember.texture = Ink.ritual_art(3)
+	ember.custom_minimum_size = Vector2(61, 61)
+	ember.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	ember.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	prospect.add_child(ember)
+	var forecast := _label(prospect, tr("P4_UPGRADE_PREVIEW") % [preview.cost, preview.current_hp, preview.next_hp, preview.current_defense, preview.next_defense], 21)
+	forecast.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	forecast.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	forecast.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_show_upgrade_slots()
 	var row := HBoxContainer.new()
 	content.add_child(row)
 	_button(row, "upgrade_confirm", tr("P4_CONFIRM_UPGRADE"), _upgrade, preview.allowed, preview.reason)
@@ -631,7 +702,30 @@ func open_upgrade() -> void:
 		_label(content, tr("P4_GEAR_DETAIL") % [gear.hp, gear.defense], 17)
 		_button(row, "equip", tr("P4_EQUIP") % gear.cost, _equip, available_incense() >= gear.cost and str(selected.get("equipment_id")).is_empty())
 	_button(row, "close", tr("P9_BATTLE_CLOSE"), close_panel)
+	for button in row.get_children():
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_focus_first(row)
+
+func _show_upgrade_slots() -> void:
+	var loadout: Dictionary = selected.growth.get("slots", {})
+	var arts: Array = loadout.get("arts", ["", ""])
+	var slots := [loadout.get("censer", ""), arts[0], arts[1], loadout.get("nameplate", "")]
+	var labels := ["P7_SLOT_CENSER", "P7_SLOT_ART_ONE", "P7_SLOT_ART_TWO", "P7_SLOT_NAMEPLATE"]
+	var grid := GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 10)
+	grid.add_theme_constant_override("v_separation", 10)
+	content.add_child(grid)
+	for index in labels.size():
+		var plate := _panel(grid, Rect2())
+		plate.custom_minimum_size = Vector2(260, 82)
+		var slot := VBoxContainer.new()
+		plate.add_child(slot)
+		var heading := _label(slot, tr(labels[index]), 17)
+		heading.add_theme_color_override("font_color", Ink.COPPER)
+		var id := str(slots[index])
+		var item: Dictionary = Data.growth_rules.items.get(id, {})
+		_label(slot, tr("P4_EMPTY") if id.is_empty() else str(item.get("name", id)), 21)
 
 func _upgrade() -> void:
 	_feedback(_issue("upgrade", {"unit_id":selected.instance_id}))
@@ -1008,6 +1102,7 @@ func _process(delta: float) -> void:
 		panel.hide()
 		unit_panel.hide()
 		warning_plate.hide()
+		register_warning_plate.hide()
 		activity_plate.hide()
 		active_channels.clear()
 		activity.text = ""
@@ -1060,6 +1155,7 @@ func _process(delta: float) -> void:
 func _watch_channels(delta: float) -> void:
 	var jobs: Array[String] = []
 	var watching: Array[RefCounted] = []
+	var notice_position := Vector2(1516, 146)
 	for unit in simulation.humans:
 		if unit.role != "ritual" or unit.dead or not unit.brain.channel.active:
 			continue
@@ -1069,6 +1165,11 @@ func _watch_channels(delta: float) -> void:
 			channel_progress.value = channel.progress()
 			jobs.append(tr("P9_RITUAL_ACTIVE") % unit.display_name)
 			jobs.append(tr("P9_RITUAL_PROGRESS") % [channel.elapsed, channel.duration])
+			var target: Node2D = channel.target
+			if is_instance_valid(target):
+				var fit: Vector2 = target.get_global_transform_with_canvas().origin
+				if fit.x >= 18 and fit.x <= 1901 and fit.y < 704:
+					notice_position = Vector2(clampf(fit.x + 62, 20, 1516), clampf(fit.y - target.height_px - 87, 154, 572))
 	for channel in active_channels:
 		if not watching.has(channel) and channel.last_result in RITUAL_INTERRUPTS:
 			interruption = tr(channel.last_result)
@@ -1081,6 +1182,7 @@ func _watch_channels(delta: float) -> void:
 		var job: Dictionary = session.repair_jobs[0]
 		jobs.append(tr("P4_REPAIR_JOB") % [tr(str(job.door.name).to_upper()), job.elapsed])
 	activity.text = "\n".join(jobs)
+	activity_plate.position = notice_position
 	channel_progress.visible = not watching.is_empty()
 	activity_plate.visible = not jobs.is_empty()
 	if activity_plate.visible:
@@ -1088,9 +1190,12 @@ func _watch_channels(delta: float) -> void:
 
 func _update_warnings() -> void:
 	var notices: Array[String] = []
+	var register_notices: Array[String] = []
 	if session.running:
 		for key in session.warnings:
-			if key != "P4_WARN_UPPER_PRESSURE":
+			if key.begins_with("P4_WARN_REGISTER_") or key == "P10_WARN_NAME_SEEP":
+				register_notices.append(tr(key))
+			elif key != "P4_WARN_UPPER_PRESSURE":
 				notices.append(tr(key))
 		var upstairs := 0
 		for ghost in simulation.targets:
@@ -1099,7 +1204,7 @@ func _update_warnings() -> void:
 		if upstairs > 0:
 			notices.append(tr("P9_WARN_UPPER") % upstairs)
 		if session.occupation > 0:
-			notices.append(tr("P9_WARN_REGISTER_OCCUPIED"))
+			register_notices.append(tr("P9_WARN_REGISTER_OCCUPIED"))
 		if not simulation.humans.any(func(unit): return unit.role == "ritual" and not unit.dead):
 			notices.append(tr("P9_WARN_CASTER"))
 	if interruption_left > 0:
@@ -1109,6 +1214,11 @@ func _update_warnings() -> void:
 		warnings.text = next
 		warning_plate.reset_size()
 	warning_plate.visible = not notices.is_empty()
+	var right := "\n".join(register_notices)
+	if register_warning.text != right:
+		register_warning.text = right
+		register_warning_plate.reset_size()
+	register_warning_plate.visible = not register_notices.is_empty()
 
 func _draw_highlights() -> void:
 	if not session.active:
@@ -1135,11 +1245,11 @@ func _draw_highlights() -> void:
 			continue
 		var channel: RefCounted = unit.brain.channel
 		var point: Vector2 = unit.position - Vector2(0, float(unit.height_px) + 40)
-		var bar := Rect2(point + Vector2(-59, 7), Vector2(118, 7))
-		highlights.draw_rect(bar.grow(3), Color("0b1112"))
-		highlights.draw_rect(bar, Color("40504a"))
-		highlights.draw_rect(Rect2(bar.position, Vector2(bar.size.x * channel.progress(), bar.size.y)), COPPER)
-		_world_label(tr("P9_RITUAL_COMMAND"), point, PAPER)
+		var bar := Rect2(point + Vector2(-75, 7), Vector2(150, 8))
+		highlights.draw_rect(bar.grow(4), Color("170d11"))
+		highlights.draw_rect(bar.grow(3), Color("b59066"), false, 1)
+		highlights.draw_rect(bar, Color("4d3129"))
+		highlights.draw_rect(Rect2(bar.position, Vector2(bar.size.x * channel.progress(), bar.size.y)), Color("d78259"))
 
 func _world_label(text: String, baseline: Vector2, color: Color) -> void:
 	var font: Font = world.font

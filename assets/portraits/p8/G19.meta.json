@@ -4,13 +4,16 @@
   "source": "Project-generated portrait source (local generation metadata withheld)",
   "path": "res://assets/portraits/p8/G19.png",
   "status": "placeholder",
-  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "qa": "P11 design review color portrait; 1024×1536, independent source revision. 旧铜镜里分离的倒影替换晶面甲衣。",
   "attempt": 1,
   "size": [
     1024,
     1536
   ],
-  "sha256": "7eebbac297f2f5837939ce7d139a5cc0c613f331ae24d69afec26a6d465091f1",
+  "sha256": "c170fbbc9abb74e7017d459ae561451b238712f044f4be1d2949f85d0709aa92",
   "replacement_required": true,
-  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+  "previous_sha256": "7eebbac297f2f5837939ce7d139a5cc0c613f331ae24d69afec26a6d465091f1",
+  "review_art": "P11-revised",
+  "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
 }

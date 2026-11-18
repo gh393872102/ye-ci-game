@@ -1,0 +1,113 @@
+{
+	"actor_count_in_default_slice": 49,
+	"asset_sha256": {
+		"forest-panorama.png": "5dfa61a20197034b08bd07e002559b117daf12890a6bde017283ed14f02244c1",
+		"moon.png": "d9fc0000ee03df217b1d6e751e08a15da9780048377b52e6a38377ccb1a2dc4d",
+		"shrine-eaves.png": "ab259c14c15902fd76e51af3656a0f0e9ecfe672eb75fe52e5a8f67eb8db382b",
+		"shrine-interiors.png": "471902fbaa509e348ead02377d9c189480f40f53ccf29499fd6030546e4de5a6",
+		"shrine-props.png": "d3a8c6bfe702b48a51d97729b6c7b4ddbf09f879ce5ef95a4420f537d9e1d3bf",
+		"structural-materials.png": "e9780e8fb2dbe6b1dfeb4fe85c19076c2f0aa9a0b986e03daaa6acafca661a96",
+		"wet-cobbles.png": "8cf5bf0abbc49b116d1f49c473d3a6744d324052951c27c60d880a002664eddb"
+	},
+	"checks": 15,
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"front_door_screen_x": 960.0,
+	"method": "Godot native fixed-frame inspection of a seeded formation on the shared C01, C03, C04 map. F6 is injected using real keyboard events. Gate destruction is a direct state fixture.",
+	"renderer": "Apple M2 Pro",
+	"results": [
+		{
+			"check": "Authored three-core-chunk scene",
+			"passed": true
+		},
+		{
+			"check": "Default slice contains the regular battle density",
+			"passed": true
+		},
+		{
+			"check": "Defenders occupy legal covered posts inside the base",
+			"passed": true
+		},
+		{
+			"check": "Original default camera and complete map sizes",
+			"passed": true
+		},
+		{
+			"check": "Visual floors remain anchored to authored elevations",
+			"passed": true
+		},
+		{
+			"check": "Normal battle has no persistent room labels",
+			"passed": true
+		},
+		{
+			"check": "Real 104 px hall door and rammer are present",
+			"passed": true
+		},
+		{
+			"check": "Native 1080p 01-default-13-cover-25",
+			"passed": true
+		},
+		{
+			"check": "Native 1080p 02-court-scroll",
+			"passed": true
+		},
+		{
+			"check": "Sky moves more slowly than the map during lateral scrolling",
+			"passed": true
+		},
+		{
+			"check": "F6 reveals room labels for inspection",
+			"passed": true
+		},
+		{
+			"check": "F6 returns to clean production view",
+			"passed": true
+		},
+		{
+			"check": "Native 1080p 03-rear-register",
+			"passed": true
+		},
+		{
+			"check": "Native 1080p 04-broken-door",
+			"passed": true
+		},
+		{
+			"check": "Broken gate sprite follows the real opening state",
+			"passed": true
+		}
+	],
+	"screenshots": {
+		"01-default-13-cover-25": {
+			"camera_left": 6080.0,
+			"file": "01-default-13-cover-25.png",
+			"sha256": "0f8a47acdd7ce5f13edd649b33850a9d64706a4871b80329ec2338190b943b0b",
+			"zoom": 1.0
+		},
+		"02-court-scroll": {
+			"camera_left": 4330.0,
+			"file": "02-court-scroll.png",
+			"sha256": "23ef111bd441b1c8c3f1a2923074d16539ac9dfd3e211849427c5f9c7647edb2",
+			"zoom": 1.0
+		},
+		"03-rear-register": {
+			"camera_left": 7680.0,
+			"file": "03-rear-register.png",
+			"sha256": "5bda1e45e468ddf0b827b269d25c65ee4d61cd976efc268ba98fbc4e713f0769",
+			"zoom": 1.0
+		},
+		"04-broken-door": {
+			"camera_left": 6080.0,
+			"file": "04-broken-door.png",
+			"sha256": "e7232dd8c86f5fd24294f980500243cd48f3bdbadd610f9e5755d640936197db",
+			"zoom": 1.0
+		}
+	},
+	"source_sha256": {
+		"src/world/ChunkPiece.gd": "e95a3c8bce7cec79d1775fe1e01e01969e30c0d84cf704bead04800385486e8a",
+		"src/world/MapDrawing.gd": "c607df6791e6ae538c48176578da55c8bbcb9bedf434f2637a778618763d3543",
+		"src/world/ReferenceMap.gd": "e4911e11f9a9fd98224753ec0c2715a08e053b7e4c7a2537ee5ea7ad0d387983",
+		"src/world/ShrineScenery.gd": "6d2a2c2fb3ea530f3bd2f2fbf9cf5c6f71c10f66607db456884c543bc07bbcdf",
+		"tests/P11WorldArtSuite.gd": "7eeacb87a99eda2f7be002ea4d485780e5060b16ed03a8225cfb6672734cd7cf"
+	}
+}

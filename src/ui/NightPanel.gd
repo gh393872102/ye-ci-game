@@ -8,7 +8,7 @@ const ROUTE_ASCENT := [188.0, 420.0, 652.0, 884.0, 1116.0]
 const ROUTE_RETURN := [876.0, 648.0, 420.0, 192.0]
 const SHEET := Rect2(0, 0, 1920, 1080)
 const MAP_AREA := Rect2(64, 208, 1276, 638)
-const ROUTE_COLORS := {"main":Color("adbbb2"), "safe":Color("aad0bb"), "risk":Color("d69d82"), "special":Color("bcc1d0")}
+const ROUTE_COLORS := {"main":Color("c0a285"), "safe":Color("afbba0"), "risk":Color("e2a089"), "special":Color("c8b99d")}
 
 var host: Node
 var buttons: Dictionary = {}
@@ -49,16 +49,28 @@ func render() -> void:
 	_page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_page)
 	Ink.box(_page, SHEET, Ink.DARK)
-	var setting := Ink.art("night-court")
+	var phase: String = str(host.run.state.get("phase", "")) if not show_intro else ""
+	var centered := phase in ["reward", "market", "ended"] and not _history
+	var setting := Ink.art("lantern-court") if centered else Ink.art("night-court")
+	if setting == null:
+		setting = Ink.art("night-court")
 	if setting != null:
 		Ink.texture(_page, setting, SHEET)
-		Ink.box(_page, SHEET, Color("0b1113a6"))
-	Ink.box(_page, Rect2(0, 0, 1920, 186), Color("111919f0"))
-	Ink.box(_page, Rect2(64, 185, 1792, 1), Ink.RULE)
+		Ink.box(_page, SHEET, Color("0d0b1070" if centered else "100d13a1"))
+	Ink.binding(_page, SHEET.grow(-22), Color("544431"))
+	if centered:
+		heading = Ink.label(_page, "", Rect2(540, 34, 840, 89), 66, Ink.PAPER, true)
+		heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		status = Ink.label(_page, "", Rect2(445, 130, 1030, 34), 19, Ink.MUTED)
+		status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		Ink.ruling(_page, Rect2(657, 111, 606, 20), Ink.COPPER)
+	else:
+		Ink.box(_page, Rect2(23, 23, 1874, 163), Color("181417d9"))
+		Ink.box(_page, Rect2(64, 50, 5, 72), Ink.SEAL)
+		heading = Ink.label(_page, "", Rect2(88, 36, 934, 82), 61, Ink.PAPER, true)
+		status = Ink.label(_page, "", Rect2(89, 128, 1050, 34), 21, Ink.MUTED)
+		Ink.ruling(_page, Rect2(63, 174, 1794, 20))
 	Ink.box(_page, Rect2(64, 994, 1792, 1), Ink.RULE)
-	Ink.box(_page, Rect2(64, 50, 4, 72), Ink.COPPER)
-	heading = Ink.label(_page, "", Rect2(86, 34, 1020, 88), 62, Ink.PAPER, true)
-	status = Ink.label(_page, "", Rect2(88, 127, 1050, 32), 22, Ink.MUTED)
 	if host.run.state.is_empty() or show_intro:
 		_history = false
 		_intro()
@@ -83,15 +95,15 @@ func render() -> void:
 					_focus = _button("continue_battle", tr("P5_CONTINUE"), Rect2(700, 420, 520, 64), host.continue_run, true, true)
 		if state.phase != "ended":
 			_wallet(state, Rect2(1360, 115, 496, 44))
-			_button("save", tr("P5_SAVE"), Rect2(1374, 50, 154, 47), host.save_run)
-			_button("save_exit", tr("P5_SAVE_EXIT"), Rect2(1540, 50, 316, 47), host.save_and_exit)
+			_button("save", tr("P5_SAVE"), Rect2(1510, 50, 118, 44), host.save_run)
+			_button("save_exit", tr("P5_SAVE_EXIT"), Rect2(1640, 50, 216, 44), host.save_and_exit)
 		elif _history:
 			_wallet(state, Rect2(1360, 115, 496, 44))
 		if node.has("title") and state.phase not in ["map", "ended"]:
 			status.text += "  /  " + str(node.title)
 	if host.get("title_shell_enabled") == true and host.has_method("open_settings"):
-		_button("settings", tr("P9_NIGHT_SETTINGS"), Rect2(1022, 50, 150, 47), host.open_settings)
-	_button("codex", tr("P9_CODEX_TITLE"), Rect2(1184, 50, 178, 47), host.open_codex)
+		_button("settings", tr("P9_NIGHT_SETTINGS"), Rect2(1234, 50, 124, 44), host.open_settings)
+	_button("codex", tr("P9_CODEX_TITLE"), Rect2(1372, 50, 124, 44), host.open_codex)
 	var footer := Ink.label(_page, message, Rect2(64, 1004, 1520, 52), 19, Ink.MUTED)
 	Ink.one_line(footer)
 	var local := Ink.label(_page, tr("P5_LOCAL_SAVE"), Rect2(1590, 1004, 266, 52), 18, Ink.ASH)
@@ -156,7 +168,7 @@ func _wallet(state: Dictionary, rect: Rect2) -> void:
 
 func _map(history: bool) -> void:
 	heading.text = tr("P9_NIGHT_PAST_ROUTE" if history else "P9_NIGHT_MAP")
-	var layer := Ink.box(_page, MAP_AREA, Color("111a1bd7"), Ink.RULE)
+	var layer := Ink.folio(_page, MAP_AREA, Color("161217ad"))
 	_route_layer = Control.new()
 	_route_layer.size = SHEET.size
 	_route_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -188,7 +200,7 @@ func _map(history: bool) -> void:
 	var ready: Dictionary = {}
 	for node in host.run.available_nodes():
 		ready[str(node.id)] = true
-	Ink.box(_page, Rect2(64, 864, 1276, 108), Color("161f20ef"), Ink.RULE)
+	Ink.folio(_page, Rect2(64, 864, 1276, 108))
 	_node_title = Ink.label(_page, "", Rect2(86, 874, 300, 42), 25, Ink.COPPER, true)
 	_node_note = Ink.label(_page, "", Rect2(370, 878, 948, 76), 21, Ink.PAPER)
 	var current: Dictionary = host.run.current_node()
@@ -202,7 +214,7 @@ func _map(history: bool) -> void:
 		var can_enter: bool = ready.has(id) and not history
 		var visited: bool = id in host.run.state.visited
 		var position: Vector2 = points[id]
-		var node_button := _route_button(node, Rect2(position - Vector2(80, 57), Vector2(160, 114)), can_enter, is_current, visited)
+		var node_button := _route_button(node, Rect2(position - Vector2(80, 40), Vector2(160, 142)), can_enter, is_current, visited)
 		if can_enter:
 			available_controls.append(node_button)
 			if _focus == null:
@@ -220,7 +232,7 @@ func _story_card(route_buttons: Array[Button]) -> float:
 		return 208.0
 	var choice: Dictionary = host.run.self_listing_choice()
 	var height := 172.0 if choice.is_empty() else 292.0
-	var card := Ink.box(_page, Rect2(1358, 208, 498, height), Color("182322f5"), Ink.RULE)
+	var card := Ink.folio(_page, Rect2(1358, 208, 498, height), Color("1a1517f5"))
 	Ink.label(card, tr(act.title_key), Rect2(28, 20, 442, 48), 28, Ink.COPPER, true)
 	var body := Ink.label(card, "", Rect2(30, 75, 436, 82), 21)
 	body.text = tr(act[str(host.run.state.mode) + "_key"])
@@ -259,20 +271,43 @@ func _route_button(node: Dictionary, rect: Rect2, can_enter: bool, current: bool
 	var id: String = node.id
 	var route_color: Color = ROUTE_COLORS[_route_key(str(node.route))]
 	var button := _button("node_" + id, "", rect, host.choose_node.bind(id), can_enter, can_enter)
-	if current or visited:
-		var border := Ink.COPPER if current else Color("58655d")
-		button.add_theme_stylebox_override("disabled", Ink.skin(Color("2c3d37") if current else Color("202928"), border, 2))
+	button.flat = true
+	button.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	var seal := Control.new()
+	seal.size = Vector2(160, 82)
+	seal.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(seal)
+	seal.draw.connect(_draw_route_seal.bind(seal, str(node.type), route_color, current, can_enter, visited))
+	button.focus_entered.connect(seal.queue_redraw)
+	button.focus_exited.connect(seal.queue_redraw)
+	button.mouse_entered.connect(seal.queue_redraw)
+	button.mouse_exited.connect(seal.queue_redraw)
 	button.tooltip_text = str(node.description)
 	button.mouse_entered.connect(_show_route_node.bind(node))
 	button.focus_entered.connect(_show_route_node.bind(node))
 	var mark_key := "P5_CURRENT" if current else ("P5_AVAILABLE" if can_enter else ("P5_VISITED" if visited else "P5_UNOPENED"))
-	var symbol := Ink.label(button, tr("P9_ROUTE_GLYPH_" + str(node.type).to_upper()), Rect2(8, 9, 144, 31), 26, route_color, true)
-	symbol.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var title := Ink.label(button, str(node.title), Rect2(7, 44, 146, 31), 22, Ink.PAPER if (can_enter or visited) else Ink.MUTED, true)
+	var title := Ink.label(button, str(node.title), Rect2(7, 84, 146, 34), 23, Ink.PAPER if (can_enter or visited) else Ink.MUTED, true)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var kind := Ink.label(button, tr("P9_ROUTE_STATE") % [node.route, tr(mark_key)], Rect2(5, 78, 150, 26), 16, route_color if can_enter or current else Ink.MUTED)
+	var kind := Ink.label(button, tr("P9_ROUTE_STATE") % [node.route, tr(mark_key)], Rect2(5, 116, 150, 24), 16, route_color if can_enter or current else Ink.ASH)
 	kind.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	return button
+
+func _draw_route_seal(seal: Control, type: String, tone: Color, current: bool, ready: bool, visited: bool) -> void:
+	var center := Vector2(80, 40)
+	var button := seal.get_parent() as Button
+	var focus := button.has_focus() or button.is_hovered()
+	var stamp := Ink.SEAL if current else (Color("3d2b21") if ready else Color("171417"))
+	var border := Ink.PAPER if focus else (tone if current or ready or visited else tone.darkened(0.53))
+	seal.draw_circle(center, 38, stamp)
+	seal.draw_arc(center, 38, 0, TAU, 44, border, 2.0, true)
+	seal.draw_arc(center, 32, 0, TAU, 40, Color(border, 0.60), 1.0, true)
+	for degrees in [0, 90, 180, 270]:
+		var mark := Vector2.RIGHT.rotated(deg_to_rad(degrees))
+		seal.draw_line(center + mark * 29, center + mark * 34, border, 1.5, true)
+	var glyph := tr("P9_ROUTE_GLYPH_" + type.to_upper())
+	var font := Ink.serif_font()
+	var width := font.get_string_size(glyph, HORIZONTAL_ALIGNMENT_LEFT, -1, 32).x
+	seal.draw_string(font, center + Vector2(-width / 2, 11), glyph, HORIZONTAL_ALIGNMENT_LEFT, -1, 32, border)
 
 func _show_route_node(node: Dictionary) -> void:
 	_node_title.text = str(node.title)
@@ -287,15 +322,24 @@ func _draw_paths() -> void:
 		var origin: Vector2 = path.from
 		var destination: Vector2 = path.to
 		var tone: Color = path.color
-		var start: Vector2 = origin.lerp(destination, 0.12)
-		var finish: Vector2 = origin.lerp(destination, 0.88)
+		var direction := (destination - origin).normalized()
+		var start := origin + direction * 40
+		var finish := destination - direction * 40
+		var bend := direction.orthogonal() * (17.0 if absf(direction.x) > 0.80 else -21.0)
+		var route := Curve2D.new()
+		route.add_point(start, Vector2.ZERO, (finish - start) * 0.34 + bend)
+		route.add_point(finish, (start - finish) * 0.28 + bend, Vector2.ZERO)
+		var points := route.get_baked_points()
 		if path.traveled:
-			_route_layer.draw_line(start, finish, Ink.COPPER, 3, true)
+			_route_layer.draw_polyline(points, Color("221617"), 8, true)
+			_route_layer.draw_polyline(points, tone, 3, true)
 		else:
-			_route_layer.draw_dashed_line(start, finish, tone.darkened(0.29), 2, 9, true, true)
+			for index in range(0, points.size() - 1, 3):
+				var end := mini(index + 1, points.size() - 1)
+				_route_layer.draw_line(points[index], points[end], tone.darkened(0.32), 2, true)
 
 func _roster(rect: Rect2) -> void:
-	Ink.box(_page, rect, Color("121b1cec"), Ink.RULE)
+	Ink.folio(_page, rect, Color("181518eb"))
 	var state: Dictionary = host.run.state
 	Ink.label(_page, tr("P5_ROSTER"), Rect2(rect.position + Vector2(28, 18), Vector2(420, 56)), 32, Ink.PAPER, true)
 	Ink.label(_page, tr("P9_NIGHT_ROSTER_COUNTS") % [state.roster.size(), state.fallen.size()], Rect2(rect.position + Vector2(30, 81), Vector2(425, 37)), 20, Ink.MUTED)
@@ -337,12 +381,12 @@ func _offers(market: bool) -> void:
 	heading.text = tr("P9_NIGHT_MARKET" if market else "P5_REWARD_TITLE")
 	var offers: Array = host.run.market_options() if market else host.run.reward_options()
 	var count := offers.size()
-	var width := 424.0 if market else 504.0
-	var gap := 24.0 if market else 36.0
+	var width := 397.0 if market else 466.0
+	var gap := 34.0 if market else 43.0
 	var total := count * width + maxi(0, count - 1) * gap
 	var action_keys: Array[Button] = []
 	for index in count:
-		var rect := Rect2((1920.0 - total) / 2 + index * (width + gap), 230, width, 626 if market else 680)
+		var rect := Rect2((1920.0 - total) / 2 + index * (width + gap), 214, width, 644 if market else 692)
 		var action := _offer_card(offers[index], rect, market)
 		if not action.disabled:
 			action_keys.append(action)
@@ -351,7 +395,7 @@ func _offers(market: bool) -> void:
 	_link_horizontal(action_keys)
 	if market:
 		var market_help := "P9_MARKET_DUOMING_HELP" if host.run.state.mode == "duoming" else "P9_MARKET_SHOUXIANG_HELP"
-		Ink.label(_page, tr(market_help), Rect2(66, 882, 1340, 66), 21, Ink.MUTED)
+		Ink.label(_page, tr(market_help), Rect2(99, 908, 1280, 56), 21, Ink.MUTED, true)
 		var leave := _button("leave", tr("P5_LEAVE"), Rect2(1536, 886, 320, 62), host.leave_node, true, true)
 		for action in action_keys:
 			action.focus_neighbor_bottom = action.get_path_to(leave)
@@ -363,30 +407,29 @@ func _offers(market: bool) -> void:
 
 func _offer_card(offer: Dictionary, rect: Rect2, market: bool) -> Button:
 	var effect: Dictionary = offer.effect
-	var outer := Ink.box(_page, rect, Color("1b2424fa"), Ink.RULE)
+	var outer := Ink.folio(_page, rect, Color("181317f4"), Color("87694d"))
 	var card_w := rect.size.x
-	var art_h := 233.0 if market else 263.0
+	var art_h := 253.0 if market else 295.0
 	var category := _offer_type(offer)
-	Ink.label(outer, category, Rect2(24, 13, card_w - 48, 38), 19, Ink.RUST if offer.category == "survival" else Ink.COPPER)
-	if market:
-		var price := Ink.label(outer, tr("P5_COST") % offer.cost, Rect2(card_w - 166, 13, 142, 38), 19, Ink.COPPER)
-		price.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	var title := Ink.label(outer, str(offer.title), Rect2(24, 52, card_w - 48, 57), 37, Ink.PAPER, true)
+	var type := Ink.label(outer, category, Rect2(24, 19, card_w - 48, 33), 17, Ink.RUST if offer.category == "survival" else Ink.COPPER)
+	type.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var title := Ink.label(outer, str(offer.title), Rect2(24, 51, card_w - 48, 62), 35, Ink.PAPER, true)
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	Ink.one_line(title)
 	title.tooltip_text = title.text
 	title.mouse_filter = Control.MOUSE_FILTER_PASS
 	var artwork_size := Vector2(card_w - 50, art_h - 2)
 	var texture := _offer_art(effect, artwork_size.x / artwork_size.y)
-	Ink.box(outer, Rect2(24, 124, card_w - 48, art_h), Color("141b1b"), Ink.RULE)
+	Ink.box(outer, Rect2(24, 124, card_w - 48, art_h), Color("141214"), Ink.RULE)
 	var artwork_rect := Rect2(Vector2(25, 125), artwork_size)
 	if texture != null:
 		Ink.texture(outer, texture, artwork_rect)
 	else:
 		var genre := Ink.label(outer, tr("P9_OFFER_CENSER_MARK"), artwork_rect, 68, Color("778d81"), true)
 		genre.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	Ink.box(outer, Rect2(24, 125 + art_h, card_w - 48, 1), Ink.RULE)
+	Ink.ruling(outer, Rect2(31, 128 + art_h, card_w - 62, 18))
 	var text := _offer_description(offer)
-	var desc := Ink.label(outer, text, Rect2(24, 140 + art_h, card_w - 48, 97), 21)
+	var desc := Ink.label(outer, text, Rect2(32, 155 + art_h, card_w - 64, 108), 21, Ink.PAPER, true)
 	desc.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	desc.max_lines_visible = 4
 	desc.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
@@ -414,8 +457,11 @@ func _offer_card(offer: Dictionary, rect: Rect2, market: bool) -> Button:
 		target_picker = picker
 		target_pickers[offer_id] = picker
 	var allowed := bool(offer.get("allowed", true))
-	var cost := tr("P9_OFFER_PRICE_ACTION") if market else tr("P5_TAKE")
+	var cost := tr("P11R_MARKET_PRICE") % offer.cost if market else tr("P5_TAKE")
 	var action_text := cost if allowed else tr(str(offer.get("reason", "P5_NOT_ENOUGH")))
+	if market and not allowed and picker == null:
+		var price := Ink.label(outer, tr("P5_COST") % offer.cost, Rect2(27, rect.size.y - 113, card_w - 54, 31), 18, Ink.COPPER)
+		price.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var suffix := "buy_" if market else "reward_"
 	var action := Ink.button(outer, suffix + offer_id, action_text, Rect2(24, rect.size.y - 72, card_w - 48, 52), _choose_offer.bind(offer_id, market, picker, ids), allowed, true)
 	buttons[suffix + offer_id] = action
@@ -543,68 +589,81 @@ func _summary() -> void:
 	var summary: Dictionary = host.run.summary()
 	var victory: bool = summary.outcome == "victory"
 	var story: Dictionary = summary.get("story", {})
-	var ending: Dictionary = Story.rules().get("endings", {}).get(story.get("ending", ""), {})
-	var finale := not ending.is_empty()
+	var ending_id := str(story.get("ending", ""))
+	var ending: Dictionary = Story.rules().get("endings", {}).get(ending_id, {})
 	heading.text = tr("P5_END_TITLE")
 	var accent := Ink.COPPER if victory else Ink.RUST
-	Ink.box(_page, Rect2(64, 218, 672, 644), Color("121b1cef"), Ink.RULE)
-	Ink.box(_page, Rect2(64, 218, 672, 4), accent)
-	var art := Ink.object_art(0 if victory else 2)
-	var outside: bool = story.get("ending") == "E02"
-	if finale:
-		art = Ink.art("night-court") if outside else Ink.object_art(1)
-	var art_bottom := 420.0 if finale else 485.0
+	Ink.folio(_page, Rect2(397, 190, 1126, 715), Color("171317e6"), Color("88674e"))
+	var art := Ink.object_art(2) if not victory else (Ink.object_art(1) if ending_id in ["E01", "E03"] else Ink.ritual_art(3))
 	if art != null:
-		var artwork := Rect2(88, 243, 624, art_bottom - 243)
-		Ink.box(_page, artwork, Color("101313"))
-		Ink.texture(_page, art, artwork, outside)
-		if story.get("ending") == "E03":
-			var slip := Ink.box(_page, Rect2(558, 280, 106, 104), Color("322921"), Ink.RUST)
-			var name_ink := Ink.label(slip, tr("P11_UNIT_H01_NAME"), Rect2(0, 4, 106, 100), 58, Ink.PAPER, true)
+		var artwork := Rect2(843, 210, 234, 173)
+		Ink.box(_page, artwork, Color("121013"))
+		Ink.texture(_page, art, artwork, false)
+		if ending_id == "E03":
+			var name_ink := Ink.label(Ink.folio(_page, Rect2(1020, 303, 72, 71), Color("6c3428")), tr("P11_UNIT_H01_NAME"), Rect2(1, 1, 70, 69), 45, Ink.PAPER, true)
 			name_ink.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	Ink.box(_page, Rect2(88, art_bottom, 624, 1), Ink.RULE)
-	var title := tr(ending.title_key) if finale else tr("P5_VICTORY" if victory else "P5_DEFEAT")
-	Ink.label(_page, title, Rect2(96, art_bottom + 12, 600, 87), 50, accent, true)
+	_summary_metric(tr("P9_NIGHT_INCENSE"), float(summary.incense), Rect2(462, 231, 260, 131))
+	_summary_metric(tr("P9_NIGHT_NAMES"), float(summary.names), Rect2(1196, 231, 260, 131))
+	Ink.ruling(_page, Rect2(479, 372, 962, 18), accent)
+
+	var title := tr(ending.title_key) if not ending.is_empty() else tr("P5_VICTORY" if victory else "P5_DEFEAT")
+	var ending_title := Ink.label(_page, title, Rect2(483, 387, 954, 60), 46, accent, true)
+	ending_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var outcome_reason: String = summary.reason
 	if victory and not summary.battles.is_empty():
 		outcome_reason = str(summary.battles[-1].reason)
-	if finale:
-		var body := Ink.label(_page, "", Rect2(98, 521, 596, 110), 24, Ink.PAPER, true)
-		body.text = tr(ending.text_key)
-		if story.ending == "E03":
-			Ink.label(_page, tr("P11_SELF_WOUNDED") % story.self_listing.names_paid, Rect2(98, 653, 596, 57), 21, Ink.RUST)
-		Ink.label(_page, tr(outcome_reason), Rect2(98, 728, 600, 42), 21, Ink.MUTED)
-	else:
-		Ink.label(_page, tr("P9_NIGHT_RITUAL_DONE" if victory else "P9_NIGHT_FAILURE_LINE"), Rect2(98, 591, 600, 31), 18, Ink.MUTED)
-		Ink.label(_page, tr(outcome_reason), Rect2(98, 624, 600, 64), 24)
-		if not victory:
-			Ink.label(_page, _erase_line(summary), Rect2(98, 689, 600, 44), 21, Ink.RUST)
+	var outcome := tr(outcome_reason)
+	var details_text := ""
+	var cause := ""
+	if not ending.is_empty():
+		details_text = tr(ending.text_key)
+		match ending_id:
+			"E01": cause = tr("P11R_RESTORE_CAUSE")
+			"E02": cause = tr("P11R_RELEASE_CAUSE") % summary.names
+			"E03": cause = tr("P11R_SELF_CAUSE") % [story.self_listing.names_paid, story.self_listing.max_hp_after]
+	elif not victory:
+		cause = _erase_line(summary)
 		if story.get("seize_finished_here", false):
-			Ink.label(_page, tr("P11_STORY_SEIZE_COMPLETE"), Rect2(98, 744, 600, 45), 20, Ink.PAPER)
-		elif victory and not story.is_empty() and summary.mode == "shouxiang":
-			Ink.label(_page, tr("P11_STORY_OPEN_END"), Rect2(98, 713, 600, 45), 23, Ink.PAPER, true)
-	Ink.label(_page, tr("P5_DURATION") % summary.elapsed, Rect2(98, 800, 600, 42), 20, Ink.MUTED)
-	Ink.box(_page, Rect2(760, 218, 1096, 644), Color("121b1cef"), Ink.RULE)
-	_stat(tr("P9_NIGHT_INCENSE"), float(summary.incense), Rect2(788, 246, 502, 160))
-	_stat(tr("P9_NIGHT_NAMES"), float(summary.names), Rect2(1310, 246, 518, 160))
-	Ink.box(_page, Rect2(788, 431, 1040, 1), Ink.RULE)
-	_summary_roster(tr("P9_NIGHT_STILL_LISTED"), summary.roster, Rect2(788, 455, 502, 290), Ink.COPPER)
-	_summary_roster(tr("P5_DEAD"), summary.fallen, Rect2(1310, 455, 518, 290), Ink.RUST)
+			details_text = tr("P11_STORY_SEIZE_COMPLETE")
+	elif story.get("seize_finished_here", false):
+		details_text = tr("P11_STORY_SEIZE_COMPLETE")
+	elif not story.is_empty() and summary.mode == "shouxiang":
+		details_text = tr("P11_STORY_OPEN_END")
+	if not details_text.is_empty():
+		var passage := Ink.label(_page, details_text, Rect2(502, 448, 916, 71), 24, Ink.PAPER, true)
+		passage.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if not cause.is_empty():
+		var context := Ink.label(_page, cause, Rect2(503, 526, 914, 62), 21, accent)
+		context.name = "EndingCause"
+		context.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var reason := Ink.label(_page, outcome, Rect2(497, 592, 926, 38), 19, Ink.MUTED)
+	reason.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	Ink.ruling(_page, Rect2(479, 637, 962, 16), Ink.RULE)
+	_summary_roster(tr("P9_NIGHT_STILL_LISTED"), summary.roster, Rect2(492, 660, 398, 166), Ink.COPPER)
+	_summary_roster(tr("P5_DEAD"), summary.fallen, Rect2(1029, 660, 398, 166), Ink.RUST)
+	Ink.box(_page, Rect2(960, 669, 1, 151), Ink.RULE)
 	var departed: Array = summary.get("departed", [])
 	if not departed.is_empty():
-		var line := tr("P7_DEPARTED") % "  /  ".join(_unit_names(departed))
-		var field := Ink.label(_page, line, Rect2(788, 784, 1024, 51), 20, Ink.MUTED)
+		var text := tr("P7_DEPARTED") % "  /  ".join(_unit_names(departed))
+		var field := Ink.label(_page, text, Rect2(471, 829, 978, 24), 17, Ink.MUTED)
+		field.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		Ink.one_line(field)
 		field.mouse_filter = Control.MOUSE_FILTER_PASS
-		field.tooltip_text = line
-	var seed := Ink.label(_page, tr("P5_SEED") % summary.seed, Rect2(64, 884, 698, 64), 19, Ink.PAPER)
+		field.tooltip_text = text
+	var ticks := roundi(float(summary.elapsed) * 10.0)
+	var duration := tr("P11R_DURATION") % [floori(float(ticks) / 600.0), float(ticks % 600) / 10.0]
+	var time := Ink.label(_page, duration, Rect2(523, 866, 874, 26), 18, Ink.MUTED)
+	time.name = "BattleDuration"
+	time.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+	var seed := Ink.label(_page, tr("P5_SEED") % summary.seed, Rect2(66, 927, 587, 48), 18, Ink.MUTED)
 	Ink.one_line(seed)
 	seed.mouse_filter = Control.MOUSE_FILTER_PASS
 	seed.tooltip_text = str(summary.seed)
-	_button("copy_seed", tr("P5_COPY_SEED"), Rect2(788, 884, 236, 62), host.copy_seed)
-	_button("replay_seed", tr("P6_REPLAY_THIS_SEED"), Rect2(1038, 884, 246, 62), host.open_observer.bind(str(summary.seed)))
-	_button("map_history", tr("P9_NIGHT_BACK_ROUTE"), Rect2(1298, 884, 258, 62), _switch_report.bind(true))
-	_focus = _button("menu", tr("P9_NIGHT_BACK_TITLE"), Rect2(1570, 884, 286, 62), host.show_intro, true, true)
+	_button("copy_seed", tr("P5_COPY_SEED"), Rect2(662, 924, 226, 55), host.copy_seed)
+	_button("replay_seed", tr("P6_REPLAY_THIS_SEED"), Rect2(902, 924, 270, 55), host.open_observer.bind(str(summary.seed)))
+	_button("map_history", tr("P9_NIGHT_BACK_ROUTE"), Rect2(1186, 924, 251, 55), _switch_report.bind(true))
+	_focus = _button("menu", tr("P9_NIGHT_BACK_TITLE"), Rect2(1451, 924, 262, 55), host.show_intro, true, true)
 
 func _erase_line(summary: Dictionary) -> String:
 	var id := str(summary.get("killer_id", ""))
@@ -612,20 +671,24 @@ func _erase_line(summary: Dictionary) -> String:
 		return tr("P9_NIGHT_ERASED_BY_TIME")
 	return tr("P9_NIGHT_ERASED_UNKNOWN") if id.is_empty() else tr("P8_ERASED_BY") % [_unit_name(id), id]
 
-func _stat(label: String, value: float, rect: Rect2) -> void:
-	var panel := Ink.box(_page, rect, Color("22312d"), Ink.RULE)
-	Ink.label(panel, label, Rect2(25, 17, rect.size.x - 50, 42), 22, Ink.MUTED)
-	Ink.label(panel, "%.1f" % value, Rect2(25, 64, rect.size.x - 50, 79), 52, Ink.PAPER)
+func _summary_metric(caption: String, value: float, rect: Rect2) -> void:
+	var plate := Ink.folio(_page, rect, Color("261c1cf0"))
+	var name := Ink.label(plate, caption, Rect2(0, 12, rect.size.x, 43), 27, Ink.COPPER, true)
+	name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var metric := Ink.label(plate, "%.1f" % value, Rect2(0, 59, rect.size.x, 59), 45, Ink.PAPER, true)
+	metric.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
-func _summary_roster(label: String, records: Array, rect: Rect2, color: Color) -> void:
-	Ink.label(_page, label, Rect2(rect.position, Vector2(rect.size.x, 45)), 28, color, true)
-	var rows := Ink.scroll_rows(_page, Rect2(rect.position + Vector2(0, 57), Vector2(rect.size.x, rect.size.y - 57)), 5)
-	for name in _unit_names(records):
-		var line := Label.new()
-		line.text = name
-		line.add_theme_font_size_override("font_size", 22)
-		line.add_theme_color_override("font_color", Ink.PAPER)
-		rows.add_child(line)
+func _summary_roster(caption: String, records: Array, rect: Rect2, color: Color) -> void:
+	var header := Ink.label(_page, caption, Rect2(rect.position, Vector2(rect.size.x, 36)), 27, color, true)
+	header.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var rows := Ink.scroll_rows(_page, Rect2(rect.position + Vector2(0, 43), Vector2(rect.size.x, rect.size.y - 43)), 4)
+	var line := Label.new()
+	line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	line.text = "　/　".join(_unit_names(records))
+	line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	line.add_theme_font_size_override("font_size", 21)
+	line.add_theme_color_override("font_color", Ink.PAPER)
+	rows.add_child(line)
 
 func _unit_name(id: String) -> String:
 	var data := Data.get_unit(id)

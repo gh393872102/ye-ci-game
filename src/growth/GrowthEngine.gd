@@ -901,8 +901,10 @@ func draw_effects(canvas:Node2D)->void:
 				continue
 			"charge_warning":canvas.draw_dashed_line(point-Vector2(0,12),Vector2(field.end[0],field.end[1])-Vector2(0,12),Color("c6a77c"),4,18)
 			"hold_gate":
-				canvas.draw_colored_polygon(PackedVector2Array([point+Vector2(-35,-110),point+Vector2(35,-110),point+Vector2(28,-30),point+Vector2(0,-8),point+Vector2(-28,-30)]),Color(.65,.25,.18,.6))
-				canvas.draw_line(point+Vector2(-20,-90),point+Vector2(20,-45),Color("d1c29a"),5)
+				var glint := clampf(float(field.left), 0.0, 1.0)
+				var rim := PackedVector2Array([point+Vector2(-17,-69),point+Vector2(-28,-60),point+Vector2(-27,-37),point+Vector2(-19,-24)])
+				canvas.draw_polyline(rim, Color(0.92, 0.73, 0.45, glint), 3)
+				canvas.draw_texture_rect(preload("res://assets/vfx/ink/impact.png"),Rect2(point-Vector2(55,17),Vector2(95,19)),false,Color(.9,.85,.75,glint*.76))
 			"charge_dust":
 				for i in 7:canvas.draw_rect(Rect2(point+Vector2(-i*18,-8-(i%3)*12),Vector2(10,10)),Color(.6,.57,.48,.55))
 			"rekindle":
@@ -924,7 +926,13 @@ func draw_effects(canvas:Node2D)->void:
 				else:
 					canvas.draw_colored_polygon(PackedVector2Array([point,point+Vector2(25,-60),point+Vector2(38,0)]),Color(.8,.3,.12,.65))
 			_:
-				canvas.draw_arc(point-Vector2(0,38),35+float(field.left)*12,0,TAU,16,Color("b8b493") if kind in ["gray","ward"] else Color("a0c4b1"),4)
+				var energy := clampf(float(field.left) / maxf(.01, float(field.get("duration", 1.0))), 0, 1)
+				var light := Color("c2b693") if kind in ["gray", "ward"] else Color("9fb3aa")
+				light.a = .68 * energy
+				for i in 4:
+					var foot := point + Vector2(-27 + i * 18, -3)
+					var tip := foot + Vector2(-9 + i * 3, -7 - (i % 3) * 6 - 12 * (1-energy))
+					canvas.draw_line(foot, tip, light, 2.0)
 
 func _return_item(unit:Node2D,id:String)->void:
 	if id in ["I01","I02","I08","I13","I19"] and _uses(unit,id)>0:return

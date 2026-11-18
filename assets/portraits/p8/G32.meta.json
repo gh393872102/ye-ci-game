@@ -4,12 +4,15 @@
   "source": "Project-generated portrait source (local generation metadata withheld)",
   "path": "res://assets/portraits/p8/G32.png",
   "status": "placeholder",
-  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "qa": "P11 design review color portrait; 1024×1536, independent source revision. 无面的祠吏、线装空册和叠纸替换王冠与书翼。",
   "size": [
     1024,
     1536
   ],
-  "sha256": "c47446ca2d836d1746f868a02f2a4db41f1e433108af185ffd16fbb4bf97f286",
+  "sha256": "4213c723bec3b02405c41bdd17817cf3b4156a4c8a205f83c8faaca30f56ec87",
   "replacement_required": true,
-  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+  "previous_sha256": "c47446ca2d836d1746f868a02f2a4db41f1e433108af185ffd16fbb4bf97f286",
+  "review_art": "P11-revised",
+  "prompt_set": "res://assets/sprites/units/p11r/prompts.json"
 }

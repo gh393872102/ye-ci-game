@@ -5,6 +5,7 @@ const Obstacle = preload("res://src/world/WorldObstacle.gd")
 const Walker = preload("res://src/debug/DebugWalker.gd")
 const Navigation = preload("res://src/world/WalkNetwork.gd")
 const Drawing = preload("res://src/world/MapDrawing.gd")
+const Scenery = preload("res://src/world/ShrineScenery.gd")
 var layout: Dictionary
 var posts: Array[Marker2D] = []
 var placeholders: Array[Node2D] = []
@@ -17,6 +18,9 @@ var spawn_placeholders := true
 var combatants: Array[Node2D] = []
 var chunk_pieces: Array[Node2D] = []
 var _geometry_nodes: Array[Node] = []
+var _architecture: Node2D
+var _foreground_cover: Node2D
+var _show_room_names := false
 
 func _ready() -> void:
 	if layout.is_empty():
@@ -88,14 +92,33 @@ func _build_layout() -> void:
 		_add_geometry(unit)
 		placeholders.append(unit)
 	navigation = Navigation.new(self)
-	drawing = Drawing.new(self)
 	for spec in layout.get("pieces", []):
 		var piece: Node2D = load(spec.scene).instantiate()
 		piece.spec = spec
 		piece.world = self
 		_add_geometry(piece)
 		chunk_pieces.append(piece)
-	queue_redraw()
+	if drawing == null:
+		drawing = Drawing.new(self)
+		var sky := Scenery.new()
+		sky.name = "ForestAndSky"
+		sky.painter = drawing
+		sky.is_sky = true
+		sky.z_index = -4
+		add_child(sky)
+		_architecture = Scenery.new()
+		_architecture.name = "ShrineArchitecture"
+		_architecture.painter = drawing
+		_architecture.z_index = -3
+		add_child(_architecture)
+		_foreground_cover = Scenery.new()
+		_foreground_cover.name = "ForegroundCover"
+		_foreground_cover.painter = drawing
+		_foreground_cover.is_cover = true
+		_foreground_cover.z_index = 1
+		add_child(_foreground_cover)
+	_architecture.queue_redraw()
+	redraw_geometry()
 
 func _add_geometry(node: Node) -> void:
 	add_child(node)
@@ -103,12 +126,22 @@ func _add_geometry(node: Node) -> void:
 
 func redraw_geometry() -> void:
 	queue_redraw()
-	for piece in chunk_pieces:
-		piece.queue_redraw()
+	if _foreground_cover != null:
+		_foreground_cover.queue_redraw()
 
 func _draw() -> void:
 	if drawing != null:
-		drawing.draw_map()
+		drawing.draw_fixtures(self)
+	if _show_room_names:
+		for room in layout.rooms:
+			var x := Rules.body_to_px(room.start)
+			var y := floor_y(int(room.floor_id)) - (134 if room.start >= 88 else 94)
+			draw_string(font, Vector2(x + 30, y), tr(room.label), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("d9cab7"))
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_f6"):
+		_show_room_names = not _show_room_names
+		queue_redraw()
 
 func floor_y(floor_id: int) -> float:
 	for band in layout.floor_bands:

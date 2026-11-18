@@ -1,0 +1,2486 @@
+{
+  "phase": "P11 回执修订",
+  "recorded_at": "2026-11-18T08:45:50+00:00",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "reviewed_reference_figures": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "capture_count": 22,
+  "scope": "Godot 原生视口原帧，附可复跑的实际 UI 输入断言。战斗布置及剧情计时采用各套声明的夹具，视觉质量以原帧和标准图并列复核为准。",
+  "story_rules": {
+    "sha256": "ed045f2a920b087561144bdf245b788323db0bc7fc7e42c5d1246bf6381ad49e",
+    "identical_to_head": true
+  },
+  "reference_review": [
+    {
+      "reference": 14,
+      "reference_sha256": "06b1e727447d4066184142d03ff83c574ed7d99cbfff33001bb0a6e73d81fea6",
+      "topic": "购入与部署",
+      "comparison_requested": true,
+      "observed": "右下并列展示单位实形、价格与实值。付款后同一区域切换为合法部署位置，原镜头、四排鬼潮与小地图保持可见。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/14-reference-purchase-dock.png",
+        "sha256": "428b62f59b527d6aadc3a485b0dd3fa9301e262fc907f3bdba8dcc12bedbe943",
+        "width": 1920,
+        "height": 1080,
+        "suite": "battle_ui"
+      },
+      "additional_frames": [
+        {
+          "path": "docs/phase-reports/p11r-shots/ui/14-reference-deployment-posts.png",
+          "sha256": "f2a5e0b47a8236a5128d6d10724a6978c66753c481b7e81609b3f651ebc3fb9c",
+          "width": 1920,
+          "height": 1080,
+          "suite": "battle_ui"
+        }
+      ]
+    },
+    {
+      "reference": 15,
+      "reference_sha256": "77833e64f29ecee729354831d2047eaca736ec314f63864123d5f9b05c4069e0",
+      "topic": "升级与装备",
+      "comparison_requested": false,
+      "observed": "左侧分列当前与预览属性、升级费用及四个部位，装备库显示可佩戴状态。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/15-upgrade.png",
+        "sha256": "2aa0e9e9d424ea838df7de0747678dad1d6bc8d45576994af9819c5e288052f2",
+        "width": 1920,
+        "height": 1080,
+        "suite": "battle_ui"
+      },
+      "additional_frames": [
+        {
+          "path": "docs/phase-reports/p11r-shots/ui/15-equipment.png",
+          "sha256": "521d09451ed451c9adedcdbacdb8bf3ec68339d85511f994045a14a760d3f3c1",
+          "width": 1920,
+          "height": 1080,
+          "suite": "battle_ui"
+        }
+      ]
+    },
+    {
+      "reference": 16,
+      "reference_sha256": "305610990f3e013afd5cc59223400a2edbd40e8433e5213513fb18c161be2cc4",
+      "topic": "点册",
+      "comparison_requested": false,
+      "observed": "实际施术时，在战场目标旁显示读条与读册状态。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/16-read-progress.png",
+        "sha256": "a2ffd5fb6240e220ec9833b33b0288d89f6c2a96627468723543015b10ee980b",
+        "width": 1920,
+        "height": 1080,
+        "suite": "battle_ui"
+      },
+      "additional_frames": []
+    },
+    {
+      "reference": 17,
+      "reference_sha256": "cb302d9bb534e5a3ab621e3b5a6e6b1da0cd5cbe80a4566695f7a7ba0168693f",
+      "topic": "立绘点选",
+      "comparison_requested": true,
+      "observed": "点击案后合法站位的晚打开纸页。立绘、属性、技能、位置同屏，档号 H01 用小字保留。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/17-reference-wan-card.png",
+        "sha256": "e5b3579c24725011e2bdb1aa7dc176f44c47bea174a65d68fcfd8a9de0223911",
+        "width": 1920,
+        "height": 1080,
+        "suite": "battle_ui"
+      },
+      "additional_frames": []
+    },
+    {
+      "reference": 18,
+      "reference_sha256": "d16344fbf5cb4a3c64063f1419f5782a91f3c20d54ed71d2612c82f71be8efa9",
+      "topic": "夜程图",
+      "comparison_requested": false,
+      "observed": "圆印、连线、当前边框与节点类型展示分支，移动焦点可预览可抵达的路线。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/18-route-fork-1080.png",
+        "sha256": "02bcd6e74f765d35e4bbb7a7964653a82981ba7e091d3599bd2ce8795b6cb31e",
+        "width": 1920,
+        "height": 1080,
+        "suite": "night_flow"
+      },
+      "additional_frames": []
+    },
+    {
+      "reference": 19,
+      "reference_sha256": "bdfc8be7cf1fff7910a0e866ada44b56b56e89c535f407ace93e6db391657f6c",
+      "topic": "三选一",
+      "comparison_requested": false,
+      "observed": "祠中暗光围住三张可操作纸卡，标题、代价和行动分层显示。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/19-reward-1080.png",
+        "sha256": "0ad1e158a09be760daa92484b520a5a1384032f3f88ae158a679bc321656ce2b",
+        "width": 1920,
+        "height": 1080,
+        "suite": "night_flow"
+      },
+      "additional_frames": []
+    },
+    {
+      "reference": 20,
+      "reference_sha256": "46aa8b629489793952d3db6441a78f28be1027605eb7e312a9cbcca132a5391e",
+      "topic": "图鉴",
+      "comparison_requested": true,
+      "observed": "四册、目录、正文和立绘分栏，解锁阶段可回看。另有 G11 列名余文首屏原帧。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/20-reference-codex-wan.png",
+        "sha256": "fd7190183798759e399e846728c97a32e9a2bcec479a3ca5bebbb85721b211bd",
+        "width": 1920,
+        "height": 1080,
+        "suite": "story"
+      },
+      "additional_frames": [
+        {
+          "path": "docs/phase-reports/p11r-shots/ui/p11-epilogue-e02.png",
+          "sha256": "df7cb580a2f7e0d16c4a76067f5bdef92faf9faeedaa8f9f9a1d4e80df0c5a77",
+          "width": 1920,
+          "height": 1080,
+          "suite": "story"
+        }
+      ]
+    },
+    {
+      "reference": 21,
+      "reference_sha256": "1d89da75018c371460d6b40197b72d9e2ab0f1091a18439896863d180d52a847",
+      "topic": "结夜结算",
+      "comparison_requested": true,
+      "observed": "香火与名分分列，放野下直写走完夺名一夜、放行后余潮仍在、结夜 6.0 名分。复盘种子有独立标签。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/p11-ending-e02.png",
+        "sha256": "dd7d535bf42809dd474af2bc35dc0a1295dd82eaa1a1ff65bd33e7a6a16cca7e",
+        "width": 1920,
+        "height": 1080,
+        "suite": "story"
+      },
+      "additional_frames": [
+        {
+          "path": "docs/phase-reports/p11r-shots/ui/p11-ending-e01.png",
+          "sha256": "d94326eb90f5ccbfe84e4d91ac9b05c61f81d3c9d7b291911e51a7b0a3bc067e",
+          "width": 1920,
+          "height": 1080,
+          "suite": "story"
+        },
+        {
+          "path": "docs/phase-reports/p11r-shots/ui/p11-ending-e03.png",
+          "sha256": "183190eb2da848cbb3ba316886fa889c94b20245cd79b0ff0474528c5b622d5e",
+          "width": 1920,
+          "height": 1080,
+          "suite": "story"
+        }
+      ]
+    },
+    {
+      "reference": 22,
+      "reference_sha256": "f2b0c8c50e1c8161edbec60ac8c9b5a8a9144c2cb2a75d52f65232d4c870c66c",
+      "topic": "夜市",
+      "comparison_requested": false,
+      "observed": "三个货位显示实际购入代价，卡顶区分品类，买入和离市沿用原流程。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/22-market-shouxiang-1080.png",
+        "sha256": "3ed9516e291639e2bed3483942860e736e6e3ad977b1bffd830846f31816f59d",
+        "width": 1920,
+        "height": 1080,
+        "suite": "night_flow"
+      },
+      "additional_frames": []
+    },
+    {
+      "reference": 23,
+      "reference_sha256": "9680ff372e5ed9dd820d02ff9dd435536be753b40efb8dc659136ac1a2213416",
+      "topic": "战斗内警告",
+      "comparison_requested": false,
+      "observed": "压力场景同屏显示贴边的门将破和名册告急，顶栏仍显示各条失败条件。",
+      "native": {
+        "path": "docs/phase-reports/p11r-shots/ui/23-pressure.png",
+        "sha256": "bb10c51355e8afc24f912323b9b88602c2522bb2ce41ca1e25be7ce0469b5559",
+        "width": 1920,
+        "height": 1080,
+        "suite": "battle_ui"
+      },
+      "additional_frames": []
+    }
+  ],
+  "supplemental_frames": [
+    {
+      "path": "docs/phase-reports/p11r-shots/ui/01-hud.png",
+      "sha256": "632774bfe2da616b8e21b60812cea10fbe8839a1d652a8f94df5c124d16ea81a",
+      "width": 1920,
+      "height": 1080,
+      "suite": "battle_ui",
+      "observed": "倒计时、科仪、名册、香火、名分、门与上层状态同屏。小地图保留长祠切片，指令按可用状态排列。"
+    },
+    {
+      "path": "docs/phase-reports/p11r-shots/ui/p11-epilogue-e01.png",
+      "sha256": "cc0714cc67ff7285e848cf17304bcfb53e3017b538a643e4a733fef99bf5c99c",
+      "width": 1920,
+      "height": 1080,
+      "suite": "story",
+      "observed": "白衣无面余文首屏。"
+    },
+    {
+      "path": "docs/phase-reports/p11r-shots/ui/p11-epilogue-e03.png",
+      "sha256": "c3d43bf1fa74043fc6258a257aa99f20db1ed43126f4de99b3ea329b965c8435",
+      "width": 1920,
+      "height": 1080,
+      "suite": "story",
+      "observed": "晚的余文首屏。"
+    },
+    {
+      "path": "docs/phase-reports/p11r-shots/ui/p11-epilogue-rite.png",
+      "sha256": "5b535a22f7817af7352212a7638fe7305f173a670c3e05a12824c4bb42cc9185",
+      "width": 1920,
+      "height": 1080,
+      "suite": "story",
+      "observed": "列名守夜科仪余文首屏。"
+    },
+    {
+      "path": "docs/phase-reports/p11r-shots/ui/p11-failure-record.png",
+      "sha256": "ed0e61520be4c5053a064dd9e0277b2a0b1601b36052fdaa033f149d3fbf1e91",
+      "width": 1920,
+      "height": 1080,
+      "suite": "story",
+      "observed": "失败记录只呈现凶手与失败原因。夹具保存的 P11 前缀种子用于验证隐藏。"
+    },
+    {
+      "path": "docs/phase-reports/p11r-shots/ui/p11-self-listing-choice.png",
+      "sha256": "5de4879acec5d6e9bdd541bc51e80aa75f6529fdb74020d05575d5ed602d11b2",
+      "width": 1920,
+      "height": 1080,
+      "suite": "story",
+      "observed": "确认前写明扣除 4 名分，生命上限从 70 降到 45。"
+    },
+    {
+      "path": "docs/phase-reports/p11r-shots/ui/p11-self-listing-battle.png",
+      "sha256": "ded60fde3703481945ba008d8f777c0ec20e8b5dfed0f49cc923c20926d963be",
+      "width": 1920,
+      "height": 1080,
+      "suite": "story",
+      "observed": "原配置 380 秒的末关开场显示 06:20，晚的卡面显示 45/45。"
+    }
+  ],
+  "self_listing_timing": {
+    "display": "战斗累计  06:20.1",
+    "final_elapsed": 379.99999999998306,
+    "final_profile_seconds": 380.0,
+    "opening_hud": "06:20",
+    "scope": "Earlier route nodes use shortened timers; final profile runs without timer reduction. Enemies are held outside to measure the clock.",
+    "sum_of_battle_records": 380.0666666666497,
+    "explanation": "旧回执的 0.1 秒源于缩时夹具。此轮末关严格使用配置的 380 秒，前四节点在缩时夹具各记一个模拟步。结算累计全部已结算的战斗模拟秒数并保留十分之一秒。"
+  },
+  "suites": {
+    "battle_ui": {
+      "command": "python3 tools/p9_verify.py --native --script tests/P9BattleUI.gd",
+      "engine": "4.7.2-stable (official)",
+      "checks": 61,
+      "failures": 0,
+      "display": "macOS",
+      "physical_controllers": [],
+      "scope": "独立工程以 Godot 原生视口输入执行购入、合法部署、升级、换装备、点册、暂停和点选。图14、17的对照场景布置了四排共 40 个有效鬼潮单位，晚在桌案后合法站位。手柄为虚拟输入。",
+      "results": [
+        {
+          "check": "Source and Chinese table validation",
+          "passed": true
+        },
+        {
+          "check": "Entry HUD reads current ritual and duration",
+          "passed": true
+        },
+        {
+          "check": "Five simultaneous book, economy, door and upper-floor text values",
+          "passed": true
+        },
+        {
+          "check": "Shouxiang shows six commands without mutation",
+          "passed": true
+        },
+        {
+          "check": "Default camera stays far; minimap spans the exact one-fifth slice",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 01-hud",
+          "passed": true
+        },
+        {
+          "check": "Q opens paused purchase without moving the camera",
+          "passed": true
+        },
+        {
+          "check": "Purchase cards show live source price and core combat stats",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 14-purchase",
+          "passed": true
+        },
+        {
+          "check": "The second offer page uses new scoped entries",
+          "passed": true
+        },
+        {
+          "check": "Real purchase reserves exactly one offer",
+          "passed": true
+        },
+        {
+          "check": "Only real cover posts receive legal markers",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 14-deployment",
+          "passed": true
+        },
+        {
+          "check": "Cursor gives an explicit outer-gate rejection",
+          "passed": true
+        },
+        {
+          "check": "Courtyard click explains rejection and keeps the paid reservation intact",
+          "passed": true
+        },
+        {
+          "check": "Controller cancel refunds the reservation",
+          "passed": true
+        },
+        {
+          "check": "Controller X opens the full command list with focus",
+          "passed": true
+        },
+        {
+          "check": "Controller A opens purchase and focuses a legal offer",
+          "passed": true
+        },
+        {
+          "check": "Controller offer confirmation focuses a legal cover post",
+          "passed": true
+        },
+        {
+          "check": "Controller D-pad can choose another exact legal cover post",
+          "passed": true
+        },
+        {
+          "check": "Controller places the reserved unit by confirming the focused post",
+          "passed": true
+        },
+        {
+          "check": "Controller purchase and deployment preserve the original viewport",
+          "passed": true
+        },
+        {
+          "check": "Clicking a live actor pauses and opens the full card",
+          "passed": true
+        },
+        {
+          "check": "Battle card reads the same complete fields as Codex",
+          "passed": true
+        },
+        {
+          "check": "Portrait appears in the card and leaves world geometry unchanged",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 17-unit-card",
+          "passed": true
+        },
+        {
+          "check": "Upgrade shows current stats, preview and four equipment slots",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 15-upgrade",
+          "passed": true
+        },
+        {
+          "check": "Real upgrade confirm increments the selected actor once",
+          "passed": true
+        },
+        {
+          "check": "Equipment shortcut exposes one censer, two arts and one nameplate at the same zoom",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 15-equipment",
+          "passed": true
+        },
+        {
+          "check": "Equipment spends real inventory and updates the card",
+          "passed": true
+        },
+        {
+          "check": "Point-rite picker only offers the legal ghost already in hall",
+          "passed": true
+        },
+        {
+          "check": "Click on an unentered ghost explains legal range without charging",
+          "passed": true
+        },
+        {
+          "check": "Click on an entered legal ghost starts the real paid channel with unchanged viewport",
+          "passed": true
+        },
+        {
+          "check": "Reading stays at the original cover and advances on continue",
+          "passed": true
+        },
+        {
+          "check": "The other guard continues real combat during reading",
+          "passed": true
+        },
+        {
+          "check": "A visible progress strip reports both elapsed time and interruptibility",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 16-read-progress",
+          "passed": true
+        },
+        {
+          "check": "Damage stops the channel and produces a corner warning",
+          "passed": true
+        },
+        {
+          "check": "Danger, book, tide above and dawn read in text at the same time",
+          "passed": true
+        },
+        {
+          "check": "Warnings are nonmodal and confined to a corner",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 23-pressure",
+          "passed": true
+        },
+        {
+          "check": "Controlled-shouxiang drag only opens multi-unit inspection",
+          "passed": true
+        },
+        {
+          "check": "Box selection never issues orders, moves or charges",
+          "passed": true
+        },
+        {
+          "check": "Duoming toolbar shows mutation, fusion and reinforcement",
+          "passed": true
+        },
+        {
+          "check": "Duoming drag exposes batch mutation without movement controls",
+          "passed": true
+        },
+        {
+          "check": "Batch preview counts the one affordable ghost in an eligible pair",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 15-batch-mutation",
+          "passed": true
+        },
+        {
+          "check": "Batch mutates and charges only the valid affordable member",
+          "passed": true
+        },
+        {
+          "check": "Controller unit cycle starts with the player's seat and shows its card",
+          "passed": true
+        },
+        {
+          "check": "P11R reference capture positions Wan at a genuine indoor cover position",
+          "passed": true
+        },
+        {
+          "check": "P11R purchase with forty visible tide bodies preserves the exact camera and realm scale",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 14-reference-purchase-dock",
+          "passed": true
+        },
+        {
+          "check": "P11R deployment stays in the original legal-purchase flow",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 14-reference-deployment-posts",
+          "passed": true
+        },
+        {
+          "check": "P11R visible Wan can be clicked for the complete body and folio in a stable slice",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 17-reference-wan-card",
+          "passed": true
+        },
+        {
+          "check": "A fresh battle clears prior interruption warnings",
+          "passed": true
+        },
+        {
+          "check": "At 720p the full first purchase button fits in the unscrolled panel",
+          "passed": true
+        },
+        {
+          "check": "Native viewport screenshot 14-purchase-720",
+          "passed": true
+        }
+      ],
+      "source_sha256": {
+        "assets/ui/night/ink_paper.gdshader": "40571f5f0c45acf197a09e15c80c3b72f017ce1c05195c3a392ce80af0c9eb58",
+        "assets/ui/night/lantern-court.webp": "91e5b2404aae3b6ae76aea4cd033e9f68c823121cc32f6598cd9837f26dba0e0",
+        "data/story/endings.json": "ed045f2a920b087561144bdf245b788323db0bc7fc7e42c5d1246bf6381ad49e",
+        "data/strings/zh_CN.csv": "ce467180350b18120be257919d08285eb1e133810c2b8fd069d5b0c911257db7",
+        "src/ui/CodexPanel.gd": "597b97a960a7dd9a0a7c1e2b6d4178980a2fee93f306c8ebde402bb5e5e66c82",
+        "src/ui/CombatHUD.gd": "78cb63c758619bb1827cbc7996a8f23d9c95abf31fe080278307693211306327",
+        "src/ui/DecisionPanel.gd": "e5d509735ea2e2fea7c06db4b745ab2a04a2e7ba9d420afa2640a7803f5ee033",
+        "src/ui/GrowthPanel.gd": "86c59bdd609e8fe2bf95a3b26eba7a937275923ff787cad4f8e9abbacfe4ec44",
+        "src/ui/LedgerInk.gd": "84edeff0778199fe1a7ed843524e9f81522579042a0bf9745dc8f28e15a54fdb",
+        "src/ui/Minimap.gd": "86ff7a5a018ac81d919684999ad5f27e0f285496a0d8a6a1a7645220e899b866",
+        "src/ui/NightPanel.gd": "545f1120e651977ee05c08df7a3c5e9f7324ace11f9037ccb6c25f95e284112e",
+        "src/ui/UnitCardContent.gd": "7792b2f65de19352cfa27adc04cd79a8994a4304a7eb6d0cedf1358e91bec7e0"
+      },
+      "workspace_ui_source_differences_at_indexing": []
+    },
+    "night_flow": {
+      "command": "python3 tools/p9_night_qa.py",
+      "engine": "4.7.2-stable (official)",
+      "checks": 76,
+      "failures": 0,
+      "scope": "独立工程以短时战斗进入夜程、图鉴、三选一、结算和两处夜市，失败使用实际抹名和熄册。",
+      "procedures": {
+        "attacker_market": "Zero initial names advances the attacker through the first real win.",
+        "battle_profiles": "No scheduled waves; 60-second first defender fixture, other nodes 0.25 seconds.",
+        "controls": "Mouse plus virtual joypad button events through Viewport.push_input.",
+        "defeat": "One name, zero incense, genuine G25 erasure and extinguish window.",
+        "storage": "Disposable mirror checks actual night, codex and replay paths before input."
+      },
+      "results": [
+        {
+          "passed": true,
+          "test": "Project, codex and replay paths point to the current disposable fixture"
+        },
+        {
+          "passed": true,
+          "test": "Night host verifies its isolated storage path before start"
+        },
+        {
+          "passed": true,
+          "test": "All nightly data and translation files load"
+        },
+        {
+          "passed": true,
+          "test": "Main night host starts a real seeded P8 roster run"
+        },
+        {
+          "passed": true,
+          "test": "11 map nodes with only the actual first node enabled"
+        },
+        {
+          "passed": true,
+          "test": "The product night-map entry exposes its Settings action"
+        },
+        {
+          "passed": true,
+          "test": "Joypad direction and accept reach the ghost book"
+        },
+        {
+          "passed": true,
+          "test": "An unseen entry displays a silhouette and holds back stats, skill and traits"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 20-codex-silhouette-720"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 20-codex-silhouette-720 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Actual tabs open the items book"
+        },
+        {
+          "passed": true,
+          "test": "Actual tabs open the customs book"
+        },
+        {
+          "passed": true,
+          "test": "Joypad cancel closes the codex and restores the map focus"
+        },
+        {
+          "passed": true,
+          "test": "The first node button opens the actual combat scene"
+        },
+        {
+          "passed": true,
+          "test": "Fixture places an actual white-robed ghost beside the legal register post"
+        },
+        {
+          "passed": true,
+          "test": "Actual ghost spawn advances its entry to visible line art"
+        },
+        {
+          "passed": true,
+          "test": "Opening codex pauses without changing the battle camera scale"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 20-codex-line-720"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 20-codex-line-720 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Real paid purification starts at the indoor register"
+        },
+        {
+          "passed": true,
+          "test": "Actual purification advances G01 from line art to complete color"
+        },
+        {
+          "passed": true,
+          "test": "The resolved record uses the live card's shared stat, skill, trait and slot format"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 20-codex-color-1080"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 20-codex-color-1080 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "A real protected read targets the unlisted prior"
+        },
+        {
+          "passed": true,
+          "test": "The existing protected-read naming rule reaches the fourth step"
+        },
+        {
+          "passed": true,
+          "test": "The named ghost displays the fourth stage and a named record"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 20-codex-named-720"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 20-codex-named-720 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "The entry can transfer joypad focus to its complete details"
+        },
+        {
+          "passed": true,
+          "test": "Joypad can scroll the overflow of the unit details"
+        },
+        {
+          "passed": true,
+          "test": "An actual battle victory opens mandatory three-choose-one with no skip"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 19-reward-1080"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 19-reward-1080 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 19-reward-720"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 19-reward-720 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Joypad reaches a second reward choice"
+        },
+        {
+          "passed": true,
+          "test": "A single joypad confirmation records exactly one reward and consumes the other two"
+        },
+        {
+          "passed": true,
+          "test": "The shouxiang night market opens its four seeded offers"
+        },
+        {
+          "passed": true,
+          "test": "The shouxiang market offers the actual seat-specific roster"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 22-market-shouxiang-1080"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 22-market-shouxiang-1080 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "The shouxiang joypad purchase debits only the visible incense price and prevents duplicate confirmation"
+        },
+        {
+          "passed": true,
+          "test": "Joypad can focus Continue Route from the market offers"
+        },
+        {
+          "passed": true,
+          "test": "The market exit returns to the genuine next route"
+        },
+        {
+          "passed": true,
+          "test": "The map shows the current node and both genuine safe and risky alternatives"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 18-route-fork-720"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 18-route-fork-720 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 18-route-fork-1080"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 18-route-fork-1080 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Left joypad input inspects the visible risk branch"
+        },
+        {
+          "passed": true,
+          "test": "Ten-node short fixture completes genuine victory, mandatory final reward and ritual discovery"
+        },
+        {
+          "passed": true,
+          "test": "Victory settlement shows the surviving register and actual seed"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 21-summary-victory-1080"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 21-summary-victory-1080 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Settlement can return to a read-only trace of the completed route"
+        },
+        {
+          "passed": true,
+          "test": "Route history returns to the settlement actions"
+        },
+        {
+          "passed": true,
+          "test": "Native clipboard receives the actual seed after clicking Copy Seed"
+        },
+        {
+          "passed": true,
+          "test": "Returning to the player title keeps the finished result available"
+        },
+        {
+          "passed": true,
+          "test": "A genuine G25 erasure removes the final name in the low-name loss fixture"
+        },
+        {
+          "passed": true,
+          "test": "Actual loss opens the free-recovery decision"
+        },
+        {
+          "passed": true,
+          "test": "Declining recovery settles the actual loss with the first broken failure line"
+        },
+        {
+          "passed": true,
+          "test": "Defeat names the concrete reason and the actual eraser"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 21-summary-defeat-720"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 21-summary-defeat-720 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "Failure register shows its real eraser and reason and withholds the recorded seed"
+        },
+        {
+          "passed": true,
+          "test": "Joypad cancel closes the failure history without closing its codex"
+        },
+        {
+          "passed": true,
+          "test": "Failure history is actually saved on the isolated player profile"
+        },
+        {
+          "passed": true,
+          "test": "The low-name attacker fixture advances through actual win settlement"
+        },
+        {
+          "passed": true,
+          "test": "The duoming night market opens its four seeded offers"
+        },
+        {
+          "passed": true,
+          "test": "The duoming market offers the actual seat-specific roster"
+        },
+        {
+          "passed": true,
+          "test": "Native framebuffer exists for 22-market-duoming-720"
+        },
+        {
+          "passed": true,
+          "test": "Native screenshot 22-market-duoming-720 has the requested dimensions"
+        },
+        {
+          "passed": true,
+          "test": "The duoming joypad purchase debits only the visible incense price and prevents duplicate confirmation"
+        },
+        {
+          "passed": true,
+          "test": "Joypad can focus Continue Route from the market offers"
+        },
+        {
+          "passed": true,
+          "test": "The market exit returns to the genuine next route"
+        }
+      ],
+      "source_sha256": {
+        "assets/ui/night/ink_paper.gdshader": "40571f5f0c45acf197a09e15c80c3b72f017ce1c05195c3a392ce80af0c9eb58",
+        "assets/ui/night/lantern-court.webp": "91e5b2404aae3b6ae76aea4cd033e9f68c823121cc32f6598cd9837f26dba0e0",
+        "data/story/endings.json": "ed045f2a920b087561144bdf245b788323db0bc7fc7e42c5d1246bf6381ad49e",
+        "data/strings/zh_CN.csv": "ce467180350b18120be257919d08285eb1e133810c2b8fd069d5b0c911257db7",
+        "src/ui/CodexPanel.gd": "597b97a960a7dd9a0a7c1e2b6d4178980a2fee93f306c8ebde402bb5e5e66c82",
+        "src/ui/CombatHUD.gd": "78cb63c758619bb1827cbc7996a8f23d9c95abf31fe080278307693211306327",
+        "src/ui/DecisionPanel.gd": "e5d509735ea2e2fea7c06db4b745ab2a04a2e7ba9d420afa2640a7803f5ee033",
+        "src/ui/GrowthPanel.gd": "86c59bdd609e8fe2bf95a3b26eba7a937275923ff787cad4f8e9abbacfe4ec44",
+        "src/ui/LedgerInk.gd": "84edeff0778199fe1a7ed843524e9f81522579042a0bf9745dc8f28e15a54fdb",
+        "src/ui/Minimap.gd": "86ff7a5a018ac81d919684999ad5f27e0f285496a0d8a6a1a7645220e899b866",
+        "src/ui/NightPanel.gd": "545f1120e651977ee05c08df7a3c5e9f7324ace11f9037ccb6c25f95e284112e",
+        "src/ui/UnitCardContent.gd": "7792b2f65de19352cfa27adc04cd79a8994a4304a7eb6d0cedf1358e91bec7e0"
+      },
+      "workspace_ui_source_differences_at_indexing": []
+    },
+    "story": {
+      "command": "python3 tools/p9_verify.py --native --script tests/P11StorySuite.gd",
+      "engine": "4.7.2-stable (official)",
+      "checks": 133,
+      "failures": 0,
+      "scope": "独立工程使用实际命令、结局判定、战后选择及落盘。人为布置敌人，部分战斗以短时夹具推进，自册最终科仪按场景原时长模拟至天亮。",
+      "results": [
+        {
+          "detail": [],
+          "label": "Boot loads the Chinese string table and the editable story conditions",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Restoration starts in the actual opening act",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Self-listing is rejected away from the designated rite and final node",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-act-1-rekindle",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 12.150000000000183,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 18.916000000000288,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 30.92000000000029,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n03",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 38.924000000000284,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n05",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n05",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 60.0,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 11.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n08",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n08",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 60.0,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 5
+          },
+          "label": "Simulator decides the outcome at n10",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n10",
+          "ok": true
+        },
+        {
+          "detail": {
+            "ending": "",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 4,
+              "finished_seize_night": false,
+              "register_checked": 5,
+              "register_held": 5,
+              "release_or_recruit_count": 4,
+              "renown": 12.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 0
+            },
+            "seize_finished_here": false,
+            "self_listing": {},
+            "version": 1
+          },
+          "label": "Four actual exorcisms and five held registers are saved without granting restoration early",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The next hosted night reads its exact prior tally and needs no competing seat",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "after": 10.0,
+            "before": 12.0
+          },
+          "label": "Live erasures lower names without injecting the settlement",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The live reading ledger and exact renown peak survive a disk reload",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The live peak holds after real erasure lowers the current balance",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "A pre-story night save loads with no invented historical activity",
+          "ok": true
+        },
+        {
+          "detail": [
+            "P4_COMMAND_OK",
+            "P4_DEPLOYED"
+          ],
+          "label": "The actual purchase and legal register deployment produce an execution caster",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "An ineligible attempted execution does not create a choice record",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The genuine paid execution takes a living exorcisable target",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 12.150000000000183,
+            "first_breach": {},
+            "humans_alive": 6,
+            "incense": 5.916000000000286,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 9.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 7
+          },
+          "label": "Simulator decides the outcome at n01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 6,
+            "incense": 17.92000000000029,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The night's middle route introduces Receive the Register",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-act-2-receive",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 6,
+            "incense": 25.92400000000029,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n05",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n05",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 6,
+            "incense": 49.92800000000029,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 11.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n08",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n08",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The final map moves naturally to List Names",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-act-3-list",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 6,
+            "incense": 60.0,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 5
+          },
+          "label": "Simulator decides the outcome at n10",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n10",
+          "ok": true
+        },
+        {
+          "detail": {
+            "ending": "E01",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 8,
+              "finished_seize_night": false,
+              "register_checked": 10,
+              "register_held": 10,
+              "release_or_recruit_count": 8,
+              "renown": 12.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 1
+            },
+            "seize_finished_here": false,
+            "self_listing": {},
+            "version": 1.0
+          },
+          "label": "Eight paid successful readings across two nights and one paid execution qualify for E01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "borrow_god_count": 0,
+            "empty_god_count": 0,
+            "exorcise_count": 8,
+            "finished_seize_night": false,
+            "register_checked": 10,
+            "register_held": 10,
+            "release_or_recruit_count": 8,
+            "renown": 12.0,
+            "renown_peak": 12.0,
+            "slay_exorcisable_count": 1
+          },
+          "label": "The actual night preserves final and peak names and held-register history",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The restoration recap explains its natural-language cause",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-ending-e01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The complete record and named passage have separate tabs for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The actual named tab shows the first lines of the complete passage for G01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-epilogue-e01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 12.000000000000176,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 18.880000000000962,
+            "killer_id": "G01",
+            "mode": "duoming",
+            "names": 5.0000000000001705,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 167.99999999999045,
+            "tide_alive": 28
+          },
+          "label": "Simulator decides the outcome at n01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 12.000000000000176,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 33.76000000000036,
+            "killer_id": "G01",
+            "mode": "duoming",
+            "names": 6.000000000000341,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 197.99999999999045,
+            "tide_alive": 32
+          },
+          "label": "Simulator decides the outcome at n03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n03",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 12.000000000000176,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 44.639999999998764,
+            "killer_id": "G01",
+            "mode": "duoming",
+            "names": 8.000000000000512,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 197.99999999999045,
+            "tide_alive": 32
+          },
+          "label": "Simulator decides the outcome at n05",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n05",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 12.000000000000176,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 60.0,
+            "killer_id": "G01",
+            "mode": "duoming",
+            "names": 8.00000000000017,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 227.99999999999045,
+            "tide_alive": 32
+          },
+          "label": "Simulator decides the outcome at n08",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n08",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 12.000000000000176,
+            "first_breach": {
+              "door": "door_hall",
+              "time": 5.933333333333318
+            },
+            "humans_alive": 5,
+            "incense": 60.0,
+            "killer_id": "G01",
+            "mode": "duoming",
+            "names": 9.00000000000017,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 348.0000000000109,
+            "tide_alive": 39
+          },
+          "label": "Simulator decides the outcome at n10",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n10",
+          "ok": true
+        },
+        {
+          "detail": {
+            "ending": "",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 0,
+              "finished_seize_night": true,
+              "register_checked": 0,
+              "register_held": 0,
+              "release_or_recruit_count": 0,
+              "renown": 12.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 0
+            },
+            "seize_finished_here": true,
+            "self_listing": {},
+            "version": 1
+          },
+          "label": "Only a legal terminal result records the other seat, with no Keeper ending",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-seize-seat",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The actual played Seize Name result crosses into the next Keeper night",
+          "ok": true
+        },
+        {
+          "detail": "P4_COMMAND_OK",
+          "label": "The actual indoor reader starts a paid reading for G11",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reading resolves into an actual release or temporary recruitment for G11",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 3.2499999999999933,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 19.78000000000026,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 9.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 31.784000000000262,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n03",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 39.78800000000026,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n05",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n05",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 60.0,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 11.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n08",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n08",
+          "ok": true
+        },
+        {
+          "detail": {
+            "after": 2.0,
+            "before": 12.0
+          },
+          "label": "Live erasures lower names without injecting the settlement",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 60.0,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 2.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 15
+          },
+          "label": "Simulator decides the outcome at n10",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n10",
+          "ok": true
+        },
+        {
+          "detail": {
+            "ending": "E02",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 1,
+              "finished_seize_night": true,
+              "register_checked": 5,
+              "register_held": 5,
+              "release_or_recruit_count": 1,
+              "renown": 6.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 0
+            },
+            "seize_finished_here": false,
+            "self_listing": {},
+            "version": 1
+          },
+          "label": "A real lamp reading, unfinished tide, past Seize Name night and moderate settled names qualify for E02",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The release recap explains the other seat, spared names and real settled renown",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-ending-e02",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The complete record and named passage have separate tabs for G11",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The actual named tab shows the first lines of the complete passage for G11",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-epilogue-e02",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 16.004,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 8.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n01",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 36.008,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 11.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n03",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 44.012,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n05",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n05",
+          "ok": true
+        },
+        {
+          "detail": {
+            "elapsed": 0.016666666666666666,
+            "first_breach": {},
+            "humans_alive": 5,
+            "incense": 60.0,
+            "killer_id": "",
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 4
+          },
+          "label": "Simulator decides the outcome at n08",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n08",
+          "ok": true
+        },
+        {
+          "detail": {
+            "allowed": true,
+            "paid": false,
+            "payment": {
+              "max_hp_after": 45.0,
+              "max_hp_before": 70.0,
+              "names_paid": 4.0,
+              "uid": "night_1",
+              "unit": "H01"
+            },
+            "reason": ""
+          },
+          "label": "The live R08 route visibly offers self-listing just before the last real battle",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-self-listing-choice",
+          "ok": true
+        },
+        {
+          "detail": {
+            "max_hp_after": 45.0,
+            "max_hp_before": 70.0,
+            "names_paid": 4.0,
+            "uid": "night_1",
+            "unit": "H01"
+          },
+          "label": "The actual choice pays names and wounds Wan on the night roster",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Repeating the explicit choice cannot pay or wound twice",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The explicit choice and payment survive a disk reload",
+          "ok": true
+        },
+        {
+          "detail": {
+            "max_hp": 45.0,
+            "repurchase": "P4_UNKNOWN_PURCHASE"
+          },
+          "label": "Wan actually fights at the paid lower maximum and cannot be re-bought at full strength",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Selecting self-listing alone does not grant an ending",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-self-listing-battle",
+          "ok": true
+        },
+        {
+          "detail": {
+            "actual": 379.99999999998306,
+            "opening_display": "06:20",
+            "planned": 380.0,
+            "reason": "P4_END_HELD_TO_DAYBREAK"
+          },
+          "label": "The unshortened final clock ends via the real daybreak rule",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The reward must settle before any ending at n10",
+          "ok": true
+        },
+        {
+          "detail": {
+            "ending": "E03",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 0,
+              "finished_seize_night": false,
+              "register_checked": 5,
+              "register_held": 5,
+              "release_or_recruit_count": 0,
+              "renown": 12.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 0
+            },
+            "seize_finished_here": false,
+            "self_listing": {
+              "max_hp_after": 45.0,
+              "max_hp_before": 70.0,
+              "names_paid": 4.0,
+              "uid": "night_1",
+              "unit": "H01"
+            },
+            "version": 1.0
+          },
+          "label": "The self-listing ending is set only after the real final win and reward",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Finale elapsed time and the displayed total match the summed live battle records",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-ending-e03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The complete record and named passage have separate tabs for H01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for 20-reference-codex-wan",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The actual named tab shows the first lines of the complete passage for H01",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-epilogue-e03",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The complete record and named passage have separate tabs for ritual_lieming",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The actual named tab shows the first lines of the complete passage for ritual_lieming",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-epilogue-rite",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The failure fixture opens the actual first battle",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "A live borrow starts and a repeat while reading is rejected",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The deterministic borrow resolves to an actual empty seat",
+          "ok": true
+        },
+        {
+          "detail": {
+            "after": 0.0,
+            "before": 5.0
+          },
+          "label": "Live erasures lower names without injecting the settlement",
+          "ok": true
+        },
+        {
+          "detail": "P4_END_REGISTER_EXTINGUISHED",
+          "label": "The extinguish timer settles a real loss blamed on its live eraser",
+          "ok": true
+        },
+        {
+          "detail": {
+            "borrow_god_count": 1,
+            "empty_god_count": 1,
+            "exorcise_count": 0,
+            "finished_seize_night": false,
+            "register_checked": 2,
+            "register_held": 0,
+            "release_or_recruit_count": 0,
+            "renown": 0.0,
+            "renown_peak": 8.0,
+            "slay_exorcisable_count": 0
+          },
+          "label": "Successful spend, backlash, and failed register count exactly once",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The same node's old settlement is rejected during the real mercy retry",
+          "ok": true
+        },
+        {
+          "detail": {
+            "after": 0.0,
+            "before": 8.0
+          },
+          "label": "Live erasures lower names without injecting the settlement",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "A failed terminal state records the loss while withholding victory endings",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "The live codex failure window shows the eraser and reason without exposing the night seed",
+          "ok": true
+        },
+        {
+          "detail": [
+            {
+              "killer_id": "G25",
+              "reason": "P4_END_REGISTER_EXTINGUISHED",
+              "seed": "P11-empty-seat-7"
+            }
+          ],
+          "label": "The same failure cause is recorded once across battle and night settlement",
+          "ok": true
+        },
+        {
+          "detail": null,
+          "label": "Native frame saved for p11-failure-record",
+          "ok": true
+        },
+        {
+          "detail": [],
+          "label": "Every Chinese name and main text in the four displayed books resolves through strings",
+          "ok": true
+        }
+      ],
+      "observations": {
+        "E01": {
+          "battles": [
+            {
+              "elapsed": 12.150000000000183,
+              "node_id": "n01",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.000000000000002,
+              "reward_names": 3.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n03",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 0.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n05",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 0.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n08",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 10.071999999999711,
+              "reward_names": 1.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n10",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 0.0,
+              "reward_names": 0.0
+            }
+          ],
+          "codex_progress": {
+            "G01": 3,
+            "G12": 1,
+            "G25": 1,
+            "H01": 1,
+            "H09": 1,
+            "H13": 1,
+            "H17": 1,
+            "I01": 2,
+            "I07": 2,
+            "I11": 2,
+            "I12": 2,
+            "I17": 1,
+            "block_c02": 1,
+            "block_c08": 1,
+            "block_c09": 1,
+            "block_c12": 1,
+            "block_gate_court": 1,
+            "block_register": 1,
+            "block_upper_rooms": 1,
+            "ritual_example_incense": 2
+          },
+          "mode": "shouxiang",
+          "result": "victory",
+          "seed": "门槛余声",
+          "story": {
+            "ending": "E01",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 8,
+              "finished_seize_night": false,
+              "register_checked": 10,
+              "register_held": 10,
+              "release_or_recruit_count": 8,
+              "renown": 12.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 1
+            },
+            "seize_finished_here": false,
+            "self_listing": {},
+            "version": 1.0
+          },
+          "visited": [
+            "n01",
+            "n02",
+            "n03",
+            "n04",
+            "n05",
+            "n06",
+            "n07",
+            "n08",
+            "n09",
+            "n10"
+          ]
+        },
+        "E02": {
+          "battles": [
+            {
+              "elapsed": 3.2499999999999933,
+              "node_id": "n01",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 3.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n03",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 0.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n05",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 0.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n08",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 0.0,
+              "reward_names": 1.0
+            },
+            {
+              "elapsed": 0.016666666666666666,
+              "node_id": "n10",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 0.0,
+              "reward_names": 4.0
+            }
+          ],
+          "codex_progress": {
+            "G01": 3,
+            "G11": 3,
+            "G12": 1,
+            "G25": 1,
+            "H01": 1,
+            "H09": 1,
+            "H13": 1,
+            "H17": 1,
+            "I01": 2,
+            "I06": 2,
+            "I07": 2,
+            "I09": 2,
+            "I10": 1,
+            "I11": 2,
+            "I12": 2,
+            "I17": 1,
+            "I19": 2,
+            "block_c02": 1,
+            "block_c08": 1,
+            "block_c09": 1,
+            "block_c12": 1,
+            "block_gate_court": 1,
+            "block_register": 1,
+            "block_upper_rooms": 1,
+            "ritual_example_incense": 2
+          },
+          "mode": "shouxiang",
+          "result": "victory",
+          "seed": "江祠灯影",
+          "story": {
+            "ending": "E02",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 1,
+              "finished_seize_night": true,
+              "register_checked": 5,
+              "register_held": 5,
+              "release_or_recruit_count": 1,
+              "renown": 6.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 0
+            },
+            "seize_finished_here": false,
+            "self_listing": {},
+            "version": 1
+          },
+          "visited": [
+            "n01",
+            "n02",
+            "n03",
+            "n04",
+            "n05",
+            "n06",
+            "n07",
+            "n08",
+            "n09",
+            "n10"
+          ]
+        },
+        "E03": {
+          "battles": [
+            {
+              "elapsed": 0.01666666666666666,
+              "node_id": "n01",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 4.0
+            },
+            {
+              "elapsed": 0.01666666666666666,
+              "node_id": "n03",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 1.0
+            },
+            {
+              "elapsed": 0.01666666666666666,
+              "node_id": "n05",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 12.0,
+              "reward_names": 0.0
+            },
+            {
+              "elapsed": 0.01666666666666666,
+              "node_id": "n08",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 0.0,
+              "reward_names": 0.0
+            },
+            {
+              "elapsed": 379.99999999998306,
+              "node_id": "n10",
+              "outcome": "victory",
+              "reason": "P4_END_HELD_TO_DAYBREAK",
+              "reward_incense": 0.0,
+              "reward_names": 4.0
+            }
+          ],
+          "codex_progress": {
+            "G01": 3,
+            "G08": 1,
+            "G09": 1,
+            "G11": 3,
+            "G12": 1,
+            "G25": 1,
+            "H01": 3,
+            "H09": 1,
+            "H13": 1,
+            "H17": 1,
+            "I01": 2,
+            "I06": 2,
+            "I07": 2,
+            "I09": 2,
+            "I10": 1,
+            "I11": 2,
+            "I12": 2,
+            "I17": 1,
+            "I18": 2,
+            "I19": 2,
+            "block_bridge": 1,
+            "block_c02": 1,
+            "block_c06": 1,
+            "block_c08": 1,
+            "block_c09": 1,
+            "block_c10": 1,
+            "block_c11": 1,
+            "block_c12": 1,
+            "block_gate_court": 1,
+            "block_register": 1,
+            "block_upper_rooms": 1,
+            "block_water_lane": 1,
+            "ritual_example_incense": 2,
+            "ritual_lieming": 3
+          },
+          "mode": "shouxiang",
+          "result": "victory",
+          "seed": "晚墨入册",
+          "story": {
+            "ending": "E03",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 0,
+              "finished_seize_night": false,
+              "register_checked": 5,
+              "register_held": 5,
+              "release_or_recruit_count": 0,
+              "renown": 12.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 0
+            },
+            "seize_finished_here": false,
+            "self_listing": {
+              "max_hp_after": 45.0,
+              "max_hp_before": 70.0,
+              "names_paid": 4.0,
+              "uid": "night_1",
+              "unit": "H01"
+            },
+            "version": 1.0
+          },
+          "visited": [
+            "n01",
+            "n02",
+            "n03",
+            "n04",
+            "n05",
+            "n06",
+            "n07",
+            "n08",
+            "n09",
+            "n10"
+          ]
+        },
+        "E03_timing": {
+          "display": "战斗累计  06:20.1",
+          "final_elapsed": 379.99999999998306,
+          "final_profile_seconds": 380.0,
+          "opening_hud": "06:20",
+          "scope": "Earlier route nodes use shortened timers; final profile runs without timer reduction. Enemies are held outside to measure the clock.",
+          "sum_of_battle_records": 380.0666666666497
+        },
+        "loss": {
+          "failure_records": [
+            {
+              "killer_id": "G25",
+              "reason": "P4_END_REGISTER_EXTINGUISHED",
+              "seed": "P11-empty-seat-7"
+            }
+          ],
+          "flags": {
+            "borrow_god_count": 1,
+            "empty_god_count": 1,
+            "exorcise_count": 0,
+            "finished_seize_night": false,
+            "register_checked": 2,
+            "register_held": 0,
+            "release_or_recruit_count": 0,
+            "renown": 0.0,
+            "renown_peak": 8.0,
+            "slay_exorcisable_count": 0
+          },
+          "seed": "P11-empty-seat-7"
+        },
+        "seize": {
+          "battles": [
+            {
+              "elapsed": 12.000000000000176,
+              "node_id": "n01",
+              "outcome": "victory",
+              "reason": "P4_END_REGISTER_CAPTURED",
+              "reward_incense": 12.0,
+              "reward_names": 4.0
+            },
+            {
+              "elapsed": 12.000000000000176,
+              "node_id": "n03",
+              "outcome": "victory",
+              "reason": "P4_END_REGISTER_CAPTURED",
+              "reward_incense": 12.0,
+              "reward_names": 4.0
+            },
+            {
+              "elapsed": 12.000000000000176,
+              "node_id": "n05",
+              "outcome": "victory",
+              "reason": "P4_END_REGISTER_CAPTURED",
+              "reward_incense": 12.0,
+              "reward_names": 3.9999999999994884
+            },
+            {
+              "elapsed": 12.000000000000176,
+              "node_id": "n08",
+              "outcome": "victory",
+              "reason": "P4_END_REGISTER_CAPTURED",
+              "reward_incense": 0.0,
+              "reward_names": 3.9999999999998295
+            },
+            {
+              "elapsed": 12.000000000000176,
+              "node_id": "n10",
+              "outcome": "victory",
+              "reason": "P4_END_REGISTER_CAPTURED",
+              "reward_incense": 0.0,
+              "reward_names": 2.9999999999998295
+            }
+          ],
+          "codex_progress": {
+            "G01": 3,
+            "G12": 1,
+            "G25": 1,
+            "H01": 1,
+            "H09": 1,
+            "H13": 1,
+            "H17": 1,
+            "I01": 2,
+            "I06": 2,
+            "I07": 2,
+            "I10": 1,
+            "I11": 2,
+            "I12": 2,
+            "I17": 1,
+            "I19": 2,
+            "block_c02": 1,
+            "block_c08": 1,
+            "block_c09": 1,
+            "block_c12": 1,
+            "block_gate_court": 1,
+            "block_register": 1,
+            "block_upper_rooms": 1,
+            "ritual_example_incense": 2
+          },
+          "mode": "duoming",
+          "result": "victory",
+          "seed": "潮后闻钟",
+          "story": {
+            "ending": "",
+            "flags": {
+              "borrow_god_count": 0,
+              "empty_god_count": 0,
+              "exorcise_count": 0,
+              "finished_seize_night": true,
+              "register_checked": 0,
+              "register_held": 0,
+              "release_or_recruit_count": 0,
+              "renown": 12.0,
+              "renown_peak": 12.0,
+              "slay_exorcisable_count": 0
+            },
+            "seize_finished_here": true,
+            "self_listing": {},
+            "version": 1
+          },
+          "visited": [
+            "n01",
+            "n02",
+            "n03",
+            "n04",
+            "n05",
+            "n06",
+            "n07",
+            "n08",
+            "n09",
+            "n10"
+          ]
+        }
+      },
+      "source_sha256": {
+        "assets/ui/night/ink_paper.gdshader": "40571f5f0c45acf197a09e15c80c3b72f017ce1c05195c3a392ce80af0c9eb58",
+        "assets/ui/night/lantern-court.webp": "91e5b2404aae3b6ae76aea4cd033e9f68c823121cc32f6598cd9837f26dba0e0",
+        "data/story/endings.json": "ed045f2a920b087561144bdf245b788323db0bc7fc7e42c5d1246bf6381ad49e",
+        "data/strings/zh_CN.csv": "ce467180350b18120be257919d08285eb1e133810c2b8fd069d5b0c911257db7",
+        "src/ui/CodexPanel.gd": "597b97a960a7dd9a0a7c1e2b6d4178980a2fee93f306c8ebde402bb5e5e66c82",
+        "src/ui/CombatHUD.gd": "78cb63c758619bb1827cbc7996a8f23d9c95abf31fe080278307693211306327",
+        "src/ui/DecisionPanel.gd": "e5d509735ea2e2fea7c06db4b745ab2a04a2e7ba9d420afa2640a7803f5ee033",
+        "src/ui/GrowthPanel.gd": "86c59bdd609e8fe2bf95a3b26eba7a937275923ff787cad4f8e9abbacfe4ec44",
+        "src/ui/LedgerInk.gd": "84edeff0778199fe1a7ed843524e9f81522579042a0bf9745dc8f28e15a54fdb",
+        "src/ui/Minimap.gd": "86ff7a5a018ac81d919684999ad5f27e0f285496a0d8a6a1a7645220e899b866",
+        "src/ui/NightPanel.gd": "545f1120e651977ee05c08df7a3c5e9f7324ace11f9037ccb6c25f95e284112e",
+        "src/ui/UnitCardContent.gd": "7792b2f65de19352cfa27adc04cd79a8994a4304a7eb6d0cedf1358e91bec7e0"
+      },
+      "workspace_ui_source_differences_at_indexing": []
+    }
+  }
+}
