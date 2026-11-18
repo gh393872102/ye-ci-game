@@ -3,11 +3,13 @@ extends RefCounted
 const FOREST = preload("res://assets/sprites/world/inkshrine/forest-panorama.png")
 const MOON = preload("res://assets/sprites/world/inkshrine/moon.png")
 const PAVING = preload("res://assets/sprites/world/inkshrine/wet-cobbles.png")
+const COURT_STONES = preload("res://assets/sprites/world/inkshrine/courtyard-stones.png")
 const ROOMS = preload("res://assets/sprites/world/inkshrine/shrine-interiors.png")
 const MATERIAL = preload("res://assets/sprites/world/inkshrine/structural-materials.png")
 const PROPS = preload("res://assets/sprites/world/inkshrine/shrine-props.png")
 const EAVES = preload("res://assets/sprites/world/inkshrine/shrine-eaves.png")
 
+const STONE_APRON := 45.0
 const FLAGS := Rect2(0, 0, 1774, 220)
 const SHALE := Rect2(0, 224, 1774, 214)
 const LACQUER := Rect2(0, 447, 1774, 210)
@@ -46,7 +48,7 @@ var cool_light: GradientTexture2D
 
 func _init(map: Node2D) -> void:
 	world = map
-	warm_light = _falloff(Color("e9863d"), .36)
+	warm_light = _falloff(Color("ffac60"), .51)
 	cool_light = _falloff(Color("8c9db8"), .12)
 
 func _falloff(color: Color, strength: float) -> GradientTexture2D:
@@ -75,15 +77,18 @@ func draw_architecture(canvas: Node2D) -> void:
 	var width := float(Rules.REFERENCE_MAP_WIDTH_PX)
 	var outer: Node2D = world.get_node("door_outer")
 	var wall_left := outer.position.x + 55.0
-	var wall_end := Rules.HALL_X - 10.0
+	var wall_end := float(Rules.HALL_X)
 	_distant_eaves(canvas, world.get_node("door_inner").position.x + 272)
-	_strip(canvas, MATERIAL, SHALE, Rect2(wall_left, 426, wall_end - wall_left, 188), 810, Color("727a7a"))
-	_strip(canvas, MATERIAL, TILES, Rect2(wall_left - 30, 397, wall_end - wall_left + 45, 49), 520, Color("838b8e"))
-	canvas.draw_rect(Rect2(wall_left, 600, wall_end - wall_left, 15), Color(0.02, 0.028, 0.03, .48))
 	_strip(canvas, PAVING, COBBLES, Rect2(0, horizon - 112, width, 112), 610, Color("9a897e"))
-	var edge := Color(.035, .039, .04, .26)
-	canvas.draw_rect(Rect2(0, horizon - 112, width, 8), edge)
-	_strip(canvas, MATERIAL, SHALE, Rect2(0, horizon, width, 23), 1110, Color("51595a"))
+	# The rear parapet ends before the deep paving plane. The playable lanes stay in its near courses.
+	var court_back := horizon - 234.0
+	_strip(canvas, MATERIAL, SHALE, Rect2(wall_left, court_back - 53, wall_end - wall_left, 56), 810, Color("827b78"))
+	_strip(canvas, MATERIAL, TILES, Rect2(wall_left - 19, court_back - 74, wall_end - wall_left + 31, 25), 440, Color("a39a94"))
+	_strip(canvas, COURT_STONES, Rect2(Vector2.ZERO, COURT_STONES.get_size()),
+		Rect2(wall_left, court_back, Rules.HALL_X - wall_left, horizon + STONE_APRON - court_back), 810, Color("bfc1c5"))
+	_beam(canvas, Vector2(wall_left, court_back), Vector2(wall_end, court_back), 5, Color("706e70"))
+	_strip(canvas, MATERIAL, SHALE, Rect2(0, horizon, wall_left, STONE_APRON), 820, Color("555c60"))
+	_strip(canvas, MATERIAL, SHALE, Rect2(Rules.HALL_X, horizon, width - Rules.HALL_X, STONE_APRON), 800, Color("7b726b"))
 	_approach(canvas)
 	for gate in world.doors:
 		if gate.door_id in ["door_outer", "door_inner"]:
@@ -92,6 +97,11 @@ func draw_architecture(canvas: Node2D) -> void:
 		if room.start >= 88.0 or room.id == "side_hall":
 			_room(canvas, room)
 	_window_posts(canvas)
+	for post in world.posts:
+		if post.position.x >= Rules.HALL_X and post.get_meta("cover_kind") in ["table", "window", "register"]:
+			var hook := Vector2(post.position) - Vector2(63, 124)
+			_hanging_lamp(canvas, hook, 34, .96)
+			_light(canvas, post.position - Vector2(18, 60), Vector2(134, 113), warm_light, .80)
 	var top := _top_of_hall()
 	_roof(canvas, Rect2(Rules.HALL_X - 46, top - 59, width - Rules.HALL_X + 78, 74), Color("a2a3a0"))
 	for spec in world.layout.get("pieces", []):
@@ -180,8 +190,8 @@ func _lamp_row(canvas: Node2D, left: float, floor_y: float, width: float, level:
 		var toward := -5 if index % 2 else 5
 		var light := Vector2(x + toward * 2, floor_y - 124 - (index % 2) * 7)
 		_hanging_lamp(canvas, light - Vector2(0, 24), 57 if level == 0 else 50, 1.12 if archive else .92)
-		var sheen := Rect2(light.x - 78, floor_y - 21, 156, 23)
-		canvas.draw_texture_rect(warm_light, sheen, false, Color(1, 1, 1, .38))
+		var sheen := Rect2(light.x - 99, floor_y - 30, 198, 32)
+		canvas.draw_texture_rect(warm_light, sheen, false, Color(1, 1, 1, .60))
 		if level > 0 and index % 2 == 1:
 			var end := Vector2(x + 84, floor_y - 23)
 			_prop(canvas, CRATE, end, Vector2(37, 31), Color("7b7771"))
@@ -345,6 +355,9 @@ func _facility(canvas: Node2D, object: StaticBody2D, front := Vector2.ZERO) -> v
 	if front != Vector2.ZERO:
 		at.x = (front.x + front.y) / 2
 		w = front.y - front.x
+	if object.kind in ["barricade","palisade"] and world.is_open_court(at):
+		_court_slot(canvas, object, at)
+		return
 	if not object.occupied:
 		if object.max_durability > 0 and object.durability <= 0 and object.kind in ["beam_span", "stone_bridge", "barricade", "palisade", "stove"]:
 			_debris(canvas, at, minf(w, 132.0), object.kind == "stone_bridge")
@@ -387,6 +400,27 @@ func _facility(canvas: Node2D, object: StaticBody2D, front := Vector2.ZERO) -> v
 	_prop(canvas, profile, at, Vector2(w, h), tint)
 	if object.kind == "register":
 		_pocket_flame(canvas, at + Vector2(w * .31, -49), 15)
+
+func _court_slot(canvas: Node2D, object: StaticBody2D, foot: Vector2) -> void:
+	# Two ranks of post sockets describe one real slot. An emptied slot keeps its stone footings.
+	var back := foot + Vector2(63, -153)
+	for base in [back, foot - Vector2(0, 6)]:
+		for side in [-1, 1]:
+			var pin: Vector2 = base + Vector2(side * object.width * .33, 0)
+			canvas.draw_rect(Rect2(pin - Vector2(9, 3), Vector2(18, 6)), Color("816e60"))
+			canvas.draw_rect(Rect2(pin - Vector2(6, 2), Vector2(12, 4)), Color("2d2625"))
+	if not object.occupied:
+		if object.durability <= 0:
+			_debris(canvas, foot, object.width, false)
+		return
+	# Braced trestles share the collision span and face the incoming tide.
+	for i in 3:
+		var t := i * .5
+		var base := back.lerp(foot, t)
+		_prop(canvas, BARRICADE, base, Vector2(object.width * (.84 + .16*t), 63 + 7*t), Color("fae5c5"))
+	for side in [-1, 1]:
+		var offset := Vector2(side * object.width * .32, -23)
+		_beam(canvas, back + offset, foot + offset, 5, Color("bd986e"))
 
 func _debris(canvas: Node2D, at: Vector2, width: float, stone: bool) -> void:
 	for index in 6:
@@ -439,7 +473,9 @@ func _court_lamp(canvas: Node2D, at: Vector2) -> void:
 func _hanging_lamp(canvas: Node2D, attachment: Vector2, height: float, strength: float) -> void:
 	var at := attachment + Vector2(0, height * .68)
 	_light(canvas, at, Vector2(228, 212) * (.8 + strength * .2), warm_light, strength)
-	_prop(canvas, LANTERN, attachment + Vector2(0, height), Vector2(height * .56, height), Color("ffe7ce"))
+	_prop(canvas, LANTERN, attachment + Vector2(0, height), Vector2(height * .56, height), Color("ffebce"))
+	var wick := at + Vector2(0, height * .06)
+	canvas.draw_colored_polygon(PackedVector2Array([wick + Vector2(-2, 2), wick + Vector2(0, -height * .14), wick + Vector2(2, 1), wick + Vector2(0, 3)]), Color("ffe4a9"))
 
 func _pocket_flame(canvas: Node2D, tip: Vector2, h: float) -> void:
 	canvas.draw_rect(Rect2(tip + Vector2(-7, 0), Vector2(14, 3)), Color("ba885e"))

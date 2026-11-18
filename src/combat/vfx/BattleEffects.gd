@@ -127,7 +127,7 @@ func _draw() -> void:
 			"upper_lost": _lost_room(at, phase)
 			"give_face", "send_off": _face(at, phase, cue.kind == "give_face")
 			"register_relight": _relight(at, phase)
-			"fusion": _fusion(at, cue.second, cue.height, phase)
+			"fusion": _fusion(at, cue.second, cue.height, phase, cue.detail == "F02")
 			"bolt_hit": _bolt_spark(at, cue.direction, phase)
 
 func _draw_marks() -> void:
@@ -225,7 +225,7 @@ func _relight(at: Vector2, phase: float) -> void:
 		var pos := base + Vector2((i * 23 % 94 - 48) * (.5 + phase), -15 - fmod(phase * 124 + (i * 13 % 100), 104))
 		fleck(pos, Vector2(2 + i % 3 * 2, 3), Color(OCHRE, bright * (.23 + i % 3 * .18)))
 
-func _fusion(at: Vector2, other: Vector2, height: float, phase: float) -> void:
+func _fusion(at: Vector2, other: Vector2, height: float, phase: float, door_rider: bool) -> void:
 	var lift := maxf(80.0, height)
 	var life := 1.0 - phase * phase
 	var source := other - Vector2(0, 42)
@@ -238,7 +238,14 @@ func _fusion(at: Vector2, other: Vector2, height: float, phase: float) -> void:
 	var landing := smoothstep(0, .20, phase)
 	var span := lerpf(80, 315, landing) + 30 * phase
 	var plume_height := (29 + 64 * landing) * (1.0 - phase * .33)
-	draw_texture_rect(IMPACT, Rect2(at.x-span*.5, at.y-plume_height+8, span, plume_height), false, Color(1, 1, 1, life))
+	if door_rider:
+		# Mark the two hooves with low, outward-moving spray, keeping the rider and reins clear.
+		for side in [-1, 1]:
+			var hoof := at + Vector2(side * (28 + 58 * landing), 2)
+			var burst := Vector2(span * .59, plume_height * .63)
+			draw_texture_rect(IMPACT, Rect2(hoof - Vector2(burst.x / 2, burst.y - 6), burst), false, Color(.95, .97, 1, life))
+	else:
+		draw_texture_rect(IMPACT, Rect2(at.x-span*.5, at.y-plume_height+8, span, plume_height), false, Color(1, 1, 1, life))
 	var spread := 54.0 + phase * 106
 	var ground := PackedVector2Array([at + Vector2(-spread, -2), at + Vector2(-spread * .55, -14), at + Vector2(spread * .41, -19), at + Vector2(spread, -4), at + Vector2(spread * .52, 2), at + Vector2(-spread * .43, 3)])
 	draw_colored_polygon(ground, Color("1f302d", life * .72))

@@ -43,6 +43,12 @@
       "generation_file": "exec-faa8ab44-d4f3-47b6-bf1b-d091556d9f03.png",
       "transparent": true,
       "prompt": "Use case: stylized-concept. ONE transparent alpha sprite showing only a small approx 1:1 round pale moon in a dark East Asian ancestral shrine pixel-art videogame. A round low-contrast gibbous near-full moon, crater and basalt maria softly grouped and cool, hand-pixel shaded and finely dithered, dim offwhite as seen through humidity, medium-to-low contrast. Moon centered, small negative transparent margin, no outer bloom or glow, no background, no stars, no flowers, no figure, no type, no frame, no other sprites. Absolutely genuine transparency outside the moon silhouette. Game will downsample to 55 world pixels, emphasize three or four natural broad craters rather than beautiful detailed optical photography or stencil-flat cubes."
+    },
+    {
+      "file": "courtyard-stones.png",
+      "generation_file": "exec-68249ea9-cd10-4e78-851a-f6c0efb18849.png",
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. Single production game environment texture for a side-on Chinese ancestral shrine. Deliver an ultrawide 3:1 horizontal texture, a continuous EMPTY expanse of rain-wet ancient stone courtyard paving ONLY, edge to edge. Every pixel is the WALKING SURFACE. Viewed at a shallow downward angle, like a hand-crafted dark fantasy pixel-art side-view battlefield, no vanishing point or centered path. Broad staggered rows of small worn rectangular brown-black granite and bluestone bricks, visibly interlocking horizontal seams, rough chipped bevels picking up warm copper sunset-lantern light from the right and restrained cool silver moon reflections at left; 22 to 32 stones across, around 18 horizontal courses high, compact fine pixels, localized little puddles, reflected glints following mortar, irregular warm grey/brown wet finishes and crisp pixel clusters. Far edge stones visibly shallower and darker than near edge. A quiet dark adult supernatural mood with readable medium-value stone, no pitch black foreground. No walls, sky, horizon, pillars, weeds, structures, people, props, flames, glyphs, border, interface or lettering. No vertical stone faces; no roadway receding through center. It will tile sideways behind 80 pixel tall sprites."
     }
   ]
 }

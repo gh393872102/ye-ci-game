@@ -41,10 +41,10 @@
       "large": false,
       "portrait": "res://assets/portraits/p8/H01.png",
       "face_region": [
-        0.34,
-        0.055,
-        0.32,
-        0.22
+        0.403,
+        0.19,
+        0.232,
+        0.161
       ],
       "default_face": "faced",
       "motion": "robe_sway"

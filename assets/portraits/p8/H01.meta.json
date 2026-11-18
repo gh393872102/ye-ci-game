@@ -1,13 +1,15 @@
 {
   "path": "res://assets/portraits/p8/H01.png",
-  "source": "Project-generated portrait source (local generation metadata withheld)",
-  "status": "placeholder",
-  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "source": "Original design plate 17, art/17-UI-立绘面板.jpg, with the same locked lantern keeper in plate 20.",
+  "status": "design_reference_restored",
+  "qa": "Source crop [94,120,344,516] from 1280x720 plate 17, resampled to 1024x1536 using Lanczos. No generated or repainted facial features.",
   "size": [
     1024,
     1536
   ],
-  "sha256": "d40e54027d1e70f42ae38d4659f58247242bb9ea519072052f521f99931cf9c6",
-  "replacement_required": true,
-  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+  "sha256": "a478e87037784e7bdd0784b6df4ade1bb24ff065a95d0d82651cfefdfde36dae",
+  "replacement_required": false,
+  "replacement_plan": "Retain this face and lantern. Any future facial redesign requires user approval.",
+  "previous_sha256": "d40e54027d1e70f42ae38d4659f58247242bb9ea519072052f521f99931cf9c6",
+  "design_plate_sha256": "cb302d9bb534e5a3ab621e3b5a6e6b1da0cd5cbe80a4566695f7a7ba0168693f"
 }

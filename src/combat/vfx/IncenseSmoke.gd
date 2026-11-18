@@ -24,9 +24,11 @@ func _plume(source: Vector2, target: Vector2, phase: float) -> void:
 		bend = 1.0
 	var ember := pixel(source + Vector2(bend * 26, 12))
 	var opacity := 1.0 - smoothstep(.62, 1.0, phase)
-	var width := 68.0 + 12 * sin(phase * PI)
-	var height := 104.0 + 32 * phase
+	var width := 81.0 + 14 * sin(phase * PI)
+	var height := 140.0 + 33 * phase
 	var drift := bend * (7 * sin(phase * PI) + 3 * sin(simulation.simulation_time * 4.0))
 	draw_set_transform_matrix(Transform2D(0.0, Vector2.ONE, drift / height, ember))
-	draw_texture_rect(SMOKE, Rect2(-width * .48, -height, width, height), false, Color(.93, .96, 1, opacity * .93))
+	# A soft dark edge keeps the pale rising strand legible against a lit room.
+	draw_texture_rect(SMOKE, Rect2(-width * .48 + 3, -height + 3, width, height), false, Color(.19, .22, .27, opacity * .72))
+	draw_texture_rect(SMOKE, Rect2(-width * .48, -height, width, height), false, Color(1, .99, .95, opacity))
 	draw_set_transform(Vector2.ZERO)

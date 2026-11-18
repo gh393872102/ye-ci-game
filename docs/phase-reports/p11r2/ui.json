@@ -1,0 +1,334 @@
+{
+	"checks": 61,
+	"connected_controllers": [],
+	"display": "macOS",
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"results": [
+		{
+			"check": "Source and Chinese table validation",
+			"passed": true
+		},
+		{
+			"check": "Entry HUD reads current ritual and duration",
+			"passed": true
+		},
+		{
+			"check": "Five simultaneous book, economy, door and upper-floor text values",
+			"passed": true
+		},
+		{
+			"check": "Shouxiang shows six commands without mutation",
+			"passed": true
+		},
+		{
+			"check": "Default camera stays far; minimap spans the exact one-fifth slice",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 01-hud",
+			"passed": true
+		},
+		{
+			"check": "Q opens paused purchase without moving the camera",
+			"passed": true
+		},
+		{
+			"check": "Purchase cards show live source price and core combat stats",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 14-purchase",
+			"passed": true
+		},
+		{
+			"check": "The second offer page uses new scoped entries",
+			"passed": true
+		},
+		{
+			"check": "Real purchase reserves exactly one offer",
+			"passed": true
+		},
+		{
+			"check": "Only real cover posts receive legal markers",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 14-deployment",
+			"passed": true
+		},
+		{
+			"check": "Cursor gives an explicit outer-gate rejection",
+			"passed": true
+		},
+		{
+			"check": "Courtyard click explains rejection and keeps the paid reservation intact",
+			"passed": true
+		},
+		{
+			"check": "Controller cancel refunds the reservation",
+			"passed": true
+		},
+		{
+			"check": "Controller X opens the full command list with focus",
+			"passed": true
+		},
+		{
+			"check": "Controller A opens purchase and focuses a legal offer",
+			"passed": true
+		},
+		{
+			"check": "Controller offer confirmation focuses a legal cover post",
+			"passed": true
+		},
+		{
+			"check": "Controller D-pad can choose another exact legal cover post",
+			"passed": true
+		},
+		{
+			"check": "Controller places the reserved unit by confirming the focused post",
+			"passed": true
+		},
+		{
+			"check": "Controller purchase and deployment preserve the original viewport",
+			"passed": true
+		},
+		{
+			"check": "Clicking a live actor pauses and opens the full card",
+			"passed": true
+		},
+		{
+			"check": "Battle card reads the same complete fields as Codex",
+			"passed": true
+		},
+		{
+			"check": "Portrait appears in the card and leaves world geometry unchanged",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 17-unit-card",
+			"passed": true
+		},
+		{
+			"check": "Upgrade shows current stats, preview and four equipment slots",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 15-upgrade",
+			"passed": true
+		},
+		{
+			"check": "Real upgrade confirm increments the selected actor once",
+			"passed": true
+		},
+		{
+			"check": "Equipment shortcut exposes one censer, two arts and one nameplate at the same zoom",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 15-equipment",
+			"passed": true
+		},
+		{
+			"check": "Equipment spends real inventory and updates the card",
+			"passed": true
+		},
+		{
+			"check": "Point-rite picker only offers the legal ghost already in hall",
+			"passed": true
+		},
+		{
+			"check": "Click on an unentered ghost explains legal range without charging",
+			"passed": true
+		},
+		{
+			"check": "Click on an entered legal ghost starts the real paid channel with unchanged viewport",
+			"passed": true
+		},
+		{
+			"check": "Reading stays at the original cover and advances on continue",
+			"passed": true
+		},
+		{
+			"check": "The other guard continues real combat during reading",
+			"passed": true
+		},
+		{
+			"check": "A visible progress strip reports both elapsed time and interruptibility",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 16-read-progress",
+			"passed": true
+		},
+		{
+			"check": "Damage stops the channel and produces a corner warning",
+			"passed": true
+		},
+		{
+			"check": "Danger, book, tide above and dawn read in text at the same time",
+			"passed": true
+		},
+		{
+			"check": "Warnings are nonmodal and confined to a corner",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 23-pressure",
+			"passed": true
+		},
+		{
+			"check": "Controlled-shouxiang drag only opens multi-unit inspection",
+			"passed": true
+		},
+		{
+			"check": "Box selection never issues orders, moves or charges",
+			"passed": true
+		},
+		{
+			"check": "Duoming toolbar shows mutation, fusion and reinforcement",
+			"passed": true
+		},
+		{
+			"check": "Duoming drag exposes batch mutation without movement controls",
+			"passed": true
+		},
+		{
+			"check": "Batch preview counts the one affordable ghost in an eligible pair",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 15-batch-mutation",
+			"passed": true
+		},
+		{
+			"check": "Batch mutates and charges only the valid affordable member",
+			"passed": true
+		},
+		{
+			"check": "Controller unit cycle starts with the player's seat and shows its card",
+			"passed": true
+		},
+		{
+			"check": "P11R reference capture positions Wan at a genuine indoor cover position",
+			"passed": true
+		},
+		{
+			"check": "P11R purchase with forty visible tide bodies preserves the exact camera and realm scale",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 14-reference-purchase-dock",
+			"passed": true
+		},
+		{
+			"check": "P11R deployment stays in the original legal-purchase flow",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 14-reference-deployment-posts",
+			"passed": true
+		},
+		{
+			"check": "P11R visible Wan can be clicked for the complete body and folio in a stable slice",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 17-reference-wan-card",
+			"passed": true
+		},
+		{
+			"check": "A fresh battle clears prior interruption warnings",
+			"passed": true
+		},
+		{
+			"check": "At 720p the full first purchase button fits in the unscrolled panel",
+			"passed": true
+		},
+		{
+			"check": "Native viewport screenshot 14-purchase-720",
+			"passed": true
+		}
+	],
+	"scope": "Isolated battle and authored read/interruption/pressure/selection fixtures exercised through native Godot viewport events. Ordinary Night progression is covered by P9InputNight.",
+	"screenshots": [
+		{
+			"file": "01-hud.png",
+			"height": 1080,
+			"sha256": "531c1d8518abc1fb25f48704e76b0909df2805771c0aab94f18ca17662dabb53",
+			"width": 1920
+		},
+		{
+			"file": "14-purchase.png",
+			"height": 1080,
+			"sha256": "2d72dadeb95f69db3330c67a0b6884e91af5a0cd0b0ee3bce0b10b89a0919464",
+			"width": 1920
+		},
+		{
+			"file": "14-deployment.png",
+			"height": 1080,
+			"sha256": "5199332c695d15f109c4ed93a0a5026883df8202a533f0a6c649ae61ce269c4b",
+			"width": 1920
+		},
+		{
+			"file": "17-unit-card.png",
+			"height": 1080,
+			"sha256": "9e8f002263f6468be148203465b32a016ffe2ecde88cb95a7aa8b6af3365222b",
+			"width": 1920
+		},
+		{
+			"file": "15-upgrade.png",
+			"height": 1080,
+			"sha256": "f5716646aa4a8ef9f30dfabbb9397728694e06079a5f704e7116aefdf834176a",
+			"width": 1920
+		},
+		{
+			"file": "15-equipment.png",
+			"height": 1080,
+			"sha256": "31bbba3074eae8d36d82fced71dbc0211191d9a3e03d526346192a626209f647",
+			"width": 1920
+		},
+		{
+			"file": "16-read-progress.png",
+			"height": 1080,
+			"sha256": "3fe137857bc50dc9acbceb89895c102d150c1aad46d69467d76d980e63584db1",
+			"width": 1920
+		},
+		{
+			"file": "23-pressure.png",
+			"height": 1080,
+			"sha256": "cd8b69113df1a79d4f6585e240036c879bd986077bc473c7e9dcc15b19ae6ba8",
+			"width": 1920
+		},
+		{
+			"file": "15-batch-mutation.png",
+			"height": 1080,
+			"sha256": "56e3ae739c232ddd244c1670f98164113e837627dfb7f7f487fbebeacbd50c67",
+			"width": 1920
+		},
+		{
+			"file": "14-reference-purchase-dock.png",
+			"height": 1080,
+			"sha256": "c4957bfc516806bfd8558fe9f8ac5b18725c5d53bbc4ee7451fad90a931a9235",
+			"width": 1920
+		},
+		{
+			"file": "14-reference-deployment-posts.png",
+			"height": 1080,
+			"sha256": "640e15d8b77be1f857837192e3f509d9a8e91e3c5b4ed1be348cf862bd7841ba",
+			"width": 1920
+		},
+		{
+			"file": "17-reference-wan-card.png",
+			"height": 1080,
+			"sha256": "c86c22ddfa38695fa037f6bb6fca61fdc89f7458f45fd8b335c4e7846c968616",
+			"width": 1920
+		},
+		{
+			"file": "14-purchase-720.png",
+			"height": 720,
+			"sha256": "7405e89001ea769dd77526f801e2cfbcf76455debe5aa2acab920520703cbdf9",
+			"width": 1280
+		}
+	]
+}

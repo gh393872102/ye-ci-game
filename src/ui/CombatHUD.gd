@@ -64,9 +64,10 @@ func _ready() -> void:
 	add_to_group("hud")
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_panel(Rect2(0, 0, Rules.DESIGN_WIDTH, Rules.TOP_BAR_HEIGHT), PANEL)
-	_panel(Rect2(0, Rules.HORIZON_Y, Rules.DESIGN_WIDTH, Rules.DESIGN_HEIGHT - Rules.HORIZON_Y), INK)
+	var scenery_bottom := Rules.HORIZON_Y + preload("res://src/world/MapDrawing.gd").STONE_APRON
+	_panel(Rect2(0, scenery_bottom, Rules.DESIGN_WIDTH, Rules.DESIGN_HEIGHT - scenery_bottom), INK)
 	_panel(Rect2(0, Rules.TOP_BAR_HEIGHT - 1, Rules.DESIGN_WIDTH, 1), RULE)
-	_panel(Rect2(0, Rules.HORIZON_Y, Rules.DESIGN_WIDTH, 2), Color("3b2e26"))
+	_panel(Rect2(0, scenery_bottom, Rules.DESIGN_WIDTH, 2), Color("3b2e26"))
 	_panel(Rect2(196, 11, 1, 34), RULE)
 	_panel(Rect2(1458, 11, 1, 34), RULE)
 	goal_label = _metric("P9_HUD_DAWN", Rect2(24, 0, 164, 56), 26)

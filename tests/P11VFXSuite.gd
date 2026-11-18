@@ -68,6 +68,18 @@ func _cover_views() -> void:
 	for unit in sim.humans:
 		positions.append({"id":unit.unit_id,"post":unit.current_post,"world_x":unit.position.x,"world_y":unit.position.y,"floor":unit.floor_id,"protected":_protected(unit)})
 	_check(sim.humans.all(func(unit): return _protected(unit)) and sim.targets.size()==48, "All defenders inside cover, 48 live tide actors in four approach ranks")
+	var slots := {}
+	for obstacle in sim.world.obstacles:
+		if obstacle.kind not in ["palisade", "barricade"] or not sim.world.is_open_court(obstacle.position):
+			continue
+		slots[str(obstacle.name)] = {"world_x":obstacle.position.x, "occupied":obstacle.occupied, "durability":obstacle.durability}
+	var ranks := {}
+	for actor in sim.targets:
+		if camera.world_rect().has_point(actor.aim_point()):
+			ranks[actor.lane_index] = int(ranks.get(actor.lane_index, 0)) + 1
+	observations.courtyard = {"slots":slots,"lane_offsets":sim.tide.config.lane_offsets.duplicate(),"visible_by_lane":ranks}
+	_check(ranks.size() == 4, "Live tide actors occupy four lanes inside the camera slice")
+	_check(slots.has("inner_a") and camera.world_rect().has_point(sim.world.get_node("inner_a").position - Vector2(0, 1)), "The default camera includes the real inner-court barricade slot")
 	observations.cover = {"defenders":positions,"tide_count":sim.targets.size(),"camera_left":camera.left(),"camera_zoom":camera.zoom.x,"map_width":9600,"viewport_width":1920}
 	await _shot("00-default-tide")
 	# Let the same crowd approach the posts. The camera and deployment remain unchanged.

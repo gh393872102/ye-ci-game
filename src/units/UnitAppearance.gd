@@ -4,6 +4,7 @@ static var fallback: Dictionary = {}
 static var sprite_specs: Dictionary = {}
 static var sprite_sheets: Dictionary = {}
 static var sprite_catalog_loaded := false
+const LAMPLIT := preload("res://assets/sprites/units/p11r/lamplit.tres")
 const ATLAS_PATH := "res://data/units/p11_sprite_atlas.json"
 const SHEET_PATH := "res://assets/sprites/units/p11r/"
 const FRAME_SIZE := Vector2(144, 84)
@@ -119,6 +120,11 @@ static func _draw_sprite(unit: Node2D, appearance: Dictionary) -> bool:
 	var frames: Array = sprite.frames
 	if unit.texture_filter != CanvasItem.TEXTURE_FILTER_NEAREST:
 		unit.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	var at_lamp: bool = live and unit.side == "xianghuo" and unit.floor_id >= 0 and unit.position.x >= Rules.HALL_X
+	if at_lamp and unit.material == null:
+		unit.material = LAMPLIT
+	elif not at_lamp and unit.material == LAMPLIT:
+		unit.material = null
 	if unit.dead:
 		_draw_fallen(unit, atlas, frames[0], facing, scale)
 		return true
@@ -139,6 +145,9 @@ static func _draw_sprite(unit: Node2D, appearance: Dictionary) -> bool:
 		pose = 2 if acting else (1 if advancing and step > -0.12 else 0)
 	var frame: Array = frames[pose]
 	var light := Color(depth * 1.05, depth * 1.02, depth)
+	if live and unit.side == "yegui" and unit.lane_index >= 0:
+		var row: float = clampf(unit.lane_index / 3.0, 0, 1)
+		light = Color(.69, .77, .84).lerp(Color(1.10, 1.02, .91), row)
 	if unit.hit_flash > 0.0:
 		light = Color(1.28, 1.18, 1.10)
 	if live:
