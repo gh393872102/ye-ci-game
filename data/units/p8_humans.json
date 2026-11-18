@@ -1,0 +1,1225 @@
+{
+  "phase": "P8",
+  "notes": [
+    "P8补充配置；生命/攻击/防御/速度/香耗仍从原CSV读取。",
+    "T03祠役防御与速度为原表占位，待测。",
+    "数字为阶段初稿，技能语义以原表为准。"
+  ],
+  "profiles": {
+    "H01": {
+      "role": "ritual",
+      "skill_id": "dian_ce",
+      "trait_id": "qing_deng_juan_gu",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "zhu"
+    },
+    "H02": {
+      "role": "ritual",
+      "skill_id": "p7_h02_skill",
+      "trait_id": "p7_h02_trait",
+      "range_body": 1,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "zhu"
+    },
+    "H03": {
+      "role": "ritual",
+      "skill_id": "p7_h03_skill",
+      "trait_id": "p7_h03_trait",
+      "range_body": 2.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "zhu"
+    },
+    "H04": {
+      "role": "ritual",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H04",
+      "trait_id": "p8_trait_H04",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "tong"
+    },
+    "H05": {
+      "role": "ritual",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H05",
+      "trait_id": "p8_trait_H05",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "you"
+    },
+    "H06": {
+      "role": "talisman",
+      "skill_id": "p7_h06_skill",
+      "trait_id": "p7_h06_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "you"
+    },
+    "H07": {
+      "role": "talisman",
+      "skill_id": "p7_h07_skill",
+      "trait_id": "p7_h07_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "tong"
+    },
+    "H08": {
+      "role": "ritual",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H08",
+      "trait_id": "p8_trait_H08",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "zhu"
+    },
+    "H09": {
+      "role": "guard",
+      "skill_id": "kang_men",
+      "trait_id": "men_pu",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "dun"
+    },
+    "H10": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H10",
+      "trait_id": "p8_trait_H10",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "wei"
+    },
+    "H11": {
+      "role": "guard",
+      "skill_id": "p7_h11_skill",
+      "trait_id": "p7_h11_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "dun"
+    },
+    "H12": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H12",
+      "trait_id": "p8_trait_H12",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "wei"
+    },
+    "H13": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H13",
+      "trait_id": "p8_trait_H13",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "wei"
+    },
+    "H14": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H14",
+      "trait_id": "p8_trait_H14",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "dun"
+    },
+    "H15": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H15",
+      "trait_id": "p8_trait_H15",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "you"
+    },
+    "H16": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H16",
+      "trait_id": "p8_trait_H16",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "wei"
+    },
+    "H17": {
+      "role": "talisman",
+      "skill_id": "feng_men_fu",
+      "trait_id": "zhu_hen",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "fu"
+    },
+    "H18": {
+      "role": "talisman",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H18",
+      "trait_id": "p8_trait_H18",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "fu"
+    },
+    "H19": {
+      "role": "talisman",
+      "skill_id": "p7_h19_skill",
+      "trait_id": "p7_h19_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "fu"
+    },
+    "H20": {
+      "role": "talisman",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H20",
+      "trait_id": "p8_trait_H20",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "fu"
+    },
+    "H21": {
+      "role": "ritual",
+      "skill_id": "p7_h21_skill",
+      "trait_id": "p7_h21_trait",
+      "range_body": 2.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "fu"
+    },
+    "H22": {
+      "role": "talisman",
+      "skill_id": "p7_h22_skill",
+      "trait_id": "p7_h22_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "fu"
+    },
+    "H23": {
+      "role": "talisman",
+      "skill_id": "p7_h23_skill",
+      "trait_id": "p7_h23_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "fu"
+    },
+    "H24": {
+      "role": "ritual",
+      "skill_id": "p7_h24_skill",
+      "trait_id": "p7_h24_trait",
+      "range_body": 2.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "fu"
+    },
+    "H25": {
+      "role": "guard",
+      "skill_id": "p7_h25_skill",
+      "trait_id": "p7_h25_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": true,
+      "return_after": 3.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "jiang"
+    },
+    "H26": {
+      "role": "talisman",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H26",
+      "trait_id": "p8_trait_H26",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "jiang"
+    },
+    "H27": {
+      "role": "talisman",
+      "skill_id": "p7_h27_skill",
+      "trait_id": "p7_h27_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "jiang"
+    },
+    "H28": {
+      "role": "crossbow",
+      "range_body": 6,
+      "projectile": "bolt",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H28",
+      "trait_id": "p8_trait_H28",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "ke"
+    },
+    "H29": {
+      "role": "talisman",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H29",
+      "trait_id": "p8_trait_H29",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "jiang"
+    },
+    "H30": {
+      "role": "ritual",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_H30",
+      "trait_id": "p8_trait_H30",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "tong"
+    },
+    "H31": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": true,
+      "return_after": 3.0,
+      "skill_id": "p8_skill_H31",
+      "trait_id": "p8_trait_H31",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "ke"
+    },
+    "H32": {
+      "role": "talisman",
+      "skill_id": "p7_h32_skill",
+      "trait_id": "p7_h32_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "skeleton": "jiang"
+    },
+    "T01": {
+      "role": "guard",
+      "skill_id": "p8_skill_T01",
+      "trait_id": "p8_trait_T01",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "wei"
+    },
+    "T02": {
+      "role": "crossbow",
+      "skill_id": "p8_skill_T02",
+      "trait_id": "p8_trait_T02",
+      "range_body": 6.0,
+      "projectile": "bolt",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "you"
+    },
+    "T03": {
+      "role": "guard",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_id": "p8_skill_T03",
+      "trait_id": "p8_trait_T03",
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "zhu"
+    },
+    "T04": {
+      "role": "guard",
+      "skill_id": "p8_skill_T04",
+      "trait_id": "p8_trait_T04",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "skill_script": "res://src/roster/HumanAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/HumanAbilities.gd",
+      "trait_method": "advance",
+      "height_px": 80,
+      "skeleton": "wei"
+    }
+  },
+  "skills": {
+    "dian_ce": {
+      "name": "点册",
+      "stage": "active",
+      "duration": 4.0,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h02_skill": {
+      "name": "复火",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h03_skill": {
+      "name": "点名",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H04": {
+      "name": "分香",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast",
+      "duration": 4.0
+    },
+    "p8_skill_H05": {
+      "name": "禁声阵",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast",
+      "duration": 4.0
+    },
+    "p7_h06_skill": {
+      "name": "青灯领域",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h07_skill": {
+      "name": "敲更",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H08": {
+      "name": "护册",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast",
+      "duration": 4.0
+    },
+    "kang_men": {
+      "name": "扛门",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H10": {
+      "name": "决斩",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h11_skill": {
+      "name": "土垒",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H12": {
+      "name": "锁链",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H13": {
+      "name": "行刑",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H14": {
+      "name": "鸣锣",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H15": {
+      "name": "飞瓦",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H16": {
+      "name": "开路杖",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "feng_men_fu": {
+      "name": "封门符",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H18": {
+      "name": "金镜",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h19_skill": {
+      "name": "借鬼",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H20": {
+      "name": "烧疏",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h21_skill": {
+      "name": "放河灯",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h22_skill": {
+      "name": "破执",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h23_skill": {
+      "name": "错名",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h24_skill": {
+      "name": "点穴",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h25_skill": {
+      "name": "拒马",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H26": {
+      "name": "爆竹",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h27_skill": {
+      "name": "放鸦",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H28": {
+      "name": "挂账",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H29": {
+      "name": "一曲",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_H30": {
+      "name": "替死名",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast",
+      "duration": 4.0
+    },
+    "p8_skill_H31": {
+      "name": "猎步",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p7_h32_skill": {
+      "name": "暂面",
+      "stage": "active",
+      "duration": 4,
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_T01": {
+      "name": "护线",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_T02": {
+      "name": "弩射",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_T03": {
+      "name": "搬香",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    },
+    "p8_skill_T04": {
+      "name": "巡更",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "cast"
+    }
+  },
+  "traits": {
+    "qing_deng_juan_gu": {
+      "name": "青灯眷顾",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h02_trait": {
+      "name": "余烬",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h03_trait": {
+      "name": "册香",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H04": {
+      "name": "稚肩",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H05": {
+      "name": "无口",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h06_trait": {
+      "name": "灯冷",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h07_trait": {
+      "name": "值夜",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H08": {
+      "name": "同烬",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "men_pu": {
+      "name": "门仆",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H10": {
+      "name": "孤刀",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h11_trait": {
+      "name": "根深",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H12": {
+      "name": "官差",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H13": {
+      "name": "血腥账面",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H14": {
+      "name": "禁声夜弱化",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H15": {
+      "name": "轻身",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H16": {
+      "name": "生人勿近",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "zhu_hen": {
+      "name": "朱痕",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H18": {
+      "name": "冷面",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h19_trait": {
+      "name": "反噬",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H20": {
+      "name": "耗香",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h21_trait": {
+      "name": "旱弱",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h22_trait": {
+      "name": "戒余",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h23_trait": {
+      "name": "讳册",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h24_trait": {
+      "name": "针脚",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h25_trait": {
+      "name": "巧手",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H26": {
+      "name": "祭灶亲",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h27_trait": {
+      "name": "夜眼",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H28": {
+      "name": "胆小",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H29": {
+      "name": "以耳代目",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H30": {
+      "name": "寄命",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_H31": {
+      "name": "客籍",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p7_h32_trait": {
+      "name": "开面亲",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_T01": {
+      "name": "填线",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_T02": {
+      "name": "远射",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_T03": {
+      "name": "慢工",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    },
+    "p8_trait_T04": {
+      "name": "警戒",
+      "stage": "active",
+      "script": "res://src/roster/HumanAbilities.gd",
+      "method": "advance"
+    }
+  },
+  "abilities": {
+    "H01": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "light_duration_multiplier": 0.8,
+      "reveal_seconds": 3
+    },
+    "H02": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "names_restore": 2,
+      "reserve_transfer": 4,
+      "death_return": 2
+    },
+    "H03": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "names_per_ritual": 0.2
+    },
+    "H04": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "transfer": 2,
+      "register_cooldown_multiplier": 0.7
+    },
+    "H05": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "duration": 5
+    },
+    "H06": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "duration": 4,
+      "dark_attack_multiplier": 1.15
+    },
+    "H07": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "duration": 3
+    },
+    "H08": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "duration": 5,
+      "drain_multiplier": 0.35,
+      "max_defense_bonus": 8,
+      "min_speed_multiplier": 0.65
+    },
+    "H09": {
+      "cooldown": 8.0,
+      "radius_body": 2,
+      "duration": 4,
+      "away_cooldown_multiplier": 1.5
+    },
+    "H10": {
+      "cooldown": 8.0,
+      "radius_body": 1.2,
+      "hp_threshold": 0.4,
+      "damage_multiplier": 2.5,
+      "alone_attack_multiplier": 1.2,
+      "focused_damage_multiplier": 1.2
+    },
+    "H11": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "wall_hp": 120,
+      "stationary_defense_per_second": 0.3,
+      "max_defense_bonus": 5
+    },
+    "H12": {
+      "cooldown": 8.0,
+      "radius_body": 2.5,
+      "duration": 4,
+      "official_damage_multiplier": 1.25
+    },
+    "H13": {
+      "cooldown": 8.0,
+      "radius_body": 1.2,
+      "hp_threshold": 0.3,
+      "name_penalty": 1
+    },
+    "H14": {
+      "cooldown": 8.0,
+      "radius_body": 2.5,
+      "duration": 3,
+      "stun_seconds": 1
+    },
+    "H15": {
+      "cooldown": 8.0,
+      "radius_body": 8,
+      "support_speed": 3.2
+    },
+    "H16": {
+      "cooldown": 8.0,
+      "radius_body": 1.2,
+      "defense_reduction": 0.3,
+      "duration": 4,
+      "ghost_damage_multiplier": 1.2,
+      "healing_multiplier": 0.7
+    },
+    "H17": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "duration": 4
+    },
+    "H18": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "duration": 6,
+      "reflection_multiplier": 1,
+      "charm_duration_multiplier": 0.5,
+      "physical_multiplier": 1.15
+    },
+    "H19": {
+      "cooldown": 8.0,
+      "radius_body": 2.5,
+      "duration": 8
+    },
+    "H20": {
+      "cooldown": 8.0,
+      "radius_body": 2.5,
+      "damage": 16,
+      "extra_incense": 2,
+      "fire_seconds": 2
+    },
+    "H21": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "duration": 4,
+      "dry_duration_multiplier": 0.45,
+      "water_ritual_multiplier": 0.7
+    },
+    "H22": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "dispel_damage": 24,
+      "god_damage_multiplier": 1.25
+    },
+    "H23": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "duration": 6
+    },
+    "H24": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "duration": 2,
+      "large_multiplier": 0.5,
+      "small_multiplier": 1.5
+    },
+    "H25": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "wall_hp": 120,
+      "repair_cost_multiplier": 0.8,
+      "repair_leaf_body": 0.05
+    },
+    "H26": {
+      "cooldown": 8.0,
+      "radius_body": 2.5,
+      "duration": 2,
+      "damage": 2
+    },
+    "H27": {
+      "cooldown": 8.0,
+      "radius_body": 6,
+      "duration": 4,
+      "interrupt_damage": 1
+    },
+    "H28": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "market_price": 6,
+      "market_item": "I04"
+    },
+    "H29": {
+      "cooldown": 8.0,
+      "radius_body": 2.5,
+      "push_body": 1,
+      "duration": 2
+    },
+    "H30": {
+      "cooldown": 8.0,
+      "radius_body": 3.0,
+      "starting_names": 1,
+      "exorcism_damage_multiplier": 1.5
+    },
+    "H31": {
+      "cooldown": 8.0,
+      "radius_body": 6,
+      "max_outside_seconds": 3,
+      "hunt_speed": 5,
+      "damage_multiplier": 2
+    },
+    "H32": {
+      "cooldown": 8.0,
+      "radius_body": 3,
+      "kaimian_names": 0.5
+    },
+    "T01": {
+      "cooldown": 8.0,
+      "radius_body": 1,
+      "brace_multiplier": 0.9
+    },
+    "T02": {
+      "cooldown": 8.0,
+      "radius_body": 6
+    },
+    "T03": {
+      "cooldown": 8.0,
+      "radius_body": 2,
+      "repair_duration_multiplier": 1.25,
+      "transfer": 1
+    },
+    "T04": {
+      "cooldown": 8.0,
+      "radius_body": 2,
+      "reveal_seconds": 1.5
+    }
+  }
+}

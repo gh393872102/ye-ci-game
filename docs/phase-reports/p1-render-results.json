@@ -1,0 +1,503 @@
+{
+	"capture": true,
+	"checks": 123,
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"ghost_path_body": 116.0,
+	"ghost_path_seconds": 52.7272727272727,
+	"phase": "P1",
+	"results": [
+		{
+			"check": "Developer walking is off on normal startup",
+			"passed": true
+		},
+		{
+			"check": "Three 200px indoor stories, horizon unchanged",
+			"passed": true
+		},
+		{
+			"check": "Door 104px and table 0.6 body; ordinary unit remains 80px",
+			"passed": true
+		},
+		{
+			"check": "P0 default slice and scale preserved",
+			"passed": true
+		},
+		{
+			"check": "Two obstacle slots each in outer court, inner court and hall",
+			"passed": true
+		},
+		{
+			"check": "One default barrier with rear-lane gap: outer_court",
+			"passed": true
+		},
+		{
+			"check": "One default barrier with rear-lane gap: inner_court",
+			"passed": true
+		},
+		{
+			"check": "One default barrier with rear-lane gap: hall",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: hall",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: register",
+			"passed": true
+		},
+		{
+			"check": "At least two distinct indoor rooms on floor 0",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: gallery",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: incense",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: rear",
+			"passed": true
+		},
+		{
+			"check": "At least two distinct indoor rooms on floor 2",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: beam",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: bell",
+			"passed": true
+		},
+		{
+			"check": "Room accommodates 3–4 people and facilities: attic",
+			"passed": true
+		},
+		{
+			"check": "At least two distinct indoor rooms on floor 3",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_gate_inner",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_gate_inner",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_barricade_outer_court",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_barricade_outer_court",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_inner_gate",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_inner_gate",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_hall_door",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_hall_door",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_window_1",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_window_1",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_window_2",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_window_2",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_table_hall",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_table_hall",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_stair_head",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_stair_head",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_register",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_register",
+			"passed": true
+		},
+		{
+			"check": "Legal named cover post: post_rear",
+			"passed": true
+		},
+		{
+			"check": "Post has room and role metadata: post_rear",
+			"passed": true
+		},
+		{
+			"check": "Base boundary has correct inclusive inner edge",
+			"passed": true
+		},
+		{
+			"check": "Both courts are open-court regions",
+			"passed": true
+		},
+		{
+			"check": "Hall and unrelated upper coordinates are not open courts",
+			"passed": true
+		},
+		{
+			"check": "Court is passable base space but center is not a deployment post",
+			"passed": true
+		},
+		{
+			"check": "Non-post approach destination is rejected",
+			"passed": true
+		},
+		{
+			"check": "Human route cannot leave outer gate",
+			"passed": true
+		},
+		{
+			"check": "No shortcut through outside raised platform",
+			"passed": true
+		},
+		{
+			"check": "Register and rear escape space are distinct",
+			"passed": true
+		},
+		{
+			"check": "Measured unobstructed ghost main path: 116.00 bodies / 52.73s",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 01-default",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 02-scale",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 03-interior",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 04-two-courts-outer",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 05-approach-platform",
+			"passed": true
+		},
+		{
+			"check": "Closed hall door rejects crossing without teleporting",
+			"passed": true
+		},
+		{
+			"check": "Closed door has real physics collision",
+			"passed": true
+		},
+		{
+			"check": "Durability interface clamps without implementing combat: door_outer",
+			"passed": true
+		},
+		{
+			"check": "Durability upper bound: door_outer",
+			"passed": true
+		},
+		{
+			"check": "Durability interface clamps without implementing combat: door_inner",
+			"passed": true
+		},
+		{
+			"check": "Durability upper bound: door_inner",
+			"passed": true
+		},
+		{
+			"check": "Durability interface clamps without implementing combat: door_hall",
+			"passed": true
+		},
+		{
+			"check": "Durability upper bound: door_hall",
+			"passed": true
+		},
+		{
+			"check": "Durability interface clamps without implementing combat: door_register",
+			"passed": true
+		},
+		{
+			"check": "Durability upper bound: door_register",
+			"passed": true
+		},
+		{
+			"check": "Durability interface clamps without implementing combat: door_gallery",
+			"passed": true
+		},
+		{
+			"check": "Durability upper bound: door_gallery",
+			"passed": true
+		},
+		{
+			"check": "Durability interface clamps without implementing combat: door_incense",
+			"passed": true
+		},
+		{
+			"check": "Durability upper bound: door_incense",
+			"passed": true
+		},
+		{
+			"check": "Durability interface clamps without implementing combat: door_beam",
+			"passed": true
+		},
+		{
+			"check": "Durability upper bound: door_beam",
+			"passed": true
+		},
+		{
+			"check": "Open door removes its blocking collider",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_gate_inner",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_barricade_outer_court",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_inner_gate",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_hall_door",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_window_1",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_window_2",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_table_hall",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_stair_head",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_register",
+			"passed": true
+		},
+		{
+			"check": "Every cover post reachable from hall through legal bands: post_rear",
+			"passed": true
+		},
+		{
+			"check": "Furniture footprint blocks straight-line travel",
+			"passed": true
+		},
+		{
+			"check": "Rear gap clears furniture with actor radius",
+			"passed": true
+		},
+		{
+			"check": "Same-floor move around table is accepted",
+			"passed": true
+		},
+		{
+			"check": "Route takes actual rear lane rather than crossing table",
+			"passed": true
+		},
+		{
+			"check": "Same-floor movement respects collision and per-step speed",
+			"passed": true
+		},
+		{
+			"check": "Same-floor arrival at cover position",
+			"passed": true
+		},
+		{
+			"check": "Upper-floor cover route accepted",
+			"passed": true
+		},
+		{
+			"check": "Upper-floor route must use staircase",
+			"passed": true
+		},
+		{
+			"check": "Stair movement is 60% of 2.2-body horizontal speed",
+			"passed": true
+		},
+		{
+			"check": "Stair transit is continuous; floor_id changes only on landing",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 06-stair-transit",
+			"passed": true
+		},
+		{
+			"check": "Stair journey completes without teleporting",
+			"passed": true
+		},
+		{
+			"check": "Arrival on floor 2 updates floor_id and reaches window",
+			"passed": true
+		},
+		{
+			"check": "Beam-floor route accepted through second staircase",
+			"passed": true
+		},
+		{
+			"check": "Second staircase reaches floor 3",
+			"passed": true
+		},
+		{
+			"check": "Return through stairs and both courts is legal",
+			"passed": true
+		},
+		{
+			"check": "Return crosses court gaps without exiting base or stopping at center",
+			"passed": true
+		},
+		{
+			"check": "Complete ordered retreat route accepted from gate cover",
+			"passed": true
+		},
+		{
+			"check": "Retreat reaches rear escape space via register",
+			"passed": true
+		},
+		{
+			"check": "Retreat visits prescribed cover: post_gate_inner",
+			"passed": true
+		},
+		{
+			"check": "Retreat visits prescribed cover: post_barricade_outer_court",
+			"passed": true
+		},
+		{
+			"check": "Retreat visits prescribed cover: post_inner_gate",
+			"passed": true
+		},
+		{
+			"check": "Retreat visits prescribed cover: post_hall_door",
+			"passed": true
+		},
+		{
+			"check": "Retreat visits prescribed cover: post_stair_head",
+			"passed": true
+		},
+		{
+			"check": "Retreat visits prescribed cover: post_register",
+			"passed": true
+		},
+		{
+			"check": "Retreat visits prescribed cover: post_rear",
+			"passed": true
+		},
+		{
+			"check": "F3 retreat polyline uses actual gap/stair route endpoints",
+			"passed": true
+		},
+		{
+			"check": "Return route before door-closing test",
+			"passed": true
+		},
+		{
+			"check": "Crossing route exists while hall door is open",
+			"passed": true
+		},
+		{
+			"check": "Closing a door mid-route stops movement on the safe side",
+			"passed": true
+		},
+		{
+			"check": "Blocked actor can request a new legal route after reopening",
+			"passed": true
+		},
+		{
+			"check": "Live movement route accepted",
+			"passed": true
+		},
+		{
+			"check": "Actual physics frames move actor using Clock.delta",
+			"passed": true
+		},
+		{
+			"check": "Paused Clock freezes debug traversal",
+			"passed": true
+		},
+		{
+			"check": "F8 opens developer-only walking UI",
+			"passed": true
+		},
+		{
+			"check": "Debug click outside gate is explicitly rejected",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 07-illegal-outside",
+			"passed": true
+		},
+		{
+			"check": "Court-center click cannot become deployment or stop command",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 08-illegal-court",
+			"passed": true
+		},
+		{
+			"check": "F8 disables manual walk commands again",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 09-retreat-courts",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 10-retreat-interior",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 11-minimap-path",
+			"passed": true
+		}
+	]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "C06",
+  "title": "井口",
+  "scene": "res://data/levels/chunks/C06.tscn",
+  "default_path": [
+    "外庭拒马",
+    "井栏",
+    "井旁缺口"
+  ],
+  "destructibles": [
+    "outer_a"
+  ],
+  "upper_access": "井底只形成落差，后侧缺口仍可向主梯退。",
+  "failure_line": "井栏毁后，脚踩井口的兵会受到坠井伤。",
+  "rituals": [
+    "R04",
+    "R11"
+  ],
+  "length_body": 6,
+  "legal_posts": [
+    "post_barricade_outer_court"
+  ],
+  "areas": [
+    {
+      "floor_id": 0,
+      "start": 54,
+      "end": 60,
+      "kind": "well"
+    }
+  ],
+  "visual": {
+    "floor_id": 0,
+    "start": 54,
+    "end": 60,
+    "motif": "well"
+  },
+  "layout": {},
+  "overrides": {
+    "obstacle_slots": [
+      {
+        "id": "outer_a",
+        "kind": "well_rail"
+      }
+    ]
+  },
+  "hazard": {
+    "object": "outer_a",
+    "floor_id": 0,
+    "x": 58.15,
+    "depth_px": 20,
+    "damage": 12
+  }
+}

@@ -1,0 +1,2473 @@
+{
+  "source_report": "p7-night-test-results.json before final replacement",
+  "curve": {
+    "incense_regen": 0.18,
+    "victory_incense": 12
+  },
+  "outcome": "shouxiang boss failure before useful-target auto-skill fix",
+  "conditions": "Real commands only; no HP, resources, positions, timers or waves rewritten",
+  "nights": [
+    {
+      "mode": "shouxiang",
+      "seed": "P7-G1-FULL-shouxiang",
+      "outcome": "defeat",
+      "actual_battle_seconds": 1274.90000000037,
+      "battles": [
+        {
+          "node": "n01",
+          "seconds": 180.000000000035,
+          "result": {
+            "elapsed": 180.000000000035,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 79.3166666666635
+            },
+            "humans_alive": 4,
+            "incense": 6.4000000000009,
+            "mode": "shouxiang",
+            "names": 8.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 20
+          },
+          "fallen": [
+            {
+              "id": "T01",
+              "uid": "night_4"
+            }
+          ]
+        },
+        {
+          "node": "n03",
+          "seconds": 210.000000000059,
+          "result": {
+            "elapsed": 210.000000000059,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 101.316666666662
+            },
+            "humans_alive": 5,
+            "incense": 6.20000000000203,
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 29
+          },
+          "fallen": []
+        },
+        {
+          "node": "n05",
+          "seconds": 210.000000000059,
+          "result": {
+            "elapsed": 210.000000000059,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 101.316666666662
+            },
+            "humans_alive": 5,
+            "incense": 4.20000000000305,
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 32
+          },
+          "fallen": [
+            {
+              "id": "H17",
+              "uid": "night_3"
+            },
+            {
+              "id": "H25",
+              "uid": "night_7"
+            }
+          ]
+        },
+        {
+          "node": "n08",
+          "seconds": 240.000000000083,
+          "result": {
+            "elapsed": 240.000000000083,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 101.316666666662
+            },
+            "humans_alive": 5,
+            "incense": 0.400000000003964,
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "victory",
+            "reason": "P4_END_HELD_TO_DAYBREAK",
+            "remaining": 0.0,
+            "tide_alive": 17
+          },
+          "fallen": [
+            {
+              "id": "H09",
+              "uid": "night_2"
+            },
+            {
+              "id": "H25",
+              "uid": "n08:H25_16"
+            }
+          ]
+        },
+        {
+          "node": "n10",
+          "seconds": 217.450000000065,
+          "result": {
+            "elapsed": 217.450000000065,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 68.3166666666641
+            },
+            "humans_alive": 2,
+            "incense": 0.541000000005001,
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "defeat",
+            "reason": "P4_END_RITUAL_LINE_BROKEN",
+            "remaining": 142.550000000004,
+            "tide_alive": 42
+          },
+          "fallen": [
+            {
+              "id": "H01",
+              "uid": "night_1"
+            },
+            {
+              "id": "H11",
+              "uid": "n05:H11_16"
+            },
+            {
+              "id": "H27",
+              "uid": "night_8"
+            },
+            {
+              "id": "H25",
+              "uid": "n10:H25_15"
+            }
+          ],
+          "starting_roster": [
+            {
+              "id": "H01",
+              "hp": 115.0,
+              "post": "post_register"
+            },
+            {
+              "id": "T02",
+              "hp": 38.0,
+              "post": "post_window_1"
+            },
+            {
+              "id": "T02",
+              "hp": 38.0,
+              "post": "post_window_1"
+            },
+            {
+              "id": "H11",
+              "hp": 47.75,
+              "post": "post_register"
+            },
+            {
+              "id": "H27",
+              "hp": 55.0,
+              "post": "post_gate_inner"
+            }
+          ],
+          "terminal_actors": [
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 38.0,
+              "id": "T02",
+              "max_hp": 38.0,
+              "position": [
+                9388.0,
+                700.0
+              ],
+              "post": "post_register",
+              "side": "xianghuo",
+              "state": "Engage",
+              "uid": "T02_11"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 38.0,
+              "id": "T02",
+              "max_hp": 38.0,
+              "position": [
+                9424.0,
+                700.0
+              ],
+              "post": "post_register",
+              "side": "xianghuo",
+              "state": "Engage",
+              "uid": "T02_12"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 66.0,
+              "id": "G12",
+              "max_hp": 70.0,
+              "position": [
+                9212.2880859375,
+                658.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G12_tide_28"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9135.46875,
+                658.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_29"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9217.609375,
+                652.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G01_tide_30"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9056.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_33"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9141.3359375,
+                652.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_34"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 14.5,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8980.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_37"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9063.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_38"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9223.4765625,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G01_tide_39"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8904.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_41"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8987.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_42"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9147.203125,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_43"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8828.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_45"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8911.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_46"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9070.1904296875,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_47"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8946.875,
+                550.904418945312
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_49"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8937.5,
+                580.208190917969
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_51"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8752.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_52"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8835.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_53"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8994.1904296875,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_54"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 7.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9229.34375,
+                640.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G01_tide_55"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8676.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_56"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8759.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_57"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8918.1904296875,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_58"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9153.0703125,
+                640.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_59"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8901.5625,
+                518.539611816406
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_60"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8942.1875,
+                565.556579589844
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_61"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_62"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_63"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_64"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_65"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_66"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_67"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_68"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_69"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_70"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_71"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_72"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_73"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 70.0,
+              "id": "G12",
+              "max_hp": 70.0,
+              "position": [
+                789.336608886719,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G12_tide_74"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 70.0,
+              "id": "G12",
+              "max_hp": 70.0,
+              "position": [
+                789.336608886719,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G12_tide_75"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                1085.60241699219,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G09_tide_76"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                1085.60241699219,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G09_tide_77"
+            },
+            {
+              "dead": true,
+              "floor": 0,
+              "hp": 0.0,
+              "id": "H01",
+              "max_hp": 115.0,
+              "position": [
+                9280.0,
+                700.0
+              ],
+              "post": "post_register",
+              "side": "xianghuo",
+              "state": "Broken",
+              "uid": "H01_10"
+            }
+          ],
+          "budget_ledger": [
+            {
+              "action": "night_node_start",
+              "detail": "n10",
+              "incense": 16.400000000004,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "purchase_reserved",
+              "detail": "H25",
+              "incense": 8.40000000000396,
+              "incense_delta": -8.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "deployed",
+              "detail": "H25:post_register",
+              "incense": 8.40000000000396,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "growth_equipped",
+              "detail": "I09",
+              "incense": 8.40000000000396,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_outer",
+              "incense": 4.5230000000042,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 34.016666666666
+            },
+            {
+              "action": "repair_completed",
+              "detail": "door_outer",
+              "incense": 1.75900000000418,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 40.8833333333323
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_outer",
+              "incense": 0.103000000004328,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 65.0166666666643
+            },
+            {
+              "action": "first_breach",
+              "detail": "door_outer",
+              "incense": 0.697000000004328,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 68.3166666666641
+            },
+            {
+              "action": "repair_completed",
+              "detail": "door_outer",
+              "incense": 1.33900000000432,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 71.8833333333305
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_inner",
+              "incense": 0.00300000000454403,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 120.016666666661
+            },
+            {
+              "action": "repair_interrupted",
+              "detail": "door_inner",
+              "incense": 1.23000000000454,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 126.833333333327
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_gallery",
+              "incense": 7.32000000000494,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 194.000000000047
+            },
+            {
+              "action": "ritual_start",
+              "detail": "G09_tide_50",
+              "incense": 3.32000000000494,
+              "incense_delta": -4.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 194.000000000047
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 3.35000000000494,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 194.166666666713
+            },
+            {
+              "action": "growth_damage_to_incense",
+              "detail": "I09",
+              "incense": 4.54800000000495,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 195.266666666714
+            },
+            {
+              "action": "ritual_start",
+              "detail": "G01_tide_18",
+              "incense": 0.860000000004957,
+              "incense_delta": -4.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 197.000000000049
+            },
+            {
+              "action": "repair_completed",
+              "detail": "door_gallery",
+              "incense": 2.99000000000496,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 208.833333333392
+            },
+            {
+              "action": "ritual_start",
+              "detail": "G12_tide_28",
+              "incense": 0.100000000005001,
+              "incense_delta": -4.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.000000000063
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.145000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.250000000063
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.193000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.51666666673
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.202000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.56666666673
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.235000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.750000000064
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.343000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.350000000064
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.391000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.616666666731
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.400000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.666666666731
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.433000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.850000000065
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.541000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 217.450000000065
+            },
+            {
+              "action": "finish",
+              "detail": "P4_END_RITUAL_LINE_BROKEN",
+              "incense": 0.541000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 217.450000000065
+            }
+          ]
+        },
+        {
+          "node": "n10",
+          "seconds": 217.450000000065,
+          "result": {
+            "elapsed": 217.450000000065,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 68.3166666666641
+            },
+            "humans_alive": 2,
+            "incense": 0.541000000005001,
+            "mode": "shouxiang",
+            "names": 12.0,
+            "outcome": "defeat",
+            "reason": "P4_END_RITUAL_LINE_BROKEN",
+            "remaining": 142.550000000004,
+            "tide_alive": 42
+          },
+          "fallen": [
+            {
+              "id": "H01",
+              "uid": "night_1"
+            },
+            {
+              "id": "H11",
+              "uid": "n05:H11_16"
+            },
+            {
+              "id": "H27",
+              "uid": "night_8"
+            },
+            {
+              "id": "H25",
+              "uid": "n10:H25_15"
+            }
+          ],
+          "starting_roster": [
+            {
+              "id": "H01",
+              "hp": 115.0,
+              "post": "post_register"
+            },
+            {
+              "id": "T02",
+              "hp": 38.0,
+              "post": "post_window_1"
+            },
+            {
+              "id": "T02",
+              "hp": 38.0,
+              "post": "post_window_1"
+            },
+            {
+              "id": "H11",
+              "hp": 47.75,
+              "post": "post_register"
+            },
+            {
+              "id": "H27",
+              "hp": 55.0,
+              "post": "post_gate_inner"
+            }
+          ],
+          "terminal_actors": [
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 38.0,
+              "id": "T02",
+              "max_hp": 38.0,
+              "position": [
+                9388.0,
+                700.0
+              ],
+              "post": "post_register",
+              "side": "xianghuo",
+              "state": "Engage",
+              "uid": "T02_11"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 38.0,
+              "id": "T02",
+              "max_hp": 38.0,
+              "position": [
+                9424.0,
+                700.0
+              ],
+              "post": "post_register",
+              "side": "xianghuo",
+              "state": "Engage",
+              "uid": "T02_12"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 66.0,
+              "id": "G12",
+              "max_hp": 70.0,
+              "position": [
+                9212.2880859375,
+                658.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G12_tide_28"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9135.46875,
+                658.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_29"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9217.609375,
+                652.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G01_tide_30"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9056.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_33"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9141.3359375,
+                652.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_34"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 14.5,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8980.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_37"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9063.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_38"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9223.4765625,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G01_tide_39"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8904.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_41"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8987.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_42"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9147.203125,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_43"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8828.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_45"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8911.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_46"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9070.1904296875,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_47"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8946.875,
+                550.904418945312
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_49"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8937.5,
+                580.208190917969
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_51"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8752.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_52"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8835.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_53"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8994.1904296875,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_54"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 7.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9229.34375,
+                640.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Engage",
+              "uid": "G01_tide_55"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8676.943359375,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_56"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8759.5068359375,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_57"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                8918.1904296875,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_58"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                9153.0703125,
+                640.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Queue",
+              "uid": "G01_tide_59"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8901.5625,
+                518.539611816406
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_60"
+            },
+            {
+              "dead": false,
+              "floor": 2,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                8942.1875,
+                565.556579589844
+              ],
+              "post": "upper_entry",
+              "side": "yegui",
+              "state": "Descend",
+              "uid": "G09_tide_61"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_62"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_63"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_64"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1314.13659667969,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_65"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_66"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_67"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_68"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1237.86950683594,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_69"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_70"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_71"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_72"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 22.0,
+              "id": "G01",
+              "max_hp": 22.0,
+              "position": [
+                1161.60241699219,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G01_tide_73"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 70.0,
+              "id": "G12",
+              "max_hp": 70.0,
+              "position": [
+                789.336608886719,
+                646.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G12_tide_74"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 70.0,
+              "id": "G12",
+              "max_hp": 70.0,
+              "position": [
+                789.336608886719,
+                664.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G12_tide_75"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                1085.60241699219,
+                682.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G09_tide_76"
+            },
+            {
+              "dead": false,
+              "floor": 0,
+              "hp": 36.0,
+              "id": "G09",
+              "max_hp": 36.0,
+              "position": [
+                1085.60241699219,
+                700.0
+              ],
+              "post": "ghost_main_path",
+              "side": "yegui",
+              "state": "Advance",
+              "uid": "G09_tide_77"
+            },
+            {
+              "dead": true,
+              "floor": 0,
+              "hp": 0.0,
+              "id": "H01",
+              "max_hp": 115.0,
+              "position": [
+                9280.0,
+                700.0
+              ],
+              "post": "post_register",
+              "side": "xianghuo",
+              "state": "Broken",
+              "uid": "H01_10"
+            }
+          ],
+          "budget_ledger": [
+            {
+              "action": "night_node_start",
+              "detail": "n10",
+              "incense": 16.400000000004,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "purchase_reserved",
+              "detail": "H25",
+              "incense": 8.40000000000396,
+              "incense_delta": -8.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "deployed",
+              "detail": "H25:post_register",
+              "incense": 8.40000000000396,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "growth_equipped",
+              "detail": "I09",
+              "incense": 8.40000000000396,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 0.0
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_outer",
+              "incense": 4.5230000000042,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 34.016666666666
+            },
+            {
+              "action": "repair_completed",
+              "detail": "door_outer",
+              "incense": 1.75900000000418,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 40.8833333333323
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_outer",
+              "incense": 0.103000000004328,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 65.0166666666643
+            },
+            {
+              "action": "first_breach",
+              "detail": "door_outer",
+              "incense": 0.697000000004328,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 68.3166666666641
+            },
+            {
+              "action": "repair_completed",
+              "detail": "door_outer",
+              "incense": 1.33900000000432,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 71.8833333333305
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_inner",
+              "incense": 0.00300000000454403,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 120.016666666661
+            },
+            {
+              "action": "repair_interrupted",
+              "detail": "door_inner",
+              "incense": 1.23000000000454,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 126.833333333327
+            },
+            {
+              "action": "repair_started",
+              "detail": "door_gallery",
+              "incense": 7.32000000000494,
+              "incense_delta": -6.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 194.000000000047
+            },
+            {
+              "action": "ritual_start",
+              "detail": "G09_tide_50",
+              "incense": 3.32000000000494,
+              "incense_delta": -4.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 194.000000000047
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 3.35000000000494,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 194.166666666713
+            },
+            {
+              "action": "growth_damage_to_incense",
+              "detail": "I09",
+              "incense": 4.54800000000495,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 195.266666666714
+            },
+            {
+              "action": "ritual_start",
+              "detail": "G01_tide_18",
+              "incense": 0.860000000004957,
+              "incense_delta": -4.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 197.000000000049
+            },
+            {
+              "action": "repair_completed",
+              "detail": "door_gallery",
+              "incense": 2.99000000000496,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 208.833333333392
+            },
+            {
+              "action": "ritual_start",
+              "detail": "G12_tide_28",
+              "incense": 0.100000000005001,
+              "incense_delta": -4.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.000000000063
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.145000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.250000000063
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.193000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.51666666673
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.202000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.56666666673
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.235000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 215.750000000064
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.343000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.350000000064
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.391000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.616666666731
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.400000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.666666666731
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.433000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 216.850000000065
+            },
+            {
+              "action": "growth_channel_guard",
+              "detail": "I17",
+              "incense": 0.541000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 217.450000000065
+            },
+            {
+              "action": "finish",
+              "detail": "P4_END_RITUAL_LINE_BROKEN",
+              "incense": 0.541000000005001,
+              "incense_delta": 0.0,
+              "names": 12.0,
+              "names_delta": 0.0,
+              "time": 217.450000000065
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "duoming",
+      "seed": "P7-G1-FULL-duoming",
+      "outcome": "victory",
+      "actual_battle_seconds": 633.816666666638,
+      "battles": [
+        {
+          "node": "n01",
+          "seconds": 129.216666666662,
+          "result": {
+            "elapsed": 129.216666666662,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 41.3999999999989
+            },
+            "humans_alive": 4,
+            "incense": 4.25900000000059,
+            "mode": "duoming",
+            "names": 5.00000000000017,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 50.7833333332964,
+            "tide_alive": 50
+          },
+          "fallen": [
+            {
+              "id": "G01",
+              "uid": "night_2"
+            },
+            {
+              "id": "G01",
+              "uid": "night_5"
+            }
+          ]
+        },
+        {
+          "node": "n03",
+          "seconds": 126.149999999994,
+          "result": {
+            "elapsed": 126.149999999994,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 40.0833333333323
+            },
+            "humans_alive": 4,
+            "incense": 6.96600000000123,
+            "mode": "duoming",
+            "names": 6.00000000000034,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 83.8499999999373,
+            "tide_alive": 90
+          },
+          "fallen": [
+            {
+              "id": "G09",
+              "uid": "night_3"
+            },
+            {
+              "id": "G01",
+              "uid": "night_4"
+            },
+            {
+              "id": "G01",
+              "uid": "night_7"
+            },
+            {
+              "id": "G01",
+              "uid": "night_10"
+            },
+            {
+              "id": "G01",
+              "uid": "night_14"
+            },
+            {
+              "id": "G07",
+              "uid": "night_17"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_86"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_90"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_94"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_98"
+            }
+          ]
+        },
+        {
+          "node": "n05",
+          "seconds": 126.149999999994,
+          "result": {
+            "elapsed": 126.149999999994,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 40.0833333333323
+            },
+            "humans_alive": 4,
+            "incense": 9.67300000000198,
+            "mode": "duoming",
+            "names": 7.00000000000051,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 83.8499999999373,
+            "tide_alive": 120
+          },
+          "fallen": [
+            {
+              "id": "G09",
+              "uid": "night_6"
+            },
+            {
+              "id": "G01",
+              "uid": "night_11"
+            },
+            {
+              "id": "G01",
+              "uid": "night_15"
+            },
+            {
+              "id": "G01",
+              "uid": "n01:G01_tide_52"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_91"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_101"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_107"
+            },
+            {
+              "id": "G01",
+              "uid": "n05:G01_tide_101"
+            }
+          ]
+        },
+        {
+          "node": "n08",
+          "seconds": 126.149999999994,
+          "result": {
+            "elapsed": 126.149999999994,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 40.0833333333323
+            },
+            "humans_alive": 4,
+            "incense": 23.3800000000028,
+            "mode": "duoming",
+            "names": 9.00000000000017,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 113.849999999912,
+            "tide_alive": 116
+          },
+          "fallen": [
+            {
+              "id": "G01",
+              "uid": "night_9"
+            },
+            {
+              "id": "G01",
+              "uid": "night_13"
+            },
+            {
+              "id": "G01",
+              "uid": "n01:G01_tide_27"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_97"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_108"
+            },
+            {
+              "id": "G01",
+              "uid": "n05:G01_tide_105"
+            },
+            {
+              "id": "G01",
+              "uid": "n05:G01_tide_109"
+            },
+            {
+              "id": "G09",
+              "uid": "n05:G09_tide_128"
+            }
+          ]
+        },
+        {
+          "node": "n10",
+          "seconds": 126.149999999994,
+          "result": {
+            "elapsed": 126.149999999994,
+            "first_breach": {
+              "door": "door_outer",
+              "time": 40.0833333333323
+            },
+            "humans_alive": 4,
+            "incense": 60.0,
+            "mode": "duoming",
+            "names": 9.00000000000017,
+            "outcome": "victory",
+            "reason": "P4_END_REGISTER_CAPTURED",
+            "remaining": 233.850000000077,
+            "tide_alive": 114
+          },
+          "fallen": [
+            {
+              "id": "G01",
+              "uid": "night_12"
+            },
+            {
+              "id": "G01",
+              "uid": "n01:G01_tide_26"
+            },
+            {
+              "id": "G01",
+              "uid": "n01:G01_tide_30"
+            },
+            {
+              "id": "G01",
+              "uid": "n03:G01_tide_103"
+            },
+            {
+              "id": "G01",
+              "uid": "n05:G01_tide_104"
+            },
+            {
+              "id": "G01",
+              "uid": "n05:G01_tide_112"
+            },
+            {
+              "id": "G01",
+              "uid": "n05:G01_tide_116"
+            },
+            {
+              "id": "G01",
+              "uid": "n05:G01_tide_122"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "useful_skill_and_repair_final_failure": {
+    "regen": 0.18,
+    "victory_incense": 12,
+    "node": "n10",
+    "duration": 340.95,
+    "remaining_until_dawn": 19.05,
+    "initial_incense": 29.2,
+    "regen_incense": 61.371,
+    "final_incense": 1.171,
+    "repairs": 13,
+    "repair_spend": 68.4,
+    "rituals": 4,
+    "ritual_spend": 16,
+    "ritual_completed": 3,
+    "ritual_reward": 9,
+    "reason": "ritual_line_broken",
+    "evidence_file": "p7-g1-repair-failure-results.json"
+  },
+  "new_candidate": {
+    "regen": 0.24,
+    "victory_incense": 12,
+    "applies_to": "both P7 growth-night seats",
+    "validation": "Complete growth nights passed 159/0 headless and 171/0 native at the final shared rule hash; both seats won without mercy."
+  },
+  "candidate_024_control_gap": {
+    "regen": 0.24,
+    "victory_incense": 12,
+    "duration": 310.33333333338,
+    "final_incense": 9.48,
+    "reason": "ritual_line_broken",
+    "finding": "Acceptance strategy only repaired first four doors and used >=300 damage threshold, omitting 300-durability register door; not evidence of insufficient income alone.",
+    "next_validation": "Use actual repairs across all world doors with min(heal, max_durability*0.5) damage threshold; no further resource change."
+  },
+  "final_headless_validation": {
+    "checks": 159,
+    "failures": 0,
+    "rules_hash": "cb68951480f3beb4127f4f4550e2fe1ab43beb2b87ceea9723709f7b5ee95802",
+    "nights": [
+      {
+        "mode": "shouxiang",
+        "seed": "P7-G1-FULL-shouxiang",
+        "outcome": "victory",
+        "seconds": 1200.00000000024,
+        "battle_seconds": [
+          180.000000000035,
+          210.000000000059,
+          210.000000000059,
+          240.000000000083,
+          360.000000000001
+        ],
+        "mercy_used": false
+      },
+      {
+        "mode": "duoming",
+        "seed": "P7-G1-FULL-duoming",
+        "outcome": "victory",
+        "seconds": 633.816666666638,
+        "battle_seconds": [
+          129.216666666662,
+          126.149999999994,
+          126.149999999994,
+          126.149999999994,
+          126.149999999994
+        ],
+        "mercy_used": false
+      }
+    ]
+  },
+  "final_strategy_note": "Final n10 makes exactly one first-time purchase of H03 at the legal rear cover post; H03 survives while other defenders contest the register. No re-purchase of fallen named units. Does not claim H03 channels at the rear post.",
+  "final_native_validation": {
+    "checks": 171,
+    "failures": 0,
+    "rules_hash": "cb68951480f3beb4127f4f4550e2fe1ab43beb2b87ceea9723709f7b5ee95802",
+    "nights": [
+      {
+        "mode": "shouxiang",
+        "seed": "P7-G1-FULL-shouxiang",
+        "outcome": "victory",
+        "seconds": 1200.00000000024,
+        "battle_seconds": [
+          180.000000000035,
+          210.000000000059,
+          210.000000000059,
+          240.000000000083,
+          360.000000000001
+        ],
+        "mercy_used": false
+      },
+      {
+        "mode": "duoming",
+        "seed": "P7-G1-FULL-duoming",
+        "outcome": "victory",
+        "seconds": 633.816666666638,
+        "battle_seconds": [
+          129.216666666662,
+          126.149999999994,
+          126.149999999994,
+          126.149999999994,
+          126.149999999994
+        ],
+        "mercy_used": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "P11 development regressions from isolated local copies; P10 host is the final integrated run. Suites overlap.",
+  "suites": [
+    {
+      "name": "P2 寻路与战斗",
+      "checks": 114,
+      "failures": 0,
+      "command": "python3 tools/p9_verify.py --scene tests/P2Suite.tscn"
+    },
+    {
+      "name": "P3 潮路",
+      "checks": 69,
+      "failures": 0,
+      "command": "python3 tools/p9_verify.py --scene tests/P3Suite.tscn"
+    },
+    {
+      "name": "P5 历史夜程",
+      "checks": 207,
+      "failures": 0,
+      "command": "python3 tools/p9_verify.py --scene tests/P5Suite.tscn"
+    },
+    {
+      "name": "P8 鬼物能力",
+      "checks": 116,
+      "failures": 0,
+      "command": "python3 tools/p9_verify.py --script tests/P8GhostSuite.gd"
+    },
+    {
+      "name": "P10 科仪",
+      "checks": 116,
+      "failures": 0,
+      "command": "python3 tools/p9_verify.py --script tests/P10RitualSuite.gd"
+    },
+    {
+      "name": "P10 存档",
+      "checks": 16,
+      "failures": 0,
+      "command": "python3 tools/p9_verify.py --script tests/P10SaveSuite.gd"
+    },
+    {
+      "name": "P10 正式键鼠链路",
+      "checks": 51,
+      "failures": 0,
+      "command": "python3 tools/p9_verify.py --native --script tests/P10Host.gd"
+    }
+  ]
+}

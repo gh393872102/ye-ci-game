@@ -1,0 +1,122 @@
+{
+  "id": "C09",
+  "title": "侧殿",
+  "scene": "res://data/levels/chunks/C09.tscn",
+  "default_path": [
+    "残墙",
+    "侧殿短梯",
+    "回廊前端"
+  ],
+  "destructibles": [
+    "side_wall",
+    "door_side_hall"
+  ],
+  "upper_access": "短梯从二进庭接到延长的回廊，与主梯共用二楼。",
+  "failure_line": "残墙失守，二楼可从侧殿被牵制。",
+  "rituals": [
+    "R06",
+    "R10",
+    "R12"
+  ],
+  "length_body": 12,
+  "legal_posts": [
+    "post_side_hall"
+  ],
+  "areas": [
+    {
+      "floor_id": 2,
+      "start": 82,
+      "end": 88,
+      "kind": "side_hall"
+    }
+  ],
+  "visual": {
+    "floor_id": 2,
+    "start": 82,
+    "end": 88,
+    "motif": "side_hall"
+  },
+  "layout": {
+    "rooms": [
+      {
+        "id": "side_hall",
+        "floor_id": 2,
+        "start": 82,
+        "end": 88,
+        "label": "侧殿",
+        "tags": [
+          "indoor"
+        ]
+      }
+    ],
+    "stairs": [
+      {
+        "id": "stair_side_hall",
+        "from_floor": 0,
+        "from_x": 83.5,
+        "to_floor": 2,
+        "to_x": 85.5
+      }
+    ],
+    "obstacle_slots": [
+      {
+        "id": "side_wall",
+        "x": 86.7,
+        "floor_id": 2,
+        "width": 0.75,
+        "kind": "side_wall",
+        "max_durability": 260,
+        "occupied": true,
+        "room_id": "side_hall",
+        "gap_direction": "rear",
+        "tide_max_durability": 260
+      }
+    ],
+    "posts": [
+      {
+        "id": "post_side_hall",
+        "x": 87.65,
+        "floor_id": 2,
+        "room_id": "side_hall",
+        "cover_kind": "pillar",
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "default_deployment": true,
+        "retreat": {
+          "next": "post_stair_head",
+          "obstacles": [
+            "side_wall"
+          ],
+          "doors": [
+            "door_side_hall"
+          ]
+        }
+      }
+    ],
+    "doors": [
+      {
+        "id": "door_side_hall",
+        "x": 87.95,
+        "floor_id": 2,
+        "rooms": [
+          "side_hall",
+          "gallery"
+        ],
+        "max_durability": 320,
+        "open": false
+      }
+    ]
+  },
+  "overrides": {
+    "floor_bands": [
+      {
+        "floor_id": 2,
+        "start": 82
+      }
+    ]
+  }
+}

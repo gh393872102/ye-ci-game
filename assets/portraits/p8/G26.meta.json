@@ -1,0 +1,15 @@
+{
+  "id": "G26",
+  "name": "空白册页",
+  "source": "Project-generated portrait source (local generation metadata withheld)",
+  "path": "res://assets/portraits/p8/G26.png",
+  "status": "placeholder",
+  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "size": [
+    1024,
+    1536
+  ],
+  "sha256": "3d248f1ef5dee1426e13b19b48d50a9424d5a48546144b95f3c69dbcc819f71c",
+  "replacement_required": true,
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+}

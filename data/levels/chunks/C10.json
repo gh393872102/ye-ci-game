@@ -1,0 +1,56 @@
+{
+  "id": "C10",
+  "title": "阴缝",
+  "scene": "res://data/levels/chunks/C10.tscn",
+  "default_path": [
+    "内庭暗裂",
+    "符封口",
+    "门厅前沿"
+  ],
+  "destructibles": [],
+  "upper_access": "缝设在内庭暗角，潮从此加入去向主殿的地面路。",
+  "failure_line": "缝未封会按间隔补潮，符封期间暂停。",
+  "rituals": [
+    "R08",
+    "R12"
+  ],
+  "length_body": 3.6,
+  "legal_posts": [],
+  "areas": [
+    {
+      "floor_id": 0,
+      "start": 83.8,
+      "end": 87.4,
+      "kind": "fissure"
+    }
+  ],
+  "visual": {
+    "floor_id": 0,
+    "start": 83.8,
+    "end": 87.4,
+    "motif": "fissure"
+  },
+  "layout": {
+    "doors": [
+      {
+        "id": "door_fissure",
+        "x": 86.2,
+        "floor_id": 0,
+        "rooms": [
+          "inner_court",
+          "hall"
+        ],
+        "max_durability": 110,
+        "open": true
+      }
+    ]
+  },
+  "source": {
+    "x": 85.6,
+    "door": "door_fissure",
+    "first": 122,
+    "interval": 28,
+    "limit": 3,
+    "id": "G01"
+  }
+}

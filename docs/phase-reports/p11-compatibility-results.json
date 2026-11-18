@@ -1,0 +1,15 @@
+{
+	"checks": 7,
+	"failures": 0,
+	"fixture_sha256": "ddf5e46037dba8dd62c193dc2d5c254b05d2df963f2e17f4ed43caecb3969fb2",
+	"results": {
+		"Fresh validated replay starts at resumed position": true,
+		"Old progress opens with new unearned counts at zero": true,
+		"Original node and damaged gate retained": true,
+		"P10 archive requires original rules": true,
+		"P10 battle resumed": true,
+		"Reject damaged initial_exact and keep live battle": true,
+		"Reject damaged rules_hash and keep live battle": true
+	},
+	"source_commit": "10d8719"
+}

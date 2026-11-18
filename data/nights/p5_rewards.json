@@ -1,0 +1,296 @@
+{
+  "r_villager": {
+    "id": "r_villager",
+    "title": "补入乡勇",
+    "description": "一名乡勇加入，部署在外门内侧；生命45、攻击7、防御6。",
+    "category": "roster",
+    "mode": "shouxiang",
+    "weight": 5,
+    "cost": 5,
+    "requires_target": false,
+    "effect": {
+      "kind": "recruit",
+      "unit_id": "T01",
+      "count": 1,
+      "post": "post_gate_inner"
+    }
+  },
+  "r_crossbow": {
+    "id": "r_crossbow",
+    "title": "弩手应更",
+    "description": "一名弩手加入窗位；生命38、攻击9、防御4，射程6身位。",
+    "category": "roster",
+    "mode": "shouxiang",
+    "weight": 4,
+    "cost": 8,
+    "requires_target": false,
+    "effect": {
+      "kind": "recruit",
+      "unit_id": "T02",
+      "count": 1,
+      "post": "post_window_1"
+    }
+  },
+  "r_watch": {
+    "id": "r_watch",
+    "title": "更卒续班",
+    "description": "一名更卒加入门厅；生命40、攻击6、防御5。",
+    "category": "roster",
+    "mode": "shouxiang",
+    "weight": 4,
+    "cost": 6,
+    "requires_target": false,
+    "effect": {
+      "kind": "recruit",
+      "unit_id": "T04",
+      "count": 1,
+      "post": "post_hall_door"
+    }
+  },
+  "r_white": {
+    "id": "r_white",
+    "title": "阴缝余影",
+    "description": "三只普通白衣加入下一场潮源队列，保留至本夜结算。",
+    "category": "roster",
+    "mode": "duoming",
+    "weight": 6,
+    "cost": 5,
+    "requires_target": false,
+    "effect": {
+      "kind": "recruit",
+      "unit_id": "G01",
+      "count": 3,
+      "post": "ghost_main_path"
+    }
+  },
+  "r_hanging": {
+    "id": "r_hanging",
+    "title": "梁间来客",
+    "description": "一只缢鬼加入下一场潮源队列，自动沿既有上梁路径前进。",
+    "category": "roster",
+    "mode": "duoming",
+    "weight": 3,
+    "cost": 12,
+    "requires_target": false,
+    "effect": {
+      "kind": "recruit",
+      "unit_id": "G09",
+      "count": 1,
+      "post": "ghost_main_path"
+    }
+  },
+  "r_breaker": {
+    "id": "r_breaker",
+    "title": "力士应潮",
+    "description": "一只力士尸加入下一场潮源队列，使用同一撞门公式。",
+    "category": "roster",
+    "mode": "duoming",
+    "weight": 3,
+    "cost": 15,
+    "requires_target": false,
+    "effect": {
+      "kind": "recruit",
+      "unit_id": "G12",
+      "count": 1,
+      "post": "ghost_main_path"
+    }
+  },
+  "r_incense_gear": {
+    "id": "r_incense_gear",
+    "title": "守夜残香",
+    "description": "为一名未装香器的单位装占位香器：最大生命+10、当前生命+10、防御+1。",
+    "category": "build",
+    "mode": "both",
+    "weight": 4,
+    "cost": 6,
+    "requires_target": true,
+    "effect": {
+      "kind": "equipment",
+      "equipment_id": "ritual_incense",
+      "hp": 10,
+      "defense": 1
+    }
+  },
+  "r_thick_name": {
+    "id": "r_thick_name",
+    "title": "厚血名帖",
+    "description": "选一名存活单位：最大与当前生命各+15，防御+2；本夜有效。",
+    "category": "build",
+    "mode": "both",
+    "weight": 5,
+    "cost": 8,
+    "requires_target": true,
+    "effect": {
+      "kind": "stats",
+      "hp": 15,
+      "defense": 2,
+      "attack": 0
+    }
+  },
+  "r_sharp_name": {
+    "id": "r_sharp_name",
+    "title": "锐刃名帖",
+    "description": "选一名存活单位：攻击+2、最大与当前生命+5；本夜有效。",
+    "category": "build",
+    "mode": "both",
+    "weight": 4,
+    "cost": 7,
+    "requires_target": true,
+    "effect": {
+      "kind": "stats",
+      "hp": 5,
+      "defense": 0,
+      "attack": 2
+    }
+  },
+  "r_slow_incense": {
+    "id": "r_slow_incense",
+    "title": "续香技艺",
+    "description": "之后每场香火自然回复+0.06/秒；累计最多+0.18/秒。",
+    "category": "build",
+    "mode": "both",
+    "weight": 5,
+    "cost": 8,
+    "requires_target": false,
+    "effect": {
+      "kind": "build",
+      "key": "incense_regen_delta",
+      "value": 0.06
+    }
+  },
+  "r_reading": {
+    "id": "r_reading",
+    "title": "凝神点册",
+    "description": "之后每场点册时间-0.5秒，最多缩短至3秒。",
+    "category": "build",
+    "mode": "shouxiang",
+    "weight": 5,
+    "cost": 8,
+    "requires_target": false,
+    "effect": {
+      "kind": "build",
+      "key": "ritual_duration_delta",
+      "value": -0.5
+    }
+  },
+  "r_ritual_return": {
+    "id": "r_ritual_return",
+    "title": "回香技艺",
+    "description": "之后每次成功超度额外回1香火，累计最多额外2香火。",
+    "category": "build",
+    "mode": "shouxiang",
+    "weight": 4,
+    "cost": 7,
+    "requires_target": false,
+    "effect": {
+      "kind": "build",
+      "key": "ritual_reward_incense_delta",
+      "value": 1
+    }
+  },
+  "r_joinery": {
+    "id": "r_joinery",
+    "title": "护门技艺",
+    "description": "之后每次修门多恢复100耐久，累计最多额外300。",
+    "category": "build",
+    "mode": "shouxiang",
+    "weight": 5,
+    "cost": 8,
+    "requires_target": false,
+    "effect": {
+      "kind": "build",
+      "key": "repair_heal_delta",
+      "value": 100
+    }
+  },
+  "r_change": {
+    "id": "r_change",
+    "title": "易形方",
+    "description": "之后每场上梁、破门变异少耗2香火，累计最多少耗6。",
+    "category": "build",
+    "mode": "duoming",
+    "weight": 5,
+    "cost": 8,
+    "requires_target": false,
+    "effect": {
+      "kind": "build",
+      "key": "mutation_cost_delta",
+      "value": -2
+    }
+  },
+  "r_tide_gap": {
+    "id": "r_tide_gap",
+    "title": "阴缝脉冲",
+    "description": "之后每次增潮多加入2只白衣，累计最多额外4只；冷却与次数上限仍在。",
+    "category": "build",
+    "mode": "duoming",
+    "weight": 5,
+    "cost": 8,
+    "requires_target": false,
+    "effect": {
+      "kind": "build",
+      "key": "reinforce_count_delta",
+      "value": 2
+    }
+  },
+  "r_rekindle": {
+    "id": "r_rekindle",
+    "title": "复香余烬",
+    "description": "立刻获得6香火与1名分；存活编制各回复10生命，不复活陨落者。",
+    "category": "survival",
+    "mode": "both",
+    "weight": 3,
+    "cost": 5,
+    "requires_target": false,
+    "effect": {
+      "kind": "recover",
+      "incense": 6,
+      "names": 1,
+      "heal": 10
+    }
+  },
+  "r_patch": {
+    "id": "r_patch",
+    "title": "补门旧料",
+    "description": "立刻获得4香火，存活编制各回复15生命；不改变已失去的编制。",
+    "category": "survival",
+    "mode": "both",
+    "weight": 3,
+    "cost": 5,
+    "requires_target": false,
+    "effect": {
+      "kind": "recover",
+      "incense": 4,
+      "names": 0,
+      "heal": 15
+    }
+  },
+  "r_climb_formula": {
+    "id": "r_climb_formula",
+    "title": "上梁变异方",
+    "description": "选择一只本夜尚未变异的白衣，立即兑现一次12香火的变异；战后选此奖励不另耗香火，夜市只支付卡面标价，保留受损比例与编制身份，一只仍只能变异一次。",
+    "category": "build",
+    "mode": "duoming",
+    "weight": 3,
+    "cost": 12,
+    "requires_target": true,
+    "effect": {
+      "kind": "mutate",
+      "form_id": "G09"
+    }
+  },
+  "r_break_formula": {
+    "id": "r_break_formula",
+    "title": "破门变异方",
+    "description": "选择一只本夜尚未变异的白衣，立即兑现一次15香火的变异；战后选此奖励不另耗香火，夜市只支付卡面标价，保留受损比例与编制身份，一只仍只能变异一次。",
+    "category": "build",
+    "mode": "duoming",
+    "weight": 3,
+    "cost": 15,
+    "requires_target": true,
+    "effect": {
+      "kind": "mutate",
+      "form_id": "G12"
+    }
+  }
+}

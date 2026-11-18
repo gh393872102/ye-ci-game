@@ -1,0 +1,10 @@
+key,zh_CN
+P10_WARD_NAME,尚有寿数的人
+P10_WARD_ALIVE,%s · 寿数 %d / %d
+P10_WARN_UPPER_UNHELD,上层无人争守
+P10_UPPER_OCCUPATION,上层失守 %.1f / %.0f 秒
+P10_WARN_NAME_SEEP,名册正在渗名
+P10_FIRE_FORBIDDEN,寒食禁火，此术不可施放
+P10_BRIDGE_SUPPLY_CUT,石桥已断，此路无法增援
+P10_RECRUIT_TITLE,%s应夜
+P10_RECRUIT_DETAIL,本夜加入编制，沿源表属性与合法岗位入场。

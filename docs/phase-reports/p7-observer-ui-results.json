@@ -1,0 +1,48 @@
+{
+	"checks": 10,
+	"failed": 0,
+	"results": [
+		{
+			"label": "Growth presets default off and picker is disabled",
+			"passed": true
+		},
+		{
+			"label": "Real enable checkbox emits ritual_break config",
+			"passed": true
+		},
+		{
+			"label": "Real watch button starts the configured growth battle",
+			"passed": true
+		},
+		{
+			"label": "Configured first H01 receives actual four-slot preset",
+			"passed": true
+		},
+		{
+			"label": "Watch preset remains readonly through complete unit growth card",
+			"passed": true
+		},
+		{
+			"label": "Second preset is serialized as gate_beam",
+			"passed": true
+		},
+		{
+			"label": "Real duel button starts the second growth template",
+			"passed": true
+		},
+		{
+			"label": "Gate preset actually equips the corresponding configured people",
+			"passed": true
+		},
+		{
+			"label": "Controlled duel seat can change its own existing equipment",
+			"passed": true
+		},
+		{
+			"label": "Real duel unequip returns the owned preset item to inventory",
+			"passed": true
+		}
+	],
+	"scope": "Native real controls and preset equipment; partial battles, not full-night evidence",
+	"suite": "P7ObserverUI"
+}

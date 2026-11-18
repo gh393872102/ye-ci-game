@@ -1,0 +1,629 @@
+{
+  "phase": "P8",
+  "status": "verification_complete",
+  "baseline_commit": "7776cb5",
+  "branch": "codex/p8-full-roster",
+  "sources": {
+    "contract": "/tmp/ye-ci-p8-contract.md",
+    "dev": "/tmp/ye-ci-dev-p8.txt P8 2746–3157 (fresh text line numbering)",
+    "gdd": "/tmp/ye-ci-gdd-p8.txt chapters6.3/6.6/8/9/10/11/14/19.4",
+    "csv": [
+      "data/units/characters.csv",
+      "data/units/ghosts.csv",
+      "data/units/troops.csv"
+    ]
+  },
+  "policy": {
+    "business_changes": "forbidden_for_acceptance_agent",
+    "fixture": "明确作者预设，仅使用真实业务handler与共享Simulation推进；单元fixture不冒充普通完整夜程",
+    "capture": "真实native 720/1080；UI卡和关键事件战场图分开；不以headless黑帧取证",
+    "historical_reports": "P0–P7全部使用p8前缀回归，不覆盖历史",
+    "archive_directories": [
+      "/tmp/ye-ci-p8-acceptance-test-archives",
+      "/tmp/ye-ci-p8-acceptance-render-archives"
+    ],
+    "player_data": "Final application writes use/tmp. Interrupted P7Night UI call accessed persistent Codex; see p8-codex-io-incident.json. Its observed bytes are preserved without claiming a pre-run baseline.",
+    "completion": "脚本退出码+清洁Godot日志+RESULT marker+JSON一致"
+  },
+  "gates": [
+    {
+      "id": "K1",
+      "requirement": "68源表全加载/全技能与特性脚本可调用、缺失时Boot失败",
+      "method": "静态源表一致+逐个真实spawn；错误配置启动隔离子进程",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "p8-ghost-test-results.json",
+        "p8-source-boot-results.json",
+        "p8-observer-results.json"
+      ]
+    },
+    {
+      "id": "K2",
+      "requirement": "8对同骨架头面/武器/动作和技能特性分辨",
+      "method": "真实战斗形体+暂停卡720/1080截图，独立视觉复核",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "p8-portrait-qa-results.json"
+      ]
+    },
+    {
+      "id": "K3",
+      "requirement": "H01–H16全技能实效及至少12其他ID",
+      "method": "隔离显式初态fixture，真实Session指令/伤害/时钟推进和可见事件；不以getter通过代替",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "p8-ghost-test-results.json"
+      ]
+    },
+    {
+      "id": "K4",
+      "requirement": "64具名全卡字段完整及杂兵无假立绘",
+      "method": "全68数据断言；抽8具名+T03原生卡；截图尺寸实测",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json"
+      ]
+    },
+    {
+      "id": "K5",
+      "requirement": "仅H31/H25短时例外、其余三人不出基地",
+      "method": "真实逐帧轨迹、目标/期限/返回/中断/不追第二目标、非法命令不扣费",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json"
+      ]
+    },
+    {
+      "id": "K6",
+      "requirement": "普通80px、大形128–176且半屏内",
+      "method": "Appearance参数+viewport真实F2尺；zoom1、原地图/镜头比例",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json"
+      ]
+    },
+    {
+      "id": "K7",
+      "requirement": "四册四步真实事件解锁、失败实际抹掉者、磁盘持久化",
+      "method": "首次入场/看见、招募/击破/超度/融契、列名接口；故意失败真实伤害来源；中存/恢复/坏档原子拒绝",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "p8-persistence-results.json",
+        "p8-carry-diagnostic.json"
+      ]
+    },
+    {
+      "id": "K8",
+      "requirement": "战场像素与面孔状态接口",
+      "method": "原生战场无遮挡、实际G28/H32有面无面切换，立绘不进入world",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json"
+      ]
+    },
+    {
+      "id": "K9",
+      "requirement": ">=3组标签克制真实反馈",
+      "method": "灯vs隐形无面；G12vs门及H09/H17；普通无面vs无册点册/复火；补水域/禁声对照",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "p8-ghost-test-results.json"
+      ]
+    },
+    {
+      "id": "K10",
+      "requirement": "正式报告及占位替换/不可分辨审计",
+      "method": "root权威七节P8报告+机器索引+图像清单",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "P8.md",
+        "p8-verification-index.json"
+      ]
+    },
+    {
+      "id": "S1",
+      "requirement": "64立绘最终替换计数和待替换ID明确",
+      "method": "源资产清单/尺寸/哈希与原生视觉QA，允许明确高规格占位",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "P8.md",
+        "p8-portrait-qa-results.json",
+        "../../assets/portraits/p8/manifest.json"
+      ]
+    },
+    {
+      "id": "S2",
+      "requirement": "同K9不可延期",
+      "method": "与K9同一真实证据",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json"
+      ]
+    },
+    {
+      "id": "S3",
+      "requirement": "禁声铜锣/河灯旱地/赊灯门破等条件",
+      "method": "每条件独立对照，未完成明确披露不得假通过",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "p8-ghost-test-results.json"
+      ]
+    },
+    {
+      "id": "A1",
+      "requirement": "全部8对通过",
+      "method": "8对两成员完整卡+同场形体截图",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json"
+      ]
+    },
+    {
+      "id": "A2",
+      "requirement": "G32列名窗口真实触发",
+      "method": "高名、完成受保护点册、事件窗口与实际减益/可伤状态",
+      "status": "passed",
+      "evidence": [
+        "p8-test-results.json",
+        "p8-render-results.json",
+        "p8-ghost-test-results.json"
+      ]
+    }
+  ],
+  "human_mandatory": [
+    {
+      "id": "H01",
+      "behavior": "指定点册并揭隐",
+      "assertions": "真实4香扣费、合法案/册/厅施术、同人读条完成；庭院施术拒绝",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H01"
+    },
+    {
+      "id": "H02",
+      "behavior": "复火与遗香",
+      "assertions": "低名册/受损友军实际恢复；死亡遗香只一次",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H02"
+    },
+    {
+      "id": "H03",
+      "behavior": "点名阻抹",
+      "assertions": "目标获本场有名；第一次真实去名被阻止，后续不无限免疫",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H03"
+    },
+    {
+      "id": "H04",
+      "behavior": "相邻分香",
+      "assertions": "相邻友军实际获得可消费香火/技能额度；远处不获赠",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H04"
+    },
+    {
+      "id": "H05",
+      "behavior": "禁声区域",
+      "assertions": "真实铜锣/哭夜受抑制，区域外同技能有效；问话阵营规则保持",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H05"
+    },
+    {
+      "id": "H06",
+      "behavior": "青灯揭隐与惧面",
+      "assertions": "G04实际现形、无面实际恐惧；已显形且不怕光者不无效付费",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H06"
+    },
+    {
+      "id": "H07",
+      "behavior": "敲更唤醒",
+      "assertions": "真实眩晕/胎梦友军恢复行动并揭隐；2x使用业务时钟CD",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H07"
+    },
+    {
+      "id": "H08",
+      "behavior": "护册降抽",
+      "assertions": "相同G25实际抽名对照；低名分防御/移速变化",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H08"
+    },
+    {
+      "id": "H09",
+      "behavior": "门伤转铁肩",
+      "assertions": "同一下真实门攻击被转为本人HP；离门冷却延长",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H09"
+    },
+    {
+      "id": "H10",
+      "behavior": "残精英决斩",
+      "assertions": "实际低HP精英受重击并有斩击反馈；普通/高HP目标对照",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H10"
+    },
+    {
+      "id": "H11",
+      "behavior": "土垒与扎根",
+      "assertions": "真实可碰撞WorldObstacle生成、G12可破；移动后防御积累归零",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H11"
+    },
+    {
+      "id": "H12",
+      "behavior": "锁链禁止特殊移动",
+      "assertions": "G09上梁/G10遁水被真实阻止；链断恢复；官差伤害对照",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H12"
+    },
+    {
+      "id": "H13",
+      "behavior": "行刑付名",
+      "assertions": "真实残血野鬼死亡，无超度奖励；可超度者扣名且有提示",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H13"
+    },
+    {
+      "id": "H14",
+      "behavior": "鸣锣改目标",
+      "assertions": "敌人实际转向H14并短晕；禁声夜纯嘲讽无晕",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H14"
+    },
+    {
+      "id": "H15",
+      "behavior": "飞瓦内部援位",
+      "assertions": "真实路径/移动到友军旁合法上层岗位，门外目标拒绝",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H15"
+    },
+    {
+      "id": "H16",
+      "behavior": "开路杖与生人勿近",
+      "assertions": "实际鬼受额外伤害和降防，同一治疗对近旁友军减益",
+      "status": "passed",
+      "evidence": "p8-test-results.json:effects.H16"
+    }
+  ],
+  "supplementary": [
+    {
+      "id": "H17",
+      "behavior": "封门真实吸伤反伤",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H18",
+      "behavior": "定向法伤反射并揭隐",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H19",
+      "behavior": "真灰军借入、无册再夺与错录",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H20",
+      "behavior": "真实范围火/读条打断/所属钱包扣费",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H21",
+      "behavior": "水域减速揭隐与加速点册、旱地对照",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H22",
+      "behavior": "驱散增益与G30伪神揭穿",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H23",
+      "behavior": "真实下一技能失败/打偏与转嫁去名",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H24",
+      "behavior": "G04/G07/大形实际眩晕时长对照",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H25",
+      "behavior": "拒马挡上楼/冲锋、折价修门往返",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H26",
+      "behavior": "小潮实际溃散、祭灶友伤对照",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H27",
+      "behavior": "直线路揭隐与啄读条、真实目标收益扣费",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H28",
+      "behavior": "一次个人市集、门破真实撤退",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H29",
+      "behavior": "直线路吸推隐形目标",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H30",
+      "behavior": "真实消耗抵一次去名、初始加名",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H31",
+      "behavior": "标记精英直线猎步<=3秒后回合法掩体",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "H32",
+      "behavior": "暂面抵夺面/恐惧一次、开面恢复名分",
+      "status": "passed",
+      "evidence": "p8-test-results.json"
+    },
+    {
+      "id": "G04",
+      "behavior": "无光隐形见光现形",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G09",
+      "behavior": "真梁路到二楼及落地虚弱",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G12",
+      "behavior": "最近门破坏与被锣/弦引走",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G13",
+      "behavior": "成对冲锋/失偶紊乱",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G17",
+      "behavior": "砸梁或桥导致路径实际变化",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G20",
+      "behavior": "主路冲锋与水/断桥跌倒",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G25",
+      "behavior": "具名去名及无名杂兵对照",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G26",
+      "behavior": "区域复火阻止且超度无名分",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G28",
+      "behavior": "真实夺面及完整卡无面切换",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G29",
+      "behavior": "临时阵营改变、打原友军、结束眩晕",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    },
+    {
+      "id": "G32",
+      "behavior": "多技能并在受保护完成点册+高名后列名窗口",
+      "status": "passed",
+      "evidence": "p8-ghost-test-results.json"
+    }
+  ],
+  "pairs": [
+    {
+      "ids": [
+        "H01",
+        "H02"
+      ],
+      "family": "祝",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-H01-H02-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-H01-H02-card-H01-720.png",
+        "p8-shots/pair-H01-H02-card-H01-1080.png",
+        "p8-shots/pair-H01-H02-card-H01-1440.png",
+        "p8-shots/pair-H01-H02-card-H02-720.png",
+        "p8-shots/pair-H01-H02-card-H02-1080.png",
+        "p8-shots/pair-H01-H02-card-H02-1440.png"
+      ]
+    },
+    {
+      "ids": [
+        "H10",
+        "H16"
+      ],
+      "family": "卫",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-H10-H16-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-H10-H16-card-H10-720.png",
+        "p8-shots/pair-H10-H16-card-H10-1080.png",
+        "p8-shots/pair-H10-H16-card-H10-1440.png",
+        "p8-shots/pair-H10-H16-card-H16-720.png",
+        "p8-shots/pair-H10-H16-card-H16-1080.png",
+        "p8-shots/pair-H10-H16-card-H16-1440.png"
+      ]
+    },
+    {
+      "ids": [
+        "H17",
+        "H20"
+      ],
+      "family": "符",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-H17-H20-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-H17-H20-card-H17-720.png",
+        "p8-shots/pair-H17-H20-card-H17-1080.png",
+        "p8-shots/pair-H17-H20-card-H17-1440.png",
+        "p8-shots/pair-H17-H20-card-H20-720.png",
+        "p8-shots/pair-H17-H20-card-H20-1080.png",
+        "p8-shots/pair-H17-H20-card-H20-1440.png"
+      ]
+    },
+    {
+      "ids": [
+        "H09",
+        "H14"
+      ],
+      "family": "盾",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-H09-H14-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-H09-H14-card-H09-720.png",
+        "p8-shots/pair-H09-H14-card-H09-1080.png",
+        "p8-shots/pair-H09-H14-card-H09-1440.png",
+        "p8-shots/pair-H09-H14-card-H14-720.png",
+        "p8-shots/pair-H09-H14-card-H14-1080.png",
+        "p8-shots/pair-H09-H14-card-H14-1440.png"
+      ]
+    },
+    {
+      "ids": [
+        "G04",
+        "G09"
+      ],
+      "family": "上楼",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-G04-G09-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-G04-G09-card-G04-720.png",
+        "p8-shots/pair-G04-G09-card-G04-1080.png",
+        "p8-shots/pair-G04-G09-card-G04-1440.png",
+        "p8-shots/pair-G04-G09-card-G09-720.png",
+        "p8-shots/pair-G04-G09-card-G09-1080.png",
+        "p8-shots/pair-G04-G09-card-G09-1440.png"
+      ]
+    },
+    {
+      "ids": [
+        "G12",
+        "G13"
+      ],
+      "family": "破门",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-G12-G13-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-G12-G13-card-G12-720.png",
+        "p8-shots/pair-G12-G13-card-G12-1080.png",
+        "p8-shots/pair-G12-G13-card-G12-1440.png",
+        "p8-shots/pair-G12-G13-card-G13-720.png",
+        "p8-shots/pair-G12-G13-card-G13-1080.png",
+        "p8-shots/pair-G12-G13-card-G13-1440.png"
+      ]
+    },
+    {
+      "ids": [
+        "G25",
+        "G28"
+      ],
+      "family": "无册吏",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-G25-G28-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-G25-G28-card-G25-720.png",
+        "p8-shots/pair-G25-G28-card-G25-1080.png",
+        "p8-shots/pair-G25-G28-card-G25-1440.png",
+        "p8-shots/pair-G25-G28-card-G28-720.png",
+        "p8-shots/pair-G25-G28-card-G28-1080.png",
+        "p8-shots/pair-G25-G28-card-G28-1440.png"
+      ]
+    },
+    {
+      "ids": [
+        "G17",
+        "G20"
+      ],
+      "family": "大形",
+      "status": "passed",
+      "battlefield": "p8-shots/pair-G17-G20-battle-1080.png",
+      "cards": [
+        "p8-shots/pair-G17-G20-card-G17-720.png",
+        "p8-shots/pair-G17-G20-card-G17-1080.png",
+        "p8-shots/pair-G17-G20-card-G17-1440.png",
+        "p8-shots/pair-G17-G20-card-G20-720.png",
+        "p8-shots/pair-G17-G20-card-G20-1080.png",
+        "p8-shots/pair-G17-G20-card-G20-1440.png"
+      ]
+    }
+  ],
+  "cross_cutting": [
+    "单席玩家/NPC与双席钱包不串、技能不足香无免费效果",
+    "暂停/观战只读/replay锁与unit_skill越权拒绝",
+    "CD一次推进、2x业务时钟、卸装及跨场不重置非法能力",
+    "unit.roster冷却/状态/阵营/标记/面态序列化及磁盘snapshot后轨迹一致",
+    "磁盘record两次重播关键事件/终态一致，非法roster结构恢复原子拒绝",
+    "全68真实上场采用多场分批fixture，人物8/潮120/杂兵原上限保持",
+    "真实failed night登记实际damage/去名来源ID，非最近敌人推断",
+    "P0–P7旧模式显式禁用roster验证历史业务不变"
+  ],
+  "api_pending": [],
+  "verified_at": "2026-11-17T20:21:49.816931+08:00",
+  "rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b",
+  "not_claimed": [
+    "Ordinary complete P8-night success/balance: interrupted actual P8 run contained failed battles and carry discrepancies. P7/G1 wins are legacy only.",
+    "Final artist-approved portraits0; all64 high-resolution placeholders require replacement/approval.",
+    "P9–P12, Windows hardware or cross-platform replay acceptance."
+  ]
+}

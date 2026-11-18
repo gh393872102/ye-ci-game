@@ -1,0 +1,92 @@
+key,zh_CN
+P6_OBSERVATORY,观祭 · 编排与复盘
+P6_CONFIG_HELP,同一祠场、同一套数值。编排双方，选择亲自对祭，或暂停旁观。
+P6_BACK_NIGHT,返回入夜
+P6_RULES,今夜编排
+P6_HUMANS,守香编制 · 数量 / 合法掩体
+P6_GHOSTS,来犯鬼种 · 数量
+P6_SEED,今夜种子
+P6_PROFILE,战斗布置
+P6_PROFILE_ENTRY,正门庭 · 门压
+P6_PROFILE_UPPER,偏楼 · 上梁压力
+P6_RITUAL,今夜科仪
+P6_RITUAL_EXAMPLE,例夜安香
+P6_AI,AI 凶度
+P6_AI_CALM,克制 · 慢反应
+P6_AI_NORMAL,常态 · 平衡取舍
+P6_AI_FIERCE,凶厉 · 积极决策
+P6_DURATION,天亮倒计时（秒）
+P6_NAMES,名分初值
+P6_INCENSE_SHOUXIANG,守香香火初值
+P6_INCENSE_DUOMING,夺名香火初值
+P6_DIRECTOR_ENABLE,开放导演 · 最多三次成功指令
+P6_COVER_HELP,"岗位仅限基地内的门、窗、香案与楼梯。
+编排不改变人类的自动守岗、交战与层层退守。"
+P6_REPLAY_TITLE,本机战斗复盘
+P6_REPLAY_SEED_HELP,输入本机已记录的夜程或观祭种子
+P6_FIND_REPLAYS,查找已记录的战斗
+P6_REPLAY_LOCAL_HELP,"复盘使用本机记录的实际决策
+与战斗步进。
+
+本机没有记录的旧种子，
+无法还原过去的一场。
+
+当前支持逐场复盘。
+整夜连续复盘尚未开放。"
+P6_START_WATCH,旁观 · 双方 AI
+P6_START_DUEL_SHOUXIANG,对祭 · 我守香 / AI 夺名
+P6_START_DUEL_DUOMING,对祭 · 我夺名 / AI 守香
+P6_WATCH,观祭 · 旁观
+P6_DUEL,观祭 · 对祭
+P6_REPLAY,战斗复盘 · 只读
+P6_READ_ONLY,只读查看：可暂停、平移镜头与查看完整单位卡。
+P6_DUEL_HELP,仅当前坐席可接受玩家指令；另一侧由 AI 决策。
+P6_WALLETS,守 %.1f / 夺 %.1f  名 %.0f
+P6_INSPECT_NEXT,查看下一位 · 肩键
+P6_DIRECTOR_REINFORCE,导演：增潮（正常香耗）
+P6_DIRECTOR_PAUSE,导演：暂停查看
+P6_DIRECTOR_REPAIR,导演：修所选门（正常香耗）
+P6_DIRECTOR_REMAINING,导演剩余 %d 次 · 无效指令不扣次数
+P6_ARCHIVE,保存本场记录
+P6_RETURN_SETUP,返回编排
+P6_RECORD_DURATION,%.1f 秒
+P6_LOCAL_ARCHIVES,以下为本机实际记录的战斗。
+P6_ARCHIVE_MISSING,未找到该种子的本机战斗记录。
+P6_REPLAY_THIS_SEED,按今夜种子复盘
+P6_OBJECTIVE_HOLD_TO_DAYBREAK,守至天亮
+P6_OBJECTIVE_PRESERVE_NAMES,护住名分
+P6_OBJECTIVE_REGISTER_CAPTURE,占领名册房
+P6_OBJECTIVE_NAMES_DRAINED,抽尽名分
+P6_OBJECTIVES_PAIR,主目标：%s / 副目标：%s
+P6_INVALID_SEAT,此坐席不可用。
+P6_PLAYER_SEAT,当前玩家不能操控这一侧。
+P6_INVALID_WALLET,香火初值不在允许范围。
+P6_INVALID_ORIGIN,此指令来源不可用。
+P6_INVALID_ACTION,当前坐席没有此指令。
+P6_WINNER,胜方：%s
+P6_STARTED,对祭已开，双方使用同一套战场规则。
+P6_CONFIG_VALID,编排可用。
+P6_INVALID_CONFIG,编排不合法：请核对人数、岗位、资源和倒计时。
+P6_DIRECTOR_DISABLED,本场未开放导演介入。
+P6_DIRECTOR_LIMIT,本场导演次数已用尽。
+P6_DIRECTOR_UNKNOWN,导演没有这一项权限。
+P6_ALREADY_PAUSED,当前已暂停，无需消耗导演次数。
+P6_DIRECTOR_PAUSED,导演已暂停本场，可继续查看。
+P6_ARCHIVE_SAVED,本机已保存本场决策记录，可按种子查找。
+P6_ARCHIVED,本机已保存本场决策记录。
+P6_ARCHIVE_EXPORTED,本场记录已导出。
+P6_ARCHIVE_INCOMPATIBLE,记录来自不同引擎或规则版本，无法复盘。
+P6_ARCHIVE_INVALID,记录不完整或校验失败，无法复盘。
+P6_ARCHIVE_READY,本机记录可复盘。
+P6_ARCHIVE_WRITE_FAILED,无法写入本机战斗记录。
+P6_REPLAY_COMMAND_FAILED,记录中的指令未能按原状态执行，复盘已停止。
+P6_REPLAY_DIVERGED,复盘与原记录不一致，已停止并标明。
+P6_REPLAY_READY,正在逐步还原本场实际决策。
+P6_AI_DECISIONS,AI 决策：守香 %d / 夺名 %d
+P6_REPLAY_PROGRESS,复盘步进 %d / %d · 已执行指令 %d / %d
+P6_REPLAY_VERIFIED,复盘完成，关键事件与记录末状态核对一致。
+P6_DIRECTOR_CLOSED,本场未开放导演介入。
+P6_REPLAY_SHORT,复盘
+P6_RECORD_COMPLETE,已结束
+P6_RECORD_PARTIAL,片段记录
+GHOST_MAIN_PATH,潮源主路

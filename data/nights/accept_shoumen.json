@@ -1,0 +1,99 @@
+{
+  "fixture": true,
+  "incense": 60,
+  "names": 6,
+  "duration": 240,
+  "structures": [
+    {
+      "id": "door_outer",
+      "durability": 200
+    }
+  ],
+  "environments": [],
+  "materials": [],
+  "initial_state_note": "作者预设验收局；初始编制、初始接触位置、受损结构和环境区域在文件中逐项声明。此后装备/读条/攻防/位移/结算使用共享战斗规则，不在运行中改写HP、位置或结果。并非普通完整夜程计时证据。",
+  "title": "守门流·最后一击",
+  "seat": "shouxiang",
+  "seed": "P7-SHOUMEN-01",
+  "ritual_flag": "",
+  "human_roster": [
+    {
+      "id": "H09",
+      "post": "post_gate_inner",
+      "items": []
+    },
+    {
+      "id": "H11",
+      "post": "post_barricade_outer_court",
+      "items": []
+    },
+    {
+      "id": "H17",
+      "post": "post_gate_inner",
+      "items": []
+    },
+    {
+      "id": "H25",
+      "post": "post_gate_inner",
+      "items": []
+    }
+  ],
+  "ghost_roster": [
+    {
+      "id": "G12",
+      "count": 1,
+      "items": [],
+      "x_body": 49.0,
+      "lane": 0
+    },
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 45.8,
+      "lane": 1
+    },
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 46.2,
+      "lane": 2
+    },
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 46.6,
+      "lane": 3
+    },
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 47.0,
+      "lane": 0
+    }
+  ],
+  "inventory": [
+    "I03",
+    "I10",
+    "Y02",
+    "Y09",
+    "Y11",
+    "Y14",
+    "N01",
+    "N04"
+  ],
+  "notes": [
+    "外门200/950耐久和门外G12为作者预置危门接触，不作为默认坚守时间证据。",
+    "铁肩/朱砂/榫卯共享外门内侧掩体三席，石婆在拒马后；所有人留在基地内。",
+    "最后一击必须由真实G12攻击触发并转伤铁肩；禁止脚本直接把门设成未破或直接扣铁肩HP。"
+  ],
+  "steps": [
+    "暂停，给朱砂装备I03朱砂印，给铁肩装Y02危门/N04坚门；使用J01/J02时走真实指令并记录费用。",
+    "让朱砂封门，石婆/榫卯放下真实障碍；恢复时间，让力士实际砸门进入最后一击。",
+    "观察门未倒、铁肩承担伤害、裂纹警告和反击；若修门，必须真实维修者接近作业。"
+  ],
+  "id": "shoumen"
+}

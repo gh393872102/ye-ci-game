@@ -1,0 +1,1089 @@
+{
+  "phase": "P8",
+  "profiles": {
+    "G01": {
+      "role": "tide",
+      "skill_id": "yong_men",
+      "trait_id": "wu_mian",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G02": {
+      "role": "tide",
+      "skill_id": "p7_g02_skill",
+      "trait_id": "p7_g02_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G03": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_id": "p8_g03_skill",
+      "trait_id": "p8_g03_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G04": {
+      "role": "tide",
+      "skill_id": "p7_g04_skill",
+      "trait_id": "p7_g04_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G05": {
+      "role": "tide",
+      "skill_id": "p7_g05_skill",
+      "trait_id": "p7_g05_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G06": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_id": "p8_g06_skill",
+      "trait_id": "p8_g06_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G07": {
+      "role": "tide",
+      "skill_id": "p7_g07_skill",
+      "trait_id": "p7_g07_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G08": {
+      "role": "tide",
+      "skill_id": "p7_g08_skill",
+      "trait_id": "p7_g08_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G09": {
+      "role": "tide",
+      "skill_id": "shang_liang",
+      "trait_id": "jing_xian",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G10": {
+      "role": "tide",
+      "skill_id": "p7_g10_skill",
+      "trait_id": "p7_g10_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G11": {
+      "role": "tide",
+      "skill_id": "p7_g11_skill",
+      "trait_id": "p7_g11_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G12": {
+      "role": "tide",
+      "skill_id": "zhuang_men",
+      "trait_id": "yu_li",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G13": {
+      "role": "tide",
+      "skill_id": "p7_g13_skill",
+      "trait_id": "p7_g13_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G14": {
+      "role": "tide",
+      "skill_id": "p7_g14_skill",
+      "trait_id": "p7_g14_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G15": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_id": "p8_g15_skill",
+      "trait_id": "p8_g15_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G16": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_id": "p8_g16_skill",
+      "trait_id": "p8_g16_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G17": {
+      "role": "tide",
+      "skill_id": "p7_g17_skill",
+      "trait_id": "p7_g17_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 160,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G18": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 144,
+      "skill_id": "p8_g18_skill",
+      "trait_id": "p8_g18_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G19": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 144,
+      "skill_id": "p8_g19_skill",
+      "trait_id": "p8_g19_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G20": {
+      "role": "tide",
+      "skill_id": "p7_g20_skill",
+      "trait_id": "p7_g20_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 160,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G21": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 144,
+      "skill_id": "p8_g21_skill",
+      "trait_id": "p8_g21_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G22": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 128,
+      "skill_id": "p8_g22_skill",
+      "trait_id": "p8_g22_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G23": {
+      "role": "tide",
+      "skill_id": "p7_g23_skill",
+      "trait_id": "p7_g23_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 144,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G24": {
+      "role": "tide",
+      "skill_id": "p7_g24_skill",
+      "trait_id": "p7_g24_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 144,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G25": {
+      "role": "tide",
+      "skill_id": "p7_g25_skill",
+      "trait_id": "p7_g25_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G26": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_id": "p8_g26_skill",
+      "trait_id": "p8_g26_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G27": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_id": "p8_g27_skill",
+      "trait_id": "p8_g27_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G28": {
+      "role": "tide",
+      "skill_id": "p7_g28_skill",
+      "trait_id": "p7_g28_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G29": {
+      "role": "tide",
+      "skill_id": "p7_g29_skill",
+      "trait_id": "p7_g29_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G30": {
+      "role": "tide",
+      "skill_id": "p7_g30_skill",
+      "trait_id": "p7_g30_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80,
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G31": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 176,
+      "skill_id": "p8_g31_skill",
+      "trait_id": "p8_g31_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    },
+    "G32": {
+      "role": "tide",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 176,
+      "skill_id": "p8_g32_skill",
+      "trait_id": "p8_g32_trait",
+      "skill_script": "res://src/roster/GhostAbilities.gd",
+      "skill_method": "cast",
+      "trait_script": "res://src/roster/GhostAbilities.gd",
+      "trait_method": "advance"
+    }
+  },
+  "skills": {
+    "yong_men": {
+      "name": "拥门",
+      "description": "多人同时撞门时，破门效率略增",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g02_skill": {
+      "name": "乞册",
+      "description": "靠近名册或点册者时缓慢抽取香火",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g03_skill": {
+      "name": "哀声",
+      "description": "周围敌方防御下降",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g04_skill": {
+      "name": "贴墙",
+      "description": "在无灯区域隐形接近",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g05_skill": {
+      "name": "吞残",
+      "description": "在倒下的单位处恢复势头",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g06_skill": {
+      "name": "探爪",
+      "description": "从较远处抓扰修门者或点册者",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g07_skill": {
+      "name": "窄门",
+      "description": "可走窗和梁缝，不走正门",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g08_skill": {
+      "name": "散香",
+      "description": "被超度或阵亡时爆炸，打断附近读条",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "shang_liang": {
+      "name": "上梁",
+      "description": "沿梁、柱、绳索换层，扑入二楼房间",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g10_skill": {
+      "name": "拖人",
+      "description": "在水中把敌方拖离岗位，甚至拖入深水",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g11_skill": {
+      "name": "提灯",
+      "description": "为己方揭示，同时灼烧怕灯的单位",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "zhuang_men": {
+      "name": "撞门",
+      "description": "对门和土垒造成高破坏",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g13_skill": {
+      "name": "抬空轿",
+      "description": "成对时撞击一条直线，拆散阵型",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g14_skill": {
+      "name": "拜堂",
+      "description": "魅惑或强制一名人物短暂攻击友军",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g15_skill": {
+      "name": "披衣",
+      "description": "给友军套上减伤的寿衣",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g16_skill": {
+      "name": "勾名",
+      "description": "点名一个人物，使其被集火",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g17_skill": {
+      "name": "砸梁",
+      "description": "破坏一层楼板或桥梁，改变路径",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g18_skill": {
+      "name": "错位行进",
+      "description": "须打击仪仗的特定部位才会真正溃散",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g19_skill": {
+      "name": "无面模仿",
+      "description": "复制一个范围内人物的主动技能，但没有脸",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g20_skill": {
+      "name": "夜驰",
+      "description": "沿主路高速冲锋，撞开拒马前的单位",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g21_skill": {
+      "name": "叩钟",
+      "description": "大声震眩一片区域",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g22_skill": {
+      "name": "入梦",
+      "description": "使一个单位陷入梦中，暂时不能接受指令",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g23_skill": {
+      "name": "借脸",
+      "description": "每击倒一名有面的人物，自身变强并更像人",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g24_skill": {
+      "name": "拆骨构",
+      "description": "专打机关、拒马、修门者，并知道侧门",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g25_skill": {
+      "name": "抹名",
+      "description": "去掉一个单位的名，使其恐慌或技能失效",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g26_skill": {
+      "name": "留白",
+      "description": "区域内名册不能被复火、超度不能产生名分",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g27_skill": {
+      "name": "倒香",
+      "description": "把一块区域的香火回复变成毒烟，伤害双方",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g28_skill": {
+      "name": "夺面",
+      "description": "偷走一名人物的脸，目标短时间内变成无面",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g29_skill": {
+      "name": "错录",
+      "description": "短暂改写一个单位的阵营，使其攻击原友军",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p7_g30_skill": {
+      "name": "受供",
+      "description": "若被玩家误当作祠神来借，会大范围反噬",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g31_skill": {
+      "name": "叠名",
+      "description": "每偷得一个名字就更厚，技能变得混乱",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    },
+    "p8_g32_skill": {
+      "name": "开册",
+      "description": "投下抹名、夺面与留白，并试图改写今夜科仪",
+      "kind": "roster",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "cast"
+    }
+  },
+  "traits": {
+    "wu_mian": {
+      "name": "无面",
+      "description": "怕灯，被超度时阻力低",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g02_trait": {
+      "name": "跪乞",
+      "description": "血越低越容易被超度成功",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g03_trait": {
+      "name": "禁声反噬",
+      "description": "禁声夜里哀声会伤害自己",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g04_trait": {
+      "name": "见灯则现",
+      "description": "被灯照到后短暂不能再隐",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g05_trait": {
+      "name": "贪食",
+      "description": "会为了吞残偏离主目标",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g06_trait": {
+      "name": "臂脆",
+      "description": "前爪被集火时可暂时废爪",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g07_trait": {
+      "name": "身小",
+      "description": "易被范围技能清掉",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g08_trait": {
+      "name": "空壳",
+      "description": "自身几乎无攻击",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "jing_xian": {
+      "name": "颈线",
+      "description": "在梁上极强，落地后短暂虚弱",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g10_trait": {
+      "name": "上岸无力",
+      "description": "离开水后攻击与速度下降",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g11_trait": {
+      "name": "双面",
+      "description": "守香超度成功后，有机会转化为晚的青灯助力",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "yu_li": {
+      "name": "愚力",
+      "description": "优先打最近的门，可被嘲讽或琴声引走",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g13_trait": {
+      "name": "失偶",
+      "description": "一只倒下，另一只紊乱",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g14_trait": {
+      "name": "喜丧",
+      "description": "怕丧杖与三戒",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g15_trait": {
+      "name": "量体",
+      "description": "对已有名的人物披衣失败，改为短暂减速",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g16_trait": {
+      "name": "残衙",
+      "description": "与巡夜、铜锣等互有克制",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g17_trait": {
+      "name": "巨影",
+      "description": "体型大，不能走窗，怕集火和处理后路",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g18_trait": {
+      "name": "列队",
+      "description": "周围有潮时减伤",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g19_trait": {
+      "name": "怕镜",
+      "description": "被冷金反射或面匠之面正视时会崩",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g20_trait": {
+      "name": "马失",
+      "description": "在水巷或断桥上会跌倒",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g21_trait": {
+      "name": "禁声致命",
+      "description": "禁声夜里施放会重伤自己",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g22_trait": {
+      "name": "易醒",
+      "description": "受到灯或敲更会立刻中断",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g23_trait": {
+      "name": "空核",
+      "description": "被超度成功会一次吐出所有偷来的名分",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g24_trait": {
+      "name": "旧人",
+      "description": "可被问灯或三戒以更高成功率超度或破执",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g25_trait": {
+      "name": "吏眼",
+      "description": "优先打有名的人物，不屑打杂兵",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g26_trait": {
+      "name": "薄纸",
+      "description": "自身极脆，需潮保护",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g27_trait": {
+      "name": "怕真火",
+      "description": "祭灶与焚词对它克制",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g28_trait": {
+      "name": "满面",
+      "description": "手里持有面孔时变强，被面匠或开面科仪克制",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g29_trait": {
+      "name": "墨干",
+      "description": "效果结束后该单位会眩晕，给反打窗口",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p7_g30_trait": {
+      "name": "伪神",
+      "description": "三戒的破执可直接揭穿",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g31_trait": {
+      "name": "名重",
+      "description": "被一次成功的大规模超度或点名会崩掉多层",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    },
+    "p8_g32_trait": {
+      "name": "可被列名",
+      "description": "名分仍高且点册被保护完成时，进入可对抗的列名窗口",
+      "script": "res://src/roster/GhostAbilities.gd",
+      "method": "advance"
+    }
+  },
+  "abilities": {
+    "G01": {
+      "radius": 2,
+      "ritual_multiplier": 0.75,
+      "cooldown": 2
+    },
+    "G02": {
+      "radius": 3,
+      "cooldown": 1,
+      "drain": 0.5,
+      "low_hp_ratio": 0.4,
+      "ritual_multiplier": 0.65
+    },
+    "G03": {
+      "radius": 3,
+      "cooldown": 4,
+      "duration": 5,
+      "defense_multiplier": 0.75,
+      "backlash": 6
+    },
+    "G04": {
+      "radius": 0,
+      "cooldown": 0.2,
+      "reveal_lock": 3
+    },
+    "G05": {
+      "radius": 6,
+      "cooldown": 8,
+      "eat_range": 0.6,
+      "heal": 12,
+      "duration": 5,
+      "speed_multiplier": 1.2
+    },
+    "G06": {
+      "radius": 5,
+      "cooldown": 7,
+      "damage": 5,
+      "duration": 1,
+      "arm_hits": 3,
+      "arm_disabled": 6
+    },
+    "G07": {
+      "radius": 0,
+      "cooldown": 8,
+      "area_vulnerability": 1.35
+    },
+    "G08": {
+      "radius": 2,
+      "cooldown": 1,
+      "damage": 5
+    },
+    "G09": {
+      "radius": 2,
+      "cooldown": 8,
+      "beam_attack_multiplier": 1.25
+    },
+    "G10": {
+      "radius": 2.5,
+      "cooldown": 8,
+      "drag_body": 1,
+      "damage": 4,
+      "duration": 3,
+      "land_attack_multiplier": 0.7,
+      "land_speed_multiplier": 0.75
+    },
+    "G11": {
+      "radius": 3,
+      "cooldown": 1,
+      "damage": 2,
+      "reveal_duration": 3
+    },
+    "G12": {
+      "radius": 1.5,
+      "cooldown": 6
+    },
+    "G13": {
+      "radius": 4,
+      "cooldown": 10,
+      "partner_radius": 3,
+      "charge_multiplier": 1.6,
+      "push_body": 1,
+      "widow_duration": 4,
+      "widow_multiplier": 0.7,
+      "charge_duration": 2,
+      "charge_speed": 1.8,
+      "charge_hit_radius": 2
+    },
+    "G14": {
+      "radius": 3,
+      "cooldown": 12,
+      "duration": 3,
+      "counter_multiplier": 1.35
+    },
+    "G15": {
+      "radius": 3,
+      "cooldown": 10,
+      "duration": 5,
+      "damage_multiplier": 0.65,
+      "slow_multiplier": 0.7
+    },
+    "G16": {
+      "radius": 4,
+      "cooldown": 10,
+      "duration": 5,
+      "official_multiplier": 1.2
+    },
+    "G17": {
+      "radius": 3,
+      "cooldown": 12
+    },
+    "G18": {
+      "radius": 3,
+      "cooldown": 8,
+      "part_count": 3,
+      "wrong_part_multiplier": 0.25,
+      "formation_multiplier": 0.7
+    },
+    "G19": {
+      "radius": 4,
+      "cooldown": 12,
+      "mirror_damage_multiplier": 2,
+      "collapse_damage": 18
+    },
+    "G20": {
+      "radius": 5,
+      "cooldown": 10,
+      "charge_multiplier": 1.8,
+      "push_body": 1.5,
+      "fall_duration": 3,
+      "charge_duration": 2,
+      "charge_speed": 1.8,
+      "charge_hit_radius": 2
+    },
+    "G21": {
+      "radius": 3,
+      "cooldown": 12,
+      "duration": 2,
+      "backlash": 18
+    },
+    "G22": {
+      "radius": 3,
+      "cooldown": 10,
+      "duration": 5
+    },
+    "G23": {
+      "radius": 3,
+      "cooldown": 10,
+      "attack_per_face": 2,
+      "hp_per_face": 8,
+      "names_per_face": 1
+    },
+    "G24": {
+      "radius": 4,
+      "cooldown": 8,
+      "structure_multiplier": 1.5,
+      "repair_damage": 6,
+      "recruit_multiplier": 0.7
+    },
+    "G25": {
+      "radius": 3,
+      "cooldown": 12,
+      "duration": 4,
+      "name_loss": 1
+    },
+    "G26": {
+      "radius": 3,
+      "cooldown": 8,
+      "duration": 6
+    },
+    "G27": {
+      "radius": 3,
+      "cooldown": 10,
+      "duration": 6,
+      "poison_multiplier": 1,
+      "fire_vulnerability": 1.5
+    },
+    "G28": {
+      "radius": 3,
+      "cooldown": 12,
+      "duration": 5,
+      "attack_multiplier": 1.25,
+      "counter_multiplier": 1.5
+    },
+    "G29": {
+      "radius": 3,
+      "cooldown": 12,
+      "duration": 3,
+      "end_stun": 1.5
+    },
+    "G30": {
+      "radius": 4,
+      "cooldown": 12,
+      "damage": 8,
+      "name_loss": 2,
+      "duration": 2,
+      "dispel_multiplier": 2
+    },
+    "G31": {
+      "radius": 3,
+      "cooldown": 8,
+      "max_layers": 6,
+      "hp_per_layer": 12,
+      "defense_per_layer": 1,
+      "collapse_layers": 3,
+      "name_loss": 1
+    },
+    "G32": {
+      "radius": 4,
+      "cooldown": 10,
+      "duration": 5,
+      "name_loss": 1,
+      "naming_names": 6,
+      "naming_duration": 8,
+      "named_damage_multiplier": 1.5
+    }
+  }
+}

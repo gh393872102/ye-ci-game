@@ -1,0 +1,47 @@
+{
+  "phase": "P8 historical fixture update",
+  "suite": "P6",
+  "checks": 123,
+  "failures": 1,
+  "failed_checks": [
+    {
+      "check": "K3 Invalid observation config is rejected before scene mutation: 7",
+      "passed": false
+    }
+  ],
+  "cause": "The historical invalid-unit fixture used G32. P8 legitimately makes G32 selectable, so the invalid ID was changed to the actually undefined G99; rejection/no-scene-mutation assertions were retained. No production validation was weakened.",
+  "replacement": "G32 -> G99",
+  "rerun": "P6 and suites not previously run only",
+  "p7_night_interrupted": {
+    "cause": "Night.start_growth_run is now the real P8 default button and starts new_roster_run; the historical P7Night fixture unintentionally followed that changed UI entry. An active carry assertion failed before the run was interrupted.",
+    "fix": "P7NightSuite explicitly initializes NightRun.new_growth_run on the same real Night host, keeps shared combat/choices and strict carry checks, and uses only its existing PID-specific /tmp save path. P8 behavior is covered separately.",
+    "player_io": "The accidental UI call used user://codex.json. Parent informed immediately; no player file deleted or reset by acceptance agent.",
+    "log": "/tmp/ye-ci-p8-regression-resume-final.log",
+    "failed_checks": [
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL K2 shouxiang n05 reaches actual battle victory",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL K2 shouxiang n08 reaches actual battle victory",
+      "FAIL K1 Complete unmodified shouxiang example reaches successful night ending",
+      "FAIL K1 shouxiang complete night traverses meaningful market/event/rest/boss route"
+    ],
+    "failed_check_count": 11,
+    "observed_result_lines": [
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL K2 shouxiang n05 reaches actual battle victory",
+      "FAIL G1 Actual carried actor retains injury, stats, four slots and job tags before new inputs",
+      "FAIL K2 shouxiang n08 reaches actual battle victory"
+    ],
+    "p8_whole_night_status": "Not accepted as ordinary P8 whole-night success. The interrupted real P8 run contained carry discrepancies and failed battles; domain review of exact carry fields remains separate from the valid legacy regression correction."
+  }
+}

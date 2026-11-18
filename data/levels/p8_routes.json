@@ -1,0 +1,26 @@
+{
+  "window_side_passage": {
+    "unit_ids": [
+      "G07"
+    ],
+    "departure_x_body": 48.5,
+    "ledge_offset_px": 150,
+    "entry_x_body": 90,
+    "entry_floor": 2,
+    "speed_multiplier": 0.9,
+    "description": "童亡沿外墙门楣上侧窄路入上层窗位；逐点位移，不破坏或穿过正门碰撞。"
+  },
+  "mechanism_side_route": {
+    "unit_ids": [
+      "G24"
+    ],
+    "stair_id": "stair_main",
+    "post_id": "post_stair_head",
+    "front_doors": [
+      "door_outer",
+      "door_inner",
+      "door_hall"
+    ],
+    "description": "祠奴等待潮打通前门后沿既有地面与宽楼梯进入侧门、机关位；大形不走窗。"
+  }
+}

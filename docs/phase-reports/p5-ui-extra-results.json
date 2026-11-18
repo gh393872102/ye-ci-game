@@ -1,0 +1,82 @@
+{
+	"checks": 16,
+	"date": "2026-11-17T14:04:51",
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"fixture_policy": "Screenshots are UI/rule fixtures, not complete-night victories. Only /tmp save paths are used. Visible buttons use synthetic mouse input; setup may inject rewards, phase, injury ratios or invalid saves. Complete-night proof is in the main P5 suite.",
+	"phase": "P5",
+	"results": [
+		{
+			"check": "Reward target selector applies only selected Iron Shoulder",
+			"passed": true
+		},
+		{
+			"check": "Market target selector equips selected Vermilion and debits visible price",
+			"passed": true
+		},
+		{
+			"check": "Boss phase panel reads current actual profile phase by simulation time",
+			"passed": true
+		},
+		{
+			"check": "Managed battle hides standalone rematch ending",
+			"passed": true
+		},
+		{
+			"check": "Real save-and-exit presents intro after successful save",
+			"passed": true
+		},
+		{
+			"check": "Real new-night button can replace saved active night with attacker seat",
+			"passed": true
+		},
+		{
+			"check": "New-night button preserves discoveries from a valid failed-night save",
+			"passed": true
+		},
+		{
+			"check": "Discovery merge carries no resources, build modifiers, combat stats or battle history",
+			"passed": true
+		},
+		{
+			"check": "Corrupt save cannot dispose or replace an existing live night and battle",
+			"passed": true
+		},
+		{
+			"check": "Failed corrupt-load never overwrites the source save",
+			"passed": true
+		},
+		{
+			"check": "Rejected snapshot restore leaves the old live battle, night and clock intact",
+			"passed": true
+		},
+		{
+			"check": "Snapshot failure is explicit and does not overwrite the saved file",
+			"passed": true
+		},
+		{
+			"check": "Validated snapshot replaces the prior battle only after successful restore",
+			"passed": true
+		},
+		{
+			"check": "Real mutation reward transforms the selected white once, preserving uid and injury ratio without a hidden incense charge",
+			"passed": true
+		},
+		{
+			"check": "Mutation pickers list only legal unmutated white ghosts and exclude the previous elite",
+			"passed": true
+		},
+		{
+			"check": "Real market mutation purchase charges its visible 15 incense price and disables the purchased card",
+			"passed": true
+		}
+	],
+	"scope": "UI extra integration fixtures",
+	"screenshots": [
+		"res://docs/phase-reports/p5-shots/extra-fixture-target-reward-layout-fixture-720.png",
+		"res://docs/phase-reports/p5-shots/extra-fixture-target-market-layout-fixture-720.png",
+		"res://docs/phase-reports/p5-shots/extra-fixture-boss-phase-layout-fixture-720.png",
+		"res://docs/phase-reports/p5-shots/extra-fixture-mutation-reward-720.png",
+		"res://docs/phase-reports/p5-shots/extra-fixture-mutation-market-720.png"
+	]
+}

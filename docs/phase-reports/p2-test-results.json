@@ -1,0 +1,1301 @@
+{
+	"attack_evidence": [
+		{
+			"after": 13.5,
+			"attack": 10.0,
+			"attacker": "H09_26",
+			"before": 22.0,
+			"damage": 8.5,
+			"defense": 3.0,
+			"kind": "melee",
+			"target": "debug_target_31",
+			"time": 0.0166666666666667
+		},
+		{
+			"after": 14.5,
+			"attack": 9.0,
+			"attacker": "T02_42",
+			"before": 22.0,
+			"damage": 7.5,
+			"defense": 3.0,
+			"kind": "projectile",
+			"target": "debug_target_44",
+			"time": 12.2166666666669
+		}
+	],
+	"capture": false,
+	"checks": 114,
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"integration_evidence": {
+		"doors": [
+			{
+				"destroyed": true,
+				"durability": 0.0,
+				"id": "door_outer"
+			},
+			{
+				"destroyed": false,
+				"durability": 180.0,
+				"id": "door_inner"
+			},
+			{
+				"destroyed": false,
+				"durability": 160.0,
+				"id": "door_hall"
+			},
+			{
+				"destroyed": false,
+				"durability": 140.0,
+				"id": "door_register"
+			},
+			{
+				"destroyed": false,
+				"durability": 120.0,
+				"id": "door_gallery"
+			},
+			{
+				"destroyed": false,
+				"durability": 120.0,
+				"id": "door_incense"
+			},
+			{
+				"destroyed": false,
+				"durability": 120.0,
+				"id": "door_beam"
+			}
+		],
+		"duration_seconds": 75,
+		"events": [
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_126"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_127"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_128"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_129"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_130"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_131"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_132"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_133"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_134"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_135"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_136"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 93.849999999996,
+				"unit": "debug_target_137"
+			},
+			{
+				"detail": "AttackBarrier",
+				"kind": "state",
+				"time": 105.966666666662,
+				"unit": "debug_target_137"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 106.666666666662,
+				"unit": "debug_target_136"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 107.366666666662,
+				"unit": "debug_target_135"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 108.049999999995,
+				"unit": "debug_target_134"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 108.749999999995,
+				"unit": "debug_target_133"
+			},
+			{
+				"detail": "RetreatToNext",
+				"kind": "state",
+				"time": 109.333333333328,
+				"unit": "H09_121"
+			},
+			{
+				"detail": "post_gate_inner -> post_barricade_outer_court (pressure)",
+				"kind": "retreat",
+				"time": 109.333333333328,
+				"unit": "H09_121"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 109.433333333328,
+				"unit": "debug_target_132"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 110.133333333328,
+				"unit": "debug_target_131"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 110.833333333328,
+				"unit": "debug_target_130"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 111.516666666662,
+				"unit": "debug_target_129"
+			},
+			{
+				"detail": "HoldNewPost",
+				"kind": "state",
+				"time": 112.216666666662,
+				"unit": "H09_121"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 112.216666666662,
+				"unit": "debug_target_128"
+			},
+			{
+				"detail": "IdleAtPost",
+				"kind": "state",
+				"time": 112.433333333328,
+				"unit": "H09_121"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 112.899999999995,
+				"unit": "debug_target_127"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 113.599999999995,
+				"unit": "debug_target_126"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 148.883333333344,
+				"unit": "debug_target_137"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 148.900000000011,
+				"unit": "debug_target_136"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 148.916666666677,
+				"unit": "debug_target_135"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 148.933333333344,
+				"unit": "debug_target_134"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 148.950000000011,
+				"unit": "debug_target_133"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 148.966666666677,
+				"unit": "debug_target_132"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 148.983333333344,
+				"unit": "debug_target_131"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 149.000000000011,
+				"unit": "debug_target_130"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 149.016666666677,
+				"unit": "debug_target_129"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 149.033333333344,
+				"unit": "debug_target_128"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 149.050000000011,
+				"unit": "debug_target_127"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 149.066666666677,
+				"unit": "debug_target_126"
+			},
+			{
+				"detail": "AttackBarrier",
+				"kind": "state",
+				"time": 151.800000000013,
+				"unit": "debug_target_137"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.81666666668,
+				"unit": "debug_target_136"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.833333333346,
+				"unit": "debug_target_135"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.850000000013,
+				"unit": "debug_target_134"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.86666666668,
+				"unit": "debug_target_133"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.883333333346,
+				"unit": "debug_target_132"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.900000000013,
+				"unit": "debug_target_131"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.91666666668,
+				"unit": "debug_target_130"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.933333333346,
+				"unit": "debug_target_129"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.950000000013,
+				"unit": "debug_target_128"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.96666666668,
+				"unit": "debug_target_127"
+			},
+			{
+				"detail": "WaitingAtRegister",
+				"kind": "state",
+				"time": 151.983333333346,
+				"unit": "debug_target_126"
+			},
+			{
+				"detail": "RetreatToNext",
+				"kind": "state",
+				"time": 166.116666666691,
+				"unit": "H09_121"
+			},
+			{
+				"detail": "post_barricade_outer_court -> post_inner_gate (structure)",
+				"kind": "retreat",
+				"time": 166.116666666691,
+				"unit": "H09_121"
+			},
+			{
+				"detail": "RetreatToNext",
+				"kind": "state",
+				"time": 166.116666666691,
+				"unit": "T01_122"
+			},
+			{
+				"detail": "post_barricade_outer_court -> post_inner_gate (structure)",
+				"kind": "retreat",
+				"time": 166.116666666691,
+				"unit": "T01_122"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.116666666691,
+				"unit": "debug_target_137"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.133333333358,
+				"unit": "debug_target_136"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.150000000024,
+				"unit": "debug_target_135"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.166666666691,
+				"unit": "debug_target_134"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.183333333358,
+				"unit": "debug_target_133"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.200000000024,
+				"unit": "debug_target_132"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.216666666691,
+				"unit": "debug_target_131"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.233333333358,
+				"unit": "debug_target_130"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.250000000024,
+				"unit": "debug_target_129"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.266666666691,
+				"unit": "debug_target_128"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.283333333358,
+				"unit": "debug_target_127"
+			},
+			{
+				"detail": "Advance",
+				"kind": "state",
+				"time": 166.300000000024,
+				"unit": "debug_target_126"
+			}
+		],
+		"humans": [
+			{
+				"hp": 110.0,
+				"id": "H09",
+				"position": [
+					5292.0,
+					700.0
+				],
+				"post": "post_barricade_outer_court",
+				"state": "RetreatToNext"
+			},
+			{
+				"hp": 45.0,
+				"id": "T01",
+				"position": [
+					5256.0,
+					700.0
+				],
+				"post": "post_barricade_outer_court",
+				"state": "RetreatToNext"
+			},
+			{
+				"hp": 55.0,
+				"id": "H17",
+				"position": [
+					7160.0,
+					700.0
+				],
+				"post": "post_hall_door",
+				"state": "IdleAtPost"
+			},
+			{
+				"hp": 38.0,
+				"id": "T02",
+				"position": [
+					7360.0,
+					500.0
+				],
+				"post": "post_window_1",
+				"state": "IdleAtPost"
+			},
+			{
+				"hp": 70.0,
+				"id": "H01",
+				"position": [
+					9280.0,
+					700.0
+				],
+				"post": "post_register",
+				"state": "IdleAtPost"
+			}
+		],
+		"targets": [
+			{
+				"hp": 22.0,
+				"position": [
+					4436.62060546875,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4477.5537109375,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4518.48681640625,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4559.419921875,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4600.35302734375,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4641.2861328125,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4682.21923828125,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4723.15234375,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4764.08544921875,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4805.0185546875,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4845.95166015625,
+					700.0
+				],
+				"state": "Advance"
+			},
+			{
+				"hp": 22.0,
+				"position": [
+					4886.884765625,
+					700.0
+				],
+				"state": "Advance"
+			}
+		]
+	},
+	"phase": "P2",
+	"results": [
+		{
+			"check": "CSV and combat ID references load without errors",
+			"passed": true
+		},
+		{
+			"check": "Default G0 preset has three named humans, two troops and 12 source-lane debug targets",
+			"passed": true
+		},
+		{
+			"check": "Developer AI panel is closed by default",
+			"passed": true
+		},
+		{
+			"check": "Normal P2 scene does not expose P1 manual walk commands",
+			"passed": true
+		},
+		{
+			"check": "All four stats loaded exactly from CSV: H09",
+			"passed": true
+		},
+		{
+			"check": "Source skill and trait semantics preserved: H09",
+			"passed": true
+		},
+		{
+			"check": "Default human starts at a named in-base cover post: H09",
+			"passed": true
+		},
+		{
+			"check": "Default base exception disabled: H09",
+			"passed": true
+		},
+		{
+			"check": "All four stats loaded exactly from CSV: T01",
+			"passed": true
+		},
+		{
+			"check": "Source skill and trait semantics preserved: T01",
+			"passed": true
+		},
+		{
+			"check": "Default human starts at a named in-base cover post: T01",
+			"passed": true
+		},
+		{
+			"check": "Default base exception disabled: T01",
+			"passed": true
+		},
+		{
+			"check": "All four stats loaded exactly from CSV: H17",
+			"passed": true
+		},
+		{
+			"check": "Source skill and trait semantics preserved: H17",
+			"passed": true
+		},
+		{
+			"check": "Default human starts at a named in-base cover post: H17",
+			"passed": true
+		},
+		{
+			"check": "Default base exception disabled: H17",
+			"passed": true
+		},
+		{
+			"check": "All four stats loaded exactly from CSV: T02",
+			"passed": true
+		},
+		{
+			"check": "Source skill and trait semantics preserved: T02",
+			"passed": true
+		},
+		{
+			"check": "Default human starts at a named in-base cover post: T02",
+			"passed": true
+		},
+		{
+			"check": "Default base exception disabled: T02",
+			"passed": true
+		},
+		{
+			"check": "All four stats loaded exactly from CSV: H01",
+			"passed": true
+		},
+		{
+			"check": "Source skill and trait semantics preserved: H01",
+			"passed": true
+		},
+		{
+			"check": "Default human starts at a named in-base cover post: H01",
+			"passed": true
+		},
+		{
+			"check": "Default base exception disabled: H01",
+			"passed": true
+		},
+		{
+			"check": "Required source costs and stable skill IDs",
+			"passed": true
+		},
+		{
+			"check": "Crossbow uses the source note's six-body range",
+			"passed": true
+		},
+		{
+			"check": "Shared damage formula, minimum and resistance modifier",
+			"passed": true
+		},
+		{
+			"check": "Missing skill reference is rejected explicitly",
+			"passed": true
+		},
+		{
+			"check": "Default slice, zoom and 80px unit height preserved",
+			"passed": true
+		},
+		{
+			"check": "P2 minimap frame remains 20% at 0",
+			"passed": true
+		},
+		{
+			"check": "P2 actual canvas matches camera at 0",
+			"passed": true
+		},
+		{
+			"check": "P2 minimap frame remains 20% at 6080",
+			"passed": true
+		},
+		{
+			"check": "P2 actual canvas matches camera at 6080",
+			"passed": true
+		},
+		{
+			"check": "P2 minimap frame remains 20% at 7680",
+			"passed": true
+		},
+		{
+			"check": "P2 actual canvas matches camera at 7680",
+			"passed": true
+		},
+		{
+			"check": "Repeated source spawns respect 20-target cap and never overlap slots",
+			"passed": true
+		},
+		{
+			"check": "Real melee attack goes through shared formula: 10 - 3*0.5 = 8.5",
+			"passed": true
+		},
+		{
+			"check": "Guard engages in reach; one attack produces one damage record",
+			"passed": true
+		},
+		{
+			"check": "Zero health immediately enters Broken and disables combat",
+			"passed": true
+		},
+		{
+			"check": "Fallen actor leaves active battle and corpse expires",
+			"passed": true
+		},
+		{
+			"check": "Guard never chases a target outside outer gate",
+			"passed": true
+		},
+		{
+			"check": "Hard policy rejects outside base and open-court center",
+			"passed": true
+		},
+		{
+			"check": "Distant court target does not create a new front at court center",
+			"passed": true
+		},
+		{
+			"check": "Guard can step out to engage, rather than being welded to the post",
+			"passed": true
+		},
+		{
+			"check": "Limited chase remains within 2.5 bodies of post",
+			"passed": true
+		},
+		{
+			"check": "Guard returns to cover when target disappears",
+			"passed": true
+		},
+		{
+			"check": "Guard approaches a target on the right without overshooting it",
+			"passed": true
+		},
+		{
+			"check": "Ranged attack spawns a projectile without instant damage",
+			"passed": true
+		},
+		{
+			"check": "Projectile has visible finite travel time",
+			"passed": true
+		},
+		{
+			"check": "Swept projectile collision applies shared damage on impact",
+			"passed": true
+		},
+		{
+			"check": "Closed gallery door blocks a shot within six-body range",
+			"passed": true
+		},
+		{
+			"check": "Opening that door exposes the target",
+			"passed": true
+		},
+		{
+			"check": "Projectile starts through an open doorway",
+			"passed": true
+		},
+		{
+			"check": "Door closed after launch intercepts in-flight projectile",
+			"passed": true
+		},
+		{
+			"check": "Blocked projectile has an explicit collision event",
+			"passed": true
+		},
+		{
+			"check": "Intact table/obstacle silhouette blocks ranged line",
+			"passed": true
+		},
+		{
+			"check": "Removing obstacle exposes the same in-range target",
+			"passed": true
+		},
+		{
+			"check": "Real room column blocks a segment through its silhouette",
+			"passed": true
+		},
+		{
+			"check": "Register-to-outer-gate shot is rejected at actual attack entry",
+			"passed": true
+		},
+		{
+			"check": "An in-flight projectile resolves safely after its shooter has been removed",
+			"passed": true
+		},
+		{
+			"check": "Ranged unit threatened in melee retreats before firing",
+			"passed": true
+		},
+		{
+			"check": "Ranged fallback reaches next cover through the door without teleporting",
+			"passed": true
+		},
+		{
+			"check": "Automatic staff passage closes the intact door after traversal",
+			"passed": true
+		},
+		{
+			"check": "Walking target attacks and destroys the real door via shared damage",
+			"passed": true
+		},
+		{
+			"check": "Destroyed cover overrides hold lock and starts automatic retreat",
+			"passed": true
+		},
+		{
+			"check": "Horizontal retreat speed is 3.0 bodies/s (240px/s)",
+			"passed": true
+		},
+		{
+			"check": "Retreat exceeds fastest ordinary 2.4-body pursuit",
+			"passed": true
+		},
+		{
+			"check": "Retreating human reaches next cover before following ordinary target",
+			"passed": true
+		},
+		{
+			"check": "Retreat passes court but never stops at center or teleports",
+			"passed": true
+		},
+		{
+			"check": "Destruction of the section's last obstacle triggers next retreat",
+			"passed": true
+		},
+		{
+			"check": "Retreat crosses outer court, opens inner door and closes it behind",
+			"passed": true
+		},
+		{
+			"check": "3:1 pressure shorter than 2.5 seconds does not trigger retreat",
+			"passed": true
+		},
+		{
+			"check": "3:1 sustained pressure triggers automatic retreat at 2.5 seconds",
+			"passed": true
+		},
+		{
+			"check": "Pressure timer resets when ratio drops below 3:1; separate bursts do not accumulate",
+			"passed": true
+		},
+		{
+			"check": "Hold lock suppresses numeric pressure retreat while cover remains",
+			"passed": true
+		},
+		{
+			"check": "Releasing hold restores pressure retreat",
+			"passed": true
+		},
+		{
+			"check": "Sequential broken fronts retreat through main stairs to floor 2",
+			"passed": true
+		},
+		{
+			"check": "Full multi-front fallback preserves base and per-frame speed constraints",
+			"passed": true
+		},
+		{
+			"check": "Next fallback descends rear stairs to final register room",
+			"passed": true
+		},
+		{
+			"check": "Register is final P2 stronghold, not a premature escape/win state",
+			"passed": true
+		},
+		{
+			"check": "Automatic fallback visited cover: post_gate_inner",
+			"passed": true
+		},
+		{
+			"check": "Automatic fallback visited cover: post_barricade_outer_court",
+			"passed": true
+		},
+		{
+			"check": "Automatic fallback visited cover: post_inner_gate",
+			"passed": true
+		},
+		{
+			"check": "Automatic fallback visited cover: post_hall_door",
+			"passed": true
+		},
+		{
+			"check": "Automatic fallback visited cover: post_stair_head",
+			"passed": true
+		},
+		{
+			"check": "Automatic fallback visited cover: post_register",
+			"passed": true
+		},
+		{
+			"check": "Defender continues fighting at final register stronghold",
+			"passed": true
+		},
+		{
+			"check": "Wan rejects a specified target outside the base",
+			"passed": true
+		},
+		{
+			"check": "Rejected channel never walks caster out or into court",
+			"passed": true
+		},
+		{
+			"check": "Wan can channel from register on a target already inside hall",
+			"passed": true
+		},
+		{
+			"check": "Channel progresses at safe ritual post without movement",
+			"passed": true
+		},
+		{
+			"check": "P2 channel completes interface only; no P4 purification/recruitment/resource settlement",
+			"passed": true
+		},
+		{
+			"check": "Even a named courtyard cover is not a valid ritual casting location",
+			"passed": true
+		},
+		{
+			"check": "Human at zero health falls and is removed from active combat",
+			"passed": true
+		},
+		{
+			"check": "Default named human cannot invoke an exception without its trait flag",
+			"passed": true
+		},
+		{
+			"check": "Explicit temporary probe can briefly leave base on a marked task",
+			"passed": true
+		},
+		{
+			"check": "Exception completion/deadline forces return to original inside cover",
+			"passed": true
+		},
+		{
+			"check": "Probe does not grant exception rights to the named guard",
+			"passed": true
+		},
+		{
+			"check": "Exception still requires an explicitly marked task",
+			"passed": true
+		},
+		{
+			"check": "Short-deadline marked probe is accepted",
+			"passed": true
+		},
+		{
+			"check": "Deadline interrupts outbound travel before the requested outside point",
+			"passed": true
+		},
+		{
+			"check": "Expired exception deadline forces return before reaching the outside destination",
+			"passed": true
+		},
+		{
+			"check": "Live Clock frames advance AI, channel and projectiles together",
+			"passed": true
+		},
+		{
+			"check": "Pause freezes actors, targets, health, attack clocks, projectiles and channel progress",
+			"passed": true
+		},
+		{
+			"check": "Resume restarts the same simulation",
+			"passed": true
+		},
+		{
+			"check": "Real world click selects unit and automatically pauses",
+			"passed": true
+		},
+		{
+			"check": "Selected panel shows source stats, skill, post and AI state",
+			"passed": true
+		},
+		{
+			"check": "F7 opens developer AI panel",
+			"passed": true
+		},
+		{
+			"check": "Developer hold control toggles selected human",
+			"passed": true
+		},
+		{
+			"check": "F9 toggles projectile ray visualization",
+			"passed": true
+		},
+		{
+			"check": "Clicking open court sends no player movement order",
+			"passed": true
+		},
+		{
+			"check": "Default 12 source-lane walkers cause real structure damage and autonomous retreat",
+			"passed": true
+		},
+		{
+			"check": "75-second integrated run keeps all surviving humans within legal base/cover behavior",
+			"passed": true
+		},
+		{
+			"check": "Defenders sharing a fallback cover do not remain stacked on one pixel",
+			"passed": true
+		}
+	],
+	"retreat_evidence": [
+		{
+			"detail": "Advance",
+			"kind": "state",
+			"time": 20.4333333333335,
+			"unit": "debug_target_68"
+		},
+		{
+			"detail": "AttackBarrier",
+			"kind": "state",
+			"time": 20.4500000000001,
+			"unit": "debug_target_68"
+		},
+		{
+			"detail": "RetreatToNext",
+			"kind": "state",
+			"time": 20.4666666666668,
+			"unit": "H09_63"
+		},
+		{
+			"detail": "post_gate_inner -> post_barricade_outer_court (structure)",
+			"kind": "retreat",
+			"time": 20.4666666666668,
+			"unit": "H09_63"
+		},
+		{
+			"detail": "Advance",
+			"kind": "state",
+			"time": 20.4666666666668,
+			"unit": "debug_target_68"
+		},
+		{
+			"detail": "HoldNewPost",
+			"kind": "state",
+			"time": 23.2,
+			"unit": "H09_63"
+		},
+		{
+			"detail": "AttackBarrier",
+			"kind": "state",
+			"time": 23.2,
+			"unit": "debug_target_68"
+		},
+		{
+			"detail": "IdleAtPost",
+			"kind": "state",
+			"time": 23.4166666666666,
+			"unit": "H09_63"
+		},
+		{
+			"detail": "RetreatToNext",
+			"kind": "state",
+			"time": 41.6166666666656,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "post_gate_inner -> post_barricade_outer_court (structure)",
+			"kind": "retreat",
+			"time": 41.6166666666656,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "HoldNewPost",
+			"kind": "state",
+			"time": 43.9499999999988,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "IdleAtPost",
+			"kind": "state",
+			"time": 44.1666666666654,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "RetreatToNext",
+			"kind": "state",
+			"time": 44.1833333333321,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "post_barricade_outer_court -> post_inner_gate (structure)",
+			"kind": "retreat",
+			"time": 44.1833333333321,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "HoldNewPost",
+			"kind": "state",
+			"time": 49.1833333333318,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "IdleAtPost",
+			"kind": "state",
+			"time": 49.3999999999985,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "RetreatToNext",
+			"kind": "state",
+			"time": 49.4166666666651,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "post_inner_gate -> post_hall_door (structure)",
+			"kind": "retreat",
+			"time": 49.4166666666651,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "HoldNewPost",
+			"kind": "state",
+			"time": 55.0833333333315,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "IdleAtPost",
+			"kind": "state",
+			"time": 55.2999999999981,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "RetreatToNext",
+			"kind": "state",
+			"time": 55.3166666666648,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "post_hall_door -> post_stair_head (structure)",
+			"kind": "retreat",
+			"time": 55.3166666666648,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "HoldNewPost",
+			"kind": "state",
+			"time": 62.2833333333311,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "IdleAtPost",
+			"kind": "state",
+			"time": 62.4999999999977,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "Advance",
+			"kind": "state",
+			"time": 71.5999999999972,
+			"unit": "debug_target_98"
+		},
+		{
+			"detail": "Advance",
+			"kind": "state",
+			"time": 71.5999999999972,
+			"unit": "debug_target_99"
+		},
+		{
+			"detail": "Advance",
+			"kind": "state",
+			"time": 71.5999999999972,
+			"unit": "debug_target_100"
+		},
+		{
+			"detail": "Engage",
+			"kind": "state",
+			"time": 71.6166666666639,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "Engage",
+			"kind": "state",
+			"time": 71.8499999999972,
+			"unit": "debug_target_98"
+		},
+		{
+			"detail": "IdleAtPost",
+			"kind": "state",
+			"time": 71.8999999999972,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "Engage",
+			"kind": "state",
+			"time": 71.9166666666639,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "RetreatToNext",
+			"kind": "state",
+			"time": 74.3999999999971,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "post_stair_head -> post_register (pressure)",
+			"kind": "retreat",
+			"time": 74.3999999999971,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "HoldNewPost",
+			"kind": "state",
+			"time": 80.7999999999967,
+			"unit": "H09_93"
+		},
+		{
+			"detail": "IdleAtPost",
+			"kind": "state",
+			"time": 81.0166666666634,
+			"unit": "H09_93"
+		}
+	]
+}

@@ -1,0 +1,1621 @@
+{
+	"checks": 125,
+	"engine_version": "4.7.2-stable (official)",
+	"failures": 0,
+	"observations": {
+		"E01": {
+			"battles": [
+				{
+					"elapsed": 12.150000000000183,
+					"node_id": "n01",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.000000000000002,
+					"reward_names": 3.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n03",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 0.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n05",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 0.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n08",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 10.071999999999711,
+					"reward_names": 1.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n10",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 0.0,
+					"reward_names": 0.0
+				}
+			],
+			"codex_progress": {
+				"G01": 3,
+				"G12": 1,
+				"G25": 1,
+				"H01": 1,
+				"H09": 1,
+				"H13": 1,
+				"H17": 1,
+				"I03": 2,
+				"I05": 2,
+				"I07": 2,
+				"I08": 2,
+				"I11": 2,
+				"I17": 1,
+				"block_c02": 1,
+				"block_c08": 1,
+				"block_c09": 1,
+				"block_c12": 1,
+				"block_gate_court": 1,
+				"block_register": 1,
+				"block_upper_rooms": 1,
+				"ritual_example_incense": 2
+			},
+			"mode": "shouxiang",
+			"result": "victory",
+			"seed": "P11-return-to-rite-2",
+			"story": {
+				"ending": "E01",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 8,
+					"finished_seize_night": false,
+					"register_checked": 10,
+					"register_held": 10,
+					"release_or_recruit_count": 8,
+					"renown": 12.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 1
+				},
+				"seize_finished_here": false,
+				"self_listing": {},
+				"version": 1.0
+			},
+			"visited": [
+				"n01",
+				"n02",
+				"n03",
+				"n04",
+				"n05",
+				"n06",
+				"n07",
+				"n08",
+				"n09",
+				"n10"
+			]
+		},
+		"E02": {
+			"battles": [
+				{
+					"elapsed": 3.2499999999999933,
+					"node_id": "n01",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 3.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n03",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 0.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n05",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 0.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n08",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 0.0,
+					"reward_names": 1.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n10",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 0.0,
+					"reward_names": 4.0
+				}
+			],
+			"codex_progress": {
+				"G01": 3,
+				"G11": 3,
+				"G12": 1,
+				"G25": 1,
+				"H01": 1,
+				"H09": 1,
+				"H13": 1,
+				"H17": 1,
+				"I03": 2,
+				"I05": 2,
+				"I07": 2,
+				"I08": 2,
+				"I10": 2,
+				"I11": 2,
+				"I17": 1,
+				"block_c02": 1,
+				"block_c08": 1,
+				"block_c09": 1,
+				"block_c12": 1,
+				"block_gate_court": 1,
+				"block_register": 1,
+				"block_upper_rooms": 1,
+				"ritual_example_incense": 2
+			},
+			"mode": "shouxiang",
+			"result": "victory",
+			"seed": "P11-let-the-tide-go",
+			"story": {
+				"ending": "E02",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 1,
+					"finished_seize_night": true,
+					"register_checked": 5,
+					"register_held": 5,
+					"release_or_recruit_count": 1,
+					"renown": 6.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 0
+				},
+				"seize_finished_here": false,
+				"self_listing": {},
+				"version": 1
+			},
+			"visited": [
+				"n01",
+				"n02",
+				"n03",
+				"n04",
+				"n05",
+				"n06",
+				"n07",
+				"n08",
+				"n09",
+				"n10"
+			]
+		},
+		"E03": {
+			"battles": [
+				{
+					"elapsed": 0.01666666666666666,
+					"node_id": "n01",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 4.0
+				},
+				{
+					"elapsed": 0.01666666666666666,
+					"node_id": "n03",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 0.0
+				},
+				{
+					"elapsed": 0.01666666666666666,
+					"node_id": "n05",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 12.0,
+					"reward_names": 0.0
+				},
+				{
+					"elapsed": 0.01666666666666666,
+					"node_id": "n08",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 3.9840000000000018,
+					"reward_names": 0.0
+				},
+				{
+					"elapsed": 0.016666666666666666,
+					"node_id": "n10",
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"reward_incense": 0.0,
+					"reward_names": 4.0
+				}
+			],
+			"codex_progress": {
+				"G01": 3,
+				"G11": 3,
+				"G12": 1,
+				"G25": 1,
+				"G32": 1,
+				"H01": 3,
+				"H09": 1,
+				"H13": 1,
+				"H17": 1,
+				"I01": 2,
+				"I03": 2,
+				"I05": 2,
+				"I07": 2,
+				"I08": 2,
+				"I10": 2,
+				"I11": 2,
+				"I17": 1,
+				"I19": 2,
+				"block_bridge": 1,
+				"block_c02": 1,
+				"block_c06": 1,
+				"block_c08": 1,
+				"block_c09": 1,
+				"block_c10": 1,
+				"block_c11": 1,
+				"block_c12": 1,
+				"block_gate_court": 1,
+				"block_register": 1,
+				"block_upper_rooms": 1,
+				"block_water_lane": 1,
+				"ritual_example_incense": 2,
+				"ritual_lieming": 3
+			},
+			"mode": "shouxiang",
+			"result": "victory",
+			"seed": "P11-name-in-ink",
+			"story": {
+				"ending": "E03",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 0,
+					"finished_seize_night": false,
+					"register_checked": 5,
+					"register_held": 5,
+					"release_or_recruit_count": 0,
+					"renown": 10.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 0
+				},
+				"seize_finished_here": false,
+				"self_listing": {
+					"max_hp_after": 45.0,
+					"max_hp_before": 70.0,
+					"names_paid": 4.0,
+					"uid": "night_1",
+					"unit": "H01"
+				},
+				"version": 1.0
+			},
+			"visited": [
+				"n01",
+				"n02",
+				"n03",
+				"n04",
+				"n05",
+				"n06",
+				"n07",
+				"n08",
+				"n09",
+				"n10"
+			]
+		},
+		"loss": {
+			"failure_records": [
+				{
+					"killer_id": "G25",
+					"reason": "P4_END_REGISTER_EXTINGUISHED",
+					"seed": "P11-empty-seat-7"
+				}
+			],
+			"flags": {
+				"borrow_god_count": 1,
+				"empty_god_count": 1,
+				"exorcise_count": 0,
+				"finished_seize_night": false,
+				"register_checked": 2,
+				"register_held": 0,
+				"release_or_recruit_count": 0,
+				"renown": 0.0,
+				"renown_peak": 8.0,
+				"slay_exorcisable_count": 0
+			},
+			"seed": "P11-empty-seat-7"
+		},
+		"seize": {
+			"battles": [
+				{
+					"elapsed": 12.000000000000176,
+					"node_id": "n01",
+					"outcome": "victory",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"reward_incense": 12.0,
+					"reward_names": 4.0
+				},
+				{
+					"elapsed": 12.000000000000176,
+					"node_id": "n03",
+					"outcome": "victory",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"reward_incense": 12.0,
+					"reward_names": 4.0
+				},
+				{
+					"elapsed": 12.000000000000176,
+					"node_id": "n05",
+					"outcome": "victory",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"reward_incense": 12.0,
+					"reward_names": 3.9999999999994884
+				},
+				{
+					"elapsed": 12.000000000000176,
+					"node_id": "n08",
+					"outcome": "victory",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"reward_incense": 0.0,
+					"reward_names": 3.9999999999998295
+				},
+				{
+					"elapsed": 12.000000000000176,
+					"node_id": "n10",
+					"outcome": "victory",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"reward_incense": 0.0,
+					"reward_names": 2.9999999999998295
+				}
+			],
+			"codex_progress": {
+				"G01": 3,
+				"G12": 1,
+				"G25": 1,
+				"H01": 1,
+				"H09": 1,
+				"H13": 1,
+				"H17": 1,
+				"I03": 2,
+				"I05": 2,
+				"I07": 2,
+				"I08": 2,
+				"I10": 1,
+				"I11": 2,
+				"I17": 1,
+				"block_c02": 1,
+				"block_c08": 1,
+				"block_c09": 1,
+				"block_c12": 1,
+				"block_gate_court": 1,
+				"block_register": 1,
+				"block_upper_rooms": 1,
+				"ritual_example_incense": 2
+			},
+			"mode": "duoming",
+			"result": "victory",
+			"seed": "P11-listened-from-the-tide",
+			"story": {
+				"ending": "",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 0,
+					"finished_seize_night": true,
+					"register_checked": 0,
+					"register_held": 0,
+					"release_or_recruit_count": 0,
+					"renown": 12.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 0
+				},
+				"seize_finished_here": true,
+				"self_listing": {},
+				"version": 1
+			},
+			"visited": [
+				"n01",
+				"n02",
+				"n03",
+				"n04",
+				"n05",
+				"n06",
+				"n07",
+				"n08",
+				"n09",
+				"n10"
+			]
+		}
+	},
+	"results": [
+		{
+			"detail": [],
+			"label": "Boot loads the Chinese string table and the editable story conditions",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Restoration starts in the actual opening act",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Self-listing is rejected away from the designated rite and final node",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-act-1-rekindle",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 12.150000000000183,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 18.916000000000288,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 30.92000000000029,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n03",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 38.924000000000284,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n05",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n05",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 60.0,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 11.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n08",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n08",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 60.0,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 5
+			},
+			"label": "Simulator decides the outcome at n10",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n10",
+			"ok": true
+		},
+		{
+			"detail": {
+				"ending": "",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 4,
+					"finished_seize_night": false,
+					"register_checked": 5,
+					"register_held": 5,
+					"release_or_recruit_count": 4,
+					"renown": 12.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 0
+				},
+				"seize_finished_here": false,
+				"self_listing": {},
+				"version": 1
+			},
+			"label": "Four actual exorcisms and five held registers are saved without granting restoration early",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The next hosted night reads its exact prior tally and needs no competing seat",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"after": 10.0,
+				"before": 12.0
+			},
+			"label": "Live erasures lower names without injecting the settlement",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The live reading ledger and exact renown peak survive a disk reload",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The live peak holds after real erasure lowers the current balance",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "A pre-story night save loads with no invented historical activity",
+			"ok": true
+		},
+		{
+			"detail": [
+				"P4_COMMAND_OK",
+				"P4_DEPLOYED"
+			],
+			"label": "The actual purchase and legal register deployment produce an execution caster",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "An ineligible attempted execution does not create a choice record",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The genuine paid execution takes a living exorcisable target",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 12.150000000000183,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 5.916000000000286,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 9.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 7
+			},
+			"label": "Simulator decides the outcome at n01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 17.92000000000029,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The night's middle route introduces Receive the Register",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-act-2-receive",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 25.92400000000029,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n05",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n05",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 49.92800000000029,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 11.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n08",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n08",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The final map moves naturally to List Names",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-act-3-list",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 6,
+				"incense": 60.0,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 5
+			},
+			"label": "Simulator decides the outcome at n10",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n10",
+			"ok": true
+		},
+		{
+			"detail": {
+				"ending": "E01",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 8,
+					"finished_seize_night": false,
+					"register_checked": 10,
+					"register_held": 10,
+					"release_or_recruit_count": 8,
+					"renown": 12.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 1
+				},
+				"seize_finished_here": false,
+				"self_listing": {},
+				"version": 1.0
+			},
+			"label": "Eight paid successful readings across two nights and one paid execution qualify for E01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"borrow_god_count": 0,
+				"empty_god_count": 0,
+				"exorcise_count": 8,
+				"finished_seize_night": false,
+				"register_checked": 10,
+				"register_held": 10,
+				"release_or_recruit_count": 8,
+				"renown": 12.0,
+				"renown_peak": 12.0,
+				"slay_exorcisable_count": 1
+			},
+			"label": "The actual night preserves final and peak names and held-register history",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-ending-e01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The live codex panel exposes the completed epilogue for G01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-epilogue-e01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 12.000000000000176,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 18.880000000000962,
+				"killer_id": "G01",
+				"mode": "duoming",
+				"names": 5.0000000000001705,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 167.99999999999045,
+				"tide_alive": 28
+			},
+			"label": "Simulator decides the outcome at n01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 12.000000000000176,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 33.76000000000036,
+				"killer_id": "G01",
+				"mode": "duoming",
+				"names": 6.000000000000341,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 197.99999999999045,
+				"tide_alive": 32
+			},
+			"label": "Simulator decides the outcome at n03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n03",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 12.000000000000176,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 44.639999999998764,
+				"killer_id": "G01",
+				"mode": "duoming",
+				"names": 8.000000000000512,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 197.99999999999045,
+				"tide_alive": 32
+			},
+			"label": "Simulator decides the outcome at n05",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n05",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 12.000000000000176,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 60.0,
+				"killer_id": "G01",
+				"mode": "duoming",
+				"names": 8.00000000000017,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 227.99999999999045,
+				"tide_alive": 32
+			},
+			"label": "Simulator decides the outcome at n08",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n08",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 12.000000000000176,
+				"first_breach": {
+					"door": "door_hall",
+					"time": 5.933333333333318
+				},
+				"humans_alive": 5,
+				"incense": 60.0,
+				"killer_id": "G01",
+				"mode": "duoming",
+				"names": 9.00000000000017,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 348.0000000000109,
+				"tide_alive": 39
+			},
+			"label": "Simulator decides the outcome at n10",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n10",
+			"ok": true
+		},
+		{
+			"detail": {
+				"ending": "",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 0,
+					"finished_seize_night": true,
+					"register_checked": 0,
+					"register_held": 0,
+					"release_or_recruit_count": 0,
+					"renown": 12.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 0
+				},
+				"seize_finished_here": true,
+				"self_listing": {},
+				"version": 1
+			},
+			"label": "Only a legal terminal result records the other seat, with no Keeper ending",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-seize-seat",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The actual played Seize Name result crosses into the next Keeper night",
+			"ok": true
+		},
+		{
+			"detail": "P4_COMMAND_OK",
+			"label": "The actual indoor reader starts a paid reading for G11",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reading resolves into an actual release or temporary recruitment for G11",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 3.2499999999999933,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 19.78000000000026,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 9.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 31.784000000000262,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n03",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 39.78800000000026,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n05",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n05",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 60.0,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 11.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n08",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n08",
+			"ok": true
+		},
+		{
+			"detail": {
+				"after": 2.0,
+				"before": 12.0
+			},
+			"label": "Live erasures lower names without injecting the settlement",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 60.0,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 2.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 15
+			},
+			"label": "Simulator decides the outcome at n10",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n10",
+			"ok": true
+		},
+		{
+			"detail": {
+				"ending": "E02",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 1,
+					"finished_seize_night": true,
+					"register_checked": 5,
+					"register_held": 5,
+					"release_or_recruit_count": 1,
+					"renown": 6.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 0
+				},
+				"seize_finished_here": false,
+				"self_listing": {},
+				"version": 1
+			},
+			"label": "A real lamp reading, unfinished tide, past Seize Name night and moderate settled names qualify for E02",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-ending-e02",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The live codex panel exposes the completed epilogue for G11",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-epilogue-e02",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 16.004,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 8.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n01",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 24.008000000000003,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n03",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 36.012,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n05",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n05",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 56.016,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 12.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 4
+			},
+			"label": "Simulator decides the outcome at n08",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n08",
+			"ok": true
+		},
+		{
+			"detail": {
+				"allowed": true,
+				"paid": false,
+				"payment": {
+					"max_hp_after": 45.0,
+					"max_hp_before": 70.0,
+					"names_paid": 4.0,
+					"uid": "night_1",
+					"unit": "H01"
+				},
+				"reason": ""
+			},
+			"label": "The live R08 route visibly offers self-listing just before the last real battle",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-self-listing-choice",
+			"ok": true
+		},
+		{
+			"detail": {
+				"max_hp_after": 45.0,
+				"max_hp_before": 70.0,
+				"names_paid": 4.0,
+				"uid": "night_1",
+				"unit": "H01"
+			},
+			"label": "The actual choice pays names and wounds Wan on the night roster",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Repeating the explicit choice cannot pay or wound twice",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The explicit choice and payment survive a disk reload",
+			"ok": true
+		},
+		{
+			"detail": {
+				"max_hp": 45.0,
+				"repurchase": "P4_UNKNOWN_PURCHASE"
+			},
+			"label": "Wan actually fights at the paid lower maximum and cannot be re-bought at full strength",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Selecting self-listing alone does not grant an ending",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-self-listing-battle",
+			"ok": true
+		},
+		{
+			"detail": {
+				"elapsed": 0.016666666666666666,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 60.0,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 6.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 5
+			},
+			"label": "Simulator decides the outcome at n10",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The reward must settle before any ending at n10",
+			"ok": true
+		},
+		{
+			"detail": {
+				"ending": "E03",
+				"flags": {
+					"borrow_god_count": 0,
+					"empty_god_count": 0,
+					"exorcise_count": 0,
+					"finished_seize_night": false,
+					"register_checked": 5,
+					"register_held": 5,
+					"release_or_recruit_count": 0,
+					"renown": 10.0,
+					"renown_peak": 12.0,
+					"slay_exorcisable_count": 0
+				},
+				"seize_finished_here": false,
+				"self_listing": {
+					"max_hp_after": 45.0,
+					"max_hp_before": 70.0,
+					"names_paid": 4.0,
+					"uid": "night_1",
+					"unit": "H01"
+				},
+				"version": 1.0
+			},
+			"label": "The self-listing ending is set only after the real final win and reward",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-ending-e03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The live codex panel exposes the completed epilogue for H01",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-epilogue-e03",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The live codex panel exposes the completed epilogue for ritual_lieming",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-epilogue-rite",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The failure fixture opens the actual first battle",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "A live borrow starts and a repeat while reading is rejected",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The deterministic borrow resolves to an actual empty seat",
+			"ok": true
+		},
+		{
+			"detail": {
+				"after": 0.0,
+				"before": 5.0
+			},
+			"label": "Live erasures lower names without injecting the settlement",
+			"ok": true
+		},
+		{
+			"detail": "P4_END_REGISTER_EXTINGUISHED",
+			"label": "The extinguish timer settles a real loss blamed on its live eraser",
+			"ok": true
+		},
+		{
+			"detail": {
+				"borrow_god_count": 1,
+				"empty_god_count": 1,
+				"exorcise_count": 0,
+				"finished_seize_night": false,
+				"register_checked": 2,
+				"register_held": 0,
+				"release_or_recruit_count": 0,
+				"renown": 0.0,
+				"renown_peak": 8.0,
+				"slay_exorcisable_count": 0
+			},
+			"label": "Successful spend, backlash, and failed register count exactly once",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The same node's old settlement is rejected during the real mercy retry",
+			"ok": true
+		},
+		{
+			"detail": {
+				"after": 0.0,
+				"before": 8.0
+			},
+			"label": "Live erasures lower names without injecting the settlement",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "A failed terminal state records the loss while withholding victory endings",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "The live codex failure window names the actual eraser and the night seed",
+			"ok": true
+		},
+		{
+			"detail": [
+				{
+					"killer_id": "G25",
+					"reason": "P4_END_REGISTER_EXTINGUISHED",
+					"seed": "P11-empty-seat-7"
+				}
+			],
+			"label": "The same failure cause is recorded once across battle and night settlement",
+			"ok": true
+		},
+		{
+			"detail": null,
+			"label": "Native frame saved for p11-failure-record",
+			"ok": true
+		},
+		{
+			"detail": [],
+			"label": "Every Chinese name and main text in the four displayed books resolves through strings",
+			"ok": true
+		}
+	],
+	"scope": "Native Night host, battle commands and disk saves. Debug scenarios place enemies and accelerate the timer, while the live battle and three-choice reward settle outcomes.",
+	"screenshots": {
+		"p11-act-1-rekindle": {
+			"file": "p11-act-1-rekindle.png",
+			"height": 1080,
+			"sha256": "8ca628d7b58f6725272fd9694deacbb971ae334c889c913a55c8a88bc0c33475",
+			"width": 1920
+		},
+		"p11-act-2-receive": {
+			"file": "p11-act-2-receive.png",
+			"height": 1080,
+			"sha256": "437d2b0161123b207b6f5ff8774badaa8631cdaa70deb08bc564bab7f3bb9d65",
+			"width": 1920
+		},
+		"p11-act-3-list": {
+			"file": "p11-act-3-list.png",
+			"height": 1080,
+			"sha256": "87f4eb45558ff15064160cfcbf8fd0487aa2df0a11a49eb6fc958cb7c19d8f57",
+			"width": 1920
+		},
+		"p11-ending-e01": {
+			"file": "p11-ending-e01.png",
+			"height": 1080,
+			"sha256": "aa8367b47233611216e14ae50bbe9610f125a9007a777f7efba0f1528f340d46",
+			"width": 1920
+		},
+		"p11-ending-e02": {
+			"file": "p11-ending-e02.png",
+			"height": 1080,
+			"sha256": "e32386987d6fdec01b5d1ecc1f2f79ee8537bd78d83e75d3740a7d98723001f8",
+			"width": 1920
+		},
+		"p11-ending-e03": {
+			"file": "p11-ending-e03.png",
+			"height": 1080,
+			"sha256": "d0947d20918e37ee2de0364b84215703e8e5405f907f23442e69e78b7590fc63",
+			"width": 1920
+		},
+		"p11-epilogue-e01": {
+			"file": "p11-epilogue-e01.png",
+			"height": 1080,
+			"sha256": "d7b85011d3e0e46656f1a61b1dec80494ae6eb437700acbb9c4ff3505629e44d",
+			"width": 1920
+		},
+		"p11-epilogue-e02": {
+			"file": "p11-epilogue-e02.png",
+			"height": 1080,
+			"sha256": "932c15a4970a2964107e4028fff2ffe3b503120857130f07ee0c42e8f99a02ee",
+			"width": 1920
+		},
+		"p11-epilogue-e03": {
+			"file": "p11-epilogue-e03.png",
+			"height": 1080,
+			"sha256": "43f44c67b5dfa5fa410ce51f5445d55ba4c6a3e5bb78e2a3abfabcb65ea7b750",
+			"width": 1920
+		},
+		"p11-epilogue-rite": {
+			"file": "p11-epilogue-rite.png",
+			"height": 1080,
+			"sha256": "239d3b681fcb4466f7e0b408fc6d4e6e31919633887011f9349a5d8bd4ce09b1",
+			"width": 1920
+		},
+		"p11-failure-record": {
+			"file": "p11-failure-record.png",
+			"height": 1080,
+			"sha256": "470e25ae62712058e8fe912ff617357113f99af36dbd9f24cece0f23e3eabfb2",
+			"width": 1920
+		},
+		"p11-seize-seat": {
+			"file": "p11-seize-seat.png",
+			"height": 1080,
+			"sha256": "25aff80ae1f776e488acca3755332da994f7bf97f471c420dea8ec1ada4885f1",
+			"width": 1920
+		},
+		"p11-self-listing-battle": {
+			"file": "p11-self-listing-battle.png",
+			"height": 1080,
+			"sha256": "636f7a267dd801dd2aee24119e9dd09c8b0bb7f69e6efaf7c648f0e7f3229c37",
+			"width": 1920
+		},
+		"p11-self-listing-choice": {
+			"file": "p11-self-listing-choice.png",
+			"height": 1080,
+			"sha256": "4671752f31082640a664f584ce289be0cfc777f9d6e8219380f024a9551a43d5",
+			"width": 1920
+		}
+	},
+	"story_rules_sha256": "ed045f2a920b087561144bdf245b788323db0bc7fc7e42c5d1246bf6381ad49e"
+}

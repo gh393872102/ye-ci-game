@@ -1,0 +1,15 @@
+{
+  "id": "G13",
+  "name": "轿夫双鬼",
+  "source": "Project-generated portrait source (local generation metadata withheld)",
+  "path": "res://assets/portraits/p8/G13.png",
+  "status": "placeholder",
+  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "size": [
+    1024,
+    1536
+  ],
+  "sha256": "7aa5ae6e00f5638563325cc26f822911ceda30cca50ad8a185c03470ee07df87",
+  "replacement_required": true,
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+}

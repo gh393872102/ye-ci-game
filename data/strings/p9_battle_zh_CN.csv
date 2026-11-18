@@ -1,0 +1,97 @@
+key,zh_CN
+P9_HUD_RITUAL,今夜科仪
+P9_HUD_DAWN,天亮倒计时
+P9_HUD_REGISTER,名册火苗
+P9_HUD_INCENSE,香火
+P9_HUD_NAMES,名分
+P9_HUD_DOORS,门耐久
+P9_HUD_UPPER,二楼与上层
+P9_HUD_MENU,暂停菜单
+P9_COUNTDOWN,%02d:%02d
+P9_DAWN_NEAR,天亮将至 · %d 秒
+P9_REGISTER_STABLE,火苗稳燃
+P9_REGISTER_CRITICAL,名册告急
+P9_REGISTER_EXTINGUISHING,将熄 · %d 秒
+P9_UPPER_STABLE,防线在守
+P9_UPPER_THREAT,%d 鬼来犯
+P9_UPPER_OCCUPATION,名册失守 · %.1f / %.0f 秒
+P9_DOOR_LOST,门耐久 · 已有门破
+P9_DOOR_CRACKING,门耐久 · 有门将破
+P9_DOOR_VALUE,%s %.0f
+P9_WALLET_PAIR,%.0f / %.0f
+P9_STATUS_EMPTY,—
+P9_ROSTER_SHOU,守祠编制 · %d 人
+P9_ROSTER_DUOMING,在场潮群 · %d 鬼 / %d 异形
+P9_ROSTER_NO_CASTER,在场点册者 · 无
+P9_ROSTER_CASTERS,在场点册者 · %s
+P9_ROSTER_SELECTED,已选 · %s
+P9_TIDE_GAP,可再增潮 · %.0f 秒
+P9_STATUS_PAUSED,已暂停 · 可检视和下达指令
+P9_STATUS_RUNNING,自动作战 · %d 倍速
+P9_PAUSE,暂停
+P9_RESUME,继续
+P9_SPEED_ONE,1×
+P9_SPEED_TWO,2×
+P9_COMMANDS,战斗指令
+P9_COMMAND_HINT,中键平移　左键检视　拖框多选
+P9_COMMAND_MENU_HELP,用方向键选指令，确认后查看可用目标。
+P9_BUY_COMMAND,购入
+P9_DEPLOY_COMMAND,部署
+P9_UPGRADE_COMMAND,升级
+P9_RITUAL_COMMAND,点册 / 超度
+P9_REPAIR_COMMAND,修门
+P9_EQUIPMENT_COMMAND,香器
+P9_MUTATE_COMMAND,变异
+P9_FUSION_COMMAND,融契
+P9_REINFORCE_COMMAND,增潮
+P9_DEPLOY_RESERVED,部署 · 已购入
+P9_NEED_PURCHASE,请先购入一位编制成员。
+P9_PURCHASE_HELP,香火在购入时预留。选择掩体完成部署，或取消并退回预留香火。
+P9_PURCHASE_STATS,"生命 %s　攻击 %s
+防御 %s　射程 %.1f"
+P9_PAY_INCENSE,购入 · %.0f 香火
+P9_PAGE_PREV,上一页
+P9_PAGE_NEXT,下一页
+P9_PAGE_COUNT,%d / %d 页
+P9_DEPLOY_HELP,选中下方岗位或点场上的金色落点。岗位按职分和余位开放。
+P9_DEPLOY_OUTSIDE,不能部署到外门以外。
+P9_DEPLOY_COURT,院心供退守和设阻。请选择有掩体的岗位。
+P9_DEPLOY_COVER,这里没有合法掩体。请选择带标记的岗位。
+P9_DEPLOY_AVAILABLE,可部署 · %s
+P9_DEPLOY_NO_POST,暂无合适或空余的岗位。取消可退回预留香火。
+P9_UPGRADE_NOW,当前 · %s
+P9_RITUAL_HELP,%s 留在香案或名册旁，可选已入厅的鬼。受击或离位会中断读条。
+P9_RITUAL_NO_CASTER,当前没有可以点册的守香司。
+P9_RITUAL_UNSAFE,点册者须留在香案或名册旁。
+P9_RITUAL_MOVING,点册者正在移动，需到达岗位再读条。
+P9_RITUAL_WAIT_HALL,目标尚未进厅，等它进入门厅。
+P9_RITUAL_WRONG_FLOOR,点册目标须与施术者同层。
+P9_RITUAL_DISTANCE,目标离香案或名册太远。
+P9_RITUAL_OCCLUDED,点册视线被门墙挡住。
+P9_RITUAL_PICK,请选择已入厅且在点册范围内的鬼物。
+P9_RITUAL_ACTIVE,%s 正在点册 · 可打断
+P9_RITUAL_PROGRESS,点册 %.1f / %.1f 秒
+P9_WARN_UPPER,%d 鬼闯入上层
+P9_WARN_REGISTER_OCCUPIED,名册失守 · 正被夺取
+P9_WARN_CASTER,点册线危急 · 守香司已倒下
+P9_GROUP_TITLE,已选 %d 位
+P9_GROUP_COUNT,%d 位 · 守香 %d / 鬼物 %d
+P9_GROUP_VIEW,查看此单位
+P9_GROUP_MUTATE,为所选鬼群变异
+P9_GROUP_NO_GHOST,所选编制里没有可控制的鬼物。
+P9_BATCH_FORM,%s · 每位 %.0f 香火 · 可变异 %d / %d
+P9_BATCH_RESULT,已为 %d / %d 位完成变异。
+P9_GROUP_HELP,选择单位查看资料。
+P9_BATCH_HELP,仅同坐席且符合形态条件的鬼物可变异。香火不足时按入选顺序结算。
+P9_MINIMAP_TITLE,祠场全图
+P9_MINIMAP_VIEW,当前镜头
+P9_MINIMAP_GUARD,守香
+P9_MINIMAP_TIDE,鬼潮
+P9_DEBUG_FPS,帧率 %d · 单位 %d · 速度 %.0f · %s
+P9_DEBUG_UNIT,%s %s · 生命 %s · %s
+P9_RITUAL_PREVIEW,%s · 读条 %.1f 秒 · 消耗 %.1f 香火
+P9_RITUAL_STARTED,点册已开始。继续战斗后读条推进，其他编制照常作战。
+P9_MUTATE_PREVIEW,%s → %s · %.0f 香火
+P9_MUTATE_BASE,形态基础值 · 生命 %s　攻击 %s　防御 %s
+P9_COMMAND_BINDING,%s · 键盘 %s
+P9_BATTLE_CLOSE,关闭

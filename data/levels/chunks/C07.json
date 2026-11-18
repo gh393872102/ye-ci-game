@@ -1,0 +1,100 @@
+{
+  "id": "C07",
+  "title": "石桥",
+  "scene": "res://data/levels/chunks/C07.tscn",
+  "default_path": [
+    "二进庭前石阶",
+    "石桥",
+    "落阶至内庭"
+  ],
+  "destructibles": [
+    "stone_bridge"
+  ],
+  "upper_access": "桥面是石阶相连的中层，地面旧路可绕行。",
+  "failure_line": "桥墩崩塌会断桥；祭桥时来自同一路的增援停止。",
+  "rituals": [
+    "R06",
+    "R10"
+  ],
+  "length_body": 14,
+  "legal_posts": [],
+  "areas": [
+    {
+      "floor_id": 6,
+      "start": 59,
+      "end": 74,
+      "kind": "bridge"
+    }
+  ],
+  "visual": {
+    "floor_id": 6,
+    "start": 59,
+    "end": 74,
+    "motif": "bridge"
+  },
+  "layout": {
+    "floor_bands": [
+      {
+        "floor_id": 6,
+        "start": 59,
+        "end": 74,
+        "offset": 0.73
+      }
+    ],
+    "rooms": [
+      {
+        "id": "stone_bridge_walk",
+        "floor_id": 6,
+        "start": 59,
+        "end": 74,
+        "label": "石桥",
+        "tags": [
+          "court"
+        ]
+      }
+    ],
+    "stairs": [
+      {
+        "id": "stair_stone_entry",
+        "from_floor": 0,
+        "from_x": 57.5,
+        "to_floor": 6,
+        "to_x": 59
+      },
+      {
+        "id": "stair_stone_exit",
+        "from_floor": 6,
+        "from_x": 73.5,
+        "to_floor": 0,
+        "to_x": 75.5
+      }
+    ],
+    "obstacle_slots": [
+      {
+        "id": "stone_bridge",
+        "x": 64.5,
+        "floor_id": 6,
+        "width": 3.2,
+        "kind": "stone_bridge",
+        "max_durability": 360,
+        "occupied": true,
+        "room_id": "stone_bridge_walk",
+        "gap_direction": "rear",
+        "blocks_walk": false,
+        "tide_max_durability": 360
+      }
+    ]
+  },
+  "ghost_route": {
+    "entry": "stair_stone_entry",
+    "exit": "stair_stone_exit",
+    "lanes": [
+      3
+    ]
+  },
+  "path_targets": {
+    "stair_stone_entry": "stone_bridge",
+    "stair_stone_exit": "stone_bridge"
+  },
+  "bridge_object": "stone_bridge"
+}

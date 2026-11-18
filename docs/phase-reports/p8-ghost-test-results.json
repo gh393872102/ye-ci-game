@@ -1,0 +1,908 @@
+{
+	"checks": 116,
+	"evidence": [
+		{
+			"fixture": true,
+			"id": "catalog",
+			"label": "all source identities and callable scripts pass boot",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G01",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G02",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G03",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G04",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G05",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G06",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G07",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G08",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G09",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G10",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G11",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G12",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G13",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G14",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G15",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G16",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G17",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G18",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G20",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G21",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G22",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G23",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G24",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G25",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G26",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G27",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G28",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G29",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G30",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G31",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G32",
+			"label": "spawn with real source profile and enabled runtime",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G01",
+			"label": "actual shared door attack multiplier increases with crowd",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G01",
+			"label": "faceless tide has lower genuine reading resistance",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G02",
+			"label": "begging transfers actual opposing incense near register",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G02",
+			"label": "low health makes begging ghost easier to purify",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G03",
+			"label": "cry really lowers enemy defense",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G03",
+			"label": "silenced cry damages its actual caster",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G04",
+			"label": "unlit wall approach actually becomes hidden",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G04",
+			"label": "real light reveals and prevents immediate re-hide",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G05",
+			"label": "hungry ghost acquires real fallen unit",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G05",
+			"label": "hungry ghost diverts backward and consumes remains to recover",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G06",
+			"label": "fixture starts real paid register reading",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G06",
+			"label": "five-body claw interrupts actual distant reader",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G06",
+			"label": "repeated real strikes temporarily disable claw",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G07",
+			"window_trace": [
+				{
+					"floor": 0,
+					"position": [
+						3617.28002929688,
+						700.0
+					],
+					"time": 0.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						3790.08032226562,
+						700.0
+					],
+					"time": 1.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						3880.0,
+						630.8798828125
+					],
+					"time": 2.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						3966.40014648438,
+						550.0
+					],
+					"time": 3.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						4139.19970703125,
+						550.0
+					],
+					"time": 4.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						4311.99755859375,
+						550.0
+					],
+					"time": 5.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						4484.79541015625,
+						550.0
+					],
+					"time": 6.09999999999999
+				},
+				{
+					"floor": 0,
+					"position": [
+						4657.59326171875,
+						550.0
+					],
+					"time": 7.09999999999999
+				},
+				{
+					"floor": 0,
+					"position": [
+						4830.39111328125,
+						550.0
+					],
+					"time": 8.09999999999999
+				},
+				{
+					"floor": 0,
+					"position": [
+						5003.18896484375,
+						550.0
+					],
+					"time": 9.09999999999998
+				},
+				{
+					"floor": 0,
+					"position": [
+						5175.98681640625,
+						550.0
+					],
+					"time": 10.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						5348.78466796875,
+						550.0
+					],
+					"time": 11.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						5521.58251953125,
+						550.0
+					],
+					"time": 12.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						5694.38037109375,
+						550.0
+					],
+					"time": 13.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						5867.17822265625,
+						550.0
+					],
+					"time": 14.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						6039.97607421875,
+						550.0
+					],
+					"time": 15.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						6212.77392578125,
+						550.0
+					],
+					"time": 16.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						6385.57177734375,
+						550.0
+					],
+					"time": 17.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						6558.36962890625,
+						550.0
+					],
+					"time": 18.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						6731.16748046875,
+						550.0
+					],
+					"time": 19.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						6903.96533203125,
+						550.0
+					],
+					"time": 20.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						7076.76318359375,
+						550.0
+					],
+					"time": 21.1
+				},
+				{
+					"floor": 0,
+					"position": [
+						7200.0,
+						515.43994140625
+					],
+					"time": 22.1
+				}
+			]
+		},
+		{
+			"fixture": true,
+			"id": "G07",
+			"label": "narrow-window route actually reaches upper floor",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G07",
+			"label": "window ghost does not attack the front door",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G08",
+			"label": "real lethal hit explodes and interrupts nearby reading",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G08",
+			"label": "death and purification callbacks cannot explode twice",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G09",
+			"label": "hanged ghost follows real rope/beam route",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G10",
+			"label": "authored water fixture has real drag displacement damage and interruption",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G10",
+			"label": "water ghost is genuinely slower on land",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G11",
+			"label": "bone lantern reveals and actually burns vulnerable faceless target",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G12",
+			"label": "real strength corpse door strike beats ordinary tide",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G13",
+			"label": "paired sedan begins genuine charge for both actors",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G13",
+			"label": "paired charge collides and displaces actual defenders",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G13",
+			"label": "surviving sedan actor becomes disordered after partner dies",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G14",
+			"label": "wedding applies real charm via shared resistance path",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G14",
+			"label": "charmed human really attacks former friend",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G15",
+			"label": "tailor supplies real ally damage-reduction cloth",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G15",
+			"label": "tailor cannot clothe named human and applies slow instead",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G16",
+			"label": "warrant redirects actual allied priority toward named target",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G17",
+			"label": "mountain ghost breaks a real authored stair path",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G17",
+			"label": "broken stair is excluded by shared navigation",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G18",
+			"label": "wrong parade part cannot deliver final defeat",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G18",
+			"label": "actual vulnerable part accepts final defeat",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "mirror guest copies a real burning active skill",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "mirror reflection genuinely punishes mirror guest",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "face-crafter fixture uses real protective face skill",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "mirror guest genuinely collapses before face-crafter mask",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G20",
+			"label": "rider begins real main-road charge",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G20",
+			"label": "rider charge hits and pushes actual defender",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G20",
+			"label": "rider actually falls in water lane",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G21",
+			"label": "bell mouth causes real area stun",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G21",
+			"label": "silenced bell mouth suffers real backlash",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G22",
+			"label": "womb dream actually blocks actions",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G22",
+			"label": "real light awakening ends dream",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G23",
+			"label": "actual named human defeat grows face borrower and steals real names",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G23",
+			"label": "purification releases actually stolen names",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G24",
+			"label": "servant explicitly targets and interrupts real repairer",
+			"passed": true
+		},
+		{
+			"damage_targets": [
+				"door_incense"
+			],
+			"final_position": [
+				8280.0,
+				500.0
+			],
+			"fixture": true,
+			"floor": 2,
+			"id": "G24",
+			"priority": "door_register",
+			"stage": "upper"
+		},
+		{
+			"fixture": true,
+			"id": "G24",
+			"label": "large servant walks actual wide stairs to attack side door, never a window",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G25",
+			"label": "clerk erases an actual named actor and drains names",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G26",
+			"label": "blank page blocks actual local ritual name reward and recovery",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G26",
+			"label": "blank-page self-purification starts through actual paid command",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G26",
+			"label": "paid purification of active blank page itself earns zero names",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G27",
+			"label": "recovery preview never emits actual poison damage",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G27",
+			"label": "reverse incense recovery becomes smoke that harms both sides",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G28",
+			"label": "face theft changes real face interface and empowers holder",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G28",
+			"label": "actual gold mirror reflects targeted face-theft status",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G29",
+			"label": "misrecord really switches allegiance and simulation group",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G29",
+			"label": "misrecord expiry restores original side and leaves stun",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G29",
+			"label": "actual mirror-reflected misrecord succeeds, cools down and records changed source allegiance",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G29",
+			"label": "reflected misrecord restores source original side after real temporary change",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G29",
+			"label": "immune target still consumes successful misrecord cast and cooldown",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G30",
+			"label": "false god punishes a real nearby borrowing invocation",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G31",
+			"label": "stolen real name creates real flesh layer",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G31",
+			"label": "protected purification visibly collapses layers and preserves core",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G31",
+			"label": "actual paid naming skill collapses enemy name layers",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G32",
+			"label": "boss fixture begins real paid protected reading",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G32",
+			"label": "completed protected reading opens real naming window instead of deleting boss",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G32",
+			"label": "naming window permits second real ritual",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G32",
+			"label": "second protected completion in naming window purifies boss",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "validation",
+			"label": "valid nested ghost charge state accepted",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "validation",
+			"label": "wrong-node ghost charge rejected before restore",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "validation",
+			"label": "malformed allegiance restore contract rejected",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "compatibility",
+			"label": "P8 roster preserves real P7 gate-rider fusion charge task",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H01 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H02 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H04 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H11 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H15 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H25 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H28 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H30 explicitly rejects without resource or market side effects",
+			"passed": true
+		},
+		{
+			"fixture": true,
+			"id": "G19",
+			"label": "unsupported mirror source H31 explicitly rejects without resource or market side effects",
+			"passed": true
+		}
+	],
+	"failures": [],
+	"fixture_only": true,
+	"suite": "P8Ghost"
+}

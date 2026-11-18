@@ -1,0 +1,110 @@
+{
+  "phase": "P7",
+  "matrix": [
+    {
+      "id": "K1",
+      "requirement": "48件与4槽/真实库存/普通鬼禁装",
+      "evidence": "P7Suite._slots",
+      "status": "passed"
+    },
+    {
+      "id": "K2",
+      "requirement": "19香器实效、16艺/12帖，I10/I11/I17与前8艺全测",
+      "evidence": "P7Suite effect rows",
+      "status": "passed"
+    },
+    {
+      "id": "K3",
+      "requirement": "V01/2/3实扣8/12/15、伤损与装备保存、第三变形拒绝",
+      "evidence": "P7Suite._transformations",
+      "status": "passed"
+    },
+    {
+      "id": "K4",
+      "requirement": "F01/F02/F03/F05真实命令、两次预算、F05保留H22",
+      "evidence": "P7Suite transformation/borrow/extra",
+      "status": "passed"
+    },
+    {
+      "id": "K5",
+      "requirement": "J01实际维修4.8、J02仅破符触发、借神双种子/灰军再夺",
+      "evidence": "P7Suite._jobs_borrow",
+      "status": "passed"
+    },
+    {
+      "id": "K6",
+      "requirement": "超度完成+册底针、最后门击转铁肩、源头破门2-4路",
+      "evidence": "accept_chaodu/shoumen/pomen + builds results",
+      "status": "passed"
+    },
+    {
+      "id": "K7",
+      "requirement": "灯照恐惧/上梁真实换层/真实借神反馈",
+      "evidence": "accept_dengmian/shangliang/wuce + builds results",
+      "status": "passed"
+    },
+    {
+      "id": "K8",
+      "requirement": "仅香火名分、NPC/dual钱包分离、库存非货币",
+      "evidence": "P7Suite._jobs_borrow + Growth UI",
+      "status": "passed"
+    },
+    {
+      "id": "K9",
+      "requirement": "9600px/80px/1x，源头推进与多层基地/掩体抽查",
+      "evidence": "P7Suite and P7NightSuite per-step probes",
+      "status": "passed"
+    },
+    {
+      "id": "K10",
+      "requirement": "成长夜、观祭、双席与回放共用模拟器，并通过G1四项总检",
+      "evidence": "p7-verification-index.json; two victorious complete nights and native/headless reports",
+      "status": "passed"
+    },
+    {
+      "id": "S1",
+      "requirement": "阴骑等简化战斗骨架或替代路径须明确披露",
+      "evidence": "Combat remains a simplified prototype model; G20 has actual charge behavior and independent portrait, not a claim of final skeletal animation.",
+      "status": "disclosed_as_allowed"
+    },
+    {
+      "id": "S2",
+      "requirement": "借神成功/反噬真实seed与截图",
+      "evidence": "borrow-success/backlash native screenshots",
+      "status": "passed_or_disclosed_as_allowed"
+    },
+    {
+      "id": "S3",
+      "requirement": "F04可延期，界面明确interface",
+      "evidence": "P7Suite",
+      "status": "passed_or_disclosed_as_allowed"
+    },
+    {
+      "id": "S4",
+      "requirement": "I19声明锁点真开门，无锁明确提示",
+      "evidence": "P7Suite I19",
+      "status": "passed_or_disclosed_as_allowed"
+    },
+    {
+      "id": "A1",
+      "requirement": "F04未完成，未满足全部五融契",
+      "evidence": "explicit deferred",
+      "status": "not_met_F04_deferred"
+    },
+    {
+      "id": "A2",
+      "requirement": "六构筑可用户直接从试炼入口开局，普通夜库存单独",
+      "evidence": "Six authored trials produce real feedback; six full ordinary build nights were not asserted.",
+      "status": "not_claimed"
+    }
+  ],
+  "G1": {
+    "1_complete_growth_night": "passed",
+    "2_rewards_market_event_no_best_card_dependency": "passed",
+    "3_three_actual_build_feedbacks": "passed",
+    "4_three_modes_shared_growth_replay": "passed"
+  },
+  "policy": "Pass statuses derive from the linked final machine reports; A1/A2 are explicitly not claimed.",
+  "rules_hash": "cb68951480f3beb4127f4f4550e2fe1ab43beb2b87ceea9723709f7b5ee95802",
+  "authoritative_results": "p7-verification-index.json"
+}

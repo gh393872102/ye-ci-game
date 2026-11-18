@@ -1,0 +1,771 @@
+{
+  "phase": "P8",
+  "status": "verification_complete",
+  "collected_at": "2026-11-17T20:21:49.816931+08:00",
+  "project": "",
+  "branch": "codex/p8-full-roster",
+  "baseline_commit": "7776cb5",
+  "rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b",
+  "execution_note": "P0–P4/P5Domain passed before final P8-only runtime fixes. Source-hash drift during long P5 invalidated archive lookup; after freeze P5 reran207/0. P6 negative fixture G32 became valid inP8, so undefinedG99 replaced it and P6 reran123/0. Initial P7Night accidentally followed the new P8 UI entry, recorded real carry/battle failures and persistent Codex IO, then was interrupted. Its final run explicitly used legacy new_growth_run on the same real host and passed163/0. P6/P7/P7Night/tails passed after core freeze. P8 main/Ghost/persistence/observer use the final core. UI/capture-label changes did not change rules_hash. This does not imply every suite ran after the final core change.",
+  "legacy_regression": {
+    "checks": 1408,
+    "failures": 0,
+    "reports": [
+      {
+        "file": "p8-p0-regression-test-results.json",
+        "checks": 112,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p1-regression-test-results.json",
+        "checks": 112,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p2-regression-test-results.json",
+        "checks": 114,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p3-regression-test-results.json",
+        "checks": 69,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p4-regression-test-results.json",
+        "checks": 113,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p5-domain-regression-test-results.json",
+        "checks": 55,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p5-regression-test-results.json",
+        "checks": 207,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p6-regression-test-results.json",
+        "checks": 123,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p7-regression-test-results.json",
+        "checks": 203,
+        "failures": 0,
+        "rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b"
+      },
+      {
+        "file": "p8-p7-night-regression-test-results.json",
+        "checks": 163,
+        "failures": 0,
+        "rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b"
+      },
+      {
+        "file": "p8-p6-bridge-regression-results.json",
+        "checks": 33,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p7-persistence-regression-results.json",
+        "checks": 52,
+        "failures": 0,
+        "rules_hash": null
+      },
+      {
+        "file": "p8-p7-carry-regression-results.json",
+        "checks": 52,
+        "failures": 0,
+        "rules_hash": null
+      }
+    ]
+  },
+  "default_cli_checks": 2543,
+  "default_cli_failures": 0,
+  "p8_headless": {
+    "file": "p8-test-results.json",
+    "checks": 936,
+    "failures": 0,
+    "rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b"
+  },
+  "p8_native": {
+    "file": "p8-render-results.json",
+    "checks": 1134,
+    "failures": 0,
+    "rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b"
+  },
+  "p8_ghost": {
+    "file": "p8-ghost-test-results.json",
+    "checks": 116,
+    "failures": 0,
+    "rules_hash": null
+  },
+  "p8_persistence": {
+    "file": "p8-persistence-results.json",
+    "checks": 79,
+    "failures": 0,
+    "rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b"
+  },
+  "p8_observer": {
+    "file": "p8-observer-results.json",
+    "checks": 4,
+    "failures": 0,
+    "rules_hash": null
+  },
+  "source_boot_guard": {
+    "file": "p8-source-boot-results.json",
+    "checks": 41,
+    "failures": 0,
+    "rules_hash": null
+  },
+  "host_ui": {
+    "file": "p8-host-ui-results.json",
+    "checks": 16,
+    "failures": 0,
+    "rules_hash": null
+  },
+  "matrix": "p8-acceptance-matrix.json",
+  "formal_report": "P8.md",
+  "portrait_qa": "p8-portrait-qa-results.json",
+  "portrait_plan": {
+    "count": 64,
+    "final_artist_approved": 0,
+    "pending_ids": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "H05",
+      "H06",
+      "H07",
+      "H08",
+      "H09",
+      "H10",
+      "H11",
+      "H12",
+      "H13",
+      "H14",
+      "H15",
+      "H16",
+      "H17",
+      "H18",
+      "H19",
+      "H20",
+      "H21",
+      "H22",
+      "H23",
+      "H24",
+      "H25",
+      "H26",
+      "H27",
+      "H28",
+      "H29",
+      "H30",
+      "H31",
+      "H32",
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32"
+    ],
+    "manifest": "../../assets/portraits/p8/manifest.json"
+  },
+  "native_artifacts": {
+    "count": 86,
+    "dimensions": {
+      "1920x1080": 47,
+      "2560x1440": 16,
+      "1280x720": 23
+    },
+    "files": [
+      {
+        "file": "p8-shots/skill-H01-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "c8fd2832bb6aa22e71679c0e82cb97482c1fa5c7aaf3b533b0064b2201a7def1"
+      },
+      {
+        "file": "p8-shots/skill-H02-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "8764350115f7045aaeec8777b6ae5393a34244802685319fbf0cd4c531f8bb1a"
+      },
+      {
+        "file": "p8-shots/skill-H03-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "ac6a8d8e7ada978d91bbf0ca39fe29a403d596cabcd66f81ab796742dfd2bedf"
+      },
+      {
+        "file": "p8-shots/skill-H04-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "4ba1acff56f436a1beb8eba246121388969beea19417ca03474ba108bb1e33b6"
+      },
+      {
+        "file": "p8-shots/skill-H05-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "74e56e722437f6d09f65708af06c94aca47c44fb8829a9bd1fa70a9beac3ca29"
+      },
+      {
+        "file": "p8-shots/skill-H06-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "fdc9b863a2725877a23594e982a48f65244717f9b4a3dde3ba4e4f74be6760dd"
+      },
+      {
+        "file": "p8-shots/skill-H07-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "949c886414ac1aa5579391dd3a02d43b2f70b36b3f3687f08f1978555a93f250"
+      },
+      {
+        "file": "p8-shots/skill-H08-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "3e8e314b9b25a02282b3baeaeca369266ca4257af634600df3d0719db045a06d"
+      },
+      {
+        "file": "p8-shots/skill-H09-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "cf510816b512d8adc3bbbd4004886add6b4ba80a717d95168708dfa212982e48"
+      },
+      {
+        "file": "p8-shots/skill-H10-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "d3de5bebf3d89b1d9023268c16738c6f69e9296bb8c6acd1c332ee952f404aa2"
+      },
+      {
+        "file": "p8-shots/skill-H11-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "cadf71e159409948bd7cbdeeb60ddd21eb292bc7542a4629dd3b8d3a573afa79"
+      },
+      {
+        "file": "p8-shots/skill-H12-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "703bc946990bfb4dce94db24671dac9d851e4df3b170647f10e74b6cce49eeec"
+      },
+      {
+        "file": "p8-shots/skill-H13-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "67e8abc03e5068887358dd5bf59d10d46be0239dc3d828738ce9a5ee1fc46959"
+      },
+      {
+        "file": "p8-shots/skill-H14-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "35cc5d3fb002d0c84b81f58491ca84584958faf2e9a5dbdf503c92033718bc98"
+      },
+      {
+        "file": "p8-shots/skill-H15-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "a8d026333f2684273b51fc4c8abb1db152ad9e0510cfc1a95e269ac9f3e41cab"
+      },
+      {
+        "file": "p8-shots/skill-H16-actual-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "f9e10301633f8aad5267b47eefebd6c6943b7b9edd9d33cc6d063bb9e86cdd6a"
+      },
+      {
+        "file": "p8-shots/pair-H01-H02-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "43e4b53214def01d3967310318060b1a1aaf1d23d4078d3f025349ee75b8c18e"
+      },
+      {
+        "file": "p8-shots/pair-H01-H02-card-H01-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "9399c9b07f2ba4c2bd305609a20572f97d14cf28a3f82d6359f01eab683ff37e"
+      },
+      {
+        "file": "p8-shots/pair-H01-H02-card-H01-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "01756b5da07163c46586d724e4e4b2aa9b579ed47a245c34cddb9228fd2a762e"
+      },
+      {
+        "file": "p8-shots/pair-H01-H02-card-H01-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "9020de799d7dd004d16ee907363815b6d321194b9f4347d517b71d38d2a8cf96"
+      },
+      {
+        "file": "p8-shots/pair-H01-H02-card-H02-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "84e4f43521111473651d8244660fb5a8b013d7e80ad568165fa08a611d4a30b7"
+      },
+      {
+        "file": "p8-shots/pair-H01-H02-card-H02-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "7e974952b5d7ba9404032f84f7f6077bcc6d6673beffdf4eaeea5a435ec306ad"
+      },
+      {
+        "file": "p8-shots/pair-H01-H02-card-H02-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "fa4bb7491b65dc4fa5b3b5caa58f1ad476497e62fb9810ef9101a897d5b433fe"
+      },
+      {
+        "file": "p8-shots/pair-H10-H16-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "0065061aca49e7c0deaa7a79f7d55b475fe01fc78f5a993e4156c3351d0d743f"
+      },
+      {
+        "file": "p8-shots/pair-H10-H16-card-H10-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "9d3d8ff1bb7f7d1b61529bccfff0ccd15251de4c51f438e3973466a52798a925"
+      },
+      {
+        "file": "p8-shots/pair-H10-H16-card-H10-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "95da3382304c5e0aeb8f2496ca9d5694e5eb8bce5fca291167c38609ee08913e"
+      },
+      {
+        "file": "p8-shots/pair-H10-H16-card-H10-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "ebf083560e3f55e370cd0c3e4872182786b7444aaf807b6beecf9d1cb4c4d8c1"
+      },
+      {
+        "file": "p8-shots/pair-H10-H16-card-H16-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "350d440bc6bb97adbfee13fbbdd26ef5d5ded86c79a5c038accf70cbd117069d"
+      },
+      {
+        "file": "p8-shots/pair-H10-H16-card-H16-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "316e56ede149b69fa79fe992b5b80082424f023cdca937e811a88c8311ff40db"
+      },
+      {
+        "file": "p8-shots/pair-H10-H16-card-H16-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "f1a124bac0f46c9d0dbb3efbd84bff678f21533410336ea3954c5260cba6ae87"
+      },
+      {
+        "file": "p8-shots/pair-H17-H20-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "7bdfb0b8a3e4426c553d85e7ace53dc0812bb05a48a2d88a22420b5f76958dc1"
+      },
+      {
+        "file": "p8-shots/pair-H17-H20-card-H17-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "6fcfc4698d25c10f4db66c8c47bff98d18e1b81377f947963ff81699a6a4368f"
+      },
+      {
+        "file": "p8-shots/pair-H17-H20-card-H17-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "d789937f067a56fb64bf6bd8e9e4bf42bf2a4d692945cf5e24f1c7f31549e9d6"
+      },
+      {
+        "file": "p8-shots/pair-H17-H20-card-H17-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "386c8ad8431657dd165aebc72a26ef78f6e5b2cb55cced0775ab9dac5134157d"
+      },
+      {
+        "file": "p8-shots/pair-H17-H20-card-H20-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "a6f147ffef59785697d415c7289fc69b7ef88d9e0d256b5f21720de71a9398bc"
+      },
+      {
+        "file": "p8-shots/pair-H17-H20-card-H20-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "cea28139cac9c8e2fb3bc38d47d91effdb5ca3985dbe6743d31ef57914924a26"
+      },
+      {
+        "file": "p8-shots/pair-H17-H20-card-H20-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "6f1ab36adc03c940d1cbfc19756196ab7148c269c054dbdfcefc67ec7ad50373"
+      },
+      {
+        "file": "p8-shots/pair-H09-H14-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "f86eafdfe67f9ffeb832dde6db2874734401438ee910af20e2e604697d018ba1"
+      },
+      {
+        "file": "p8-shots/pair-H09-H14-card-H09-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "174ac19e923a14b776c4916e19b5518e580cc235168342bd1ff9d99e9f5deb42"
+      },
+      {
+        "file": "p8-shots/pair-H09-H14-card-H09-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "9efac9f4b58adc71e82cd7c69a23a547ec56e7b14e21ef6fd3551646adcddeec"
+      },
+      {
+        "file": "p8-shots/pair-H09-H14-card-H09-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "e45bd94db91e3cfa1ce1ca2a3226becfd78d180ead8c152a851199c1242284fd"
+      },
+      {
+        "file": "p8-shots/pair-H09-H14-card-H14-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "0c746b3ce0bd9bfd55a327418629cc249cb06d011119929bcd3d0a393b7e7b6e"
+      },
+      {
+        "file": "p8-shots/pair-H09-H14-card-H14-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "2c15586d7a7c3a76c06d1f2a60809c7027443d4eb6a60d0e1c825de80d8f8aa8"
+      },
+      {
+        "file": "p8-shots/pair-H09-H14-card-H14-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "d91c7de17da59d2ec754d53cd7b06d0dbb31245490c2dec1a6fedabba231bc55"
+      },
+      {
+        "file": "p8-shots/pair-G04-G09-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "52d7d6a9219a26be21f20781ea2679fcc687faff3bff92bfa8938cab710f6501"
+      },
+      {
+        "file": "p8-shots/pair-G04-G09-card-G04-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "c348d7495340d8b5b617e2019ea5b4cf5416b674a19c88f8d722b6a613693d59"
+      },
+      {
+        "file": "p8-shots/pair-G04-G09-card-G04-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "4fe5060491a1f96dbeba2e3211972a4f5fd6450aafc66f6c52d5092e19cc6837"
+      },
+      {
+        "file": "p8-shots/pair-G04-G09-card-G04-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "d726e2ceed143ef8b484e809230aa861e958f2dd79972c0a96bb3a4170641ca4"
+      },
+      {
+        "file": "p8-shots/pair-G04-G09-card-G09-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "73cf47b247149b55ed9f5d88fd5eff5e07646d547129ede694493b62f05ac829"
+      },
+      {
+        "file": "p8-shots/pair-G04-G09-card-G09-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "7fbf184b5154f410b057a5ea51666ab6db9f90be2f524a79217a7944c770d6e1"
+      },
+      {
+        "file": "p8-shots/pair-G04-G09-card-G09-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "e2c08a5b3d547ad6679b361837b6eadcad1fb3dcf1f548bf301e1e0738ecb4a5"
+      },
+      {
+        "file": "p8-shots/pair-G12-G13-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "d53703e1580d360ba283aae819ad982769814e6a6da39abc2e684b04b16e6aa0"
+      },
+      {
+        "file": "p8-shots/pair-G12-G13-card-G12-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "aa71529b24150e5b8dd51a668ffc3a3e72feb5ed5b42705be90d23c151c2cc1f"
+      },
+      {
+        "file": "p8-shots/pair-G12-G13-card-G12-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "930c587a84d1f5e74f8ac7d2892e40eabff6e1cde3f78cd62fcc58034db407a0"
+      },
+      {
+        "file": "p8-shots/pair-G12-G13-card-G12-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "8e0d35bef669a1fba82731845de9a48d4f4e9a7df004dc7fabc00050ba3e5fbd"
+      },
+      {
+        "file": "p8-shots/pair-G12-G13-card-G13-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "947dd28b69237cd826672b42e8dce0908e4d733c6e3138ae3511f734951c35e1"
+      },
+      {
+        "file": "p8-shots/pair-G12-G13-card-G13-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "5f5bd5aa6adaa72636e73393148c10254a346817c1ff03dbb7fa125f04ca7746"
+      },
+      {
+        "file": "p8-shots/pair-G12-G13-card-G13-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "0748cb1e2cbafc6e91987b57abe041ef779536e35a3d6524fbfef7ee948bc06a"
+      },
+      {
+        "file": "p8-shots/pair-G25-G28-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "d2a63252dd078d1d622de1eff2818d39a77089b9f91277a9dd70e8de3648565a"
+      },
+      {
+        "file": "p8-shots/pair-G25-G28-card-G25-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "cac3319481ca4f65974219e9952d7acb470ac6d54f25d26650b81517c06037b4"
+      },
+      {
+        "file": "p8-shots/pair-G25-G28-card-G25-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "4bba708f5c841c84c8d9bfd0a8ee858843f13ba1f52a81aad83fb5e3fe1461c0"
+      },
+      {
+        "file": "p8-shots/pair-G25-G28-card-G25-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "12b8d6a2e539b53eedfa7bbba35d8ad2cfd401df9294cabf30048ed58d3ed80f"
+      },
+      {
+        "file": "p8-shots/pair-G25-G28-card-G28-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "8818e7867b173478efe89d6871bd34e3052ec68adb961ce9bd26a1ff5cbd9c66"
+      },
+      {
+        "file": "p8-shots/pair-G25-G28-card-G28-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "46a0a48467fef8f37919ceb97b40ef6199154f398f8bbcab0d677c650434c751"
+      },
+      {
+        "file": "p8-shots/pair-G25-G28-card-G28-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "a83c3803c1896b8542cbac280f9e0ea92e53ddacd325ff9f8ebb5adc87ff9b7f"
+      },
+      {
+        "file": "p8-shots/pair-G17-G20-battle-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "b035fc79ba0b989a05077331e29f7d0ff5e1fb2c558625ae317fef94fdbd1a9c"
+      },
+      {
+        "file": "p8-shots/pair-G17-G20-card-G17-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "25cb4f29e769947eb414c69f165713f5705d1a6ee84d2d8f50ee3d90473babc4"
+      },
+      {
+        "file": "p8-shots/pair-G17-G20-card-G17-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "a8ae0f606feffdc9c1e48d301d136f8ca074f72c0372ec08981247d5c489a7b2"
+      },
+      {
+        "file": "p8-shots/pair-G17-G20-card-G17-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "2dcff7b3185ad620ce449a45b636ce4fedee90923191c0149fc2857d2950357b"
+      },
+      {
+        "file": "p8-shots/pair-G17-G20-card-G20-1440.png",
+        "width": 2560,
+        "height": 1440,
+        "sha256": "33b9c9fa5a1fe51ca618f7b84fd68cfc996c513f09f25cae551f2196fa71785f"
+      },
+      {
+        "file": "p8-shots/pair-G17-G20-card-G20-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "c06a7800f4914a9bd27dcba838c9b3a173e6a5378cb124c555eb4171aad04936"
+      },
+      {
+        "file": "p8-shots/pair-G17-G20-card-G20-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "220650c857904e651bc3288af9407fb212623045e73f8970eb0dc54734501ed5"
+      },
+      {
+        "file": "p8-shots/face-actual-theft-faceless-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "584d9e7fdc094aa9a33311e24adb1fa22105dbf676cd72cd44679d86630e2cb8"
+      },
+      {
+        "file": "p8-shots/face-actual-theft-faceless-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "d5a44b8a5b0645cf817ea0c380ebcc26d049e921b28dfe5b5634405d9912f6c4"
+      },
+      {
+        "file": "p8-shots/face-actual-restored-faced-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "c0606a3e7fdf6bc0945d8d7c0254d6b22164f8bb0e3236a9beddc446d7455e11"
+      },
+      {
+        "file": "p8-shots/face-actual-restored-faced-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "5eac571c4cfbfdcbd4866b1f2e74f8d48f81ffc1a75972feceb6718d61f68523"
+      },
+      {
+        "file": "p8-shots/troop-T03-template-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "1992d1fcec405066f06a8475b20d7f42cea5f1d37b8984b62a93510d91c9c012"
+      },
+      {
+        "file": "p8-shots/troop-T03-template-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "8647c90bbf4979ee0934fd84477ce5a440a8a29848c862dee73414d0a12c02e3"
+      },
+      {
+        "file": "p8-shots/codex-humans-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "e93c46f167bf2c91e89c86fac05609aa136924e8dfe1db671dbb67be74f30c5d"
+      },
+      {
+        "file": "p8-shots/codex-humans-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "0faed39fd6f818866a24b1015fdb6f2893537b5fd4eda808e96af694816f4f69"
+      },
+      {
+        "file": "p8-shots/codex-ghosts-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "2c36bc5b26b9b9025af9a4c89bafa6fc9aa461562ca88348f1643718a71b96d8"
+      },
+      {
+        "file": "p8-shots/codex-ghosts-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "e94bfdf7afdfb9d6803736621b3f8902dcc497eade9d87bd2d03d88efe839e99"
+      },
+      {
+        "file": "p8-shots/codex-items-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "28e87012eda9775a5d10409acacb8dbf2d4a8e1274dfce57f80bc58880659439"
+      },
+      {
+        "file": "p8-shots/codex-items-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "dbbefceaac62e39725df3527d14a6fcc2a0386c5511f34608190455092fefe26"
+      },
+      {
+        "file": "p8-shots/codex-customs-1080.png",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "f86acd7c299050d8e9435eb11f70d3572b0adfee527da72cd837e5cf574952d4"
+      },
+      {
+        "file": "p8-shots/codex-customs-720.png",
+        "width": 1280,
+        "height": 720,
+        "sha256": "7d55de3f3a7e2767181b7ba87d8eb29e52176d8d5fa13ebe632d46d055d04cc5"
+      }
+    ],
+    "capture": "Actual native viewport, force_draw after two process frames; simulation physics disabled and paused during capture. No fabricated image composites. Sixteen human skills, eight pairs1440/1080/720, F2 rulers, actual G28/H32 faces, troop and four books.",
+    "initials": "Effects start incense60/names8 except H02 names2, H10 eliteHP30%, H13 commonGhostHP3. Frames explicitly label these authored initial conditions."
+  },
+  "clean_logs": {
+    "main_headless": "/tmp/ye-ci-p8-headless-final.log",
+    "native": "/tmp/ye-ci-p8-native-final.log",
+    "ghost": "/tmp/p8-ghost-final.log",
+    "persistence": "/tmp/p8-persistence-routes.log",
+    "observer": "/tmp/ye-ci-p8-observer-final.log",
+    "P6": "/tmp/ye-ci-p8-P6-final.log",
+    "P7": "/tmp/ye-ci-p8-P7-final.log",
+    "P7Night": "/tmp/ye-ci-p8-P7Night-final.log",
+    "P6Bridge": "/tmp/ye-ci-p8-P6Bridge-final.log",
+    "P7Persistence": "/tmp/ye-ci-p8-P7Persistence-final.log",
+    "P7Carry": "/tmp/ye-ci-p8-P7Carry-final.log"
+  },
+  "log_policy": "Each listed final log has successful RESULT and no SCRIPT ERROR/line-start ERROR or FAIL. Early combined /tmp/ye-ci-p8-legacy-final.log is clean only through P0–P4/P5Domain and later contains the preserved P5 diagnostic. P5 final207/0 clean was checked by strict wrapper before continuing; its stage log was overwritten by P6, while machine report and actual disk replay statuses remain.",
+  "diagnostics": {
+    "source_drift": "p8-regression-source-drift.json",
+    "fixture_updates_and_interrupted_p8_failures": "p8-regression-fixture-update.json",
+    "carry_fields": "p8-carry-diagnostic.json",
+    "player_io_incident": "p8-codex-io-incident.json"
+  },
+  "player_codex_validation": {
+    "unchanged_after_final_isolated_runs": true,
+    "scope": "See p8-codex-io-incident.json. Private profile metadata omitted."
+  },
+  "ordinary_p8_complete_night": "NOT VERIFIED/NOT ACCEPTED. Interrupted P8 run had failed battles; legacy P7 victories are not P8 full-night proof.",
+  "fixture_boundaries": {
+    "failure": "Actual G25 erasure/extinguish in authored one-name/zero-incense first-node fixture, real settlement/recovery decline/disk save.",
+    "ritual_completion": "Explicit0.2-second final-node fixture exercises real victory+mandatory reward+current ritual resolution; not ordinary boss/full-night timing."
+  },
+  "indistinguishability_audit": "Eight requested pairs have distinct heads/held objects/geometry and source skill/trait text;80worldpx ordinary and128–176large are retained. Portraits appear only in panels. All64 assets are high-resolution placeholders.",
+  "git": "Acceptance agent made no commits, branch switches or pushes; root owns final commit/main fast-forward."
+}

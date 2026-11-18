@@ -1,0 +1,216 @@
+{
+	"checks": 52,
+	"failures": [],
+	"phase": "P7Persistence",
+	"results": [
+		{
+			"label": "Current source data passes startup validation",
+			"passed": true
+		},
+		{
+			"label": "Repair selects a reachable discounted worker when the nearer ordinary worker is unaffordable",
+			"passed": true
+		},
+		{
+			"label": "Discounted repair charges 4.8 and dispatches the actual affordable worker",
+			"passed": true
+		},
+		{
+			"label": "Repair still selects the nearest worker when both are affordable",
+			"passed": true
+		},
+		{
+			"label": "Repair rejects atomically when all reachable workers are unaffordable",
+			"passed": true
+		},
+		{
+			"label": "Growth night does not lose at 9.48 incense when an eight-incense priest can still be purchased",
+			"passed": true
+		},
+		{
+			"label": "A paid H03 reservation keeps the priest line recoverable before deployment",
+			"passed": true
+		},
+		{
+			"label": "Actual legal H03 deployment restores a living priest without resurrecting H01",
+			"passed": true
+		},
+		{
+			"label": "Growth night still loses when no priest is alive and all priest purchases are unaffordable",
+			"passed": true
+		},
+		{
+			"label": "Dual-mode recovery reads the defending wallet even while the player controls attackers",
+			"passed": true
+		},
+		{
+			"label": "An attacker wallet cannot pay for defending priests",
+			"passed": true
+		},
+		{
+			"label": "Legacy mode retains the original twelve-incense H01 recovery threshold",
+			"passed": true
+		},
+		{
+			"label": "Growth night starts for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "New growth night state validates for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Growth-only victory curve is applied to both early and boss profiles for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "All 48 slot items are reachable in this night's reward/market pool",
+			"passed": true
+		},
+		{
+			"label": "Fresh night writes a real disk save",
+			"passed": true
+		},
+		{
+			"label": "Fresh process model loads the same inventory and rule pool",
+			"passed": true
+		},
+		{
+			"label": "Growth night starts for duoming",
+			"passed": true
+		},
+		{
+			"label": "New growth night state validates for duoming",
+			"passed": true
+		},
+		{
+			"label": "Growth-only victory curve is applied to both early and boss profiles for duoming",
+			"passed": true
+		},
+		{
+			"label": "All 48 slot items are reachable in this night's reward/market pool",
+			"passed": true
+		},
+		{
+			"label": "Fresh night writes a real disk save",
+			"passed": true
+		},
+		{
+			"label": "Fresh process model loads the same inventory and rule pool",
+			"passed": true
+		},
+		{
+			"label": "Real growth night battle starts on shared simulator",
+			"passed": true
+		},
+		{
+			"label": "Ordinary growth battle uses the declared 0.24 incense per second",
+			"passed": true
+		},
+		{
+			"label": "Stocked I17 is equipped through recorded player command",
+			"passed": true
+		},
+		{
+			"label": "Stocked Y01 occupies exactly one art slot",
+			"passed": true
+		},
+		{
+			"label": "Real paid upgrade and growth base coexist",
+			"passed": true
+		},
+		{
+			"label": "Equipment consumes actual night inventory",
+			"passed": true
+		},
+		{
+			"label": "20 seconds of paid growth inputs and exact state saved to disk",
+			"passed": true
+		},
+		{
+			"label": "Growth inventory and node survive NightRun disk validation",
+			"passed": true
+		},
+		{
+			"label": "Bridge restores full growth state and recording from disk",
+			"passed": true
+		},
+		{
+			"label": "Restored equipped actors and runtime state match before further input",
+			"passed": true
+		},
+		{
+			"label": "Both scenes continue ten seconds with identical effects, RNG, actors and resources",
+			"passed": true
+		},
+		{
+			"label": "Mixed-speed growth recording satisfies archive contract",
+			"passed": true
+		},
+		{
+			"label": "Actual 1x→2x→1x changes are captured as business clock inputs",
+			"passed": true
+		},
+		{
+			"label": "Growth battle fragment is stored in isolated archive directory",
+			"passed": true
+		},
+		{
+			"label": "Growth battle fragment is read from disk and verified",
+			"passed": true
+		},
+		{
+			"label": "Exact disk recording starts in a clean scene",
+			"passed": true
+		},
+		{
+			"label": "Mixed-speed growth replay matches recorded terminal state and key events",
+			"passed": true
+		},
+		{
+			"label": "Viewer 2x leaves final recorded business clock at 1x",
+			"passed": true
+		},
+		{
+			"label": "Negative growth inventory is rejected before restore",
+			"passed": true
+		},
+		{
+			"label": "Rejected growth save preserves live scene and original recorder",
+			"passed": true
+		},
+		{
+			"label": "Malformed equipment slots reject atomically",
+			"passed": true
+		},
+		{
+			"label": "Malformed construct payload is rejected before it can reach a runtime consumer",
+			"passed": true
+		},
+		{
+			"label": "Rejected construct payload preserves live battle and recorder",
+			"passed": true
+		},
+		{
+			"label": "Malformed ward payload is rejected before it can reach a runtime consumer",
+			"passed": true
+		},
+		{
+			"label": "Rejected ward payload preserves live battle and recorder",
+			"passed": true
+		},
+		{
+			"label": "Legacy P5 entry keeps growth disabled",
+			"passed": true
+		},
+		{
+			"label": "Legacy battle and victory resource values remain 0.12 and 8",
+			"passed": true
+		},
+		{
+			"label": "Older battle snapshot without optional growth fields remains loadable",
+			"passed": true
+		}
+	],
+	"scope": "30-second actual growth battle fragment; not an entire night or completed battle"
+}

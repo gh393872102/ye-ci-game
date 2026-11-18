@@ -1,0 +1,24 @@
+keys,zh_CN
+P10_FIERCE,凶夜
+P10_RANDOM_RITUAL,随种子抽取
+P10_INVALID_PLAN,这些科仪与关卡无法组成可走通的祠场。
+P10_RITUAL,今夜科仪
+P10_MODIFIERS,无册夜修饰
+P10_STAGE_SETUP,编排祠场
+P10_BOSS,头目舞台
+P10_NO_BOSS,普通战场
+P10_CHUNKS,手制关卡块
+P10_BACK_SETUP,返回观祭编排
+P10_CHUNK_HINT,正门庭、二楼回廊与名册房构成主路。科仪和头目需要的区段会随选择加入。
+P10_KIND_HINT,凶夜随种子编排祠场与补给，开夜少四点香火。可指定科仪并叠加无册修饰。
+P10_ROUTE_NODE,%s · %s
+POST_SIDE_GATE,侧门内侧
+POST_WATER_SLUICE,水闸掩体
+POST_STAGE_WING,戏台侧窗
+POST_SIDE_HALL,侧殿门厅
+POST_STOVE,灶房内案
+POST_SILENT_WINDOW,禁声廊窗位
+DOOR_SIDE,侧门
+DOOR_SIDE_HALL,侧殿门
+DOOR_FISSURE,阴缝封门
+DOOR_SILENT,禁声廊门

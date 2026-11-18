@@ -1,0 +1,59 @@
+{
+  "checks": 2,
+  "date": "2026-11-17T12:56:14",
+  "engine": "4.7.2-stable (official)",
+  "failures": 0,
+  "os": "macOS",
+  "performance": [
+    {
+      "average_fps": 183.081276186344,
+      "fixture": "active visual tide, durable hall gate",
+      "frame_p50_ms": 4.961,
+      "frame_p95_ms": 8.252,
+      "humans": 4,
+      "renderer": "gl_compatibility",
+      "samples": 600,
+      "simulation_p95_ms": 1.406,
+      "tide_alive": 40,
+      "tide_requested": 40,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "vsync": "disabled"
+    },
+    {
+      "average_fps": 118.431259536184,
+      "fixture": "active visual tide, durable hall gate",
+      "frame_p50_ms": 7.842,
+      "frame_p95_ms": 11.33,
+      "humans": 4,
+      "renderer": "gl_compatibility",
+      "samples": 600,
+      "simulation_p95_ms": 2.986,
+      "tide_alive": 80,
+      "tide_requested": 80,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "vsync": "disabled"
+    }
+  ],
+  "phase": "P3",
+  "results": [
+    {
+      "check": "40 tide active rendering average >=60 FPS: 183.1",
+      "passed": true
+    },
+    {
+      "check": "80 tide active rendering average >=60 FPS: 118.4",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "res://docs/phase-reports/p3-shots/perf-40.png",
+    "res://docs/phase-reports/p3-shots/perf-80.png"
+  ],
+  "timings": []
+}

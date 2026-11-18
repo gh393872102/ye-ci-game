@@ -1,0 +1,15 @@
+{
+  "id": "H27",
+  "name": "饲鸦",
+  "source": "Project-generated portrait source (local generation metadata withheld)",
+  "path": "res://assets/portraits/p8/H27.png",
+  "status": "placeholder",
+  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "size": [
+    1024,
+    1536
+  ],
+  "sha256": "2b72d463691ac8b55bafb1d16a6849a0ff409dca763a11580f91e0117f1090ff",
+  "replacement_required": true,
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+}

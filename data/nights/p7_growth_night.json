@@ -1,0 +1,267 @@
+{
+  "id": "p7_growth_night",
+  "title": "例夜·今夜成法",
+  "item_prices": {
+    "censer": 8,
+    "art": 6,
+    "nameplate": 5
+  },
+  "item_weights": {
+    "censer": 3,
+    "art": 3,
+    "nameplate": 2
+  },
+  "preferred_weight_multiplier": 4,
+  "job_price": 6,
+  "job_weight": 3,
+  "material_price": 8,
+  "material_weight": 3,
+  "inventory_cap": 4,
+  "starting_inventory": {
+    "shouxiang": {
+      "I17": 1,
+      "Y01": 1
+    },
+    "duoming": {
+      "I10": 1,
+      "Y11": 1
+    }
+  },
+  "starting_materials": [],
+  "paths": {
+    "chaodu": {
+      "title": "超度流",
+      "seat": "shouxiang",
+      "roster": [
+        {
+          "id": "H01",
+          "post": "post_register",
+          "count": 1
+        },
+        {
+          "id": "H03",
+          "post": "post_stair_head",
+          "count": 1
+        },
+        {
+          "id": "H21",
+          "post": "post_table_hall",
+          "count": 1
+        },
+        {
+          "id": "H24",
+          "post": "post_window_1",
+          "count": 1
+        }
+      ],
+      "items": [
+        "I17",
+        "I11",
+        "Y01",
+        "Y03",
+        "Y13",
+        "N05"
+      ]
+    },
+    "shoumen": {
+      "title": "守门流",
+      "seat": "shouxiang",
+      "roster": [
+        {
+          "id": "H09",
+          "post": "post_gate_inner",
+          "count": 1
+        },
+        {
+          "id": "H11",
+          "post": "post_gate_inner",
+          "count": 1
+        },
+        {
+          "id": "H17",
+          "post": "post_hall_door",
+          "count": 1
+        },
+        {
+          "id": "H25",
+          "post": "post_barricade_outer_court",
+          "count": 1
+        },
+        {
+          "id": "H01",
+          "post": "post_register",
+          "count": 1
+        }
+      ],
+      "items": [
+        "I03",
+        "I10",
+        "Y02",
+        "Y09",
+        "Y11",
+        "N04",
+        "J01",
+        "J02"
+      ]
+    },
+    "pomen": {
+      "title": "破门潮",
+      "seat": "duoming",
+      "roster": [
+        {
+          "id": "G12",
+          "post": "ghost_main_path",
+          "count": 1
+        },
+        {
+          "id": "G20",
+          "post": "ghost_main_path",
+          "count": 1
+        },
+        {
+          "id": "G13",
+          "post": "ghost_main_path",
+          "count": 1
+        }
+      ],
+      "items": [
+        "I10",
+        "I16",
+        "Y06",
+        "Y11",
+        "N03"
+      ]
+    },
+    "dengmian": {
+      "title": "灯面流",
+      "seat": "shouxiang",
+      "roster": [
+        {
+          "id": "H06",
+          "post": "post_window_1",
+          "count": 1
+        },
+        {
+          "id": "H32",
+          "post": "post_gate_inner",
+          "count": 1
+        },
+        {
+          "id": "H27",
+          "post": "post_window_2",
+          "count": 1
+        },
+        {
+          "id": "H01",
+          "post": "post_register",
+          "count": 1
+        }
+      ],
+      "items": [
+        "I04",
+        "I12",
+        "Y10",
+        "N09"
+      ]
+    },
+    "shangliang": {
+      "title": "上梁奇袭",
+      "seat": "duoming",
+      "roster": [
+        {
+          "id": "G09",
+          "post": "ghost_main_path",
+          "count": 1
+        },
+        {
+          "id": "G07",
+          "post": "ghost_main_path",
+          "count": 1
+        },
+        {
+          "id": "G04",
+          "post": "ghost_main_path",
+          "count": 1
+        }
+      ],
+      "items": [
+        "I05",
+        "I04",
+        "Y04",
+        "Y12",
+        "N11"
+      ]
+    },
+    "wuce": {
+      "title": "无册赌局",
+      "seat": "shouxiang",
+      "roster": [
+        {
+          "id": "H19",
+          "post": "post_stair_head",
+          "count": 1
+        },
+        {
+          "id": "H23",
+          "post": "post_register",
+          "count": 1
+        },
+        {
+          "id": "H01",
+          "post": "post_table_hall",
+          "count": 1
+        },
+        {
+          "id": "H09",
+          "post": "post_gate_inner",
+          "count": 1
+        }
+      ],
+      "items": [
+        "I20",
+        "I13",
+        "Y16",
+        "N12"
+      ]
+    }
+  },
+  "roster_prices": {
+    "H03": 8,
+    "H06": 9,
+    "H11": 7,
+    "H19": 10,
+    "H21": 8,
+    "H22": 10,
+    "H23": 9,
+    "H24": 8,
+    "H25": 8,
+    "H27": 8,
+    "H32": 9,
+    "G02": 6,
+    "G04": 8,
+    "G05": 7,
+    "G07": 6,
+    "G08": 6,
+    "G11": 8,
+    "G13": 12,
+    "G20": 14
+  },
+  "event_material": {
+    "event_id": "borrowed_name",
+    "choice": {
+      "id": "frost_remnant",
+      "title": "P11_REMNANT_EVENT_TITLE",
+      "description": "P11_REMNANT_EVENT_DESCRIPTION",
+      "cost_incense": 8,
+      "cost_names": 0,
+      "effects": [
+        {
+          "kind": "growth_material",
+          "id": "H06"
+        }
+      ]
+    }
+  },
+  "incense_regen": 0.24,
+  "victory_incense": 12
+}

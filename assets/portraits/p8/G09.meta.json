@@ -1,0 +1,16 @@
+{
+  "id": "G09",
+  "name": "缢鬼",
+  "source": "Project-generated portrait source (local generation metadata withheld)",
+  "path": "res://assets/portraits/p8/G09.png",
+  "status": "placeholder",
+  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "attempt": 2,
+  "size": [
+    1024,
+    1536
+  ],
+  "sha256": "1fc4a03efad86841b924436acf338c9e069940936c7279944bbd107dda35017c",
+  "replacement_required": true,
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+}

@@ -1,0 +1,19 @@
+{
+  "generator": "Codex 内置 imagegen",
+  "assets": {
+    "night-court.webp": {
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: stylized-concept. Create an original landscape background plate for the Chinese folk-horror game 夜祠, 16:9 horizontal. An old Chinese clan ancestral hall in a water town, viewed down an empty wet stone alley. Side aisles and stacked grey horse-head masonry walls recede in a long perspective. An almost-dark hanging oxidized bronze lantern on the far left and the edge of a stone brazier at the far right. A thin mist and wet ink wash across the dark central vanishing point. High-end hand-painted late Qing Chinese ink and mineral pigment art, powdery slate blacks, cold paper grey, muted coppery edges, carefully controlled chiaroscuro. Make the central 70% and the full upper band quiet and low-contrast for functional UI, stronger detail at far edges and bottom. No visible people, no dramatic orange fire, no bright moon, no torii, no visible signage, no graphics, no text, no borders."
+    },
+    "night-objects.webp": {
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "Use case: stylized-concept. A square original museum contact sheet of four Chinese folk-horror ritual object illustrations for the game 夜祠. Exactly four separate centered objects in a strictly even two-by-two grid with enough black margin to crop each quadrant. Top left: dark oxidized bronze three-foot incense burner with three slender incense sticks and thin muted smoke. Top right: a folded old blank rice-paper register bound with red-grey thread and a small dull carved jade weight. Bottom left: one warm slate-grey ceramic incense cup with a dying ember reflected on dark stone, some scattered white ash. Bottom right: one strange corroded bronze half-mask and tiny pale bone bead, adult folk-horror restraint. Every object appears in its own black vignette with the same understated dry-brush ink and mineral pigment technique, restrained grey/olive/oxidized copper, object details picked out by a thin soft light. Plain uniform almost-black (#141919) background, no figures, no panels or grid lines, no words or legible characters, no letters, no logos. Objects occupy around 60% width and height within their quadrant, no object crosses any quadrant boundary."
+    }
+  }
+}

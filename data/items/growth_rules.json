@@ -1,0 +1,225 @@
+{
+  "item_files": [
+    "censers.json",
+    "arts.json",
+    "nameplates.json"
+  ],
+  "mutations": {
+    "V01": {
+      "id": "V01",
+      "name": "提灯",
+      "cost": 8,
+      "sources": [
+        "G01",
+        "G02",
+        "G08"
+      ],
+      "result_id": "G11",
+      "status": "active"
+    },
+    "V02": {
+      "id": "V02",
+      "name": "上梁",
+      "cost": 12,
+      "sources": [
+        "G01",
+        "G07",
+        "G04"
+      ],
+      "result_id": "G09",
+      "status": "active"
+    },
+    "V03": {
+      "id": "V03",
+      "name": "破门",
+      "cost": 15,
+      "sources": [
+        "G01",
+        "G05",
+        "G13"
+      ],
+      "result_id": "G12",
+      "status": "active"
+    },
+    "V04": {
+      "id": "V04",
+      "name": "融契",
+      "cost": 20,
+      "sources": [],
+      "result_id": "",
+      "status": "interface"
+    },
+    "V05": {
+      "id": "V05",
+      "name": "入水",
+      "cost": 10,
+      "sources": [
+        "G01"
+      ],
+      "result_id": "G10",
+      "status": "locked"
+    },
+    "V06": {
+      "id": "V06",
+      "name": "披衣",
+      "cost": 8,
+      "sources": [
+        "G01"
+      ],
+      "result_id": "G15",
+      "status": "locked"
+    },
+    "V07": {
+      "id": "V07",
+      "name": "错名",
+      "cost": 12,
+      "sources": [
+        "G01"
+      ],
+      "result_id": "",
+      "status": "locked"
+    }
+  },
+  "fusions": {
+    "F01": {
+      "id": "F01",
+      "name": "悬线",
+      "sources": [
+        "G09",
+        "G04"
+      ],
+      "material_id": "",
+      "result_id": "G09",
+      "result_name": "悬线",
+      "cost": 20,
+      "status": "active",
+      "params": {
+        "pounce_multiplier": 1.5,
+        "pounce_radius_body": 3
+      }
+    },
+    "F02": {
+      "id": "F02",
+      "name": "门骑",
+      "sources": [
+        "G12",
+        "G20"
+      ],
+      "material_id": "",
+      "result_id": "G12",
+      "result_name": "门骑",
+      "cost": 20,
+      "status": "active",
+      "params": {}
+    },
+    "F03": {
+      "id": "F03",
+      "name": "双面灯",
+      "sources": [
+        "G11"
+      ],
+      "material_id": "H06",
+      "result_id": "G11",
+      "result_name": "双面灯",
+      "cost": 20,
+      "status": "active",
+      "params": {}
+    },
+    "F04": {
+      "id": "F04",
+      "name": "有脸无册",
+      "sources": [
+        "G23",
+        "G28"
+      ],
+      "material_id": "",
+      "result_id": "G23",
+      "result_name": "有脸无册",
+      "cost": 20,
+      "status": "interface",
+      "params": {}
+    },
+    "F05": {
+      "id": "F05",
+      "name": "灰军转化",
+      "sources": [
+        "borrowed_ghost",
+        "H22"
+      ],
+      "material_id": "",
+      "result_id": "G11",
+      "result_name": "灰军",
+      "cost": 20,
+      "status": "active",
+      "params": {}
+    }
+  },
+  "borrow": {
+    "cost": 12,
+    "names_cost": 1,
+    "duration": 3,
+    "success_duration": 18,
+    "failure_rate": 0.15,
+    "risky_failure_rate": 0.35,
+    "failure_name_loss": 2,
+    "gray_duration": 30,
+    "recruit_chance": 0.1,
+    "vulnerable_recruit_chance": 0.25
+  },
+  "skills": {
+    "seal_duration": 4,
+    "seal_cooldown": 20,
+    "seal_reflect_damage": 6,
+    "guard_last_hit_cost": 4,
+    "guard_last_hit_cooldown": 20,
+    "light_radius_body": 3,
+    "light_fear_duration": 2,
+    "light_damage": 2,
+    "light_tick": 1,
+    "ward_duration": 3,
+    "ward_defense_multiplier": 1.2,
+    "barricade_durability": 180,
+    "barricade_cost": 5,
+    "barricade_cooldown": 30,
+    "status_skill_cooldown": 12,
+    "gray_touch_range_body": 1.2,
+    "charge_multiplier": 1.8,
+    "charge_speed_multiplier": 1.8,
+    "charge_cooldown": 10,
+    "double_lamp_duration": 20,
+    "double_lamp_radius_body": 6,
+    "heal_amount": 15,
+    "heal_radius_body": 3,
+    "construct_duration": 2,
+    "light_duration": 4,
+    "light_cooldown": 8,
+    "drum_radius_body": 3,
+    "named_radius_body": 3,
+    "pin_duration": 1.5,
+    "status_radius_body": 2.5,
+    "reveal_duration": 3,
+    "fear_cooldown": 4,
+    "drag_duration": 3,
+    "drag_body": 1,
+    "drag_damage": 4,
+    "borrow_backlash_duration": 2,
+    "river_slow_multiplier": 0.7,
+    "river_ritual_multiplier": 0.8,
+    "river_radius_body": 3,
+    "large_stun_multiplier": 0.5,
+    "craft_repair_multiplier": 0.8,
+    "dispel_false_god_damage": 30,
+    "dispel_stun": 2,
+    "misname_duration": 6,
+    "explosion_radius_body": 2,
+    "explosion_damage": 5
+  },
+  "environment": {
+    "water_speed_multiplier": 0.6,
+    "water_stat_multiplier": 0.8,
+    "landing_multiplier": 0.75
+  },
+  "locks": [],
+  "zones": [],
+  "jobs_file": "job_stamps.csv"
+}

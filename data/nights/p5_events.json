@@ -1,0 +1,83 @@
+{
+  "altar": {
+    "id": "altar",
+    "title": "P11_EVENT_ALTAR_TITLE",
+    "description": "P11_EVENT_ALTAR_DESCRIPTION",
+    "choices": [
+      {
+        "id": "light",
+        "title": "P11_EVENT_ALTAR_LIGHT_TITLE",
+        "description": "P11_EVENT_ALTAR_LIGHT_DESCRIPTION",
+        "cost_incense": 4,
+        "cost_names": 0,
+        "effects": [
+          {
+            "kind": "recover",
+            "incense": 0,
+            "names": 1,
+            "heal": 20
+          }
+        ]
+      },
+      {
+        "id": "listen",
+        "title": "P11_EVENT_ALTAR_LISTEN_TITLE",
+        "description": "P11_EVENT_ALTAR_LISTEN_DESCRIPTION",
+        "cost_incense": 0,
+        "cost_names": 0,
+        "effects": [
+          {
+            "kind": "build",
+            "key": "incense_regen_delta",
+            "value": 0.06
+          }
+        ]
+      }
+    ]
+  },
+  "borrowed_name": {
+    "id": "borrowed_name",
+    "title": "P11_EVENT_BORROWED_NAME_TITLE",
+    "description": "P11_EVENT_BORROWED_NAME_DESCRIPTION",
+    "choices": [
+      {
+        "id": "accept",
+        "title": "P11_EVENT_BORROWED_NAME_ACCEPT_TITLE",
+        "description": "P11_EVENT_BORROWED_NAME_ACCEPT_DESCRIPTION",
+        "cost_incense": 0,
+        "cost_names": 1,
+        "effects": [
+          {
+            "kind": "recover",
+            "incense": 8,
+            "names": 0,
+            "heal": 10
+          }
+        ]
+      },
+      {
+        "id": "return",
+        "title": "P11_EVENT_BORROWED_NAME_RETURN_TITLE",
+        "description": "P11_EVENT_BORROWED_NAME_RETURN_DESCRIPTION",
+        "cost_incense": 3,
+        "cost_names": 0,
+        "effects": [
+          {
+            "kind": "recover",
+            "incense": 0,
+            "names": 2,
+            "heal": 15
+          }
+        ]
+      },
+      {
+        "id": "leave",
+        "title": "P11_EVENT_BORROWED_NAME_LEAVE_TITLE",
+        "description": "P11_EVENT_BORROWED_NAME_LEAVE_DESCRIPTION",
+        "cost_incense": 0,
+        "cost_names": 0,
+        "effects": []
+      }
+    ]
+  }
+}

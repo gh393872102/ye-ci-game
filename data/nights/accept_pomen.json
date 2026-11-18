@@ -1,0 +1,81 @@
+{
+  "fixture": true,
+  "incense": 60,
+  "names": 6,
+  "duration": 240,
+  "structures": [],
+  "environments": [],
+  "materials": [],
+  "initial_state_note": "作者预设验收局；初始编制、初始接触位置、受损结构和环境区域在文件中逐项声明。此后装备/读条/攻防/位移/结算使用共享战斗规则，不在运行中改写HP、位置或结果。并非普通完整夜程计时证据。",
+  "title": "破门潮·开山入祠",
+  "seat": "duoming",
+  "seed": "P7-POMEN-01",
+  "ritual_flag": "",
+  "human_roster": [
+    {
+      "id": "H09",
+      "post": "post_gate_inner",
+      "items": []
+    },
+    {
+      "id": "H17",
+      "post": "post_hall_door",
+      "items": []
+    },
+    {
+      "id": "H01",
+      "post": "post_register",
+      "items": []
+    },
+    {
+      "id": "T01",
+      "post": "post_barricade_outer_court",
+      "items": []
+    },
+    {
+      "id": "T02",
+      "post": "post_window_1",
+      "items": []
+    }
+  ],
+  "ghost_roster": [
+    {
+      "id": "G12",
+      "count": 2,
+      "items": []
+    },
+    {
+      "id": "G20",
+      "count": 1,
+      "items": []
+    },
+    {
+      "id": "G13",
+      "count": 2,
+      "items": []
+    },
+    {
+      "id": "G01",
+      "count": 24,
+      "items": []
+    }
+  ],
+  "inventory": [
+    "I10",
+    "I16",
+    "Y11",
+    "Y15",
+    "N01",
+    "N03"
+  ],
+  "notes": [
+    "所有攻方单位均从潮源x=0开始，默认结构耐久未改，不允许瞬移进门厅。",
+    "G12/G20/G13使用真实CSV身份；若某冲锋表现只能简化，必须在阶段报告明示。"
+  ],
+  "steps": [
+    "暂停，给一只力士装备I10开山楔，观察真实破门增幅。",
+    "可按F02将一只力士与阴骑融成门骑，费用/两次上限/消耗按引擎规则。",
+    "恢复时间，观察真实接近、预警/冲锋、门碎裂及2–4排潮流进入门厅；镜头保持远镜头。"
+  ],
+  "id": "pomen"
+}

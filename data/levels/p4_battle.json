@@ -1,0 +1,64 @@
+{
+  "duration": 240.0,
+  "starting_incense": {
+    "shouxiang": 20.0,
+    "duoming": 16.0
+  },
+  "starting_names": 8.0,
+  "incense_regen": 0.12,
+  "incense_cap": 60.0,
+  "named_cap": 8,
+  "troop_cap": 4,
+  "post_cap": 3,
+  "purchases": {
+    "T01": 5,
+    "T02": 8,
+    "T04": 6,
+    "H01": 12,
+    "H09": 12,
+    "H17": 10
+  },
+  "upgrade": {
+    "cost": 8,
+    "hp": 15,
+    "defense": 2,
+    "max_level": 3
+  },
+  "equipment": {
+    "cost": 6,
+    "hp": 10,
+    "defense": 1,
+    "id": "ritual_incense"
+  },
+  "ritual": {
+    "cost": 4,
+    "duration": 4.0,
+    "reward_incense": 3,
+    "reward_names": 1,
+    "range_body": 8.0
+  },
+  "repair": {
+    "cost": 6,
+    "heal": 300,
+    "duration": 3.0,
+    "inside_offset": 40.0,
+    "rebuild_destroyed": true
+  },
+  "mutations": {
+    "G09": 12,
+    "G12": 15
+  },
+  "mutation_limit": 1,
+  "reinforce": {
+    "cost": 10,
+    "count": 8,
+    "cooldown": 30.0,
+    "limit": 3
+  },
+  "occupation_seconds": 12.0,
+  "occupation_recovery": 2.0,
+  "name_drain_per_second": 0.25,
+  "extinguish_seconds": 10.0,
+  "door_warning_ratio": 0.3,
+  "name_warning": 2.0
+}

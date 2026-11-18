@@ -1,0 +1,326 @@
+{
+	"checks": 79,
+	"failed": [],
+	"failures": 0,
+	"phase": "P8",
+	"results": [
+		{
+			"label": "P8 current data boot validates",
+			"passed": true
+		},
+		{
+			"label": "P8 finite-inventory night starts for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "New P8 night state validates for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 enters actual first battle for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 bridge enables full roster in existing simulator for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Full roster enabled for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 night writes actual mid-battle disk save for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 disk night loads without weakening validation for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 bridge restores actor states and Codex for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 disk restore equals uninterrupted state for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 deterministic continuation matches for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "P8 finite-inventory night starts for duoming",
+			"passed": true
+		},
+		{
+			"label": "New P8 night state validates for duoming",
+			"passed": true
+		},
+		{
+			"label": "P8 enters actual first battle for duoming",
+			"passed": true
+		},
+		{
+			"label": "P8 bridge enables full roster in existing simulator for duoming",
+			"passed": true
+		},
+		{
+			"label": "Full roster enabled for duoming",
+			"passed": true
+		},
+		{
+			"label": "P8 night writes actual mid-battle disk save for duoming",
+			"passed": true
+		},
+		{
+			"label": "P8 disk night loads without weakening validation for duoming",
+			"passed": true
+		},
+		{
+			"label": "P8 bridge restores actor states and Codex for duoming",
+			"passed": true
+		},
+		{
+			"label": "P8 disk restore equals uninterrupted state for duoming",
+			"passed": true
+		},
+		{
+			"label": "P8 deterministic continuation matches for duoming",
+			"passed": true
+		},
+		{
+			"label": "Settlement fixture starts actual P8 bridge for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Owned actor is really temporarily on the opposing side at settlement for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Collecting a temporary-side result leaves the final replay state untouched for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Temporary side change settles back to original owner without becoming permanent for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Actual P8 settlement accepts normalized ownership while active for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Settlement fixture starts actual P8 bridge for duoming",
+			"passed": true
+		},
+		{
+			"label": "Actual mirror prepares reflection before temporary transfer",
+			"passed": true
+		},
+		{
+			"label": "Owned actor is really temporarily on the opposing side at settlement for duoming",
+			"passed": true
+		},
+		{
+			"label": "Collecting a temporary-side result leaves the final replay state untouched for duoming",
+			"passed": true
+		},
+		{
+			"label": "Temporary side change settles back to original owner without becoming permanent for duoming",
+			"passed": true
+		},
+		{
+			"label": "Actual P8 settlement accepts normalized ownership while active for duoming",
+			"passed": true
+		},
+		{
+			"label": "Settlement fixture starts actual P8 bridge for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Owned actor is really temporarily on the opposing side at settlement for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Temporary allegiance really expires back to its original side before settlement for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Temporary restoration preserves the original night post for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Collecting a temporary-side result leaves the final replay state untouched for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Temporary side change settles back to original owner without becoming permanent for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Actual P8 settlement accepts normalized ownership after expiry for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Settlement fixture starts actual P8 bridge for duoming",
+			"passed": true
+		},
+		{
+			"label": "Actual mirror prepares reflection before temporary transfer",
+			"passed": true
+		},
+		{
+			"label": "Owned actor is really temporarily on the opposing side at settlement for duoming",
+			"passed": true
+		},
+		{
+			"label": "Temporary allegiance really expires back to its original side before settlement for duoming",
+			"passed": true
+		},
+		{
+			"label": "Temporary restoration preserves the original night post for duoming",
+			"passed": true
+		},
+		{
+			"label": "Collecting a temporary-side result leaves the final replay state untouched for duoming",
+			"passed": true
+		},
+		{
+			"label": "Temporary side change settles back to original owner without becoming permanent for duoming",
+			"passed": true
+		},
+		{
+			"label": "Actual P8 settlement accepts normalized ownership after expiry for duoming",
+			"passed": true
+		},
+		{
+			"label": "Misfire is an applied attempt with a failed skill effect for G25",
+			"passed": true
+		},
+		{
+			"label": "Misfire really consumes its debuff and produces cooldown for G25",
+			"passed": true
+		},
+		{
+			"label": "Exactly one misfire command is recorded including H01 for G25",
+			"passed": true
+		},
+		{
+			"label": "Misfire fragment is written to replay disk for G25",
+			"passed": true
+		},
+		{
+			"label": "Misfire disk replay reproduces state and event hashes for G25",
+			"passed": true
+		},
+		{
+			"label": "Misfire is an applied attempt with a failed skill effect for H01",
+			"passed": true
+		},
+		{
+			"label": "Misfire really consumes its debuff and produces cooldown for H01",
+			"passed": true
+		},
+		{
+			"label": "Exactly one misfire command is recorded including H01 for H01",
+			"passed": true
+		},
+		{
+			"label": "Misfire fragment is written to replay disk for H01",
+			"passed": true
+		},
+		{
+			"label": "Misfire disk replay reproduces state and event hashes for H01",
+			"passed": true
+		},
+		{
+			"label": "Upper ghost is really recruited before misrecord",
+			"passed": true
+		},
+		{
+			"label": "Misrecord really returns the recruited upper ghost to wild side temporarily",
+			"passed": true
+		},
+		{
+			"label": "Temporary conversion preserves the current upper-route phase",
+			"passed": true
+		},
+		{
+			"label": "Converted upper ghost never climbs backward to the original entry",
+			"passed": true
+		},
+		{
+			"label": "Conversion beyond the descent resumes the rear route",
+			"passed": true
+		},
+		{
+			"label": "Mark is a real recorded player command",
+			"passed": true
+		},
+		{
+			"label": "H31 paid hunt starts through seat command",
+			"passed": true
+		},
+		{
+			"label": "G29 real opposing skill changes side through paid API",
+			"passed": true
+		},
+		{
+			"label": "Checkpoint captures active temporary side change",
+			"passed": true
+		},
+		{
+			"label": "Checkpoint captures H31 moving job before return",
+			"passed": true
+		},
+		{
+			"label": "Active effects serialize to actual isolated disk file",
+			"passed": true
+		},
+		{
+			"label": "Exact numeric state agrees with readable disk mirror",
+			"passed": true
+		},
+		{
+			"label": "Active hunt and allegiance restore in clean scene",
+			"passed": true
+		},
+		{
+			"label": "Active-effect restore exactly matches live state",
+			"passed": true
+		},
+		{
+			"label": "Hunt return and misrecord expiry continue deterministically",
+			"passed": true
+		},
+		{
+			"label": "New skill and mark actions satisfy replay archive schema",
+			"passed": true
+		},
+		{
+			"label": "P8 skill fragment written to replay disk",
+			"passed": true
+		},
+		{
+			"label": "P8 disk fragment loads into the same replay simulator",
+			"passed": true
+		},
+		{
+			"label": "Actual skill/mark/temporary-side fragment replays with identical final and event hashes",
+			"passed": true
+		},
+		{
+			"label": "Bad roster engine time rejects before mutating live scene",
+			"passed": true
+		},
+		{
+			"label": "Bad unit skill cooldown rejects atomically",
+			"passed": true
+		},
+		{
+			"label": "Bad Codex stage rejects instead of granting progress",
+			"passed": true
+		}
+	],
+	"rules_hash": "b1aa101a5c00d34c8ffb40f30f12b5dd62f4f476a3909c62192b498b73f1fb5b",
+	"scope": "real finite stock first 8 seconds of both nights plus authored contact fragment; not a complete P8 night"
+}

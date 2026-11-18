@@ -1,0 +1,430 @@
+{
+  "phase": "P7",
+  "collected_at": "2026-11-17T10:40:11.316622+00:00",
+  "engine": "Godot 4.7.2 stable / macOS native OpenGL compatibility",
+  "rules_hash": "cb68951480f3beb4127f4f4550e2fe1ab43beb2b87ceea9723709f7b5ee95802",
+  "headless": {
+    "checks": 1404,
+    "failures": 0,
+    "suites": [
+      {
+        "phase": "P0",
+        "checks": 112,
+        "failures": 0,
+        "report": "p7-p0-regression-test-results.json"
+      },
+      {
+        "phase": "P1",
+        "checks": 112,
+        "failures": 0,
+        "report": "p7-p1-regression-test-results.json"
+      },
+      {
+        "phase": "P2",
+        "checks": 114,
+        "failures": 0,
+        "report": "p7-p2-regression-test-results.json"
+      },
+      {
+        "phase": "P3",
+        "checks": 69,
+        "failures": 0,
+        "report": "p7-p3-regression-test-results.json"
+      },
+      {
+        "phase": "P4",
+        "checks": 113,
+        "failures": 0,
+        "report": "p7-p4-regression-test-results.json"
+      },
+      {
+        "phase": "P5Domain",
+        "checks": 55,
+        "failures": 0,
+        "report": "p7-p5-domain-regression-results.json"
+      },
+      {
+        "phase": "P5",
+        "checks": 207,
+        "failures": 0,
+        "report": "p7-p5-regression-test-results.json"
+      },
+      {
+        "phase": "P6",
+        "checks": 123,
+        "failures": 0,
+        "report": "p7-p6-regression-test-results.json"
+      },
+      {
+        "phase": "P6Bridge",
+        "checks": 33,
+        "failures": 0,
+        "report": "p7-p6-bridge-regression-results.json"
+      },
+      {
+        "phase": "P7",
+        "checks": 203,
+        "failures": 0,
+        "report": "p7-test-results.json"
+      },
+      {
+        "phase": "P7Night",
+        "checks": 159,
+        "failures": 0,
+        "report": "p7-night-test-results.json"
+      },
+      {
+        "phase": "P7Persistence",
+        "checks": 52,
+        "failures": 0,
+        "report": "p7-persistence-results.json"
+      },
+      {
+        "phase": "P7Carry",
+        "checks": 52,
+        "failures": 0,
+        "report": "p7-carry-results.json"
+      }
+    ],
+    "execution_note": "P0–P6 passed in the earlier regression run. After the final growth-only ritual affordability and ending-threshold correction, the affected P7 effects, complete nights, persistence, and carry suites were rerun independently and passed. This index aggregates those actual runs; it does not claim that every suite ran after the last core edit. Native runs are listed separately."
+  },
+  "native": [
+    {
+      "phase": "P7",
+      "checks": 245,
+      "failures": 0,
+      "report": "p7-render-results.json",
+      "screenshots": 34,
+      "archive_directory": "/tmp/ye-ci-p7-effect-render-archives"
+    },
+    {
+      "phase": "P7Night",
+      "checks": 171,
+      "failures": 0,
+      "report": "p7-night-render-results.json",
+      "screenshots": 12,
+      "archive_directory": "/tmp/ye-ci-p7-night-archives-render"
+    }
+  ],
+  "source_boot": {
+    "checks": 35,
+    "failures": 0,
+    "report": "p7-source-boot-results.json"
+  },
+  "native_ui": {
+    "checks": 14,
+    "failures": 0,
+    "report": "p7-ui-smoke-results.json"
+  },
+  "nights": [
+    {
+      "seat": "shouxiang",
+      "seed": "P7-G1-FULL-shouxiang",
+      "outcome": "victory",
+      "simulated_seconds": 1200.00000000024,
+      "battle_seconds": [
+        180.000000000035,
+        210.000000000059,
+        210.000000000059,
+        240.000000000083,
+        360.000000000001
+      ],
+      "visited": [
+        "n01",
+        "n02",
+        "n03",
+        "n04",
+        "n05",
+        "n06",
+        "n07",
+        "n08",
+        "n09",
+        "n10"
+      ],
+      "mercy_used": false,
+      "named_recruit_violations": [],
+      "headless_native_duration_match": true
+    },
+    {
+      "seat": "duoming",
+      "seed": "P7-G1-FULL-duoming",
+      "outcome": "victory",
+      "simulated_seconds": 633.816666666638,
+      "battle_seconds": [
+        129.216666666662,
+        126.149999999994,
+        126.149999999994,
+        126.149999999994,
+        126.149999999994
+      ],
+      "visited": [
+        "n01",
+        "n02",
+        "n03",
+        "n04",
+        "n05",
+        "n06",
+        "n07",
+        "n08",
+        "n09",
+        "n10"
+      ],
+      "mercy_used": false,
+      "named_recruit_violations": [],
+      "headless_native_duration_match": true
+    }
+  ],
+  "images": [
+    {
+      "path": "docs/phase-reports/p7-shots/borrow-success-seed-0.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/borrow-success-seed-1.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/borrow-backlash-seed-2.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-chaodu-channel_guard-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-chaodu-channel_guard-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-chaodu-ritual_release-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-chaodu-ritual_release-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-chaodu-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-chaodu-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-shoumen-last_gate_hit-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-shoumen-last_gate_hit-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-shoumen-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-shoumen-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-pomen-door_break-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-pomen-door_break-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-pomen-inflow-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-pomen-inflow-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-pomen-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-pomen-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-dengmian-light_fear-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-dengmian-light_fear-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-dengmian-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-dengmian-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-shangliang-upper_ambush-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-shangliang-upper_ambush-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-shangliang-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-shangliang-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-wuce-borrow_backlash-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/feedback-wuce-borrow_backlash-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-wuce-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/build-wuce-720.png",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/shared-watch-growth-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/shared-duel_shouxiang-growth-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-shots/shared-duel_duoming-growth-1080.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-shouxiang-n01-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-shouxiang-n03-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-shouxiang-n05-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-shouxiang-n08-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-shouxiang-n10-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/12-shouxiang-full-night-end.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-duoming-n01-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-duoming-n03-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-duoming-n05-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-duoming-n08-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/11-duoming-n10-live.png",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/phase-reports/p7-night-shots/12-duoming-full-night-end.png",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "fixture_policy": "Six accept_*.json starts explicitly declare authored contact points, damaged structures and environment zones. They are distinct from the two complete ordinary growth nights, which only use actual paid Session/Night commands and fixed shared simulation steps. Rendering does not advance scenario simulation time. H03 is a first-time rear-cover reserve ritual character, not claimed to cast from the rear room; existing guards continue defending the register. No fallen named character is purchased again.",
+  "deferred": [
+    {
+      "id": "I20",
+      "status": "equipable interface only; inactive strengthening/name-drain effect"
+    },
+    {
+      "id": "F04",
+      "status": "optional fusion interface only"
+    },
+    {
+      "id": "A2",
+      "status": "not claimed: six authored trial feedback paths are tested, not six distinct complete ordinary build nights"
+    }
+  ],
+  "production_rule_limit": "The acceptance policy does not rely on the pre-existing API ability to repurchase a fallen named character. A complete production limited-revival system is not claimed by these tests.",
+  "observer_ui": {
+    "checks": 10,
+    "failures": 0,
+    "report": "p7-observer-ui-results.json"
+  }
+}

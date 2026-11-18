@@ -1,0 +1,11 @@
+{
+  "phase": "P4",
+  "source_boot": {
+    "engine_frames": 120,
+    "exit_code": 0,
+    "script_or_resource_errors": false
+  },
+  "windows_exe": "not tested; existing export is P0",
+  "date": "2026-11-17 Asia/Shanghai",
+  "font_access": "native host filesystem; sandbox font access failed and was rerun"
+}

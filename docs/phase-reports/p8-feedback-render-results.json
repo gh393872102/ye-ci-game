@@ -1,0 +1,1373 @@
+{
+	"archive_directory": "/tmp/ye-ci-p8-acceptance-render-archives",
+	"capture": true,
+	"cards": [],
+	"checks": 268,
+	"coverage_status": "partial_integration",
+	"effects": {},
+	"failures": 0,
+	"fixture_policy": "Explicit isolated starting positions/resources. Real Session commands and shared Simulation; these fixtures do not claim an ordinary complete night.",
+	"night_failure": {},
+	"phase": "P8",
+	"results": [
+		{
+			"check": "K1 Boot source catalogs have no validation errors",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 Exact source population is 32 humans, 32 ghosts, four troops",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K5 Only H25 and H31 declare departure permission",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Four books contain exactly 32 humans, 32 ghosts and 20 censers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Customs book contains twelve ritual descriptions and block placeholders",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Unseen entries withhold identity artwork and skill text",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Listed afterword cannot skip unresolved stages",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 First encounter unlocks name and line-art stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Successful resolution unlocks full source skill text and color stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Explicit listed interface advances the fourth stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Duplicate or lower-stage events never downgrade collected progress",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Unknown unit and empty-seed failure events are rejected",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Failure record is idempotent and keeps explicit source ID",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Isolated codex saves through the actual disk envelope",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Codex disk round trip preserves all four stages and failure attribution",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 0 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 1 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 2 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 3 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 4 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H01 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H01-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H01-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H02 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H02-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H02-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H03 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H03-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H03-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H04 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H04-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H04-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H05 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H05-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H05-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H06 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H06-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H06-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H07 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H07-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H07-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H08 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H08-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H08-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H09 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H09-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H09-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H10 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H10-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H10-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H11 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H11-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H11-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H12 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H12-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H12-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H13 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H13-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H13-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H14 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H14-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H14-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H15 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H15-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H15-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H16 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H16-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H16-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		}
+	],
+	"screenshots": [
+		"res://docs/phase-reports/p8-feedback-shots/skill-H01-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H02-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H03-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H04-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H05-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H06-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H07-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H08-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H09-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H10-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H11-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H12-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H13-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H14-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H15-actual-1080.png",
+		"res://docs/phase-reports/p8-feedback-shots/skill-H16-actual-1080.png"
+	],
+	"trajectories": []
+}

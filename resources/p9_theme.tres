@@ -1,0 +1,168 @@
+[gd_resource type="Theme" format=3]
+
+[ext_resource type="FontFile" path="res://resources/fonts/NotoSansCJKsc-Regular.res" id="Body"]
+
+[sub_resource type="StyleBoxFlat" id="Paper"]
+bg_color = Color(0.0941, 0.1333, 0.1412, 1)
+border_color = Color(0.3020, 0.3373, 0.3137, 1)
+anti_aliasing = false
+border_width_left = 1
+content_margin_left = 12.0
+border_width_right = 1
+content_margin_right = 12.0
+border_width_top = 1
+content_margin_top = 6.0
+border_width_bottom = 1
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="Normal"]
+bg_color = Color(0.1020, 0.1412, 0.1451, 1)
+border_color = Color(0.3216, 0.3490, 0.3098, 1)
+anti_aliasing = false
+border_width_left = 1
+content_margin_left = 12.0
+border_width_right = 1
+content_margin_right = 12.0
+border_width_top = 1
+content_margin_top = 6.0
+border_width_bottom = 1
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="Hover"]
+bg_color = Color(0.1686, 0.2157, 0.2039, 1)
+border_color = Color(0.6078, 0.5961, 0.4549, 1)
+anti_aliasing = false
+border_width_left = 1
+content_margin_left = 12.0
+border_width_right = 1
+content_margin_right = 12.0
+border_width_top = 1
+content_margin_top = 6.0
+border_width_bottom = 1
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="Pressed"]
+bg_color = Color(0.2235, 0.2588, 0.2275, 1)
+border_color = Color(0.7098, 0.6078, 0.4039, 1)
+anti_aliasing = false
+border_width_left = 1
+content_margin_left = 12.0
+border_width_right = 1
+content_margin_right = 12.0
+border_width_top = 1
+content_margin_top = 6.0
+border_width_bottom = 1
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="Disabled"]
+bg_color = Color(0.0902, 0.1137, 0.1176, 1)
+border_color = Color(0.2157, 0.2392, 0.2275, 1)
+anti_aliasing = false
+border_width_left = 1
+content_margin_left = 12.0
+border_width_right = 1
+content_margin_right = 12.0
+border_width_top = 1
+content_margin_top = 6.0
+border_width_bottom = 1
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="Focus"]
+bg_color = Color(0.1098, 0.1373, 0.1333, 1)
+border_color = Color(0.9529, 0.8157, 0.5804, 1)
+anti_aliasing = false
+border_width_left = 2
+content_margin_left = 12.0
+border_width_right = 2
+content_margin_right = 12.0
+border_width_top = 2
+content_margin_top = 6.0
+border_width_bottom = 2
+content_margin_bottom = 6.0
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="Track"]
+bg_color = Color(0.0745, 0.1059, 0.1098, 1)
+border_color = Color(0.2235, 0.2667, 0.2471, 1)
+anti_aliasing = false
+border_width_left = 1
+content_margin_left = 12.0
+border_width_right = 1
+content_margin_right = 12.0
+border_width_top = 1
+content_margin_top = 6.0
+border_width_bottom = 1
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="Fill"]
+bg_color = Color(0.5569, 0.4549, 0.3176, 1)
+border_color = Color(0.6471, 0.5412, 0.3882, 1)
+anti_aliasing = false
+border_width_left = 1
+content_margin_left = 12.0
+border_width_right = 1
+content_margin_right = 12.0
+border_width_top = 1
+content_margin_top = 6.0
+border_width_bottom = 1
+content_margin_bottom = 6.0
+
+[resource]
+default_font = ExtResource("Body")
+default_font_size = 20
+Button/styles/normal = SubResource("Normal")
+Button/styles/hover = SubResource("Hover")
+Button/styles/pressed = SubResource("Pressed")
+Button/styles/disabled = SubResource("Disabled")
+Button/styles/focus = SubResource("Focus")
+Button/colors/font_color = Color(0.8824, 0.8745, 0.8000, 1)
+Button/colors/font_hover_color = Color(1.0000, 0.9490, 0.8000, 1)
+Button/colors/font_pressed_color = Color(0.9529, 0.8549, 0.6941, 1)
+Button/colors/font_disabled_color = Color(0.5373, 0.5686, 0.5451, 1)
+OptionButton/styles/normal = SubResource("Normal")
+OptionButton/styles/hover = SubResource("Hover")
+OptionButton/styles/pressed = SubResource("Pressed")
+OptionButton/styles/disabled = SubResource("Disabled")
+OptionButton/styles/focus = SubResource("Focus")
+OptionButton/colors/font_color = Color(0.8824, 0.8745, 0.8000, 1)
+OptionButton/colors/font_hover_color = Color(1.0000, 0.9490, 0.8000, 1)
+OptionButton/colors/font_pressed_color = Color(0.9529, 0.8549, 0.6941, 1)
+OptionButton/colors/font_disabled_color = Color(0.5373, 0.5686, 0.5451, 1)
+MenuButton/styles/normal = SubResource("Normal")
+MenuButton/styles/hover = SubResource("Hover")
+MenuButton/styles/pressed = SubResource("Pressed")
+MenuButton/styles/disabled = SubResource("Disabled")
+MenuButton/styles/focus = SubResource("Focus")
+MenuButton/colors/font_color = Color(0.8824, 0.8745, 0.8000, 1)
+MenuButton/colors/font_hover_color = Color(1.0000, 0.9490, 0.8000, 1)
+MenuButton/colors/font_pressed_color = Color(0.9529, 0.8549, 0.6941, 1)
+MenuButton/colors/font_disabled_color = Color(0.5373, 0.5686, 0.5451, 1)
+CheckButton/styles/normal = SubResource("Normal")
+CheckButton/styles/hover = SubResource("Hover")
+CheckButton/styles/pressed = SubResource("Pressed")
+CheckButton/styles/disabled = SubResource("Disabled")
+CheckButton/styles/focus = SubResource("Focus")
+CheckButton/colors/font_color = Color(0.8824, 0.8745, 0.8000, 1)
+CheckButton/colors/font_hover_color = Color(1.0000, 0.9490, 0.8000, 1)
+CheckButton/colors/font_pressed_color = Color(0.9529, 0.8549, 0.6941, 1)
+CheckButton/colors/font_disabled_color = Color(0.5373, 0.5686, 0.5451, 1)
+CheckBox/styles/normal = SubResource("Normal")
+CheckBox/styles/hover = SubResource("Hover")
+CheckBox/styles/pressed = SubResource("Pressed")
+CheckBox/styles/disabled = SubResource("Disabled")
+CheckBox/styles/focus = SubResource("Focus")
+CheckBox/colors/font_color = Color(0.8824, 0.8745, 0.8000, 1)
+CheckBox/colors/font_hover_color = Color(1.0000, 0.9490, 0.8000, 1)
+CheckBox/colors/font_pressed_color = Color(0.9529, 0.8549, 0.6941, 1)
+CheckBox/colors/font_disabled_color = Color(0.5373, 0.5686, 0.5451, 1)
+Panel/styles/panel = SubResource("Paper")
+PanelContainer/styles/panel = SubResource("Paper")
+PopupMenu/styles/panel = SubResource("Paper")
+PopupMenu/styles/hover = SubResource("Hover")
+LineEdit/styles/normal = SubResource("Normal")
+LineEdit/styles/focus = SubResource("Focus")
+ProgressBar/styles/background = SubResource("Track")
+ProgressBar/styles/fill = SubResource("Fill")
+VScrollBar/styles/scroll = SubResource("Track")
+VScrollBar/styles/grabber = SubResource("Fill")
+Label/colors/font_color = Color(0.8706, 0.8745, 0.8078, 1)

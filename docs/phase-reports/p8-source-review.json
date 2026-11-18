@@ -1,0 +1,46 @@
+{
+  "phase": "P8",
+  "reviewed_at": "2026-11-17T19:48:10.405496+08:00",
+  "baseline": "7776cb5",
+  "scope": "P8 only; P9-P12 not implemented",
+  "readings": [
+    "Development general instructions, locked list, engineering, stage table, P7 and P8 complete",
+    "GDD 6.3,6.6,8,9,10,11,14,19.4 and source character/ghost CSVs"
+  ],
+  "pages": [
+    {
+      "url": "https://gh393872102.github.io/ye-ci/dev.html#d-p8",
+      "sha256": "19d7c12a263769c3f5aa18f806a5b899abeeda0d8725353462a9001f0d744e6f"
+    },
+    {
+      "url": "https://gh393872102.github.io/ye-ci/",
+      "sha256": "6ec169b105512f7454ebd992b46c298614b9de5b6a4aae659afa175fd513a075"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "13",
+      "sha256": "35fadc5565b24dcfb67817f8a25831284716c0df0412a0d420b4008683cccbbe",
+      "use": "P8 camera, battlefield scale and positions reference; no design changes"
+    },
+    {
+      "figure": "25",
+      "sha256": "7cedb7684a0ab89bd28ede48b42b6343ccadc9ac4780d31461305af8b48a7a17",
+      "use": "P8 camera, battlefield scale and positions reference; no design changes"
+    }
+  ],
+  "source_csvs": [
+    {
+      "path": "data/units/characters.csv",
+      "sha256": "b633d012a45980f439dfe91e735376462c5d6b882a371d63b69564ed5aebdec1"
+    },
+    {
+      "path": "data/units/ghosts.csv",
+      "sha256": "156525fc0273ca574caf24e5e58f90d56fbbf1681408e4290084c5950ec6e9af"
+    },
+    {
+      "path": "data/units/troops.csv",
+      "sha256": "c805ff7e52e0d8b4ae725387609011d07a0ee029b7e63db7f6f9b7932e42313c"
+    }
+  ]
+}

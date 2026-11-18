@@ -1,0 +1,14 @@
+{
+  "source_boot": {
+    "frames": 60,
+    "exit_code": 0,
+    "errors": false
+  },
+  "exported_pck_on_macos": {
+    "frames": 60,
+    "exit_code": 0,
+    "errors": false
+  },
+  "windows_exe_launch": "not tested",
+  "date": "2026-11-17 Asia/Shanghai"
+}

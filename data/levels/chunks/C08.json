@@ -1,0 +1,69 @@
+{
+  "id": "C08",
+  "title": "戏台",
+  "scene": "res://data/levels/chunks/C08.tscn",
+  "default_path": [
+    "二进庭西端",
+    "台沿幕架",
+    "主殿门侧"
+  ],
+  "destructibles": [
+    "inner_a"
+  ],
+  "upper_access": "台沿与石阶形成小高差，主楼梯继续通二楼。",
+  "failure_line": "幕架破后潮从台沿直接靠近门厅。",
+  "rituals": [
+    "R05",
+    "R11"
+  ],
+  "length_body": 12,
+  "legal_posts": [
+    "post_stage_wing"
+  ],
+  "areas": [
+    {
+      "floor_id": 0,
+      "start": 76,
+      "end": 88,
+      "kind": "stage"
+    }
+  ],
+  "visual": {
+    "floor_id": 0,
+    "start": 76,
+    "end": 88,
+    "motif": "stage"
+  },
+  "layout": {
+    "posts": [
+      {
+        "id": "post_stage_wing",
+        "x": 82.2,
+        "floor_id": 0,
+        "room_id": "inner_court",
+        "cover_kind": "pillar",
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "default_deployment": true,
+        "retreat": {
+          "next": "post_hall_door",
+          "obstacles": [
+            "inner_a"
+          ]
+        }
+      }
+    ]
+  },
+  "overrides": {
+    "obstacle_slots": [
+      {
+        "id": "inner_a",
+        "kind": "stage_curtain"
+      }
+    ]
+  }
+}

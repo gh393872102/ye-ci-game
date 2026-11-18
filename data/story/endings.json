@@ -1,0 +1,44 @@
+{
+  "acts": [
+    {"from_depth": 0, "title_key": "P11_ACT_REKINDLE", "shouxiang_key": "P11_REKINDLE_KEEPER", "duoming_key": "P11_REKINDLE_TIDE"},
+    {"from_depth": 4, "title_key": "P11_ACT_RECEIVE", "shouxiang_key": "P11_RECEIVE_KEEPER", "duoming_key": "P11_RECEIVE_TIDE"},
+    {"from_depth": 9, "title_key": "P11_ACT_LIST", "shouxiang_key": "P11_LIST_KEEPER", "duoming_key": "P11_LIST_TIDE"}
+  ],
+  "battle_recruits": {"H10": 10, "H13": 10},
+  "automatic_order": ["E01", "E02"],
+  "endings": {
+    "E01": {
+      "title_key": "P11_RESTORE_TITLE",
+      "text_key": "P11_RESTORE_TEXT",
+      "renown_min": 8,
+      "renown_peak_min": 10,
+      "exorcise_min": 8,
+      "exorcise_to_slay_ratio": 2,
+      "empty_god_max": 0,
+      "or_borrow_max": 1
+    },
+    "E02": {
+      "title_key": "P11_RELEASE_TITLE",
+      "text_key": "P11_RELEASE_TEXT",
+      "renown_min": 4,
+      "renown_max": 7,
+      "release_or_recruit_min": 1,
+      "finished_seize_night": true
+    },
+    "E03": {
+      "title_key": "P11_SELF_TITLE",
+      "text_key": "P11_SELF_TEXT",
+      "ritual": "R08",
+      "unit": "H01",
+      "names_cost": 4,
+      "max_hp_ratio": 0.65
+    }
+  },
+  "epilogues": {
+    "G01": {"text_key": "P11_EPILOGUE_G01", "ending": "E01"},
+    "G11": {"text_key": "P11_EPILOGUE_G11", "ending": "E02"},
+    "G32": {"text_key": "P11_EPILOGUE_G32"},
+    "H01": {"text_key": "P11_EPILOGUE_H01", "ending": "E03", "resolve": true},
+    "ritual_lieming": {"text_key": "P11_EPILOGUE_R08", "completed_ritual": "R08"}
+  }
+}

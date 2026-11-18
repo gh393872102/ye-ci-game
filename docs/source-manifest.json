@@ -1,0 +1,51 @@
+{
+  "dev.html": {
+    "sha256": "19d7c12a263769c3f5aa18f806a5b899abeeda0d8725353462a9001f0d744e6f",
+    "captured": "2026-11-17 Asia/Shanghai"
+  },
+  "gdd.html": {
+    "sha256": "6ec169b105512f7454ebd992b46c298614b9de5b6a4aae659afa175fd513a075",
+    "captured": "2026-11-17 Asia/Shanghai"
+  },
+  "13.jpg": {
+    "sha256": "35fadc5565b24dcfb67817f8a25831284716c0df0412a0d420b4008683cccbbe",
+    "captured": "2026-11-17 Asia/Shanghai"
+  },
+  "07.jpg": {
+    "sha256": "12408e8d9465e8c48b7d3232ffb0b0766c75abe16f109060acbcf9710a70286d",
+    "captured": "2026-11-17 Asia/Shanghai"
+  },
+  "25.jpg": {
+    "sha256": "7cedb7684a0ab89bd28ede48b42b6343ccadc9ac4780d31461305af8b48a7a17",
+    "captured": "2026-11-17 Asia/Shanghai"
+  },
+  "characters.csv": {
+    "sha256": "b633d012a45980f439dfe91e735376462c5d6b882a371d63b69564ed5aebdec1",
+    "captured": "2026-11-17 Asia/Shanghai"
+  },
+  "ghosts.csv": {
+    "sha256": "156525fc0273ca574caf24e5e58f90d56fbbf1681408e4290084c5950ec6e9af",
+    "captured": "2026-11-17 Asia/Shanghai"
+  },
+  "11.jpg": {
+    "sha256": "24e74d1bb27b6979b9b0f154e7dcd73bab97f43772cf56d98743a6bc853ef8a0",
+    "captured": "2026-11-17 Asia/Shanghai",
+    "phase": "P1"
+  },
+  "09.jpg": {
+    "sha256": "98ada9d5dc773de49ccdf4eb4db80d0f59383b63ce22ed38b5cabbfd0a734d17",
+    "captured": "2026-11-17 Asia/Shanghai",
+    "phase": "P1"
+  },
+  "24.jpg": {
+    "sha256": "512d4e1751c99abcdfb913019bea278dfbcaa5ca24c2c6f72cd8e2e50b17e013",
+    "captured": "2026-11-17 Asia/Shanghai",
+    "phase": "P2"
+  },
+  "P2_reference_recheck": {
+    "captured": "2026-11-17 Asia/Shanghai",
+    "dev_sha256": "19d7c12a263769c3f5aa18f806a5b899abeeda0d8725353462a9001f0d744e6f",
+    "gdd_sha256": "6ec169b105512f7454ebd992b46c298614b9de5b6a4aae659afa175fd513a075",
+    "unchanged_since_P1": true
+  }
+}

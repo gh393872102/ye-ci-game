@@ -1,0 +1,11 @@
+{
+  "phase": "P6",
+  "captured_at": "2026-11-17T15:06:25.576467+08:00",
+  "environment": "macOS Apple M2 Pro / native Compatibility renderer",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "command": "./tools/godot.sh --quit-after 60",
+  "exit_code": 0,
+  "script_errors": 0,
+  "engine_errors": 0,
+  "note": "Normal Boot/Night startup, bounded 60-frame smoke; full interactive assertions are in p6-render-results.json."
+}

@@ -1,0 +1,6 @@
+{
+  "phase": "P8",
+  "incident": "A historical automated test touched the local player codex. The file was preserved. Subsequent acceptance used isolated paths.",
+  "validation": "The isolated reruns left the observed file unchanged. Without a pre-run baseline the source of individual entries cannot be determined.",
+  "public_copy": "Player state, local paths, counts and hashes omitted."
+}

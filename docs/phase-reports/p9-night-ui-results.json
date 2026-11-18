@@ -1,0 +1,503 @@
+{
+  "captures": [
+    {
+      "height": 720,
+      "id": "20-codex-silhouette-720",
+      "sha256": "30aa25fb8a2988f55e69034848674f7a13f48185cab623d8bb27d0022a1cb2d9",
+      "width": 1280,
+      "retained": false
+    },
+    {
+      "height": 720,
+      "id": "20-codex-line-720",
+      "sha256": "59f466bf83c8a742482a5d2b3584a8151fe63e2c2abb221e1d796009871ee763",
+      "width": 1280,
+      "retained": false
+    },
+    {
+      "height": 1080,
+      "id": "20-codex-color-1080",
+      "sha256": "14022cbc3ce06011a60499abbdb91435fbf83c2d2026e4711417ac549991a204",
+      "width": 1920,
+      "file": "docs/phase-reports/p9-shots/night/20-codex-color-1080.png",
+      "retained": true
+    },
+    {
+      "height": 720,
+      "id": "20-codex-named-720",
+      "sha256": "64b3965ee0aca941048926d7658022f6a654c8f70cf13db55d4350e36d633278",
+      "width": 1280,
+      "file": "docs/phase-reports/p9-shots/night/20-codex-named-720.png",
+      "retained": true
+    },
+    {
+      "height": 1080,
+      "id": "19-reward-1080",
+      "sha256": "1d194e638d7bc9294702aa124ce762a75c18bb2b1ae8497bcada988534b5151e",
+      "width": 1920,
+      "file": "docs/phase-reports/p9-shots/night/19-reward-1080.png",
+      "retained": true
+    },
+    {
+      "height": 720,
+      "id": "19-reward-720",
+      "sha256": "17cc1b6344d64cecf65e3a21e853c44a0f3a86a8b06c586e9060fcea4df76ee2",
+      "width": 1280,
+      "file": "docs/phase-reports/p9-shots/night/19-reward-720.png",
+      "retained": true
+    },
+    {
+      "height": 1080,
+      "id": "22-market-shouxiang-1080",
+      "sha256": "73c0273e76fcde80be02542196325c6bd582b75dc3ad89f1a7654d391a2da0d2",
+      "width": 1920,
+      "file": "docs/phase-reports/p9-shots/night/22-market-shouxiang-1080.png",
+      "retained": true
+    },
+    {
+      "height": 720,
+      "id": "18-route-fork-720",
+      "sha256": "00f7a5292981c81dd8eee2a5763680472150ec38b67e09d06e6b189c61d1a5dd",
+      "width": 1280,
+      "file": "docs/phase-reports/p9-shots/night/18-route-fork-720.png",
+      "retained": true
+    },
+    {
+      "height": 1080,
+      "id": "18-route-fork-1080",
+      "sha256": "ebd7f66731876a20919f4a43021477ecc134e2cacb26bb654a56f6c9710bafe2",
+      "width": 1920,
+      "file": "docs/phase-reports/p9-shots/night/18-route-fork-1080.png",
+      "retained": true
+    },
+    {
+      "height": 1080,
+      "id": "21-summary-victory-1080",
+      "sha256": "81ff5dda094fa5913835c6294f7601b892292dfe262cfb520d0c179034b23928",
+      "width": 1920,
+      "file": "docs/phase-reports/p9-shots/night/21-summary-victory-1080.png",
+      "retained": true
+    },
+    {
+      "height": 720,
+      "id": "21-summary-defeat-720",
+      "sha256": "b4edfd70e98af5ccf586e642ef25bc368ab3333f8813a6b0cf9c53e68a43e50e",
+      "width": 1280,
+      "file": "docs/phase-reports/p9-shots/night/21-summary-defeat-720.png",
+      "retained": true
+    },
+    {
+      "height": 720,
+      "id": "22-market-duoming-720",
+      "sha256": "74588f21d0766ac9ad80d607ad41dd83a6a7ec5ecb78257b85c1fced3a239b80",
+      "width": 1280,
+      "file": "docs/phase-reports/p9-shots/night/22-market-duoming-720.png",
+      "retained": true
+    }
+  ],
+  "checks": [
+    {
+      "passed": true,
+      "test": "Project, codex and replay paths point to the current disposable fixture"
+    },
+    {
+      "passed": true,
+      "test": "Night host verifies its isolated storage path before start"
+    },
+    {
+      "passed": true,
+      "test": "All nightly data and translation files load"
+    },
+    {
+      "passed": true,
+      "test": "Main night host starts a real seeded P8 roster run"
+    },
+    {
+      "passed": true,
+      "test": "11 map nodes with only the actual first node enabled"
+    },
+    {
+      "passed": true,
+      "test": "The product night-map entry exposes its Settings action"
+    },
+    {
+      "passed": true,
+      "test": "Joypad direction and accept reach the ghost book"
+    },
+    {
+      "passed": true,
+      "test": "An unseen entry displays a silhouette and holds back stats, skill and traits"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 20-codex-silhouette-720"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 20-codex-silhouette-720 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Actual tabs open the items book"
+    },
+    {
+      "passed": true,
+      "test": "Actual tabs open the customs book"
+    },
+    {
+      "passed": true,
+      "test": "Joypad cancel closes the codex and restores the map focus"
+    },
+    {
+      "passed": true,
+      "test": "The first node button opens the actual combat scene"
+    },
+    {
+      "passed": true,
+      "test": "Fixture places an actual white-robed ghost beside the legal register post"
+    },
+    {
+      "passed": true,
+      "test": "Actual ghost spawn advances its entry to visible line art"
+    },
+    {
+      "passed": true,
+      "test": "Opening codex pauses without changing the battle camera scale"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 20-codex-line-720"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 20-codex-line-720 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Real paid purification starts at the indoor register"
+    },
+    {
+      "passed": true,
+      "test": "Actual purification advances G01 from line art to complete color"
+    },
+    {
+      "passed": true,
+      "test": "The resolved record uses the live card's shared stat, skill, trait and slot format"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 20-codex-color-1080"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 20-codex-color-1080 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "A real protected read targets the unlisted prior"
+    },
+    {
+      "passed": true,
+      "test": "The existing protected-read naming rule reaches the fourth step"
+    },
+    {
+      "passed": true,
+      "test": "The named ghost displays the fourth stage and a named record"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 20-codex-named-720"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 20-codex-named-720 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "The entry can transfer joypad focus to its complete details"
+    },
+    {
+      "passed": true,
+      "test": "Joypad can scroll the overflow of the unit details"
+    },
+    {
+      "passed": true,
+      "test": "An actual battle victory opens mandatory three-choose-one with no skip"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 19-reward-1080"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 19-reward-1080 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 19-reward-720"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 19-reward-720 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Joypad reaches a second reward choice"
+    },
+    {
+      "passed": true,
+      "test": "A single joypad confirmation records exactly one reward and consumes the other two"
+    },
+    {
+      "passed": true,
+      "test": "The shouxiang night market opens its four seeded offers"
+    },
+    {
+      "passed": true,
+      "test": "The shouxiang market offers the actual seat-specific roster"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 22-market-shouxiang-1080"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 22-market-shouxiang-1080 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "The shouxiang joypad purchase debits only the visible incense price and prevents duplicate confirmation"
+    },
+    {
+      "passed": true,
+      "test": "Joypad can focus Continue Route from the market offers"
+    },
+    {
+      "passed": true,
+      "test": "The market exit returns to the genuine next route"
+    },
+    {
+      "passed": true,
+      "test": "The map shows the current node and both genuine safe and risky alternatives"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 18-route-fork-720"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 18-route-fork-720 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 18-route-fork-1080"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 18-route-fork-1080 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Left joypad input inspects the visible risk branch"
+    },
+    {
+      "passed": true,
+      "test": "Ten-node short fixture completes genuine victory, mandatory final reward and ritual discovery"
+    },
+    {
+      "passed": true,
+      "test": "Victory settlement shows the surviving register and actual seed"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 21-summary-victory-1080"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 21-summary-victory-1080 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Settlement can return to a read-only trace of the completed route"
+    },
+    {
+      "passed": true,
+      "test": "Route history returns to the settlement actions"
+    },
+    {
+      "passed": true,
+      "test": "Native clipboard receives the actual seed after clicking Copy Seed"
+    },
+    {
+      "passed": true,
+      "test": "Returning to the player title keeps the finished result available"
+    },
+    {
+      "passed": true,
+      "test": "A genuine G25 erasure removes the final name in the low-name loss fixture"
+    },
+    {
+      "passed": true,
+      "test": "Actual loss opens the free-recovery decision"
+    },
+    {
+      "passed": true,
+      "test": "Declining recovery settles the actual loss with the first broken failure line"
+    },
+    {
+      "passed": true,
+      "test": "Defeat names the concrete reason and the actual eraser"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 21-summary-defeat-720"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 21-summary-defeat-720 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "Failure register displays the real loss seed and identity"
+    },
+    {
+      "passed": true,
+      "test": "Joypad cancel closes the failure history without closing its codex"
+    },
+    {
+      "passed": true,
+      "test": "Failure history is actually saved on the isolated player profile"
+    },
+    {
+      "passed": true,
+      "test": "The low-name attacker fixture advances through actual win settlement"
+    },
+    {
+      "passed": true,
+      "test": "The duoming night market opens its four seeded offers"
+    },
+    {
+      "passed": true,
+      "test": "The duoming market offers the actual seat-specific roster"
+    },
+    {
+      "passed": true,
+      "test": "Native framebuffer exists for 22-market-duoming-720"
+    },
+    {
+      "passed": true,
+      "test": "Native screenshot 22-market-duoming-720 has the requested dimensions"
+    },
+    {
+      "passed": true,
+      "test": "The duoming joypad purchase debits only the visible incense price and prevents duplicate confirmation"
+    },
+    {
+      "passed": true,
+      "test": "Joypad can focus Continue Route from the market offers"
+    },
+    {
+      "passed": true,
+      "test": "The market exit returns to the genuine next route"
+    }
+  ],
+  "engine": "4.7.2-stable (official)",
+  "failures": 0,
+  "procedures": {
+    "attacker_market": "Zero initial names advances the attacker through the first real win.",
+    "battle_profiles": "No scheduled waves; 60-second first defender fixture, other nodes 0.25 seconds.",
+    "controls": "Mouse plus virtual joypad button events through Viewport.push_input.",
+    "defeat": "One name, zero incense, genuine G25 erasure and extinguish window.",
+    "storage": "Disposable mirror checks actual night, codex and replay paths before input."
+  },
+  "scope": "Native UI input and short declared simulation fixtures; not ordinary example-night balance.",
+  "source_sha256": {
+    "resources/p9_theme.tres": "57e2b793d48a500f195a03367f7e1b39724b5cb6a8a787a1c16adca01283e894",
+    "src/ui/CodexPanel.gd": "ea9a1fb211f57776679b031db2e209baabbdeddaf9037c7c121793f8158d22bf",
+    "src/ui/LedgerInk.gd": "0432433ba5f84fbe24e29b56f48e535fd7ed28e70b0abbea1d24c3c49fc0c38e",
+    "src/ui/NightPanel.gd": "88acfc34cb16353b08acca47b89d930fa8c518f916eedfdb65ceae2feeb0d90a",
+    "src/ui/UnitCardContent.gd": "9f898113aa52df194b3533919026e927f8b419ee9b56f7e9ab7cd1496c0498ca"
+  },
+  "total": 76,
+  "retained_screenshots": 10,
+  "runner": "python3 tools/p9_night_qa.py",
+  "native_errors": 0,
+  "initial_attempts": [
+    "Earlier title-enabled snapshot caught a pending CombatHUD type-inference error. The final snapshot includes its fix.",
+    "Preflight QA corrected a scroll-to-last-entry gesture and recognized immediate attacker victory. Final inputs use actual joypad navigation.",
+    "Original system font missed some simplified Chinese glyphs at small sizes. The retained frames use the imported project glyph coverage resource."
+  ],
+  "legacy_native_regression": {
+    "suite": "tests/P5UIExtra.gd",
+    "source_sha256": "0c1287ac7bf5d7ff734928a37e4505413097faebfbf1f195fcd3b5e81d6acf3a",
+    "total": 16,
+    "failures": 0,
+    "checks": [
+      {
+        "check": "Reward target selector applies only selected Iron Shoulder",
+        "passed": true
+      },
+      {
+        "check": "Market target selector equips selected Vermilion and debits visible price",
+        "passed": true
+      },
+      {
+        "check": "Boss phase panel reads current actual profile phase by simulation time",
+        "passed": true
+      },
+      {
+        "check": "Managed battle hides standalone rematch ending",
+        "passed": true
+      },
+      {
+        "check": "Real save-and-exit presents intro after successful save",
+        "passed": true
+      },
+      {
+        "check": "Real new-night button can replace saved active night with attacker seat",
+        "passed": true
+      },
+      {
+        "check": "New-night button preserves discoveries from a valid failed-night save",
+        "passed": true
+      },
+      {
+        "check": "Discovery merge carries no resources, build modifiers, combat stats or battle history",
+        "passed": true
+      },
+      {
+        "check": "Corrupt save cannot dispose or replace an existing live night and battle",
+        "passed": true
+      },
+      {
+        "check": "Failed corrupt-load never overwrites the source save",
+        "passed": true
+      },
+      {
+        "check": "Rejected snapshot restore leaves the old live battle, night and clock intact",
+        "passed": true
+      },
+      {
+        "check": "Snapshot failure is explicit and does not overwrite the saved file",
+        "passed": true
+      },
+      {
+        "check": "Validated snapshot replaces the prior battle only after successful restore",
+        "passed": true
+      },
+      {
+        "check": "Real mutation reward transforms the selected white once, preserving uid and injury ratio without a hidden incense charge",
+        "passed": true
+      },
+      {
+        "check": "Mutation pickers list only legal unmutated white ghosts and exclude the previous elite",
+        "passed": true
+      },
+      {
+        "check": "Real market mutation purchase charges its visible 15 incense price and disables the purchased card",
+        "passed": true
+      }
+    ],
+    "scope": "Existing P5 native fixtures run in the same disposable source mirror with a separate absolute night save path."
+  }
+}

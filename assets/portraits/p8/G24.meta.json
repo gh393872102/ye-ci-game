@@ -1,0 +1,15 @@
+{
+  "id": "G24",
+  "name": "祠奴",
+  "source": "Project-generated portrait source (local generation metadata withheld)",
+  "path": "res://assets/portraits/p8/G24.png",
+  "status": "placeholder",
+  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "size": [
+    1024,
+    1536
+  ],
+  "sha256": "73781f168da0b5d4071d859485c432943e73062599ec6704614ef06c80cc90ec",
+  "replacement_required": true,
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+}

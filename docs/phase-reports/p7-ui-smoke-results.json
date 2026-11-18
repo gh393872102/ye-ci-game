@@ -1,0 +1,63 @@
+{
+	"checks": [
+		{
+			"check": "Actual trial button starts shared battle",
+			"ok": true
+		},
+		{
+			"check": "Equipment menu lists authored owned inventory only",
+			"ok": true
+		},
+		{
+			"check": "Actual equip button immediately updates selected unit and full card",
+			"ok": true
+		},
+		{
+			"check": "Two art slots and nameplate fill independently through actual buttons",
+			"ok": true
+		},
+		{
+			"check": "Unequip returns the selected slot item to current inventory",
+			"ok": true
+		},
+		{
+			"check": "Human upgrade retains upgrade preview without mutation as a main command",
+			"ok": true
+		},
+		{
+			"check": "Fusion recipe selector exposes explicit named recipes",
+			"ok": true
+		},
+		{
+			"check": "Human vocation panel exposes paid risk-aware borrowing",
+			"ok": true
+		},
+		{
+			"check": "Replay full growth card keeps both equipment commands disabled",
+			"ok": true
+		},
+		{
+			"check": "Opening and invoking readonly growth panel does not mutate inventory or unit",
+			"ok": true
+		},
+		{
+			"check": "Normal growth-night entrance creates a genuine limited inventory",
+			"ok": true
+		},
+		{
+			"check": "Growth night map publicly shows the actual 0.24 regen and 12 victory incense",
+			"ok": true
+		},
+		{
+			"check": "Normal map node enters the shared battle with growth enabled",
+			"ok": true
+		},
+		{
+			"check": "Normal battle growth picker never creates unowned items",
+			"ok": true
+		}
+	],
+	"failed": 0,
+	"passed": 14,
+	"suite": "P7 authored trial and normal-night native UI smoke"
+}

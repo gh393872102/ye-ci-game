@@ -1,0 +1,654 @@
+{
+  "phase": "P8",
+  "purpose": "Diagnose P7Night exact carry comparisons after its public entry inadvertently enabled P8; not a full-night victory proof",
+  "collected_at_utc": "2026-11-17T12:13:56.767230+00:00",
+  "git_head": "7776cb5cddeae630c88ed2875f7a966888672629",
+  "command": "./tools/godot.sh --headless --script tools/p8_carry_diagnostic.gd --log-file /tmp/p8-carry-diagnostic-native.log",
+  "execution": {
+    "native_unsandboxed": true,
+    "exit_code": 0,
+    "log": "/tmp/p8-carry-diagnostic-native.log",
+    "log_sha256": "2c418d53e642899311e2041bd79604fac7f0b8b2b623c78ac5e3b58a20ad3bc6",
+    "script_errors": 0,
+    "engine_errors": 0,
+    "raw_results": "/tmp/ye-ci-p8-carry-diagnostic-6100/results.json"
+  },
+  "io_policy": {
+    "startup_assertions": true,
+    "artifact_root": "/tmp/ye-ci-p8-carry-diagnostic-<pid>",
+    "codex": "explicit /tmp/.../codex-<mode>.json",
+    "replay": "explicit /tmp/.../archives",
+    "raw_report": "explicit /tmp/.../results.json",
+    "player_persistent_paths_used": false
+  },
+  "source_sha256": {
+    "tools/p8_carry_diagnostic.gd": "32812b8f6ee4cf6e84ad28cbae6b1e880547130c172e450cd4ed8430f16bbece",
+    "tests/P7NightSuite.gd": "e35e036c20f6b08cf7e29b642d60e38de2bf1697747ff66090d5388913fd78aa",
+    "src/night/NightRun.gd": "7ccc668f61cab2c7f1364e42803ddd2cc17137f2a47aee5c94de7aac8ff9248d",
+    "src/night/NightBattleBridge.gd": "2567130e755dbd070111c48382dc24bc33480b05271d96d29c85f29d22fe500b",
+    "src/growth/GrowthEngine.gd": "5da254babcf9b3186d777fd53d46fdae8adb9d06672dca2fb47e11f52e454684",
+    "src/roster/RosterEngine.gd": "3a3d62edd9fd292301a011fbf74a1aec9acb306a7f6b8e7066d6df4c8d4596f0",
+    "src/combat/CombatSimulation.gd": "6667ab92064c649ca56caed18a117df76c91f1dd869f14c81bf997402b119dd4",
+    "src/combat/TideController.gd": "e4127307581863dbe466a328533b2c38b82e2956869055aea1f4487e0674986a",
+    "src/growth/GrowthNight.gd": "c448f3c820fa36da4aa124cd134380bae4a3054f5a9617a1074e9cfed4681851",
+    "data/nights/example_night.json": "1f5acf4be85f85a98e349962d89bf47d8019a5077d17d9c56927e54b9ba18c08",
+    "data/nights/p7_growth_night.json": "89971e0881bf5d79a688dd0a4e0b469f7031f52ad7ee69bbab55bde985bd0052",
+    "data/units/characters.csv": "b633d012a45980f439dfe91e735376462c5d6b882a371d63b69564ed5aebdec1",
+    "data/units/ghosts.csv": "156525fc0273ca574caf24e5e58f90d56fbbf1681408e4290084c5950ec6e9af",
+    "data/units/troops.csv": "c805ff7e52e0d8b4ae725387609011d07a0ee029b7e63db7f6f9b7932e42313c"
+  },
+  "summary": {
+    "shouxiang": {
+      "spawned_compared": 5,
+      "only_empty_slots_difference": 5,
+      "queued_exact": 0
+    },
+    "duoming": {
+      "spawned_compared": 4,
+      "only_empty_slots_difference": 4,
+      "queued_exact": 12
+    }
+  },
+  "confirmed": [
+    "On shouxiang n01, all five initial actors match night HP/maxHP/attack/defense/upgrade_level/equipment_id/mutation_count/job_tags before any simulation step or command. The only mismatch is absent night growth.slots represented as {} versus actor explicit four empty slots initialized by Roster.ensure -> Growth.ensure.",
+    "The four spawned duoming G01 actors have the same sole slots-schema difference. The twelve unspawned carried records remain byte-equivalent dictionary values in the queue.",
+    "A separate authored transfer fixture performs actual paid I17 equip and upgrade, then receive_damage(7). Reapplying that actual actor record using shared Bridge.apply_carried_unit retains HP118/maxHP125/defense18/upgrade1/I17 and all other compared fields, with no differences."
+  ],
+  "fixtures": [
+    {
+      "comparison_before_any_step_or_input": [
+        {
+          "actor_values": {
+            "attack": 8.0,
+            "defense": 8.0,
+            "equipment_id": "",
+            "hp": 70.0,
+            "job_tags": [],
+            "max_hp": 70.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "H01",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 8.0,
+            "defense": 8.0,
+            "equipment_id": "",
+            "hp": 70.0,
+            "job_tags": [],
+            "max_hp": 70.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_1"
+        },
+        {
+          "actor_values": {
+            "attack": 10.0,
+            "defense": 16.0,
+            "equipment_id": "",
+            "hp": 110.0,
+            "job_tags": [],
+            "max_hp": 110.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "H09",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 10.0,
+            "defense": 16.0,
+            "equipment_id": "",
+            "hp": 110.0,
+            "job_tags": [],
+            "max_hp": 110.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_2"
+        },
+        {
+          "actor_values": {
+            "attack": 7.0,
+            "defense": 7.0,
+            "equipment_id": "",
+            "hp": 55.0,
+            "job_tags": [],
+            "max_hp": 55.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "H17",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 7.0,
+            "defense": 7.0,
+            "equipment_id": "",
+            "hp": 55.0,
+            "job_tags": [],
+            "max_hp": 55.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_3"
+        },
+        {
+          "actor_values": {
+            "attack": 7.0,
+            "defense": 6.0,
+            "equipment_id": "",
+            "hp": 45.0,
+            "job_tags": [],
+            "max_hp": 45.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "T01",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 7.0,
+            "defense": 6.0,
+            "equipment_id": "",
+            "hp": 45.0,
+            "job_tags": [],
+            "max_hp": 45.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_4"
+        },
+        {
+          "actor_values": {
+            "attack": 9.0,
+            "defense": 4.0,
+            "equipment_id": "",
+            "hp": 38.0,
+            "job_tags": [],
+            "max_hp": 38.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "T02",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 9.0,
+            "defense": 4.0,
+            "equipment_id": "",
+            "hp": 38.0,
+            "job_tags": [],
+            "max_hp": 38.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_5"
+        }
+      ],
+      "entered": {
+        "ok": true,
+        "reason": "P5_BATTLE_STARTED"
+      },
+      "mode": "shouxiang",
+      "start": {
+        "ok": true,
+        "reason": "P5_COMMAND_OK"
+      }
+    },
+    {
+      "actions": [
+        {
+          "ok": true,
+          "reason": "P7_COMMAND_OK"
+        },
+        {
+          "ok": true,
+          "reason": "P4_COMMAND_OK"
+        }
+      ],
+      "comparison": {
+        "actor_values": {
+          "attack": 10.0,
+          "defense": 18.0,
+          "equipment_id": "",
+          "hp": 118.0,
+          "job_tags": [],
+          "max_hp": 125.0,
+          "mutation_count": 0,
+          "slots": {
+            "arts": [
+              "",
+              ""
+            ],
+            "censer": "I17",
+            "nameplate": ""
+          },
+          "upgrade_level": 1
+        },
+        "differences": {},
+        "id": "H09",
+        "night_has_growth": true,
+        "night_values": {
+          "attack": 10.0,
+          "defense": 18.0,
+          "equipment_id": "",
+          "hp": 118.0,
+          "job_tags": [],
+          "max_hp": 125.0,
+          "mutation_count": 0,
+          "slots": {
+            "arts": [
+              "",
+              ""
+            ],
+            "censer": "I17",
+            "nameplate": ""
+          },
+          "upgrade_level": 1
+        },
+        "uid": "night_2"
+      },
+      "fixture": "actual_paid_equip_and_upgrade_then_real_damage_then_shared_carry_apply"
+    },
+    {
+      "comparison_before_any_step_or_input": [
+        {
+          "actor_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "G01",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_1"
+        },
+        {
+          "actor_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "G01",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_2"
+        },
+        {
+          "actor_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "G01",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_3"
+        },
+        {
+          "actor_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {
+              "arts": [
+                "",
+                ""
+              ],
+              "censer": "",
+              "nameplate": ""
+            },
+            "upgrade_level": 0
+          },
+          "differences": {
+            "slots": {
+              "actor": {
+                "arts": [
+                  "",
+                  ""
+                ],
+                "censer": "",
+                "nameplate": ""
+              },
+              "night": {}
+            }
+          },
+          "id": "G01",
+          "night_has_growth": false,
+          "night_values": {
+            "attack": 6.0,
+            "defense": 3.0,
+            "equipment_id": "",
+            "hp": 22.0,
+            "job_tags": [],
+            "max_hp": 22.0,
+            "mutation_count": 0,
+            "slots": {},
+            "upgrade_level": 0
+          },
+          "uid": "night_4"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_5"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_6"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_7"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_8"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_9"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_10"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_11"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_12"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_13"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_14"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_15"
+        },
+        {
+          "id": "G01",
+          "not_spawned": true,
+          "queued_exact": true,
+          "uid": "night_16"
+        }
+      ],
+      "entered": {
+        "ok": true,
+        "reason": "P5_BATTLE_STARTED"
+      },
+      "mode": "duoming",
+      "start": {
+        "ok": true,
+        "reason": "P5_COMMAND_OK"
+      }
+    }
+  ],
+  "subsequent_nodes": {
+    "status": "not replayed; inference only for the original n03/n08 failures",
+    "observed_log": "/tmp/ye-ci-p8-regression-resume-final.log",
+    "limitation": "The original failed log records the generic equality assertion, not actor UIDs or individual field values. It cannot establish the exact cause of each later failure.",
+    "source_based_inference": "NightRun recruitment calls _unit(), whose new records omit growth. Entering a P8 battle initializes explicit empty slots, so newly recruited records can produce the same exact-dictionary mismatch. This has not been substituted for per-actor evidence from the original later-node failed run."
+  },
+  "proof_scope": [
+    "Fresh P8 new_roster_run first-battle actor handoff for both seats",
+    "Exact fields listed in each comparison",
+    "One actual paid equipment/upgrade/damage record reapplied through the shared transfer helper",
+    "No production source or assertion changes"
+  ],
+  "not_proven": [
+    "An entire subsequent P8 battle or full-night carry path",
+    "Non-empty job_tags persistence in this particular probe",
+    "The individual cause of original n03/n08 equality failures",
+    "P8 ordinary-night strategy balance or full-night victory. The old P7 strategy defeats remain actual failed/unverified balance evidence."
+  ],
+  "conclusion": "No equipment, injury or stat loss was found in the measured handoffs. The five n01 exact-equality failures are explained by measured empty-slot schema initialization. Later failures are not all reclassified as test-only issues."
+}

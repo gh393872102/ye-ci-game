@@ -1,0 +1,982 @@
+{
+  "phase": "P8",
+  "kind": "high-resolution portrait placeholders",
+  "generator": "builtin image_gen.imagegen",
+  "replacement_plan": "All 64 remain authored high-resolution placeholders for P8; final 1.0 illustration review will replace or approve each id independently. No battlefield use.",
+  "assets": {
+    "H01": {
+      "path": "res://assets/portraits/p8/H01.png",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "d40e54027d1e70f42ae38d4659f58247242bb9ea519072052f521f99931cf9c6",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H02": {
+      "id": "H02",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H02.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "200a07f3e57e7045e1e85b7931b29681743184b5a9571a7488e35b248a1b1a40",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H03": {
+      "id": "H03",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H03.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "e161f3e42d17e3cacf75b12594158045ae0004d9617c71584bf6b70b558f1164",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H04": {
+      "id": "H04",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H04.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "807b14c5c2f926903de0f6277bd3dccdd50fa8b90b5f2c1583fe0bb19a297c41",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H05": {
+      "id": "H05",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H05.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "c1aebad5e10efbcd206f1b2b076f4a45064bdad17b4c3325c5cddce357d5d2f8",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H06": {
+      "id": "H06",
+      "name": "霜盏",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H06.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "5fb6af40cd7f49161f9db84892bff650607d060a89765fcfcf51991c3926a918",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H07": {
+      "id": "H07",
+      "name": "阿卯",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H07.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "8adf2c1997f5c09832474d49790d99e310dd5ffbbe68dbd46cfb4d2dce65e36a",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H08": {
+      "id": "H08",
+      "name": "沈册",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H08.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "78db5cb46330fef89466bd6139eb84862e1ebf46e7b127a4b002c8d2da99481e",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H09": {
+      "id": "H09",
+      "name": "铁肩",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H09.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "a6fffbbdc10adb6599655eff31a51a426f5340e0fb0663195417e82990eabe8d",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H10": {
+      "id": "H10",
+      "name": "断刃",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H10.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "31222e057cbc62c4a5f10718c609a63931a9ba4ebb2d633f08848958743a21a5",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H11": {
+      "id": "H11",
+      "name": "石婆",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H11.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "88703fc3748a2c5e6562f01bffe202de0bbbfd9cec423eb202b57f68c2192b7e",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H12": {
+      "id": "H12",
+      "name": "巡夜",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H12.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "23ede33d2ebf9a59129d76ecb4d4d08786272c9994bb3f84e3d04f3b80747b39",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H13": {
+      "id": "H13",
+      "name": "赤钺",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H13.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "aa1a60a912970bb47fd76580279ff3be0e47148f353340ee14a2c6e7d1243000",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H14": {
+      "id": "H14",
+      "name": "铜锣",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H14.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "92f197d8a822b9e807c66d1b55c2d84bf5c266589ecf90b3d3bdf5b51db50aa0",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H15": {
+      "id": "H15",
+      "name": "白脚",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H15.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "fa8756c3897b166de8bf98e1cf1f4e0abe7ab1ada48bee71774a454b7e98c83d",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H16": {
+      "id": "H16",
+      "name": "丧杖",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H16.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "e42df8c6f9bcbcc81ea3efb58afb2b526ce6635e46d87e5ddf5eee2426e59579",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H17": {
+      "id": "H17",
+      "name": "朱砂",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H17.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "779bc44cac805a2fa9917ecdeb2bd40b8a07f2cb55bbc99d266ed568e930c353",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H18": {
+      "id": "H18",
+      "name": "冷金",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H18.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "906a7557bec68f33bff3104fca720eec3ddac65d1b457ca3bbcc4a2b41bb2151",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H19": {
+      "id": "H19",
+      "name": "问灯",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H19.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "4975ad49c3d632eb51e453546c02c72ae5e1ae82fbe11db0724678a9569962b8",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H20": {
+      "id": "H20",
+      "name": "焚词",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H20.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "8a80a0070f80071e5a01746e83305ebacb3b51683c7198ec36b2de1cf1425f71",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H21": {
+      "id": "H21",
+      "name": "河灯",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H21.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "ec604ff0ed9bd57371e5cf58a5c1377bc2a24056b2043908c0254b5c171a40a0",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H22": {
+      "id": "H22",
+      "name": "三戒",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H22.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "c50ffa7bb30eed1564d40c98276b87862c4a6893b1d3ad644cb954cfff9c9b7b",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H23": {
+      "id": "H23",
+      "name": "月讳",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H23.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "29816eb93a9ae330bd6489e2fa2d8612aae97bcbca92445bbcb004f006121ed5",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H24": {
+      "id": "H24",
+      "name": "骨针",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H24.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "495244f551cbd14dd358289c75a4fc677499c8f47597eef88af4474ba976bac0",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H25": {
+      "id": "H25",
+      "name": "榫卯",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H25.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "790ec79f70b00c71bff5ad54d651282899b6b7b528257a8fbe0206887d61f170",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H26": {
+      "id": "H26",
+      "name": "硝青",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H26.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "b086acc7f80e37f184028c377d556069819f97f9aa81a968f48b40edd3ff6000",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H27": {
+      "id": "H27",
+      "name": "饲鸦",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H27.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "2b72d463691ac8b55bafb1d16a6849a0ff409dca763a11580f91e0117f1090ff",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H28": {
+      "id": "H28",
+      "name": "赊灯",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H28.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "69d1faf69ddb6d116a2becb7168c5da9355b74ba5c983c906658203a2d15ac5e",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H29": {
+      "id": "H29",
+      "name": "盲弦",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H29.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "24a57b5bde54fc415a1715bcef4cd2c0a3f7b3b053959faca37930432c08224f",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H30": {
+      "id": "H30",
+      "name": "寄名童",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H30.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "571bce10f2bd4fd4065a8c03fec218e04d259171e295dd07d05895d7cfad9a55",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H31": {
+      "id": "H31",
+      "name": "归客",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H31.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "fa775e36a3333d60c30de3c3436aca6fd3793d00be373603dcd6270ebfd2d822",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "H32": {
+      "id": "H32",
+      "name": "面匠",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/H32.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "4f53aad596bd43f1788f79caa4b5a670b03a56dc83eb5a910517c8ca6704343f",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G01": {
+      "id": "G01",
+      "name": "白衣无面",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G01.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "4816e41e5f53130f8c02fdfb04f01ba848febb090cd03e265f937a550248cf02",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G02": {
+      "id": "G02",
+      "name": "乞名鬼",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G02.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "678b83f535032e87d1d982dad24b5c2e525d4a1e8a5510b4af3be321c232fe04",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G03": {
+      "id": "G03",
+      "name": "哭夜",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G03.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "56a1efa41a081a637c3d2e046e3ee5284d62b6b3d4c8a5f280f0ae3ad1549e10",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G04": {
+      "id": "G04",
+      "name": "影步",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G04.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "32b33b4a879f16d3c4a93cfa994b2c254bdb1a8e1c207a6f15b78d1a95057c7e",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G05": {
+      "id": "G05",
+      "name": "饿鬼",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G05.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "f58dd8f3ee2ab195ec2bc86ffac4c93d9ebfde57f5a81352bab75c8ab08e2424",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G06": {
+      "id": "G06",
+      "name": "长手",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G06.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "d338206fbadfabe3168f47f0f426ff655ae10857342ff9db09b1e3a657cbd186",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G07": {
+      "id": "G07",
+      "name": "童亡",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G07.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "8fb7241aab6cba0a21cef71a99f266dfa7fb6dbdd8fbb76c0b28521dbdabdca6",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G08": {
+      "id": "G08",
+      "name": "散香影",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G08.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "392b641debce836dff84cd06d7d04a63e309f19e9f3cacdabc83c08b229c8452",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G09": {
+      "id": "G09",
+      "name": "缢鬼",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G09.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 2,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "1fc4a03efad86841b924436acf338c9e069940936c7279944bbd107dda35017c",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G10": {
+      "id": "G10",
+      "name": "水鬼",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G10.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "13a43cef7692693a20599773ea124299db278b2f07bf4fb7d6d4f527a5b5a64e",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G11": {
+      "id": "G11",
+      "name": "青灯骨",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G11.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "c7a324f29a1700ab1d37b7060def64606311741f5710128610378010f5c39bef",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G12": {
+      "id": "G12",
+      "name": "力士尸",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G12.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "2d6171daf028d976f4a15e053e99b204518e8cd8a1913cbfb2b5363454ef1375",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G13": {
+      "id": "G13",
+      "name": "轿夫双鬼",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G13.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "7aa5ae6e00f5638563325cc26f822911ceda30cca50ad8a185c03470ee07df87",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G14": {
+      "id": "G14",
+      "name": "喜服鬼",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G14.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "39f863c8ac10427997da10c2504b40096a36add2b94a88bd4a676e68ff7a898b",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G15": {
+      "id": "G15",
+      "name": "寿衣匠",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G15.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "cbb55afe73a99793dd241458bc993a00dbfcffeac5336ebc339f7082bc15fa03",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G16": {
+      "id": "G16",
+      "name": "腐差",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G16.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "50f4160de8ca20b1f7c3616d1a48815fa8c26defb37584b50282088505a5bfa1",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G17": {
+      "id": "G17",
+      "name": "山魅",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G17.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "153479d9d125814d472c96a227b3806eb033aafc2087251dedd21b8bed130d28",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G18": {
+      "id": "G18",
+      "name": "无头仪仗",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G18.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "13a24d0a7bfb4cda78563dbec515734ee9eaf9e0c97aac33c649b0dc3f4eab68",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G19": {
+      "id": "G19",
+      "name": "镜中客",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G19.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "7eebbac297f2f5837939ce7d139a5cc0c613f331ae24d69afec26a6d465091f1",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G20": {
+      "id": "G20",
+      "name": "阴骑",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G20.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "8694b6be339bc553a56afe8e4ada356eb74507816df941159d83ab9401f50d7b",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G21": {
+      "id": "G21",
+      "name": "钟口",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G21.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "attempt": 1,
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "e82c2e6cf58df12b2dd85271bd7cc5799ea011901ad6fdead3bc1e6b6a8f0315",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G22": {
+      "id": "G22",
+      "name": "胎梦",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G22.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "641694d215618a9772f873afc2893b6950513eed54f72bbb7b90dd3fa5414e37",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G23": {
+      "id": "G23",
+      "name": "借脸人",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G23.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "ba75071802c4dfff5d4bb7d2b58f42911153324537f4f5c01a624bc70eb381ea",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G24": {
+      "id": "G24",
+      "name": "祠奴",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G24.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "73781f168da0b5d4071d859485c432943e73062599ec6704614ef06c80cc90ec",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G25": {
+      "id": "G25",
+      "name": "抹名吏",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G25.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "783b0522ad35e3070c6d215914aa801d144e933a7eddfbd36c592dcafe08d1b9",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G26": {
+      "id": "G26",
+      "name": "空白册页",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G26.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "3d248f1ef5dee1426e13b19b48d50a9424d5a48546144b95f3c69dbcc819f71c",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G27": {
+      "id": "G27",
+      "name": "倒香火",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G27.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "07602bb8950dd84438952c020afb065a23fb9c55927cb2489181d406f808d4b0",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G28": {
+      "id": "G28",
+      "name": "夺面使",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G28.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "8cfcf2a8aa2a7ba18bfd1fbb972fbe7b5d8b63482cb5b55c08ae2694e107a85b",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G29": {
+      "id": "G29",
+      "name": "错录师",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G29.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "a4d409a79806cca88a6c839604e2a3e41f19ad8811376e7e40a06b0062bf0903",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G30": {
+      "id": "G30",
+      "name": "空位神",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G30.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "aa8fbba8d97fa141b5f23fc6b022f4a95c4b11ff62422ba9b1fad6e7245456be",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G31": {
+      "id": "G31",
+      "name": "千名一尸",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G31.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "5a0f26efa55ae4574b1b89739c02528fa2cef813a6e010d1b5dfacf5c7308327",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    },
+    "G32": {
+      "id": "G32",
+      "name": "无册",
+      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "path": "res://assets/portraits/p8/G32.png",
+      "status": "placeholder",
+      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "c47446ca2d836d1746f868a02f2a4db41f1e433108af185ffd16fbb4bf97f286",
+      "replacement_required": true,
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+    }
+  },
+  "prompt_file": "res://assets/portraits/p8/prompts.json",
+  "completed": 64,
+  "expected": 64,
+  "distinct_sha256": 64,
+  "generation_calls": {
+    "successful": 64,
+    "rejected": 1,
+    "total": 65,
+    "note": "One independent builtin imagegen call per successful portrait; G09 first wording was rejected, and a safe climbing-rope depiction was generated in a separate call. Prompt attempt history is recorded in prompts.json."
+  },
+  "status": "64 independent high-spec placeholders; all require final art replacement"
+}

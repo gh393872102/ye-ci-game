@@ -1,0 +1,221 @@
+{
+	"checks": 52,
+	"failures": [],
+	"fixture_inputs": [
+		"守香wuce编制额外预设I17一件；装备冷却初始时钟100秒、剩余10秒",
+		"真实灰军事件后预设剩余寿命7.25秒，以检查跨场精确保留",
+		"夺名夹具初始香60、H06残名一份，由真实变异/融契命令扣除"
+	],
+	"phase": "P7Carry",
+	"results": [
+		{
+			"label": "Current data passes startup validation",
+			"passed": true
+		},
+		{
+			"label": "Independent growth night model initializes for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Fixture enters its real first battle node",
+			"passed": true
+		},
+		{
+			"label": "Shared battle starts for authored carry fixture",
+			"passed": true
+		},
+		{
+			"label": "Authored roster contains the real H19 borrower",
+			"passed": true
+		},
+		{
+			"label": "Actual player command equips stocked I17",
+			"passed": true
+		},
+		{
+			"label": "Actual unequip returns item with its remaining cooldown",
+			"passed": true
+		},
+		{
+			"label": "Source G12 is spawned through the real tide controller",
+			"passed": true
+		},
+		{
+			"label": "Actual gray allegiance event enrolls new ally into tracked ownership",
+			"passed": true
+		},
+		{
+			"label": "Living ally returning to enemy side is departed instead of tracked",
+			"passed": true
+		},
+		{
+			"label": "Living departed ghost is never reported as fallen",
+			"passed": true
+		},
+		{
+			"label": "Actual re-enrollment restores tracked and clears this battle's departure",
+			"passed": true
+		},
+		{
+			"label": "Real charge hook creates a target-specific pending job",
+			"passed": true
+		},
+		{
+			"label": "Same-battle snapshot restores the pending charge fixture",
+			"passed": true
+		},
+		{
+			"label": "Same-battle snapshot preserves charge target and elapsed time",
+			"passed": true
+		},
+		{
+			"label": "Collected real roster records stable borrower night_uid",
+			"passed": true
+		},
+		{
+			"label": "Independent growth night model initializes for shouxiang",
+			"passed": true
+		},
+		{
+			"label": "Second independent battle fixture enters the shared node",
+			"passed": true
+		},
+		{
+			"label": "Shared battle starts for authored carry fixture",
+			"passed": true
+		},
+		{
+			"label": "Reversed carried birth order genuinely changes H19's scene instance_id",
+			"passed": true
+		},
+		{
+			"label": "Cross-battle carry preserves gray identity and exact remaining lifetime",
+			"passed": true
+		},
+		{
+			"label": "Stable borrower_uid rebinds to H19's new scene instance_id",
+			"passed": true
+		},
+		{
+			"label": "Cross-battle carry clears the old battle's charge target and warning",
+			"passed": true
+		},
+		{
+			"label": "Carried opening roster initially equals immutable night ownership input",
+			"passed": true
+		},
+		{
+			"label": "Returned I17 can be re-equipped in the second battle",
+			"passed": true
+		},
+		{
+			"label": "100-second prior time plus ten-second cooldown carries as ten seconds",
+			"passed": true
+		},
+		{
+			"label": "Second-battle owned item is unequipped by a real player command",
+			"passed": true
+		},
+		{
+			"label": "Real post-carry inventory changes do not mutate the opening roster",
+			"passed": true
+		},
+		{
+			"label": "Real unregistered G25 contact fixture spawns",
+			"passed": true
+		},
+		{
+			"label": "Actual unregistered contact recaptures gray and charms the correct remapped H19",
+			"passed": true
+		},
+		{
+			"label": "Rebound backlash is never applied to another carried person",
+			"passed": true
+		},
+		{
+			"label": "Post-carry commands and allegiance changes still produce a valid checkpoint",
+			"passed": true
+		},
+		{
+			"label": "Real mid-battle ownership checkpoint writes to disk",
+			"passed": true
+		},
+		{
+			"label": "Mid-battle ownership checkpoint passes disk NightRun validation",
+			"passed": true
+		},
+		{
+			"label": "Bridge restores the real carried ownership checkpoint from disk",
+			"passed": true
+		},
+		{
+			"label": "Disk restore preserves live identity, inventory, effects and timers exactly",
+			"passed": true
+		},
+		{
+			"label": "Malformed nested profile rejects before destructive restore",
+			"passed": true
+		},
+		{
+			"label": "Rejected nested profile preserves all actors and current recorder",
+			"passed": true
+		},
+		{
+			"label": "Invalid nested-growth fixture has a valid disk envelope and checksum",
+			"passed": true
+		},
+		{
+			"label": "Malformed mercy growth rejects even with a valid disk checksum",
+			"passed": true
+		},
+		{
+			"label": "Rejected nested mercy growth preserves live night and battle",
+			"passed": true
+		},
+		{
+			"label": "Independent growth night model initializes for duoming",
+			"passed": true
+		},
+		{
+			"label": "Shared battle starts for authored carry fixture",
+			"passed": true
+		},
+		{
+			"label": "Mutation carry fixture begins with an actual ordinary G01",
+			"passed": true
+		},
+		{
+			"label": "Actual paid mutation creates G11 from the carried source",
+			"passed": true
+		},
+		{
+			"label": "Mutated elite consumes its real stocked censer",
+			"passed": true
+		},
+		{
+			"label": "Actual paid fusion consumes the authored material",
+			"passed": true
+		},
+		{
+			"label": "Independent growth night model initializes for duoming",
+			"passed": true
+		},
+		{
+			"label": "Shared battle starts for authored carry fixture",
+			"passed": true
+		},
+		{
+			"label": "Cross-battle elite keeps both mutation uses and its fusion identity",
+			"passed": true
+		},
+		{
+			"label": "Cross-battle engine preserves night fusion count and spent material",
+			"passed": true
+		},
+		{
+			"label": "Cross-battle inventory cannot duplicate the equipped item",
+			"passed": true
+		}
+	],
+	"scope": "独立携带状态/身份夹具，不是完整战斗或完整夜程。两场独立初始状态使用真实collect编制；未注入胜负或夜程结局。"
+}

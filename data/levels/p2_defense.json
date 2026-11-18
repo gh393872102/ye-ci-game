@@ -1,0 +1,21 @@
+{
+  "preset": [
+    {"id": "H09", "post": "post_gate_inner"},
+    {"id": "T01", "post": "post_barricade_outer_court"},
+    {"id": "H17", "post": "post_hall_door"},
+    {"id": "T02", "post": "post_window_1"},
+    {"id": "H01", "post": "post_register"}
+  ],
+  "posts": {
+    "post_gate_inner": {"doors": ["door_outer"], "obstacles": [], "next": "post_barricade_outer_court"},
+    "post_barricade_outer_court": {"doors": [], "obstacles": ["outer_a"], "next": "post_inner_gate"},
+    "post_inner_gate": {"doors": ["door_inner"], "obstacles": [], "next": "post_hall_door"},
+    "post_hall_door": {"doors": ["door_hall"], "obstacles": ["hall_a"], "next": "post_stair_head"},
+    "post_table_hall": {"doors": ["door_hall"], "obstacles": ["hall_a"], "next": "post_stair_head"},
+    "post_window_1": {"doors": [], "obstacles": [], "next": "post_stair_head"},
+    "post_window_2": {"doors": [], "obstacles": [], "next": "post_stair_head"},
+    "post_stair_head": {"doors": [], "obstacles": [], "next": "post_register"},
+    "post_register": {"doors": [], "obstacles": [], "next": ""},
+    "post_rear": {"doors": [], "obstacles": [], "next": ""}
+  }
+}

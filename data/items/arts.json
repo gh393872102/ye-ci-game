@@ -1,0 +1,208 @@
+{
+  "Y01": {
+    "id": "Y01",
+    "name": "余香",
+    "description": "点册完成在目标周围2身位爆香，轻伤且不斩杀精英。",
+    "slot": "art",
+    "effect_id": "Y01",
+    "status": "active",
+    "params": {
+      "radius_body": 2,
+      "damage": 6
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y02": {
+    "id": "Y02",
+    "name": "危门",
+    "description": "当前门低于30%耐久时攻击+30%。",
+    "slot": "art",
+    "effect_id": "Y02",
+    "status": "active",
+    "params": {
+      "threshold": 0.3,
+      "multiplier": 1.3
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y03": {
+    "id": "Y03",
+    "name": "送行风",
+    "description": "超度成功后全场友军4秒移动+20%。",
+    "slot": "art",
+    "effect_id": "Y03",
+    "status": "active",
+    "params": {
+      "duration": 4,
+      "multiplier": 1.2
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y04": {
+    "id": "Y04",
+    "name": "梁眼",
+    "description": "梁上造成伤害乘1.5。",
+    "slot": "art",
+    "effect_id": "Y04",
+    "status": "active",
+    "params": {
+      "multiplier": 1.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y05": {
+    "id": "Y05",
+    "name": "涉水",
+    "description": "免疫水中和上岸无力减速。",
+    "slot": "art",
+    "effect_id": "Y05",
+    "status": "active",
+    "params": {},
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y06": {
+    "id": "Y06",
+    "name": "回香",
+    "description": "击杀或超度回复1香火，冷却8秒。",
+    "slot": "art",
+    "effect_id": "Y06",
+    "status": "active",
+    "params": {
+      "incense": 1,
+      "cooldown": 8
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y07": {
+    "id": "Y07",
+    "name": "定心",
+    "description": "魅惑改为禁身2秒，不转火友军。",
+    "slot": "art",
+    "effect_id": "Y07",
+    "status": "active",
+    "params": {
+      "duration": 2
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y08": {
+    "id": "Y08",
+    "name": "不疾",
+    "description": "二倍速下技能冷却仍以一倍计时。",
+    "slot": "art",
+    "effect_id": "Y08",
+    "status": "active",
+    "params": {},
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y09": {
+    "id": "Y09",
+    "name": "稳钉",
+    "description": "维修与放障作业时间-25%。",
+    "slot": "art",
+    "effect_id": "Y09",
+    "status": "active",
+    "params": {
+      "multiplier": 0.75
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y10": {
+    "id": "Y10",
+    "name": "灯刃",
+    "description": "对揭示或灯下目标增伤20%。",
+    "slot": "art",
+    "effect_id": "Y10",
+    "status": "active",
+    "params": {
+      "multiplier": 1.2
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y11": {
+    "id": "Y11",
+    "name": "承撞",
+    "description": "受破门标签单位伤害-25%。",
+    "slot": "art",
+    "effect_id": "Y11",
+    "status": "active",
+    "params": {
+      "multiplier": 0.75
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y12": {
+    "id": "Y12",
+    "name": "换层步",
+    "description": "上下楼不受局部楼梯速度惩罚。",
+    "slot": "art",
+    "effect_id": "Y12",
+    "status": "active",
+    "params": {},
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y13": {
+    "id": "Y13",
+    "name": "将熄手",
+    "description": "将熄窗口点册等读条时间-20%。",
+    "slot": "art",
+    "effect_id": "Y13",
+    "status": "active",
+    "params": {
+      "multiplier": 0.8
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y14": {
+    "id": "Y14",
+    "name": "固障",
+    "description": "亲自放置的拒马或土垒耐久+40%。",
+    "slot": "art",
+    "effect_id": "Y14",
+    "status": "active",
+    "params": {
+      "multiplier": 1.4
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y15": {
+    "id": "Y15",
+    "name": "短推",
+    "description": "近战命中击退0.6身位，大形免疫。",
+    "slot": "art",
+    "effect_id": "Y15",
+    "status": "active",
+    "params": {
+      "push_body": 0.6
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "Y16": {
+    "id": "Y16",
+    "name": "灰契",
+    "description": "收编与借入灰军持续时间+50%。",
+    "slot": "art",
+    "effect_id": "Y16",
+    "status": "active",
+    "params": {
+      "multiplier": 1.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  }
+}

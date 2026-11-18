@@ -1,0 +1,303 @@
+{
+  "checks": 54,
+  "connected_controllers": [],
+  "display": "macOS",
+  "engine": "4.7.2-stable (official)",
+  "failures": 0,
+  "results": [
+    {
+      "check": "Source and Chinese table validation",
+      "passed": true
+    },
+    {
+      "check": "Entry HUD reads current ritual and duration",
+      "passed": true
+    },
+    {
+      "check": "Five simultaneous book, economy, door and upper-floor text values",
+      "passed": true
+    },
+    {
+      "check": "Shouxiang shows six commands without mutation",
+      "passed": true
+    },
+    {
+      "check": "Default camera stays far; minimap spans the exact one-fifth slice",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 01-hud",
+      "passed": true
+    },
+    {
+      "check": "Q opens paused purchase without moving the camera",
+      "passed": true
+    },
+    {
+      "check": "Purchase cards show live source price and core combat stats",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 14-purchase",
+      "passed": true
+    },
+    {
+      "check": "The second offer page uses new scoped entries",
+      "passed": true
+    },
+    {
+      "check": "Real purchase reserves exactly one offer",
+      "passed": true
+    },
+    {
+      "check": "Only real cover posts receive legal markers",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 14-deployment",
+      "passed": true
+    },
+    {
+      "check": "Cursor gives an explicit outer-gate rejection",
+      "passed": true
+    },
+    {
+      "check": "Courtyard click explains rejection and keeps the paid reservation intact",
+      "passed": true
+    },
+    {
+      "check": "Controller cancel refunds the reservation",
+      "passed": true
+    },
+    {
+      "check": "Controller X opens the full command list with focus",
+      "passed": true
+    },
+    {
+      "check": "Controller A opens purchase and focuses a legal offer",
+      "passed": true
+    },
+    {
+      "check": "Controller offer confirmation focuses a legal cover post",
+      "passed": true
+    },
+    {
+      "check": "Controller D-pad can choose another exact legal cover post",
+      "passed": true
+    },
+    {
+      "check": "Controller places the reserved unit by confirming the focused post",
+      "passed": true
+    },
+    {
+      "check": "Controller purchase and deployment preserve the original viewport",
+      "passed": true
+    },
+    {
+      "check": "Clicking a live actor pauses and opens the full card",
+      "passed": true
+    },
+    {
+      "check": "Battle card reads the same complete fields as Codex",
+      "passed": true
+    },
+    {
+      "check": "Portrait appears in the card and leaves world geometry unchanged",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 17-unit-card",
+      "passed": true
+    },
+    {
+      "check": "Upgrade shows current stats, preview and four equipment slots",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 15-upgrade",
+      "passed": true
+    },
+    {
+      "check": "Real upgrade confirm increments the selected actor once",
+      "passed": true
+    },
+    {
+      "check": "Equipment shortcut exposes one censer, two arts and one nameplate at the same zoom",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 15-equipment",
+      "passed": true
+    },
+    {
+      "check": "Equipment spends real inventory and updates the card",
+      "passed": true
+    },
+    {
+      "check": "Point-rite picker only offers the legal ghost already in hall",
+      "passed": true
+    },
+    {
+      "check": "Click on an unentered ghost explains legal range without charging",
+      "passed": true
+    },
+    {
+      "check": "Click on an entered legal ghost starts the real paid channel with unchanged viewport",
+      "passed": true
+    },
+    {
+      "check": "Reading stays at the original cover and advances on continue",
+      "passed": true
+    },
+    {
+      "check": "The other guard continues real combat during reading",
+      "passed": true
+    },
+    {
+      "check": "A visible progress strip reports both elapsed time and interruptibility",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 16-read-progress",
+      "passed": true
+    },
+    {
+      "check": "Damage stops the channel and produces a corner warning",
+      "passed": true
+    },
+    {
+      "check": "Danger, book, tide above and dawn read in text at the same time",
+      "passed": true
+    },
+    {
+      "check": "Warnings are nonmodal and confined to a corner",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 23-pressure",
+      "passed": true
+    },
+    {
+      "check": "Controlled-shouxiang drag only opens multi-unit inspection",
+      "passed": true
+    },
+    {
+      "check": "Box selection never issues orders, moves or charges",
+      "passed": true
+    },
+    {
+      "check": "Duoming toolbar shows mutation, fusion and reinforcement",
+      "passed": true
+    },
+    {
+      "check": "Duoming drag exposes batch mutation without movement controls",
+      "passed": true
+    },
+    {
+      "check": "Batch preview counts the one affordable ghost in an eligible pair",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 15-batch-mutation",
+      "passed": true
+    },
+    {
+      "check": "Batch mutates and charges only the valid affordable member",
+      "passed": true
+    },
+    {
+      "check": "Controller unit cycle starts with the player's seat and shows its card",
+      "passed": true
+    },
+    {
+      "check": "A fresh battle clears prior interruption warnings",
+      "passed": true
+    },
+    {
+      "check": "At 720p the full first purchase button fits in the unscrolled panel",
+      "passed": true
+    },
+    {
+      "check": "Native viewport screenshot 14-purchase-720",
+      "passed": true
+    }
+  ],
+  "scope": "Isolated battle and authored read/interruption/pressure/selection fixtures exercised through native Godot viewport events. Ordinary Night progression is covered by P9InputNight.",
+  "screenshots": [
+    {
+      "file": "01-hud.png",
+      "height": 1080,
+      "sha256": "e2c694ea70ca8a962dcf710b024fc1230e460a8bf0867561069ebe8bd6f197aa",
+      "width": 1920
+    },
+    {
+      "file": "14-purchase.png",
+      "height": 1080,
+      "sha256": "b5a4c11581f67fca90532dc06317e9082fcacf7462b8cbec17fa6fde0acc5710",
+      "width": 1920
+    },
+    {
+      "file": "14-deployment.png",
+      "height": 1080,
+      "sha256": "26a20f5dd54d86bac9c9056ba5ad78633ed3a5bade931ef1e0a7679e65584466",
+      "width": 1920
+    },
+    {
+      "file": "17-unit-card.png",
+      "height": 1080,
+      "sha256": "1f10fd3b662d585eef3a93da2224a425bf916d9c0a9e69d29e7b381296a0f5d9",
+      "width": 1920
+    },
+    {
+      "file": "15-upgrade.png",
+      "height": 1080,
+      "sha256": "f462034619d81a5566d0ed09455b3fa492652e03a93c14ba6a0de1275c7a9d68",
+      "width": 1920
+    },
+    {
+      "file": "15-equipment.png",
+      "height": 1080,
+      "sha256": "544099eb24b8a0989b9345f68679818bbfd74cbdfe84b7368915d63fa43b059f",
+      "width": 1920
+    },
+    {
+      "file": "16-read-progress.png",
+      "height": 1080,
+      "sha256": "ee010e3a7496107e7726258e1266e234b3a5e3d3c44bff8a2fd0318a6369e053",
+      "width": 1920
+    },
+    {
+      "file": "23-pressure.png",
+      "height": 1080,
+      "sha256": "bfe98d586646b915beca74cc2b017417f824fb06b103714823bad7b81cb8226c",
+      "width": 1920
+    },
+    {
+      "file": "15-batch-mutation.png",
+      "height": 1080,
+      "sha256": "c99e2944999a89533e5c01980fa271c97672266258beb137ad5717a792676649",
+      "width": 1920
+    },
+    {
+      "file": "14-purchase-720.png",
+      "height": 720,
+      "sha256": "9e5a08e3e59c7826e997ae2d1e7da189d112276b73418fbcf3c9d9bb3e82a964",
+      "width": 1280
+    }
+  ],
+  "source_sha256": {
+    "src/ui/CombatHUD.gd": "84b803a0f79f996a1a650c4486b03be1dd732c7d824ab8020890c961ce9a985f",
+    "src/ui/DecisionPanel.gd": "742c4b02f77e22e506c3801cc7e56baa1f38bca4e93114533c0fa52e4149ff93",
+    "src/ui/GrowthPanel.gd": "09b7ed91d41e6591dfbd30b210ba77767b0aa08675863ddb06b060fc71cae402",
+    "src/ui/Minimap.gd": "61bb4083fe44f75e11cc151192719e74d437ab1e4e743d580401cb407009d761",
+    "src/ui/UnitCardContent.gd": "9f898113aa52df194b3533919026e927f8b419ee9b56f7e9ab7cd1496c0498ca",
+    "src/combat/BattleSession.gd": "d9754083eb4eae60472f618e40196c653889e44d00d69b96d179cf7c572b22e0",
+    "src/combat/skills/DianCe.gd": "fb4cb9c3bad3450efe4c4c41e5d38ef5c7f0303220481c477f36b2e6180ad6c1",
+    "src/growth/GrowthEngine.gd": "e5e21d4c1b02ead8c02921561ca6916182b6069ef7c0f03aa29e705cab775dcd",
+    "data/strings/p9_battle_zh_CN.csv": "d76b156d7ce99da30540b47dc2bef5cbc8968e937feba9634ce2743ae282f312",
+    "resources/p9_theme.tres": "57e2b793d48a500f195a03367f7e1b39724b5cb6a8a787a1c16adca01283e894",
+    "tests/P9BattleUI.gd": "546b8d988a475d5627ad6f05dbb60bbb2508283c907c24dc7c997dbe5c8995bb"
+  },
+  "reproduction": "python3 tools/p9_verify.py --script tests/P9BattleUI.gd --native",
+  "input": "Keyboard, mouse and synthetic Godot controller event paths. No physical controller attached."
+}

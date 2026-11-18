@@ -1,0 +1,197 @@
+{
+  "phase": "P10",
+  "entries": [
+    {
+      "id": "ritual_example_incense",
+      "name": "例夜安香",
+      "description": "沿用标准香火、编制和失败线。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R01"
+    },
+    {
+      "id": "ritual_zhongyuan",
+      "name": "中元放灯",
+      "description": "潮中更易涌出水鬼。超度水鬼多得一名分。水巷中的水鬼攻击和拖曳提高三成。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R02"
+    },
+    {
+      "id": "ritual_jizao",
+      "name": "祭灶",
+      "description": "香火回复加快。火类术式留火两秒，误伤双方。硝青的火不烧友军，灶心火加强。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R03"
+    },
+    {
+      "id": "ritual_jieshou",
+      "name": "接寿",
+      "description": "护住尚有寿数的人。他一旦阵亡，守香即败。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R04"
+    },
+    {
+      "id": "ritual_kaimian",
+      "name": "开面",
+      "description": "暂面可恢复少量名分。灯下无面的恐惧延长五成。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R05"
+    },
+    {
+      "id": "ritual_jiqiao",
+      "name": "祭桥",
+      "description": "石桥是潮的主要增援路。桥断，该路停援。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R06"
+    },
+    {
+      "id": "ritual_jinsheng",
+      "name": "禁声",
+      "description": "哭和钟反噬，锣只嘲讽。声音仍能震开范围内的隐形。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R07"
+    },
+    {
+      "id": "ritual_lieming",
+      "name": "列名夜",
+      "description": "点册和超度缩短四分之一。首战更早混入抹名吏和空白册页。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R08"
+    },
+    {
+      "id": "ritual_hanshi",
+      "name": "寒食",
+      "description": "火类技能禁用。香火回复为平常六成，物理伤害和符封提高两成。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R09"
+    },
+    {
+      "id": "ritual_shangliang",
+      "name": "上梁",
+      "description": "敌潮占住上层而无人争守时，上层失守即决胜负。缢鬼与童亡更常出现。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R10"
+    },
+    {
+      "id": "ritual_youshen",
+      "name": "游神",
+      "description": "借神花七香火和一名分。借到空位神的概率提高到三成半。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R11"
+    },
+    {
+      "id": "ritual_wuce",
+      "name": "无册渗透",
+      "description": "开战起名册即缓慢渗名。头目必来自无册谱。",
+      "kind": "ritual",
+      "implemented": true,
+      "rule_id": "R12"
+    },
+    {
+      "id": "block_gate_court",
+      "name": "正门庭",
+      "description": "外门退到庭内，主殿门破则退至楼梯。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C01"
+    },
+    {
+      "id": "block_c02",
+      "name": "侧门巷",
+      "description": "侧门破，潮从巷后向门厅夹入。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C02"
+    },
+    {
+      "id": "block_upper_rooms",
+      "name": "二楼回廊与梁",
+      "description": "梁梯失守可从后梯进入名册房。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C03"
+    },
+    {
+      "id": "block_register",
+      "name": "名册房",
+      "description": "名册房失守或名册香火熄灭，守香失败。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C04"
+    },
+    {
+      "id": "block_water_lane",
+      "name": "水巷",
+      "description": "闸板失守后水鬼可贴着水面拖拽并从内庭出水。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C05"
+    },
+    {
+      "id": "block_c06",
+      "name": "井口",
+      "description": "井栏毁后，脚踩井口的兵会受到坠井伤。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C06"
+    },
+    {
+      "id": "block_bridge",
+      "name": "石桥",
+      "description": "桥墩崩塌会断桥；祭桥时来自同一路的增援停止。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C07"
+    },
+    {
+      "id": "block_c08",
+      "name": "戏台",
+      "description": "幕架破后潮从台沿直接靠近门厅。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C08"
+    },
+    {
+      "id": "block_c09",
+      "name": "侧殿",
+      "description": "残墙失守，二楼可从侧殿被牵制。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C09"
+    },
+    {
+      "id": "block_c10",
+      "name": "阴缝",
+      "description": "缝未封会按间隔补潮，符封期间暂停。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C10"
+    },
+    {
+      "id": "block_c11",
+      "name": "灶房",
+      "description": "隔断破时潮能进灶房，火仍可能殃及两边。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C11"
+    },
+    {
+      "id": "block_c12",
+      "name": "禁声廊",
+      "description": "廊无单独终局线，失去隔扇后会暴露读条岗位。",
+      "kind": "block",
+      "implemented": true,
+      "rule_id": "C12"
+    }
+  ]
+}

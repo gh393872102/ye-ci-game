@@ -1,0 +1,282 @@
+{
+  "I01": {
+    "id": "I01",
+    "name": "冷金面具",
+    "description": "免疫一次夺面或恐惧，本夜耗尽。",
+    "slot": "censer",
+    "effect_id": "I01",
+    "status": "active",
+    "params": {
+      "charges": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I02": {
+    "id": "I02",
+    "name": "未燃残香",
+    "description": "名册将熄时自动复火一次，本夜限一次。",
+    "slot": "censer",
+    "effect_id": "I02",
+    "status": "active",
+    "params": {
+      "charges": 1,
+      "names": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I03": {
+    "id": "I03",
+    "name": "朱砂印",
+    "description": "封门符持续时间乘1.5。",
+    "slot": "censer",
+    "effect_id": "I03",
+    "status": "active",
+    "params": {
+      "duration_multiplier": 1.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I04": {
+    "id": "I04",
+    "name": "青灯盏",
+    "description": "周围3身位持续揭示隐形。",
+    "slot": "censer",
+    "effect_id": "I04",
+    "status": "active",
+    "params": {
+      "radius_body": 3
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I05": {
+    "id": "I05",
+    "name": "梁钉",
+    "description": "防止坠亡；砸梁时落到本层最近安全位置。",
+    "slot": "censer",
+    "effect_id": "I05",
+    "status": "active",
+    "params": {
+      "fall_chance": 0
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I06": {
+    "id": "I06",
+    "name": "桥魂石",
+    "description": "桥上攻防+20%；落水伤害和拖曳时间减半。",
+    "slot": "censer",
+    "effect_id": "I06",
+    "status": "active",
+    "params": {
+      "bridge_multiplier": 1.2,
+      "water_multiplier": 0.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I07": {
+    "id": "I07",
+    "name": "更鼓槌",
+    "description": "敲更半径增加2身位。",
+    "slot": "censer",
+    "effect_id": "I07",
+    "status": "active",
+    "params": {
+      "radius_bonus_body": 2
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I08": {
+    "id": "I08",
+    "name": "无字帖",
+    "description": "额外抵一次抹名，触发后耗尽。",
+    "slot": "censer",
+    "effect_id": "I08",
+    "status": "active",
+    "params": {
+      "charges": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I09": {
+    "id": "I09",
+    "name": "倒流香",
+    "description": "单次伤害减少30%，转为1香火，冷却20秒，每夜最多6次。",
+    "slot": "censer",
+    "effect_id": "I09",
+    "status": "active",
+    "params": {
+      "damage_conversion": 0.3,
+      "incense": 1,
+      "cooldown": 20,
+      "limit": 6
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I10": {
+    "id": "I10",
+    "name": "开山楔",
+    "description": "对门和障碍破坏+40%；修门恢复量-30%。",
+    "slot": "censer",
+    "effect_id": "I10",
+    "status": "active",
+    "params": {
+      "structure_multiplier": 1.4,
+      "repair_multiplier": 0.7
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I11": {
+    "id": "I11",
+    "name": "河灯盏",
+    "description": "目标在水中时点册时间-30%。",
+    "slot": "censer",
+    "effect_id": "I11",
+    "status": "active",
+    "params": {
+      "ritual_multiplier": 0.7
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I12": {
+    "id": "I12",
+    "name": "金镜残片",
+    "description": "反射25%指向性邪术伤害；30%概率令施术者现形3秒。",
+    "slot": "censer",
+    "effect_id": "I12",
+    "status": "active",
+    "params": {
+      "reflect": 0.25,
+      "reveal_chance": 0.3,
+      "reveal_duration": 3
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I13": {
+    "id": "I13",
+    "name": "寄名线",
+    "description": "一次致死转给附近杂兵或白衣；无合格对象则无效，本场限一次。",
+    "slot": "censer",
+    "effect_id": "I13",
+    "status": "active",
+    "params": {
+      "radius_body": 3,
+      "charges": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I14": {
+    "id": "I14",
+    "name": "灶心火",
+    "description": "祭灶旗标火伤+30%且不误伤；否则15%概率留下2秒会误伤的火。",
+    "slot": "censer",
+    "effect_id": "I14",
+    "status": "active",
+    "params": {
+      "fire_multiplier": 1.3,
+      "chance": 0.15,
+      "duration": 2,
+      "damage_per_second": 2,
+      "radius_body": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I15": {
+    "id": "I15",
+    "name": "盲弦余音",
+    "description": "每8秒轻吸4身位内最近敌人1身位。",
+    "slot": "censer",
+    "effect_id": "I15",
+    "status": "active",
+    "params": {
+      "cooldown": 8,
+      "radius_body": 4,
+      "pull_body": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I16": {
+    "id": "I16",
+    "name": "空轿铃",
+    "description": "冲锋伤害和破障+25%；守香提前1.5秒看见冲锋路径。",
+    "slot": "censer",
+    "effect_id": "I16",
+    "status": "active",
+    "params": {
+      "charge_multiplier": 1.25,
+      "warning_time": 1.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I17": {
+    "id": "I17",
+    "name": "册底针",
+    "description": "普通受伤不取消点册，改为损失30%已有进度；死亡或被拖离仍打断。",
+    "slot": "censer",
+    "effect_id": "I17",
+    "status": "active",
+    "params": {
+      "progress_loss": 0.3
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I18": {
+    "id": "I18",
+    "name": "丧杖穗",
+    "description": "对野鬼增伤20%；附近3身位人物治疗量-30%。",
+    "slot": "censer",
+    "effect_id": "I18",
+    "status": "active",
+    "params": {
+      "damage_multiplier": 1.2,
+      "radius_body": 3,
+      "heal_multiplier": 0.7
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I19": {
+    "id": "I19",
+    "name": "白骨钥",
+    "description": "打开本场一个声明的锁点；无锁点时明确提示今夜无锁。",
+    "slot": "censer",
+    "effect_id": "I19",
+    "status": "active",
+    "params": {
+      "uses": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "I20": {
+    "id": "I20",
+    "name": "无册残页",
+    "description": "未完成接口：无册残页的技能强化与渗名机制留待实现；名分归零后抽名册尚无完整模型，本轮无册赌局使用问灯反噬。",
+    "slot": "censer",
+    "effect_id": "I20",
+    "status": "interface",
+    "params": {
+      "skill_multiplier": 1.25,
+      "interval": 20,
+      "name_drain": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  }
+}

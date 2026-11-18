@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/combat/vfx/BattleEffects.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/combat/vfx/DianCeCircle.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/combat/vfx/GreenLantern.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/combat/vfx/TalismanSeal.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/combat/vfx/IncenseSmoke.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/combat/vfx/CrossbowTrail.tscn" id="6"]
+
+[node name="BattleEffects" type="Node2D"]
+z_index = 24
+script = ExtResource("1")
+
+[node name="DianCeCircle" parent="." instance=ExtResource("2")]
+
+[node name="GreenLantern" parent="." instance=ExtResource("3")]
+
+[node name="TalismanSeal" parent="." instance=ExtResource("4")]
+
+[node name="IncenseSmoke" parent="." instance=ExtResource("5")]
+
+[node name="CrossbowTrail" parent="." instance=ExtResource("6")]

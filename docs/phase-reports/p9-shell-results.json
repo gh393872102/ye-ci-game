@@ -1,0 +1,365 @@
+{
+  "scope": "Godot macOS desktop first example battle and a separate cold restart. Synthetic raw keyboard, mouse and controller events enter Godot GUI and InputMap. This is separate from the complete example-night acceptance and physical-device testing.",
+  "setup": "Two independent processes in temporary source copies, with every user:// gameplay path rewritten to the isolated state directory and native data directory names unique to the verifier.",
+  "reproduce": [
+    "python3 tools/p9_verify.py --native --script tools/p9_shell_smoke.gd",
+    "python3 tools/p9_verify.py --native --script tools/p9_shell_smoke.gd --state <first output>/state"
+  ],
+  "checks": 63,
+  "failures": 0,
+  "settings_file_sha256": "cb8dc72ec679f3ef0e1b1d8ce2381db1d45b92908f92d8314e02a8579f7f645a",
+  "settings_file": "[display]\n\nfullscreen=false\nresolution=Vector2i(960, 540)\nedge_scroll=true\n\n[audio]\n\nMaster=63\nSFX=44\nMusic=26\nRitual=6\n\n[keyboard]\n\npause=[80]\n\n[gamepad]\n\nui_accept=[3]\nupgrade=[0]\n",
+  "runs": {
+    "first_launch": {
+      "checks": 49,
+      "cold_reload": false,
+      "display": "macOS",
+      "engine": "4.7.2-stable (official)",
+      "failures": 0,
+      "isolated_state": "/private/tmp/ye-ci-p9-nsb3bq5c/state",
+      "results": [
+        {
+          "label": "Isolated state with native window",
+          "ok": true
+        },
+        {
+          "label": "Boot enters the real Night host with an isolated save",
+          "ok": true
+        },
+        {
+          "label": "Actual Boot presents the new title",
+          "ok": true
+        },
+        {
+          "label": "First focus is Start, Continue is unavailable without a save",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 01-title-1080",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 01-title-1080",
+          "ok": true
+        },
+        {
+          "label": "Directional input matches from a non-primary controller slot",
+          "ok": true
+        },
+        {
+          "label": "Controller focus skips unavailable Continue",
+          "ok": true
+        },
+        {
+          "label": "Controller A opens the actual Codex",
+          "ok": true
+        },
+        {
+          "label": "Controller B closes Codex and restores focus",
+          "ok": true
+        },
+        {
+          "label": "Controller reaches Settings via title navigation",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 02-settings-display-720",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 02-settings-display-720",
+          "ok": true
+        },
+        {
+          "label": "Clicking the preset changes the draft window resolution",
+          "ok": true
+        },
+        {
+          "label": "Fullscreen uses the desktop's resolution and keeps the saved window preset",
+          "ok": true
+        },
+        {
+          "label": "Applying fullscreen changes the native window",
+          "ok": true
+        },
+        {
+          "label": "Leaving fullscreen returns the native window",
+          "ok": true
+        },
+        {
+          "label": "Saved window resolution is applied to the desktop client size",
+          "ok": true
+        },
+        {
+          "label": "Keyboard capture stages a change until Save",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 03-settings-keyboard-540",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 03-settings-keyboard-540",
+          "ok": true
+        },
+        {
+          "label": "Used controller button swaps assignments without losing a command",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 04-settings-gamepad-540",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 04-settings-gamepad-540",
+          "ok": true
+        },
+        {
+          "label": "Save writes the local settings and applies edge scrolling",
+          "ok": true
+        },
+        {
+          "label": "Master slider changes the actual AudioServer bus",
+          "ok": true
+        },
+        {
+          "label": "SFX slider changes the actual AudioServer bus",
+          "ok": true
+        },
+        {
+          "label": "Music slider changes the actual AudioServer bus",
+          "ok": true
+        },
+        {
+          "label": "Ritual slider changes the actual AudioServer bus",
+          "ok": true
+        },
+        {
+          "label": "Settings dismissal restores controller focus to title",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 05-start-example-540",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 05-start-example-540",
+          "ok": true
+        },
+        {
+          "label": "Example mode defaults to the roster and focuses Guard Incense",
+          "ok": true
+        },
+        {
+          "label": "Remapped controller confirm starts the real example night",
+          "ok": true
+        },
+        {
+          "label": "Controller confirm on the night map enters real combat",
+          "ok": true
+        },
+        {
+          "label": "New battle initializes camera edge scrolling from saved settings",
+          "ok": true
+        },
+        {
+          "label": "Controller Back opens the local pause menu and stops the combat clock",
+          "ok": true
+        },
+        {
+          "label": "Opening pause preserves camera scale and visible world rectangle",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 06-pause-540",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 06-pause-540",
+          "ok": true
+        },
+        {
+          "label": "Right-stick events pan during pause while preserving scale",
+          "ok": true
+        },
+        {
+          "label": "Clicking a visible unit still opens its card while the pause menu remains open",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 07-pause-unit-540",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 07-pause-unit-540",
+          "ok": true
+        },
+        {
+          "label": "Battle Settings overlays the open pause menu",
+          "ok": true
+        },
+        {
+          "label": "Settings blocks combat shortcuts and does not change the visible world",
+          "ok": true
+        },
+        {
+          "label": "Continue closes the pause menu and resumes combat",
+          "ok": true
+        },
+        {
+          "label": "Remapped keyboard shortcut reaches the normal combat pause handler",
+          "ok": true
+        },
+        {
+          "label": "Save and Return leaves a Continue entry for the real battle",
+          "ok": true
+        }
+      ],
+      "scope": "Real desktop Godot windows and GUI. Keyboard, controller and mouse events injected through the Godot input system. First battle only. No physical controller was used.",
+      "screenshots": {
+        "01-title-1080": {
+          "file": "p9-shots/shell/01-title-1080.png",
+          "height": 1080,
+          "sha256": "d11d696033ac9f1b0b735c0443f90af968a1722f93dfabec6d57cb00febfa755",
+          "width": 1920
+        },
+        "02-settings-display-720": {
+          "file": "p9-shots/shell/02-settings-display-720.png",
+          "height": 720,
+          "sha256": "73e32385253e07ba2ca1fc8e7163cd54fcc11535509fd53282b3d0d95476f6a1",
+          "width": 1280
+        },
+        "03-settings-keyboard-540": {
+          "file": "p9-shots/shell/03-settings-keyboard-540.png",
+          "height": 540,
+          "sha256": "606e8e49672ad4269df6451d3c569bb7c895efe03daaac0e338bce45f5aa07b5",
+          "width": 960
+        },
+        "04-settings-gamepad-540": {
+          "file": "p9-shots/shell/04-settings-gamepad-540.png",
+          "height": 540,
+          "sha256": "2a78f19b2e3a0ac53db15e36e0f2d38a09a050552af54e1917c29cd5421fc489",
+          "width": 960
+        },
+        "05-start-example-540": {
+          "file": "p9-shots/shell/05-start-example-540.png",
+          "height": 540,
+          "sha256": "767d6357b118420b83b3d141ebf81d3a0f0bbf0fa8ce069d8094283320a883e4",
+          "width": 960
+        },
+        "06-pause-540": {
+          "file": "p9-shots/shell/06-pause-540.png",
+          "height": 540,
+          "sha256": "e3bbcea679c52f4180d9b281c5bc60e66d6ed9d46000a63b89dcd02013de416b",
+          "width": 960
+        },
+        "07-pause-unit-540": {
+          "file": "p9-shots/shell/07-pause-unit-540.png",
+          "height": 540,
+          "sha256": "f454d17f6d1524180e1d749b23e945ef73fd7330b29957faa1a6a6aa4d52ed0a",
+          "width": 960
+        }
+      },
+      "source_sha256": {
+        "data/strings/p9_shell_zh_CN.csv": "6d0483ef81c13df5bb73dba5db408b4186f1c5d5ee4afd86ffdb4772643e43d1",
+        "project.godot": "a07497f4275ad57d7d5fa272bb446e1e94bb345b9515b04689f78484c3b31b4e",
+        "resources/p9_theme.tres": "57e2b793d48a500f195a03367f7e1b39724b5cb6a8a787a1c16adca01283e894",
+        "src/autoload/Settings.gd": "fdfb6cb3f599f9a6a375dec61de75512689c5772dfbd3d33233e6e3fc0e7d559",
+        "src/boot/Boot.gd": "98ccaefa5449e0c07607c956cf68c6ac15b432c9b414e927a49340e4587733f4",
+        "src/camera/BattleCamera.gd": "ccd6ad9d28d4aedc440366cfde53e2d01e9bd9c23f663456c2c88869e3a6fce8",
+        "src/night/Night.gd": "08872b77123d507d5b3b3dec20566646bd026d274fdbbb17e30d2765370ac99e",
+        "src/ui/NightShell.gd": "c4caa3f8b2df26c98c1ce8c01d8c755e5c334153a14802ee0aedaaf044244efa",
+        "src/ui/SettingsMenu.gd": "56842c2de1d13bbe37a6e07e98a35eb58865783f65df817aa790aa4d2ec8fe8d",
+        "tools/p9_shell_smoke.gd": "9f0136b230232174051cb097dc6244ffcb4aa583d86b563b27fc25cb0c8ae6af"
+      }
+    },
+    "cold_restart": {
+      "checks": 14,
+      "cold_reload": true,
+      "display": "macOS",
+      "engine": "4.7.2-stable (official)",
+      "failures": 0,
+      "isolated_state": "/private/tmp/ye-ci-p9-nsb3bq5c/state",
+      "results": [
+        {
+          "label": "Isolated state with native window",
+          "ok": true
+        },
+        {
+          "label": "Boot enters the real Night host with an isolated save",
+          "ok": true
+        },
+        {
+          "label": "Actual Boot presents the new title",
+          "ok": true
+        },
+        {
+          "label": "Cold Boot reloads edge scrolling, window mode and window resolution",
+          "ok": true
+        },
+        {
+          "label": "Cold Boot applies the saved desktop window size",
+          "ok": true
+        },
+        {
+          "label": "Cold Boot applies saved keyboard and controller bindings",
+          "ok": true
+        },
+        {
+          "label": "Master retains the committed level after quitting",
+          "ok": true
+        },
+        {
+          "label": "SFX retains the committed level after quitting",
+          "ok": true
+        },
+        {
+          "label": "Music retains the committed level after quitting",
+          "ok": true
+        },
+        {
+          "label": "Ritual retains the committed level after quitting",
+          "ok": true
+        },
+        {
+          "label": "Cold Boot restores Continue to the controller focus path",
+          "ok": true
+        },
+        {
+          "label": "Remapped controller confirm restores the saved battle after a cold reboot",
+          "ok": true
+        },
+        {
+          "label": "Screenshot renders: 08-continue-battle-540",
+          "ok": true
+        },
+        {
+          "label": "Screenshot writes: 08-continue-battle-540",
+          "ok": true
+        }
+      ],
+      "scope": "Real desktop Godot windows and GUI. Keyboard, controller and mouse events injected through the Godot input system. First battle only. No physical controller was used.",
+      "screenshots": {
+        "08-continue-battle-540": {
+          "file": "p9-shots/shell/08-continue-battle-540.png",
+          "height": 540,
+          "sha256": "da3be3ed7bb7e5d54611678f5e32d30b1b1e797e8a2167eda8cdd84ba2e4c349",
+          "width": 960
+        }
+      },
+      "source_sha256": {
+        "data/strings/p9_shell_zh_CN.csv": "6d0483ef81c13df5bb73dba5db408b4186f1c5d5ee4afd86ffdb4772643e43d1",
+        "project.godot": "a07497f4275ad57d7d5fa272bb446e1e94bb345b9515b04689f78484c3b31b4e",
+        "resources/p9_theme.tres": "57e2b793d48a500f195a03367f7e1b39724b5cb6a8a787a1c16adca01283e894",
+        "src/autoload/Settings.gd": "fdfb6cb3f599f9a6a375dec61de75512689c5772dfbd3d33233e6e3fc0e7d559",
+        "src/boot/Boot.gd": "98ccaefa5449e0c07607c956cf68c6ac15b432c9b414e927a49340e4587733f4",
+        "src/camera/BattleCamera.gd": "ccd6ad9d28d4aedc440366cfde53e2d01e9bd9c23f663456c2c88869e3a6fce8",
+        "src/night/Night.gd": "08872b77123d507d5b3b3dec20566646bd026d274fdbbb17e30d2765370ac99e",
+        "src/ui/NightShell.gd": "c4caa3f8b2df26c98c1ce8c01d8c755e5c334153a14802ee0aedaaf044244efa",
+        "src/ui/SettingsMenu.gd": "56842c2de1d13bbe37a6e07e98a35eb58865783f65df817aa790aa4d2ec8fe8d",
+        "tools/p9_shell_smoke.gd": "9f0136b230232174051cb097dc6244ffcb4aa583d86b563b27fc25cb0c8ae6af"
+      }
+    }
+  },
+  "source_note": "Per-process source hashes reverse only the temporary path and user directory substitutions. A subsequent headless-only keyboard label fallback does not affect the displayed native cases."
+}

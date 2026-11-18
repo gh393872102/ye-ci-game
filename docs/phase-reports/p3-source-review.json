@@ -1,0 +1,32 @@
+{
+  "reviewed_at": "2026-11-17T13:01:58+08:00",
+  "pages": [
+    {
+      "url": "https://gh393872102.github.io/ye-ci/dev.html#d-p3",
+      "sha256": "19d7c12a263769c3f5aa18f806a5b899abeeda0d8725353462a9001f0d744e6f"
+    },
+    {
+      "url": "https://gh393872102.github.io/ye-ci/",
+      "sha256": "6ec169b105512f7454ebd992b46c298614b9de5b6a4aae659afa175fd513a075"
+    }
+  ],
+  "images": [
+    {
+      "figure": "10",
+      "sha256": "8f104b910861eaf2bff6f3c169d7ed5653daa7b4deeef02cffe43e68a9860656",
+      "use": "comparison only, not shipped as game art"
+    },
+    {
+      "figure": "13",
+      "sha256": "35fadc5565b24dcfb67817f8a25831284716c0df0412a0d420b4008683cccbbe",
+      "use": "comparison only, not shipped as game art"
+    },
+    {
+      "figure": "25",
+      "sha256": "7cedb7684a0ab89bd28ede48b42b6343ccadc9ac4780d31461305af8b48a7a17",
+      "use": "comparison only, not shipped as game art"
+    }
+  ],
+  "source_csv_unchanged": true,
+  "map_and_human_ai_unchanged": true
+}

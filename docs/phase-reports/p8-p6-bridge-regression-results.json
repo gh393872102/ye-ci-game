@@ -1,0 +1,167 @@
+{
+	"checks": 33,
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"fixture_policy": "Isolated bridge/save/replay fixtures. Corrupt checkpoints are deliberately constructed. The queued elite is initialized with damage, upgrades and equipment to test carrying, not to claim a full-night victory. Source battles use the real shared simulator and paid commands; replay executes recorded inputs and exact step deltas.",
+	"phase": "P6Bridge",
+	"queued_result": {
+		"elapsed": 179.999999999994,
+		"first_breach": {
+			"door": "door_outer",
+			"time": 59.4000000000006
+		},
+		"humans_alive": 5,
+		"incense": 37.6000000000008,
+		"mode": "duoming",
+		"names": 8.0,
+		"outcome": "defeat",
+		"reason": "P4_END_DAYBREAK",
+		"remaining": 0.0,
+		"tide_alive": 33
+	},
+	"replay": {
+		"commands": 0,
+		"director_used": 0,
+		"done": true,
+		"error": "",
+		"seed": "review-owned-queue",
+		"steps": 1800,
+		"total_commands": 0,
+		"total_steps": 1800,
+		"verified": true
+	},
+	"results": [
+		{
+			"label": "reference node starts",
+			"passed": true
+		},
+		{
+			"label": "real paid upgrade before recording checkpoint",
+			"passed": true
+		},
+		{
+			"label": "current world and carry queue have exact mirrors",
+			"passed": true
+		},
+		{
+			"label": "well-typed truncated recording rejected",
+			"passed": true
+		},
+		{
+			"label": "well-typed truncated recording preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "foreign node recording rejected",
+			"passed": true
+		},
+		{
+			"label": "foreign node recording preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "foreign seed recording rejected",
+			"passed": true
+		},
+		{
+			"label": "foreign seed recording preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "malformed carry queue rejected",
+			"passed": true
+		},
+		{
+			"label": "malformed carry queue preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "malformed tracked roster rejected",
+			"passed": true
+		},
+		{
+			"label": "malformed tracked roster preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "malformed encountered id rejected",
+			"passed": true
+		},
+		{
+			"label": "malformed encountered id preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "malformed starting roster rejected",
+			"passed": true
+		},
+		{
+			"label": "malformed starting roster preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "partial battle profile rejected",
+			"passed": true
+		},
+		{
+			"label": "partial battle profile preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "mismatched exact current rejected",
+			"passed": true
+		},
+		{
+			"label": "mismatched exact current preserves scene and recording",
+			"passed": true
+		},
+		{
+			"label": "midbattle save written through real codec",
+			"passed": true
+		},
+		{
+			"label": "midbattle save read through real codec",
+			"passed": true
+		},
+		{
+			"label": "disk continuation restores same node",
+			"passed": true
+		},
+		{
+			"label": "restored current fingerprint agrees",
+			"passed": true
+		},
+		{
+			"label": "20-second continued trajectory agrees after disk restore",
+			"passed": true
+		},
+		{
+			"label": "continued key-event ledger agrees",
+			"passed": true
+		},
+		{
+			"label": "damaged upgraded elite remains in source queue at initial recording",
+			"passed": true
+		},
+		{
+			"label": "source queued-roster battle reaches real result",
+			"passed": true
+		},
+		{
+			"label": "complete queued-roster battle archives",
+			"passed": true
+		},
+		{
+			"label": "complete queued-roster archive loads from disk",
+			"passed": true
+		},
+		{
+			"label": "queued-roster replay starts",
+			"passed": true
+		},
+		{
+			"label": "complete damaged upgraded carry replay fingerprint and events verify",
+			"passed": true
+		}
+	]
+}

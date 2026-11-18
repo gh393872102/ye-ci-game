@@ -1,0 +1,229 @@
+{
+	"checks": 55,
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"fixture_policy": "Isolated domain fixtures construct capped rosters/builds and malformed checksummed saves. These are rule tests, not full-night victory evidence.",
+	"phase": "P5Domain",
+	"results": [
+		{
+			"label": "full white tide capped build exactly three",
+			"passed": true
+		},
+		{
+			"label": "full white tide capped build usable r_climb_formula",
+			"passed": true
+		},
+		{
+			"label": "full white tide capped build usable r_patch",
+			"passed": true
+		},
+		{
+			"label": "full white tide capped build usable r_break_formula",
+			"passed": true
+		},
+		{
+			"label": "full white tide capped build build and at most one survival",
+			"passed": true
+		},
+		{
+			"label": "full white has real mutation route",
+			"passed": true
+		},
+		{
+			"label": "formula reward applies",
+			"passed": true
+		},
+		{
+			"label": "formula identity and count preserved",
+			"passed": true
+		},
+		{
+			"label": "formula damage ratio and capacity preserved",
+			"passed": true
+		},
+		{
+			"label": "full equipped elite tide capped build exactly three",
+			"passed": true
+		},
+		{
+			"label": "full equipped elite tide capped build usable r_thick_name",
+			"passed": true
+		},
+		{
+			"label": "full equipped elite tide capped build usable r_rekindle",
+			"passed": true
+		},
+		{
+			"label": "full equipped elite tide capped build usable r_sharp_name",
+			"passed": true
+		},
+		{
+			"label": "full equipped elite tide capped build build and at most one survival",
+			"passed": true
+		},
+		{
+			"label": "full troops equipped humans capped build exactly three",
+			"passed": true
+		},
+		{
+			"label": "full troops equipped humans capped build usable r_thick_name",
+			"passed": true
+		},
+		{
+			"label": "full troops equipped humans capped build usable r_rekindle",
+			"passed": true
+		},
+		{
+			"label": "full troops equipped humans capped build usable r_sharp_name",
+			"passed": true
+		},
+		{
+			"label": "full troops equipped humans capped build build and at most one survival",
+			"passed": true
+		},
+		{
+			"label": "market rejects fourth post occupant without payment",
+			"passed": true
+		},
+		{
+			"label": "reward rejects fourth post occupant",
+			"passed": true
+		},
+		{
+			"label": "named duplicate rejected",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded nested battle history",
+			"passed": true
+		},
+		{
+			"label": "nested battle history rejected",
+			"passed": true
+		},
+		{
+			"label": "nested battle history rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded before-battle roster",
+			"passed": true
+		},
+		{
+			"label": "before-battle roster rejected",
+			"passed": true
+		},
+		{
+			"label": "before-battle roster rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded ledger detail",
+			"passed": true
+		},
+		{
+			"label": "ledger detail rejected",
+			"passed": true
+		},
+		{
+			"label": "ledger detail rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded reward target shape",
+			"passed": true
+		},
+		{
+			"label": "reward target shape rejected",
+			"passed": true
+		},
+		{
+			"label": "reward target shape rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded build beyond cap",
+			"passed": true
+		},
+		{
+			"label": "build beyond cap rejected",
+			"passed": true
+		},
+		{
+			"label": "build beyond cap rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded snapshot shell",
+			"passed": true
+		},
+		{
+			"label": "snapshot shell rejected",
+			"passed": true
+		},
+		{
+			"label": "snapshot shell rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded fallen still alive",
+			"passed": true
+		},
+		{
+			"label": "fallen still alive rejected",
+			"passed": true
+		},
+		{
+			"label": "fallen still alive rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded unknown post",
+			"passed": true
+		},
+		{
+			"label": "unknown post rejected",
+			"passed": true
+		},
+		{
+			"label": "unknown post rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded skipped route",
+			"passed": true
+		},
+		{
+			"label": "skipped route rejected",
+			"passed": true
+		},
+		{
+			"label": "skipped route rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded elapsed wrong type",
+			"passed": true
+		},
+		{
+			"label": "elapsed wrong type rejected",
+			"passed": true
+		},
+		{
+			"label": "elapsed wrong type rejection preserves current state",
+			"passed": true
+		},
+		{
+			"label": "malformed encoded partial last battle",
+			"passed": true
+		},
+		{
+			"label": "partial last battle rejected",
+			"passed": true
+		},
+		{
+			"label": "partial last battle rejection preserves current state",
+			"passed": true
+		}
+	]
+}

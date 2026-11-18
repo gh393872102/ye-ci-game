@@ -1,0 +1,54 @@
+{
+	"battles": [
+		{
+			"elapsed": 179.999999999992,
+			"node_id": "n01",
+			"outcome": "victory",
+			"reason": "P4_END_HELD_TO_DAYBREAK",
+			"reward_incense": 12.0,
+			"reward_names": 4.0
+		},
+		{
+			"elapsed": 206.466666666658,
+			"node_id": "n03",
+			"outcome": "defeat",
+			"reason": "P4_END_REGISTER_CAPTURED",
+			"reward_incense": 0.0,
+			"reward_names": 0.0
+		}
+	],
+	"failures": [],
+	"input_source": "Godot viewport device events",
+	"keyboard_events": 6,
+	"mode": "mouse",
+	"mouse_events": 24,
+	"outcome": "defeat",
+	"pad_events": 0,
+	"phases": [
+		"map",
+		"battle",
+		"reward",
+		"market",
+		"mercy",
+		"ended"
+	],
+	"physical_devices": [],
+	"reason": "P4_END_REGISTER_CAPTURED",
+	"returned_to_title": true,
+	"seed": "夜-1794978105-782868",
+	"trace": [
+		"title/start",
+		"seat/guard",
+		"map/",
+		"purchase/pay",
+		"deploy/indoor-post",
+		"card/close",
+		"combat/resume-2x",
+		"reward/n01",
+		"map/n01",
+		"market/n02",
+		"map/n02",
+		"mercy/n03",
+		"settlement/return-to-title"
+	]
+}

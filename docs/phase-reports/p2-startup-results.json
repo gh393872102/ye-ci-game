@@ -1,0 +1,10 @@
+{
+  "phase": "P2",
+  "entry": "project.godot -> Boot -> Combat",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "frames": 120,
+  "exit_code": 0,
+  "script_or_resource_errors": false,
+  "environment": "macOS arm64, local source",
+  "windows_launch_verified": false
+}

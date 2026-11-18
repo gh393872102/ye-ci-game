@@ -1,0 +1,237 @@
+{
+  "checks": 51,
+  "failures": 0,
+  "input": "Godot native viewport keyboard/mouse events; isolated local state",
+  "results": [
+    {
+      "check": "Isolated native project",
+      "passed": true
+    },
+    {
+      "check": "Official Boot reaches title",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens @OptionButton@95",
+      "passed": true
+    },
+    {
+      "check": "Keyboard reaches dropdown row 2",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects item 2 in @OptionButton@95",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens @OptionButton@110",
+      "passed": true
+    },
+    {
+      "check": "Keyboard reaches dropdown row 6",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects item 6 in @OptionButton@110",
+      "passed": true
+    },
+    {
+      "check": "Native frame 01-fierce-setup",
+      "passed": true
+    },
+    {
+      "check": "Title starts fierce bridge night with cracked side gate",
+      "passed": true
+    },
+    {
+      "check": "Mandatory bridge and side gate in actual first node",
+      "passed": true
+    },
+    {
+      "check": "Native frame 02-night-route",
+      "passed": true
+    },
+    {
+      "check": "Real first map node enters combat",
+      "passed": true
+    },
+    {
+      "check": "Runtime bridge, side gate and ritual exist",
+      "passed": true
+    },
+    {
+      "check": "Keyboard opens pause over live fight",
+      "passed": true
+    },
+    {
+      "check": "Mouse saves and returns to title",
+      "passed": true
+    },
+    {
+      "check": "Continue restores the saved battle",
+      "passed": true
+    },
+    {
+      "check": "Battle snapshot including marks, stage, map, actors and wallet survives disk roundtrip",
+      "passed": true
+    },
+    {
+      "check": "Restored seed reconstructs the whole night route",
+      "passed": true
+    },
+    {
+      "check": "Title observer opens battle configuration",
+      "passed": true
+    },
+    {
+      "check": "Observer offers 32 named humans, 4 troops, 32 ghosts and 12 rituals",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens @OptionButton@556",
+      "passed": true
+    },
+    {
+      "check": "Keyboard reaches dropdown row 2",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects item 2 in @OptionButton@556",
+      "passed": true
+    },
+    {
+      "check": "Keyboard edits observer incense",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens @OptionButton@544",
+      "passed": true
+    },
+    {
+      "check": "Keyboard reaches dropdown row 9",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects item 9 in @OptionButton@544",
+      "passed": true
+    },
+    {
+      "check": "Editor takes keyboard focus from observer setup",
+      "passed": true
+    },
+    {
+      "check": "Tab traversal stays within the open editor",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens @OptionButton@1303",
+      "passed": true
+    },
+    {
+      "check": "Keyboard reaches dropdown row 2",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects item 2 in @OptionButton@1303",
+      "passed": true
+    },
+    {
+      "check": "Escape closes editor and restores focus",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens @OptionButton@544",
+      "passed": true
+    },
+    {
+      "check": "Keyboard reaches dropdown row 11",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects item 11 in @OptionButton@544",
+      "passed": true
+    },
+    {
+      "check": "Nameless infiltration requires B03",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens @OptionButton@544",
+      "passed": true
+    },
+    {
+      "check": "Keyboard reaches dropdown row 9",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects item 9 in @OptionButton@544",
+      "passed": true
+    },
+    {
+      "check": "Switching back restores the chosen B02 stage",
+      "passed": true
+    },
+    {
+      "check": "Water alley adds its legal post to initial formation",
+      "passed": true
+    },
+    {
+      "check": "Native frame 03-observer-setup",
+      "passed": true
+    },
+    {
+      "check": "Mouse starts configured observation",
+      "passed": true
+    },
+    {
+      "check": "Observer runs selected ritual, stage, water alley and modifier",
+      "passed": true
+    },
+    {
+      "check": "Shared battle camera and P8 roster engine",
+      "passed": true
+    },
+    {
+      "check": "Observer starts chosen resources, AI ferocity and configured roster in the shared simulator",
+      "passed": true
+    },
+    {
+      "check": "Native frame 04-observer-battle",
+      "passed": true
+    },
+    {
+      "check": "Archive the actual configured observer battle",
+      "passed": true
+    },
+    {
+      "check": "Disk replay verifies event/result digest of selected stage",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "p10-shots/host/01-fierce-setup.png",
+      "height": 720,
+      "sha256": "7cf7982ba9296b8da20f9379d8b73d04bb1ff1eb94a926088d4e771de2e01ede",
+      "width": 1280
+    },
+    {
+      "file": "p10-shots/host/02-night-route.png",
+      "height": 720,
+      "sha256": "032bfec82c1bba2c4fec1315b75d897840d0a15dacd8bfdec8be096041c75864",
+      "width": 1280
+    },
+    {
+      "file": "p10-shots/host/03-observer-setup.png",
+      "height": 720,
+      "sha256": "a447be1399abdd27a80f954ea2b589093de8d577d4e622bbda6b76a5313cb17f",
+      "width": 1280
+    },
+    {
+      "file": "p10-shots/host/04-observer-battle.png",
+      "height": 720,
+      "sha256": "035164e5c79a1fbd8587b4a4fc0d1352018edfeae8d541a54077480689f81295",
+      "width": 1280
+    }
+  ]
+}

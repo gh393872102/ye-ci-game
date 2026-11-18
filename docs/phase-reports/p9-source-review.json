@@ -1,0 +1,36 @@
+{
+  "baseline": "f620740",
+  "spec": "https://gh393872102.github.io/ye-ci/dev.html#d-p9",
+  "gdd": "https://gh393872102.github.io/ye-ci/",
+  "source_pages": {
+    "dev.html": "19d7c12a263769c3f5aa18f806a5b899abeeda0d8725353462a9001f0d744e6f",
+    "gdd.html": "6ec169b105512f7454ebd992b46c298614b9de5b6a4aae659afa175fd513a075"
+  },
+  "gdd_sections": [
+    "6.6",
+    "14",
+    "15.1",
+    "17"
+  ],
+  "reference_images": {
+    "13": "35fadc5565b24dcfb67817f8a25831284716c0df0412a0d420b4008683cccbbe",
+    "14": "06b1e727447d4066184142d03ff83c574ed7d99cbfff33001bb0a6e73d81fea6",
+    "15": "77833e64f29ecee729354831d2047eaca736ec314f63864123d5f9b05c4069e0",
+    "16": "305610990f3e013afd5cc59223400a2edbd40e8433e5213513fb18c161be2cc4",
+    "17": "cb302d9bb534e5a3ab621e3b5a6e6b1da0cd5cbe80a4566695f7a7ba0168693f",
+    "18": "d16344fbf5cb4a3c64063f1419f5782a91f3c20d54ed71d2612c82f71be8efa9",
+    "19": "bdfc8be7cf1fff7910a0e866ada44b56b56e89c535f407ace93e6db391657f6c",
+    "20": "46aa8b629489793952d3db6441a78f28be1027605eb7e312a9cbcca132a5391e",
+    "21": "1d89da75018c371460d6b40197b72d9e2ab0f1091a18439896863d180d52a847",
+    "22": "f2b0c8c50e1c8161edbec60ac8c9b5a8a9144c2cb2a75d52f65232d4c870c66c",
+    "23": "9680ff372e5ed9dd820d02ff9dd435536be753b40efb8dc659136ac1a2213416",
+    "24": "512d4e1751c99abcdfb913019bea278dfbcaa5ca24c2c6f72cd8e2e50b17e013",
+    "25": "7cedb7684a0ab89bd28ede48b42b6343ccadc9ac4780d31461305af8b48a7a17"
+  },
+  "review_date": "2026-11-18",
+  "visual_constraints": [
+    "14–23 control layout and information hierarchy",
+    "13/25 camera and legal indoor posts",
+    "Original environment and object illustrations with Chinese text rendered separately"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "G02",
+  "name": "乞名鬼",
+  "source": "Project-generated portrait source (local generation metadata withheld)",
+  "path": "res://assets/portraits/p8/G02.png",
+  "status": "placeholder",
+  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "size": [
+    1024,
+    1536
+  ],
+  "sha256": "678b83f535032e87d1d982dad24b5c2e525d4a1e8a5510b4af3be321c232fe04",
+  "replacement_required": true,
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+}

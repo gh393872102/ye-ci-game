@@ -1,0 +1,73 @@
+{
+  "phase": "P4",
+  "generated_at": "2026-11-17T13:34:38.052454+08:00",
+  "source_report": "docs/phase-reports/p4-render-results.json",
+  "source_report_sha256": "d2280855c7618ea4efec5e0c6409d68cfb5d45ab23125806739240247594b0cb",
+  "method": "Native Godot viewport samples from fixed-step public-command acceptance. Timelapse, not manual realtime play. No motion interpolation or generated imagery.",
+  "movies": [
+    {
+      "mode": "shouxiang",
+      "path": "exports/p4-replays/shouxiang-12x.mp4",
+      "source_frames": 122,
+      "source_frame_digest_sha256": "67f9cd75cf3181f94fec38283378e01f96f00de4b1a81d4a69b3ab7dc180998d",
+      "sample_sim_seconds": 2,
+      "source_samples_per_video_second": 6,
+      "approximate_speed": "12x; final result held two extra seconds",
+      "simulation_seconds": 240.000000000083,
+      "result": {
+        "elapsed": 240.000000000083,
+        "first_breach": {
+          "door": "door_outer",
+          "time": 112.316666666662
+        },
+        "humans_alive": 5,
+        "incense": 12.799999999998,
+        "mode": "shouxiang",
+        "names": 8.0,
+        "outcome": "victory",
+        "reason": "P4_END_HELD_TO_DAYBREAK",
+        "remaining": 0.0,
+        "tide_alive": 73
+      },
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "duration_seconds": 22.333333,
+      "display_frame_rate": "30/1",
+      "bytes": 584298,
+      "sha256": "83d29932e2fe4826c32c978b1063eb9584cbcd60541d88c390f7e058d19ae4f9"
+    },
+    {
+      "mode": "duoming",
+      "path": "exports/p4-replays/duoming-12x.mp4",
+      "source_frames": 84,
+      "source_frame_digest_sha256": "7fd6ff5105262a08d2da5ab212fe676fb8a094bfefbc978cacdf36f8fc8915cf",
+      "sample_sim_seconds": 2,
+      "source_samples_per_video_second": 6,
+      "approximate_speed": "12x; final result held two extra seconds",
+      "simulation_seconds": 164.150000000023,
+      "result": {
+        "elapsed": 164.150000000023,
+        "first_breach": {
+          "door": "door_outer",
+          "time": 44.1166666666654
+        },
+        "humans_alive": 0,
+        "incense": 8.69800000000026,
+        "mode": "duoming",
+        "names": 2.95416666666684,
+        "outcome": "victory",
+        "reason": "P4_END_REGISTER_CAPTURED",
+        "remaining": 75.8499999999138,
+        "tide_alive": 69
+      },
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "duration_seconds": 16.0,
+      "display_frame_rate": "30/1",
+      "bytes": 485178,
+      "sha256": "55be587c9be34ce3b6426ef491cc261598a742e815a8800922cba36ef17e5bc1"
+    }
+  ]
+}

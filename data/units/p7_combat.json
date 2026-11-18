@@ -1,0 +1,579 @@
+{
+  "phase": "P7",
+  "profiles": {
+    "H03": {
+      "role": "ritual",
+      "skill_id": "p7_h03_skill",
+      "trait_id": "p7_h03_trait",
+      "range_body": 2.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H06": {
+      "role": "talisman",
+      "skill_id": "p7_h06_skill",
+      "trait_id": "p7_h06_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H07": {
+      "role": "talisman",
+      "skill_id": "p7_h07_skill",
+      "trait_id": "p7_h07_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H11": {
+      "role": "guard",
+      "skill_id": "p7_h11_skill",
+      "trait_id": "p7_h11_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H19": {
+      "role": "talisman",
+      "skill_id": "p7_h19_skill",
+      "trait_id": "p7_h19_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H21": {
+      "role": "ritual",
+      "skill_id": "p7_h21_skill",
+      "trait_id": "p7_h21_trait",
+      "range_body": 2.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H22": {
+      "role": "talisman",
+      "skill_id": "p7_h22_skill",
+      "trait_id": "p7_h22_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H23": {
+      "role": "talisman",
+      "skill_id": "p7_h23_skill",
+      "trait_id": "p7_h23_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H24": {
+      "role": "ritual",
+      "skill_id": "p7_h24_skill",
+      "trait_id": "p7_h24_trait",
+      "range_body": 2.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H25": {
+      "role": "guard",
+      "skill_id": "p7_h25_skill",
+      "trait_id": "p7_h25_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H27": {
+      "role": "talisman",
+      "skill_id": "p7_h27_skill",
+      "trait_id": "p7_h27_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "H32": {
+      "role": "talisman",
+      "skill_id": "p7_h32_skill",
+      "trait_id": "p7_h32_trait",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G02": {
+      "role": "tide",
+      "skill_id": "p7_g02_skill",
+      "trait_id": "p7_g02_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G04": {
+      "role": "tide",
+      "skill_id": "p7_g04_skill",
+      "trait_id": "p7_g04_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G05": {
+      "role": "tide",
+      "skill_id": "p7_g05_skill",
+      "trait_id": "p7_g05_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G07": {
+      "role": "tide",
+      "skill_id": "p7_g07_skill",
+      "trait_id": "p7_g07_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G08": {
+      "role": "tide",
+      "skill_id": "p7_g08_skill",
+      "trait_id": "p7_g08_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G10": {
+      "role": "tide",
+      "skill_id": "p7_g10_skill",
+      "trait_id": "p7_g10_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G11": {
+      "role": "tide",
+      "skill_id": "p7_g11_skill",
+      "trait_id": "p7_g11_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G13": {
+      "role": "tide",
+      "skill_id": "p7_g13_skill",
+      "trait_id": "p7_g13_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G14": {
+      "role": "tide",
+      "skill_id": "p7_g14_skill",
+      "trait_id": "p7_g14_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G17": {
+      "role": "tide",
+      "skill_id": "p7_g17_skill",
+      "trait_id": "p7_g17_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 112
+    },
+    "G20": {
+      "role": "tide",
+      "skill_id": "p7_g20_skill",
+      "trait_id": "p7_g20_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 112
+    },
+    "G23": {
+      "role": "tide",
+      "skill_id": "p7_g23_skill",
+      "trait_id": "p7_g23_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G24": {
+      "role": "tide",
+      "skill_id": "p7_g24_skill",
+      "trait_id": "p7_g24_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G25": {
+      "role": "tide",
+      "skill_id": "p7_g25_skill",
+      "trait_id": "p7_g25_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G28": {
+      "role": "tide",
+      "skill_id": "p7_g28_skill",
+      "trait_id": "p7_g28_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G29": {
+      "role": "tide",
+      "skill_id": "p7_g29_skill",
+      "trait_id": "p7_g29_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    },
+    "G30": {
+      "role": "tide",
+      "skill_id": "p7_g30_skill",
+      "trait_id": "p7_g30_trait",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 112
+    },
+    "H02": {
+      "role": "ritual",
+      "skill_id": "p7_h02_skill",
+      "trait_id": "p7_h02_trait",
+      "range_body": 1,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0,
+      "height_px": 80
+    }
+  },
+  "skills": {
+    "p7_h03_skill": {
+      "name": "点名",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h06_skill": {
+      "name": "青灯领域",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h07_skill": {
+      "name": "敲更",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h11_skill": {
+      "name": "土垒",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h19_skill": {
+      "name": "借鬼",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h21_skill": {
+      "name": "放河灯",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h22_skill": {
+      "name": "破执",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h23_skill": {
+      "name": "错名",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h24_skill": {
+      "name": "点穴",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h25_skill": {
+      "name": "拒马",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h27_skill": {
+      "name": "放鸦",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h32_skill": {
+      "name": "暂面",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g02_skill": {
+      "name": "乞册",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g04_skill": {
+      "name": "贴墙",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g05_skill": {
+      "name": "吞残",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g07_skill": {
+      "name": "窄门",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g08_skill": {
+      "name": "散香",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g10_skill": {
+      "name": "拖人",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g11_skill": {
+      "name": "提灯",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g13_skill": {
+      "name": "抬空轿",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g14_skill": {
+      "name": "拜堂",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g17_skill": {
+      "name": "砸梁",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g20_skill": {
+      "name": "夜驰",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g23_skill": {
+      "name": "借脸",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g24_skill": {
+      "name": "拆骨构",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g25_skill": {
+      "name": "抹名",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g28_skill": {
+      "name": "夺面",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g29_skill": {
+      "name": "错录",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_g30_skill": {
+      "name": "受供",
+      "stage": "active",
+      "duration": 4
+    },
+    "p7_h02_skill": {
+      "name": "复火",
+      "stage": "active",
+      "duration": 4
+    }
+  },
+  "traits": {
+    "p7_h03_trait": {
+      "name": "册香",
+      "stage": "active"
+    },
+    "p7_h06_trait": {
+      "name": "灯冷",
+      "stage": "active"
+    },
+    "p7_h07_trait": {
+      "name": "值夜",
+      "stage": "active"
+    },
+    "p7_h11_trait": {
+      "name": "根深",
+      "stage": "active"
+    },
+    "p7_h19_trait": {
+      "name": "反噬",
+      "stage": "active"
+    },
+    "p7_h21_trait": {
+      "name": "旱弱",
+      "stage": "active"
+    },
+    "p7_h22_trait": {
+      "name": "戒余",
+      "stage": "active"
+    },
+    "p7_h23_trait": {
+      "name": "讳册",
+      "stage": "active"
+    },
+    "p7_h24_trait": {
+      "name": "针脚",
+      "stage": "active"
+    },
+    "p7_h25_trait": {
+      "name": "巧手",
+      "stage": "active"
+    },
+    "p7_h27_trait": {
+      "name": "夜眼",
+      "stage": "active"
+    },
+    "p7_h32_trait": {
+      "name": "开面亲",
+      "stage": "active"
+    },
+    "p7_g02_trait": {
+      "name": "跪乞",
+      "stage": "active"
+    },
+    "p7_g04_trait": {
+      "name": "见灯则现",
+      "stage": "active"
+    },
+    "p7_g05_trait": {
+      "name": "贪食",
+      "stage": "active"
+    },
+    "p7_g07_trait": {
+      "name": "身小",
+      "stage": "active"
+    },
+    "p7_g08_trait": {
+      "name": "空壳",
+      "stage": "active"
+    },
+    "p7_g10_trait": {
+      "name": "上岸无力",
+      "stage": "active"
+    },
+    "p7_g11_trait": {
+      "name": "双面",
+      "stage": "active"
+    },
+    "p7_g13_trait": {
+      "name": "失偶",
+      "stage": "active"
+    },
+    "p7_g14_trait": {
+      "name": "喜丧",
+      "stage": "active"
+    },
+    "p7_g17_trait": {
+      "name": "巨影",
+      "stage": "active"
+    },
+    "p7_g20_trait": {
+      "name": "马失",
+      "stage": "active"
+    },
+    "p7_g23_trait": {
+      "name": "空核",
+      "stage": "active"
+    },
+    "p7_g24_trait": {
+      "name": "旧人",
+      "stage": "active"
+    },
+    "p7_g25_trait": {
+      "name": "吏眼",
+      "stage": "active"
+    },
+    "p7_g28_trait": {
+      "name": "满面",
+      "stage": "active"
+    },
+    "p7_g29_trait": {
+      "name": "墨干",
+      "stage": "active"
+    },
+    "p7_g30_trait": {
+      "name": "伪神",
+      "stage": "active"
+    },
+    "p7_h02_trait": {
+      "name": "余烬",
+      "stage": "active"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "checks": 14,
+  "failures": 0,
+  "results": [
+    {
+      "check": "characters: exact source CSV SHA-256",
+      "passed": true
+    },
+    {
+      "check": "ghosts: exact source CSV SHA-256",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/fusions/recipes.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/items/arts.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/items/incense_gear.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/items/nameplates.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/mutations/forms.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/rituals/rituals.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/strings/zh_CN.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/units/characters.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/units/ghosts.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/units/troops.csv",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with missing_column",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with duplicate_id",
+      "passed": true
+    }
+  ]
+}

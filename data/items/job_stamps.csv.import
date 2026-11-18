@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dumndjqe5be2m"
+
+[deps]
+
+files=["res://data/items/job_stamps.name.translation", "res://data/items/job_stamps.source.translation", "res://data/items/job_stamps.tag.translation", "res://data/items/job_stamps.cost.translation", "res://data/items/job_stamps.params.translation"]
+
+source_file="res://data/items/job_stamps.csv"
+dest_files=["res://data/items/job_stamps.name.translation", "res://data/items/job_stamps.source.translation", "res://data/items/job_stamps.tag.translation", "res://data/items/job_stamps.cost.translation", "res://data/items/job_stamps.params.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,67 @@
+keys,zh_CN
+P8_PORTRAIT_NOTE,高规格静帧占位 · %s
+P8_FACE_FACED,有面
+P8_FACE_FACELESS,无面
+P8_SKILL_BUTTON,专属术式
+P8_SKILL_TITLE,专属术式 · %s
+P8_SKILL_HELP,目标由真实术式规则校验；不合法时不消费。可选择自动判断，或指定下列单位。
+P8_SKILL_AUTO,自动判断目标
+P8_SKILL_CAST,按所选目标施术
+P8_TARGET_AUTO,自动目标
+P8_TARGET_ROW,%s · %s · 生命 %.0f
+P8_MARK_TARGET,标记猎步目标
+P8_SKILL_MODE,默认 / 施放
+P8_SKILL_PUSH,推开
+P8_SKILL_PULL,吸引
+P8_MARKET_CONFIRM,确认本场个人夜市
+P8_CODEX_TITLE,今夜所见
+P8_CODEX_HELP,四册只读记录；遭遇、解明与列名由真实战斗事件推进。
+P8_CODEX_HUMANS,人物
+P8_CODEX_GHOSTS,鬼物
+P8_CODEX_ITEMS,香器
+P8_CODEX_CUSTOMS,风俗
+P8_CODEX_STAGE_0,未遭遇 · 剪影
+P8_CODEX_STAGE_1,已遭遇 · 线稿
+P8_CODEX_STAGE_2,已解明 · 彩绘
+P8_CODEX_STAGE_3,已列名 · 余文接口
+P8_CODEX_ROW,%s　%s　·　%s
+P8_CODEX_STATS,生命 %s　攻击 %s　防御 %s　速度 %s
+P8_CODEX_SKILL,专属技能 · 香火 %s\n%s
+P8_CODEX_TRAIT,特性\n%s
+P8_CODEX_EMPTY_SLOTS,今夜装备槽：香器 空槽 / 技艺1 空槽 / 技艺2 空槽 / 名帖 空槽
+P8_CODEX_NO_EQUIPMENT,图鉴为基础条目；今夜实装请查看战场单位卡。
+P8_CODEX_FAILED,失败夜的抹掉者
+P8_CODEX_FAILURE_ROW,%s · %s · %s
+P8_CODEX_NO_FAILURE,尚无失败夜记录。
+P8_CODEX_CENSER,香器 · 本夜获得后可装入对应槽位。
+P8_CODEX_SILHOUETTE_NOTE,未遭遇阶段仅显示战场轮廓；遭遇后显示独立立绘线稿占位。
+P8_ERASED_BY,是谁抹掉了你：%s（%s）
+P8_CODEX_INVALID,图鉴记录结构不完整，未覆盖当前记录。
+P8_CODEX_NO_PATH,此图鉴实例没有本地存档路径。
+P8_CODEX_RESTORED,图鉴记录已载入。
+P8_COPY_TARGET_REQUIRED,请先指定一个可模仿的人物。
+P8_DISABLED,本场未启用完整编制术式。
+P8_FIRE_INTERRUPTED,焚词的香火打断了读条。
+P8_HUNT_LOCATION,猎步仅可从地面追击已标记的地面精英。
+P8_HUNT_ROUTE,当前目标与合法掩体之间没有可走的猎步路线。
+P8_INDOOR_SUPPORT_ONLY,飞瓦只能落在基地内的合法友军岗位旁。
+P8_INVALID_ARGUMENT,此术式参数不适用于当前目标。
+P8_INVALID_TARGET,当前目标不符合这项术式的条件。
+P8_INVALID_UNIT,当前单位无法执行这项术式。
+P8_MARKED_ELITE_ONLY,归客只能猎步追击已标记的精英。
+P8_MARKET_USED,赊灯本场已使用过个人夜市。
+P8_NAME_ERASED,名字已被抹去，专属术式暂不可用。
+P8_NOT_COMMON_GHOST,行刑只能对残血普通野鬼施放。
+P8_NO_TARGET,附近没有符合术式条件的目标。
+P8_PASSIVE_NAME_GUARD,寄名童会在实际抹名发生时自动替护，无需主动施放。
+P8_REKINDLE_BLOCKED,留白区域中无法复火。
+P8_SKILL_BLOCKED,当前状态阻止了这项术式。
+P8_SKILL_COOLDOWN,专属术式尚在冷却。
+P8_SKILL_DONE,专属术式已经完成。
+P8_SKILL_INTERRUPTED,专属术式被打断。
+P8_SKILL_MISFIRED,错名使这次术式失效。
+P8_SKILL_OK,专属术式已执行。
+P8_SKILL_UNIMPLEMENTED,此术式尚未就绪。
+P8_SPELL_REFLECTED,冷金的金镜反射了这次邪术。
+P8_STATUS_BLOCKED,这次负面状态被挡住。
+P8_MARKET_PRICE,本场个人夜市取得：%s；术式香火 %.0f + 香器价 %.0f，共 %.0f。

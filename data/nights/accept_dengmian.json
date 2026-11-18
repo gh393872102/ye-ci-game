@@ -1,0 +1,92 @@
+{
+  "fixture": true,
+  "incense": 60,
+  "names": 6,
+  "duration": 240,
+  "structures": [],
+  "environments": [],
+  "materials": [],
+  "initial_state_note": "作者预设验收局；初始编制、初始接触位置、受损结构和环境区域在文件中逐项声明。此后装备/读条/攻防/位移/结算使用共享战斗规则，不在运行中改写HP、位置或结果。并非普通完整夜程计时证据。",
+  "title": "灯面流·冷光现面",
+  "seat": "shouxiang",
+  "seed": "P7-DENGMIAN-01",
+  "ritual_flag": "kaimian",
+  "human_roster": [
+    {
+      "id": "H06",
+      "post": "post_table_hall",
+      "items": []
+    },
+    {
+      "id": "H32",
+      "post": "post_table_hall",
+      "items": []
+    },
+    {
+      "id": "H27",
+      "post": "post_window_1",
+      "items": []
+    }
+  ],
+  "ghost_roster": [
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 89.8,
+      "lane": 0
+    },
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 90.0,
+      "lane": 1
+    },
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 90.2,
+      "lane": 2
+    },
+    {
+      "id": "G04",
+      "count": 1,
+      "items": [],
+      "x_body": 90.4,
+      "lane": 0
+    },
+    {
+      "id": "G04",
+      "count": 1,
+      "items": [],
+      "x_body": 90.6,
+      "lane": 1
+    },
+    {
+      "id": "G28",
+      "count": 1,
+      "items": [],
+      "x_body": 90.0,
+      "lane": 3
+    }
+  ],
+  "inventory": [
+    "I04",
+    "I01",
+    "I12",
+    "Y10",
+    "N09"
+  ],
+  "notes": [
+    "开面仅为本验收局规则旗标，不宣称已完成P10完整科仪。",
+    "门厅89.8–90.2身位敌方是作者预置的灯区接触；人类在92身位桌案后和二楼窗位。"
+  ],
+  "steps": [
+    "给霜盏装备I04青灯盏和Y10灯刃，给面匠装备I01冷金面具。",
+    "恢复时间，观察同一灯区至少三只无面/影步被揭示或恐惧。",
+    "让真实夺面/恐惧事件触发一次暂面/面具抵挡，检查已消耗状态与人物完整卡。"
+  ],
+  "id": "dengmian"
+}

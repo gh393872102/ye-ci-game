@@ -1,0 +1,30 @@
+key,zh_CN
+P10_B01,正殿失守
+P10_B01_PRESSURE,殿门已危 · 身后的门厅有力士
+P10_B01_OPEN,殿门已破 · 潮正向门厅移动
+P10_B01_FLOODED,潮已灌入门厅 · 守住楼梯和名册
+P10_B02,梁上剧场
+P10_B02_PRESSURE,缢鬼已攀墙 · 要在回廊留人
+P10_B02_CONTESTED,回廊交战 · 仍有守军稳住名册
+P10_B02_THREAT,回廊无守 %.1f / %.1f 秒
+P10_B02_LOST,回廊失守 · 名册正在失火
+P10_B03,无册渗墨
+P10_B03_PRESSURE,无册进了名册房 · 保住名分并完成点册
+P10_B03_WINDOW,列名窗口 %.1f 秒 · 可再次点册
+P10_B03_RESOLVED,无册已被写回册上
+P10_N01,名册渗墨
+P10_N01_HELP,名册缓慢失火，战斗中复火减为五成半
+P10_N02,侧门先裂
+P10_N02_HELP,必有侧门巷，侧门起始耐久为 28%
+P10_N03,超度被盯
+P10_N03_HELP,读条会引来留白或抹名，先护住点册者
+P10_ACTIVE_MODIFIERS,无册修饰 · %s
+P10_GATE_GUARD,铁肩替殿门扛下重击
+P10_GATE_BREAK,殿门碎裂
+P10_TIDE_FLOOD,潮沿门洞灌入
+P10_UPPER_ENTRY,缢鬼扑入上层
+P10_PURIFIED,精英送行 · 名册回亮
+P10_PURIFIED_NO_REKINDLE,精英送行
+P10_NAMING_WINDOW,点册完成 · 无册露出列名窗口
+P10_NAMING_RESOLVED,无册 · 列名完成
+P10_WATCHED_READER,读条被盯上 · %s

@@ -1,0 +1,17 @@
+{
+  "id": "B02",
+  "name_key": "P10_B02",
+  "description_key": "P10_B02_PRESSURE",
+  "unit_id": "G09",
+  "duration": 380,
+  "chunks": ["C01", "C03", "C04", "C08", "C09"],
+  "initial_doors": {"door_gallery": 0.16, "door_incense": 0.19},
+  "upper_grace": 8,
+  "upper_drain": 0.35,
+  "formations": [
+    {"at": 0, "unit": "G09", "floor": 0, "x": 87.2, "lane": 1, "role": "boss", "climb": true},
+    {"at": 9, "unit": "G09", "floor": 0, "x": 87.2, "lane": 2, "role": "upper", "climb": true},
+    {"at": 12, "unit": "G08", "floor": 2, "x": 89.2, "lane": 3, "role": "upper"},
+    {"at": 18, "unit": "G09", "floor": 0, "x": 87.2, "lane": 0, "role": "upper", "climb": true}
+  ]
+}

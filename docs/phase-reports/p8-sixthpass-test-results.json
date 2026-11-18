@@ -1,0 +1,3391 @@
+{
+	"archive_directory": "/tmp/ye-ci-p8-acceptance-test-archives",
+	"capture": false,
+	"cards": [],
+	"checks": 301,
+	"coverage_status": "partial_integration",
+	"effects": {
+		"G28": true,
+		"H01": true,
+		"H02": true,
+		"H03": true,
+		"H04": true,
+		"H05": true,
+		"H06": true,
+		"H07": true,
+		"H08": true,
+		"H09": true,
+		"H10": true,
+		"H11": true,
+		"H12": true,
+		"H13": true,
+		"H14": true,
+		"H15": true,
+		"H16": true,
+		"H17": true,
+		"H18": true,
+		"H19": true,
+		"H20": true,
+		"H21": true,
+		"H22": true,
+		"H23": true,
+		"H24": true,
+		"H25": true,
+		"H26": true,
+		"H27": true,
+		"H28": true,
+		"H29": true,
+		"H30": true,
+		"H31": true,
+		"H32": true
+	},
+	"failures": 0,
+	"fixture_policy": "Explicit isolated starting positions/resources. Real Session commands and shared Simulation; these fixtures do not claim an ordinary complete night.",
+	"night_failure": {
+		"codex": {
+			"failures": [
+				{
+					"killer_id": "G25",
+					"reason": "P4_END_REGISTER_EXTINGUISHED",
+					"seed": "P8-actual-failed-night:n01"
+				},
+				{
+					"killer_id": "G25",
+					"reason": "P4_END_REGISTER_EXTINGUISHED",
+					"seed": "P8-actual-failed-night"
+				}
+			],
+			"progress": {
+				"G25": 1,
+				"H01": 1,
+				"H09": 1,
+				"H17": 1,
+				"I17": 1
+			},
+			"version": 1
+		},
+		"codex_path": "/tmp/ye-ci-p8-failed-codex-test-70799.json",
+		"enemy": "G25",
+		"fixture": true,
+		"initial_incense": 0,
+		"initial_names": 1,
+		"recording": false,
+		"result": {
+			"codex": {
+				"failures": [
+					{
+						"killer_id": "G25",
+						"reason": "P4_END_REGISTER_EXTINGUISHED",
+						"seed": "P8-actual-failed-night:n01"
+					}
+				],
+				"progress": {
+					"G25": 1,
+					"H01": 1,
+					"H09": 1,
+					"H17": 1,
+					"I17": 1
+				},
+				"version": 1
+			},
+			"departed": [],
+			"elapsed": 10.0000000000001,
+			"encountered": [
+				"H01",
+				"H09",
+				"H17",
+				"T01",
+				"T02",
+				"G25"
+			],
+			"fallen": [],
+			"first_breach": {},
+			"growth": {
+				"borrow_jobs": [],
+				"enabled": true,
+				"environments": [],
+				"events": [
+					{
+						"detail": "G25_tide_11",
+						"incense_delta": 0.0,
+						"kind": "status_name_erase",
+						"names_delta": 0.0,
+						"time": 0.0,
+						"unit_id": "H01_6"
+					}
+				],
+				"fields": [],
+				"fusion_limit": 2,
+				"fusion_used": 0,
+				"inventory": {
+					"I17": 1.0,
+					"Y01": 1.0
+				},
+				"locked_paths": [],
+				"materials": [],
+				"npc_incense": 18.4000000000008,
+				"ritual_flag": "",
+				"rng_state": "-8557016181499917573",
+				"seals": {},
+				"seed": "P8-actual-failed-night",
+				"serial": 0,
+				"starting_loadouts": [],
+				"stored_items": {},
+				"time": 10.0000000000001,
+				"unlocks": {}
+			},
+			"humans_alive": 5,
+			"incense": 2.4,
+			"killer_id": "G25",
+			"milestones": [
+				{
+					"floor": 0,
+					"kind": "register_entry",
+					"position": [
+						9200.0,
+						646.0
+					],
+					"time": 0.0166666666666667,
+					"unit": "G25"
+				}
+			],
+			"mode": "shouxiang",
+			"names": 0.0,
+			"objectives": {
+				"primary": "hold_to_daybreak",
+				"secondary": "preserve_names"
+			},
+			"outcome": "defeat",
+			"profile_id": "entry",
+			"reason": "P4_END_REGISTER_EXTINGUISHED",
+			"remaining": 169.999999999992,
+			"roster": [
+				{
+					"attack": 8.0,
+					"defense": 8.0,
+					"display_name": "晚",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 8.0,
+							"hp": 70.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 70.0,
+					"id": "H01",
+					"max_hp": 70.0,
+					"mutation_count": 0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.0,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "dian_ce",
+						"trait_id": "qing_deng_juan_gu"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4,
+					"skill_id": "dian_ce",
+					"skill_text": "点册：指定一只鬼进入超度/收编读条，并短暂暴露隐形",
+					"speed_stat": 10,
+					"tags": [
+						"香火",
+						"超度",
+						"名面"
+					],
+					"trait_id": "qing_deng_juan_gu",
+					"trait_text": "青灯眷顾：场上有青灯或灯骨时，点册加快",
+					"uid": "night_1",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 10.0,
+					"defense": 16.0,
+					"display_name": "铁肩",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 10.0,
+							"defense": 16.0,
+							"hp": 110.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 110.0,
+					"id": "H09",
+					"max_hp": 110.0,
+					"mutation_count": 0,
+					"post": "post_gate_inner",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "kang_men",
+						"trait_id": "men_pu"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4,
+					"skill_id": "kang_men",
+					"skill_text": "扛门：贴门时把门耐久暂时算在自己身上",
+					"speed_stat": 5,
+					"tags": [
+						"破门",
+						"金"
+					],
+					"trait_id": "men_pu",
+					"trait_text": "门仆：离开门口后技能冷却加长",
+					"uid": "night_2",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 7.0,
+					"defense": 7.0,
+					"display_name": "朱砂",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 7.0,
+							"defense": 7.0,
+							"hp": 55.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 55.0,
+					"id": "H17",
+					"max_hp": 55.0,
+					"mutation_count": 0,
+					"post": "post_hall_door",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "talisman",
+						"range_body": 2.2,
+						"return_after": 0.0,
+						"role": "talisman",
+						"skill_id": "feng_men_fu",
+						"trait_id": "zhu_hen"
+					},
+					"role": "talisman",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 6,
+					"skill_id": "feng_men_fu",
+					"skill_text": "封门符：暂时锁死一扇门或一道缺口的破坏",
+					"speed_stat": 8,
+					"tags": [
+						"符",
+						"破门"
+					],
+					"trait_id": "zhu_hen",
+					"trait_text": "朱痕：符被打破时对破门者反伤",
+					"uid": "night_3",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 7.0,
+					"defense": 6.0,
+					"display_name": "乡勇",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 7.0,
+							"defense": 6.0,
+							"hp": 45.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 45.0,
+					"id": "T01",
+					"max_hp": 45.0,
+					"mutation_count": 0,
+					"post": "post_barricade_outer_court",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.0,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "",
+						"trait_id": ""
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 0,
+					"skill_id": "",
+					"skill_text": "",
+					"speed_stat": 8,
+					"tags": [],
+					"trait_id": "",
+					"trait_text": "",
+					"uid": "night_4",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 9.0,
+					"defense": 4.0,
+					"display_name": "弩手",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 9.0,
+							"defense": 4.0,
+							"hp": 38.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 38.0,
+					"id": "T02",
+					"max_hp": 38.0,
+					"mutation_count": 0,
+					"post": "post_window_1",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "bolt",
+						"range_body": 6.0,
+						"return_after": 0.0,
+						"role": "crossbow",
+						"skill_id": "",
+						"trait_id": ""
+					},
+					"role": "crossbow",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 0,
+					"skill_id": "",
+					"skill_text": "",
+					"speed_stat": 8,
+					"tags": [],
+					"trait_id": "",
+					"trait_text": "",
+					"uid": "night_5",
+					"upgrade_level": 0
+				}
+			],
+			"tide_alive": 1
+		},
+		"save_path": "/tmp/ye-ci-p8-failed-night-test-70799.json",
+		"summary": {
+			"battles": [
+				{
+					"elapsed": 10.0000000000001,
+					"node_id": "n01",
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_EXTINGUISHED",
+					"reward_incense": 0.0,
+					"reward_names": 0.0
+				}
+			],
+			"codex": {
+				"failures": [
+					{
+						"killer_id": "G25",
+						"reason": "P4_END_REGISTER_EXTINGUISHED",
+						"seed": "P8-actual-failed-night:n01"
+					},
+					{
+						"killer_id": "G25",
+						"reason": "P4_END_REGISTER_EXTINGUISHED",
+						"seed": "P8-actual-failed-night"
+					}
+				],
+				"progress": {
+					"G25": 1,
+					"H01": 1,
+					"H09": 1,
+					"H17": 1,
+					"I17": 1
+				},
+				"version": 1
+			},
+			"departed": [],
+			"elapsed": 10.0000000000001,
+			"fallen": [],
+			"incense": 2.4,
+			"killer_id": "G25",
+			"kind": "example",
+			"mercy_used": false,
+			"mode": "shouxiang",
+			"names": 0.0,
+			"outcome": "defeat",
+			"reason": "P4_END_REGISTER_EXTINGUISHED",
+			"roster": [
+				{
+					"attack": 8.0,
+					"defense": 8.0,
+					"display_name": "晚",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 8.0,
+							"hp": 70.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 70.0,
+					"id": "H01",
+					"max_hp": 70.0,
+					"mutation_count": 0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.0,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "dian_ce",
+						"trait_id": "qing_deng_juan_gu"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4,
+					"skill_id": "dian_ce",
+					"skill_text": "点册：指定一只鬼进入超度/收编读条，并短暂暴露隐形",
+					"speed_stat": 10,
+					"tags": [
+						"香火",
+						"超度",
+						"名面"
+					],
+					"trait_id": "qing_deng_juan_gu",
+					"trait_text": "青灯眷顾：场上有青灯或灯骨时，点册加快",
+					"uid": "night_1",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 10.0,
+					"defense": 16.0,
+					"display_name": "铁肩",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 10.0,
+							"defense": 16.0,
+							"hp": 110.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 110.0,
+					"id": "H09",
+					"max_hp": 110.0,
+					"mutation_count": 0,
+					"post": "post_gate_inner",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "kang_men",
+						"trait_id": "men_pu"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4,
+					"skill_id": "kang_men",
+					"skill_text": "扛门：贴门时把门耐久暂时算在自己身上",
+					"speed_stat": 5,
+					"tags": [
+						"破门",
+						"金"
+					],
+					"trait_id": "men_pu",
+					"trait_text": "门仆：离开门口后技能冷却加长",
+					"uid": "night_2",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 7.0,
+					"defense": 7.0,
+					"display_name": "朱砂",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 7.0,
+							"defense": 7.0,
+							"hp": 55.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 55.0,
+					"id": "H17",
+					"max_hp": 55.0,
+					"mutation_count": 0,
+					"post": "post_hall_door",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "talisman",
+						"range_body": 2.2,
+						"return_after": 0.0,
+						"role": "talisman",
+						"skill_id": "feng_men_fu",
+						"trait_id": "zhu_hen"
+					},
+					"role": "talisman",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 6,
+					"skill_id": "feng_men_fu",
+					"skill_text": "封门符：暂时锁死一扇门或一道缺口的破坏",
+					"speed_stat": 8,
+					"tags": [
+						"符",
+						"破门"
+					],
+					"trait_id": "zhu_hen",
+					"trait_text": "朱痕：符被打破时对破门者反伤",
+					"uid": "night_3",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 7.0,
+					"defense": 6.0,
+					"display_name": "乡勇",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 7.0,
+							"defense": 6.0,
+							"hp": 45.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 45.0,
+					"id": "T01",
+					"max_hp": 45.0,
+					"mutation_count": 0,
+					"post": "post_barricade_outer_court",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.0,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "",
+						"trait_id": ""
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 0,
+					"skill_id": "",
+					"skill_text": "",
+					"speed_stat": 8,
+					"tags": [],
+					"trait_id": "",
+					"trait_text": "",
+					"uid": "night_4",
+					"upgrade_level": 0
+				},
+				{
+					"attack": 9.0,
+					"defense": 4.0,
+					"display_name": "弩手",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 9.0,
+							"defense": 4.0,
+							"hp": 38.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 38.0,
+					"id": "T02",
+					"max_hp": 38.0,
+					"mutation_count": 0,
+					"post": "post_window_1",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "bolt",
+						"range_body": 6.0,
+						"return_after": 0.0,
+						"role": "crossbow",
+						"skill_id": "",
+						"trait_id": ""
+					},
+					"role": "crossbow",
+					"roster": {
+						"cooldowns": {},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 0,
+					"skill_id": "",
+					"skill_text": "",
+					"speed_stat": 8,
+					"tags": [],
+					"trait_id": "",
+					"trait_text": "",
+					"uid": "night_5",
+					"upgrade_level": 0
+				}
+			],
+			"seed": "P8-actual-failed-night",
+			"unlocks": {
+				"G25": "encountered",
+				"H01": "encountered",
+				"H09": "encountered",
+				"H17": "encountered",
+				"T01": "encountered",
+				"T02": "encountered"
+			},
+			"visited": [
+				"n01"
+			]
+		}
+	},
+	"phase": "P8",
+	"results": [
+		{
+			"check": "K1 Boot source catalogs have no validation errors",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 Exact source population is 32 humans, 32 ghosts, four troops",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K5 Only H25 and H31 declare departure permission",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Four books contain exactly 32 humans, 32 ghosts and 20 censers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Customs book contains twelve ritual descriptions and block placeholders",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Unseen entries withhold identity artwork and skill text",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Listed afterword cannot skip unresolved stages",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 First encounter unlocks name and line-art stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Successful resolution unlocks full source skill text and color stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Explicit listed interface advances the fourth stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Duplicate or lower-stage events never downgrade collected progress",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Unknown unit and empty-seed failure events are rejected",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Failure record is idempotent and keeps explicit source ID",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Isolated codex saves through the actual disk envelope",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Codex disk round trip preserves all four stages and failure attribution",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 0 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 1 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 2 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 3 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 4 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "H01 Actual paid targeted reading reveals its hidden target and starts a real channel",
+			"passed": true,
+			"unit_id": "H01"
+		},
+		{
+			"check": "H01 The original reader actually completes purification through shared battle steps",
+			"passed": true,
+			"unit_id": "H01"
+		},
+		{
+			"check": "H01 A courtyard target cannot turn an outer guard post into a ritual station",
+			"passed": true,
+			"unit_id": "H01"
+		},
+		{
+			"check": "H02 Real rekindling raises the book by two names and spends five incense",
+			"passed": true,
+			"unit_id": "H02"
+		},
+		{
+			"check": "H02 Actual death returns remaining embers once",
+			"passed": true,
+			"unit_id": "H02"
+		},
+		{
+			"check": "H03 Real named ward blocks a G25 skill instead of merely displaying a mark",
+			"passed": true,
+			"unit_id": "H03"
+		},
+		{
+			"check": "H03 The consumed name ward does not block a second actual erasure",
+			"passed": true,
+			"unit_id": "H03"
+		},
+		{
+			"check": "H04 Incense is really prepaid to the nearby ally using the same currency",
+			"passed": true,
+			"unit_id": "H04"
+		},
+		{
+			"check": "H04 The recipient can actually consume transferred incense with an empty shared purse",
+			"passed": true,
+			"unit_id": "H04"
+		},
+		{
+			"check": "H04 Book-room work receives its actual thirty-percent cooldown reduction",
+			"passed": true,
+			"unit_id": "H04"
+		},
+		{
+			"check": "H05 Silence affects both the enemy cry and friendly gong with actual backlash/taunt outcomes",
+			"passed": true,
+			"unit_id": "H05"
+		},
+		{
+			"check": "H05 The speechless trait blocks actual attempted allegiance change",
+			"passed": true,
+			"unit_id": "H05"
+		},
+		{
+			"check": "H06 The cold-light field really reveals hidden shadow and causes faceless fear",
+			"passed": true,
+			"unit_id": "H06"
+		},
+		{
+			"check": "H07 The watch drum actually wakes a stunned ally and reveals the nearby shadow",
+			"passed": true,
+			"unit_id": "H07"
+		},
+		{
+			"check": "H07 At double speed the two-second skill step preserves one-second watch cadence",
+			"passed": true,
+			"unit_id": "H07"
+		},
+		{
+			"check": "H08 The real book-drain handler loses only thirty-five percent under guard",
+			"passed": true,
+			"unit_id": "H08"
+		},
+		{
+			"check": "H08 A damaged register produces real defense growth and slower movement",
+			"passed": true,
+			"unit_id": "H08"
+		},
+		{
+			"check": "H09 A real G12 door strike damages Iron Shoulder instead of the guarded door",
+			"passed": true,
+			"unit_id": "H09"
+		},
+		{
+			"check": "H09 Leaving the doorway makes the same skill cooldown advance more slowly",
+			"passed": true,
+			"unit_id": "H09"
+		},
+		{
+			"check": "H10 A real wounded elite receives a decisive slash with distinct feedback",
+			"passed": true,
+			"unit_id": "H10"
+		},
+		{
+			"check": "H11 Earth wall begins actual paid construction in an empty obstacle slot",
+			"passed": true,
+			"unit_id": "H11"
+		},
+		{
+			"check": "H11 Completed earth wall actually blocks a real world segment",
+			"passed": true,
+			"unit_id": "H11"
+		},
+		{
+			"check": "H11 A real G12 structure strike can demolish the constructed earth wall",
+			"passed": true,
+			"unit_id": "H11"
+		},
+		{
+			"check": "H11 Moving clears real accumulated rooted defense",
+			"passed": true,
+			"unit_id": "H11"
+		},
+		{
+			"check": "H12 A real chain prevents a beam ghost from moving into its climb route",
+			"passed": true,
+			"unit_id": "H12"
+		},
+		{
+			"check": "H12 The same ghost resumes its existing route after the chain actually expires",
+			"passed": true,
+			"unit_id": "H12"
+		},
+		{
+			"check": "H13 Execution truly kills a purifiable wounded ghost and incurs the name penalty",
+			"passed": true,
+			"unit_id": "H13"
+		},
+		{
+			"check": "H14 The gong actually retargets a door-breaker and briefly stuns it",
+			"passed": true,
+			"unit_id": "H14"
+		},
+		{
+			"check": "H14 Silence night preserves real taunt while removing the gong stun",
+			"passed": true,
+			"unit_id": "H14"
+		},
+		{
+			"check": "H15 Flying tiles moves through a real indoor route to an upper friendly post without leaving base",
+			"passed": true,
+			"unit_id": "H15"
+		},
+		{
+			"check": "H16 Opening staff deals actual ghost injury and reduces the victim's effective defense",
+			"passed": true,
+			"unit_id": "H16"
+		},
+		{
+			"check": "H16 The same nearby friendly healing really loses thirty percent",
+			"passed": true,
+			"unit_id": "H16"
+		},
+		{
+			"check": "H17 The actual sealed doorway absorbs a real strike and reflects injury",
+			"passed": true,
+			"unit_id": "H17"
+		},
+		{
+			"check": "H17 In an attacking game the opposing priest pays the defender purse without charging the player",
+			"passed": true,
+			"unit_id": "H17"
+		},
+		{
+			"check": "H18 The next real directed occult strike is reflected and reveals its source",
+			"passed": true,
+			"unit_id": "H18"
+		},
+		{
+			"check": "H19 Borrowing actually changes the gray ghost's group and brain ownership",
+			"passed": true,
+			"unit_id": "H19"
+		},
+		{
+			"check": "K7 A real successful gray-ghost recruitment resolves its codex entry",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "H19 A real unregistered clerk contact recaptures the borrowed gray ghost",
+			"passed": true,
+			"unit_id": "H19"
+		},
+		{
+			"check": "H20 Real area fire harms the enemy and pays its explicit additional global incense cost",
+			"passed": true,
+			"unit_id": "H20"
+		},
+		{
+			"check": "H20 The burned target really loses its next active skill attempt",
+			"passed": true,
+			"unit_id": "H20"
+		},
+		{
+			"check": "H21 The real river lantern slows and reveals a water-lane ghost",
+			"passed": true,
+			"unit_id": "H21"
+		},
+		{
+			"check": "H21 The same lantern has measurably weaker duration away from the water lane",
+			"passed": true,
+			"unit_id": "H21"
+		},
+		{
+			"check": "H22 The false god is actually exposed and harmed by exorcism",
+			"passed": true,
+			"unit_id": "H22"
+		},
+		{
+			"check": "H23 Misnaming prevents the next real erasure skill from taking effect",
+			"passed": true,
+			"unit_id": "H23"
+		},
+		{
+			"check": "H24 Actual needle stun lasts longer on a beam shadow than on a large ghost",
+			"passed": true,
+			"unit_id": "H24"
+		},
+		{
+			"check": "H25 The carpenter creates a real paid barricade in a world obstacle slot",
+			"passed": true,
+			"unit_id": "H25"
+		},
+		{
+			"check": "H26 Firecrackers really scatter a nearby tide member instead of merely adding damage",
+			"passed": true,
+			"unit_id": "H26"
+		},
+		{
+			"check": "H27 The crow path really reveals a hidden enemy",
+			"passed": true,
+			"unit_id": "H27"
+		},
+		{
+			"check": "H28 Confirming the personal market really pays for one inventory item",
+			"passed": true,
+			"unit_id": "H28"
+		},
+		{
+			"check": "H28 The once-per-battle market cannot be purchased twice",
+			"passed": true,
+			"unit_id": "H28"
+		},
+		{
+			"check": "H28 A real breach sends the timid trader into retreat rather than gate combat",
+			"passed": true,
+			"unit_id": "H28"
+		},
+		{
+			"check": "H29 Blind strings really displaces an invisible enemy and draws its attention",
+			"passed": true,
+			"unit_id": "H29"
+		},
+		{
+			"check": "H30 The inherited name is actually credited on entry",
+			"passed": true,
+			"unit_id": "H30"
+		},
+		{
+			"check": "H30 An actual erasure is prevented by consuming the child's real life",
+			"passed": true,
+			"unit_id": "H30"
+		},
+		{
+			"check": "K8 Actual face theft changes the named actor's persistent face state",
+			"passed": true,
+			"unit_id": "G28"
+		},
+		{
+			"check": "H32 Temporary face restores a stolen face and consumes its ward on the next actual theft",
+			"passed": true,
+			"unit_id": "H32"
+		},
+		{
+			"check": "H02 Insufficient-incense rekindling in a poison field has no preflight damage side effect",
+			"passed": true,
+			"unit_id": "H02"
+		},
+		{
+			"check": "H31 An unmarked elite cannot initiate the paid hunt",
+			"passed": true,
+			"unit_id": "H31"
+		},
+		{
+			"check": "H31 A real marked elite receives the straight-path strike outside the gate",
+			"passed": true,
+			"unit_id": "H31"
+		},
+		{
+			"check": "H31 The actual movement returns to legal cover within three seconds without teleporting",
+			"passed": true,
+			"unit_id": "H31"
+		},
+		{
+			"check": "H31 The hunt never chases or strikes a second marked elite en route",
+			"passed": true,
+			"unit_id": "H31"
+		},
+		{
+			"check": "H31 Marking an ordinary tide member does not turn it into an eligible elite",
+			"passed": true,
+			"unit_id": "H31"
+		},
+		{
+			"check": "H25 The discounted repair uses a real carpenter approach, work and completed durability restoration",
+			"passed": true,
+			"unit_id": "H25"
+		},
+		{
+			"check": "H25 The carpenter returns to the original legal indoor cover without walking along the ghost road",
+			"passed": true,
+			"unit_id": "H25"
+		},
+		{
+			"check": "K5 H09 stays at legal indoor cover throughout an actual outside elite encounter",
+			"passed": true,
+			"unit_id": "H09"
+		},
+		{
+			"check": "K5 H10 stays at legal indoor cover throughout an actual outside elite encounter",
+			"passed": true,
+			"unit_id": "H10"
+		},
+		{
+			"check": "K5 H15 stays at legal indoor cover throughout an actual outside elite encounter",
+			"passed": true,
+			"unit_id": "H15"
+		},
+		{
+			"check": "K7 Battle-local codex begins unseen before an actual ghost spawn",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Actual player and enemy entry events unlock the line-art stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 An actual execution resolves the defeated ghost's complete codex text",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 A real roster night starts with a separately isolated codex path",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 The deliberate-loss fixture enters the actual first node",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 The real night bridge configures roster rules and live battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 The failed-night fixture retains the genuine initial H01",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Actual G25 erasure consumes the final name without an injected result",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 The real extinguish window ends in defeat attributed to the actual eraser",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 The actual failed result settles into the real night recovery decision",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Declining the recovery offer really ends the failed night",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 The failed night records who erased the player with the real unit ID",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Actual failed-night state and codex save into isolated disk envelopes",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Disk continuation retains the ended night and its actual eraser attribution",
+			"passed": true,
+			"unit_id": ""
+		}
+	],
+	"screenshots": [],
+	"trajectories": [
+		{
+			"id": "H31",
+			"kind": "real_marked_hunt",
+			"outside_seconds": 0.666666666666667,
+			"positions": [
+				{
+					"outside": true,
+					"state": "HuntStrike",
+					"time": 0.0166666666666667,
+					"x": 4033.92041015625,
+					"y": 697.264221191406
+				},
+				{
+					"outside": true,
+					"state": "HuntStrike",
+					"time": 0.116666666666667,
+					"x": 3997.44287109375,
+					"y": 680.849548339844
+				},
+				{
+					"outside": true,
+					"state": "HuntStrike",
+					"time": 0.216666666666667,
+					"x": 3960.96606445312,
+					"y": 664.434875488281
+				},
+				{
+					"outside": true,
+					"state": "HuntStrike",
+					"time": 0.316666666666667,
+					"x": 3924.4892578125,
+					"y": 648.020202636719
+				},
+				{
+					"outside": true,
+					"state": "HuntReturn",
+					"time": 0.416666666666667,
+					"x": 3950.39794921875,
+					"y": 659.678894042969
+				},
+				{
+					"outside": true,
+					"state": "HuntReturn",
+					"time": 0.516666666666667,
+					"x": 3986.875,
+					"y": 676.093566894531
+				},
+				{
+					"outside": true,
+					"state": "HuntReturn",
+					"time": 0.616666666666667,
+					"x": 4023.35180664062,
+					"y": 692.508239746094
+				},
+				{
+					"completed": true,
+					"post": "post_gate_inner",
+					"state": "HoldNewPost",
+					"time": 0.666666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				}
+			]
+		},
+		{
+			"final_durability": 600.0,
+			"id": "H25",
+			"kind": "real_doorleaf_repair_return",
+			"minimum_x": 4016.0,
+			"paid": 4.8,
+			"positions": [
+				{
+					"purpose": "repair",
+					"time": 0.0166666666666667,
+					"x": 7360.0,
+					"y": 697.066650390625
+				},
+				{
+					"purpose": "repair",
+					"time": 0.516666666666667,
+					"x": 7317.06982421875,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair",
+					"time": 1.01666666666667,
+					"x": 7229.07666015625,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair",
+					"time": 1.51666666666667,
+					"x": 7189.07958984375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 2.01666666666666,
+					"x": 7136.0,
+					"y": 665.08349609375
+				},
+				{
+					"purpose": "repair",
+					"time": 2.51666666666666,
+					"x": 7061.08935546875,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair",
+					"time": 3.01666666666666,
+					"x": 7021.091796875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 3.51666666666666,
+					"x": 6933.0986328125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 4.01666666666666,
+					"x": 6845.10546875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 4.51666666666666,
+					"x": 6757.1123046875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 5.01666666666665,
+					"x": 6669.119140625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 5.51666666666665,
+					"x": 6581.1259765625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 6.01666666666665,
+					"x": 6524.0,
+					"y": 669.130126953125
+				},
+				{
+					"purpose": "repair",
+					"time": 6.51666666666665,
+					"x": 6453.1357421875,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair",
+					"time": 7.01666666666665,
+					"x": 6376.0,
+					"y": 662.8583984375
+				},
+				{
+					"purpose": "repair",
+					"time": 7.51666666666665,
+					"x": 6325.1455078125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 8.01666666666664,
+					"x": 6237.15234375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 8.51666666666667,
+					"x": 6149.1591796875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 9.01666666666669,
+					"x": 6061.166015625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 9.51666666666672,
+					"x": 5973.1728515625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 10.0166666666667,
+					"x": 5885.1796875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 10.5166666666668,
+					"x": 5797.1865234375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 11.0166666666668,
+					"x": 5709.193359375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 11.5166666666668,
+					"x": 5621.2001953125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 12.0166666666668,
+					"x": 5533.20703125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 12.5166666666669,
+					"x": 5445.2138671875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 13.0166666666669,
+					"x": 5357.220703125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 13.5166666666669,
+					"x": 5269.2275390625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 14.0166666666669,
+					"x": 5181.234375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 14.516666666667,
+					"x": 5093.2412109375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 15.016666666667,
+					"x": 5005.248046875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 15.516666666667,
+					"x": 4917.2548828125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 16.016666666667,
+					"x": 4829.26171875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 16.516666666667,
+					"x": 4741.2685546875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 17.016666666667,
+					"x": 4653.275390625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 17.516666666667,
+					"x": 4604.0,
+					"y": 661.27880859375
+				},
+				{
+					"purpose": "repair",
+					"time": 18.0166666666669,
+					"x": 4525.28466796875,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair",
+					"time": 18.5166666666669,
+					"x": 4456.0,
+					"y": 670.710205078125
+				},
+				{
+					"purpose": "repair",
+					"time": 19.0166666666669,
+					"x": 4397.29443359375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 19.5166666666668,
+					"x": 4309.30126953125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 20.0166666666668,
+					"x": 4221.30810546875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 20.5166666666668,
+					"x": 4133.31494140625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 21.0166666666668,
+					"x": 4045.3173828125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 21.5166666666667,
+					"x": 4016.0,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 22.0166666666667,
+					"x": 4016.0,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 22.5166666666667,
+					"x": 4016.0,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 23.0166666666666,
+					"x": 4016.0,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 23.5166666666666,
+					"x": 4016.0,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair",
+					"time": 24.0166666666666,
+					"x": 4016.0,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 24.5166666666666,
+					"x": 4074.6669921875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 25.0166666666665,
+					"x": 4162.662109375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 25.5166666666665,
+					"x": 4250.6552734375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 26.0166666666665,
+					"x": 4338.6484375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 26.5166666666664,
+					"x": 4426.6416015625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 27.0166666666664,
+					"x": 4466.638671875,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 27.5166666666664,
+					"x": 4554.6318359375,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 28.0166666666664,
+					"x": 4604.0,
+					"y": 690.62841796875
+				},
+				{
+					"purpose": "repair_return",
+					"time": 28.5166666666663,
+					"x": 4682.62255859375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 29.0166666666663,
+					"x": 4770.61572265625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 29.5166666666663,
+					"x": 4858.60888671875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 30.0166666666662,
+					"x": 4946.60205078125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 30.5166666666662,
+					"x": 5034.59521484375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 31.0166666666662,
+					"x": 5122.58837890625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 31.5166666666662,
+					"x": 5210.58154296875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 32.0166666666661,
+					"x": 5298.57470703125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 32.5166666666661,
+					"x": 5386.56787109375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 33.0166666666661,
+					"x": 5474.56103515625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 33.516666666666,
+					"x": 5562.55419921875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 34.016666666666,
+					"x": 5650.54736328125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 34.516666666666,
+					"x": 5738.54052734375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 35.016666666666,
+					"x": 5826.53369140625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 35.5166666666659,
+					"x": 5914.52685546875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 36.0166666666659,
+					"x": 6002.52001953125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 36.5166666666659,
+					"x": 6090.51318359375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 37.0166666666658,
+					"x": 6178.50634765625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 37.5166666666658,
+					"x": 6266.49951171875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 38.0166666666658,
+					"x": 6354.49267578125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 38.5166666666658,
+					"x": 6394.48974609375,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 39.0166666666657,
+					"x": 6482.48291015625,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 39.5166666666657,
+					"x": 6524.0,
+					"y": 698.47998046875
+				},
+				{
+					"purpose": "repair_return",
+					"time": 40.0166666666657,
+					"x": 6610.47314453125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 40.5166666666656,
+					"x": 6698.46630859375,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 41.0166666666656,
+					"x": 6786.45947265625,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 41.5166666666656,
+					"x": 6874.45263671875,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 42.0166666666656,
+					"x": 6962.44580078125,
+					"y": 700.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 42.5166666666655,
+					"x": 7032.0,
+					"y": 681.559326171875
+				},
+				{
+					"purpose": "repair_return",
+					"time": 43.0166666666655,
+					"x": 7090.4365234375,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 43.5166666666655,
+					"x": 7136.0,
+					"y": 694.433349609375
+				},
+				{
+					"purpose": "repair_return",
+					"time": 44.0166666666655,
+					"x": 7216.0,
+					"y": 697.572998046875
+				},
+				{
+					"purpose": "repair_return",
+					"time": 44.5166666666654,
+					"x": 7258.423828125,
+					"y": 652.0
+				},
+				{
+					"purpose": "repair_return",
+					"time": 45.0166666666654,
+					"x": 7346.4169921875,
+					"y": 652.0
+				},
+				{
+					"completed": true,
+					"post": "post_table_hall",
+					"purpose": "repair_return",
+					"time": 45.3666666666654,
+					"x": 7360.0,
+					"y": 700.0
+				}
+			]
+		},
+		{
+			"id": "H09",
+			"kind": "outside_enemy_no_chase",
+			"positions": [
+				{
+					"post": "post_gate_inner",
+					"time": 0.0166666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 0.516666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 1.01666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 1.51666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 2.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 2.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 3.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 3.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 4.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 4.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 5.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 5.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 6.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 6.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 7.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 7.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				}
+			]
+		},
+		{
+			"id": "H10",
+			"kind": "outside_enemy_no_chase",
+			"positions": [
+				{
+					"post": "post_gate_inner",
+					"time": 0.0166666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 0.516666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 1.01666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 1.51666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 2.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 2.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 3.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 3.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 4.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 4.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 5.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 5.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 6.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 6.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 7.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 7.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				}
+			]
+		},
+		{
+			"id": "H15",
+			"kind": "outside_enemy_no_chase",
+			"positions": [
+				{
+					"post": "post_gate_inner",
+					"time": 0.0166666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 0.516666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 1.01666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 1.51666666666667,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 2.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 2.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 3.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 3.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 4.01666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 4.51666666666666,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 5.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 5.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 6.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 6.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 7.01666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				},
+				{
+					"post": "post_gate_inner",
+					"time": 7.51666666666665,
+					"x": 4040.0,
+					"y": 700.0
+				}
+			]
+		}
+	]
+}

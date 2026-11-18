@@ -1,0 +1,160 @@
+{
+  "N01": {
+    "id": "N01",
+    "name": "厚血",
+    "description": "最大生命+15%。",
+    "slot": "nameplate",
+    "effect_id": "N01",
+    "status": "active",
+    "params": {
+      "hp_multiplier": 1.15
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N02": {
+    "id": "N02",
+    "name": "快步",
+    "description": "持有者移动速度+12%。",
+    "slot": "nameplate",
+    "effect_id": "N02",
+    "status": "active",
+    "params": {
+      "speed_multiplier": 1.12
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N03": {
+    "id": "N03",
+    "name": "锐刃",
+    "description": "攻击+12%。",
+    "slot": "nameplate",
+    "effect_id": "N03",
+    "status": "active",
+    "params": {
+      "attack_multiplier": 1.12
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N04": {
+    "id": "N04",
+    "name": "坚门",
+    "description": "贴门时该门所受破坏-20%。",
+    "slot": "nameplate",
+    "effect_id": "N04",
+    "status": "active",
+    "params": {
+      "door_damage_multiplier": 0.8,
+      "radius_body": 1.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N05": {
+    "id": "N05",
+    "name": "多香",
+    "description": "技能香火费用-1，最低0。",
+    "slot": "nameplate",
+    "effect_id": "N05",
+    "status": "active",
+    "params": {
+      "cost_reduction": 1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N06": {
+    "id": "N06",
+    "name": "显名",
+    "description": "每次抹名独立50%概率免疫。",
+    "slot": "nameplate",
+    "effect_id": "N06",
+    "status": "active",
+    "params": {
+      "chance": 0.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N07": {
+    "id": "N07",
+    "name": "冷抗",
+    "description": "邪术与反射伤害-25%。",
+    "slot": "nameplate",
+    "effect_id": "N07",
+    "status": "active",
+    "params": {
+      "multiplier": 0.75
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N08": {
+    "id": "N08",
+    "name": "哭抗",
+    "description": "哭钟哀声类减益持续-40%。",
+    "slot": "nameplate",
+    "effect_id": "N08",
+    "status": "active",
+    "params": {
+      "multiplier": 0.6
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N09": {
+    "id": "N09",
+    "name": "潜反",
+    "description": "对隐形目标增伤30%并揭示2秒。",
+    "slot": "nameplate",
+    "effect_id": "N09",
+    "status": "active",
+    "params": {
+      "multiplier": 1.3,
+      "duration": 2
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N10": {
+    "id": "N10",
+    "name": "水适",
+    "description": "水中攻击、防御不降低。",
+    "slot": "nameplate",
+    "effect_id": "N10",
+    "status": "active",
+    "params": {},
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N11": {
+    "id": "N11",
+    "name": "梁适",
+    "description": "梁上防御+20%，落地虚弱时间减半。",
+    "slot": "nameplate",
+    "effect_id": "N11",
+    "status": "active",
+    "params": {
+      "defense_multiplier": 1.2,
+      "landing_multiplier": 0.5
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  },
+  "N12": {
+    "id": "N12",
+    "name": "忌无册",
+    "description": "对无册增伤20%；被其命中额外受伤10%。",
+    "slot": "nameplate",
+    "effect_id": "N12",
+    "status": "active",
+    "params": {
+      "attack_multiplier": 1.2,
+      "incoming_multiplier": 1.1
+    },
+    "equip_cost": 0,
+    "remove_cost": 0
+  }
+}

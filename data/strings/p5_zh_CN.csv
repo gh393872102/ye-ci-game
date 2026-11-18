@@ -1,0 +1,128 @@
+key,zh_CN
+P5_TITLE,夜祠 · 一夜
+P5_SUBTITLE,例夜安香 / 正门庭
+P5_BEGIN,入 夜
+P5_BEGIN_HELP,"香火是记忆，名分是尚未脱落的名字。
+选择今夜坐席，沿夜程前行；每场之后，带着留下的人与选择继续。"
+P5_START_SHOUXIANG,守香 · 从晚起夜
+P5_START_DUOMING,夺名 · 从白衣潮起夜
+P5_EXAMPLE,例夜 · 固定夜程
+P5_FIERCE,凶夜 · 随机分支
+P5_KIND,今夜难度
+P5_SEED_PLACEHOLDER,留空生成今夜种子
+P5_SEED_ENTRY,今夜种子
+P5_CONTINUE,继续未尽之夜
+P5_NO_SAVE,尚无本地存档
+P5_SAVE,保存
+P5_SAVE_EXIT,保存并回入夜
+P5_MENU,返回入夜
+P5_RESOURCES,香火 %.1f   /   名分 %.1f
+P5_PROGRESS,%s  ·  %s  ·  已行 %d 节
+P5_MAP_TITLE,夜 程
+P5_MAP_HELP,亮起的节点可前往；连线是今夜的分支。当前停留点以冷金描边。
+P5_CURRENT,当前
+P5_VISITED,已行
+P5_AVAILABLE,可前往
+P5_UNOPENED,未到
+P5_ROSTER,今夜在册
+P5_ROSTER_LINE,"%s
+生命 %.0f / %.0f"
+P5_FALLEN,陨落 %d
+P5_BUILD,已选构筑
+P5_NO_BUILD,尚未成派
+P5_REWARD_TITLE,只择其一
+P5_REWARD_HELP,奖励立即计入今夜；选择后继续前行。其余两张随夜隐去。
+P5_TAKE,取此一项
+P5_TARGET,装备与技艺的承受者
+P5_NO_TARGET,尚无可选单位
+P5_MARKET_TITLE,夜 市
+P5_COST,香火 %d
+P5_BUY,购入 · 香火 %d
+P5_BOUGHT,已购入
+P5_NOT_ENOUGH,香火不足
+P5_LEAVE,继续夜程
+P5_EVENT_TITLE,夜中事
+P5_REST_TITLE,休 整
+P5_REST_HELP,香火与名分只在今夜流转。此处略作补充，伤亡仍会留下。
+P5_REST,歇息并继续
+P5_MERCY_TITLE,余烬未绝
+P5_MERCY_HELP,例夜尚有一次免费复香的机会。今夜留下的选择仍会同行。
+P5_MERCY,用一次免费复香
+P5_DECLINE,结束今夜
+P5_END_TITLE,今夜已尽
+P5_VICTORY,科仪已成
+P5_END_REASON,原因：%s
+P5_SEED,今夜种子：%s
+P5_COPY_SEED,复制种子
+P5_COPIED,种子已复制。
+P5_ALIVE,存活
+P5_DEAD,陨落
+P5_NONE,无
+P5_DURATION,战斗累计 %.1f 秒
+P5_SAVE_OK,已保存，可从同一节点继续。
+P5_LOAD_OK,已接回未尽之夜。
+P5_LOADING,正在接回战场…
+P5_BATTLE,战斗进行中
+P5_BATTLE_TEACH,例夜提示：Space 暂停 / Q 购入 / 仅向掩体部署 / R 点册补名。
+P5_LOCAL_SAVE,本地单机存档
+P5_PHASE_MAP,夜程
+P5_PHASE_REWARD,三选一
+P5_PHASE_MARKET,夜市
+P5_PHASE_EVENT,事件
+P5_PHASE_REST,休整
+P5_PHASE_MERCY,复香
+P5_PHASE_ENDED,结夜
+P5_NODE_BATTLE,战斗
+P5_NODE_BOSS,头目
+P5_NODE_MARKET,夜市
+P5_NODE_EVENT,事件
+P5_NODE_REST,休整
+P5_CARD_TYPE,%s / %s
+P5_BATTLE_RETURN,返回夜程
+P5_CONFIRM_RESTART,开始新的夜程会替换当前本地存档。
+P5_MISSING_ROUTE,夜程尚未就绪。
+P5_CATEGORY_ROSTER,编制
+P5_CATEGORY_BUILD,构筑
+P5_CATEGORY_SURVIVAL,保命
+P5_COMMAND_OK,已记入今夜。
+P5_INVALID_START,此夜尚不可开启。
+P5_NIGHT_RUNNING,今夜仍在进行，请先保存并返回入夜。
+P5_WRONG_PHASE,请先完成当前节点的选择。
+P5_INVALID_NODE,此节点尚不可前往。
+P5_ALREADY_BOUGHT,这一项已购入。
+P5_NO_INCENSE,香火不足。
+P5_NO_NAMES,名分不足。
+P5_INVALID_OFFER,此项已经不在当前选项中。
+P5_INVALID_CHOICE,请选择当前事件的可用回应。
+P5_INVALID_BATTLE,战斗结算不完整。
+P5_STALE_BATTLE,这一场已经记入夜程。
+P5_MERCY_UNAVAILABLE,今夜免费复香已用尽。
+P5_SAVE_INVALID,存档不完整或版本不符，无法继续。
+P5_SAVE_FAILED,未能写入本地存档，请检查存储位置。
+P5_SAVE_MISSING,尚无可继续的本地存档。
+P5_SAVED,已保存，可从同一节点继续。
+P5_LOADED,已接回未尽之夜。
+P5_ROSTER_CAP,今夜编制已满。
+P5_BUILD_CAP,此项构筑已到本夜上限。
+P5_NIGHT_COMPLETE,今夜科仪已成。
+P5_NOT_BATTLE,当前不是战斗节点。
+P5_INVALID_PROFILE,本节点战斗布置未就绪。
+P5_BATTLE_START_FAILED,战场未能开启。
+P5_INVALID_ROSTER_POST,编制中有无法部署的掩体岗位。
+P5_BATTLE_STARTED,本节点已开战，香火与编制承接上一节点。
+P5_SNAPSHOT_INVALID,战场存档不完整，无法接回。
+P5_SNAPSHOT_RESTORED,已接回原战场，当前暂停；按 Space 继续。
+P5_FIERCE_LOCKED,凶夜 · 尚未开放
+P5_BATTLE_RESTORED,已接回原战场，当前暂停；按 Space 继续。
+P5_SAVE_BATTLE_INVALID,战场存档不完整，无法接回。
+P5_MOD_INCENSE_REGEN_DELTA,香火回复 %+.2f / 秒
+P5_MOD_RITUAL_DURATION_DELTA,点册时间 %+.1f 秒
+P5_MOD_RITUAL_REWARD_INCENSE_DELTA,超度回香 %+.0f
+P5_MOD_REPAIR_HEAL_DELTA,修门恢复 %+.0f
+P5_MOD_MUTATION_COST_DELTA,变异花费 %+.0f
+P5_MOD_REINFORCE_COUNT_DELTA,增潮数量 %+.0f
+P5_MUTATION_TARGET,本次变异的白衣
+P5_TARGET_OPTION,%s %02d · 生命 %.0f/%.0f
+P5_NAMED_PRESENT,该人物已在今夜编制中。
+P5_INVALID_POST,该岗位不适合这名单位。
+P5_POST_FULL,该掩体岗位的编制已满。

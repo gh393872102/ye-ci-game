@@ -1,0 +1,40 @@
+{
+  "phase": "P8 legacy regression interrupted",
+  "suite": "P5",
+  "checks": 196,
+  "failures": 4,
+  "failed_checks": [
+    {
+      "check": "P6 K7 Archive lookup retains actual night seed and node identity",
+      "passed": false
+    },
+    {
+      "check": "P6 K7 Actual shouxiang night seed resolves completed n03 input archive",
+      "passed": false
+    },
+    {
+      "check": "P6 K7 Actual duoming night seed resolves completed n01 input archive",
+      "passed": false
+    },
+    {
+      "check": "P6 K7 Actual duoming night seed resolves completed n03 input archive",
+      "passed": false
+    }
+  ],
+  "log": "/tmp/ye-ci-p8-legacy-final.log",
+  "diagnosis": "Global battle rules hash source files changed while this long suite was running. Completed legacy battles succeeded, but archive validation/lookup failed. Root confirmed source-hash drift and requested only P5 and later suites rerun after final freeze. Assertions were retained.",
+  "actual_nights": [
+    {
+      "mode": "shouxiang",
+      "seed": "P5-FULL-shouxiang",
+      "battle_seconds": 1200.00000000024,
+      "outcome": "victory"
+    },
+    {
+      "mode": "duoming",
+      "seed": "P5-FULL-duoming",
+      "battle_seconds": 659.38333333332,
+      "outcome": "victory"
+    }
+  ]
+}

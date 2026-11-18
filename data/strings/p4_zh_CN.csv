@@ -1,0 +1,166 @@
+key,zh_CN
+P4_SCOPE,P4 · 暂停决策
+P4_SEAT_SHOUXIANG,守香
+P4_SEAT_DUOMING,夺名
+P4_PRETITLE,夜 祠  /  例夜安香
+P4_PREHELP,"正门庭 · 同一战场，两种坐席
+单位自动作战与退守。暂停后，决定谁来守、何时变。"
+P4_START_SHOUXIANG,守香入夜  ·  香火 20
+P4_START_DUOMING,夺名入夜  ·  香火 16
+P4_SHOU_OBJECTIVE,守至天亮，护住名册与晚。
+P4_DUO_OBJECTIVE,天亮前占领名册房，或抽尽名分。
+P4_GOAL,%s  ·  天亮 %02d:%02d
+P4_RESOURCES,香火 %.1f   /   名分 %.1f
+P4_UPPER,上层来犯 %d  ·  名册占领 %.1f / %.0f 秒
+P4_READY,开战前选择坐席
+P4_BUY_TITLE,购入  /  选择编制
+P4_BUY_CARD,"%s
+香火 %d
+生命 %s  攻击 %s
+防御 %s  射程 %.1f 身位"
+P4_AVAILABLE,可购入
+P4_BUY_HELP,先购入，再选择合法掩体岗位。右键 / B 取消并退回预留香火。
+P4_DEPLOY_TITLE,部署  /  %s
+P4_DEPLOY_HELP,"发亮的圆环是合法掩体。点击确认部署；外门外与院心不能部署。"
+P4_BAD_GROUND,此处不是合法掩体岗位。请选门内、窗后、楼梯口或名册旁。
+P4_UNIT_TITLE,在册  /  %s
+P4_CARD_HEAD,"%s  ·  %s
+职分：%s  /  定位：%s"
+P4_CARD_STATS,生命 %.0f / %.0f   攻击 %.0f   防御 %.0f   速度 %d
+P4_CARD_SKILL,"专属技能 · 香耗 %d
+%s"
+P4_CARD_TRAIT,"特性
+%s"
+P4_CARD_SLOTS,"今夜装备
+香器：%s  /  技艺：[空] [空]  /  名帖：[空]"
+P4_CARD_TAGS,阵营：%s  /  标签：%s
+P4_CARD_STATE,岗位：%s  /  楼层 %d  /  %s
+P4_EMPTY,空槽
+P4_NO_SKILL,无主动技能
+P4_NO_TRAIT,无具名特性
+P4_PORTRAIT_NOTE,独立矢量立绘 · 美术占位
+P4_TROOP_NOTE,无名杂兵 · 模板卡（无立绘）
+P4_UPGRADE_TITLE,升级  /  %s
+P4_SELECT_HUMAN,请先点选己方人物。
+P4_UPGRADE_PREVIEW,香火 %d  ·  生命 %.0f → %.0f   防御 %.0f → %.0f
+P4_CONFIRM_UPGRADE,确认升级
+P4_EQUIP,装上守炉香器 · 香火 %d
+P4_GEAR_NAME,守炉香器（占位）
+P4_GEAR_DETAIL,生命 +%.0f / 防御 +%.0f；仅一件香器，技艺与名帖仍为空槽。
+P4_RITUAL_TITLE,点册 / 选择目标
+P4_RITUAL_HELP,"晚在香案或名册旁读条 %.0f 秒，消耗 %d 香火。
+成功返还 %d 香火、%d 名分；受伤、移动或目标离开范围会打断，消耗不退。"
+P4_RITUAL_TARGET,%s  /  生命 %.0f  /  距离 %.1f 身位
+P4_NO_TARGETS,范围内暂无合法目标。等待潮进入门厅，或点击场上目标尝试点册。
+P4_RITUAL_STARTED,点册已开始。按空格继续，其他单位照常作战。
+P4_RITUAL_PROGRESS,点册 %.1f / %.1f 秒  ·  %s
+P4_REPAIR_TITLE,修门  /  内侧作业
+P4_REPAIR_HELP,花香火安排修理者靠近门扇内侧，作业后修复；途中仍可能受击。
+P4_REPAIR_DOOR,"%s
+耐久 %.0f / %.0f · 香火 %d"
+P4_REPAIR_JOB,修门中  ·  %s  ·  %.1f 秒
+P4_MUTATE_TITLE,变异  /  %s
+P4_SELECT_GHOST,先点选己方白衣。普通潮会自行推进。
+P4_MUTATE_G09,上梁 → 缢鬼  ·  香火 %d
+P4_MUTATE_G12,破门 → 力士尸  ·  香火 %d
+P4_MUTATION_PREVIEW,%s：生命 %s  攻击 %s  防御 %s  速度 %s
+P4_FUSION_PENDING,融契 / 提灯：接口保留，完整配方在 P7。
+P4_REINFORCE,增潮  ·  香火 %d
+P4_REINFORCE_INFO,从潮源补 %d 只白衣  ·  剩余 %d 次  ·  冷却 %.1f 秒
+P4_COMMANDS,暂停决策
+P4_CLOSE,关闭 / B
+P4_RESUME,继续战斗 / Space
+P4_CANCELLED,已取消预留部署。
+P4_SUCCESS,指令已确认。
+P4_RETRY,同坐席再战
+P4_SEAT_MENU,返回坐席选择
+P4_DEBUG,已进入独立调试；本场不再结算。
+P4_HELP,"Q 购入  E 升级/变异  R 点册  F 修门  T 增潮
+Space 暂停  +/- 倍速  A/D 镜头
+手柄：肩键切单位 / X 指令 / 按摇杆切倍速"
+P4_POST_gate,外门内侧
+P4_POST_hall,门厅
+P4_WARN_TITLE,今夜告急
+P4_DOORS,门耐久  外 %.0f  /  内 %.0f  /  殿 %.0f
+P4_CARD_LEVEL,升级 %d  /  变异 %d
+P4_COMMAND_BUY,购入 Q
+P4_COMMAND_DEPLOY,部署
+P4_COMMAND_UPGRADE,升级 E
+P4_COMMAND_RITUAL,点册 R
+P4_COMMAND_REPAIR,修门 F
+P4_COMMAND_MUTATE,变异 E
+P4_COMMAND_REINFORCE,增潮 T
+P4_COMMAND_FUSION,融契接口
+P4_BATTLE_RUNNING,本场正在进行，请在结算后再选择坐席。
+P4_COMMAND_OK,指令已确认。
+P4_DEPLOYED,已部署，单位将自动履职。
+P4_EQUIPMENT_FULL,香器槽已满。
+P4_ILLEGAL_POST,仅可部署到基地内的合法掩体岗位。
+P4_INVALID_DOOR,这扇门无法修复，或无需修复。
+P4_INVALID_MODE,此坐席不可用。
+P4_INVALID_MUTATION,只有合格的己方白衣可以变异。
+P4_INVALID_RITUAL,施术者或目标不满足点册条件。
+P4_INVALID_UNIT,请先选择本场存活的己方单位。
+P4_MUTATED,变异完成，单位将继续自动推进。
+P4_MUTATION_RESERVED,本阶段保留此变异接口。
+P4_NAMED_PRESENT,该人物已在场上。
+P4_NOT_RUNNING,请先选择坐席开战。
+P4_NO_INCENSE,香火不足。
+P4_NO_PURCHASE,请先购入一名单位。
+P4_POST_FULL,此掩体编制已满。
+P4_POST_ROLE,此岗位不适合该职分。
+P4_PURCHASE_PENDING,请先完成或取消当前部署。
+P4_REINFORCE_COOLDOWN,阴缝尚未恢复，增潮正在冷却。
+P4_REINFORCE_LIMIT,今夜增潮次数已用尽。
+P4_REPAIR_BUSY,修门作业正在进行。
+P4_REPAIR_ROUTE,没有可从内侧抵达此门的修理者。
+P4_REPAIR_STARTED,已安排修门，修理者正在内侧前往门扇。
+P4_RITUAL_ACTIVE,正在点册，无法重复开始。
+P4_RITUAL_COMPLETED,超度完成，香火与名分已结算。
+P4_RITUAL_INTERRUPTED_DAMAGE,点册因施术者受伤而中断，香火不退。
+P4_RITUAL_INTERRUPTED_MOVEMENT,点册因施术者移动而中断，香火不退。
+P4_RITUAL_RANGE,目标须进入同层门厅内侧的点册范围。
+P4_TIDE_CAP,潮的在场数量已达上限。
+P4_UNIT_CAP,该类编制已达上限。
+P4_UNKNOWN_PURCHASE,此单位尚不可购入。
+P4_UPGRADE_CAP,本场升级已到上限。
+P4_WARN_DOOR_BROKEN,门已破 · 正在层层退守
+P4_WARN_DOOR_CRITICAL,门将破 · 留意下一道防线
+P4_WARN_REGISTER_CRITICAL,名册告急 · 名分正在流失
+P4_WARN_REGISTER_EXTINGUISHING,名册将熄 · 尽快点册补名
+P4_WARN_UPPER_PRESSURE,上层告急 · 缢鬼已上梁
+P4_WRONG_SEAT,此指令不属于当前坐席。
+P4_MUTATION_PAST_CLIMB,已越过上梁节点，无法回头攀爬。
+P4_MUTATION_USED,本单位已用尽本场变异次数。
+P4_REINFORCE_READY,阴缝可用
+P4_EXTINGUISH_TIMER,名册将熄倒计时：%.1f 秒
+POST_GATE_INNER,外门内侧
+POST_BARRICADE_OUTER_COURT,拒马后
+POST_INNER_GATE,内门内侧
+POST_HALL_DOOR,主殿门厅
+POST_WINDOW_1,二楼窗位
+POST_WINDOW_2,上梁窗位
+POST_TABLE_HALL,门厅香案
+POST_STAIR_HEAD,楼梯口
+POST_REGISTER,名册房
+POST_REAR,后厢柱侧
+DOOR_OUTER,外门
+DOOR_INNER,内门
+DOOR_HALL,主殿门
+DOOR_REGISTER,名册房门
+DOOR_GALLERY,回廊门
+DOOR_INCENSE,香房门
+DOOR_BEAM,梁廊门
+IdleAtPost,守岗
+HoldNewPost,据守新防线
+Engage,交战
+StepBack,退守
+Advance,推进
+AttackBarrier,破门拆障
+Climb,上梁
+Channel,点册
+Repair,修门
+RepairApproach,前往修门
+Broken,阵亡
+Purified,已超度
+ghost_main_path,主路

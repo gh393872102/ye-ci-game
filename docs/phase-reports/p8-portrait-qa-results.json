@@ -1,0 +1,15 @@
+{
+  "scope": "Independent portrait placeholder source-art QA, not combat or complete-night evidence.",
+  "count": 64,
+  "distinct_png_sha256": 64,
+  "size": [
+    1024,
+    1536
+  ],
+  "native_boards": 8,
+  "manifest": "assets/portraits/p8/manifest.json",
+  "prompts": "assets/portraits/p8/prompts.json",
+  "all_require_final_art_replacement": true,
+  "editor_import_exit_code": 0,
+  "editor_import_log": "/tmp/p8-final-import.log"
+}

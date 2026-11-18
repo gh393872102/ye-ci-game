@@ -1,0 +1,6879 @@
+{
+	"capture": true,
+	"checks": 128,
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"fixture_policy": "Only isolated rule fixtures modify actor state/resources. Full battles use start_battle plus public decisions and fixed-step shared advance; no HP, position, durability, rules or timer rewrites.",
+	"full_battles": [
+		{
+			"cheat_mutations": [],
+			"continuous_movement": true,
+			"doors": [
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_outer",
+					"max": 950.0
+				},
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_inner",
+					"max": 800.0
+				},
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_hall",
+					"max": 650.0
+				},
+				{
+					"destroyed": false,
+					"hp": 42.0000000000001,
+					"id": "door_register",
+					"max": 300.0
+				},
+				{
+					"destroyed": false,
+					"hp": 282.0,
+					"id": "door_gallery",
+					"max": 450.0
+				},
+				{
+					"destroyed": false,
+					"hp": 450.0,
+					"id": "door_incense",
+					"max": 450.0
+				},
+				{
+					"destroyed": false,
+					"hp": 300.0,
+					"id": "door_beam",
+					"max": 300.0
+				}
+			],
+			"ending_text": "今夜已成\n坐席：守香\n科仪完成，名册守至天亮。\n\n剩余香火 12.8  /  名分 8.0\n距离天亮 0.0 秒\n同坐席再战\n返回坐席选择\n",
+			"events": [
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.816666666744,
+					"unit": "G01_tide_299"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.816666666744,
+					"unit": "G01_tide_303"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.816666666744,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.816666666744,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.816666666744,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.816666666744,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.866666666744,
+					"unit": "G01_tide_325"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.866666666744,
+					"unit": "G01_tide_336"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.866666666744,
+					"unit": "G01_tide_340"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.866666666744,
+					"unit": "G01_tide_344"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.866666666744,
+					"unit": "G01_tide_347"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.866666666744,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.866666666744,
+					"unit": "G09_tide_352"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.900000000077,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.900000000077,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.900000000077,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 232.900000000077,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.916666666744,
+					"unit": "G01_tide_290"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.966666666744,
+					"unit": "G01_tide_307"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 232.966666666744,
+					"unit": "G01_tide_329"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.000000000078,
+					"unit": "G01_tide_311"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.016666666744,
+					"unit": "G01_tide_323"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.016666666744,
+					"unit": "G01_tide_327"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.016666666744,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.016666666744,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.016666666744,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.016666666744,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.016666666744,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.033333333411,
+					"unit": "G01_tide_301"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.050000000078,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.066666666744,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.100000000078,
+					"unit": "G01_tide_315"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.116666666744,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.133333333411,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.166666666744,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.183333333411,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.200000000078,
+					"unit": "G01_tide_335"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.233333333411,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.250000000078,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_339"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_340"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_343"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_344"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.300000000078,
+					"unit": "G09_tide_352"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.383333333411,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.383333333411,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.383333333411,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.383333333411,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.383333333411,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.400000000078,
+					"unit": "G01_tide_347"
+				},
+				{
+					"detail": "G01_tide_283",
+					"kind": "projectile_fired",
+					"time": 233.416666666745,
+					"unit": "H17_272"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.416666666745,
+					"unit": "G01_tide_305"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.416666666745,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.416666666745,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.416666666745,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.450000000078,
+					"unit": "G01_tide_294"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.450000000078,
+					"unit": "G01_tide_327"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.450000000078,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.450000000078,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.450000000078,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.450000000078,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.450000000078,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.516666666745,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.516666666745,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.516666666745,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.533333333411,
+					"unit": "G01_tide_340"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.533333333411,
+					"unit": "G01_tide_344"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.533333333411,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.533333333411,
+					"unit": "G09_tide_352"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.650000000078,
+					"unit": "G01_tide_309"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.666666666745,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.683333333411,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.733333333411,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.750000000078,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.783333333412,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.800000000078,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.816666666745,
+					"unit": "G01_tide_327"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.816666666745,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.816666666745,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.816666666745,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.816666666745,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.816666666745,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.850000000078,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.866666666745,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.883333333412,
+					"unit": "G01_tide_313"
+				},
+				{
+					"detail": "Climb",
+					"kind": "state",
+					"time": 233.900000000078,
+					"unit": "G09_tide_352"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.916666666745,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.916666666745,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.916666666745,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.916666666745,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.966666666745,
+					"unit": "G01_tide_344"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.966666666745,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 233.983333333412,
+					"unit": "G01_tide_298"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.983333333412,
+					"unit": "G09_tide_332"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.983333333412,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.983333333412,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.983333333412,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 233.983333333412,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.016666666745,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.016666666745,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.116666666745,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.116666666745,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.133333333412,
+					"unit": "G01_tide_317"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.200000000079,
+					"unit": "G01_tide_344"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.200000000079,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.250000000079,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.250000000079,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.250000000079,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.250000000079,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.250000000079,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.283333333412,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.300000000079,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.350000000079,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.366666666745,
+					"unit": "G01_tide_322"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.366666666745,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.400000000079,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.416666666745,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.500000000079,
+					"unit": "G01_tide_302"
+				},
+				{
+					"detail": "G01_tide_283",
+					"kind": "projectile_fired",
+					"time": 234.516666666745,
+					"unit": "H17_272"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.516666666745,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.516666666745,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.516666666745,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.566666666745,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.566666666745,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.566666666745,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.600000000079,
+					"unit": "G01_tide_326"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.600000000079,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.616666666746,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.616666666746,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.616666666746,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.616666666746,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.616666666746,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.633333333412,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.700000000079,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.800000000079,
+					"unit": "G09_tide_351"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.833333333412,
+					"unit": "G01_tide_330"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.833333333412,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "AttackBarrier",
+					"kind": "state",
+					"time": 234.850000000079,
+					"unit": "G09_tide_333"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.850000000079,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.866666666746,
+					"unit": "G01_tide_306"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.866666666746,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.900000000079,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.916666666746,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 234.966666666746,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 234.983333333412,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.016666666746,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.033333333413,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.033333333413,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.033333333413,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.033333333413,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.033333333413,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.066666666746,
+					"unit": "G01_tide_336"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.100000000079,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.100000000079,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.133333333413,
+					"unit": "G12_tide_319"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.133333333413,
+					"unit": "G01_tide_320"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.133333333413,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.133333333413,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.133333333413,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.166666666746,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.166666666746,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.200000000079,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.216666666746,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.233333333413,
+					"unit": "G01_tide_310"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.300000000079,
+					"unit": "G01_tide_340"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.300000000079,
+					"unit": "G01_tide_344"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.300000000079,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.400000000079,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.400000000079,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.400000000079,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.400000000079,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.533333333413,
+					"unit": "G01_tide_348"
+				},
+				{
+					"detail": "G01_tide_283",
+					"kind": "projectile_fired",
+					"time": 235.616666666746,
+					"unit": "H17_272"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.616666666746,
+					"unit": "G01_tide_314"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.616666666746,
+					"unit": "G12_tide_350"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.80000000008,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.80000000008,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.80000000008,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.80000000008,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.80000000008,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.816666666746,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.816666666746,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.816666666746,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.816666666746,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 235.816666666746,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.85000000008,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.85000000008,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.85000000008,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 235.983333333413,
+					"unit": "G01_tide_318"
+				},
+				{
+					"detail": "AttackBarrier",
+					"kind": "state",
+					"time": 236.033333333413,
+					"unit": "G09_tide_332"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.216666666747,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.216666666747,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.216666666747,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "HoldNewPost",
+					"kind": "state",
+					"time": 236.35000000008,
+					"unit": "T02_273"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 236.35000000008,
+					"unit": "G01_tide_323"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.533333333414,
+					"unit": "G09_tide_352"
+				},
+				{
+					"detail": "IdleAtPost",
+					"kind": "state",
+					"time": 236.566666666747,
+					"unit": "T02_273"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 236.583333333414,
+					"unit": "T02_273"
+				},
+				{
+					"detail": "G01_tide_287",
+					"kind": "projectile_fired",
+					"time": 236.583333333414,
+					"unit": "T02_273"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 236.65000000008,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 236.65000000008,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "G01_tide_283",
+					"kind": "projectile_fired",
+					"time": 236.716666666747,
+					"unit": "H17_272"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 236.716666666747,
+					"unit": "G01_tide_327"
+				},
+				{
+					"detail": "AttackBarrier",
+					"kind": "state",
+					"time": 236.850000000081,
+					"unit": "G09_tide_351"
+				},
+				{
+					"detail": "Broken",
+					"kind": "state",
+					"time": 236.900000000081,
+					"unit": "G01_tide_283"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_287"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_291"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_295"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_299"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_303"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_307"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_311"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_315"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G12_tide_319"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_320"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.916666666747,
+					"unit": "G12_tide_350"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 236.950000000081,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 236.950000000081,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 236.950000000081,
+					"unit": "G12_tide_350"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.966666666747,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.966666666747,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 236.966666666747,
+					"unit": "G12_tide_350"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.016666666747,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.016666666747,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.016666666747,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.016666666747,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.033333333414,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.033333333414,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.066666666747,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.066666666747,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.083333333414,
+					"unit": "G01_tide_331"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.083333333414,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.083333333414,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.133333333414,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.133333333414,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.150000000081,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.150000000081,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "AttackBarrier",
+					"kind": "state",
+					"time": 237.183333333414,
+					"unit": "G01_tide_287"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.200000000081,
+					"unit": "G01_tide_291"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.200000000081,
+					"unit": "G01_tide_295"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.200000000081,
+					"unit": "G01_tide_299"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.200000000081,
+					"unit": "G01_tide_303"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.200000000081,
+					"unit": "G01_tide_307"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.200000000081,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.200000000081,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.216666666748,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.216666666748,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.250000000081,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.250000000081,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.266666666748,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.266666666748,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.316666666748,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.316666666748,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.333333333414,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.333333333414,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.350000000081,
+					"unit": "G01_tide_311"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.350000000081,
+					"unit": "G01_tide_315"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.383333333414,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.383333333414,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.400000000081,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.400000000081,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.433333333414,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.433333333414,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.450000000081,
+					"unit": "G01_tide_337"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.450000000081,
+					"unit": "G01_tide_341"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.450000000081,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.450000000081,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.450000000081,
+					"unit": "G01_tide_349"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.466666666748,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.483333333414,
+					"unit": "G12_tide_350"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.516666666748,
+					"unit": "G12_tide_319"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.516666666748,
+					"unit": "G01_tide_320"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.516666666748,
+					"unit": "G01_tide_324"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.516666666748,
+					"unit": "G01_tide_328"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.516666666748,
+					"unit": "G01_tide_334"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.516666666748,
+					"unit": "G01_tide_338"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.566666666748,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 237.566666666748,
+					"unit": "G12_tide_350"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.600000000081,
+					"unit": "G01_tide_342"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.600000000081,
+					"unit": "G01_tide_346"
+				},
+				{
+					"detail": "G01_tide_291",
+					"kind": "projectile_fired",
+					"time": 237.683333333415,
+					"unit": "T02_273"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.716666666748,
+					"unit": "G12_tide_350"
+				},
+				{
+					"detail": "G01_tide_287",
+					"kind": "projectile_fired",
+					"time": 237.816666666748,
+					"unit": "H17_272"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 237.816666666748,
+					"unit": "G01_tide_345"
+				},
+				{
+					"detail": "AttackBarrier",
+					"kind": "state",
+					"time": 238.583333333415,
+					"unit": "G09_tide_352"
+				},
+				{
+					"detail": "G01_tide_291",
+					"kind": "projectile_fired",
+					"time": 238.783333333415,
+					"unit": "T02_273"
+				},
+				{
+					"detail": "G01_tide_287",
+					"kind": "projectile_fired",
+					"time": 238.916666666749,
+					"unit": "H17_272"
+				},
+				{
+					"detail": "G01_tide_291",
+					"kind": "projectile_fired",
+					"time": 239.883333333416,
+					"unit": "T02_273"
+				}
+			],
+			"human_base_safe": true,
+			"mode": "shouxiang",
+			"replay_frames": 122,
+			"replay_sample_sim_seconds": 2,
+			"result": {
+				"elapsed": 240.000000000083,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 112.316666666662
+				},
+				"humans_alive": 5,
+				"incense": 12.799999999998,
+				"mode": "shouxiang",
+				"names": 8.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 73
+			},
+			"samples": [
+				{
+					"at": 0.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 950.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 4,
+					"humans": 5,
+					"incense": 20.0,
+					"names": 8.0
+				},
+				{
+					"at": 10.0,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 950.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 16,
+					"humans": 5,
+					"incense": 21.2,
+					"names": 8.0
+				},
+				{
+					"at": 20.0,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 950.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 32,
+					"humans": 5,
+					"incense": 22.4,
+					"names": 8.0
+				},
+				{
+					"at": 30.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 711.919999999998,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 32,
+					"humans": 5,
+					"incense": 23.6,
+					"names": 8.0
+				},
+				{
+					"at": 40.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 444.079999999997,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 45,
+					"humans": 5,
+					"incense": 18.8,
+					"names": 8.0
+				},
+				{
+					"at": 50.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 476.239999999995,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 59,
+					"humans": 5,
+					"incense": 14.0,
+					"names": 8.0
+				},
+				{
+					"at": 60.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 508.399999999994,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 59,
+					"humans": 5,
+					"incense": 9.2,
+					"names": 8.0
+				},
+				{
+					"at": 70.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 540.559999999993,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 4.4,
+					"names": 8.0
+				},
+				{
+					"at": 80.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 572.719999999991,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 5.6,
+					"names": 8.0
+				},
+				{
+					"at": 90.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 304.879999999991,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 0.8,
+					"names": 8.0
+				},
+				{
+					"at": 100.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 337.039999999991,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 2.0,
+					"names": 8.0
+				},
+				{
+					"at": 110.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 69.1999999999907,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 3.2,
+					"names": 8.0
+				},
+				{
+					"at": 120.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 4.4,
+					"names": 8.0
+				},
+				{
+					"at": 130.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 5.6,
+					"names": 8.0
+				},
+				{
+					"at": 140.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 561.919999999998,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 6.8,
+					"names": 8.0
+				},
+				{
+					"at": 150.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 294.079999999998,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 2.0,
+					"names": 8.0
+				},
+				{
+					"at": 160.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 326.239999999998,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 3.2,
+					"names": 8.0
+				},
+				{
+					"at": 170.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 58.3999999999982,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 4.4,
+					"names": 8.0
+				},
+				{
+					"at": 180.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 5.6,
+					"names": 8.0
+				},
+				{
+					"at": 190.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 620.24,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 6.8,
+					"names": 8.0
+				},
+				{
+					"at": 200.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 352.399999999999,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 8.0,
+					"names": 8.0
+				},
+				{
+					"at": 210.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 84.5599999999991,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 9.2,
+					"names": 8.0
+				},
+				{
+					"at": 220.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 76,
+					"humans": 5,
+					"incense": 10.4,
+					"names": 8.0
+				},
+				{
+					"at": 230.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 75,
+					"humans": 5,
+					"incense": 11.6,
+					"names": 8.0
+				},
+				{
+					"at": 240.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 42.0000000000001,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 282.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 73,
+					"humans": 5,
+					"incense": 12.8,
+					"names": 8.0
+				}
+			],
+			"script": [
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_outer"
+					},
+					"at": 34.017,
+					"incense": 18.082,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_REPAIR_STARTED"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_outer"
+					},
+					"at": 45.017,
+					"incense": 13.402,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_REPAIR_STARTED"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_outer"
+					},
+					"at": 56.017,
+					"incense": 8.722,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_REPAIR_STARTED"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_outer"
+					},
+					"at": 67.017,
+					"incense": 4.042,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_REPAIR_STARTED"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_outer"
+					},
+					"at": 84.017,
+					"incense": 0.082,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_REPAIR_STARTED"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_inner"
+					},
+					"at": 144.0,
+					"incense": 1.28,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_REPAIR_STARTED"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 201.0,
+					"incense": 8.12,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 202.0,
+					"incense": 8.24,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 203.0,
+					"incense": 8.36,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 204.0,
+					"incense": 8.48,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 205.0,
+					"incense": 8.6,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 206.0,
+					"incense": 8.72,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 207.0,
+					"incense": 8.84,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 208.0,
+					"incense": 8.96,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 209.0,
+					"incense": 9.08,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 210.0,
+					"incense": 9.2,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 211.0,
+					"incense": 9.32,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				},
+				{
+					"action": "repair",
+					"args": {
+						"door": "door_hall"
+					},
+					"at": 212.0,
+					"incense": 9.44,
+					"names": 8.0,
+					"ok": false,
+					"reason": "P4_REPAIR_ROUTE"
+				}
+			],
+			"seconds": 240.000000000083,
+			"tide_milestones": [
+				{
+					"detail": "door_outer",
+					"kind": "door_break",
+					"time": 112.316666666662
+				},
+				{
+					"detail": "outer_a",
+					"kind": "obstacle_break",
+					"time": 125.149999999994
+				},
+				{
+					"detail": "door_inner",
+					"kind": "door_break",
+					"time": 171.850000000029
+				},
+				{
+					"detail": "inner_a",
+					"kind": "obstacle_break",
+					"time": 185.583333333373
+				},
+				{
+					"detail": "door_hall",
+					"kind": "door_break",
+					"time": 212.300000000061
+				},
+				{
+					"detail": "hall_a",
+					"kind": "obstacle_break",
+					"time": 223.283333333403
+				},
+				{
+					"detail": "G09_tide_333",
+					"kind": "climb_start",
+					"time": 229.900000000075
+				},
+				{
+					"detail": "G09_tide_332",
+					"kind": "climb_start",
+					"time": 231.350000000076
+				},
+				{
+					"detail": "G09_tide_351",
+					"kind": "climb_start",
+					"time": 232.166666666744
+				},
+				{
+					"detail": "G09_tide_333",
+					"kind": "upper_entry",
+					"time": 232.516666666744
+				},
+				{
+					"detail": "G09_tide_352",
+					"kind": "climb_start",
+					"time": 233.900000000078
+				},
+				{
+					"detail": "G09_tide_332",
+					"kind": "upper_entry",
+					"time": 233.966666666745
+				},
+				{
+					"detail": "G09_tide_351",
+					"kind": "upper_entry",
+					"time": 234.783333333412
+				},
+				{
+					"detail": "G09_tide_352",
+					"kind": "upper_entry",
+					"time": 236.516666666747
+				}
+			]
+		},
+		{
+			"cheat_mutations": [],
+			"continuous_movement": true,
+			"doors": [
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_outer",
+					"max": 950.0
+				},
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_inner",
+					"max": 800.0
+				},
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_hall",
+					"max": 650.0
+				},
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_register",
+					"max": 300.0
+				},
+				{
+					"destroyed": true,
+					"hp": 0.0,
+					"id": "door_gallery",
+					"max": 450.0
+				},
+				{
+					"destroyed": false,
+					"hp": 450.0,
+					"id": "door_incense",
+					"max": 450.0
+				},
+				{
+					"destroyed": false,
+					"hp": 300.0,
+					"id": "door_beam",
+					"max": 300.0
+				}
+			],
+			"ending_text": "今夜已成\n坐席：夺名\n名册房持续失守，已被占领。\n\n剩余香火 8.7  /  名分 3.0\n距离天亮 75.8 秒\n同坐席再战\n返回坐席选择\n",
+			"events": [
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 137.883333333335,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 137.883333333335,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 137.883333333335,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 137.883333333335,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_363"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.966666666669,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.983333333335,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 137.983333333335,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Descend",
+					"kind": "state",
+					"time": 138.250000000002,
+					"unit": "G09_tide_415"
+				},
+				{
+					"detail": "Descend",
+					"kind": "state",
+					"time": 138.250000000002,
+					"unit": "G09_tide_416"
+				},
+				{
+					"detail": "Descend",
+					"kind": "state",
+					"time": 138.733333333336,
+					"unit": "G01_tide_429"
+				},
+				{
+					"detail": "Descend",
+					"kind": "state",
+					"time": 138.733333333336,
+					"unit": "G09_tide_434"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_368"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_369"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_372"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_373"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_374"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_375"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 139.950000000004,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.050000000004,
+					"unit": "G01_tide_374"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.083333333337,
+					"unit": "G01_tide_374"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.26666666667,
+					"unit": "G01_tide_372"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.31666666667,
+					"unit": "G01_tide_364"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.31666666667,
+					"unit": "G01_tide_365"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.31666666667,
+					"unit": "G01_tide_367"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.31666666667,
+					"unit": "G01_tide_370"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.31666666667,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.333333333337,
+					"unit": "G01_tide_374"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.333333333337,
+					"unit": "G01_tide_375"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.633333333337,
+					"unit": "G01_tide_358"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.633333333337,
+					"unit": "G01_tide_366"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.650000000004,
+					"unit": "G01_tide_363"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.650000000004,
+					"unit": "G01_tide_368"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.650000000004,
+					"unit": "G01_tide_369"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.650000000004,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 140.666666666671,
+					"unit": "G01_tide_373"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 140.700000000004,
+					"unit": "G01_tide_361"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 141.000000000004,
+					"unit": "G01_tide_364"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 141.033333333338,
+					"unit": "G01_tide_367"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 141.050000000004,
+					"unit": "G01_tide_370"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 141.083333333338,
+					"unit": "G01_tide_365"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 141.266666666671,
+					"unit": "G09_tide_415"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 141.266666666671,
+					"unit": "G09_tide_416"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 141.416666666671,
+					"unit": "G01_tide_358"
+				},
+				{
+					"detail": "HoldNewPost",
+					"kind": "state",
+					"time": 141.466666666671,
+					"unit": "H09_353"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 141.466666666671,
+					"unit": "G01_tide_366"
+				},
+				{
+					"detail": "IdleAtPost",
+					"kind": "state",
+					"time": 141.683333333338,
+					"unit": "H09_353"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 141.700000000005,
+					"unit": "H09_353"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 141.750000000005,
+					"unit": "G01_tide_429"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 141.750000000005,
+					"unit": "G09_tide_434"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 142.450000000006,
+					"unit": "G09_tide_415"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 142.450000000006,
+					"unit": "G09_tide_416"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 142.450000000006,
+					"unit": "G01_tide_429"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 142.450000000006,
+					"unit": "G09_tide_434"
+				},
+				{
+					"detail": "Broken",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_361"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_364"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_368"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_372"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_377"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_381"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_385"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_389"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_393"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_397"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_401"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_406"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_410"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_414"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_420"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_424"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_428"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 142.800000000006,
+					"unit": "G01_tide_432"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_377"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_381"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_385"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_389"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_393"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_397"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_401"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_406"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_410"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_414"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.150000000006,
+					"unit": "G01_tide_420"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.166666666673,
+					"unit": "G01_tide_424"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.166666666673,
+					"unit": "G01_tide_428"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.166666666673,
+					"unit": "G01_tide_432"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.233333333339,
+					"unit": "G01_tide_368"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 143.400000000006,
+					"unit": "G01_tide_364"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_377"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_381"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_385"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_389"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_393"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_397"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_401"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_406"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_410"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_414"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_420"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_424"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_428"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 143.516666666673,
+					"unit": "G01_tide_432"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_372"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_377"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_381"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_385"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_389"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_393"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_397"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_401"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_406"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_410"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_414"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_420"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.600000000006,
+					"unit": "G01_tide_424"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.616666666673,
+					"unit": "G01_tide_428"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 143.616666666673,
+					"unit": "G01_tide_432"
+				},
+				{
+					"detail": "Broken",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_363"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_367"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.100000000008,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.450000000009,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.466666666675,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.466666666675,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.533333333342,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 146.666666666676,
+					"unit": "G01_tide_367"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 146.683333333342,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.766666666676,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 146.783333333342,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Broken",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_367"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.400000000011,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.750000000011,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.766666666678,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 149.833333333345,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 149.966666666678,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 149.983333333345,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 150.066666666678,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Broken",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_371"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 151.600000000013,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 151.950000000013,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.033333333346,
+					"unit": "G01_tide_380"
+				},
+				{
+					"detail": "Engage",
+					"kind": "state",
+					"time": 152.16666666668,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Broken",
+					"kind": "state",
+					"time": 152.16666666668,
+					"unit": "H09_353"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_364"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Advance",
+					"kind": "state",
+					"time": 152.183333333347,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_384"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_388"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_392"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_396"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_400"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_405"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_409"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_413"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_419"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_423"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_427"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.26666666668,
+					"unit": "G01_tide_431"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.283333333347,
+					"unit": "G01_tide_376"
+				},
+				{
+					"detail": "Queue",
+					"kind": "state",
+					"time": 152.383333333347,
+					"unit": "G01_tide_364"
+				}
+			],
+			"human_base_safe": true,
+			"mode": "duoming",
+			"replay_frames": 84,
+			"replay_sample_sim_seconds": 2,
+			"result": {
+				"elapsed": 164.150000000023,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 44.1166666666654
+				},
+				"humans_alive": 0,
+				"incense": 8.69800000000026,
+				"mode": "duoming",
+				"names": 2.95416666666684,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 75.8499999999138,
+				"tide_alive": 69
+			},
+			"samples": [
+				{
+					"at": 0.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 950.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 4,
+					"humans": 5,
+					"incense": 1.0,
+					"names": 8.0
+				},
+				{
+					"at": 10.0,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 950.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 16,
+					"humans": 5,
+					"incense": 2.2,
+					"names": 8.0
+				},
+				{
+					"at": 20.0,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 950.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 32,
+					"humans": 5,
+					"incense": 3.4,
+					"names": 8.0
+				},
+				{
+					"at": 30.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 782.959999999999,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 32,
+					"humans": 5,
+					"incense": 4.6,
+					"names": 8.0
+				},
+				{
+					"at": 40.02,
+					"doors": [
+						{
+							"destroyed": false,
+							"hp": 235.039999999999,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 45,
+					"humans": 5,
+					"incense": 5.8,
+					"names": 8.0
+				},
+				{
+					"at": 50.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 800.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 59,
+					"humans": 5,
+					"incense": 7.0,
+					"names": 8.0
+				},
+				{
+					"at": 60.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 758.24,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 59,
+					"humans": 5,
+					"incense": 8.2,
+					"names": 8.0
+				},
+				{
+					"at": 70.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": false,
+							"hp": 210.32,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 9.4,
+					"names": 8.0
+				},
+				{
+					"at": 80.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 650.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 10.6,
+					"names": 8.0
+				},
+				{
+					"at": 90.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": false,
+							"hp": 486.48,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 11.8,
+					"names": 8.0
+				},
+				{
+					"at": 100.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 78,
+					"humans": 5,
+					"incense": 1.0,
+					"names": 8.0
+				},
+				{
+					"at": 110.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 77,
+					"humans": 5,
+					"incense": 2.2,
+					"names": 8.0
+				},
+				{
+					"at": 120.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": false,
+							"hp": 306.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 76,
+					"humans": 5,
+					"incense": 3.4,
+					"names": 8.0
+				},
+				{
+					"at": 130.02,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 75,
+					"humans": 4,
+					"incense": 4.6,
+					"names": 7.69166666666668
+				},
+				{
+					"at": 140.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 73,
+					"humans": 1,
+					"incense": 5.8,
+					"names": 5.95416666666678
+				},
+				{
+					"at": 150.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 70,
+					"humans": 1,
+					"incense": 7.0,
+					"names": 5.95416666666678
+				},
+				{
+					"at": 160.0,
+					"doors": [
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_outer",
+							"max": 950.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_inner",
+							"max": 800.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_hall",
+							"max": 650.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_register",
+							"max": 300.0
+						},
+						{
+							"destroyed": true,
+							"hp": 0.0,
+							"id": "door_gallery",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 450.0,
+							"id": "door_incense",
+							"max": 450.0
+						},
+						{
+							"destroyed": false,
+							"hp": 300.0,
+							"id": "door_beam",
+							"max": 300.0
+						}
+					],
+					"ghosts": 69,
+					"humans": 0,
+					"incense": 8.2,
+					"names": 3.99166666666689
+				}
+			],
+			"script": [
+				{
+					"action": "mutate",
+					"args": {
+						"form": "G12",
+						"unit": "G01_tide_358"
+					},
+					"at": 0.0,
+					"incense": 1.0,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_MUTATED"
+				},
+				{
+					"action": "mutate",
+					"args": {
+						"form": "G09",
+						"unit": "G01_tide_429"
+					},
+					"at": 92.017,
+					"incense": 0.042,
+					"names": 8.0,
+					"ok": true,
+					"reason": "P4_MUTATED"
+				}
+			],
+			"seconds": 164.150000000023,
+			"tide_milestones": [
+				{
+					"detail": "G12",
+					"kind": "mutation",
+					"time": 0.0
+				},
+				{
+					"detail": "door_outer",
+					"kind": "door_break",
+					"time": 44.1166666666654
+				},
+				{
+					"detail": "outer_a",
+					"kind": "obstacle_break",
+					"time": 51.4499999999984
+				},
+				{
+					"detail": "door_inner",
+					"kind": "door_break",
+					"time": 74.4166666666637
+				},
+				{
+					"detail": "inner_a",
+					"kind": "obstacle_break",
+					"time": 82.9833333333299
+				},
+				{
+					"detail": "G09",
+					"kind": "mutation",
+					"time": 92.0166666666627
+				},
+				{
+					"detail": "door_hall",
+					"kind": "door_break",
+					"time": 98.683333333329
+				},
+				{
+					"detail": "hall_a",
+					"kind": "obstacle_break",
+					"time": 103.333333333329
+				},
+				{
+					"detail": "G09_tide_416",
+					"kind": "climb_start",
+					"time": 110.483333333328
+				},
+				{
+					"detail": "G09_tide_415",
+					"kind": "climb_start",
+					"time": 112.199999999995
+				},
+				{
+					"detail": "G09_tide_434",
+					"kind": "climb_start",
+					"time": 112.749999999995
+				},
+				{
+					"detail": "G09_tide_416",
+					"kind": "upper_entry",
+					"time": 113.099999999995
+				},
+				{
+					"detail": "G01_tide_429",
+					"kind": "climb_start",
+					"time": 114.149999999995
+				},
+				{
+					"detail": "G09_tide_435",
+					"kind": "climb_start",
+					"time": 114.616666666661
+				},
+				{
+					"detail": "G09_tide_415",
+					"kind": "upper_entry",
+					"time": 114.816666666661
+				},
+				{
+					"detail": "G09_tide_434",
+					"kind": "upper_entry",
+					"time": 115.366666666661
+				},
+				{
+					"detail": "G01_tide_429",
+					"kind": "upper_entry",
+					"time": 116.766666666661
+				},
+				{
+					"detail": "G09_tide_435",
+					"kind": "upper_entry",
+					"time": 117.233333333328
+				},
+				{
+					"detail": "door_register",
+					"kind": "door_break",
+					"time": 117.966666666661
+				},
+				{
+					"floor": 0,
+					"kind": "register_entry",
+					"position": [
+						8304.4833984375,
+						664.0
+					],
+					"time": 118.166666666661,
+					"unit": "G01"
+				},
+				{
+					"detail": "door_gallery",
+					"kind": "door_break",
+					"time": 126.999999999994
+				},
+				{
+					"detail": "G09_tide_415",
+					"kind": "climb_start",
+					"time": 138.250000000002
+				},
+				{
+					"detail": "G09_tide_416",
+					"kind": "climb_start",
+					"time": 138.250000000002
+				},
+				{
+					"detail": "G01_tide_429",
+					"kind": "climb_start",
+					"time": 138.733333333336
+				},
+				{
+					"detail": "G09_tide_434",
+					"kind": "climb_start",
+					"time": 138.733333333336
+				},
+				{
+					"detail": "G09_tide_415",
+					"kind": "landed",
+					"time": 141.250000000005
+				},
+				{
+					"detail": "G09_tide_416",
+					"kind": "landed",
+					"time": 141.250000000005
+				},
+				{
+					"detail": "G01_tide_429",
+					"kind": "landed",
+					"time": 141.733333333338
+				},
+				{
+					"detail": "G09_tide_434",
+					"kind": "landed",
+					"time": 141.733333333338
+				}
+			]
+		}
+	],
+	"phase": "P4",
+	"results": [
+		{
+			"check": "P4 boot validates tables and profiles",
+			"passed": true
+		},
+		{
+			"check": "K8 Both seats bind the existing shared CombatSimulation",
+			"passed": true
+		},
+		{
+			"check": "K8 Prebattle seat selection does not advance or settle battle",
+			"passed": true
+		},
+		{
+			"check": "G0 Map length, body scale and far camera remain locked",
+			"passed": true
+		},
+		{
+			"check": "G0 Minimap viewport remains one fifth of full map",
+			"passed": true
+		},
+		{
+			"check": "K2 Guard seat opens with 20 incense and configured names",
+			"passed": true
+		},
+		{
+			"check": "K2 Source troop prices are 5 / 8 / 6",
+			"passed": true
+		},
+		{
+			"check": "K2 Purchase reserves and debits exactly once",
+			"passed": true
+		},
+		{
+			"check": "Pending purchase rejects a second purchase without charging again",
+			"passed": true
+		},
+		{
+			"check": "K3 Invalid deployment preserves reservation and funds: outside_gate",
+			"passed": true
+		},
+		{
+			"check": "K3 Invalid deployment preserves reservation and funds: court_center",
+			"passed": true
+		},
+		{
+			"check": "K3 Invalid deployment preserves reservation and funds: door_outer",
+			"passed": true
+		},
+		{
+			"check": "K3 Invalid deployment preserves reservation and funds: ",
+			"passed": true
+		},
+		{
+			"check": "Right cancel refunds reserved incense exactly",
+			"passed": true
+		},
+		{
+			"check": "Repeating cancel cannot manufacture incense",
+			"passed": true
+		},
+		{
+			"check": "Crossbow can be purchased while paused",
+			"passed": true
+		},
+		{
+			"check": "K3 Legal inner window deploys one actor and clears reservation",
+			"passed": true
+		},
+		{
+			"check": "Repeated deployment confirmation neither spawns nor charges again",
+			"passed": true
+		},
+		{
+			"check": "Deployed actor occupies genuine in-base CoverPost",
+			"passed": true
+		},
+		{
+			"check": "Purchase unit has source stats and six-body crossbow range",
+			"passed": true
+		},
+		{
+			"check": "K2 Insufficient incense rejects purchase without debt",
+			"passed": true
+		},
+		{
+			"check": "K4 Upgrade preview current and next values agree with actual unit",
+			"passed": true
+		},
+		{
+			"check": "K4 Upgrade actual HP, defense and charge match configured preview delta",
+			"passed": true
+		},
+		{
+			"check": "Upgrade records per-unit level",
+			"passed": true
+		},
+		{
+			"check": "Upgrade cap prevents repeated unbounded stat growth",
+			"passed": true
+		},
+		{
+			"check": "Max-level upgrade is rejected without another charge",
+			"passed": true
+		},
+		{
+			"check": "Placeholder equipment occupies its declared slot",
+			"passed": true
+		},
+		{
+			"check": "Occupied equipment slot rejects duplicate equip and cost",
+			"passed": true
+		},
+		{
+			"check": "Guard seat cannot issue ghost mutations",
+			"passed": true
+		},
+		{
+			"check": "S3 Troop field cap rejects unlimited paid purchases",
+			"passed": true
+		},
+		{
+			"check": "K5 Player-triggered ritual spends exactly four incense at start",
+			"passed": true
+		},
+		{
+			"check": "K5 Ritual has a four-second real channel",
+			"passed": true
+		},
+		{
+			"check": "Repeated ritual confirmation cannot debit twice",
+			"passed": true
+		},
+		{
+			"check": "K5 Target remains until full read; caster stays at safe ritual cover",
+			"passed": true
+		},
+		{
+			"check": "K5 Completing channel removes ghost and pays three incense plus one name, including documented natural regen",
+			"passed": true
+		},
+		{
+			"check": "Interrupted ritual starts normally",
+			"passed": true
+		},
+		{
+			"check": "K5 Actual damage interrupts ritual without refund or reward",
+			"passed": true
+		},
+		{
+			"check": "K5 Outside-base target is rejected without spending",
+			"passed": true
+		},
+		{
+			"check": "K5 Ritual rejects a target on another floor",
+			"passed": true
+		},
+		{
+			"check": "K5 Courtyard ritual caster is rejected",
+			"passed": true
+		},
+		{
+			"check": "Parallel combat ritual fixture starts",
+			"passed": true
+		},
+		{
+			"check": "K5 Other defenders continue actual shared combat during ritual",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 04-ritual-channel",
+			"passed": true
+		},
+		{
+			"check": "K6 Repair pays six incense and creates real repairer job",
+			"passed": true
+		},
+		{
+			"check": "K6 Repairer walks first; a distant damaged door does not instantly heal",
+			"passed": true
+		},
+		{
+			"check": "K6 Real job arrives, spends work time and restores actual door durability",
+			"passed": true
+		},
+		{
+			"check": "K6 Repairer remains inside base and traverses without teleporting",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 05-repair-completed",
+			"passed": true
+		},
+		{
+			"check": "K7 Attack seat opens with sixteen incense",
+			"passed": true
+		},
+		{
+			"check": "K7 Eligible white robe mutates to hanging ghost for twelve incense",
+			"passed": true
+		},
+		{
+			"check": "Mutation applies genuine climber profile and records count",
+			"passed": true
+		},
+		{
+			"check": "Mutation source/count rules reject chaining elite into breaker without spending",
+			"passed": true
+		},
+		{
+			"check": "K7 Eligible white robe mutates to real breaker for fifteen incense",
+			"passed": true
+		},
+		{
+			"check": "Human unit is never a valid mutation source",
+			"passed": true
+		},
+		{
+			"check": "S1 Unsupported lantern form is rejected explicitly",
+			"passed": true
+		},
+		{
+			"check": "K7 Reinforcement charges ten incense",
+			"passed": true
+		},
+		{
+			"check": "K7 Reinforcement appends eight source-spawn ghosts",
+			"passed": true
+		},
+		{
+			"check": "K7 Cooldown blocks immediate reinforcement without spending",
+			"passed": true
+		},
+		{
+			"check": "Reinforcement becomes available after real cooldown",
+			"passed": true
+		},
+		{
+			"check": "Third reinforcement is available at declared limit",
+			"passed": true
+		},
+		{
+			"check": "K7 Per-battle reinforcement limit prevents unlimited ghost farming",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 06-mutation-source-flow",
+			"passed": true
+		},
+		{
+			"check": "Name depletion enters visible ten-second recovery window before defeat",
+			"passed": true
+		},
+		{
+			"check": "Recovering one name resets the extinction window",
+			"passed": true
+		},
+		{
+			"check": "S2 Exhausted name window produces explicit extinction defeat",
+			"passed": true
+		},
+		{
+			"check": "All decision APIs reject commands after settlement without cost",
+			"passed": true
+		},
+		{
+			"check": "Legacy developer channel entry cannot bypass active P4 ritual payment",
+			"passed": true
+		},
+		{
+			"check": "Movement-interruption fixture pays for valid ritual",
+			"passed": true
+		},
+		{
+			"check": "Ritual movement interrupts without returning its paid cost",
+			"passed": true
+		},
+		{
+			"check": "Ritual target leaving range interrupts without refund",
+			"passed": true
+		},
+		{
+			"check": "K8 Prebattle guard seat starts through the actual UI",
+			"passed": true
+		},
+		{
+			"check": "K1 Space resumes battle",
+			"passed": true
+		},
+		{
+			"check": "K1 Opening purchase with Q during combat automatically pauses",
+			"passed": true
+		},
+		{
+			"check": "K2 Purchase UI exposes the three costed troop cards",
+			"passed": true
+		},
+		{
+			"check": "K2 Purchase cards display source HP, attack, defense and ranged range",
+			"passed": true
+		},
+		{
+			"check": "K1 Focused purchase button does not swallow Space pause shortcut",
+			"passed": true
+		},
+		{
+			"check": "K1 Focused purchase button Space pauses again",
+			"passed": true
+		},
+		{
+			"check": "K1 Mouse purchase button invokes paid reservation while paused",
+			"passed": true
+		},
+		{
+			"check": "K3 Right mouse cancels placement and refunds",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 01-purchase-cards",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 01b-purchase-720p",
+			"passed": true
+		},
+		{
+			"check": "K1 Real world unit click pauses and selects complete card",
+			"passed": true
+		},
+		{
+			"check": "K10 Unit card has identity, four stats, skill cost, traits, tags and empty equipment slots",
+			"passed": true
+		},
+		{
+			"check": "K10 Selected card loads separate portrait asset",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 03-complete-unit-card",
+			"passed": true
+		},
+		{
+			"check": "K4 E opens actual upgrade preview",
+			"passed": true
+		},
+		{
+			"check": "K4 Guard upgrade preview shows stat changes without mutation main command",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 03b-upgrade-preview",
+			"passed": true
+		},
+		{
+			"check": "K1 Focused upgrade button still permits Space resume",
+			"passed": true
+		},
+		{
+			"check": "K1 Mouse confirms previewed upgrade while paused",
+			"passed": true
+		},
+		{
+			"check": "K1 R opens paid ritual decision list while paused",
+			"passed": true
+		},
+		{
+			"check": "K1 F opens real door repair decision list while paused",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 05b-repair-menu",
+			"passed": true
+		},
+		{
+			"check": "S4 Controller pause button resumes battle",
+			"passed": true
+		},
+		{
+			"check": "S4 Controller pause button pauses battle",
+			"passed": true
+		},
+		{
+			"check": "S4 Controller selects 2x",
+			"passed": true
+		},
+		{
+			"check": "S4 Controller selects 1x",
+			"passed": true
+		},
+		{
+			"check": "S4 Controller cycles to next unit and opens its card",
+			"passed": true
+		},
+		{
+			"check": "S4 Controller opens purchase with keyboard-free menu focus",
+			"passed": true
+		},
+		{
+			"check": "K1 Mouse 2x changes chosen speed without advancing paused time",
+			"passed": true
+		},
+		{
+			"check": "K1 Mouse 1x restores speed",
+			"passed": true
+		},
+		{
+			"check": "K1 Paused clock freezes resource regen, countdown, AI, HP, projectiles and channel",
+			"passed": true
+		},
+		{
+			"check": "K1 Mouse resume restarts same shared battle",
+			"passed": true
+		},
+		{
+			"check": "K11 F5 exits active decisions and starts genuine P3 empty-path debug",
+			"passed": true
+		},
+		{
+			"check": "K11 Debug handoff does not leave P3 simulation frozen by session gate",
+			"passed": true
+		},
+		{
+			"check": "K7 Attacker panel offers upper and breaker mutations",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 07-attacker-commands",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 08-shouxiang-start",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 08-shouxiang-120s",
+			"passed": true
+		},
+		{
+			"check": "K9 Complete unmodified shouxiang battle reaches settlement",
+			"passed": true
+		},
+		{
+			"check": "G0 shouxiang designated roster wins using only public decisions",
+			"passed": true
+		},
+		{
+			"check": "K9 shouxiang result explains winning or losing line",
+			"passed": true
+		},
+		{
+			"check": "G0 shouxiang full run preserves inside-base humans and continuous movement",
+			"passed": true
+		},
+		{
+			"check": "Ended shouxiang battle rejects further commands without state changes",
+			"passed": true
+		},
+		{
+			"check": "S2 shouxiang visible ending and HUD match this battle mode, outcome, reason and exact resource summary",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 09-shouxiang-result",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 08-duoming-start",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 08-duoming-120s",
+			"passed": true
+		},
+		{
+			"check": "K9 Complete unmodified duoming battle reaches settlement",
+			"passed": true
+		},
+		{
+			"check": "G0 duoming designated roster wins using only public decisions",
+			"passed": true
+		},
+		{
+			"check": "K9 duoming result explains winning or losing line",
+			"passed": true
+		},
+		{
+			"check": "G0 duoming full run preserves inside-base humans and continuous movement",
+			"passed": true
+		},
+		{
+			"check": "Ended duoming battle rejects further commands without state changes",
+			"passed": true
+		},
+		{
+			"check": "S2 duoming visible ending and HUD match this battle mode, outcome, reason and exact resource summary",
+			"passed": true
+		},
+		{
+			"check": "Actual renderer screenshot: 09-duoming-result",
+			"passed": true
+		},
+		{
+			"check": "Direct-restart regression begins with a visible previous battle ending",
+			"passed": true
+		},
+		{
+			"check": "Direct session restart clears previous ending and its result signature",
+			"passed": true
+		},
+		{
+			"check": "Next direct-started battle can show its own fresh ending",
+			"passed": true
+		}
+	],
+	"screenshots": [
+		"res://docs/phase-reports/p4-shots/04-ritual-channel.png",
+		"res://docs/phase-reports/p4-shots/05-repair-completed.png",
+		"res://docs/phase-reports/p4-shots/06-mutation-source-flow.png",
+		"res://docs/phase-reports/p4-shots/01-purchase-cards.png",
+		"res://docs/phase-reports/p4-shots/01b-purchase-720p.png",
+		"res://docs/phase-reports/p4-shots/03-complete-unit-card.png",
+		"res://docs/phase-reports/p4-shots/03b-upgrade-preview.png",
+		"res://docs/phase-reports/p4-shots/05b-repair-menu.png",
+		"res://docs/phase-reports/p4-shots/07-attacker-commands.png",
+		"res://docs/phase-reports/p4-shots/08-shouxiang-start.png",
+		"res://docs/phase-reports/p4-shots/08-shouxiang-120s.png",
+		"res://docs/phase-reports/p4-shots/09-shouxiang-result.png",
+		"res://docs/phase-reports/p4-shots/08-duoming-start.png",
+		"res://docs/phase-reports/p4-shots/08-duoming-120s.png",
+		"res://docs/phase-reports/p4-shots/09-duoming-result.png"
+	]
+}

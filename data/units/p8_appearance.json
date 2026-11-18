@@ -1,0 +1,1704 @@
+{
+  "version": 1,
+  "human_skeletons": [
+    "zhu",
+    "wei",
+    "fu",
+    "jiang",
+    "tong",
+    "ke",
+    "dun",
+    "you"
+  ],
+  "ghost_skeletons": [
+    "chao",
+    "changzhi",
+    "shanglou",
+    "pomen",
+    "shui",
+    "denggu",
+    "daxing",
+    "wuceli"
+  ],
+  "pixel_grid": 2,
+  "reference_height": 80,
+  "policy": "Body-only pixel renderer. World height, collision and camera remain controlled by combat profiles. Portraits only in UI. T01-T04 have template cards without portraits.",
+  "units": {
+    "H01": {
+      "family": "human",
+      "skeleton": "zhu",
+      "variant": "register_book",
+      "headgear": "foldcap",
+      "weapon": "register_book",
+      "palette": {
+        "cloth": "526d69",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H01.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "robe_sway"
+    },
+    "H02": {
+      "family": "human",
+      "skeleton": "zhu",
+      "variant": "ember_bowl",
+      "headgear": "braid",
+      "weapon": "ember_bowl",
+      "palette": {
+        "cloth": "6c7160",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H02.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "robe_sway"
+    },
+    "H03": {
+      "family": "human",
+      "skeleton": "zhu",
+      "variant": "name_slip",
+      "headgear": "tallcap",
+      "weapon": "name_slip",
+      "palette": {
+        "cloth": "50645b",
+        "trim": "b0a27a",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H03.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "robe_sway"
+    },
+    "H04": {
+      "family": "human",
+      "skeleton": "tong",
+      "variant": "ash_cups",
+      "headgear": "short_hair",
+      "weapon": "ash_cups",
+      "palette": {
+        "cloth": "6a6555",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H04.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "quick_step"
+    },
+    "H05": {
+      "family": "human",
+      "skeleton": "you",
+      "variant": "mute_talisman",
+      "headgear": "mouthcloth",
+      "weapon": "mute_talisman",
+      "palette": {
+        "cloth": "5e6570",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H05.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "light_step"
+    },
+    "H06": {
+      "family": "human",
+      "skeleton": "you",
+      "variant": "blue_lantern",
+      "headgear": "hairpin",
+      "weapon": "blue_lantern",
+      "palette": {
+        "cloth": "4c7278",
+        "trim": "859d8d",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H06.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "light_step"
+    },
+    "H07": {
+      "family": "human",
+      "skeleton": "tong",
+      "variant": "watch_clapper",
+      "headgear": "headband",
+      "weapon": "watch_clapper",
+      "palette": {
+        "cloth": "6e6250",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H07.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "quick_step"
+    },
+    "H08": {
+      "family": "human",
+      "skeleton": "zhu",
+      "variant": "heavy_ledger",
+      "headgear": "elder",
+      "weapon": "heavy_ledger",
+      "palette": {
+        "cloth": "394e59",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H08.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "robe_sway"
+    },
+    "H09": {
+      "family": "human",
+      "skeleton": "dun",
+      "variant": "door_shield",
+      "headgear": "iron_helmet",
+      "weapon": "door_shield",
+      "palette": {
+        "cloth": "475b57",
+        "trim": "b0a27a",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H09.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "heavy_brace"
+    },
+    "H10": {
+      "family": "human",
+      "skeleton": "wei",
+      "variant": "broken_sabre",
+      "headgear": "topknot",
+      "weapon": "broken_sabre",
+      "palette": {
+        "cloth": "524b45",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H10.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "armed_stride"
+    },
+    "H11": {
+      "family": "human",
+      "skeleton": "dun",
+      "variant": "masonry",
+      "headgear": "headscarf",
+      "weapon": "masonry",
+      "palette": {
+        "cloth": "716b56",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H11.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "heavy_brace"
+    },
+    "H12": {
+      "family": "human",
+      "skeleton": "wei",
+      "variant": "chain",
+      "headgear": "constable",
+      "weapon": "chain",
+      "palette": {
+        "cloth": "4c555d",
+        "trim": "859d8d",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H12.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "armed_stride"
+    },
+    "H13": {
+      "family": "human",
+      "skeleton": "wei",
+      "variant": "axe",
+      "headgear": "red_knot",
+      "weapon": "axe",
+      "palette": {
+        "cloth": "733e36",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H13.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "armed_stride"
+    },
+    "H14": {
+      "family": "human",
+      "skeleton": "dun",
+      "variant": "gong",
+      "headgear": "round_helmet",
+      "weapon": "gong",
+      "palette": {
+        "cloth": "786948",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H14.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "heavy_brace"
+    },
+    "H15": {
+      "family": "human",
+      "skeleton": "you",
+      "variant": "tile_hook",
+      "headgear": "white_band",
+      "weapon": "tile_hook",
+      "palette": {
+        "cloth": "69737a",
+        "trim": "b0a27a",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H15.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "light_step"
+    },
+    "H16": {
+      "family": "human",
+      "skeleton": "wei",
+      "variant": "mourning_staff",
+      "headgear": "mourning_hood",
+      "weapon": "mourning_staff",
+      "palette": {
+        "cloth": "6d655d",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H16.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "armed_stride"
+    },
+    "H17": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "seal_paper",
+      "headgear": "ribbons",
+      "weapon": "seal_paper",
+      "palette": {
+        "cloth": "82463b",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H17.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H18": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "mirror",
+      "headgear": "gold_collar",
+      "weapon": "mirror",
+      "palette": {
+        "cloth": "646351",
+        "trim": "859d8d",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H18.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H19": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "cage_lantern",
+      "headgear": "loose_hair",
+      "weapon": "cage_lantern",
+      "palette": {
+        "cloth": "4e5f57",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H19.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H20": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "burning_petition",
+      "headgear": "crown_knot",
+      "weapon": "burning_petition",
+      "palette": {
+        "cloth": "77443c",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H20.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H21": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "lotus_lamp",
+      "headgear": "rain_hood",
+      "weapon": "lotus_lamp",
+      "palette": {
+        "cloth": "467076",
+        "trim": "b0a27a",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H21.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H22": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "three_ring_staff",
+      "headgear": "shaved",
+      "weapon": "three_ring_staff",
+      "palette": {
+        "cloth": "74694c",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H22.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H23": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "almanac",
+      "headgear": "crescent",
+      "weapon": "almanac",
+      "palette": {
+        "cloth": "554c66",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H23.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H24": {
+      "family": "human",
+      "skeleton": "fu",
+      "variant": "needles",
+      "headgear": "short_cut",
+      "weapon": "needles",
+      "palette": {
+        "cloth": "646b5e",
+        "trim": "859d8d",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H24.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "sleeve_cast"
+    },
+    "H25": {
+      "family": "human",
+      "skeleton": "jiang",
+      "variant": "mortise_mallet",
+      "headgear": "work_cap",
+      "weapon": "mortise_mallet",
+      "palette": {
+        "cloth": "5a6552",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H25.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "tool_brace"
+    },
+    "H26": {
+      "family": "human",
+      "skeleton": "jiang",
+      "variant": "firecrackers",
+      "headgear": "goggles",
+      "weapon": "firecrackers",
+      "palette": {
+        "cloth": "536779",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H26.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "tool_brace"
+    },
+    "H27": {
+      "family": "human",
+      "skeleton": "jiang",
+      "variant": "crow",
+      "headgear": "feather_hood",
+      "weapon": "crow",
+      "palette": {
+        "cloth": "354a50",
+        "trim": "b0a27a",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H27.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "tool_brace"
+    },
+    "H28": {
+      "family": "human",
+      "skeleton": "ke",
+      "variant": "market_pole",
+      "headgear": "soft_hat",
+      "weapon": "market_pole",
+      "palette": {
+        "cloth": "70654d",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H28.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "cloak_stride"
+    },
+    "H29": {
+      "family": "human",
+      "skeleton": "jiang",
+      "variant": "bowed_strings",
+      "headgear": "blindfold",
+      "weapon": "bowed_strings",
+      "palette": {
+        "cloth": "59615e",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H29.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "tool_brace"
+    },
+    "H30": {
+      "family": "human",
+      "skeleton": "tong",
+      "variant": "name_tablet",
+      "headgear": "paper_hood",
+      "weapon": "name_tablet",
+      "palette": {
+        "cloth": "797266",
+        "trim": "859d8d",
+        "skin": "a9b4a1",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H30.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "quick_step"
+    },
+    "H31": {
+      "family": "human",
+      "skeleton": "ke",
+      "variant": "hunting_blade",
+      "headgear": "traveler_hood",
+      "weapon": "hunting_blade",
+      "palette": {
+        "cloth": "535f64",
+        "trim": "b0a27a",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H31.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "cloak_stride"
+    },
+    "H32": {
+      "family": "human",
+      "skeleton": "jiang",
+      "variant": "mask_tools",
+      "headgear": "artisan_braid",
+      "weapon": "mask_tools",
+      "palette": {
+        "cloth": "6e6656",
+        "trim": "859d8d",
+        "skin": "bdba9c",
+        "metal": "a3aaa0",
+        "glow": "8bbdaf"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/H32.png",
+      "face_region": [
+        0.34,
+        0.055,
+        0.32,
+        0.22
+      ],
+      "default_face": "faced",
+      "motion": "tool_brace"
+    },
+    "G01": {
+      "family": "ghost",
+      "skeleton": "chao",
+      "variant": "blank_robe",
+      "headgear": "blank_robe",
+      "weapon": "blank_robe",
+      "palette": {
+        "cloth": "b8c2b6",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G01.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faceless",
+      "motion": "shroud_drift"
+    },
+    "G02": {
+      "family": "ghost",
+      "skeleton": "chao",
+      "variant": "beggar",
+      "headgear": "beggar",
+      "weapon": "beggar",
+      "palette": {
+        "cloth": "8c9484",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G02.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shroud_drift"
+    },
+    "G03": {
+      "family": "ghost",
+      "skeleton": "chao",
+      "variant": "wailer",
+      "headgear": "wailer",
+      "weapon": "wailer",
+      "palette": {
+        "cloth": "8c9a9f",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G03.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shroud_drift"
+    },
+    "G04": {
+      "family": "ghost",
+      "skeleton": "shanglou",
+      "variant": "wall_shadow",
+      "headgear": "wall_shadow",
+      "weapon": "wall_shadow",
+      "palette": {
+        "cloth": "34474c",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G04.png",
+      "face_region": [
+        0.51,
+        0.16,
+        0.25,
+        0.19
+      ],
+      "default_face": "faceless",
+      "motion": "rope_climb"
+    },
+    "G05": {
+      "family": "ghost",
+      "skeleton": "chao",
+      "variant": "hungry",
+      "headgear": "hungry",
+      "weapon": "hungry",
+      "palette": {
+        "cloth": "8a846a",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G05.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shroud_drift"
+    },
+    "G06": {
+      "family": "ghost",
+      "skeleton": "changzhi",
+      "variant": "long_claws",
+      "headgear": "long_claws",
+      "weapon": "long_claws",
+      "palette": {
+        "cloth": "929e8d",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G06.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "elbow_reach"
+    },
+    "G07": {
+      "family": "ghost",
+      "skeleton": "shanglou",
+      "variant": "window_child",
+      "headgear": "window_child",
+      "weapon": "window_child",
+      "palette": {
+        "cloth": "8c9b97",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G07.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "rope_climb"
+    },
+    "G08": {
+      "family": "ghost",
+      "skeleton": "chao",
+      "variant": "ash_shell",
+      "headgear": "ash_shell",
+      "weapon": "ash_shell",
+      "palette": {
+        "cloth": "8f9284",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G08.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shroud_drift"
+    },
+    "G09": {
+      "family": "ghost",
+      "skeleton": "shanglou",
+      "variant": "hanging_rope",
+      "headgear": "hanging_rope",
+      "weapon": "hanging_rope",
+      "palette": {
+        "cloth": "a4aea3",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G09.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "rope_climb"
+    },
+    "G10": {
+      "family": "ghost",
+      "skeleton": "shui",
+      "variant": "drowned",
+      "headgear": "drowned",
+      "weapon": "drowned",
+      "palette": {
+        "cloth": "3c6267",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G10.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "water_drag"
+    },
+    "G11": {
+      "family": "ghost",
+      "skeleton": "denggu",
+      "variant": "lantern_bones",
+      "headgear": "lantern_bones",
+      "weapon": "lantern_bones",
+      "palette": {
+        "cloth": "9da882",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G11.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "lantern_sway"
+    },
+    "G12": {
+      "family": "ghost",
+      "skeleton": "pomen",
+      "variant": "door_crusher",
+      "headgear": "door_crusher",
+      "weapon": "door_crusher",
+      "palette": {
+        "cloth": "596b5e",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G12.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shoulder_charge"
+    },
+    "G13": {
+      "family": "ghost",
+      "skeleton": "pomen",
+      "variant": "paired_porters",
+      "headgear": "paired_porters",
+      "weapon": "paired_porters",
+      "palette": {
+        "cloth": "6c6a56",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G13.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shoulder_charge"
+    },
+    "G14": {
+      "family": "ghost",
+      "skeleton": "chao",
+      "variant": "bride",
+      "headgear": "bride",
+      "weapon": "bride",
+      "palette": {
+        "cloth": "82463e",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G14.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shroud_drift"
+    },
+    "G15": {
+      "family": "ghost",
+      "skeleton": "chao",
+      "variant": "shroud_tailor",
+      "headgear": "shroud_tailor",
+      "weapon": "shroud_tailor",
+      "palette": {
+        "cloth": "89816a",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G15.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shroud_drift"
+    },
+    "G16": {
+      "family": "ghost",
+      "skeleton": "pomen",
+      "variant": "rotten_constable",
+      "headgear": "rotten_constable",
+      "weapon": "rotten_constable",
+      "palette": {
+        "cloth": "545a4e",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G16.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "shoulder_charge"
+    },
+    "G17": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "mountain",
+      "headgear": "mountain",
+      "weapon": "mountain",
+      "palette": {
+        "cloth": "64715a",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G17.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "heavy_stride"
+    },
+    "G18": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "headless_procession",
+      "headgear": "headless_procession",
+      "weapon": "headless_procession",
+      "palette": {
+        "cloth": "5b665e",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G18.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "heavy_stride"
+    },
+    "G19": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "mirror_body",
+      "headgear": "mirror_body",
+      "weapon": "mirror_body",
+      "palette": {
+        "cloth": "839b96",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G19.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faceless",
+      "motion": "heavy_stride"
+    },
+    "G20": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "shadow_horse",
+      "headgear": "shadow_horse",
+      "weapon": "shadow_horse",
+      "palette": {
+        "cloth": "364b48",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G20.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "heavy_stride"
+    },
+    "G21": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "bell_body",
+      "headgear": "bell_body",
+      "weapon": "bell_body",
+      "palette": {
+        "cloth": "7a7959",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G21.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "heavy_stride"
+    },
+    "G22": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "dream_cocoon",
+      "headgear": "dream_cocoon",
+      "weapon": "dream_cocoon",
+      "palette": {
+        "cloth": "697b79",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G22.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "heavy_stride"
+    },
+    "G23": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "borrowed_faces",
+      "headgear": "borrowed_faces",
+      "weapon": "borrowed_faces",
+      "palette": {
+        "cloth": "727568",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G23.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "heavy_stride"
+    },
+    "G24": {
+      "family": "ghost",
+      "skeleton": "daxing",
+      "variant": "shrine_slave",
+      "headgear": "shrine_slave",
+      "weapon": "shrine_slave",
+      "palette": {
+        "cloth": "616752",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G24.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "heavy_stride"
+    },
+    "G25": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "erasing_clerk",
+      "headgear": "erasing_clerk",
+      "weapon": "erasing_clerk",
+      "palette": {
+        "cloth": "394b49",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G25.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "paper_drift"
+    },
+    "G26": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "blank_pages",
+      "headgear": "blank_pages",
+      "weapon": "blank_pages",
+      "palette": {
+        "cloth": "c7c7ae",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G26.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faceless",
+      "motion": "paper_drift"
+    },
+    "G27": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "inverted_censer",
+      "headgear": "inverted_censer",
+      "weapon": "inverted_censer",
+      "palette": {
+        "cloth": "56644f",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G27.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "paper_drift"
+    },
+    "G28": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "stolen_masks",
+      "headgear": "stolen_masks",
+      "weapon": "stolen_masks",
+      "palette": {
+        "cloth": "3e4b4d",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G28.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "paper_drift"
+    },
+    "G29": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "crooked_scribe",
+      "headgear": "crooked_scribe",
+      "weapon": "crooked_scribe",
+      "palette": {
+        "cloth": "445950",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G29.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "paper_drift"
+    },
+    "G30": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "false_throne",
+      "headgear": "false_throne",
+      "weapon": "false_throne",
+      "palette": {
+        "cloth": "6c6550",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "res://assets/portraits/p8/G30.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faceless",
+      "motion": "paper_drift"
+    },
+    "G31": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "names_mass",
+      "headgear": "names_mass",
+      "weapon": "names_mass",
+      "palette": {
+        "cloth": "73705a",
+        "trim": "aaa486",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G31.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faced",
+      "motion": "paper_drift"
+    },
+    "G32": {
+      "family": "ghost",
+      "skeleton": "wuceli",
+      "variant": "empty_ledger_lord",
+      "headgear": "empty_ledger_lord",
+      "weapon": "empty_ledger_lord",
+      "palette": {
+        "cloth": "353f40",
+        "trim": "647e75",
+        "skin": "c3c5a9",
+        "metal": "88988a",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": true,
+      "portrait": "res://assets/portraits/p8/G32.png",
+      "face_region": [
+        0.32,
+        0.045,
+        0.36,
+        0.25
+      ],
+      "default_face": "faceless",
+      "motion": "paper_drift"
+    },
+    "T01": {
+      "family": "troop",
+      "skeleton": "wei",
+      "variant": "troop_1",
+      "headgear": "troop_cap",
+      "weapon": "short_spear",
+      "palette": {
+        "cloth": "4b5c57",
+        "trim": "75877c",
+        "skin": "91998a",
+        "metal": "a1a699",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "",
+      "default_face": "faced",
+      "motion": "simple_step"
+    },
+    "T02": {
+      "family": "troop",
+      "skeleton": "you",
+      "variant": "troop_2",
+      "headgear": "troop_cap",
+      "weapon": "crossbow",
+      "palette": {
+        "cloth": "4b5c57",
+        "trim": "75877c",
+        "skin": "91998a",
+        "metal": "a1a699",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "",
+      "default_face": "faced",
+      "motion": "simple_step"
+    },
+    "T03": {
+      "family": "troop",
+      "skeleton": "zhu",
+      "variant": "troop_3",
+      "headgear": "troop_cap",
+      "weapon": "ash_bucket",
+      "palette": {
+        "cloth": "4b5c57",
+        "trim": "75877c",
+        "skin": "91998a",
+        "metal": "a1a699",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "",
+      "default_face": "faced",
+      "motion": "simple_step"
+    },
+    "T04": {
+      "family": "troop",
+      "skeleton": "wei",
+      "variant": "troop_4",
+      "headgear": "troop_cap",
+      "weapon": "watch_clapper",
+      "palette": {
+        "cloth": "4b5c57",
+        "trim": "75877c",
+        "skin": "91998a",
+        "metal": "a1a699",
+        "glow": "8fb8a2"
+      },
+      "height_ref": 80,
+      "large": false,
+      "portrait": "",
+      "default_face": "faced",
+      "motion": "simple_step"
+    }
+  }
+}

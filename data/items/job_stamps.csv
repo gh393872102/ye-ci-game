@@ -1,0 +1,3 @@
+id,name,source_id,tag,cost,params
+J01,铁肩兼机关,H09,机关,0,"{""repair_cost_multiplier"": 0.8}"
+J02,朱砂兼武卫,H17,破门,0,"{""ward_radius_body"": 2, ""ward_duration"": 3, ""defense_multiplier"": 1.2}"

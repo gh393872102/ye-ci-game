@@ -1,0 +1,102 @@
+key,zh_CN
+P7_GROWTH_TITLE,今夜构筑 / %s
+P7_GROWTH_OPEN,装备与构筑
+P7_EQUIPMENT,装备四槽
+P7_MUTATIONS,变异方
+P7_FUSIONS,融契配方
+P7_VOCATION,点职 / 借神
+P7_SLOT_CENSER,香器 · 1 槽
+P7_SLOT_ART_ONE,技艺 · 第 1 槽
+P7_SLOT_ART_TWO,技艺 · 第 2 槽
+P7_SLOT_NAMEPLATE,名帖 · 1 槽
+P7_INVENTORY_ITEM,%s · %s ×%d
+P7_INVENTORY_EMPTY,此类暂无库存
+P7_INVENTORY_NOTE,只列出本夜已经获得的物品。三选一与夜市会补入库存。
+P7_ITEM_FEES,装备香耗 %.0f / 卸下香耗 %.0f
+P7_EQUIP_CONFIRM,装入所选槽
+P7_UNEQUIP_CONFIRM,卸下所选槽
+P7_EQUIP_INELIGIBLE,该单位没有可用的装备槽。
+P7_FOUR_SLOTS,"今夜装备
+香器：%s
+技艺 1：%s / 技艺 2：%s
+名帖：%s"
+P7_EQUIPMENT_SUMMARY,今夜四槽：1 香器、2 技艺、1 名帖。装备仅从真实库存选择。
+P7_FORM_HELP,变异消耗香火，保留编制身份与伤损；同一单位本夜最多两次。非法来源会被拒绝。
+P7_COST,香火 %.0f
+P7_FUSION_HELP,按配方选择另一单位或残名。融契一夜最多两次；先点选要融契的单位。
+P7_FUSION_PARTNER,%s · 生命 %.0f
+P7_NO_PARTNER,暂无另一单位
+P7_NO_MATERIAL,不用残名
+P7_REMAINING_NAME,的残名
+P7_FUSE_CONFIRM,确认融契
+P7_RECIPE_SOURCES,来源：%s
+P7_NOT_OPEN,此项尚未开放。
+P7_VOCATION_HELP,点职增加一个职分标签与对应能力，人物仍守在基地内。
+P7_BORROW_HELP,借神花香火与名分，在香案或名册旁读条。请到空位神会反噬；请慎重选择。
+P7_BORROW_CONFIRM,借神 · 香火 12 + 名分 1
+P7_GRAY_CONTRACT,灰军融契
+P7_LAB_TITLE,六流派试炼
+P7_LAB_HELP,固定编制与物品的独立试炼，用于体验六条构筑。普通一夜仍由奖励与夜市积累库存。
+P7_AUTHORED_TRIAL,固定试炼
+P7_TRIAL_PAUSED,当前暂停。点选人物，装备构筑，再按 Space 继续。
+P7_RETURN_LAB,返回六流派试炼
+P7_BUILD_CHAODU,超度流
+P7_BUILD_SHOUMEN,守门流
+P7_BUILD_POMEN,破门潮
+P7_BUILD_DENGMIAN,灯面流
+P7_BUILD_SHANGLIANG,上梁奇袭
+P7_BUILD_WUCE,无册赌局
+P7_BUILD_HELP_CHAODU,护住点册，送行或收编一只精英。
+P7_BUILD_HELP_SHOUMEN,门将碎时，以封门、扛门和修门守住下一击。
+P7_BUILD_HELP_POMEN,开山楔与破门精英让门碎后，潮沿原路灌入。
+P7_BUILD_HELP_DENGMIAN,灯照出无面与潜行，面具抵挡恐惧与夺面。
+P7_BUILD_HELP_SHANGLIANG,梁钉与上楼精英沿梁压进二楼。
+P7_BUILD_HELP_WUCE,问灯与借神带来反转，也可能招来反噬。
+P7_GROWTH_NIGHT,成长一夜
+P7_GROWTH_SHOUXIANG,守香 · 构筑一夜
+P7_GROWTH_DUOMING,夺名 · 构筑一夜
+P7_NIGHT_INVENTORY_HELP,"从本夜起始库存开始，三选一和夜市带来新物品。
+
+六流派试炼使用各自明确的固定编制与物品。"
+P7_BORROW_PRICE,借神 · 香火 %.0f + 名分 %.0f
+P7_BORROW_RISK,读条 %.0f 秒 · 普通失败 %.0f%% / 游神失败 %.0f%%
+P7_NO_LOCK,今夜无锁。
+P7_ALREADY_EQUIPPED,这一项已在该单位的槽位中。
+P7_ALREADY_STAMPED,该职分本夜已点过。
+P7_BAD_FUSION,对象或残名不符合所选配方。
+P7_BAD_RITUAL_LOCATION,须在基地内的香案或名册旁借神。
+P7_BORROW_ACTIVE,该单位正在借神读条。
+P7_COMMAND_OK,已确认今夜构筑。
+P7_DISABLED,本场未开启成长构筑。
+P7_EMPTY_SLOT,所选槽位为空。
+P7_FUSION_LIMIT,本夜融契次数已用尽。
+P7_INVALID_ACTION,此构筑指令不可用。
+P7_INVALID_BUILD,此构筑一夜尚不可开启。
+P7_INVALID_JOB,该职分不适用于这名人物。
+P7_INVALID_SCENARIO,该试炼的编制或数据不完整。
+P7_INVALID_SLOT,请选择一个合法槽位。
+P7_INVALID_SOURCE,这只单位不符合所选变异来源。
+P7_INVALID_STATE,成长存档不完整，无法恢复。
+P7_INVALID_UNIT,请选择本场存活的单位。
+P7_INVENTORY_CAP,本夜该物品库存已达上限。
+P7_LOCKED_RECIPE,该配方尚未开放。
+P7_MATERIAL_PRESENT,本夜已有此残名材料。
+P7_MUTATION_LIMIT,同一单位本夜最多变异两次。
+P7_NO_INCENSE,香火或名分不足。
+P7_NO_ITEM,本夜尚无这一物品或点职凭据。
+P7_NO_KEY,该单位没有可用的白骨钥。
+P7_NO_SLOTS,普通无名潮不占装备槽，变异为精英后再装备。
+P7_SCENARIO_READY,试炼已就绪。
+P7_SCENARIO_VALID,试炼编制可用。
+P7_UNKNOWN_ITEM,此物品未入当前装备表。
+P7_BORROWED_GHOST,暂借的灰军
+P7_PAUSE_REQUIRED,请先暂停，再调整装备槽。
+P7_NO_BARRICADE_SLOT,该岗位周边没有可放置纸障的空位。
+P7_ITEM_INTERFACE,接口保留：本阶段效果未完成；可占香器槽。
+P7_USE_SLOTS,请在装备与构筑面板使用今夜的四个装备槽。
+P7_DEPARTED,离册（转边或融契）：%s
+P7_OBSERVER_PRESET_HELP,成长预设只作用于编制中对应的首个人物或精英，不提供全库存。
+P7_OBSERVER_GROWTH_ENABLE,启用今夜成长装备预设
+P7_OBSERVER_RITUAL_BREAK,点册与破门
+P7_OBSERVER_GATE_BEAM,守门与上梁
+P7_NIGHT_RESOURCE_CURVE,今夜战斗：香火每秒 +%.2f；胜利最多 +%d 香火（总量上限60）。

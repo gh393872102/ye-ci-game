@@ -1,0 +1,50 @@
+{
+  "phase": "P7",
+  "reviewed_at": "2026-11-17T16:23:14.045585+08:00",
+  "baseline": "60e5357",
+  "readings": [
+    "Development general instructions, locked list, engineering, stage table, P6 and P7 complete",
+    "GDD chapters 8,12,13,6.4,6.6,17 and 15.4"
+  ],
+  "pages": [
+    {
+      "url": "https://gh393872102.github.io/ye-ci/dev.html#d-p7",
+      "sha256": "19d7c12a263769c3f5aa18f806a5b899abeeda0d8725353462a9001f0d744e6f"
+    },
+    {
+      "url": "https://gh393872102.github.io/ye-ci/",
+      "sha256": "6ec169b105512f7454ebd992b46c298614b9de5b6a4aae659afa175fd513a075"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "13",
+      "sha256": "35fadc5565b24dcfb67817f8a25831284716c0df0412a0d420b4008683cccbbe",
+      "use": "viewed composition, camera, layout and effects reference; generated text not copied"
+    },
+    {
+      "figure": "15",
+      "sha256": "77833e64f29ecee729354831d2047eaca736ec314f63864123d5f9b05c4069e0",
+      "use": "viewed composition, camera, layout and effects reference; generated text not copied"
+    },
+    {
+      "figure": "24",
+      "sha256": "512d4e1751c99abcdfb913019bea278dfbcaa5ca24c2c6f72cd8e2e50b17e013",
+      "use": "viewed composition, camera, layout and effects reference; generated text not copied"
+    },
+    {
+      "figure": "25",
+      "sha256": "7cedb7684a0ab89bd28ede48b42b6343ccadc9ac4780d31461305af8b48a7a17",
+      "use": "viewed composition, camera, layout and effects reference; generated text not copied"
+    }
+  ],
+  "coordination": {
+    "requested": "astra-max overall / three GPT-6.1 Sol workers",
+    "actual_workers": [
+      "gpt-6.1-sol domain",
+      "gpt-6.1-sol UI",
+      "gpt-6.1-sol acceptance"
+    ],
+    "supervisor": "current main session; no model switch claimed"
+  }
+}

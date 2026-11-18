@@ -1,0 +1,152 @@
+{
+  "phase": "P3",
+  "skills": {
+    "dian_ce": {
+      "name": "点册",
+      "stage": "channel_interface",
+      "duration": 4.0
+    },
+    "kang_men": {
+      "name": "扛门",
+      "stage": "reserved"
+    },
+    "feng_men_fu": {
+      "name": "封门符",
+      "stage": "reserved"
+    },
+    "yong_men": {
+      "name": "拥门",
+      "stage": "active",
+      "per_ally": 0.08,
+      "max_bonus": 0.24
+    },
+    "zhuang_men": {
+      "name": "撞门",
+      "stage": "active",
+      "structure_multiplier": 2.5
+    },
+    "shang_liang": {
+      "name": "上梁",
+      "stage": "active"
+    }
+  },
+  "traits": {
+    "qing_deng_juan_gu": {
+      "name": "青灯眷顾",
+      "stage": "reserved"
+    },
+    "men_pu": {
+      "name": "门仆",
+      "stage": "reserved"
+    },
+    "zhu_hen": {
+      "name": "朱痕",
+      "stage": "reserved"
+    },
+    "wu_mian": {
+      "name": "无面",
+      "stage": "data_interface",
+      "fears_light": true,
+      "light_damage_multiplier": 1.25,
+      "exorcism_resistance_multiplier": 0.8
+    },
+    "yu_li": {
+      "name": "愚力",
+      "stage": "active",
+      "prefer_structure": true
+    },
+    "jing_xian": {
+      "name": "颈线",
+      "stage": "active",
+      "upper_attack_multiplier": 1.25,
+      "landing_attack_multiplier": 0.75,
+      "landing_seconds": 2.0
+    }
+  },
+  "profiles": {
+    "H01": {
+      "role": "ritual",
+      "skill_id": "dian_ce",
+      "trait_id": "qing_deng_juan_gu",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0
+    },
+    "H09": {
+      "role": "guard",
+      "skill_id": "kang_men",
+      "trait_id": "men_pu",
+      "range_body": 1.2,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0
+    },
+    "H17": {
+      "role": "talisman",
+      "skill_id": "feng_men_fu",
+      "trait_id": "zhu_hen",
+      "range_body": 2.2,
+      "projectile": "talisman",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0
+    },
+    "T01": {
+      "role": "guard",
+      "skill_id": "",
+      "trait_id": "",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0
+    },
+    "T02": {
+      "role": "crossbow",
+      "skill_id": "",
+      "trait_id": "",
+      "range_body": 6.0,
+      "projectile": "bolt",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0
+    },
+    "G01": {
+      "role": "tide",
+      "skill_id": "yong_men",
+      "trait_id": "wu_mian",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80
+    },
+    "G09": {
+      "role": "tide",
+      "skill_id": "shang_liang",
+      "trait_id": "jing_xian",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 80
+    },
+    "G12": {
+      "role": "tide",
+      "skill_id": "zhuang_men",
+      "trait_id": "yu_li",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0,
+      "height_px": 144
+    },
+    "T04": {
+      "role": "guard",
+      "skill_id": "",
+      "trait_id": "",
+      "range_body": 1.0,
+      "projectile": "",
+      "may_briefly_leave_base": false,
+      "return_after": 0.0
+    }
+  }
+}

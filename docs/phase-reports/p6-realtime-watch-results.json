@@ -1,0 +1,259 @@
+{
+	"actions": [
+		{
+			"action": "mutate",
+			"arguments": {
+				"form_id": "G12",
+				"unit_id": "G01_tide_10"
+			},
+			"order": 0,
+			"origin": "ai",
+			"seat": "duoming",
+			"step": 202
+		},
+		{
+			"action": "purchase",
+			"arguments": {
+				"id": "T02"
+			},
+			"order": 1,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 271
+		},
+		{
+			"action": "deploy_at",
+			"arguments": {
+				"post_id": "post_window_1"
+			},
+			"order": 2,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 271
+		},
+		{
+			"action": "upgrade",
+			"arguments": {
+				"unit_id": "H01_1"
+			},
+			"order": 3,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 522
+		},
+		{
+			"action": "purchase",
+			"arguments": {
+				"id": "T01"
+			},
+			"order": 4,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 788
+		},
+		{
+			"action": "deploy_at",
+			"arguments": {
+				"post_id": "post_gate_inner"
+			},
+			"order": 5,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 788
+		},
+		{
+			"action": "repair",
+			"arguments": {
+				"door_id": "door_outer"
+			},
+			"order": 6,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 3672
+		},
+		{
+			"action": "reinforce",
+			"arguments": {},
+			"order": 7,
+			"origin": "ai",
+			"seat": "duoming",
+			"step": 4961
+		},
+		{
+			"action": "purchase",
+			"arguments": {
+				"id": "T01"
+			},
+			"order": 8,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 6138
+		},
+		{
+			"action": "deploy_at",
+			"arguments": {
+				"post_id": "post_inner_gate"
+			},
+			"order": 9,
+			"origin": "ai",
+			"seat": "shouxiang",
+			"step": 6138
+		}
+	],
+	"checks": 8,
+	"config": {
+		"director_enabled": false,
+		"duration": 240.0,
+		"ferocity": "normal",
+		"ghosts": [
+			{
+				"count": 16.0,
+				"id": "G01"
+			}
+		],
+		"humans": [
+			{
+				"count": 1.0,
+				"id": "H01",
+				"post": "post_register"
+			},
+			{
+				"count": 1.0,
+				"id": "H09",
+				"post": "post_gate_inner"
+			},
+			{
+				"count": 1.0,
+				"id": "H17",
+				"post": "post_hall_door"
+			},
+			{
+				"count": 1.0,
+				"id": "T01",
+				"post": "post_barricade_outer_court"
+			},
+			{
+				"count": 1.0,
+				"id": "T02",
+				"post": "post_window_1"
+			}
+		],
+		"incense": {
+			"duoming": 16.0,
+			"shouxiang": 20.0
+		},
+		"kind": "watch",
+		"names": 8.0,
+		"player_seat": "shouxiang",
+		"profile_id": "upper",
+		"ritual": "example_incense",
+		"seed": "P6-WATCH-ACTUAL-120S"
+	},
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"kind": "native_wall_clock_watch",
+	"note": "Real 1x host _physics_process / Clock loop. No direct advance(), actor reposition, rule changes, HP edits or accelerated fixed-FPS flags.",
+	"phase": "P6",
+	"results": [
+		{
+			"check": "Native host starts actual two-AI watch",
+			"passed": true
+		},
+		{
+			"check": "Actual wall clock observed continuously for at least 125 seconds",
+			"passed": true
+		},
+		{
+			"check": "Ordinary engine physics advances at least 120 combat seconds",
+			"passed": true
+		},
+		{
+			"check": "Watch uses 1x speed and unchanged engine time scale",
+			"passed": true
+		},
+		{
+			"check": "Defender submits successful paid decisions in normal loop",
+			"passed": true
+		},
+		{
+			"check": "Attacker submits successful paid decisions in normal loop",
+			"passed": true
+		},
+		{
+			"check": "Every sampled human remains inside base at legal cover",
+			"passed": true
+		},
+		{
+			"check": "Native 126-second watch screenshot is written",
+			"passed": true
+		}
+	],
+	"samples": [
+		{
+			"actions": 6,
+			"ai_decisions": {
+				"duoming": 4,
+				"shouxiang": 4
+			},
+			"simulation_seconds": 19.5333333333335,
+			"wall_seconds": 19.495
+		},
+		{
+			"actions": 6,
+			"ai_decisions": {
+				"duoming": 9,
+				"shouxiang": 9
+			},
+			"simulation_seconds": 39.699999999999,
+			"wall_seconds": 39.662
+		},
+		{
+			"actions": 6,
+			"ai_decisions": {
+				"duoming": 14,
+				"shouxiang": 14
+			},
+			"simulation_seconds": 59.7833333333312,
+			"wall_seconds": 59.607
+		},
+		{
+			"actions": 7,
+			"ai_decisions": {
+				"duoming": 19,
+				"shouxiang": 19
+			},
+			"simulation_seconds": 79.7833333333301,
+			"wall_seconds": 79.617
+		},
+		{
+			"actions": 8,
+			"ai_decisions": {
+				"duoming": 23,
+				"shouxiang": 24
+			},
+			"simulation_seconds": 99.7999999999956,
+			"wall_seconds": 99.537
+		},
+		{
+			"actions": 10,
+			"ai_decisions": {
+				"duoming": 28,
+				"shouxiang": 29
+			},
+			"simulation_seconds": 119.816666666661,
+			"wall_seconds": 119.547
+		},
+		{
+			"actions": 10,
+			"ai_decisions": {
+				"duoming": 30,
+				"shouxiang": 30
+			},
+			"simulation_seconds": 125.816666666661,
+			"wall_seconds": 125.549
+		}
+	],
+	"screenshot": "res://docs/phase-reports/p6-shots/08-realtime-watch-126s.png",
+	"simulation_seconds": 125.816666666661,
+	"wall_seconds": 125.549
+}

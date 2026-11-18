@@ -1,0 +1,425 @@
+{
+  "id": "C01",
+  "title": "正门庭",
+  "scene": "res://data/levels/chunks/C01.tscn",
+  "default_path": [
+    "潮源",
+    "中层废台",
+    "外门",
+    "外庭拒马",
+    "内门",
+    "二进庭",
+    "主殿门厅"
+  ],
+  "destructibles": [
+    "door_outer",
+    "door_inner",
+    "door_hall",
+    "outer_a",
+    "inner_a",
+    "hall_a"
+  ],
+  "upper_access": "主殿内宽梯接二楼回廊，庭院供设阻和转进。",
+  "failure_line": "外门退到庭内，主殿门破则退至楼梯。",
+  "rituals": [
+    "R01",
+    "R04",
+    "R05",
+    "R08",
+    "R09",
+    "R11"
+  ],
+  "length_body": 28,
+  "legal_posts": [
+    "post_gate_inner",
+    "post_barricade_outer_court",
+    "post_inner_gate",
+    "post_hall_door",
+    "post_table_hall"
+  ],
+  "areas": [
+    {
+      "floor_id": 0,
+      "start": 0,
+      "end": 88,
+      "kind": "approach"
+    }
+  ],
+  "visual": {
+    "floor_id": 0,
+    "start": 75,
+    "end": 87,
+    "motif": "gate_court"
+  },
+  "layout": {
+    "sections": [
+      {
+        "start": 0,
+        "end": 48,
+        "label": "APPROACH",
+        "color": "#273b43",
+        "base": false
+      },
+      {
+        "start": 48,
+        "end": 50,
+        "label": "OUTER_GATE",
+        "color": "#465452",
+        "base": false
+      },
+      {
+        "start": 50,
+        "end": 70,
+        "label": "OUTER_COURT",
+        "color": "#334047",
+        "base": true
+      },
+      {
+        "start": 70,
+        "end": 72,
+        "label": "INNER_GATE",
+        "color": "#565b53",
+        "base": true
+      },
+      {
+        "start": 72,
+        "end": 88,
+        "label": "INNER_COURT",
+        "color": "#3c4a4d",
+        "base": true
+      },
+      {
+        "start": 88,
+        "end": 96,
+        "label": "HALL",
+        "color": "#485255",
+        "base": true
+      },
+      {
+        "start": 96,
+        "end": 104,
+        "label": "STAIRS",
+        "color": "#4e5b60",
+        "base": true
+      }
+    ],
+    "floor_bands": [
+      {
+        "floor_id": 0,
+        "start": 0,
+        "end": 120,
+        "offset": 0
+      },
+      {
+        "floor_id": 1,
+        "start": 24,
+        "end": 40,
+        "offset": 1
+      }
+    ],
+    "rooms": [
+      {
+        "id": "approach",
+        "floor_id": 0,
+        "start": 0,
+        "end": 48,
+        "label": "APPROACH",
+        "tags": [
+          "outside"
+        ]
+      },
+      {
+        "id": "outer_gate",
+        "floor_id": 0,
+        "start": 48,
+        "end": 50,
+        "label": "OUTER_GATE",
+        "tags": [
+          "outside"
+        ]
+      },
+      {
+        "id": "outer_court",
+        "floor_id": 0,
+        "start": 50,
+        "end": 70,
+        "label": "OUTER_COURT",
+        "tags": [
+          "court"
+        ]
+      },
+      {
+        "id": "inner_gate",
+        "floor_id": 0,
+        "start": 70,
+        "end": 72,
+        "label": "INNER_GATE",
+        "tags": [
+          "gate"
+        ]
+      },
+      {
+        "id": "inner_court",
+        "floor_id": 0,
+        "start": 72,
+        "end": 88,
+        "label": "INNER_COURT",
+        "tags": [
+          "court"
+        ]
+      },
+      {
+        "id": "hall",
+        "floor_id": 0,
+        "start": 88,
+        "end": 96,
+        "label": "HALL",
+        "tags": [
+          "indoor"
+        ]
+      },
+      {
+        "id": "stair",
+        "floor_id": 0,
+        "start": 96,
+        "end": 104,
+        "label": "STAIRS",
+        "tags": [
+          "stair"
+        ]
+      },
+      {
+        "id": "platform",
+        "floor_id": 1,
+        "start": 24,
+        "end": 40,
+        "label": "PLATFORM",
+        "tags": [
+          "outside"
+        ]
+      }
+    ],
+    "posts": [
+      {
+        "id": "post_gate_inner",
+        "x": 50.5,
+        "floor_id": 0,
+        "floor_offset": 0,
+        "room_id": "outer_court",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "door"
+      },
+      {
+        "id": "post_barricade_outer_court",
+        "x": 57.5,
+        "floor_id": 0,
+        "floor_offset": 0,
+        "room_id": "outer_court",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "obstacle"
+      },
+      {
+        "id": "post_inner_gate",
+        "x": 72.5,
+        "floor_id": 0,
+        "floor_offset": 0,
+        "room_id": "inner_court",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "door"
+      },
+      {
+        "id": "post_hall_door",
+        "x": 89.5,
+        "floor_id": 0,
+        "floor_offset": 0,
+        "room_id": "hall",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "door"
+      },
+      {
+        "id": "post_table_hall",
+        "x": 92,
+        "floor_id": 0,
+        "floor_offset": 0,
+        "room_id": "hall",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "table"
+      }
+    ],
+    "doors": [
+      {
+        "id": "door_outer",
+        "x": 49.7,
+        "floor_id": 0,
+        "rooms": [
+          "approach",
+          "outer_court"
+        ],
+        "open": false,
+        "max_durability": 240
+      },
+      {
+        "id": "door_inner",
+        "x": 71.7,
+        "floor_id": 0,
+        "rooms": [
+          "outer_court",
+          "inner_court"
+        ],
+        "open": false,
+        "max_durability": 180
+      },
+      {
+        "id": "door_hall",
+        "x": 88,
+        "floor_id": 0,
+        "rooms": [
+          "inner_court",
+          "hall"
+        ],
+        "open": false,
+        "max_durability": 160
+      }
+    ],
+    "obstacle_slots": [
+      {
+        "id": "outer_a",
+        "x": 56,
+        "width": 1.25,
+        "floor_id": 0,
+        "room_id": "outer_court",
+        "occupied": true,
+        "kind": "barricade",
+        "gap_direction": "rear",
+        "max_durability": 80
+      },
+      {
+        "id": "outer_b",
+        "x": 62,
+        "width": 1.25,
+        "floor_id": 0,
+        "room_id": "outer_court",
+        "occupied": false,
+        "kind": "palisade",
+        "gap_direction": "rear",
+        "max_durability": 80
+      },
+      {
+        "id": "inner_a",
+        "x": 80,
+        "width": 1.25,
+        "floor_id": 0,
+        "room_id": "inner_court",
+        "occupied": true,
+        "kind": "barricade",
+        "gap_direction": "rear",
+        "max_durability": 80
+      },
+      {
+        "id": "inner_b",
+        "x": 84,
+        "width": 1.25,
+        "floor_id": 0,
+        "room_id": "inner_court",
+        "occupied": false,
+        "kind": "palisade",
+        "gap_direction": "rear",
+        "max_durability": 80
+      },
+      {
+        "id": "hall_a",
+        "x": 88.2,
+        "width": 0.7,
+        "floor_id": 0,
+        "room_id": "hall",
+        "occupied": true,
+        "kind": "palisade",
+        "gap_direction": "rear",
+        "max_durability": 80
+      },
+      {
+        "id": "hall_b",
+        "x": 94,
+        "width": 1.25,
+        "floor_id": 0,
+        "room_id": "hall",
+        "occupied": false,
+        "kind": "barricade",
+        "gap_direction": "rear",
+        "max_durability": 80
+      }
+    ],
+    "facilities": [
+      {
+        "id": "table_hall",
+        "kind": "table",
+        "x": 90.5,
+        "width": 1.25,
+        "floor_id": 0
+      }
+    ]
+  },
+  "base_region": {
+    "start": 50,
+    "end": 120,
+    "court_intervals": [
+      [
+        50,
+        70
+      ],
+      [
+        72,
+        88
+      ]
+    ]
+  },
+  "ghost_main_path": [
+    [
+      0,
+      0
+    ],
+    [
+      116,
+      0
+    ]
+  ],
+  "retreat_line": [
+    "post_gate_inner",
+    "post_barricade_outer_court",
+    "post_inner_gate",
+    "post_hall_door",
+    "post_stair_head",
+    "post_register",
+    "post_rear"
+  ]
+}

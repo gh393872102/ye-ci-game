@@ -1,0 +1,291 @@
+{
+  "id": "C03",
+  "title": "二楼回廊与梁",
+  "scene": "res://data/levels/chunks/C03.tscn",
+  "default_path": [
+    "主殿楼梯",
+    "二楼回廊",
+    "梁梯",
+    "吊钟与后阁"
+  ],
+  "destructibles": [
+    "door_gallery",
+    "door_incense",
+    "door_beam",
+    "beam_span"
+  ],
+  "upper_access": "主梯和后梯连地面，梁梯由二楼通到上层钟房。",
+  "failure_line": "梁梯失守可从后梯进入名册房。",
+  "rituals": [
+    "R07",
+    "R10"
+  ],
+  "length_body": 28,
+  "legal_posts": [
+    "post_window_1",
+    "post_window_2",
+    "post_stair_head"
+  ],
+  "areas": [
+    {
+      "floor_id": 2,
+      "start": 88,
+      "end": 120,
+      "kind": "gallery"
+    },
+    {
+      "floor_id": 3,
+      "start": 88,
+      "end": 120,
+      "kind": "beam"
+    }
+  ],
+  "visual": {
+    "floor_id": 2,
+    "start": 89,
+    "end": 108,
+    "motif": "beam"
+  },
+  "layout": {
+    "floor_bands": [
+      {
+        "floor_id": 2,
+        "start": 88,
+        "end": 120,
+        "offset": 1
+      },
+      {
+        "floor_id": 3,
+        "start": 88,
+        "end": 120,
+        "offset": 2
+      }
+    ],
+    "rooms": [
+      {
+        "id": "gallery",
+        "floor_id": 2,
+        "start": 88,
+        "end": 96,
+        "label": "GALLERY",
+        "tags": [
+          "indoor"
+        ]
+      },
+      {
+        "id": "stair_landing",
+        "floor_id": 2,
+        "start": 96,
+        "end": 104,
+        "label": "STAIRS",
+        "tags": [
+          "stair"
+        ]
+      },
+      {
+        "id": "incense",
+        "floor_id": 2,
+        "start": 104,
+        "end": 112,
+        "label": "INCENSE_ROOM",
+        "tags": [
+          "indoor"
+        ]
+      },
+      {
+        "id": "rear",
+        "floor_id": 2,
+        "start": 112,
+        "end": 120,
+        "label": "REAR_ROOM",
+        "tags": [
+          "indoor",
+          "exit"
+        ]
+      },
+      {
+        "id": "beam",
+        "floor_id": 3,
+        "start": 88,
+        "end": 100,
+        "label": "BEAM_ROOM",
+        "tags": [
+          "indoor"
+        ]
+      },
+      {
+        "id": "bell",
+        "floor_id": 3,
+        "start": 100,
+        "end": 112,
+        "label": "BELL_ROOM",
+        "tags": [
+          "indoor"
+        ]
+      },
+      {
+        "id": "attic",
+        "floor_id": 3,
+        "start": 112,
+        "end": 120,
+        "label": "ATTIC",
+        "tags": [
+          "indoor",
+          "exit"
+        ]
+      }
+    ],
+    "stairs": [
+      {
+        "id": "stair_main",
+        "from_floor": 0,
+        "to_floor": 2,
+        "from_x": 96,
+        "to_x": 103.5
+      },
+      {
+        "id": "stair_beam",
+        "from_floor": 2,
+        "to_floor": 3,
+        "from_x": 103.5,
+        "to_x": 96
+      },
+      {
+        "id": "stair_rear",
+        "from_floor": 2,
+        "to_floor": 0,
+        "from_x": 110,
+        "to_x": 113.5
+      }
+    ],
+    "posts": [
+      {
+        "id": "post_window_1",
+        "x": 92,
+        "floor_id": 2,
+        "floor_offset": 1,
+        "room_id": "gallery",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "window"
+      },
+      {
+        "id": "post_window_2",
+        "x": 92,
+        "floor_id": 3,
+        "floor_offset": 2,
+        "room_id": "beam",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "window"
+      },
+      {
+        "id": "post_stair_head",
+        "x": 103.5,
+        "floor_id": 2,
+        "floor_offset": 1,
+        "room_id": "stair_landing",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "stair"
+      }
+    ],
+    "doors": [
+      {
+        "id": "door_gallery",
+        "x": 96,
+        "floor_id": 2,
+        "rooms": [
+          "gallery",
+          "stair_landing"
+        ],
+        "open": false,
+        "max_durability": 120
+      },
+      {
+        "id": "door_incense",
+        "x": 104.4,
+        "floor_id": 2,
+        "rooms": [
+          "stair_landing",
+          "incense"
+        ],
+        "open": false,
+        "max_durability": 120
+      },
+      {
+        "id": "door_beam",
+        "x": 100,
+        "floor_id": 3,
+        "rooms": [
+          "beam",
+          "bell"
+        ],
+        "open": false,
+        "max_durability": 120
+      }
+    ],
+    "obstacle_slots": [
+      {
+        "id": "beam_span",
+        "x": 98,
+        "floor_id": 3,
+        "width": 1.1,
+        "kind": "beam_span",
+        "max_durability": 300,
+        "occupied": true,
+        "room_id": "beam",
+        "gap_direction": "rear",
+        "tide_max_durability": 300
+      }
+    ],
+    "facilities": [
+      {
+        "id": "incense_altar",
+        "kind": "altar",
+        "x": 106,
+        "width": 1.5,
+        "floor_id": 2
+      },
+      {
+        "id": "rear_table",
+        "kind": "table",
+        "x": 115,
+        "width": 1.25,
+        "floor_id": 2
+      },
+      {
+        "id": "beam_table",
+        "kind": "table",
+        "x": 90,
+        "width": 1.25,
+        "floor_id": 3
+      },
+      {
+        "id": "bell_stand",
+        "kind": "bell",
+        "x": 108,
+        "width": 1.25,
+        "floor_id": 3
+      }
+    ]
+  },
+  "path_targets": {
+    "stair_beam": "beam_span"
+  }
+}

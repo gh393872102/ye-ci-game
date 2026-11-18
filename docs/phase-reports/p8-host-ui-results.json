@@ -1,0 +1,161 @@
+{
+  "checks": 16,
+  "failures": 0,
+  "records": [
+    {
+      "label": "Codex IO uses explicit isolated /tmp path",
+      "ok": true
+    },
+    {
+      "label": "Default Boot main scene reaches real Night host",
+      "ok": true
+    },
+    {
+      "label": "Default Night page has reachable codex button",
+      "ok": true
+    },
+    {
+      "label": "Actual Night codex button opens codex",
+      "ok": true
+    },
+    {
+      "label": "Real tab button opens humans",
+      "ok": true
+    },
+    {
+      "label": "Real tab button opens ghosts",
+      "ok": true
+    },
+    {
+      "label": "Real tab button opens items",
+      "ok": true
+    },
+    {
+      "label": "Real tab button opens customs",
+      "ok": true
+    },
+    {
+      "label": "Actual close returns to Night menu",
+      "ok": true
+    },
+    {
+      "label": "Growth Night button starts actual new_roster_run",
+      "ok": true
+    },
+    {
+      "label": "Initial example-incense ritual is stage 1 in actual night codex",
+      "ok": true
+    },
+    {
+      "label": "Actual host writes only isolated Night and Codex files",
+      "ok": true
+    },
+    {
+      "label": "Actual first node enters managed P8 combat",
+      "ok": true
+    },
+    {
+      "label": "Actual carried first-battle roster contains H17",
+      "ok": true
+    },
+    {
+      "label": "Carried unit complete card displays real portrait and source skill",
+      "ok": true
+    },
+    {
+      "label": "Real carried-card skill button opens formal dedicated command menu",
+      "ok": true
+    }
+  ],
+  "scope": "Actual default Boot/Night host UI smoke; first-node only, not a complete night. Temporary source copy changes only IO paths to /tmp.",
+  "isolation": {
+    "source": "",
+    "substitutions": {
+      "user://night_save.json": "/tmp/ye-ci-p8-host-final-repro/state/night.json",
+      "user://codex.json": "/tmp/ye-ci-p8-host-final-repro/state/codex.json",
+      "user://battle_replays": "/tmp/ye-ci-p8-host-final-repro/state/replays"
+    },
+    "scope": "Actual Boot/Night buttons, first battle only; not a complete night. No rules changed."
+  },
+  "screenshots": [
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/01-default-night-1080.png",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/02-customs-720.png",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/02-ghosts-720.png",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/02-humans-720.png",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/02-items-720.png",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/03-growth-map-720.png",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/04-managed-card-720.png",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/phase-reports/p8-host-ui-shots/05-managed-skill-720.png",
+      "size": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "source_project": "ye-ci-game codex/p8-full-roster working tree, 2026-11-17",
+  "reproduction": "python3 tools/p8_host_ui_smoke.py --output /tmp/NEW-EMPTY-DIRECTORY",
+  "script": "tools/p8_host_ui_smoke.gd",
+  "runner": "tools/p8_host_ui_smoke.py",
+  "fail_closed_check": {
+    "command": "./tools/godot.sh --headless --script tools/p8_host_ui_smoke.gd",
+    "expected_exit_code": 1,
+    "actual_exit_code": 1,
+    "observed": "First IO isolation check fails and quits immediately; no menu button or write executes."
+  },
+  "not_complete_night": true,
+  "source_sha256": {
+    "src/boot/Boot.gd": "ad65fefe361771ab5d6f5bfc8f401466c6947695f5b39e8cc884aecfe5cce821",
+    "src/night/Night.gd": "09df1625c4f9775b95059a255de4ab1b19c1e570541d3d1ad3a2612c3754ef7a",
+    "src/ui/NightPanel.gd": "9de60d1f200ab6e4a1fb7ece48f4d440d891b948e696dfd486bbd4cebcd96a46",
+    "src/ui/CodexPanel.gd": "81e3cc36d2740f2acf77566422023b4ed04e089af191630ca84d78aba6ae0f31",
+    "src/ui/DecisionPanel.gd": "ba0499ef852e9dd17c099b89cc41765da075e0ed665a434ee98ab00b184d6f61",
+    "src/units/UnitAppearance.gd": "7e452d88d48e57c82f3f4059c3357a6c494be86b8d3d7c05eee6bc63d950523f",
+    "src/autoload/Data.gd": "ca0f4c41a5248028636930e61743e7704073d73632fc9da8553b2f26f258e3ae",
+    "src/progression/CodexStore.gd": "dc5e1b8778c049ff033cae0e7c6e9014847b2a43e351b207a447f613f79d610a",
+    "tools/p8_host_ui_smoke.gd": "a7e74229feaec421388be4ab71a5361b620d74679b782374525245536c0135db",
+    "tools/p8_host_ui_smoke.py": "becc5e3a8fdb3943b58b1116cad7711c403f544b7a328244933a34336e715c53"
+  }
+}

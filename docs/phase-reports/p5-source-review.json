@@ -1,0 +1,50 @@
+{
+  "phase": "P5",
+  "reviewed_at": "2026-11-17T13:54:54+08:00",
+  "baseline": "d40d70857070ebb102ec10cd974c4887972550a4",
+  "readings": [
+    "development general instructions, locked list, engineering, P4 and P5",
+    "GDD chapters 5, 7 (example_incense only), 13, 15.2-15.4, 17"
+  ],
+  "pages": [
+    {
+      "url": "https://gh393872102.github.io/ye-ci/dev.html#d-p5",
+      "sha256": "19d7c12a263769c3f5aa18f806a5b899abeeda0d8725353462a9001f0d744e6f"
+    },
+    {
+      "url": "https://gh393872102.github.io/ye-ci/",
+      "sha256": "6ec169b105512f7454ebd992b46c298614b9de5b6a4aae659afa175fd513a075"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "18",
+      "sha256": "d16344fbf5cb4a3c64063f1419f5782a91f3c20d54ed71d2612c82f71be8efa9",
+      "use": "viewed for layout reference; generated text and non-Chinese symbols not copied"
+    },
+    {
+      "figure": "19",
+      "sha256": "bdfc8be7cf1fff7910a0e866ada44b56b56e89c535f407ace93e6db391657f6c",
+      "use": "viewed for layout reference; generated text and non-Chinese symbols not copied"
+    },
+    {
+      "figure": "21",
+      "sha256": "1d89da75018c371460d6b40197b72d9e2ab0f1091a18439896863d180d52a847",
+      "use": "viewed for layout reference; generated text and non-Chinese symbols not copied"
+    },
+    {
+      "figure": "22",
+      "sha256": "f2b0c8c50e1c8161edbec60ac8c9b5a8a9144c2cb2a75d52f65232d4c870c66c",
+      "use": "viewed for layout reference; generated text and non-Chinese symbols not copied"
+    }
+  ],
+  "coordination": {
+    "requested": "astra-max overall / three GPT-6.1 Sol workers",
+    "actual_workers": [
+      "gpt-6.1-sol domain",
+      "gpt-6.1-sol UI",
+      "gpt-6.1-sol acceptance"
+    ],
+    "supervisor": "current main session; no model switch claimed"
+  }
+}

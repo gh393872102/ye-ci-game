@@ -1,0 +1,15 @@
+{
+  "phase": "P5",
+  "verification_time": "2026-11-17T14:13:27+08:00",
+  "platform": {
+    "macOS": "26.5.1",
+    "architecture": "arm64"
+  },
+  "source_boot": {
+    "frames": 60,
+    "exit_code": 0,
+    "errors": false
+  },
+  "windows_launch": "not tested; prior P0 export not updated",
+  "real_gamepad": "not tested"
+}

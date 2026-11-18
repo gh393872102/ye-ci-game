@@ -1,0 +1,119 @@
+{
+  "allowed_humans": [
+    "H01",
+    "H09",
+    "H17",
+    "T01",
+    "T02",
+    "T04"
+  ],
+  "allowed_ghosts": [
+    "G01",
+    "G09",
+    "G12"
+  ],
+  "profiles": [
+    "entry",
+    "upper"
+  ],
+  "rituals": [
+    "example_incense"
+  ],
+  "director_limit": 3,
+  "ai_levels": {
+    "calm": {
+      "decision_interval": 8.0,
+      "jitter": 1.5,
+      "repair_ratio": 0.45,
+      "upgrade_chance": 0.1,
+      "breaker_preference": 0.45,
+      "reinforce_chance": 0.15,
+      "reserve_incense": 6,
+      "purchase_chance": 0.35,
+      "ritual_chance": 0.65
+    },
+    "normal": {
+      "decision_interval": 4.0,
+      "jitter": 0.7,
+      "repair_ratio": 0.65,
+      "upgrade_chance": 0.25,
+      "breaker_preference": 0.65,
+      "reinforce_chance": 0.35,
+      "reserve_incense": 4,
+      "purchase_chance": 0.6,
+      "ritual_chance": 0.85
+    },
+    "fierce": {
+      "decision_interval": 1.75,
+      "jitter": 0.3,
+      "repair_ratio": 0.8,
+      "upgrade_chance": 0.4,
+      "breaker_preference": 0.85,
+      "reinforce_chance": 0.6,
+      "reserve_incense": 1,
+      "purchase_chance": 0.85,
+      "ritual_chance": 1.0
+    }
+  },
+  "limits": {
+    "duration_min": 120,
+    "duration_max": 600,
+    "incense_min": 0,
+    "incense_max": 60,
+    "names_min": 0,
+    "names_max": 12,
+    "human_max": 12,
+    "named_max": 8,
+    "troop_max": 4,
+    "post_max": 3,
+    "ghost_max": 120
+  },
+  "defaults": {
+    "kind": "watch",
+    "player_seat": "shouxiang",
+    "seed": "门框-观祭-01",
+    "profile_id": "entry",
+    "ritual": "example_incense",
+    "duration": 240.0,
+    "incense": {
+      "shouxiang": 20.0,
+      "duoming": 16.0
+    },
+    "names": 8.0,
+    "ferocity": "normal",
+    "director_enabled": false,
+    "humans": [
+      {
+        "id": "H01",
+        "post": "post_register",
+        "count": 1
+      },
+      {
+        "id": "H09",
+        "post": "post_gate_inner",
+        "count": 1
+      },
+      {
+        "id": "H17",
+        "post": "post_hall_door",
+        "count": 1
+      },
+      {
+        "id": "T01",
+        "post": "post_barricade_outer_court",
+        "count": 1
+      },
+      {
+        "id": "T02",
+        "post": "post_window_1",
+        "count": 1
+      }
+    ],
+    "ghosts": [
+      {
+        "id": "G01",
+        "count": 16
+      }
+    ]
+  }
+}

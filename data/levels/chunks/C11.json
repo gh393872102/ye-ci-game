@@ -1,0 +1,85 @@
+{
+  "id": "C11",
+  "title": "灶房",
+  "scene": "res://data/levels/chunks/C11.tscn",
+  "default_path": [
+    "后廊隔断",
+    "火塘",
+    "楼梯前廊"
+  ],
+  "destructibles": [
+    "hall_a",
+    "stove_hearth"
+  ],
+  "upper_access": "火塘占用一层侧室，后廊与主楼梯连通。",
+  "failure_line": "隔断破时潮能进灶房，火仍可能殃及两边。",
+  "rituals": [
+    "R03",
+    "R09"
+  ],
+  "length_body": 8,
+  "legal_posts": [
+    "post_stove"
+  ],
+  "areas": [
+    {
+      "floor_id": 0,
+      "start": 88,
+      "end": 96,
+      "kind": "hearth",
+      "fire_source": "stove_hearth",
+      "fire_radius_multiplier": 1.25
+    }
+  ],
+  "visual": {
+    "floor_id": 0,
+    "start": 89,
+    "end": 95.5,
+    "motif": "hearth"
+  },
+  "layout": {
+    "facilities": [
+      {
+        "id": "stove_hearth",
+        "x": 93.1,
+        "floor_id": 0,
+        "width": 1.25,
+        "kind": "stove",
+        "max_durability": 165,
+        "occupied": true,
+        "tide_max_durability": 165,
+        "blocks_walk": false
+      }
+    ],
+    "posts": [
+      {
+        "id": "post_stove",
+        "x": 95.3,
+        "floor_id": 0,
+        "room_id": "hall",
+        "cover_kind": "table",
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "default_deployment": true,
+        "retreat": {
+          "next": "post_stair_head",
+          "obstacles": [
+            "hall_a"
+          ]
+        }
+      }
+    ]
+  },
+  "overrides": {
+    "obstacle_slots": [
+      {
+        "id": "hall_a",
+        "kind": "stove_partition"
+      }
+    ]
+  }
+}

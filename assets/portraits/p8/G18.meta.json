@@ -1,0 +1,16 @@
+{
+  "id": "G18",
+  "name": "无头仪仗",
+  "source": "Project-generated portrait source (local generation metadata withheld)",
+  "path": "res://assets/portraits/p8/G18.png",
+  "status": "placeholder",
+  "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+  "attempt": 1,
+  "size": [
+    1024,
+    1536
+  ],
+  "sha256": "13a24d0a7bfb4cda78563dbec515734ee9eaf9e0c97aac33c649b0dc3f4eab68",
+  "replacement_required": true,
+  "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+}

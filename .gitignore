@@ -1,0 +1,11 @@
+# Godot 4 generated cache
+.godot/
+/android/
+/ios/
+/builds/
+/exports/
+*.tmp
+*.log
+*.translation
+.DS_Store
+Thumbs.db

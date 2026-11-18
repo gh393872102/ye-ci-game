@@ -1,0 +1,18 @@
+{
+  "id": "B01",
+  "name_key": "P10_B01",
+  "description_key": "P10_B01_PRESSURE",
+  "unit_id": "G12",
+  "duration": 360,
+  "chunks": ["C01", "C03", "C04"],
+  "initial_doors": {"door_hall": 0.06},
+  "formations": [
+    {"at": 0, "unit": "G12", "floor": 0, "x": 93.7, "lane": 1, "role": "boss"},
+    {"at": 4, "unit": "G12", "floor": 0, "x": 85.6, "lane": 0, "role": "ram"},
+    {"at": 4, "unit": "G01", "floor": 0, "x": 84.0, "lane": 1, "role": "tide"},
+    {"at": 4, "unit": "G01", "floor": 0, "x": 84.4, "lane": 2, "role": "tide"},
+    {"at": 4, "unit": "G01", "floor": 0, "x": 84.8, "lane": 3, "role": "tide"},
+    {"at": 8, "unit": "G01", "floor": 0, "x": 83.8, "lane": 0, "role": "tide"},
+    {"at": 8, "unit": "G01", "floor": 0, "x": 84.2, "lane": 2, "role": "tide"}
+  ]
+}

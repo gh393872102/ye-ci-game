@@ -1,0 +1,500 @@
+{
+	"capture": true,
+	"checks": 123,
+	"engine": "4.7.2-stable (official)",
+	"failures": 0,
+	"results": [
+		{
+			"check": "All source tables load without errors",
+			"passed": true
+		},
+		{
+			"check": "32 humans + 32 ghosts + 4 troops",
+			"passed": true
+		},
+		{
+			"check": "Unit cache is read only",
+			"passed": true
+		},
+		{
+			"check": "CSV identity, health and skill: H01",
+			"passed": true
+		},
+		{
+			"check": "Read-only row: H01",
+			"passed": true
+		},
+		{
+			"check": "CSV identity, health and skill: H09",
+			"passed": true
+		},
+		{
+			"check": "Read-only row: H09",
+			"passed": true
+		},
+		{
+			"check": "CSV identity, health and skill: H17",
+			"passed": true
+		},
+		{
+			"check": "Read-only row: H17",
+			"passed": true
+		},
+		{
+			"check": "CSV identity, health and skill: G01",
+			"passed": true
+		},
+		{
+			"check": "Read-only row: G01",
+			"passed": true
+		},
+		{
+			"check": "CSV identity, health and skill: G09",
+			"passed": true
+		},
+		{
+			"check": "Read-only row: G09",
+			"passed": true
+		},
+		{
+			"check": "CSV identity, health and skill: G12",
+			"passed": true
+		},
+		{
+			"check": "Read-only row: G12",
+			"passed": true
+		},
+		{
+			"check": "Troop draft status is explicit",
+			"passed": true
+		},
+		{
+			"check": "CSV rejects missing_column",
+			"passed": true
+		},
+		{
+			"check": "CSV rejects duplicate_id",
+			"passed": true
+		},
+		{
+			"check": "CSV rejects invalid_number",
+			"passed": true
+		},
+		{
+			"check": "CSV rejects short_row",
+			"passed": true
+		},
+		{
+			"check": "CSV rejects missing_file",
+			"passed": true
+		},
+		{
+			"check": "24 bodies = 1920 world pixels",
+			"passed": true
+		},
+		{
+			"check": "Locked body and world dimensions",
+			"passed": true
+		},
+		{
+			"check": "Empty-path estimate = 54.54545 seconds",
+			"passed": true
+		},
+		{
+			"check": "Register to outer gate exceeds maximum 8-body range",
+			"passed": true
+		},
+		{
+			"check": "Stretch canvas_items + keep",
+			"passed": true
+		},
+		{
+			"check": "Nearest texture filter",
+			"passed": true
+		},
+		{
+			"check": "60 Hz physics",
+			"passed": true
+		},
+		{
+			"check": "Audio bus: SFX",
+			"passed": true
+		},
+		{
+			"check": "Audio bus: Music",
+			"passed": true
+		},
+		{
+			"check": "Audio bus: Ritual",
+			"passed": true
+		},
+		{
+			"check": "Declared input: pause",
+			"passed": true
+		},
+		{
+			"check": "Declared input: speed_one",
+			"passed": true
+		},
+		{
+			"check": "Declared input: speed_two",
+			"passed": true
+		},
+		{
+			"check": "Declared input: camera_left",
+			"passed": true
+		},
+		{
+			"check": "Declared input: camera_right",
+			"passed": true
+		},
+		{
+			"check": "Declared input: select",
+			"passed": true
+		},
+		{
+			"check": "Declared input: cancel",
+			"passed": true
+		},
+		{
+			"check": "Declared input: buy",
+			"passed": true
+		},
+		{
+			"check": "Declared input: deploy",
+			"passed": true
+		},
+		{
+			"check": "Declared input: upgrade",
+			"passed": true
+		},
+		{
+			"check": "Declared input: mutate",
+			"passed": true
+		},
+		{
+			"check": "Declared input: fusion",
+			"passed": true
+		},
+		{
+			"check": "Declared input: reinforce",
+			"passed": true
+		},
+		{
+			"check": "Declared input: register",
+			"passed": true
+		},
+		{
+			"check": "Declared input: repair",
+			"passed": true
+		},
+		{
+			"check": "Declared input: recall",
+			"passed": true
+		},
+		{
+			"check": "Declared input: codex",
+			"passed": true
+		},
+		{
+			"check": "Declared input: select_next",
+			"passed": true
+		},
+		{
+			"check": "Declared input: select_previous",
+			"passed": true
+		},
+		{
+			"check": "Declared input: command_wheel",
+			"passed": true
+		},
+		{
+			"check": "Native key constant matches action: camera_left",
+			"passed": true
+		},
+		{
+			"check": "Native key constant matches action: camera_right",
+			"passed": true
+		},
+		{
+			"check": "Native key constant matches action: speed_one",
+			"passed": true
+		},
+		{
+			"check": "Native key constant matches action: codex",
+			"passed": true
+		},
+		{
+			"check": "1x advances world and unscaled cooldown equally",
+			"passed": true
+		},
+		{
+			"check": "2x doubles world delta but exposes unscaled cooldown delta",
+			"passed": true
+		},
+		{
+			"check": "120 paused steps do not advance combat or cooldown",
+			"passed": true
+		},
+		{
+			"check": "Default view is a 1:1 slice at 76–100 bodies",
+			"passed": true
+		},
+		{
+			"check": "All 10 named cover posts exist",
+			"passed": true
+		},
+		{
+			"check": "Exactly two static scale placeholders",
+			"passed": true
+		},
+		{
+			"check": "Human is at hall-door cover, outside courtyard center",
+			"passed": true
+		},
+		{
+			"check": "Ghost is outside outer gate on approach",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: units",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: cover_posts",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: doors",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: obstacles",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: floors",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: camera",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: hud",
+			"passed": true
+		},
+		{
+			"check": "Stable scene group: minimap",
+			"passed": true
+		},
+		{
+			"check": "Minimap frame width 20% at 0",
+			"passed": true
+		},
+		{
+			"check": "Minimap position matches camera at 0",
+			"passed": true
+		},
+		{
+			"check": "Actual rendered canvas agrees with camera at 0",
+			"passed": true
+		},
+		{
+			"check": "Minimap frame width 20% at 6080",
+			"passed": true
+		},
+		{
+			"check": "Minimap position matches camera at 6080",
+			"passed": true
+		},
+		{
+			"check": "Actual rendered canvas agrees with camera at 6080",
+			"passed": true
+		},
+		{
+			"check": "Minimap frame width 20% at 7680",
+			"passed": true
+		},
+		{
+			"check": "Minimap position matches camera at 7680",
+			"passed": true
+		},
+		{
+			"check": "Actual rendered canvas agrees with camera at 7680",
+			"passed": true
+		},
+		{
+			"check": "Left edge clamps to world",
+			"passed": true
+		},
+		{
+			"check": "Right edge clamps to world",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 01-default",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 02-source",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 03-register",
+			"passed": true
+		},
+		{
+			"check": "F1 turns its debug layer on",
+			"passed": true
+		},
+		{
+			"check": "F1 turns its debug layer off",
+			"passed": true
+		},
+		{
+			"check": "F2 turns its debug layer on",
+			"passed": true
+		},
+		{
+			"check": "F2 turns its debug layer off",
+			"passed": true
+		},
+		{
+			"check": "F3 turns its debug layer on",
+			"passed": true
+		},
+		{
+			"check": "F3 turns its debug layer off",
+			"passed": true
+		},
+		{
+			"check": "F4 turns its debug layer on",
+			"passed": true
+		},
+		{
+			"check": "F4 turns its debug layer off",
+			"passed": true
+		},
+		{
+			"check": "F5 turns its debug layer on",
+			"passed": true
+		},
+		{
+			"check": "F5 turns its debug layer off",
+			"passed": true
+		},
+		{
+			"check": "F6 turns its debug layer on",
+			"passed": true
+		},
+		{
+			"check": "F6 turns its debug layer off",
+			"passed": true
+		},
+		{
+			"check": "F10 turns its debug layer on",
+			"passed": true
+		},
+		{
+			"check": "F10 turns its debug layer off",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 04-height-human",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 05-height-ghost",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 06-cover",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 07-minimap-path",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 08-csv",
+			"passed": true
+		},
+		{
+			"check": "Space pauses simulation",
+			"passed": true
+		},
+		{
+			"check": "Real frames: paused combat freezes while wall clock advances",
+			"passed": true
+		},
+		{
+			"check": "Keyboard camera pan works during pause",
+			"passed": true
+		},
+		{
+			"check": "Physical right arrow pans right during pause",
+			"passed": true
+		},
+		{
+			"check": "Physical left arrow pans left during pause",
+			"passed": true
+		},
+		{
+			"check": "Middle drag pans exactly 100 logical pixels while paused",
+			"passed": true
+		},
+		{
+			"check": "Speed shortcut keeps paused state and selects resume speed",
+			"passed": true
+		},
+		{
+			"check": "Empty command provides P4 feedback while paused",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 09-paused",
+			"passed": true
+		},
+		{
+			"check": "Space resumes at selected 2x",
+			"passed": true
+		},
+		{
+			"check": "Minus restores 1x",
+			"passed": true
+		},
+		{
+			"check": "Keypad divide restores 1x",
+			"passed": true
+		},
+		{
+			"check": "Actual HUD mouse click selects 2x",
+			"passed": true
+		},
+		{
+			"check": "Actual HUD mouse click pauses",
+			"passed": true
+		},
+		{
+			"check": "HUD 1x still usable while paused",
+			"passed": true
+		},
+		{
+			"check": "Space still works after mouse focus on HUD",
+			"passed": true
+		},
+		{
+			"check": "All inputs leave both placeholders stationary",
+			"passed": true
+		},
+		{
+			"check": "Rendered screenshot: 10-resized-16-10",
+			"passed": true
+		},
+		{
+			"check": "16:10 window preserves equal-axis 16:9 content scaling",
+			"passed": true
+		}
+	]
+}

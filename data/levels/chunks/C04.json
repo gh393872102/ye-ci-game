@@ -1,0 +1,135 @@
+{
+  "id": "C04",
+  "title": "名册房",
+  "scene": "res://data/levels/chunks/C04.tscn",
+  "default_path": [
+    "下楼口",
+    "名册房",
+    "后侧出口"
+  ],
+  "destructibles": [
+    "door_register"
+  ],
+  "upper_access": "从二楼香案旁的后梯下到名册房，再退可至后门。",
+  "failure_line": "名册房失守或名册香火熄灭，守香失败。",
+  "rituals": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12"
+  ],
+  "length_body": 14,
+  "legal_posts": [
+    "post_register",
+    "post_rear"
+  ],
+  "areas": [
+    {
+      "floor_id": 0,
+      "start": 104,
+      "end": 120,
+      "kind": "register"
+    }
+  ],
+  "visual": {
+    "floor_id": 0,
+    "start": 104.2,
+    "end": 117.8,
+    "motif": "register"
+  },
+  "layout": {
+    "sections": [
+      {
+        "start": 104,
+        "end": 120,
+        "label": "REAR",
+        "color": "#5b605b",
+        "base": true
+      }
+    ],
+    "rooms": [
+      {
+        "id": "register",
+        "floor_id": 0,
+        "start": 104,
+        "end": 118,
+        "label": "REGISTER_ROOM",
+        "tags": [
+          "indoor"
+        ]
+      },
+      {
+        "id": "rear_exit",
+        "floor_id": 0,
+        "start": 118,
+        "end": 120,
+        "label": "REAR_EXIT",
+        "tags": [
+          "exit"
+        ]
+      }
+    ],
+    "doors": [
+      {
+        "id": "door_register",
+        "x": 104.4,
+        "floor_id": 0,
+        "rooms": [
+          "stair",
+          "register"
+        ],
+        "open": false,
+        "max_durability": 140
+      }
+    ],
+    "posts": [
+      {
+        "id": "post_register",
+        "x": 116,
+        "floor_id": 0,
+        "floor_offset": 0,
+        "room_id": "register",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "register"
+      },
+      {
+        "id": "post_rear",
+        "x": 119,
+        "floor_id": 0,
+        "floor_offset": 0,
+        "room_id": "rear_exit",
+        "default_deployment": true,
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "cover_kind": "pillar"
+      }
+    ],
+    "facilities": [
+      {
+        "id": "register_desk",
+        "kind": "register",
+        "x": 114.2,
+        "width": 1.5,
+        "floor_id": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "id": "example_night",
+  "title": "P11_NIGHT_TITLE",
+  "ritual": "example_incense",
+  "start_node": "n01",
+  "nodes": [
+    {
+      "id": "n01",
+      "title": "P11_NODE_N01_TITLE",
+      "type": "battle",
+      "description": "P11_NODE_N01_DESCRIPTION",
+      "route": "主线",
+      "depth": 0,
+      "next": [
+        "n02"
+      ],
+      "profile_id": "entry",
+      "chunk_ids": ["C01", "C03", "C04"],
+      "objectives": {
+        "shouxiang": {
+          "primary": "hold_to_daybreak",
+          "secondary": "preserve_names"
+        },
+        "duoming": {
+          "primary": "register_capture",
+          "secondary": "names_drained"
+        }
+      }
+    },
+    {
+      "id": "n02",
+      "title": "P11_NODE_N02_TITLE",
+      "type": "market",
+      "description": "P11_NODE_N02_DESCRIPTION",
+      "route": "稳妥",
+      "depth": 1,
+      "next": [
+        "n03"
+      ]
+    },
+    {
+      "id": "n03",
+      "title": "P11_NODE_N03_TITLE",
+      "type": "battle",
+      "description": "P11_NODE_N03_DESCRIPTION",
+      "route": "主线",
+      "depth": 2,
+      "next": [
+        "n04"
+      ],
+      "profile_id": "gate",
+      "chunk_ids": ["C01", "C03", "C04", "C08"],
+      "objectives": {
+        "shouxiang": {
+          "primary": "hold_to_daybreak",
+          "secondary": "preserve_names"
+        },
+        "duoming": {
+          "primary": "register_capture",
+          "secondary": "names_drained"
+        }
+      }
+    },
+    {
+      "id": "n04",
+      "title": "P11_NODE_N04_TITLE",
+      "type": "event",
+      "description": "P11_NODE_N04_DESCRIPTION",
+      "route": "专项",
+      "depth": 3,
+      "next": [
+        "n05"
+      ],
+      "event_id": "altar"
+    },
+    {
+      "id": "n05",
+      "title": "P11_NODE_N05_TITLE",
+      "type": "battle",
+      "description": "P11_NODE_N05_DESCRIPTION",
+      "route": "专项",
+      "depth": 4,
+      "next": [
+        "n06",
+        "n06r"
+      ],
+      "profile_id": "upper",
+      "chunk_ids": ["C01", "C03", "C04", "C09"],
+      "objectives": {
+        "shouxiang": {
+          "primary": "preserve_names",
+          "secondary": "hold_to_daybreak"
+        },
+        "duoming": {
+          "primary": "names_drained",
+          "secondary": "register_capture"
+        }
+      }
+    },
+    {
+      "id": "n06",
+      "title": "P11_NODE_N06_TITLE",
+      "type": "rest",
+      "description": "P11_NODE_N06_DESCRIPTION",
+      "route": "稳妥",
+      "depth": 5,
+      "next": [
+        "n07"
+      ]
+    },
+    {
+      "id": "n06r",
+      "title": "P11_NODE_N06R_TITLE",
+      "type": "battle",
+      "description": "P11_NODE_N06R_DESCRIPTION",
+      "route": "风险",
+      "depth": 5,
+      "next": [
+        "n07"
+      ],
+      "profile_id": "risk",
+      "chunk_ids": ["C01", "C03", "C04", "C06", "C10"],
+      "objectives": {
+        "shouxiang": {
+          "primary": "hold_to_daybreak",
+          "secondary": "preserve_names"
+        },
+        "duoming": {
+          "primary": "register_capture",
+          "secondary": "names_drained"
+        }
+      }
+    },
+    {
+      "id": "n07",
+      "title": "P11_NODE_N07_TITLE",
+      "type": "event",
+      "description": "P11_NODE_N07_DESCRIPTION",
+      "route": "专项",
+      "depth": 6,
+      "next": [
+        "n08"
+      ],
+      "event_id": "borrowed_name"
+    },
+    {
+      "id": "n08",
+      "title": "P11_NODE_N08_TITLE",
+      "type": "battle",
+      "description": "P11_NODE_N08_DESCRIPTION",
+      "route": "主线",
+      "depth": 7,
+      "next": [
+        "n09"
+      ],
+      "profile_id": "cross",
+      "chunk_ids": ["C01", "C03", "C04", "C02"],
+      "objectives": {
+        "shouxiang": {
+          "primary": "hold_to_daybreak",
+          "secondary": "preserve_names"
+        },
+        "duoming": {
+          "primary": "register_capture",
+          "secondary": "names_drained"
+        }
+      }
+    },
+    {
+      "id": "n09",
+      "title": "P11_NODE_N09_TITLE",
+      "type": "rest",
+      "description": "P11_NODE_N09_DESCRIPTION",
+      "route": "稳妥",
+      "depth": 8,
+      "next": [
+        "n10"
+      ]
+    },
+    {
+      "id": "n10",
+      "title": "P11_NODE_N10_TITLE",
+      "type": "boss",
+      "description": "P11_NODE_N10_DESCRIPTION",
+      "route": "风险",
+      "depth": 9,
+      "next": [],
+      "profile_id": "boss",
+      "chunk_ids": ["C01", "C03", "C04", "C09", "C12"],
+      "objectives": {
+        "shouxiang": {
+          "primary": "preserve_names",
+          "secondary": "hold_to_daybreak"
+        },
+        "duoming": {
+          "primary": "names_drained",
+          "secondary": "register_capture"
+        }
+      }
+    }
+  ],
+  "rewards_path": "res://data/nights/p5_rewards.json",
+  "events_path": "res://data/nights/p5_events.json",
+  "battle_profiles_path": "res://data/nights/p5_battle_profiles.json",
+  "starting_incense": {
+    "shouxiang": 20,
+    "duoming": 16
+  },
+  "starting_names": 8,
+  "names_cap": 12,
+  "incense_cap": 60,
+  "roster_caps": {
+    "shouxiang": 12,
+    "duoming": 120
+  },
+  "initial_roster": {
+    "shouxiang": [
+      {
+        "id": "H01",
+        "post": "post_register",
+        "count": 1
+      },
+      {
+        "id": "H09",
+        "post": "post_gate_inner",
+        "count": 1
+      },
+      {
+        "id": "H17",
+        "post": "post_hall_door",
+        "count": 1
+      },
+      {
+        "id": "T01",
+        "post": "post_barricade_outer_court",
+        "count": 1
+      },
+      {
+        "id": "T02",
+        "post": "post_window_1",
+        "count": 1
+      }
+    ],
+    "duoming": [
+      {
+        "id": "G01",
+        "post": "ghost_main_path",
+        "count": 16
+      }
+    ]
+  },
+  "initial_roster_note": "P11_NIGHT_INITIAL_ROSTER_NOTE",
+  "rest": {
+    "heal_ratio": 0.25,
+    "incense": 4,
+    "names": 1
+  },
+  "mercy": {
+    "limit": 1,
+    "minimum_incense": 16,
+    "minimum_names": 4,
+    "minimum_hp_ratio": 0.5
+  },
+  "build_caps": {
+    "incense_regen_delta": 0.18,
+    "ritual_duration_delta": -1,
+    "ritual_reward_incense_delta": 2,
+    "repair_heal_delta": 300,
+    "mutation_cost_delta": -6,
+    "reinforce_count_delta": 4
+  },
+  "tutorials": [
+    "暂停后决定买谁，不必手拖走位。",
+    "只能部署到门内、窗位、楼梯与名册房等掩体岗位。",
+    "点册要花香火并完成读条；受伤会打断。",
+    "门裂、上楼与名册将熄，都是可见的失败线。"
+  ]
+}

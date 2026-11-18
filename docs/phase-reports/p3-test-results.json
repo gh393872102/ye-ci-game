@@ -1,0 +1,500 @@
+{
+  "checks": 69,
+  "date": "2026-11-17T13:00:17",
+  "engine": "4.7.2-stable (official)",
+  "failures": 0,
+  "os": "macOS",
+  "performance": [],
+  "phase": "P3",
+  "results": [
+    {
+      "check": "P3 boot validates source CSV and skill/trait references",
+      "passed": true
+    },
+    {
+      "check": "Boot starts formal G0 hold tide with original five humans",
+      "passed": true
+    },
+    {
+      "check": "Human retains in-base cover: H09",
+      "passed": true
+    },
+    {
+      "check": "Human retains in-base cover: T01",
+      "passed": true
+    },
+    {
+      "check": "Human retains in-base cover: H17",
+      "passed": true
+    },
+    {
+      "check": "Human retains in-base cover: T02",
+      "passed": true
+    },
+    {
+      "check": "Human retains in-base cover: H01",
+      "passed": true
+    },
+    {
+      "check": "World scale, map length and default camera unchanged",
+      "passed": true
+    },
+    {
+      "check": "Minimap camera frame is 20 percent",
+      "passed": true
+    },
+    {
+      "check": "All four stats come unchanged from CSV: G01",
+      "passed": true
+    },
+    {
+      "check": "Original skill/trait text: G01",
+      "passed": true
+    },
+    {
+      "check": "All four stats come unchanged from CSV: G09",
+      "passed": true
+    },
+    {
+      "check": "Original skill/trait text: G09",
+      "passed": true
+    },
+    {
+      "check": "All four stats come unchanged from CSV: G12",
+      "passed": true
+    },
+    {
+      "check": "Original skill/trait text: G12",
+      "passed": true
+    },
+    {
+      "check": "Fear-light / low exorcism resistance data interface has correct direction",
+      "passed": true
+    },
+    {
+      "check": "Solo G01 door strike uses shared formula and CSV attack 6",
+      "passed": true
+    },
+    {
+      "check": "Four synchronized G01 door attacks gain capped 24 percent 拥门",
+      "passed": true
+    },
+    {
+      "check": "G12 breaks structures at 16 x 2.5 = 40 damage",
+      "passed": true
+    },
+    {
+      "check": "Large ghost 144px silhouette stays in locked 128-176px range",
+      "passed": true
+    },
+    {
+      "check": "Door destruction opens passage and creates visible 0.6s debris",
+      "passed": true
+    },
+    {
+      "check": "G12 physically walks through broken door, no relocation",
+      "passed": true
+    },
+    {
+      "check": "Human line-break retreat still responds to destroyed door",
+      "passed": true
+    },
+    {
+      "check": "Ordinary ghost moves 2.2 body/s",
+      "passed": true
+    },
+    {
+      "check": "G12 moves slower at 1.6 body/s",
+      "passed": true
+    },
+    {
+      "check": "G09 horizontal speed maps source speed 12 to 2.4 body/s",
+      "passed": true
+    },
+    {
+      "check": "Capacity interface supports 150 actors; 151st is rejected",
+      "passed": true
+    },
+    {
+      "check": "Floor/lane buckets compute a single predecessor per follower",
+      "passed": true
+    },
+    {
+      "check": "Paused real frames freeze an actively attacking G12 and door durability",
+      "passed": true
+    },
+    {
+      "check": "Same attacking G12 resumes structure damage when simulation advances",
+      "passed": true
+    },
+    {
+      "check": "G09 selects visible wall-rope route before hall",
+      "passed": true
+    },
+    {
+      "check": "G09 traverses intermediate coordinates before changing floor",
+      "passed": true
+    },
+    {
+      "check": "Climbing speed is 60 percent of source-derived horizontal speed",
+      "passed": true
+    },
+    {
+      "check": "Real paused engine frames freeze tide/climb, attack timers, structures and simulation time",
+      "passed": true
+    },
+    {
+      "check": "G09 reaches second floor continuously and updates floor_id",
+      "passed": true
+    },
+    {
+      "check": "Unopposed G09 traverses upper rooms and real rear stair into register",
+      "passed": true
+    },
+    {
+      "check": "Upper entry and landing emit visible event feedback",
+      "passed": true
+    },
+    {
+      "check": "Visual fixture contains 40 tide units",
+      "passed": true
+    },
+    {
+      "check": "All 40 visible at unchanged default camera, four rows, unique positions",
+      "passed": true
+    },
+    {
+      "check": "Visual 40 never changes camera scale or slice",
+      "passed": true
+    },
+    {
+      "check": "Visual fixture contains 80 tide units",
+      "passed": true
+    },
+    {
+      "check": "All 80 visible at unchanged default camera, four rows, unique positions",
+      "passed": true
+    },
+    {
+      "check": "Visual 80 never changes camera scale or slice",
+      "passed": true
+    },
+    {
+      "check": "Impact feedback ends before 0.8s; camera never zooms",
+      "passed": true
+    },
+    {
+      "check": "Door-impact fixture actor remains in simulation",
+      "passed": true
+    },
+    {
+      "check": "F5 keyboard starts actual empty trial",
+      "passed": true
+    },
+    {
+      "check": "Measured empty path is within 45-70s: 47.183",
+      "passed": true
+    },
+    {
+      "check": "Empty trial has one 2.2-speed G01, no attacks and no blocking structures",
+      "passed": true
+    },
+    {
+      "check": "No exact-position stacking during preset_empty_path",
+      "passed": true
+    },
+    {
+      "check": "No ghost teleports during preset_empty_path",
+      "passed": true
+    },
+    {
+      "check": "Humans remain inside base throughout preset_empty_path",
+      "passed": true
+    },
+    {
+      "check": "Normal G01 never climbs during preset_empty_path",
+      "passed": true
+    },
+    {
+      "check": "F7 opens tide preset controls",
+      "passed": true
+    },
+    {
+      "check": "One-click hold preset restores default defenses and resets timer",
+      "passed": true
+    },
+    {
+      "check": "Hold first body enters room at >=120s and before 10min: 174.867",
+      "passed": true
+    },
+    {
+      "check": "Hold waves include actual G09 climbing before first entry",
+      "passed": true
+    },
+    {
+      "check": "Formal waves create 40-80 source-origin tide units",
+      "passed": true
+    },
+    {
+      "check": "No exact-position stacking during preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "No ghost teleports during preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "Humans remain inside base throughout preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "Normal G01 never climbs during preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "Hold first body enters room at >=120s and before 10min: 178.700",
+      "passed": true
+    },
+    {
+      "check": "Hold waves include actual G09 climbing before first entry",
+      "passed": true
+    },
+    {
+      "check": "Formal waves create 40-80 source-origin tide units",
+      "passed": true
+    },
+    {
+      "check": "No exact-position stacking during preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "No ghost teleports during preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "Humans remain inside base throughout preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "Normal G01 never climbs during preset_hold_g0",
+      "passed": true
+    },
+    {
+      "check": "Hold remains stable at 1x and 2x simulation deltas",
+      "passed": true
+    }
+  ],
+  "screenshots": [],
+  "timings": [
+    {
+      "arrived_by": "G01",
+      "delta": 0.0166666666666667,
+      "milestones": [
+        {
+          "floor": 0,
+          "kind": "register_entry",
+          "position": [
+            8303.9775390625,
+            700.0
+          ],
+          "time": 47.1833333333319,
+          "unit": "G01"
+        }
+      ],
+      "preset": "preset_empty_path",
+      "seconds": 47.1833333333319,
+      "spawned": 1,
+      "surviving": 1
+    },
+    {
+      "arrived_by": "G01",
+      "delta": 0.0166666666666667,
+      "milestones": [
+        {
+          "detail": "door_outer",
+          "kind": "door_break",
+          "time": 56.2166666666648
+        },
+        {
+          "detail": "outer_a",
+          "kind": "obstacle_break",
+          "time": 69.0499999999974
+        },
+        {
+          "detail": "door_inner",
+          "kind": "door_break",
+          "time": 104.749999999995
+        },
+        {
+          "detail": "inner_a",
+          "kind": "obstacle_break",
+          "time": 118.483333333328
+        },
+        {
+          "detail": "door_hall",
+          "kind": "door_break",
+          "time": 145.200000000008
+        },
+        {
+          "detail": "hall_a",
+          "kind": "obstacle_break",
+          "time": 156.200000000016
+        },
+        {
+          "detail": "G09_tide_429",
+          "kind": "climb_start",
+          "time": 162.816666666688
+        },
+        {
+          "detail": "G09_tide_428",
+          "kind": "climb_start",
+          "time": 164.26666666669
+        },
+        {
+          "detail": "G09_tide_447",
+          "kind": "climb_start",
+          "time": 165.083333333357
+        },
+        {
+          "detail": "G09_tide_429",
+          "kind": "upper_entry",
+          "time": 165.433333333357
+        },
+        {
+          "detail": "G09_tide_448",
+          "kind": "climb_start",
+          "time": 166.816666666692
+        },
+        {
+          "detail": "G09_tide_428",
+          "kind": "upper_entry",
+          "time": 166.883333333358
+        },
+        {
+          "detail": "G09_tide_447",
+          "kind": "upper_entry",
+          "time": 167.700000000026
+        },
+        {
+          "detail": "G09_tide_448",
+          "kind": "upper_entry",
+          "time": 169.43333333336
+        },
+        {
+          "detail": "door_register",
+          "kind": "door_break",
+          "time": 174.650000000031
+        },
+        {
+          "floor": 0,
+          "kind": "register_entry",
+          "position": [
+            8302.6123046875,
+            700.0
+          ],
+          "time": 174.866666666698,
+          "unit": "G01"
+        }
+      ],
+      "preset": "preset_hold_g0",
+      "seconds": 174.866666666698,
+      "spawned": 78,
+      "surviving": 71
+    },
+    {
+      "arrived_by": "G01",
+      "delta": 0.0333333333333333,
+      "milestones": [
+        {
+          "detail": "door_outer",
+          "kind": "door_break",
+          "time": 57.266666666666
+        },
+        {
+          "detail": "outer_a",
+          "kind": "obstacle_break",
+          "time": 70.3999999999986
+        },
+        {
+          "detail": "door_inner",
+          "kind": "door_break",
+          "time": 106.999999999996
+        },
+        {
+          "detail": "inner_a",
+          "kind": "obstacle_break",
+          "time": 121.066666666662
+        },
+        {
+          "detail": "door_hall",
+          "kind": "door_break",
+          "time": 148.466666666661
+        },
+        {
+          "detail": "hall_a",
+          "kind": "obstacle_break",
+          "time": 159.799999999994
+        },
+        {
+          "detail": "G09_tide_512",
+          "kind": "climb_start",
+          "time": 166.733333333326
+        },
+        {
+          "detail": "G09_tide_511",
+          "kind": "climb_start",
+          "time": 167.833333333326
+        },
+        {
+          "detail": "G09_tide_530",
+          "kind": "climb_start",
+          "time": 169.033333333326
+        },
+        {
+          "detail": "G09_tide_512",
+          "kind": "upper_entry",
+          "time": 169.36666666666
+        },
+        {
+          "detail": "G09_tide_511",
+          "kind": "upper_entry",
+          "time": 170.46666666666
+        },
+        {
+          "detail": "G09_tide_531",
+          "kind": "climb_start",
+          "time": 170.86666666666
+        },
+        {
+          "detail": "G09_tide_530",
+          "kind": "upper_entry",
+          "time": 171.666666666659
+        },
+        {
+          "detail": "G09_tide_531",
+          "kind": "upper_entry",
+          "time": 173.499999999993
+        },
+        {
+          "detail": "door_register",
+          "kind": "door_break",
+          "time": 178.499999999992
+        },
+        {
+          "floor": 0,
+          "kind": "register_entry",
+          "position": [
+            8302.6630859375,
+            700.0
+          ],
+          "time": 178.699999999992,
+          "unit": "G01"
+        }
+      ],
+      "preset": "preset_hold_g0",
+      "seconds": 178.699999999992,
+      "spawned": 78,
+      "surviving": 72
+    }
+  ]
+}

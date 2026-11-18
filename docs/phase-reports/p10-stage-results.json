@@ -1,0 +1,615 @@
+{
+  "checks": 57,
+  "display": "macOS",
+  "engine": "4.7.2-stable (official)",
+  "failures": 0,
+  "observations": {
+    "acceptance_night": {
+      "carried_human_count": 3,
+      "first_outcome": "victory",
+      "profile": "R01",
+      "scope": "Two real combats in one NightRun with legal starting roster and shortened timers. The second probe ends after the target effects.",
+      "seed": "验收夜·门裂梁鸣",
+      "visited": [
+        "n01",
+        "n02",
+        "n03"
+      ]
+    },
+    "b01": {
+      "boss": "G12",
+      "critical_door_at_start": 39.0,
+      "events": [
+        {
+          "detail": "door_hall",
+          "kind": "roster_gate_transferred",
+          "time": 4.83333333333332,
+          "unit": "H09_10"
+        },
+        {
+          "detail": "door_hall",
+          "kind": "roster_gate_transferred",
+          "time": 4.98333333333332,
+          "unit": "H09_10"
+        },
+        {
+          "detail": "door_hall",
+          "kind": "roster_gate_transferred",
+          "time": 5.16666666666665,
+          "unit": "H09_10"
+        },
+        {
+          "detail": "door_hall",
+          "kind": "roster_gate_transferred",
+          "time": 5.34999999999999,
+          "unit": "H09_10"
+        },
+        {
+          "detail": "door_hall",
+          "kind": "roster_gate_transferred",
+          "time": 5.93333333333332,
+          "unit": "H09_10"
+        },
+        {
+          "detail": "door_hall",
+          "kind": "roster_gate_transferred",
+          "time": 6.08333333333332,
+          "unit": "H09_10"
+        },
+        {
+          "detail": "door_hall",
+          "kind": "roster_gate_transferred",
+          "time": 6.26666666666665,
+          "unit": "H09_10"
+        },
+        {
+          "detail": "door_hall",
+          "kind": "p10_tide_flood",
+          "time": 12.2333333333335,
+          "unit": "G01_tide_25"
+        }
+      ],
+      "first_breach": {
+        "door": "door_hall",
+        "time": 7.03333333333331
+      },
+      "milestones": [
+        {
+          "detail": "door_hall",
+          "kind": "door_break",
+          "time": 7.03333333333331
+        }
+      ],
+      "ram_damage": 40.0
+    },
+    "b02": {
+      "events": [
+        {
+          "detail": "gallery",
+          "kind": "p10_upper_lost",
+          "time": 10.6166666666668,
+          "unit": "G09_tide_13"
+        },
+        {
+          "detail": "gallery",
+          "kind": "p10_upper_lost",
+          "time": 24.1333333333332,
+          "unit": "G09_tide_13"
+        },
+        {
+          "detail": "G09_tide_13",
+          "kind": "channel_complete",
+          "time": 29.3833333333329,
+          "unit": "H01_12"
+        }
+      ],
+      "milestones": [
+        {
+          "detail": "G09_tide_13",
+          "kind": "upper_entry",
+          "time": 2.61666666666666
+        },
+        {
+          "detail": "G09_tide_23",
+          "kind": "upper_entry",
+          "time": 11.6166666666668
+        },
+        {
+          "detail": "G09_tide_26",
+          "kind": "upper_entry",
+          "time": 20.6166666666668
+        },
+        {
+          "detail": "G09_tide_13",
+          "kind": "landed",
+          "time": 25.3666666666665
+        },
+        {
+          "detail": "G09_tide_23",
+          "kind": "landed",
+          "time": 25.6333333333332
+        },
+        {
+          "detail": "G09_tide_13",
+          "kind": "purified",
+          "time": 29.3833333333329
+        }
+      ],
+      "names_after_completion": 11.3508333333333,
+      "names_at_reading_start": 11.5566666666667,
+      "names_before_completion": 10.1566666666667,
+      "reader_status": "P4_RITUAL_COMPLETED",
+      "reading_credit": [
+        {
+          "action": "ritual_completed",
+          "detail": "G09_tide_13",
+          "incense": 13.1319999999988,
+          "incense_delta": 3.0,
+          "names": 11.3566666666667,
+          "names_delta": 1.0,
+          "time": 29.3833333333329
+        }
+      ]
+    },
+    "b03": {
+      "boss_hp": 130.0,
+      "boss_position_x": 9264.0,
+      "codex_stage": 3,
+      "events": [
+        {
+          "detail": "G32_tide_22",
+          "kind": "channel_complete",
+          "time": 4.01666666666666,
+          "unit": "H01_20"
+        },
+        {
+          "detail": "H01_20",
+          "kind": "roster_naming_window",
+          "time": 4.01666666666666,
+          "unit": "G32_tide_22"
+        },
+        {
+          "detail": "G32_tide_22",
+          "kind": "channel_complete",
+          "time": 8.03333333333331,
+          "unit": "H01_20"
+        }
+      ],
+      "milestones": [
+        {
+          "detail": "G32_tide_22",
+          "kind": "purified",
+          "time": 8.03333333333331
+        }
+      ],
+      "naming_threshold": 6.0,
+      "reader_position_x": 9316.0,
+      "reader_status": "P4_RITUAL_COMPLETED",
+      "starting_names": 12.0
+    },
+    "modifiers": {
+      "active": [
+        "N01",
+        "N02",
+        "N03"
+      ],
+      "actual_restore": 1.1,
+      "normal_restore": 2.0,
+      "side_max_durability": 665.0,
+      "silent_ink_loss_4s": 0.0999999999999091,
+      "starting_side_durability": 186.2,
+      "watch_events": [
+        {
+          "detail": "",
+          "kind": "roster_blank_page",
+          "time": 3.99999999999999,
+          "unit": "G26_tide_22"
+        },
+        {
+          "detail": "H01_19",
+          "kind": "p10_reader_watched",
+          "time": 3.99999999999999,
+          "unit": "G26_tide_22"
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "label": "Probe uses the disposable profile before loading any scene",
+      "ok": true
+    },
+    {
+      "label": "Actual Boot catalogs validate",
+      "ok": true
+    },
+    {
+      "label": "Read three authored stage files and three modifier rows",
+      "ok": true
+    },
+    {
+      "label": "Reject unknown boss and unknown or duplicate modifiers",
+      "ok": true
+    },
+    {
+      "label": "Begin one P10 R01 acceptance night",
+      "ok": true
+    },
+    {
+      "label": "First live combat opens B01 from the NightRun",
+      "ok": true
+    },
+    {
+      "label": "B01 starts with a real cracked but closed hall door",
+      "ok": true
+    },
+    {
+      "label": "B01 starts a real G12 in the hall",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 01-b01-opening",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 01-b01-opening",
+      "ok": true
+    },
+    {
+      "label": "B01 pays for Iron Shoulder while an actual rammer approaches the critical door",
+      "ok": true
+    },
+    {
+      "label": "Iron Shoulder intercepts a real ram strike that would otherwise break the door",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 02-k8-iron-shoulder",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 02-k8-iron-shoulder",
+      "ok": true
+    },
+    {
+      "label": "B01 shared structure damage breaks the door after the defense",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 03-k8-gate-fragments",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 03-k8-gate-fragments",
+      "ok": true
+    },
+    {
+      "label": "At least two real tide units cross the opened hall door",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 04-k8-tide-through-gate",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 04-k8-tide-through-gate",
+      "ok": true
+    },
+    {
+      "label": "First battle settles through the real NightRun into its three-choice reward",
+      "ok": true
+    },
+    {
+      "label": "The same seeded night accepts one reward and continues through its market",
+      "ok": true
+    },
+    {
+      "label": "The same NightRun opens real B02 with the carried roster",
+      "ok": true
+    },
+    {
+      "label": "The B02 G09 reaches the gallery by advancing the actual climb route",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 05-k8-rope-pounce",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 05-k8-rope-pounce",
+      "ok": true
+    },
+    {
+      "label": "Leaving the gallery unstaffed activates the B02 failure line and drains actual register names",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 06-b02-upper-line-lost",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 06-b02-upper-line-lost",
+      "ok": true
+    },
+    {
+      "label": "The attacking climber lands on the ground route, and a protected indoor reader starts a paid ritual",
+      "ok": true
+    },
+    {
+      "label": "The same B02 combat purifies a real elite and visibly raises names on the completion step",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 07-k8-send-off-register-relit",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 07-k8-send-off-register-relit",
+      "ok": true
+    },
+    {
+      "label": "B03 loads its actual chunk composition and stage",
+      "ok": true
+    },
+    {
+      "label": "B03 spawns G32 with source health and the authored roster ability",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 08-b03-ink-at-the-register",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 08-b03-ink-at-the-register",
+      "ok": true
+    },
+    {
+      "label": "Protected B03 reader can start a paid reading at the register",
+      "ok": true
+    },
+    {
+      "label": "High names and protected reading open G32's genuine naming window",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 09-b03-naming-window",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 09-b03-naming-window",
+      "ok": true
+    },
+    {
+      "label": "Second protected reading actually writes G32 back to the register",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 10-b03-returned-to-register",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 10-b03-returned-to-register",
+      "ok": true
+    },
+    {
+      "label": "All three modifiers can coexist on the same live battle",
+      "ok": true
+    },
+    {
+      "label": "C02 is required and weighted; its real side door is already cracked but closed",
+      "ok": true
+    },
+    {
+      "label": "Ink drains the live register against a quiet no-contact control",
+      "ok": true
+    },
+    {
+      "label": "Paid H02 recovery uses the real reduced restoration factor",
+      "ok": true
+    },
+    {
+      "label": "HUD explicitly lists all stacked modifiers",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 11-all-three-modifiers",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 11-all-three-modifiers",
+      "ok": true
+    },
+    {
+      "label": "Stage snapshot survives ordinary JSON numeric decoding",
+      "ok": true
+    },
+    {
+      "label": "Battle snapshot restores stage, timers, active modifiers and actual door state",
+      "ok": true
+    },
+    {
+      "label": "A seeded N03 paid read causes the nearby actual G26 to cast its blank field on the reader",
+      "ok": true
+    },
+    {
+      "label": "Native frame written for 12-watched-reader",
+      "ok": true
+    },
+    {
+      "label": "Actual camera remains unit scale at 12-watched-reader",
+      "ok": true
+    },
+    {
+      "label": "Leaving live combat clears the stage overlay and rebases recovery before a new match",
+      "ok": true
+    }
+  ],
+  "screenshots": {
+    "01-b01-opening": {
+      "camera_left": 6080.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/01-b01-opening.png",
+      "height": 1080,
+      "hud_event": "",
+      "hud_modifiers": "",
+      "hud_pressure": "殿门已危 · 身后的门厅有力士",
+      "hud_title": "正殿失守",
+      "sha256": "496b7ed777cd27d95e2224266e248233aa6ba32b5cbbf6fe69e81e0bd9ccd830",
+      "time": 0.0,
+      "width": 1920
+    },
+    "02-k8-iron-shoulder": {
+      "camera_left": 6080.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/02-k8-iron-shoulder.png",
+      "height": 1080,
+      "hud_event": "铁肩替殿门扛下重击",
+      "hud_modifiers": "",
+      "hud_pressure": "殿门已危 · 身后的门厅有力士",
+      "hud_title": "正殿失守",
+      "sha256": "a296f26e0e238302aef34bf02e22baa725daeb5842240dfa4d62c86fe04c2ebe",
+      "time": 4.83333333333332,
+      "width": 1920
+    },
+    "03-k8-gate-fragments": {
+      "camera_left": 6080.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/03-k8-gate-fragments.png",
+      "height": 1080,
+      "hud_event": "殿门碎裂",
+      "hud_modifiers": "",
+      "hud_pressure": "殿门已破 · 潮正向门厅移动",
+      "hud_title": "正殿失守",
+      "sha256": "4e3868b366004d8617e2eab54312b6374943d2fe3c2f5f6df0bf6cf45a427ccf",
+      "time": 7.28333333333331,
+      "width": 1920
+    },
+    "04-k8-tide-through-gate": {
+      "camera_left": 6080.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/04-k8-tide-through-gate.png",
+      "height": 1080,
+      "hud_event": "潮沿门洞灌入",
+      "hud_modifiers": "",
+      "hud_pressure": "潮已灌入门厅 · 守住楼梯和名册",
+      "hud_title": "正殿失守",
+      "sha256": "69354a9d0425ac6eee765625fdaa3a5f684234ae2448a067d30f412fd2281ee1",
+      "time": 12.2333333333335,
+      "width": 1920
+    },
+    "05-k8-rope-pounce": {
+      "camera_left": 6080.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/05-k8-rope-pounce.png",
+      "height": 1080,
+      "hud_event": "缢鬼扑入上层",
+      "hud_modifiers": "",
+      "hud_pressure": "回廊无守 0.0 / 8.0 秒",
+      "hud_title": "梁上剧场",
+      "sha256": "13c14074801a1c1038e78fa2d6a2649e11728a311b6d367ecf105924ae7704cc",
+      "time": 2.61666666666666,
+      "width": 1920
+    },
+    "06-b02-upper-line-lost": {
+      "camera_left": 6080.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/06-b02-upper-line-lost.png",
+      "height": 1080,
+      "hud_event": "上层无人镇守 · 名册受压",
+      "hud_modifiers": "",
+      "hud_pressure": "回廊失守 · 名册正在失火",
+      "hud_title": "梁上剧场",
+      "sha256": "d814162d9e2bb2de8d47b528692d6e64854ed68c570a4497304c048d320c322d",
+      "time": 10.6166666666668,
+      "width": 1920
+    },
+    "07-k8-send-off-register-relit": {
+      "camera_left": 7680.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/07-k8-send-off-register-relit.png",
+      "height": 1080,
+      "hud_event": "精英送行 · 名册回亮",
+      "hud_modifiers": "",
+      "hud_pressure": "回廊失守 · 名册正在失火",
+      "hud_title": "梁上剧场",
+      "sha256": "df8f564805ea7ffad52a56e3a48936dc4400cf43b6836d5745af5d688abbb229",
+      "time": 29.3833333333329,
+      "width": 1920
+    },
+    "08-b03-ink-at-the-register": {
+      "camera_left": 7680.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/08-b03-ink-at-the-register.png",
+      "height": 1080,
+      "hud_event": "",
+      "hud_modifiers": "",
+      "hud_pressure": "无册进了名册房 · 保住名分并完成点册",
+      "hud_title": "无册渗墨",
+      "sha256": "f72273690b3ee343792f16890b212547abc86817bbf2fa15208a3b5d0e827023",
+      "time": 0.0,
+      "width": 1920
+    },
+    "09-b03-naming-window": {
+      "camera_left": 7680.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/09-b03-naming-window.png",
+      "height": 1080,
+      "hud_event": "点册完成 · 无册露出列名窗口",
+      "hud_modifiers": "",
+      "hud_pressure": "列名窗口 8.0 秒 · 可再次点册",
+      "hud_title": "无册渗墨",
+      "sha256": "f4a0f2b7faecdb97134b80448b9ec21983edda160515b9a22b6d5adbf8ec88ce",
+      "time": 4.01666666666666,
+      "width": 1920
+    },
+    "10-b03-returned-to-register": {
+      "camera_left": 7680.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/10-b03-returned-to-register.png",
+      "height": 1080,
+      "hud_event": "无册 · 列名完成",
+      "hud_modifiers": "",
+      "hud_pressure": "无册已被写回册上",
+      "hud_title": "无册渗墨",
+      "sha256": "172f7285723584634ce2b07d229722bad6a69f0e9b4035baacbdcd0c616f8160",
+      "time": 8.03333333333331,
+      "width": 1920
+    },
+    "11-all-three-modifiers": {
+      "camera_left": 6080.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/11-all-three-modifiers.png",
+      "height": 1080,
+      "hud_event": "",
+      "hud_modifiers": "无册修饰 · 名册渗墨、侧门先裂、超度被盯",
+      "hud_pressure": "",
+      "hud_title": "",
+      "sha256": "ac07be540f432e16d200181828717ad84b78fafe6a8067da7616aee6972fb002",
+      "time": 3.99999999999999,
+      "width": 1920
+    },
+    "12-watched-reader": {
+      "camera_left": 7680.0,
+      "camera_zoom": 1.0,
+      "file": "p10-stage-shots/12-watched-reader.png",
+      "height": 1080,
+      "hud_event": "读条被盯上 · 空白册页",
+      "hud_modifiers": "无册修饰 · 名册渗墨、侧门先裂、超度被盯",
+      "hud_pressure": "",
+      "hud_title": "",
+      "sha256": "bde9834b55894544bcf0762616edb6f870abcb5f3d64e026af4894d08fad7434",
+      "time": 3.99999999999999,
+      "width": 1920
+    }
+  },
+  "source_sha256": {
+    "data/levels/bosses/B01.json": "75d19e96cc6c4ca0381ee9364187f0531dde9566f4807879954e61fead767df0",
+    "data/levels/bosses/B02.json": "8a05d9f1bcb65b32a3adcf29909f343d6ceb80a89cf376dd35b6a176f2979e6b",
+    "data/levels/bosses/B03.json": "802d49c56d789aca88634c0c41847da3c041dbe5693ddf6f53e6fc77c88de3d6",
+    "data/rituals/nameless_modifiers.csv": "0923578dd554a5b3c7ad701437627178901e5b21d078b6908b54aebbcb9a6959",
+    "src/combat/P10Stage.gd": "2b9dc591059331a9d1b1536375bad46dee1f1b899b7409565a831def04b7576d",
+    "src/data/StageOptions.gd": "db7842b6c32875968329d0b140984eb71fd10ab9e56846680dd37e2ff3ebf704",
+    "src/ui/CombatHUD.gd": "1372ea6b3c9e66fc3ad742a3610150faab15ecc140438797bdd09c562803710d",
+    "tests/P10StageSuite.gd": "c683525d6a2e85fc4c9886888f688289bdc985210b0b8a405f45dd219e930ced"
+  }
+}

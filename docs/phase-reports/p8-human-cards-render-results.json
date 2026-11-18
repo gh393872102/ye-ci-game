@@ -1,0 +1,3886 @@
+{
+	"appearance_audit": [
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "foldcap",
+			"high_resolution": true,
+			"id": "H01",
+			"portrait": "res://assets/portraits/p8/H01.png",
+			"sha256": "d40e54027d1e70f42ae38d4659f58247242bb9ea519072052f521f99931cf9c6",
+			"skeleton": "zhu",
+			"weapon": "register_book"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "braid",
+			"high_resolution": true,
+			"id": "H02",
+			"portrait": "res://assets/portraits/p8/H02.png",
+			"sha256": "200a07f3e57e7045e1e85b7931b29681743184b5a9571a7488e35b248a1b1a40",
+			"skeleton": "zhu",
+			"weapon": "ember_bowl"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "tallcap",
+			"high_resolution": true,
+			"id": "H03",
+			"portrait": "res://assets/portraits/p8/H03.png",
+			"sha256": "e161f3e42d17e3cacf75b12594158045ae0004d9617c71584bf6b70b558f1164",
+			"skeleton": "zhu",
+			"weapon": "name_slip"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "elder",
+			"high_resolution": true,
+			"id": "H08",
+			"portrait": "res://assets/portraits/p8/H08.png",
+			"sha256": "78db5cb46330fef89466bd6139eb84862e1ebf46e7b127a4b002c8d2da99481e",
+			"skeleton": "zhu",
+			"weapon": "heavy_ledger"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "topknot",
+			"high_resolution": true,
+			"id": "H10",
+			"portrait": "res://assets/portraits/p8/H10.png",
+			"sha256": "31222e057cbc62c4a5f10718c609a63931a9ba4ebb2d633f08848958743a21a5",
+			"skeleton": "wei",
+			"weapon": "broken_sabre"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "constable",
+			"high_resolution": true,
+			"id": "H12",
+			"portrait": "res://assets/portraits/p8/H12.png",
+			"sha256": "23ede33d2ebf9a59129d76ecb4d4d08786272c9994bb3f84e3d04f3b80747b39",
+			"skeleton": "wei",
+			"weapon": "chain"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "red_knot",
+			"high_resolution": true,
+			"id": "H13",
+			"portrait": "res://assets/portraits/p8/H13.png",
+			"sha256": "aa1a60a912970bb47fd76580279ff3be0e47148f353340ee14a2c6e7d1243000",
+			"skeleton": "wei",
+			"weapon": "axe"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "mourning_hood",
+			"high_resolution": true,
+			"id": "H16",
+			"portrait": "res://assets/portraits/p8/H16.png",
+			"sha256": "e42df8c6f9bcbcc81ea3efb58afb2b526ce6635e46d87e5ddf5eee2426e59579",
+			"skeleton": "wei",
+			"weapon": "mourning_staff"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "ribbons",
+			"high_resolution": true,
+			"id": "H17",
+			"portrait": "res://assets/portraits/p8/H17.png",
+			"sha256": "779bc44cac805a2fa9917ecdeb2bd40b8a07f2cb55bbc99d266ed568e930c353",
+			"skeleton": "fu",
+			"weapon": "seal_paper"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "gold_collar",
+			"high_resolution": true,
+			"id": "H18",
+			"portrait": "res://assets/portraits/p8/H18.png",
+			"sha256": "906a7557bec68f33bff3104fca720eec3ddac65d1b457ca3bbcc4a2b41bb2151",
+			"skeleton": "fu",
+			"weapon": "mirror"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "loose_hair",
+			"high_resolution": true,
+			"id": "H19",
+			"portrait": "res://assets/portraits/p8/H19.png",
+			"sha256": "4975ad49c3d632eb51e453546c02c72ae5e1ae82fbe11db0724678a9569962b8",
+			"skeleton": "fu",
+			"weapon": "cage_lantern"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "crown_knot",
+			"high_resolution": true,
+			"id": "H20",
+			"portrait": "res://assets/portraits/p8/H20.png",
+			"sha256": "8a80a0070f80071e5a01746e83305ebacb3b51683c7198ec36b2de1cf1425f71",
+			"skeleton": "fu",
+			"weapon": "burning_petition"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "rain_hood",
+			"high_resolution": true,
+			"id": "H21",
+			"portrait": "res://assets/portraits/p8/H21.png",
+			"sha256": "ec604ff0ed9bd57371e5cf58a5c1377bc2a24056b2043908c0254b5c171a40a0",
+			"skeleton": "fu",
+			"weapon": "lotus_lamp"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "shaved",
+			"high_resolution": true,
+			"id": "H22",
+			"portrait": "res://assets/portraits/p8/H22.png",
+			"sha256": "c50ffa7bb30eed1564d40c98276b87862c4a6893b1d3ad644cb954cfff9c9b7b",
+			"skeleton": "fu",
+			"weapon": "three_ring_staff"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "crescent",
+			"high_resolution": true,
+			"id": "H23",
+			"portrait": "res://assets/portraits/p8/H23.png",
+			"sha256": "29816eb93a9ae330bd6489e2fa2d8612aae97bcbca92445bbcb004f006121ed5",
+			"skeleton": "fu",
+			"weapon": "almanac"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "short_cut",
+			"high_resolution": true,
+			"id": "H24",
+			"portrait": "res://assets/portraits/p8/H24.png",
+			"sha256": "495244f551cbd14dd358289c75a4fc677499c8f47597eef88af4474ba976bac0",
+			"skeleton": "fu",
+			"weapon": "needles"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "work_cap",
+			"high_resolution": true,
+			"id": "H25",
+			"portrait": "res://assets/portraits/p8/H25.png",
+			"sha256": "790ec79f70b00c71bff5ad54d651282899b6b7b528257a8fbe0206887d61f170",
+			"skeleton": "jiang",
+			"weapon": "mortise_mallet"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "goggles",
+			"high_resolution": true,
+			"id": "H26",
+			"portrait": "res://assets/portraits/p8/H26.png",
+			"sha256": "b086acc7f80e37f184028c377d556069819f97f9aa81a968f48b40edd3ff6000",
+			"skeleton": "jiang",
+			"weapon": "firecrackers"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "feather_hood",
+			"high_resolution": true,
+			"id": "H27",
+			"portrait": "res://assets/portraits/p8/H27.png",
+			"sha256": "2b72d463691ac8b55bafb1d16a6849a0ff409dca763a11580f91e0117f1090ff",
+			"skeleton": "jiang",
+			"weapon": "crow"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "blindfold",
+			"high_resolution": true,
+			"id": "H29",
+			"portrait": "res://assets/portraits/p8/H29.png",
+			"sha256": "24a57b5bde54fc415a1715bcef4cd2c0a3f7b3b053959faca37930432c08224f",
+			"skeleton": "jiang",
+			"weapon": "bowed_strings"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "artisan_braid",
+			"high_resolution": true,
+			"id": "H32",
+			"portrait": "res://assets/portraits/p8/H32.png",
+			"sha256": "4f53aad596bd43f1788f79caa4b5a670b03a56dc83eb5a910517c8ca6704343f",
+			"skeleton": "jiang",
+			"weapon": "mask_tools"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "short_hair",
+			"high_resolution": true,
+			"id": "H04",
+			"portrait": "res://assets/portraits/p8/H04.png",
+			"sha256": "807b14c5c2f926903de0f6277bd3dccdd50fa8b90b5f2c1583fe0bb19a297c41",
+			"skeleton": "tong",
+			"weapon": "ash_cups"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "headband",
+			"high_resolution": true,
+			"id": "H07",
+			"portrait": "res://assets/portraits/p8/H07.png",
+			"sha256": "8adf2c1997f5c09832474d49790d99e310dd5ffbbe68dbd46cfb4d2dce65e36a",
+			"skeleton": "tong",
+			"weapon": "watch_clapper"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "paper_hood",
+			"high_resolution": true,
+			"id": "H30",
+			"portrait": "res://assets/portraits/p8/H30.png",
+			"sha256": "571bce10f2bd4fd4065a8c03fec218e04d259171e295dd07d05895d7cfad9a55",
+			"skeleton": "tong",
+			"weapon": "name_tablet"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "traveler_hood",
+			"high_resolution": true,
+			"id": "H31",
+			"portrait": "res://assets/portraits/p8/H31.png",
+			"sha256": "fa775e36a3333d60c30de3c3436aca6fd3793d00be373603dcd6270ebfd2d822",
+			"skeleton": "ke",
+			"weapon": "hunting_blade"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "soft_hat",
+			"high_resolution": true,
+			"id": "H28",
+			"portrait": "res://assets/portraits/p8/H28.png",
+			"sha256": "69d1faf69ddb6d116a2becb7168c5da9355b74ba5c983c906658203a2d15ac5e",
+			"skeleton": "ke",
+			"weapon": "market_pole"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "iron_helmet",
+			"high_resolution": true,
+			"id": "H09",
+			"portrait": "res://assets/portraits/p8/H09.png",
+			"sha256": "a6fffbbdc10adb6599655eff31a51a426f5340e0fb0663195417e82990eabe8d",
+			"skeleton": "dun",
+			"weapon": "door_shield"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "headscarf",
+			"high_resolution": true,
+			"id": "H11",
+			"portrait": "res://assets/portraits/p8/H11.png",
+			"sha256": "88703fc3748a2c5e6562f01bffe202de0bbbfd9cec423eb202b57f68c2192b7e",
+			"skeleton": "dun",
+			"weapon": "masonry"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "round_helmet",
+			"high_resolution": true,
+			"id": "H14",
+			"portrait": "res://assets/portraits/p8/H14.png",
+			"sha256": "92f197d8a822b9e807c66d1b55c2d84bf5c266589ecf90b3d3bdf5b51db50aa0",
+			"skeleton": "dun",
+			"weapon": "gong"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "mouthcloth",
+			"high_resolution": true,
+			"id": "H05",
+			"portrait": "res://assets/portraits/p8/H05.png",
+			"sha256": "c1aebad5e10efbcd206f1b2b076f4a45064bdad17b4c3325c5cddce357d5d2f8",
+			"skeleton": "you",
+			"weapon": "mute_talisman"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "hairpin",
+			"high_resolution": true,
+			"id": "H06",
+			"portrait": "res://assets/portraits/p8/H06.png",
+			"sha256": "5fb6af40cd7f49161f9db84892bff650607d060a89765fcfcf51991c3926a918",
+			"skeleton": "you",
+			"weapon": "blue_lantern"
+		},
+		{
+			"dimensions": [
+				1024,
+				1536
+			],
+			"family": "human",
+			"headgear": "white_band",
+			"high_resolution": true,
+			"id": "H15",
+			"portrait": "res://assets/portraits/p8/H15.png",
+			"sha256": "fa8756c3897b166de8bf98e1cf1f4e0abe7ab1ada48bee71774a454b7e98c83d",
+			"skeleton": "you",
+			"weapon": "tile_hook"
+		}
+	],
+	"archive_directory": "/tmp/ye-ci-p8-acceptance-render-archives",
+	"capture": true,
+	"cards": [
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H01",
+			"text": "晚  ·  H01\n职分：守香司  /  定位：值夜指挥\n生命 70 / 70   攻击 8   防御 8   速度 10\n专属技能 · 香耗 4\n点册：指定一只鬼进入超度/收编读条，并短暂暴露隐形\n特性\n青灯眷顾：场上有青灯或灯骨时，点册加快\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：香火 / 超度 / 名面\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H02",
+			"text": "祝禧  ·  H02\n职分：守香司  /  定位：回复\n生命 65 / 65   攻击 6   防御 9   速度 7\n专属技能 · 香耗 5\n复火：立刻给名册或一名人物恢复香火\n特性\n余烬：自身阵亡前把剩余香火还回名册\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：香火\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H03",
+			"text": "青笺  ·  H03\n职分：守香司  /  定位：抗抹除\n生命 60 / 60   攻击 6   防御 7   速度 9\n专属技能 · 香耗 5\n点名：令一名友军本场暂时有名，免疫一次抹名\n特性\n册香：每次成功超度，为名册补少量名分\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：名面 / 超度\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H04",
+			"text": "烬  ·  H04\n职分：守香司  /  定位：早期经济\n生命 45 / 45   攻击 4   防御 5   速度 11\n专属技能 · 香耗 2\n分香：把自身香火分给相邻友军\n特性\n稚肩：体弱，但在名册房内操作加快\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：香火\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H05",
+			"text": "寥  ·  H05\n职分：守香司  /  定位：反仪式\n生命 58 / 58   攻击 5   防御 8   速度 8\n专属技能 · 香耗 6\n禁声阵：区域内敌我大声技能失效\n特性\n无口：不能被魅惑或问话类技能改变阵营\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：符 / 超度\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H06",
+			"text": "霜盏  ·  H06\n职分：守香司  /  定位：揭示\n生命 62 / 62   攻击 7   防御 7   速度 9\n专属技能 · 香耗 5\n青灯领域：驱散区域内隐形，并对无面造成恐惧\n特性\n灯冷：对火类科仪不免疫，对暗处加成\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：灯 / 名面\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H07",
+			"text": "阿卯  ·  H07\n职分：守香司  /  定位：支援警戒\n生命 68 / 68   攻击 7   防御 8   速度 10\n专属技能 · 香耗 3\n敲更：唤醒眩晕友军，并短时揭示周围\n特性\n值夜：二倍速下仍按正常节奏警戒\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：灯 / 机关\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H08",
+			"text": "沈册  ·  H08\n职分：守香司  /  定位：名册看守\n生命 80 / 80   攻击 5   防御 12   速度 5\n专属技能 · 香耗 5\n护册：短时间内名册受到的抽取大幅降低\n特性\n同烬：名册伤越重，沈册防御越高，移动越慢\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：名面 / 香火\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H09",
+			"text": "铁肩  ·  H09\n职分：武卫司  /  定位：门卫\n生命 110 / 110   攻击 10   防御 16   速度 5\n专属技能 · 香耗 4\n扛门：贴门时把门耐久暂时算在自己身上\n特性\n门仆：离开门口后技能冷却加长\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：破门 / 金\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H10",
+			"text": "断刃  ·  H10\n职分：武卫司  /  定位：单体高伤\n生命 75 / 75   攻击 18   防御 6   速度 12\n专属技能 · 香耗 3\n决斩：对残血精英必做一次重创\n特性\n孤刀：身旁没有友军时攻击提高，被集火更脆\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：金\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H11",
+			"text": "石婆  ·  H11\n职分：武卫司  /  定位：筑垒\n生命 95 / 95   攻击 8   防御 15   速度 4\n专属技能 · 香耗 5\n土垒：在指定地面抬起一截短墙，可被力士砸坏\n特性\n根深：站定越久防御越高，一移动就清零\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：机关 / 破门\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H12",
+			"text": "巡夜  ·  H12\n职分：武卫司  /  定位：控制\n生命 80 / 80   攻击 12   防御 10   速度 10\n专属技能 · 香耗 4\n锁链：拉住一个单位，禁止上楼或遁水\n特性\n官差：对腐差、仪仗类单位伤害提高\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：金 / 符\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H13",
+			"text": "赤钺  ·  H13\n职分：武卫司  /  定位：斩杀\n生命 85 / 85   攻击 16   防御 8   速度 9\n专属技能 · 香耗 3\n行刑：瞬斩一只残血野鬼，不走超度\n特性\n血腥账面：若斩杀的是可超度目标，失去名分\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：金\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H14",
+			"text": "铜锣  ·  H14\n职分：武卫司  /  定位：盾卫\n生命 120 / 120   攻击 8   防御 14   速度 5\n专属技能 · 香耗 5\n鸣锣：强制附近敌方转来打自己，并造成短暂眩晕\n特性\n禁声夜弱化：禁声科仪中改为无眩晕的纯粹嘲讽\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：哭 / 金\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H15",
+			"text": "白脚  ·  H15\n职分：武卫司  /  定位：机动支援\n生命 60 / 60   攻击 11   防御 6   速度 14\n专属技能 · 香耗 3\n飞瓦：快速换层或换路，落到指定友军旁\n特性\n轻身：血少，但不吃部分地面减速\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：上楼 / 机关\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H16",
+			"text": "丧杖  ·  H16\n职分：武卫司  /  定位：克鬼\n生命 90 / 90   攻击 14   防御 10   速度 8\n专属技能 · 香耗 4\n开路杖：对鬼物额外伤害，并短时降低其防御\n特性\n生人勿近：友军人物在其身旁回复降低\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：金 / 超度\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H17",
+			"text": "朱砂  ·  H17\n职分：符法司  /  定位：封路\n生命 55 / 55   攻击 7   防御 7   速度 8\n专属技能 · 香耗 6\n封门符：暂时锁死一扇门或一道缺口的破坏\n特性\n朱痕：符被打破时对破门者反伤\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：符 / 破门\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H18",
+			"text": "冷金  ·  H18\n职分：符法司  /  定位：反术\n生命 52 / 52   攻击 6   防御 6   速度 9\n专属技能 · 香耗 6\n金镜：反射下一次指向性邪术，并现形施术者\n特性\n冷面：对魅惑抗性高，对物理更脆\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：金 / 符\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H19",
+			"text": "问灯  ·  H19\n职分：符法司  /  定位：高风险收编\n生命 58 / 58   攻击 7   防御 6   速度 9\n专属技能 · 香耗 7\n借鬼：短时收编一只野鬼为灰色友军\n特性\n反噬：若该鬼在借期被无册触及，问灯自身会被错录\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：灯 / 超度 / 无册\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H20",
+			"text": "焚词  ·  H20\n职分：符法司  /  定位：范围\n生命 54 / 54   攻击 13   防御 5   速度 8\n专属技能 · 香耗 7\n烧疏：对一片区域造成香火灼伤，并打断读条\n特性\n耗香：每次施放额外烧掉一截全局香火\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：香火 / 符\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H21",
+			"text": "河灯  ·  H21\n职分：符法司  /  定位：水巷特化\n生命 56 / 56   攻击 8   防御 6   速度 9\n专属技能 · 香耗 5\n放河灯：水面上的敌方减速并暴露，可超度加快\n特性\n旱弱：不在水巷时技能威力下降\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：水巷 / 灯 / 超度\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H22",
+			"text": "三戒  ·  H22\n职分：符法司  /  定位：驱散\n生命 64 / 64   攻击 9   防御 8   速度 8\n专属技能 · 香耗 5\n破执：驱散一个单位的增益或伪神状态\n特性\n戒余：对祠神与空位神伤害提高\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：超度 / 符\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H23",
+			"text": "月讳  ·  H23\n职分：符法司  /  定位：干扰\n生命 50 / 50   攻击 6   防御 6   速度 10\n专属技能 · 香耗 6\n错名：使一个敌人下一次技能施放失败或打偏\n特性\n讳册：自身名字被抹时，改为随机传给一名友军\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：名面 / 无册\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H24",
+			"text": "骨针  ·  H24\n职分：符法司  /  定位：点穴稳定\n生命 58 / 58   攻击 8   防御 7   速度 10\n专属技能 · 香耗 5\n点穴：眩晕一个单位，或稳住一个即将溃散的魂\n特性\n针脚：对大形单位效果缩短，对童亡、影步效果加长\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：符 / 名面\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H25",
+			"text": "榫卯  ·  H25\n职分：奇人司  /  定位：机关\n生命 70 / 70   攻击 7   防御 10   速度 8\n专属技能 · 香耗 5\n拒马：在地面或梁上放置可阻挡上楼/冲锋的障碍\n特性\n巧手：修门和修墙花费更低\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：机关 / 上楼\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "H26",
+			"text": "硝青  ·  H26\n职分：奇人司  /  定位：控场\n生命 60 / 60   攻击 9   防御 6   速度 9\n专属技能 · 香耗 6\n爆竹：驱散一小片潮，造成短暂溃散而非高伤\n特性\n祭灶亲：祭灶夜里不误伤友军\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：符 / 香火\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H27",
+			"text": "饲鸦  ·  H27\n职分：奇人司  /  定位：视野\n生命 55 / 55   攻击 7   防御 5   速度 11\n专属技能 · 香耗 4\n放鸦：揭示一条路径上的隐形，并啄扰读条\n特性\n夜眼：在灯灭区域仍保持少量视野\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：灯 / 机关\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "H28",
+			"text": "赊灯  ·  H28\n职分：奇人司  /  定位：夜市枢纽\n生命 50 / 50   攻击 4   防御 5   速度 10\n专属技能 · 香耗 3\n挂账：本场可打开一次个人夜市，刷新一件香器\n特性\n胆小：门破后优先后撤，不能派去扛门\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：香火 / 灯\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "H29",
+			"text": "盲弦  ·  H29\n职分：奇人司  /  定位：走位控制\n生命 57 / 57   攻击 6   防御 6   速度 8\n专属技能 · 香耗 5\n一曲：吸引或推开一条路上的单位\n特性\n以耳代目：无视隐形，但视野很短\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：哭 / 符\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "H30",
+			"text": "寄名童  ·  H30\n职分：奇人司  /  定位：替名\n生命 40 / 40   攻击 3   防御 4   速度 11\n专属技能 · 香耗 0\n替死名：消耗自身，替一名友军或名册抵消一次抹名\n特性\n寄命：开场名分+1，自身被超度类效果瞄到会更危险\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：名面 / 无册\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "H31",
+			"text": "归客  ·  H31\n职分：奇人司  /  定位：猎精英\n生命 78 / 78   攻击 15   防御 7   速度 12\n专属技能 · 香耗 4\n猎步：对标记过的精英造成一次穿越路径的打击\n特性\n客籍：不享受祠内香火回复，自身输出较高\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：金 / 灯\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": true,
+			"id": "H32",
+			"text": "面匠  ·  H32\n职分：奇人司  /  定位：防夺面\n生命 66 / 66   攻击 7   防御 8   速度 8\n专属技能 · 香耗 5\n暂面：给一个单位戴上冷金面具，免疫一次夺面或恐惧\n特性\n开面亲：开面夜里暂面可同时小幅恢复名分\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：名面 / 金\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "T01",
+			"text": "乡勇  ·  T01\n职分：无名杂兵 · 模板卡（无立绘）  /  定位：近战\n生命 45 / 45   攻击 7   防御 6   速度 8\n专属技能 · 香耗 0\n无主动技能\n特性\n无具名特性\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "T02",
+			"text": "弩手  ·  T02\n职分：无名杂兵 · 模板卡（无立绘）  /  定位：远射\n生命 38 / 38   攻击 9   防御 4   速度 8\n专属技能 · 香耗 0\n无主动技能\n特性\n无具名特性\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "T03",
+			"text": "祠役  ·  T03\n职分：无名杂兵 · 模板卡（无立绘）  /  定位：杂役\n生命 36 / 36   攻击 5   防御 5   速度 8\n专属技能 · 香耗 0\n无主动技能\n特性\n无具名特性\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：\n岗位：名册房  /  楼层 0  /  守岗"
+		},
+		{
+			"complete": true,
+			"has_portrait": false,
+			"id": "T04",
+			"text": "更卒  ·  T04\n职分：无名杂兵 · 模板卡（无立绘）  /  定位：警戒\n生命 40 / 40   攻击 6   防御 5   速度 8\n专属技能 · 香耗 0\n无主动技能\n特性\n无具名特性\n今夜装备\n香器：空槽\n技艺 1：空槽 / 技艺 2：空槽\n名帖：空槽\n阵营：守香  /  标签：\n岗位：名册房  /  楼层 0  /  守岗"
+		}
+	],
+	"checks": 633,
+	"coverage_status": "partial_integration",
+	"effects": {},
+	"failures": 5,
+	"fixture_policy": "Explicit isolated starting positions/resources. Real Session commands and shared Simulation; these fixtures do not claim an ordinary complete night.",
+	"night_failure": {},
+	"phase": "P8",
+	"results": [
+		{
+			"check": "K1 Boot source catalogs have no validation errors",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 Exact source population is 32 humans, 32 ghosts, four troops",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G01 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G02 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G03 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G04 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G05 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G06 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G07 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G08 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G09 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G10 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G11 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G12 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G13 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G14 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G15 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G16 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G17 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G18 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G19 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G20 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G21 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G22 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G23 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G24 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G25 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G26 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G27 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G28 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G29 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G30 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G31 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 G32 preserves the twelve source tags",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 loads source, base profile and active roster profile",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 has callable skill and trait handlers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K5 Only H25 and H31 declare departure permission",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Four books contain exactly 32 humans, 32 ghosts and 20 censers",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Customs book contains twelve ritual descriptions and block placeholders",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Unseen entries withhold identity artwork and skill text",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Listed afterword cannot skip unresolved stages",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 First encounter unlocks name and line-art stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Successful resolution unlocks full source skill text and color stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Explicit listed interface advances the fourth stage",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Duplicate or lower-stage events never downgrade collected progress",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Unknown unit and empty-seed failure events are rejected",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Failure record is idempotent and keeps explicit source ID",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Isolated codex saves through the actual disk envelope",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Codex disk round trip preserves all four stages and failure attribution",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 0 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 1 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 2 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 3 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K7 Malformed codex case 4 is rejected atomically",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H01 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H01 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H01 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H02 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H02 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H02 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H03 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H03 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H03 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H08 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H08 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H08 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H10 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H10 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H10 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H12 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H12 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H12 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H13 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H13 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H13 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H16 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H16 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H16 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H17 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H17 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H17 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H18 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H18 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H18 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H19 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H19 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H19 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H20 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H20 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H20 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H21 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H21 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H21 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H22 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H22 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H22 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H23 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H23 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H23 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H24 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H24 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H24 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H25 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H25 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H25 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H26 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H26 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H26 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H27 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H27 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H27 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H29 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H29 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H29 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H32 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H32 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H32 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H04 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H04 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H04 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H07 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H07 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H07 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H30 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H30 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H30 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H31 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H31 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H31 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H28 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H28 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H28 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H09 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H09 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H09 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H11 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H11 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H11 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H14 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H14 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H14 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H05 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H05 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H05 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H06 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H06 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H06 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H15 declares its exact source skeleton with headgear and weapon",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4/S1 H15 has an independent high-resolution raster portrait asset",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2 H15 does not reuse another named portrait file",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 H01/H02 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 H10/H16 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 H17/H20 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 H09/H14 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 G04/G09 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 G12/G13 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 G25/G28 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K2/A1 G17/G20 have non-palette shape distinctions within the shared skeleton",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T01 has no fabricated named portrait in appearance data",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T02 has no fabricated named portrait in appearance data",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T03 has no fabricated named portrait in appearance data",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T04 has no fabricated named portrait in appearance data",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 Default unit scale, camera span and world width retain the locked baseline",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H01 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H01 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H01 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H01 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H02 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H02 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H02 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H02 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H03 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H03 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H03 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H03 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H04 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H04 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H04 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H04 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H05 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H05 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H05 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H05 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H06 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H06 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H06 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H06 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H07 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H07 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H07 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H07 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H08 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H08 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H08 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H08 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H09 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H09 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H09 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H09 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H10 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H10 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H10 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H10 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H11 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H11 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H11 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H11 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H12 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H12 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H12 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H12 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H13 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H13 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H13 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H13 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H14 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H14 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H14 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H14 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H15 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H15 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H15 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H15 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H16 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H16 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H16 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H16 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H17 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H17 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H17 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H17 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H18 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H18 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H18 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H18 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H19 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H19 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H19 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H19 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H20 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H20 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H20 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H20 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H21 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H21 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H21 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H21 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H22 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H22 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H22 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H22 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H23 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H23 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H23 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H23 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H24 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H24 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H24 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H24 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H25 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H25 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H25 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H25 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H26 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H26 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H26 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H26 uses a named portrait or a genuine troop template",
+			"passed": false,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H27 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H27 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H27 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H27 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H28 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H28 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H28 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H28 uses a named portrait or a genuine troop template",
+			"passed": false,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H29 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H29 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H29 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H29 uses a named portrait or a genuine troop template",
+			"passed": false,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H30 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H30 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H30 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H30 uses a named portrait or a genuine troop template",
+			"passed": false,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H31 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H31 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H31 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H31 uses a named portrait or a genuine troop template",
+			"passed": false,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 H32 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 H32 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H32 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 H32 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T01 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 T01 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T01 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T01 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T02 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 T02 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T02 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T02 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T03 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 T03 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T03 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T03 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 actually instantiates in shared battle",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 owns serializable runtime ability state",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K1 T04 retains all four authoritative source stats",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K6 T04 retains the locked ordinary or large physical height",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T04 real selection pauses and exposes every complete-card field",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "K4 T04 uses a named portrait or a genuine troop template",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H01 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H01-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H01-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H02 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H02-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H02-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H03 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H03-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H03-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H04 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H04-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H04-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H05 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H05-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H05-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H06 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H06-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H06-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H07 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H07-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H07-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H08 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H08-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H08-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H09 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H09-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H09-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H10 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H10-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H10-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H11 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H11-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H11-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H12 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H12-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H12-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H13 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H13-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H13-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H14 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H14-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H14-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H15 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H15-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H15-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native H01–H16 feedback fixture H16 comes from an actual successful command",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H16-actual-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture skill-H16-actual-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-battle-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-battle-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H01-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H01-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H01-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H01-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H02-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H02-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H02-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H01-H02-card-H02-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-battle-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-battle-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H10-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H10-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H10-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H10-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H16-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H16-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H16-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H10-H16-card-H16-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-battle-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-battle-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H17-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H17-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H17-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H17-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H20-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H20-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H20-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H17-H20-card-H20-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-battle-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-battle-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H09-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H09-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H09-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H09-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H14-1080 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H14-1080 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H14-720 has its stated pixel dimensions",
+			"passed": true,
+			"unit_id": ""
+		},
+		{
+			"check": "Native capture pair-H09-H14-card-H14-720 saves actual rendered viewport",
+			"passed": true,
+			"unit_id": ""
+		}
+	],
+	"rules_hash": "b98842a6c64358364784486412e9bf40844d2335be275aae86f0ffb66e2c6c74",
+	"screenshots": [
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H01-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H02-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H03-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H04-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H05-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H06-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H07-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H08-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H09-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H10-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H11-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H12-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H13-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H14-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H15-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/skill-H16-actual-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H01-H02-battle-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H01-H02-card-H01-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H01-H02-card-H01-720.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H01-H02-card-H02-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H01-H02-card-H02-720.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H10-H16-battle-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H10-H16-card-H10-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H10-H16-card-H10-720.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H10-H16-card-H16-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H10-H16-card-H16-720.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H17-H20-battle-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H17-H20-card-H17-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H17-H20-card-H17-720.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H17-H20-card-H20-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H17-H20-card-H20-720.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H09-H14-battle-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H09-H14-card-H09-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H09-H14-card-H09-720.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H09-H14-card-H14-1080.png",
+		"res://docs/phase-reports/p8-human-cards-shots/pair-H09-H14-card-H14-720.png"
+	],
+	"trajectories": []
+}

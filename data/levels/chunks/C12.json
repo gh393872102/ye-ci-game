@@ -1,0 +1,90 @@
+{
+  "id": "C12",
+  "title": "禁声廊",
+  "scene": "res://data/levels/chunks/C12.tscn",
+  "default_path": [
+    "回廊钟口",
+    "廊门与隔扇",
+    "二楼香案"
+  ],
+  "destructibles": [
+    "door_silent",
+    "silent_screen"
+  ],
+  "upper_access": "廊连二楼楼梯口与后室，能沿主梯及后梯通行。",
+  "failure_line": "廊无单独终局线，失去隔扇后会暴露读条岗位。",
+  "rituals": [
+    "R07",
+    "R08"
+  ],
+  "length_body": 15,
+  "legal_posts": [
+    "post_silent_window"
+  ],
+  "areas": [
+    {
+      "floor_id": 2,
+      "start": 94,
+      "end": 109,
+      "kind": "silence",
+      "sound_radius_multiplier": 1.25
+    }
+  ],
+  "visual": {
+    "floor_id": 2,
+    "start": 94,
+    "end": 109,
+    "motif": "silence"
+  },
+  "layout": {
+    "doors": [
+      {
+        "id": "door_silent",
+        "x": 98.2,
+        "floor_id": 2,
+        "rooms": [
+          "gallery",
+          "stair_landing"
+        ],
+        "max_durability": 370,
+        "open": false
+      }
+    ],
+    "obstacle_slots": [
+      {
+        "id": "silent_screen",
+        "x": 100.5,
+        "floor_id": 2,
+        "width": 0.75,
+        "kind": "silent_screen",
+        "max_durability": 165,
+        "occupied": true,
+        "room_id": "stair_landing",
+        "gap_direction": "rear",
+        "tide_max_durability": 165
+      }
+    ],
+    "posts": [
+      {
+        "id": "post_silent_window",
+        "x": 99.15,
+        "floor_id": 2,
+        "room_id": "stair_landing",
+        "cover_kind": "window",
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "default_deployment": true,
+        "retreat": {
+          "next": "post_stair_head",
+          "doors": [
+            "door_silent"
+          ]
+        }
+      }
+    ]
+  }
+}

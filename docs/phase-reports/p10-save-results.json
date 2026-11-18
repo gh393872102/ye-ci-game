@@ -1,0 +1,70 @@
+{
+	"checks": 16,
+	"failures": 0,
+	"results": [
+		{
+			"check": "Fierce night starts through the actual host",
+			"passed": true
+		},
+		{
+			"check": "Seed opens a real battle with a legal optional side post",
+			"passed": true
+		},
+		{
+			"check": "A valid disk save restores the damaged side gate",
+			"passed": true
+		},
+		{
+			"check": "Healthy battle save loads with a matching checksum",
+			"passed": true
+		},
+		{
+			"check": "Rejects a missing structure in a matching-checksum save without replacing the live battle",
+			"passed": true
+		},
+		{
+			"check": "Rejects a duplicate structure in a matching-checksum save without replacing the live battle",
+			"passed": true
+		},
+		{
+			"check": "Rejects a mistyped structure in a matching-checksum save without replacing the live battle",
+			"passed": true
+		},
+		{
+			"check": "Original isolated save is restored after validation fixtures",
+			"passed": true
+		},
+		{
+			"check": "Official purchase and deployment can use the optional side post",
+			"passed": true
+		},
+		{
+			"check": "A live side-post survivor reaches the normal reward phase",
+			"passed": true
+		},
+		{
+			"check": "The reward-phase disk save preserves the optional home post",
+			"passed": true
+		},
+		{
+			"check": "Actual night reward closes the encounter",
+			"passed": true
+		},
+		{
+			"check": "The authored non-combat stop completes normally",
+			"passed": true
+		},
+		{
+			"check": "Next seeded battle omits the optional side post",
+			"passed": true
+		},
+		{
+			"check": "Carries the same survivor to a real fallback cover while preserving their home post",
+			"passed": true
+		},
+		{
+			"check": "Replay preparation preserves the external decision highlighter",
+			"passed": true
+		}
+	]
+}

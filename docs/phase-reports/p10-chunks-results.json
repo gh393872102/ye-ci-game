@@ -1,0 +1,565 @@
+{
+  "checks": 93,
+  "continuous_seeds": [
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C09",
+        "C10"
+      ],
+      "seed": "4101"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C09",
+        "C11"
+      ],
+      "seed": "4102"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C02",
+        "C05"
+      ],
+      "seed": "4103"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C06",
+        "C08"
+      ],
+      "seed": "4104"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C02",
+        "C05"
+      ],
+      "seed": "4105"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C02",
+        "C09"
+      ],
+      "seed": "4106"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C02",
+        "C09"
+      ],
+      "seed": "4107"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C02",
+        "C08"
+      ],
+      "seed": "4108"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C05",
+        "C11"
+      ],
+      "seed": "4109"
+    },
+    {
+      "attempts": 1,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C09",
+        "C12"
+      ],
+      "seed": "4110"
+    }
+  ],
+  "failures": 0,
+  "native_screenshots": [
+    {
+      "file": "p10-shots/chunks/p10-chunks-4330.png",
+      "sha256": "bdf9df35962125d8b840a92d73e6f7fc62b7e6aaf9f1674c5b0e69d4fd8ababe",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "p10-shots/chunks/p10-chunks-6080.png",
+      "sha256": "0eb7d34b40060bd3202cfd5da57771e946c880238fc34389d1f196ea5163cdc9",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "p10-shots/chunks/p10-chunks-7680.png",
+      "sha256": "26c3cfc811cebfa8181630e169b1f6e8a4b12e6e17b6b0e594e7ab94f4722b48",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "results": [
+    {
+      "check": "Data autoload accepts current source tables",
+      "passed": true
+    },
+    {
+      "check": "C01 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C01 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C02 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C02 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C03 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C03 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C04 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C04 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C05 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C05 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C06 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C06 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C07 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C07 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C08 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C08 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C09 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C09 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C10 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C10 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C11 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C11 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "C12 authored data and PackedScene exist",
+      "passed": true
+    },
+    {
+      "check": "C12 standalone scene identifies its source data",
+      "passed": true
+    },
+    {
+      "check": "Incomplete and unknown maps are rejected",
+      "passed": true
+    },
+    {
+      "check": "Duplicate blocks are rejected",
+      "passed": true
+    },
+    {
+      "check": "All twelve fixtures can coexist in one legal spatial layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4102 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4102 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4103 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4103 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4104 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4104 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4106 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4106 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4107 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4107 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4108 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4108 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4109 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4109 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 yields a legal map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 deterministically selects the same layout",
+      "passed": true
+    },
+    {
+      "check": "Consecutive seeds produce at least four distinct maps",
+      "passed": true
+    },
+    {
+      "check": "A mandatory block survives very low random weight",
+      "passed": true
+    },
+    {
+      "check": "Authored example encounter n01 is legal",
+      "passed": true
+    },
+    {
+      "check": "Authored example encounter n03 is legal",
+      "passed": true
+    },
+    {
+      "check": "Authored example encounter n05 is legal",
+      "passed": true
+    },
+    {
+      "check": "Authored example encounter n06r is legal",
+      "passed": true
+    },
+    {
+      "check": "Authored example encounter n08 is legal",
+      "passed": true
+    },
+    {
+      "check": "Authored example encounter n10 is legal",
+      "passed": true
+    },
+    {
+      "check": "Configured combat instantiates before attach",
+      "passed": true
+    },
+    {
+      "check": "All twelve PackedScenes are children of the running world",
+      "passed": true
+    },
+    {
+      "check": "Every authored post is in base and the full ground/upper retreat route is connected",
+      "passed": true
+    },
+    {
+      "check": "Low side lanes do not count as upstairs",
+      "passed": true
+    },
+    {
+      "check": "Beam route starts with authored durability",
+      "passed": true
+    },
+    {
+      "check": "Breaking the beam disconnects only its crossing",
+      "passed": true
+    },
+    {
+      "check": "Side gate runs on the side route at 70 percent main gate durability",
+      "passed": true
+    },
+    {
+      "check": "G12 takes the side route and actually damages its gate",
+      "passed": true
+    },
+    {
+      "check": "Crossing a breached well rim emits a fall in the real simulation",
+      "passed": true
+    },
+    {
+      "check": "Stone bridge starts as a connected main reinforcement route",
+      "passed": true
+    },
+    {
+      "check": "R06 routes even a non-bridge lane onto the actual bridge floor",
+      "passed": true
+    },
+    {
+      "check": "Breaking the bridge cuts both links and the route's pending reinforcements",
+      "passed": true
+    },
+    {
+      "check": "Water and silence special rules query authored areas",
+      "passed": true
+    },
+    {
+      "check": "A live G10 takes the water lane and acquires its environment",
+      "passed": true
+    },
+    {
+      "check": "Fissure reserves timed supply even after the other waves end",
+      "passed": true
+    },
+    {
+      "check": "A real temporary ward blocks the fissure's scheduled spawn",
+      "passed": true
+    },
+    {
+      "check": "When the ward expires the live fissure spawns a limited wave",
+      "passed": true
+    },
+    {
+      "check": "Idle restore can switch the prepared world back to the legacy map",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 preserves the locked default camera",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 uses the actual F5 empty preset",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 F5 first room entry 47.18 s",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 uses the actual F7 hold controls",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 holds with default troops, doors and 2–3 main obstacles",
+      "passed": true
+    },
+    {
+      "check": "Seed 4101 hold first room entry 178.37 s",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 preserves the locked default camera",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 uses the actual F5 empty preset",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 F5 first room entry 49.62 s",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 F5 actually travels on an authored side path",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 uses the actual F7 hold controls",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 holds with default troops, doors and 2–3 main obstacles",
+      "passed": true
+    },
+    {
+      "check": "Seed 4105 hold first room entry 193.70 s",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 preserves the locked default camera",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 uses the actual F5 empty preset",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 F5 first room entry 47.18 s",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 uses the actual F7 hold controls",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 holds with default troops, doors and 2–3 main obstacles",
+      "passed": true
+    },
+    {
+      "check": "Seed 4110 hold first room entry 174.72 s",
+      "passed": true
+    }
+  ],
+  "timings": [
+    {
+      "awake_actors": 72,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C09",
+        "C10"
+      ],
+      "f5_seconds": 47.1833333333319,
+      "f5_traversed_chunks": [],
+      "hold_arrived_by": "G01",
+      "hold_seconds": 178.366666666701,
+      "main_obstacles": 3,
+      "seed": "4101",
+      "simulation_step": 0.0166666666666667
+    },
+    {
+      "awake_actors": 72,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C02",
+        "C05"
+      ],
+      "f5_seconds": 49.6166666666651,
+      "f5_traversed_chunks": [
+        "C02"
+      ],
+      "hold_arrived_by": "G01",
+      "hold_seconds": 193.700000000046,
+      "main_obstacles": 3,
+      "seed": "4105",
+      "simulation_step": 0.0166666666666667
+    },
+    {
+      "awake_actors": 71,
+      "chunk_ids": [
+        "C01",
+        "C03",
+        "C04",
+        "C09",
+        "C12"
+      ],
+      "f5_seconds": 47.1833333333319,
+      "f5_traversed_chunks": [],
+      "hold_arrived_by": "G01",
+      "hold_seconds": 174.716666666698,
+      "main_obstacles": 3,
+      "seed": "4110",
+      "simulation_step": 0.0166666666666667
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "fixture": true,
+  "incense": 60,
+  "names": 6,
+  "duration": 240,
+  "structures": [],
+  "environments": [],
+  "materials": [],
+  "initial_state_note": "作者预设验收局；初始编制、初始接触位置、受损结构和环境区域在文件中逐项声明。此后装备/读条/攻防/位移/结算使用共享战斗规则，不在运行中改写HP、位置或结果。并非普通完整夜程计时证据。",
+  "title": "上梁奇袭·悬线入室",
+  "seat": "duoming",
+  "seed": "P7-SHANGLIANG-01",
+  "ritual_flag": "",
+  "human_roster": [
+    {
+      "id": "H09",
+      "post": "post_gate_inner",
+      "items": []
+    },
+    {
+      "id": "H17",
+      "post": "post_hall_door",
+      "items": []
+    },
+    {
+      "id": "H01",
+      "post": "post_register",
+      "items": []
+    },
+    {
+      "id": "T01",
+      "post": "post_barricade_outer_court",
+      "items": []
+    },
+    {
+      "id": "T02",
+      "post": "post_window_1",
+      "items": []
+    }
+  ],
+  "ghost_roster": [
+    {
+      "id": "G09",
+      "count": 3,
+      "items": []
+    },
+    {
+      "id": "G07",
+      "count": 2,
+      "items": []
+    },
+    {
+      "id": "G04",
+      "count": 2,
+      "items": []
+    },
+    {
+      "id": "G01",
+      "count": 16,
+      "items": []
+    }
+  ],
+  "inventory": [
+    "I05",
+    "I04",
+    "Y04",
+    "Y12",
+    "N02",
+    "N11"
+  ],
+  "notes": [
+    "所有攻方单位均从潮源x=0开始，默认门障未改。",
+    "上楼过程必须沿现有墙梁/路径推进，不能设置单位到二楼来代替上楼。"
+  ],
+  "steps": [
+    "暂停，给缢鬼装I05梁钉、Y04梁眼和N11梁适。",
+    "待影步实际从潮源队列生成，按F01配方融合一只缢鬼与影步，保留本夜计数。",
+    "恢复时间，观察沿梁移动、悬线隐形/扑击、二楼受压和房间警告。"
+  ],
+  "id": "shangliang"
+}

@@ -1,0 +1,74 @@
+{
+	"checks": 4,
+	"config": {
+		"director_enabled": false,
+		"duration": 240.0,
+		"ferocity": "normal",
+		"ghosts": [
+			{
+				"count": 1,
+				"id": "G32"
+			}
+		],
+		"humans": [
+			{
+				"count": 1.0,
+				"id": "H01",
+				"post": "post_register"
+			},
+			{
+				"count": 1.0,
+				"id": "H09",
+				"post": "post_gate_inner"
+			},
+			{
+				"count": 1.0,
+				"id": "H17",
+				"post": "post_hall_door"
+			},
+			{
+				"count": 1.0,
+				"id": "T01",
+				"post": "post_barricade_outer_court"
+			},
+			{
+				"count": 1.0,
+				"id": "T02",
+				"post": "post_window_1"
+			}
+		],
+		"incense": {
+			"duoming": 16.0,
+			"shouxiang": 20.0
+		},
+		"kind": "watch",
+		"names": 8.0,
+		"player_seat": "shouxiang",
+		"profile_id": "entry",
+		"ritual": "example_incense",
+		"roster_enabled": true,
+		"seed": "P8-G32-REAL-OBSERVATION"
+	},
+	"duration": 1,
+	"failures": 0,
+	"fixture": "Actual public observer start and one second shared simulation; not a complete battle or whole night.",
+	"phase": "P8Observer",
+	"results": [
+		{
+			"check": "K1 G32 enters an actual roster-enabled observation through validated public configuration",
+			"passed": true
+		},
+		{
+			"check": "K1/K6 Actual observer source queue spawns the real G32 with large physical height and live ability state",
+			"passed": true
+		},
+		{
+			"check": "K1 G32 participates in shared live observer simulation after configuration",
+			"passed": true
+		},
+		{
+			"check": "K5/K6 Full roster selection preserves default camera and source population limits",
+			"passed": true
+		}
+	]
+}

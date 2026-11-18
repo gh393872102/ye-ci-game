@@ -1,0 +1,133 @@
+{
+  "id": "C02",
+  "title": "侧门巷",
+  "scene": "res://data/levels/chunks/C02.tscn",
+  "default_path": [
+    "二进庭巷口",
+    "侧门",
+    "主殿侧门厅"
+  ],
+  "destructibles": [
+    "door_side"
+  ],
+  "upper_access": "内巷两端各有斜阶，后口通往门厅和主楼梯。",
+  "failure_line": "侧门破，潮从巷后向门厅夹入。",
+  "rituals": [
+    "R04",
+    "R07",
+    "R12"
+  ],
+  "length_body": 17,
+  "legal_posts": [
+    "post_side_gate"
+  ],
+  "areas": [
+    {
+      "floor_id": 4,
+      "start": 77.5,
+      "end": 94.4,
+      "kind": "alley"
+    }
+  ],
+  "visual": {
+    "floor_id": 4,
+    "start": 77.5,
+    "end": 94.4,
+    "motif": "alley"
+  },
+  "layout": {
+    "floor_bands": [
+      {
+        "floor_id": 4,
+        "start": 77.5,
+        "end": 94.4,
+        "offset": 0.48
+      }
+    ],
+    "rooms": [
+      {
+        "id": "side_alley_entry",
+        "floor_id": 4,
+        "start": 77.5,
+        "end": 82.5,
+        "label": "侧门前巷",
+        "tags": [
+          "court"
+        ]
+      },
+      {
+        "id": "side_alley",
+        "floor_id": 4,
+        "start": 82.5,
+        "end": 94.4,
+        "label": "侧门巷",
+        "tags": [
+          "indoor"
+        ]
+      }
+    ],
+    "stairs": [
+      {
+        "id": "stair_side_entry",
+        "from_floor": 0,
+        "from_x": 74,
+        "to_floor": 4,
+        "to_x": 77.5
+      },
+      {
+        "id": "stair_side_exit",
+        "from_floor": 4,
+        "from_x": 91,
+        "to_floor": 0,
+        "to_x": 94.4
+      }
+    ],
+    "doors": [
+      {
+        "id": "door_side",
+        "x": 82.5,
+        "floor_id": 4,
+        "rooms": [
+          "side_alley_entry",
+          "side_alley"
+        ],
+        "max_durability": 665,
+        "open": false
+      }
+    ],
+    "posts": [
+      {
+        "id": "post_side_gate",
+        "x": 83.5,
+        "floor_id": 4,
+        "room_id": "side_alley",
+        "cover_kind": "door",
+        "allowed_roles": [
+          "guard",
+          "crossbow",
+          "ritual",
+          "support"
+        ],
+        "default_deployment": true,
+        "retreat": {
+          "next": "post_hall_door",
+          "doors": [
+            "door_side"
+          ]
+        }
+      }
+    ]
+  },
+  "ghost_route": {
+    "entry": "stair_side_entry",
+    "exit": "stair_side_exit",
+    "lanes": [
+      2,
+      3
+    ],
+    "excluded_units": [
+      "G07",
+      "G09"
+    ]
+  }
+}

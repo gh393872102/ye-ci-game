@@ -1,0 +1,14 @@
+{
+  "id": "B03",
+  "name_key": "P10_B03",
+  "description_key": "P10_B03_PRESSURE",
+  "unit_id": "G32",
+  "duration": 420,
+  "chunks": ["C01", "C03", "C04", "C10"],
+  "ink_drain": 0.015,
+  "formations": [
+    {"at": 0, "unit": "G32", "floor": 0, "x": 115.8, "lane": 3, "role": "boss"},
+    {"at": 12, "unit": "G25", "floor": 0, "x": 103.3, "lane": 1, "role": "register"},
+    {"at": 22, "unit": "G26", "floor": 0, "x": 102.1, "lane": 3, "role": "register"}
+  ]
+}

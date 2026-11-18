@@ -1,0 +1,146 @@
+{
+  "checks": 35,
+  "failures": 0,
+  "results": [
+    {
+      "check": "characters: exact source CSV SHA-256",
+      "passed": true
+    },
+    {
+      "check": "ghosts: exact source CSV SHA-256",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/fusions/recipes.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/items/arts.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/items/incense_gear.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/items/job_stamps.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/items/nameplates.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/mutations/forms.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/rituals/rituals.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/strings/p4_zh_CN.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/strings/p5_zh_CN.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/strings/p6_zh_CN.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/strings/p7_zh_CN.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/strings/zh_CN.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/units/characters.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/units/ghosts.csv",
+      "passed": true
+    },
+    {
+      "check": "UTF-8 without BOM / LF: data/units/troops.csv",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with missing_column",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with duplicate_id",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with unknown_skill",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with invalid_tide",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with invalid_battle",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with unknown_battle_unit",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with night_route",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with night_ritual",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with night_wave",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with mode_ai_stats",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with mode_unit",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with mode_post",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with night_objective",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with growth_missing_item",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with growth_effect",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with growth_source",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with growth_night_item",
+      "passed": true
+    },
+    {
+      "check": "Boot refuses battle with growth_template_item",
+      "passed": true
+    }
+  ]
+}

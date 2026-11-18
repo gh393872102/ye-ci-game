@@ -1,0 +1,992 @@
+{
+  "checks": 118,
+  "details": [
+    {
+      "evidence": {
+        "errors": []
+      },
+      "label": "Twelve executable catalog entries load",
+      "passed": true,
+      "ritual_id": "catalog"
+    },
+    {
+      "evidence": {},
+      "label": "Legacy example is the unmodified baseline",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {
+        "p7_I11": 3.0,
+        "p7_recruit_H21": 3.0
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {
+        "p10_recruit_H17": 2.5,
+        "p10_recruit_H20": 2.2,
+        "p10_recruit_H26": 2.2,
+        "p7_I02": 1.3,
+        "p7_I14": 2.8,
+        "p7_I15": 1.8,
+        "p7_recruit_H24": 2.5
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {
+        "p10_recruit_H09": 2.5,
+        "p10_recruit_H14": 3.0,
+        "p7_I13": 2.0,
+        "p7_recruit_H03": 3.0
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "p10_recruit_G28": 3.0,
+        "p7_I01": 2.0,
+        "p7_I04": 3.0,
+        "p7_recruit_G11": 2.0,
+        "p7_recruit_H06": 3.0,
+        "p7_recruit_H32": 3.0,
+        "p7_remnant": 3.0
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R05"
+    },
+    {
+      "evidence": {
+        "p10_recruit_H17": 1.5,
+        "p7_I06": 2.5
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R06"
+    },
+    {
+      "evidence": {
+        "p10_recruit_H29": 2.3,
+        "p7_I04": 2.4,
+        "p7_N09": 2.4,
+        "p7_recruit_G04": 3.0,
+        "p7_recruit_H06": 2.3,
+        "p7_recruit_H27": 2.3,
+        "p7_remnant": 2.3
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {
+        "p10_recruit_G25": 2.5,
+        "p10_recruit_G26": 2.4,
+        "p7_I11": 2.1,
+        "p7_I17": 2.0,
+        "p7_Y13": 2.0,
+        "p7_recruit_H03": 2.5,
+        "p7_recruit_H21": 2.4,
+        "p7_recruit_H32": 2.3
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {
+        "p10_recruit_H09": 2.7,
+        "p10_recruit_H14": 2.0,
+        "p10_recruit_H17": 3.0,
+        "p10_recruit_H20": 0.3,
+        "p10_recruit_H26": 0.3,
+        "p7_I03": 2.0,
+        "p7_I14": 0.2
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R09"
+    },
+    {
+      "evidence": {
+        "p10_recruit_G24": 2.0,
+        "p7_I05": 2.5,
+        "p7_N11": 2.0,
+        "p7_Y04": 2.0,
+        "p7_recruit_G07": 3.0,
+        "p7_recruit_H25": 2.5,
+        "r_hanging": 3.0
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {
+        "p10_recruit_G30": 2.4,
+        "p7_I20": 2.5,
+        "p7_N12": 1.8,
+        "p7_recruit_H19": 2.8,
+        "p7_recruit_H23": 2.8
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R11"
+    },
+    {
+      "evidence": {
+        "p10_recruit_G25": 2.0,
+        "p10_recruit_G26": 2.0,
+        "p10_recruit_G28": 2.0,
+        "p7_I08": 1.7,
+        "p7_I20": 2.0,
+        "p7_N12": 2.0
+      },
+      "label": "At least one real reward weight changes",
+      "passed": true,
+      "ritual_id": "R12"
+    },
+    {
+      "evidence": {},
+      "label": "Borrowed Name risk/reward event weight is tripled",
+      "passed": true,
+      "ritual_id": "R11"
+    },
+    {
+      "evidence": {},
+      "label": "Gong guard added to the actual recruitment pool",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Face thief added to the actual recruitment pool",
+      "passed": true,
+      "ritual_id": "R05"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {
+        "attack_factor": 1.0,
+        "regen": 0.120000000000001
+      },
+      "label": "Baseline regeneration, melee and save state use original values",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Authored chunks compose",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {},
+      "label": "Paid reading accepts the real water ghost",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {
+        "name_gain": 2.0
+      },
+      "label": "Completed reading pays one extra name",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {
+        "attack_factor": 1.3,
+        "chunk": "C05",
+        "drag": {
+          "left": 3.9,
+          "source_id": "G10_tide_18"
+        },
+        "move_px": 104.0
+      },
+      "label": "Water lane boosts real damage, displacement and drag time",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {
+        "total": 64,
+        "water_ghosts": 17
+      },
+      "label": "Actual scheduled wave uses seeded G10 weighting",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {},
+      "label": "Same seed reproduces the scheduled mix",
+      "passed": true,
+      "ritual_id": "R02"
+    },
+    {
+      "evidence": {},
+      "label": "Authored chunks compose",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {
+        "regen": 0.18
+      },
+      "label": "Actual resource ticks regenerate fifty percent faster",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {
+        "damage_per_second": 3.0,
+        "floor_id": 0,
+        "kind": "fire",
+        "left": 2.0,
+        "owner_id": "H20_16",
+        "point": [
+          7600.0,
+          700.0
+        ],
+        "radius": 1.875,
+        "safe_side": ""
+      },
+      "label": "Burning petition leaves a two-second ground fire field",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {
+        "file": "p10-ritual-fire.png",
+        "height": 720,
+        "width": 1280
+      },
+      "label": "Native frame captured",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {
+        "ally_damage": 1.5,
+        "ghost_damage": 1.5
+      },
+      "label": "Real ground fire harms both sides",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {},
+      "label": "Ground fire expires after exactly two seconds",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {
+        "broken_radius": 1.5,
+        "intact_radius": 1.875
+      },
+      "label": "An intact Stove Room hearth expands the same fire field, and destroying it removes that bonus",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {
+        "ally_damage": 0.0,
+        "ghost_damage": 1.95
+      },
+      "label": "Firecracker field spares Xiaoqing's allies and gains I14's thirty percent",
+      "passed": true,
+      "ritual_id": "R03"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "alive": true,
+        "hp": 31.0,
+        "id": "T04",
+        "max_hp": 40.0,
+        "name": "尚有寿数的人"
+      },
+      "label": "Carry HP spawns a unique ward at legal cover and renders the ward's life in HUD",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "file": "p10-ritual-ward.png",
+        "height": 720,
+        "width": 1280
+      },
+      "label": "Native frame captured",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Battle snapshot restores the same ward and HP without a duplicate",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "elapsed": 0.0166666666666667,
+        "first_breach": {},
+        "humans_alive": 1,
+        "incense": 30.002,
+        "killer_id": "G12",
+        "mode": "shouxiang",
+        "names": 8.0,
+        "outcome": "defeat",
+        "reason": "P10_END_WARD_LOST",
+        "remaining": 239.983333333333,
+        "tide_alive": 1,
+        "wallets": {
+          "duoming": 20.002,
+          "shouxiang": 30.002
+        },
+        "winner": "duoming"
+      },
+      "label": "A lethal real attack instantly settles the protected life condition and updates the HUD",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Normal night domain opens the first battle with the chosen ritual",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Night node applies its generated layout",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "response": "P5_BATTLE_STARTED"
+      },
+      "label": "Shared NightBattleBridge spawns one ward",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "hp": 48.0,
+        "max_hp": 55.0
+      },
+      "label": "Real upgrade and equipped censer create measurable gear and wounds above unupgraded HP",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "First settlement keeps a unique ward record and proceeds to reward",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "The protected ward is absent from the spare party roster slots",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Night save reads back the wound and original ward identity from disk",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "A night save with an altered ward post is rejected",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Reward and intervening stops lead to the next real battle",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Night node applies its generated layout",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "response": "P5_BATTLE_STARTED"
+      },
+      "label": "Shared NightBattleBridge spawns one ward",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {
+        "censer": "I17",
+        "hp": 48.0,
+        "max_hp": 55.0,
+        "upgrade": 1
+      },
+      "label": "Next battle restores the same ward's upgraded stats, equipped censer and exact wound",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Ward death ends the night directly and persists the fallen record",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "The terminal fallen ward can be saved and reloaded",
+      "passed": true,
+      "ritual_id": "R04"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {
+        "fear_seconds": 2.0
+      },
+      "label": "Real cold lantern applies fear to a faceless ghost",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R05"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R05"
+    },
+    {
+      "evidence": {
+        "fear_seconds": 3.0
+      },
+      "label": "Real cold lantern applies fear to a faceless ghost",
+      "passed": true,
+      "ritual_id": "R05"
+    },
+    {
+      "evidence": {
+        "R01": 2.0,
+        "R05": 3.0
+      },
+      "label": "Cold-lantern fear lasts fifty percent longer in Open Face",
+      "passed": true,
+      "ritual_id": "R05"
+    },
+    {
+      "evidence": {
+        "gain": 0.5
+      },
+      "label": "Temporary face restores the ally's face and credits names",
+      "passed": true,
+      "ritual_id": "R05"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Bridge ritual rejects a scene with no bridge",
+      "passed": true,
+      "ritual_id": "R06"
+    },
+    {
+      "evidence": {},
+      "label": "Authored chunks compose",
+      "passed": true,
+      "ritual_id": "R06"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R06"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R06"
+    },
+    {
+      "evidence": {
+        "durability": 0.0,
+        "spawn_after_cut": 1,
+        "spawn_before_cut": 1
+      },
+      "label": "Destroying the actual bridge cuts scheduled and paid reinforcement on that route without charging",
+      "passed": true,
+      "ritual_id": "R06"
+    },
+    {
+      "evidence": {},
+      "label": "Authored chunks compose",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {
+        "hp_loss": 4.0,
+        "shadow_revealed": true
+      },
+      "label": "Cry backlashes and reveals hidden units within the same sound range",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {
+        "hp_loss": 13.5
+      },
+      "label": "Bell backlashes and retains the detection effect",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {},
+      "label": "Gong follows its pure taunt trait and still reveals hidden units",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {
+        "normal_radius": 2.5,
+        "observed_at": 3.0
+      },
+      "label": "Silence Corridor extends the real sound reach beyond its normal limit",
+      "passed": true,
+      "ritual_id": "R07"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {
+        "seconds": 4.0
+      },
+      "label": "Paid channel and preview display the same duration",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {
+        "seconds": 3.0
+      },
+      "label": "Paid channel and preview display the same duration",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {
+        "R01": 4.0,
+        "R08": 3.0
+      },
+      "label": "Actual reading is twenty-five percent faster",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {
+        "after": [
+          "G10",
+          "G25",
+          "G26"
+        ],
+        "before": [
+          "G10"
+        ],
+        "seconds": 8.01
+      },
+      "label": "Real first-battle source emits Name Clerk and Blank Page at the authored early time",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {},
+      "label": "First-battle opening injection does not repeat in later battles",
+      "passed": true,
+      "ritual_id": "R08"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R09"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R09"
+    },
+    {
+      "evidence": {},
+      "label": "Fire skills and direct fire are blocked before costs or field creation",
+      "passed": true,
+      "ritual_id": "R09"
+    },
+    {
+      "evidence": {
+        "attack_factor": 1.2,
+        "regen": 0.0719999999999992
+      },
+      "label": "Physical attacks are stronger and real incense ticks are sixty percent of normal",
+      "passed": true,
+      "ritual_id": "R09"
+    },
+    {
+      "evidence": {
+        "door_damage": 0.0,
+        "reflection": 7.2,
+        "response": "P8_SKILL_DONE",
+        "seal_seconds": 4.8
+      },
+      "label": "Actual cinnabar seal persists twenty percent longer, protects the door and reflects extra damage",
+      "passed": true,
+      "ritual_id": "R09"
+    },
+    {
+      "evidence": {},
+      "label": "Authored chunks compose",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {
+        "children": 9,
+        "hanged": 9
+      },
+      "label": "Upper-biased schedule really includes both climber roles",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {},
+      "label": "Water-lane floor index does not count as the upper story",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {},
+      "label": "Living defense contests the actual upper layer",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {
+        "elapsed": 6.23333333333332,
+        "first_breach": {},
+        "humans_alive": 1,
+        "incense": 30.7479999999996,
+        "killer_id": "",
+        "mode": "shouxiang",
+        "names": 8.0,
+        "outcome": "defeat",
+        "reason": "P10_END_UPPER_LOST",
+        "remaining": 233.766666666662,
+        "tide_alive": 2,
+        "wallets": {
+          "duoming": 20.7479999999996,
+          "shouxiang": 30.7479999999996
+        },
+        "winner": "duoming"
+      },
+      "label": "After the last upper defender falls, real simulation reaches the earlier upper failure line",
+      "passed": true,
+      "ritual_id": "R10"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {
+        "cost": 12.0,
+        "false_gods": 9,
+        "trials": 48,
+        "true_gods": 39
+      },
+      "label": "Forty-eight paid casts consume incense and names, then really spawn the outcome",
+      "passed": true,
+      "ritual_id": "R01"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R11"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R11"
+    },
+    {
+      "evidence": {
+        "cost": 7.0,
+        "false_gods": 16,
+        "trials": 48,
+        "true_gods": 32
+      },
+      "label": "Forty-eight paid casts consume incense and names, then really spawn the outcome",
+      "passed": true,
+      "ritual_id": "R11"
+    },
+    {
+      "evidence": {
+        "R01": {
+          "cost": 12.0,
+          "false_gods": 9,
+          "trials": 48,
+          "true_gods": 39
+        },
+        "R11": {
+          "cost": 7.0,
+          "false_gods": 16,
+          "trials": 48,
+          "true_gods": 32
+        }
+      },
+      "label": "The same forty-eight fixed seeds show increased false gods",
+      "passed": true,
+      "ritual_id": "R11"
+    },
+    {
+      "evidence": {},
+      "label": "Authored chunks compose",
+      "passed": true,
+      "ritual_id": "R12"
+    },
+    {
+      "evidence": {},
+      "label": "Real battle session starts",
+      "passed": true,
+      "ritual_id": "R12"
+    },
+    {
+      "evidence": {},
+      "label": "Selected ritual configures in the real battle",
+      "passed": true,
+      "ritual_id": "R12"
+    },
+    {
+      "evidence": {
+        "elapsed": 1.0,
+        "name_loss": 0.0249999999999773
+      },
+      "label": "Nameless seep drains the real register from the opening second",
+      "passed": true,
+      "ritual_id": "R12"
+    },
+    {
+      "evidence": {
+        "boss_id": "B03",
+        "chunks": [
+          "C01",
+          "C03",
+          "C04",
+          "C09",
+          "C10"
+        ],
+        "on_field": [
+          "G32"
+        ]
+      },
+      "label": "The forced B03 stage opens with the real G32 nameless boss",
+      "passed": true,
+      "ritual_id": "R12"
+    }
+  ],
+  "engine": "4.7.2-stable (official)",
+  "failures": 0,
+  "rules_hash": "a298b09077e4105028ed3e89b146573f1de151c240cb53f1b79c5a63316e5444",
+  "scope": "isolated fixed-step combat fixtures",
+  "screenshots": [
+    {
+      "file": "p10-shots/rituals/p10-ritual-fire.png",
+      "sha256": "bfa6312b08e257848222e5c55f97422a8bfbd1cc4ef379a999d7a0549d842cde",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "p10-shots/rituals/p10-ritual-ward.png",
+      "sha256": "2af3b40f8e8eb3dfd7495f951dff6013589a9d2a19cbc49dda35bf5f6fddf8e9",
+      "width": 1280,
+      "height": 720
+    }
+  ]
+}

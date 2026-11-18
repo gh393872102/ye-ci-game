@@ -1,0 +1,88 @@
+{
+  "fixture": true,
+  "incense": 60,
+  "names": 6,
+  "duration": 240,
+  "structures": [
+    {
+      "id": "door_gallery",
+      "locked": true
+    }
+  ],
+  "environments": [
+    {
+      "id": "register_water",
+      "kind": "water",
+      "from_body": 113.5,
+      "to_body": 117.0,
+      "floor_id": 0
+    }
+  ],
+  "materials": [],
+  "initial_state_note": "作者预设验收局；初始编制、初始接触位置、受损结构和环境区域在文件中逐项声明。此后装备/读条/攻防/位移/结算使用共享战斗规则，不在运行中改写HP、位置或结果。并非普通完整夜程计时证据。",
+  "title": "超度流·册底余火",
+  "seat": "shouxiang",
+  "seed": "P7-CHAODU-01",
+  "ritual_flag": "",
+  "human_roster": [
+    {
+      "id": "H21",
+      "post": "post_register",
+      "items": []
+    },
+    {
+      "id": "H01",
+      "post": "post_register",
+      "items": []
+    },
+    {
+      "id": "H03",
+      "post": "post_rear",
+      "items": []
+    },
+    {
+      "id": "H24",
+      "post": "post_window_1",
+      "items": []
+    }
+  ],
+  "ghost_roster": [
+    {
+      "id": "G12",
+      "count": 1,
+      "items": [],
+      "x_body": 114.5,
+      "lane": 0
+    },
+    {
+      "id": "G01",
+      "count": 1,
+      "items": [],
+      "x_body": 104.0,
+      "lane": 1
+    }
+  ],
+  "inventory": [
+    "I17",
+    "I11",
+    "I02",
+    "Y01",
+    "Y03",
+    "Y06",
+    "Y13",
+    "Y16",
+    "N01",
+    "N05"
+  ],
+  "notes": [
+    "H21河灯与H01晚占名册掩体；H03青笺位于后厢，H24骨针在第一处窗位，均为合法掩体。",
+    "G12在114.5身位、G01在104身位是作者声明的接触/后续来敌；此局不作为潮源到名册计时样本。",
+    "名册前113.5–117身位为本验收局明确标示水面区域，用于河灯盏；不会修改默认地图或导航。"
+  ],
+  "steps": [
+    "暂停，给河灯（H21）真实升级一次，并装备I17册底针、Y01余香、Y03送行风及N01厚血；给晚装备I11河灯盏但本轮不让她代替完成读条。",
+    "选中河灯，按点册 R 选择水中的G12并确认；恢复时间，观察同一位I17持有者实际受击后损失30%进度，再完成精英超度。",
+    "保持施术者在名册，观察完整读条、目标送行或灰军、回香与名分回亮，以及周围小爆香/友军送行风。"
+  ],
+  "id": "chaodu"
+}

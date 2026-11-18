@@ -1,0 +1,4 @@
+id,name_key,description_key,drain_per_second,recovery_multiplier,side_durability_ratio,side_chunk_weight,watch_probability,watch_spawn_at
+N01,P10_N01,P10_N01_HELP,0.025,0.55,1,1,0,0
+N02,P10_N02,P10_N02_HELP,0,1,0.28,3,0,0
+N03,P10_N03,P10_N03_HELP,0,1,1,1,0.75,16
