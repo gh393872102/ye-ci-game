@@ -1,0 +1,67 @@
+name: 夜祠 · 晚的八种画风
+on:
+  push:
+    branches: [art/wan-style-pilot-20261119]
+    paths: [.github/workflows/wan-style-pilot.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wan-style-pilot-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: github.run_attempt == 1 && github.ref == 'refs/heads/art/wan-style-pilot-20261119'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install OpenAI client
+        run: |
+          python3 -m venv "$RUNNER_TEMP/wan-env"
+          "$RUNNER_TEMP/wan-env/bin/python" -m pip install 'openai>=2,<3'
+      - name: Generate one pilot, then seven independent portraits
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: https://api.openai.com/v1
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$OPENAI_API_KEY" || { echo "::error::Missing OPENAI_API_KEY"; exit 1; }
+          src=tools/wan-style-pilot
+          py="$RUNNER_TEMP/wan-env/bin/python"
+          head -n 1 "$src/styles.jsonl" > "$RUNNER_TEMP/pilot.jsonl"
+          tail -n +2 "$src/styles.jsonl" > "$RUNNER_TEMP/remaining.jsonl"
+          for batch in pilot remaining; do
+            if ! "$py" "$src/image_gen.py" generate-batch \
+              --input "$RUNNER_TEMP/$batch.jsonl" --out-dir portraits \
+              --model gpt-image-2 --quality high --size 1024x1536 \
+              --no-augment --concurrency 2 --max-attempts 1 --fail-fast \
+              > "$RUNNER_TEMP/wan-batch.log" 2>&1; then
+              status=$(grep -Eo 'Error code: [0-9]{3}' "$RUNNER_TEMP/wan-batch.log" | head -n1 || true)
+              reason=$(grep -Eo 'insufficient_quota|billing_hard_limit_reached|invalid_api_key|model_not_found|organization_verification_required|must be verified|rate_limit_exceeded|access_terminated|unsupported_country_region_territory|permission_denied|insufficient_permissions|billing_not_active' "$RUNNER_TEMP/wan-batch.log" | head -n1 || true)
+              echo "::error::Generation failed during $batch. ${status:-No HTTP error code available.} ${reason:-}"
+              exit 1
+            fi
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          for label in 'ABCDEFGH':
+              buf = Path(f'portraits/{label}.png').read_bytes()
+              assert buf[:8] == b'\x89PNG\r\n\x1a\n'
+              assert struct.unpack('>II', buf[16:24]) == (1024,1536)
+          PY
+      - name: Save any completed PNGs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wan-eight-styles
+          path: portraits/*.png
+          if-no-files-found: ignore
+          retention-days: 14
