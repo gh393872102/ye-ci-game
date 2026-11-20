@@ -1,0 +1,49 @@
+name: Copper Desk · Codex 工作台单张设计稿
+on:
+  push:
+    branches: ['codex/copper-desk-design-20261120']
+permissions:
+  contents: read
+jobs:
+  concept:
+    if: github.event.created && github.run_attempt == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d4881334172e24c06350abe1d9c8fc54a24c6bec
+          sparse-checkout: tools/wan-style-pilot/image_gen.py
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - name: Verify existing renderer and prepare SDK
+        run: |
+          echo 'b4345cf835e5b593b97df6bb2b70bda493b8a97eee4cabbc99b2fa57dba9b448  tools/wan-style-pilot/image_gen.py' | sha256sum --check --strict
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet 'openai==2.15.0'
+      - name: Render one original design study
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cat > "$RUNNER_TEMP/brief.txt" <<'BRIEF'
+          Generate one polished, straight-on 1536x1024 design screenshot of a professional Chinese Codex desktop coding workbench, edge to edge. A usable Mac desktop client captured during an actual code review. Design name Copper Desk. Editorial precision and the warm cognac accents of analog hi-fi equipment on midnight indigo. Background #18212C, ink #EEE7DB, copper #EBB586, subdued denim dividers. No gradients, faux glass, art wallpaper, angled monitors, outer poster or marketing text. No rainbow diff. Design a restrained, distinctive miniature copper line emblem of two open chevrons in the sidebar header. Optical spacing, small refined glyphs, elegant Chinese typography.
+          LEFT 19 percent width: Codex wordmark, new chat, search, short list of projects with tree disclosure marks and an active conversation indicated by a copper left bar. CENTER 49 percent: breadcrumb, conversation title "优化文件索引", one compact user request, an assistant response with Chinese prose, small tool status. A relaxed bottom input with attachment and copper send button. RIGHT 32 percent: the actual diff review panel for src/index.ts, with line numbers, highlighted deletion and additions, pale sea-glass green and muted coral, clearly readable monospace. All content fictional. Use plausible small TypeScript code about caching file paths and only sparse authentic simplified Chinese text. Give hierarchy and air without oversizing the headline. Treat as a product designer's Figma-grade still, carefully aligned, sober and suited to eight hours of reading.
+          BRIEF
+          "$RUNNER_TEMP/venv/bin/python" - "$RUNNER_TEMP/brief.txt" "$RUNNER_TEMP/copper-desk.png" <<'PY'
+          import functools, openai, runpy, sys
+          brief, target = sys.argv[1:]
+          openai.OpenAI = functools.partial(openai.OpenAI, max_retries=0, timeout=780)
+          cli = "tools/wan-style-pilot/image_gen.py"
+          sys.argv = [cli, "generate", "--prompt-file", brief, "--out", target, "--model", "gpt-image-2", "--quality", "high", "--size", "1536x1024", "--n", "1", "--no-augment"]
+          try:
+              runpy.run_path(cli, run_name="__main__")
+          except Exception as exc:
+              print("Image request failed", type(exc).__name__, getattr(exc, "status_code", ""), file=sys.stderr)
+              sys.exit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: copper-desk-concept
+          path: ${{ runner.temp }}/copper-desk.png
+          if-no-files-found: error
+          retention-days: 7
