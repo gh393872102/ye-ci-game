@@ -1,0 +1,54 @@
+name: Six combat portraits
+on:
+  push:
+    branches: [codex/six-combat-portraits-20261120]
+    paths: [.github/workflows/six-combat-portraits.yml]
+permissions:
+  contents: read
+jobs:
+  draw:
+    if: github.run_attempt == 1 && github.event.created
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare project image generator
+        run: |
+          python3 -m venv "$RUNNER_TEMP/portraits-env"
+          "$RUNNER_TEMP/portraits-env/bin/python" -m pip install 'openai>=2,<3'
+          sed 's/return AsyncOpenAI()/return AsyncOpenAI(max_retries=0)/' tools/wan-style-pilot/image_gen.py > "$RUNNER_TEMP/image_gen.py"
+          grep -q 'AsyncOpenAI(max_retries=0)' "$RUNNER_TEMP/image_gen.py"
+      - name: Draw six portraits
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: https://api.openai.com/v1
+        run: |
+          test -n "$OPENAI_API_KEY"
+          if ! "$RUNNER_TEMP/portraits-env/bin/python" "$RUNNER_TEMP/image_gen.py" generate-batch \
+            --input tools/wan-style-pilot/six-combat.jsonl --out-dir "$RUNNER_TEMP/portraits" \
+            --model gpt-image-2 --quality high --size 1024x1536 --concurrency 3 --max-attempts 1 --no-augment \
+            > "$RUNNER_TEMP/portraits.log" 2>&1; then
+            grep -Eo 'Error code: [0-9]{3}|insufficient_quota|rate_limit_exceeded|invalid_api_key|model_not_found|billing_hard_limit_reached' "$RUNNER_TEMP/portraits.log" | sort -u || true
+            exit 1
+          fi
+          for id in A1 A2 B1 B2 C1 C2; do test -s "$RUNNER_TEMP/portraits/$id.png"; done
+      - name: Encrypt completed original images
+        if: always()
+        shell: bash
+        run: |
+          shopt -s nullglob
+          images=("$RUNNER_TEMP"/portraits/*.png)
+          if (( ${#images[@]} )); then
+            zip -q -j "$RUNNER_TEMP/portraits.zip" "${images[@]}"
+            openssl cms -encrypt -binary -aes-256-gcm -outform DER -in "$RUNNER_TEMP/portraits.zip" -out "$RUNNER_TEMP/portraits.cms" tools/wan-style-pilot/six-delivery-public.pem
+          fi
+      - name: Deliver encrypted originals
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: six-portraits-encrypted
+          path: ${{ runner.temp }}/portraits.cms
+          if-no-files-found: ignore
+          retention-days: 7
