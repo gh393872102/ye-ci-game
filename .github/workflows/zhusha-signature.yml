@@ -1,0 +1,40 @@
+name: Zhusha counterseal key art
+on:
+  push:
+    branches: [codex/zhusha-ten-styles-20261120]
+    paths: [.github/workflows/zhusha-signature.yml]
+permissions:
+  contents: read
+jobs:
+  illustrate:
+    if: github.run_attempt == 1 && github.event.before == 'c449fbd924b0a89bc1e4e5e86455581926a0b9a7'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare image CLI
+        run: |
+          python3 -m venv "$RUNNER_TEMP/env"
+          "$RUNNER_TEMP/env/bin/pip" install 'openai>=2,<3'
+      - name: Render one key visual
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: https://api.openai.com/v1
+        run: |
+          set -eu
+          test -n "$OPENAI_API_KEY"
+          if ! "$RUNNER_TEMP/env/bin/python" tools/wan-style-pilot/image_gen.py generate --prompt-file tools/wan-style-pilot/zhusha-signature.txt --out "$RUNNER_TEMP/hero.png" --model gpt-image-2 --quality high --size 1024x1536 --no-augment > "$RUNNER_TEMP/render.log" 2>&1; then
+            grep -Eo 'Error code: [0-9]{3}|insufficient_quota|billing_hard_limit_reached|rate_limit_exceeded|moderation_blocked' "$RUNNER_TEMP/render.log" | sort -u || true
+            exit 1
+          fi
+      - name: Encrypt artwork
+        run: |
+          openssl cms -encrypt -binary -aes-256-gcm -outform DER -in "$RUNNER_TEMP/hero.png" -out "$RUNNER_TEMP/hero.cms" tools/wan-style-pilot/six-delivery-public.pem
+      - uses: actions/upload-artifact@v4
+        with:
+          name: signature-encrypted-art
+          path: ${{ runner.temp }}/hero.cms
+          if-no-files-found: error
+          retention-days: 7
