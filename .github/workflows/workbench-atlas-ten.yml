@@ -1,0 +1,98 @@
+name: Codex 工作台 · 十种设计方向
+on:
+  push:
+    branches: ['codex/workbench-atlas-ten-20261120']
+permissions:
+  contents: read
+jobs:
+  concept:
+    if: github.event.created && github.run_attempt == '1'
+    name: Study ${{ matrix.study }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        study: ['01','02','03','04','05','06','07','08','09','10']
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d4881334172e24c06350abe1d9c8fc54a24c6bec
+          sparse-checkout: tools/wan-style-pilot/image_gen.py
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - name: Verify existing renderer and prepare SDK
+        run: |
+          echo 'b4345cf835e5b593b97df6bb2b70bda493b8a97eee4cabbc99b2fa57dba9b448  tools/wan-style-pilot/image_gen.py' | sha256sum --check --strict
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet 'openai==2.15.0'
+      - name: Render one original design study
+        env:
+          STUDY: ${{ matrix.study }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cat > "$RUNNER_TEMP/brief.txt" <<'COMMON'
+          Generate ONE finished high-fidelity 2304x1536 landscape screenshot of a Chinese-language Codex desktop coding workbench in daily use. Fill every edge with the actual UI. The viewport is an app screenshot, with clear Chinese navigation, a few lines of authentic conversation, project/file context, a readable 3-6 line TypeScript file diff, and a place to type. Use the single fictional task “优化文件索引” in project “studio-tools”, file src/index.ts, involving cache reuse and manual refresh. Keep the amount of prose small. This is a design review still, not a marketing page: no decorative project tagline, no version badges, no big theme name, no device mockup. Prioritize a singular art direction that is visible at thumbnail size while keeping clear readable text. A plausible, beautifully typeset, fabricated UI. Typography and geometry must feel intentionally designed. Specific creative direction follows.
+          COMMON
+          case "$STUDY" in
+          01) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          A Tokyo metro wayfinding studio after the last train. Blue-black indigo canvas, cobalt illuminated route and occasional coral stations. A cinematic panoramic strip at the top shows a rain-dark elevated railway in pixel-fine architectural linework, indigo-on-indigo, and doubles as the breadcrumb route. Organize tool and chat steps as large STATIONS along a branching thin horizontal metro line. Compact departure-board-inspired file navigator along bottom left; conversation and diff are two platform bays below the line, composer as slim station sign at foot. High-quality Japanese transit typography adapted to Chinese, delicate dot matrices in the strip only. Strong diagonal rail perspective. No unrelated trains behind text.
+          STYLE
+          ;;
+          02) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          A literary typesetter's proof, facing editorial folios on warm uncoated ivory paper. One full-height left page is mostly generous reading text in excellent contemporary Chinese Song type; the narrower right page holds vertically aligned proof notes and typeset code with line numbers. Hairline double rules, an ochre marginal annotation bracket, tiny red copyeditor marks, visible baseline discipline. File navigation is a running contents line across the VERY TOP, no left app sidebar. Prompt input a ruled footnote area across the bottom. Strong single oversized but short article title, beautiful asymmetric whitespace; large modern book design, no physical desk, no faux paper curls.
+          STYLE
+          ;;
+          03) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          A field botanist's nighttime herbarium catalog. Deep bottle-green and peat with warm parchment text and sage on archival specimen tabs. Give the left quarter a beautifully detailed original scientific copperplate etching of a SINGLE fern frond printed in muted lichen ink, its silhouette extending vertically beside a short project taxonomy. A broad, calm central specimen sheet for the active conversation; the review is a horizontal slide-out specimen tray BELOW the reply with one four-line diff. Header is an herbarium accession label, restrained fine lettering and small specimen tick marks. Do not portray any physical desktop. No cards dashboard, no busy leaf wallpaper, always elegant and legible.
+          STYLE
+          ;;
+          04) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          Radical Swiss new-wave poster typography translated into a functional code reviewer. Near-black olive, vivid acid yellow active rail, punch pink deletion, cyan and lime syntax. One LARGE cropped yellow monospace curly brace as a structural anchor on the left edge, never under body text. An oversize split DIFF takes 58 percent across the CENTER; conversation is a tightly typeset vertical block on the LEFT, navigation is a thin black top index with tabs; short input bar sits in a bright yellow ruled frame underneath chat. Grid cut by one heavy black/yellow horizontal rule. Square corners, sharp asymmetric hierarchy, no gradients, no decorative badges. Feels like a sophisticated independent digital type foundry tool.
+          STYLE
+          ;;
+          05) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          A meticulously quiet, daylight pull-request reading room in the tradition of contemporary open-source review. Pure white, graphite labels, link blue, restrained pale green/red diff lines. Top project breadcrumb and understated tabs; left 62 percent is an EXACT aligned side-by-side before/after code comparison table with line numbers and one blue comment marker. To its right a narrow margin thread aligned to the changed line, followed by compact input. A tiny outline of changed files is a short row above the diff, not a sidebar. Flat architectural grid, tiny corner radii, clean sans, almost no decoration, lots of white, high-end information design. Do not draw logos of third parties.
+          STYLE
+          ;;
+          06) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          Contemporary Japanese woodblock editorial interface. Vast sumi charcoal, bone text, restrained indigo and a tiny vermilion square maker's seal. Across the LOWER RIGHT 25 percent lies an ORIGINAL dramatic curved ocean swell, carved with thin foam lines and open negative space, no tracing of a famous print. Conversation reads as a tall asymmetric vertical SCROLL in the upper center-left, selected project tabs at FAR RIGHT in a narrow strip of vertical folio marks. A concise inline code diff is part of the scroll, with vertical change bars. A flat horizontal brush-rule separates composer from content. Refined Mincho-like Chinese titles, large scale shift, austere silence. Avoid pagodas, lanterns, anime characters, generic Asian decoration.
+          STYLE
+          ;;
+          07) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          Soft playful daylight modular stationery for developers. Milky periwinkle background, lavender, apricot, sky blue and mint. Horizontal three-stage TASK BOARD: narrow lavender queue on left, a large cream active conversation in middle, a smaller peach file-review slip on right with a mint inset diff. Each column has its own silhouette; one folded-paper corner, a single small lilac binder clip drawn with polished vector shading, soft 5px shadows; slight overlap around edges ONLY. Generous dark blueberry Chinese sans, big friendly rounded square composer nestled in center sheet. Looks like elegant Japanese stationery redesigned as a native productive application. No microscopic kanban clutter, plastic bubbles, emojis or cute mascots.
+          STYLE
+          ;;
+          08) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          Vintage 1970s audio engineering rack adapted as a serious Codex app. Warm tobacco-brown chassis, matte black-brown panels, parchment monospaced type, mustard, burnt orange. Across the TOP a unique precision engraved instrument strip with a single horizontal amber segmented meter indicating completed checks, beautifully spaced small technical lettering and index ticks. Main conversation is in a large LEFT rectangular display; file changes sit in two horizontally stacked right modules with compact headers; full-width command slot at base. Authentic restrained technical industrial design, tiny screws only at four outer corners, thin dark surface transitions. No physical device frame beyond image, no gratuitous pretend knobs, no glow over code.
+          STYLE
+          ;;
+          09) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          An Arctic survey plotting station. Slate Polar Night, cool snow white, frost cyan. Main canvas left two thirds is a deliberately sparse topographic contour map of a glacial fjord, precisely drawn in desaturated blue-gray, with four large clearly labelled function nodes overlaying the map like survey points linked by a cyan dependency transect. This is a genuine project dependency map. Right third is a single slim inspection rail holding conversation, a small real diff and composer; navigation in slim top ribbon. Strong pale latitude crosshairs, a scale bar and a tiny coordinate readout, all subordinate to information. Nordic engineering calipers and marine atlases, no sci-fi neon, no cockpit simulation. Strong distinction between solid reading panel and linear map.
+          STYLE
+          ;;
+          10) cat >> "$RUNNER_TEMP/brief.txt" <<'STYLE'
+          Avant-garde contemporary opera program crossed with a nocturnal developer tool. Aubergine graphite, silvery text, violet and fuchsia accents, restrained spearmint syntax. One bold tall lilac outline ARCH frames a large luminous but matte centered reading canvas; two offset arched bands at the far left form a distinctive abstract proscenium, cut solid with very subtle light and no tiny details. At left a short playbill-like index of tasks; at center the live dialogue; changed code is a shallow orchestral-pit-like horizontal drawer beneath. A small fine-rule input line. Architectural negative space, refined French contemporary display serif for titles, mono for code. No bats, gothic novelty fonts, Halloween props or nightclub gradients.
+          STYLE
+          ;;
+          *) exit 2 ;;
+          esac
+          "$RUNNER_TEMP/venv/bin/python" - "$RUNNER_TEMP/brief.txt" "$RUNNER_TEMP/study-${{ matrix.study }}.png" <<'PY'
+          import functools, openai, runpy, sys
+          brief, target = sys.argv[1:]
+          openai.OpenAI = functools.partial(openai.OpenAI, max_retries=0, timeout=780)
+          cli = "tools/wan-style-pilot/image_gen.py"
+          sys.argv = [cli, "generate", "--prompt-file", brief, "--out", target, "--model", "gpt-image-2", "--quality", "high", "--size", "2304x1536", "--n", "1", "--no-augment"]
+          try:
+              runpy.run_path(cli, run_name="__main__")
+          except Exception as exc:
+              print("Image request failed", type(exc).__name__, getattr(exc, "status_code", ""), file=sys.stderr)
+              sys.exit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: workbench-study-${{ matrix.study }}
+          path: ${{ runner.temp }}/study-${{ matrix.study }}.png
+          if-no-files-found: error
+          retention-days: 7
