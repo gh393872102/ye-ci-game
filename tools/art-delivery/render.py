@@ -86,14 +86,17 @@ def render(row):
             identity=ROOT/(code+"-guide.jpg")
             identity.write_bytes(base64.b64decode(row["guide"],validate=True))
             art_prompt+=" First image sets painting medium, lighting and palette only. The second image supplies this unit's own identity: preserve gender, face or ghost anatomy, signature prop, age group, and adapt clothing to the new painting. Omit interface, existing emblems and old framing."
-        call_image(code+"-a",IN/"style.jpg",art_prompt,art,"2160x3840","jpeg","high",identity)
+        ref=ROOT/(code+"-ref.jpg")
+        if row.get("only_sprite"):
+            ref.write_bytes(base64.b64decode(row["painted_guide"],validate=True))
+        else:
+            call_image(code+"-a",IN/"style.jpg",art_prompt,art,"2160x3840","jpeg","high",identity)
+            with Image.open(art) as im:
+                im.thumbnail((900,1400))
+                im.save(ref,quality=90)
         if HALT.is_set():
             raise RuntimeError("sprite_not_started")
-        sprite_prompt=(IN/"sprite.txt").read_text()+"\n"+row["name"]+" | "+row["brief"]
-        ref=ROOT/(code+"-ref.jpg")
-        with Image.open(art) as im:
-            im.thumbnail((900,1400))
-            im.save(ref,quality=90)
+        sprite_prompt=(IN/"sprite.txt").read_text()+"\\n"+row.get("sprite_brief",row["name"]+" | "+row["brief"])
         call_image(code+"-s",ref,sprite_prompt,raw,"1024x1024","png","medium")
         cut_sprite(raw,OUT/(code+".png"),row["height"])
         result="ok"
