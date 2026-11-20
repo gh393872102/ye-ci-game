@@ -1,0 +1,86 @@
+name: Zhusha ten new silhouettes
+on:
+  push:
+    branches: [codex/zhusha-ten-styles-20261120]
+    paths: [.github/workflows/zhusha-round2.yml]
+permissions:
+  contents: read
+jobs:
+  illustrate:
+    if: github.run_attempt == 1 && github.event.before == 'c473e808f7ab8aa39911673b8da3c71b5305e640'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare a one-use recipient for the reference crop
+        run: |
+          umask 077
+          openssl req -x509 -newkey rsa:3072 -nodes -days 1 -subj /CN=ReferenceCrop -keyout "$RUNNER_TEMP/input.key" -out "$RUNNER_TEMP/input.pem"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: round2-reference-public-certificate
+          path: ${{ runner.temp }}/input.pem
+          retention-days: 1
+      - name: Prepare project image CLI
+        run: |
+          python3 -m venv "$RUNNER_TEMP/env"
+          "$RUNNER_TEMP/env/bin/python" -m pip install 'openai>=2,<3' pillow
+      - name: Receive encrypted reference
+        run: |
+          for try in {1..90}; do
+            git fetch -q --depth=1 origin refs/heads/codex/zhusha-ten-styles-20261120
+            if git show FETCH_HEAD:tools/wan-style-pilot/zhusha-round2-ref.cms > "$RUNNER_TEMP/ref.cms" 2>/dev/null; then break; fi
+            sleep 10
+          done
+          cd "$RUNNER_TEMP"
+          openssl cms -decrypt -binary -inform DER -in ref.cms -inkey input.key -recip input.pem -out reference.jpg
+          echo '06a2ff4d20974ad22b99132f6b6f99370842cabb8a44e081f2cd157d2e496d11  reference.jpg' | sha256sum -c -
+          "$RUNNER_TEMP/env/bin/python" - <<'PYFACE'
+          from PIL import Image
+          with Image.open('reference.jpg') as im:
+              im.crop((247,170,427,356)).save('face.png')
+          PYFACE
+      - name: Render ten independent reference edits
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: https://api.openai.com/v1
+        run: |
+          set -eu
+          test -n "$OPENAI_API_KEY"
+          mkdir -p "$RUNNER_TEMP/output" "$RUNNER_TEMP/briefs"
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          brief=json.loads(Path('tools/wan-style-pilot/zhusha-round2.json').read_text())
+          for number,style in enumerate(brief['styles'],1):
+              (Path(os.environ['RUNNER_TEMP'])/'briefs'/f'{number:02}.txt').write_text(brief['subject']+' '+style)
+          PY
+          render() {
+            id="$1"
+            if ! "$RUNNER_TEMP/env/bin/python" tools/wan-style-pilot/image_gen.py edit --image "$RUNNER_TEMP/face.png" --prompt-file "$RUNNER_TEMP/briefs/$id.txt" --out "$RUNNER_TEMP/output/$id.png" --model gpt-image-2 --quality high --size 1024x1536 --no-augment > "$RUNNER_TEMP/$id.log" 2>&1; then
+              echo "Image $id failed."
+              grep -Eo 'Error code: [0-9]{3}|insufficient_quota|invalid_api_key|rate_limit_exceeded|billing_hard_limit_reached|model_not_found|moderation_blocked|invalid_image' "$RUNNER_TEMP/$id.log" | sort -u || true
+              return 1
+            fi
+            echo "Image $id ready."
+          }
+          export -f render
+          seq -w 1 10 | xargs -P 3 -I '{}' bash -c 'render "$1"' _ '{}'
+      - name: Encrypt finished artwork
+        if: always()
+        run: |
+          shopt -s nullglob
+          imgs=("$RUNNER_TEMP"/output/*.png)
+          if (( ${#imgs[@]} )); then
+            zip -q -j "$RUNNER_TEMP/output.zip" "${imgs[@]}"
+            openssl cms -encrypt -binary -aes-256-gcm -outform DER -in "$RUNNER_TEMP/output.zip" -out "$RUNNER_TEMP/zhusha-ten.cms" tools/wan-style-pilot/six-delivery-public.pem
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: round2-encrypted-art
+          path: ${{ runner.temp }}/zhusha-ten.cms
+          if-no-files-found: ignore
+          retention-days: 7
