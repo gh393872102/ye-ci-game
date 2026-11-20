@@ -1,4 +1,6 @@
 """Render approved input records; keep all private material on the ephemeral runner."""
+import base64
+import time
 import concurrent.futures
 import functools
 import json
@@ -9,7 +11,7 @@ import subprocess
 import sys
 import threading
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image
 ROOT = Path(os.environ["RUNNER_TEMP"])
 IN = ROOT / "inputs"
 OUT = ROOT / "results"
@@ -22,13 +24,20 @@ def checkpoint():
         statuses = list(OUT.glob("*.status"))
         print(f"Checked {len(statuses)} records", flush=True)
 
-def call_image(name, ref, prompt, dest, size, fmt, quality):
+def call_image(name, ref, prompt, dest, size, fmt, quality, identity=None):
     promptfile = ROOT / (name + ".prompt")
     promptfile.write_text(prompt)
     args = [sys.executable, __file__, "cli", "edit", "--image", str(ref), "--prompt-file", str(promptfile), "--model", "gpt-image-2", "--size", size, "--quality", quality, "--output-format", fmt, "--no-augment", "--out", str(dest)]
+    if identity is not None:
+        args.extend(["--image",str(identity)])
     if fmt == "jpeg":
         args.extend(["--output-compression", "95"])
-    log = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    for delay in (0, 65, 130):
+        if delay:
+            time.sleep(delay)
+        log = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        if log.returncode == 0 or not ("429" in log.stdout and "rate_limit_exceeded" in log.stdout and "insufficient_quota" not in log.stdout):
+            break
     if log.returncode:
         tags = re.findall(r"Error code: \d{3}|insufficient_quota|billing_hard_limit_reached|rate_limit_exceeded|moderation_blocked|invalid_image|invalid_api_key|model_not_found|invalid_size|unsupported_value|organization_verification_required|Request timed out", log.stdout, flags=re.I)
         reason = ",".join(dict.fromkeys(tags)) or "render_failed"
@@ -72,7 +81,12 @@ def render(row):
         if HALT.is_set():
             raise RuntimeError("not_started")
         art_prompt=(IN/"art.txt").read_text()+"\n"+row["kind"]+" | "+row["name"]+" | "+row["brief"]
-        call_image(code+"-a",IN/"style.jpg",art_prompt,art,"2160x3840","jpeg","high")
+        identity=None
+        if row.get("guide"):
+            identity=ROOT/(code+"-guide.jpg")
+            identity.write_bytes(base64.b64decode(row["guide"],validate=True))
+            art_prompt+=" First image sets painting medium, lighting and palette only. The second image supplies this unit's own identity: preserve gender, face or ghost anatomy, signature prop, age group, and adapt clothing to the new painting. Omit interface, existing emblems and old framing."
+        call_image(code+"-a",IN/"style.jpg",art_prompt,art,"2160x3840","jpeg","high",identity)
         if HALT.is_set():
             raise RuntimeError("sprite_not_started")
         sprite_prompt=(IN/"sprite.txt").read_text()+"\n"+row["name"]+" | "+row["brief"]
