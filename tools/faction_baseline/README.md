@@ -141,3 +141,14 @@ godot --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/Tid
 ```
 
 末战复用时看 `steps[-1].post_trials` 与 `lamp_trials`，主线换装与请援回执在发生操作的节点。每战的外援看 `foreign_units`，每条分支单独判定；`lamp_events` 保留携带至该节点的整夜成长事件。阵亡记录按本场时间计，`result.killer_id` 按胜负原因计。早招有伤进场与晚招满血入场在档案中分列。
+
+## 普通夺名四谱
+
+```sh
+godot --headless --script tools/faction_baseline/FamilyFirstNight.gd -- 渡口
+godot --headless --script tools/faction_baseline/FamilyRoute.gd -- 渡口 习俗厉
+godot --headless --script tools/faction_baseline/FamilyBudget.gd
+godot --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/FamilyFrames.gd
+```
+
+另两个种子为灯市与秋社。首战同时记录免费与付费策略；无册谱首战早于30秒结算，相应记录没有 `at_30s`。全夜记录各战斗的出生、转换与正式裁决。两类实验独立开局，不合并推算胜率。补潮档位工具使用构造的成长加成和真实消费命令，区分于自然获得奖励的通关路线。

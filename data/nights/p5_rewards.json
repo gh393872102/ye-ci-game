@@ -221,7 +221,7 @@
   "r_tide_gap": {
     "id": "r_tide_gap",
     "title": "阴缝脉冲",
-    "description": "之后每次增潮多加入2只白衣，累计最多额外4只；冷却与次数上限仍在。",
+    "description": "之后每次增潮多加入2只当前谱系的援鬼，累计最多额外4只；冷却与次数上限仍在。",
     "category": "build",
     "mode": "duoming",
     "weight": 5,

@@ -160,7 +160,7 @@ func _spawn_chunk_source() -> void:
 	for unit in sim.targets:
 		if unit.lane_index == lane and unit.floor_id == 0 and absf(unit.position.x - x) < float(config.spacing):
 			return
-	if spawn(str(source.id), lane, x) != null:
+	if spawn(str(config.get("supply_id",source.id)), lane, x) != null:
 		config["chunk_source_used"] = used + 1
 		config["chunk_source_next"] = elapsed + float(source.interval)
 		effect("fissure_spawn", Vector2(x, sim.world.floor_y(0)), str(source.door))

@@ -487,7 +487,7 @@ func reinforce() -> Dictionary:
 	reinforce_count += 1
 	reinforce_left = float(rules.reinforce.cooldown)
 	for index in int(rules.reinforce.count):
-		simulation.tide.pending.append("G01")
+		simulation.tide.pending.append(simulation.tide.config.get("supply_id","G01"))
 	_record("reinforce", -float(rules.reinforce.cost), str(rules.reinforce.count))
 	_emit_command("duoming","reinforce",{})
 	return _ok()

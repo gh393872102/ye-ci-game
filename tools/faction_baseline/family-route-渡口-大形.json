@@ -1,0 +1,357 @@
+{
+	"family": "大形",
+	"outcome": "victory",
+	"phase": "ended",
+	"reason": "P5_NIGHT_COMPLETE",
+	"seed": "渡口",
+	"steps": [
+		{
+			"cash": 16.0,
+			"node": "n01",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G17_tide_10": "G17",
+				"G17_tide_11": "G17",
+				"G17_tide_12": "G17",
+				"G17_tide_13": "G17",
+				"G17_tide_14": "G17",
+				"G17_tide_6": "G17",
+				"G17_tide_7": "G17",
+				"G17_tide_8": "G17",
+				"G17_tide_9": "G17"
+			},
+			"cash": 16.0,
+			"family": "大形",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 122.616666666661,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 39.6166666666657
+				},
+				"humans_alive": 3,
+				"incense": 45.4279999999979,
+				"killer_id": "G17",
+				"mode": "duoming",
+				"names": 5.00000000000017,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 57.383333333296,
+				"tide_alive": 9
+			}
+		},
+		{
+			"cash": 57.4279999999979,
+			"choice": "p7_Y10",
+			"phase": "reward"
+		},
+		{
+			"cash": 57.4279999999979,
+			"node": "n02",
+			"phase": "map"
+		},
+		{
+			"cash": 57.4279999999979,
+			"phase": "market"
+		},
+		{
+			"cash": 57.4279999999979,
+			"node": "n03",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G17_tide_10": "G17",
+				"G17_tide_11": "G17",
+				"G17_tide_12": "G17",
+				"G17_tide_13": "G17",
+				"G17_tide_14": "G17",
+				"G17_tide_15": "G17",
+				"G17_tide_16": "G17",
+				"G17_tide_17": "G17",
+				"G17_tide_18": "G17",
+				"G17_tide_19": "G17",
+				"G17_tide_20": "G17",
+				"G17_tide_21": "G17",
+				"G17_tide_22": "G17",
+				"G17_tide_6": "G17",
+				"G17_tide_7": "G17",
+				"G17_tide_8": "G17",
+				"G17_tide_9": "G17"
+			},
+			"cash": 57.4279999999979,
+			"family": "大形",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 122.616666666661,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 39.6166666666657
+				},
+				"humans_alive": 3,
+				"incense": 60.0,
+				"killer_id": "G17",
+				"mode": "duoming",
+				"names": 6.00000000000034,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 87.3833333332704,
+				"tide_alive": 17
+			}
+		},
+		{
+			"cash": 60.0,
+			"choice": "p7_Y14",
+			"phase": "reward"
+		},
+		{
+			"cash": 60.0,
+			"node": "n04",
+			"phase": "map"
+		},
+		{
+			"cash": 60.0,
+			"choice": "light",
+			"phase": "event"
+		},
+		{
+			"cash": 56.0,
+			"node": "n05",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G17_tide_10": "G17",
+				"G17_tide_11": "G17",
+				"G17_tide_12": "G17",
+				"G17_tide_13": "G17",
+				"G17_tide_14": "G17",
+				"G17_tide_15": "G17",
+				"G17_tide_16": "G17",
+				"G17_tide_17": "G17",
+				"G17_tide_18": "G17",
+				"G17_tide_19": "G17",
+				"G17_tide_20": "G17",
+				"G17_tide_21": "G17",
+				"G17_tide_22": "G17",
+				"G17_tide_23": "G17",
+				"G17_tide_24": "G17",
+				"G17_tide_25": "G17",
+				"G17_tide_26": "G17",
+				"G17_tide_27": "G17",
+				"G17_tide_28": "G17",
+				"G17_tide_29": "G17",
+				"G17_tide_30": "G17",
+				"G17_tide_6": "G17",
+				"G17_tide_7": "G17",
+				"G17_tide_8": "G17",
+				"G17_tide_9": "G17"
+			},
+			"cash": 56.0,
+			"family": "大形",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 122.616666666661,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 39.6166666666657
+				},
+				"humans_alive": 3,
+				"incense": 60.0,
+				"killer_id": "G17",
+				"mode": "duoming",
+				"names": 8.00000000000051,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 87.3833333332704,
+				"tide_alive": 25
+			}
+		},
+		{
+			"cash": 60.0,
+			"choice": "p7_I08",
+			"phase": "reward"
+		},
+		{
+			"cash": 60.0,
+			"node": "n06",
+			"phase": "map"
+		},
+		{
+			"cash": 60.0,
+			"phase": "rest"
+		},
+		{
+			"cash": 60.0,
+			"node": "n07",
+			"phase": "map"
+		},
+		{
+			"cash": 60.0,
+			"choice": "accept",
+			"phase": "event"
+		},
+		{
+			"cash": 60.0,
+			"node": "n08",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G17_tide_10": "G17",
+				"G17_tide_11": "G17",
+				"G17_tide_12": "G17",
+				"G17_tide_13": "G17",
+				"G17_tide_14": "G17",
+				"G17_tide_15": "G17",
+				"G17_tide_16": "G17",
+				"G17_tide_17": "G17",
+				"G17_tide_18": "G17",
+				"G17_tide_19": "G17",
+				"G17_tide_20": "G17",
+				"G17_tide_21": "G17",
+				"G17_tide_22": "G17",
+				"G17_tide_23": "G17",
+				"G17_tide_24": "G17",
+				"G17_tide_25": "G17",
+				"G17_tide_26": "G17",
+				"G17_tide_27": "G17",
+				"G17_tide_28": "G17",
+				"G17_tide_29": "G17",
+				"G17_tide_30": "G17",
+				"G17_tide_31": "G17",
+				"G17_tide_32": "G17",
+				"G17_tide_33": "G17",
+				"G17_tide_34": "G17",
+				"G17_tide_35": "G17",
+				"G17_tide_36": "G17",
+				"G17_tide_37": "G17",
+				"G17_tide_38": "G17",
+				"G17_tide_39": "G17",
+				"G17_tide_40": "G17",
+				"G17_tide_6": "G17",
+				"G17_tide_7": "G17",
+				"G17_tide_8": "G17",
+				"G17_tide_9": "G17"
+			},
+			"cash": 60.0,
+			"family": "大形",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 122.616666666661,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 39.6166666666657
+				},
+				"humans_alive": 3,
+				"incense": 60.0,
+				"killer_id": "G17",
+				"mode": "duoming",
+				"names": 8.00000000000017,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 117.383333333245,
+				"tide_alive": 35
+			}
+		},
+		{
+			"cash": 60.0,
+			"choice": "p7_Y07",
+			"phase": "reward"
+		},
+		{
+			"cash": 60.0,
+			"node": "n09",
+			"phase": "map"
+		},
+		{
+			"cash": 60.0,
+			"phase": "rest"
+		},
+		{
+			"cash": 60.0,
+			"node": "n10",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G17_tide_10": "G17",
+				"G17_tide_11": "G17",
+				"G17_tide_12": "G17",
+				"G17_tide_13": "G17",
+				"G17_tide_14": "G17",
+				"G17_tide_15": "G17",
+				"G17_tide_16": "G17",
+				"G17_tide_17": "G17",
+				"G17_tide_18": "G17",
+				"G17_tide_19": "G17",
+				"G17_tide_20": "G17",
+				"G17_tide_21": "G17",
+				"G17_tide_22": "G17",
+				"G17_tide_23": "G17",
+				"G17_tide_24": "G17",
+				"G17_tide_25": "G17",
+				"G17_tide_26": "G17",
+				"G17_tide_27": "G17",
+				"G17_tide_28": "G17",
+				"G17_tide_29": "G17",
+				"G17_tide_30": "G17",
+				"G17_tide_31": "G17",
+				"G17_tide_32": "G17",
+				"G17_tide_33": "G17",
+				"G17_tide_34": "G17",
+				"G17_tide_35": "G17",
+				"G17_tide_36": "G17",
+				"G17_tide_37": "G17",
+				"G17_tide_38": "G17",
+				"G17_tide_39": "G17",
+				"G17_tide_40": "G17",
+				"G17_tide_41": "G17",
+				"G17_tide_42": "G17",
+				"G17_tide_43": "G17",
+				"G17_tide_44": "G17",
+				"G17_tide_45": "G17",
+				"G17_tide_46": "G17",
+				"G17_tide_6": "G17",
+				"G17_tide_7": "G17",
+				"G17_tide_8": "G17",
+				"G17_tide_9": "G17"
+			},
+			"cash": 60.0,
+			"family": "大形",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 38.2166666666658,
+				"first_breach": {
+					"door": "door_hall",
+					"time": 8.28333333333332
+				},
+				"humans_alive": 2,
+				"incense": 60.0,
+				"killer_id": "G17",
+				"mode": "duoming",
+				"names": 9.00000000000017,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 321.783333333368,
+				"tide_alive": 41
+			}
+		},
+		{
+			"cash": 60.0,
+			"choice": "p7_Y06",
+			"phase": "reward"
+		},
+		{
+			"cash": 60.0,
+			"phase": "ended"
+		}
+	]
+}

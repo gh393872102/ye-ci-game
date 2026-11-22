@@ -1,0 +1,354 @@
+{
+	"family": "无册谱",
+	"outcome": "victory",
+	"phase": "ended",
+	"reason": "P5_NIGHT_COMPLETE",
+	"seed": "秋社",
+	"steps": [
+		{
+			"cash": 16.0,
+			"node": "n01",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G25_tide_10": "G25",
+				"G25_tide_11": "G25",
+				"G25_tide_12": "G25",
+				"G25_tide_13": "G25",
+				"G25_tide_14": "G25",
+				"G25_tide_15": "G25",
+				"G25_tide_16": "G25",
+				"G25_tide_17": "G25",
+				"G25_tide_18": "G25",
+				"G25_tide_19": "G25",
+				"G25_tide_6": "G25",
+				"G25_tide_7": "G25",
+				"G25_tide_8": "G25",
+				"G25_tide_9": "G25"
+			},
+			"cash": 16.0,
+			"family": "无册谱",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 21.1333333333334,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 21.0720000000017,
+				"killer_id": "G25",
+				"mode": "duoming",
+				"names": 0.0,
+				"outcome": "victory",
+				"reason": "P4_END_NAMES_DRAINED",
+				"remaining": 158.86666666665,
+				"tide_alive": 14
+			}
+		},
+		{
+			"cash": 33.0720000000017,
+			"choice": "p7_Y11",
+			"phase": "reward"
+		},
+		{
+			"cash": 33.0720000000017,
+			"node": "n02",
+			"phase": "map"
+		},
+		{
+			"cash": 33.0720000000017,
+			"phase": "market"
+		},
+		{
+			"cash": 33.0720000000017,
+			"node": "n03",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G25_tide_10": "G25",
+				"G25_tide_11": "G25",
+				"G25_tide_12": "G25",
+				"G25_tide_13": "G25",
+				"G25_tide_14": "G25",
+				"G25_tide_15": "G25",
+				"G25_tide_16": "G25",
+				"G25_tide_17": "G25",
+				"G25_tide_18": "G25",
+				"G25_tide_19": "G25",
+				"G25_tide_20": "G25",
+				"G25_tide_21": "G25",
+				"G25_tide_22": "G25",
+				"G25_tide_23": "G25",
+				"G25_tide_24": "G25",
+				"G25_tide_25": "G25",
+				"G25_tide_6": "G25",
+				"G25_tide_7": "G25",
+				"G25_tide_8": "G25",
+				"G25_tide_9": "G25"
+			},
+			"cash": 33.0720000000017,
+			"family": "无册谱",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 20.7166666666668,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 38.0439999999989,
+				"killer_id": "G25",
+				"mode": "duoming",
+				"names": 0.0,
+				"outcome": "victory",
+				"reason": "P4_END_NAMES_DRAINED",
+				"remaining": 189.283333333317,
+				"tide_alive": 20
+			}
+		},
+		{
+			"cash": 50.0439999999989,
+			"choice": "p7_I08",
+			"phase": "reward"
+		},
+		{
+			"cash": 50.0439999999989,
+			"node": "n04",
+			"phase": "map"
+		},
+		{
+			"cash": 50.0439999999989,
+			"choice": "light",
+			"phase": "event"
+		},
+		{
+			"cash": 46.0439999999989,
+			"node": "n05",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G25_tide_10": "G25",
+				"G25_tide_11": "G25",
+				"G25_tide_12": "G25",
+				"G25_tide_13": "G25",
+				"G25_tide_14": "G25",
+				"G25_tide_15": "G25",
+				"G25_tide_16": "G25",
+				"G25_tide_17": "G25",
+				"G25_tide_18": "G25",
+				"G25_tide_19": "G25",
+				"G25_tide_20": "G25",
+				"G25_tide_21": "G25",
+				"G25_tide_22": "G25",
+				"G25_tide_23": "G25",
+				"G25_tide_24": "G25",
+				"G25_tide_25": "G25",
+				"G25_tide_26": "G25",
+				"G25_tide_27": "G25",
+				"G25_tide_28": "G25",
+				"G25_tide_29": "G25",
+				"G25_tide_30": "G25",
+				"G25_tide_31": "G25",
+				"G25_tide_6": "G25",
+				"G25_tide_7": "G25",
+				"G25_tide_8": "G25",
+				"G25_tide_9": "G25"
+			},
+			"cash": 46.0439999999989,
+			"family": "无册谱",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 21.1000000000001,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 51.1079999999961,
+				"killer_id": "G25",
+				"mode": "duoming",
+				"names": 0.0,
+				"outcome": "victory",
+				"reason": "P4_END_NAMES_DRAINED",
+				"remaining": 188.899999999983,
+				"tide_alive": 26
+			}
+		},
+		{
+			"cash": 60.0,
+			"choice": "p7_I12",
+			"phase": "reward"
+		},
+		{
+			"cash": 60.0,
+			"node": "n06",
+			"phase": "map"
+		},
+		{
+			"cash": 60.0,
+			"phase": "rest"
+		},
+		{
+			"cash": 60.0,
+			"node": "n07",
+			"phase": "map"
+		},
+		{
+			"cash": 60.0,
+			"choice": "accept",
+			"phase": "event"
+		},
+		{
+			"cash": 60.0,
+			"node": "n08",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G25_tide_10": "G25",
+				"G25_tide_11": "G25",
+				"G25_tide_12": "G25",
+				"G25_tide_13": "G25",
+				"G25_tide_14": "G25",
+				"G25_tide_15": "G25",
+				"G25_tide_16": "G25",
+				"G25_tide_17": "G25",
+				"G25_tide_18": "G25",
+				"G25_tide_19": "G25",
+				"G25_tide_20": "G25",
+				"G25_tide_21": "G25",
+				"G25_tide_22": "G25",
+				"G25_tide_23": "G25",
+				"G25_tide_24": "G25",
+				"G25_tide_25": "G25",
+				"G25_tide_26": "G25",
+				"G25_tide_27": "G25",
+				"G25_tide_28": "G25",
+				"G25_tide_29": "G25",
+				"G25_tide_30": "G25",
+				"G25_tide_31": "G25",
+				"G25_tide_32": "G25",
+				"G25_tide_33": "G25",
+				"G25_tide_34": "G25",
+				"G25_tide_35": "G25",
+				"G25_tide_36": "G25",
+				"G25_tide_37": "G25",
+				"G25_tide_6": "G25",
+				"G25_tide_7": "G25",
+				"G25_tide_8": "G25",
+				"G25_tide_9": "G25"
+			},
+			"cash": 60.0,
+			"family": "无册谱",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 20.7166666666668,
+				"first_breach": {},
+				"humans_alive": 5,
+				"incense": 60.0,
+				"killer_id": "G25",
+				"mode": "duoming",
+				"names": 0.0,
+				"outcome": "victory",
+				"reason": "P4_END_NAMES_DRAINED",
+				"remaining": 219.283333333317,
+				"tide_alive": 32
+			}
+		},
+		{
+			"cash": 60.0,
+			"choice": "p7_I16",
+			"phase": "reward"
+		},
+		{
+			"cash": 60.0,
+			"node": "n09",
+			"phase": "map"
+		},
+		{
+			"cash": 60.0,
+			"phase": "rest"
+		},
+		{
+			"cash": 60.0,
+			"node": "n10",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G25_tide_10": "G25",
+				"G25_tide_11": "G25",
+				"G25_tide_12": "G25",
+				"G25_tide_13": "G25",
+				"G25_tide_14": "G25",
+				"G25_tide_15": "G25",
+				"G25_tide_16": "G25",
+				"G25_tide_17": "G25",
+				"G25_tide_18": "G25",
+				"G25_tide_19": "G25",
+				"G25_tide_20": "G25",
+				"G25_tide_21": "G25",
+				"G25_tide_22": "G25",
+				"G25_tide_23": "G25",
+				"G25_tide_24": "G25",
+				"G25_tide_25": "G25",
+				"G25_tide_26": "G25",
+				"G25_tide_27": "G25",
+				"G25_tide_28": "G25",
+				"G25_tide_29": "G25",
+				"G25_tide_30": "G25",
+				"G25_tide_31": "G25",
+				"G25_tide_32": "G25",
+				"G25_tide_33": "G25",
+				"G25_tide_34": "G25",
+				"G25_tide_35": "G25",
+				"G25_tide_36": "G25",
+				"G25_tide_37": "G25",
+				"G25_tide_38": "G25",
+				"G25_tide_39": "G25",
+				"G25_tide_40": "G25",
+				"G25_tide_41": "G25",
+				"G25_tide_42": "G25",
+				"G25_tide_43": "G25",
+				"G25_tide_44": "G25",
+				"G25_tide_45": "G25",
+				"G25_tide_46": "G25",
+				"G25_tide_47": "G25",
+				"G25_tide_48": "G25",
+				"G25_tide_49": "G25",
+				"G25_tide_6": "G25",
+				"G25_tide_7": "G25",
+				"G25_tide_8": "G25",
+				"G25_tide_9": "G25"
+			},
+			"cash": 60.0,
+			"family": "无册谱",
+			"foreign": [],
+			"phase": "battle",
+			"result": {
+				"elapsed": 20.6833333333334,
+				"first_breach": {
+					"door": "door_hall",
+					"time": 7.04999999999998
+				},
+				"humans_alive": 5,
+				"incense": 60.0,
+				"killer_id": "G25",
+				"mode": "duoming",
+				"names": 0.0,
+				"outcome": "victory",
+				"reason": "P4_END_NAMES_DRAINED",
+				"remaining": 339.316666666685,
+				"tide_alive": 44
+			}
+		},
+		{
+			"cash": 60.0,
+			"choice": "p7_I08",
+			"phase": "reward"
+		},
+		{
+			"cash": 60.0,
+			"phase": "ended"
+		}
+	]
+}

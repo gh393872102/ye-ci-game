@@ -1,0 +1,69 @@
+extends SceneTree
+
+func _initialize() -> void:
+	run.call_deferred()
+
+func run() -> void:
+	if DisplayServer.get_name() == "headless":
+		quit(2)
+		return
+	root.size = Vector2i(1920,1080)
+	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
+	host.title_shell_enabled = true
+	host.save_path = "user://family-frames-%d.json" % OS.get_process_id()
+	root.add_child(host)
+	var shell: Node = host.shell
+	shell.title_buttons.start.pressed.emit()
+	shell.family_picker.select(3)
+	shell.family_picker.item_selected.emit(3)
+	await RenderingServer.frame_post_draw
+	var portrait_ok: bool = shell.family_portrait.texture != null and shell.family_note.text.contains("山魅") and shell.family_portrait.is_visible_in_tree()
+	root.get_texture().get_image().save_webp("res://docs/optimization/mountain-opening.webp",true,0.80)
+	shell.seed_input.text = "渡口"
+	shell.title_buttons.duoming.pressed.emit()
+	host.choose_node("n01")
+	var sim: Node = host.combat.get_node("Simulation")
+	var panel: Node = host.combat.get_node("Decisions")
+	var camera: Node = host.combat.get_node("BattleCamera")
+	for column in 11:
+		for lane in 4: sim.tide.spawn("G17",lane,camera.left()+55+column*105+lane*10)
+	for warmup in 30: await RenderingServer.frame_post_draw
+	var samples := []
+	var low := 999
+	var high := 0
+	var before := Time.get_ticks_usec()
+	for i in 180:
+		await RenderingServer.frame_post_draw
+		var now := Time.get_ticks_usec()
+		samples.append((now-before)/1000.0)
+		before = now
+		var count := 0
+		for g in sim.targets:
+			if not g.dead and root.get_visible_rect().has_point(g.get_global_transform_with_canvas().origin): count += 1
+		low = mini(low,count)
+		high = maxi(high,count)
+	panel.open_reinforce()
+	await RenderingServer.frame_post_draw
+	var button: Button = panel.buttons.reinforce
+	var rect := button.get_global_rect()
+	var session: Node = sim.session
+	var cash: float = session.incense
+	var started := Time.get_ticks_usec()
+	for down in [true,false]:
+		var event := InputEventMouseButton.new()
+		event.position = rect.get_center()
+		event.button_index = MOUSE_BUTTON_LEFT
+		event.pressed = down
+		root.push_input(event,true)
+	await RenderingServer.frame_post_draw
+	var ms := (Time.get_ticks_usec()-started)/1000.0
+	var ordered := samples.duplicate()
+	ordered.sort()
+	var ok: bool = portrait_ok and low >= 30 and is_equal_approx(cash-session.incense,10) and session.reinforce_count == 1 and sim.tide.pending.slice(-2)==["G17","G17"]
+	var result := {"passed":ok,"portrait":portrait_ok,"resolution":[1920,1080],"visible":[low,high],"frame_ms":samples,"frame_percentiles":[ordered[89],ordered[170],ordered[178]],"click_feedback_ms":ms,"feedback":panel.feedback.text,"renderer":RenderingServer.get_video_adapter_name(),"paid":cash-session.incense,"queued":sim.tide.pending}
+	FileAccess.open("res://tools/faction_baseline/native-family.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	print("NATIVE ",ok," ",result.frame_percentiles," ",ms)
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(host.save_path))
+	host.free()
+	await create_timer(0.4).timeout
+	quit(0 if ok else 1)

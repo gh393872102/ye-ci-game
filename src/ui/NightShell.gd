@@ -11,6 +11,9 @@ var pause: Panel
 var preferences: Control
 var title_buttons: Dictionary = {}
 var pause_buttons: Dictionary = {}
+var family_portrait: TextureRect
+var family_note: Label
+var family_picker: OptionButton
 var faction_picker: OptionButton
 var faction_detail: Label
 var faction_portraits: Array[TextureRect] = []
@@ -98,6 +101,25 @@ func _build_start() -> void:
 		faction_picker.set_item_metadata(faction_picker.item_count - 1, faction)
 	faction_picker.tooltip_text = "单司双人守册，开局保留20香火；存活的具名守军可维持防线。"
 	title_start.add_child(faction_picker)
+	family_picker = OptionButton.new()
+	family_picker.position = Vector2(780,207)
+	family_picker.size = Vector2(640,58)
+	family_picker.add_item("攻方开局 · 原有鬼潮")
+	family_picker.set_item_metadata(0,"")
+	for family in preload("res://src/night/FactionOpening.gd").FAMILIES:
+		var entry: Dictionary = preload("res://src/night/FactionOpening.gd").FAMILIES[family]
+		var ghost := Data.get_unit(entry.id)
+		family_picker.add_item("%s夺名 · %s × %d · %s" % [family,ghost["名称"],floori(16.0 / entry.slots),ghost["定位"]])
+		family_picker.set_item_metadata(family_picker.item_count-1,family)
+	family_picker.tooltip_text = "初始、定时鬼潮与付费补潮沿用所选谱系。开局16香火，主动变异可能跨谱。"
+	title_start.add_child(family_picker)
+	family_portrait = preload("res://src/ui/LedgerInk.gd").texture(title_start,null,Rect2(1450,305,280,346),false)
+	family_note = _label(title_start,"",Rect2(1450,660,360,180),23)
+	family_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	family_note.add_theme_constant_override("outline_size",5)
+	family_note.add_theme_color_override("font_outline_color",Color("17140f"))
+	family_picker.item_selected.connect(_describe_family)
+	_describe_family(0)
 	faction_detail = Label.new()
 	faction_detail.position = Vector2(787, 361)
 	faction_detail.size = Vector2(635, 160)
@@ -110,6 +132,8 @@ func _build_start() -> void:
 	_describe_faction(0)
 	night_kind.item_selected.connect(func(index: int):
 		fierce_options.visible = index == 2
+		family_picker.visible = index == 0
+		_describe_family(family_picker.selected)
 		faction_picker.visible = index == 0
 		faction_detail.visible = index == 0 and faction_picker.selected > 0)
 	_label(title_start, "P9_TITLE_NIGHT_SEED", Rect2(111, 369, 465, 44), 24)
@@ -125,6 +149,16 @@ func _build_start() -> void:
 	title_buttons.duoming.text += "\n" + tr("P9_TITLE_DUOMING_HELP")
 	restart_note = _label(title_start, "P9_TITLE_START_OVER", Rect2(111, 767, 560, 42), 21, Color("d8bb80"))
 	title_buttons.back = _button(title_start, "P9_TITLE_RETURN", Rect2(111, 831, 228, 60), _show_home, 24)
+
+func _describe_family(index: int) -> void:
+	var active := index > 0 and night_kind.selected == 0
+	family_portrait.visible = active
+	family_note.visible = active
+	if not active: return
+	var family: Dictionary = preload("res://src/night/FactionOpening.gd").FAMILIES[family_picker.get_item_metadata(index)]
+	var ghost := Data.get_unit(family.id)
+	family_portrait.texture = preload("res://src/units/UnitAppearance.gd").portrait_texture(family.id)
+	family_note.text = "%s · %s\n%s\n补潮10香火，每次%d只。" % [ghost["名称"],ghost["定位"],ghost["专属技能"],floori(float(Data.battle_rules.reinforce.count)/family.slots)]
 
 func _describe_faction(index: int) -> void:
 	faction_detail.visible = index > 0 and night_kind.selected == 0
@@ -229,7 +263,7 @@ func _start_night(mode: String) -> void:
 			if modifier_boxes[id].button_pressed: modifiers.append(id)
 		host.start_p10_night(mode,"fierce",seed_input.text,ritual_choice.get_selected_metadata(),modifiers)
 	elif night_kind.selected == 0:
-		host.start_p10_night(mode,"example",seed_input.text,"R01",[], faction_picker.get_selected_metadata() if mode == "shouxiang" else "")
+		host.start_p10_night(mode,"example",seed_input.text,"R01",[], faction_picker.get_selected_metadata() if mode == "shouxiang" else family_picker.get_selected_metadata())
 	else:
 		host.start_run(mode, "example", seed_input.text)
 

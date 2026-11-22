@@ -72,7 +72,7 @@ func run() -> void:
 	var talisman_shop: Node = host.combat.get_node("Decisions")
 	root.get_node("Clock").set_paused(false)
 	talisman_shop.open_purchase()
-	var has_borrow_hint: bool = talisman_shop.content.find_children("*","Label",true,false).any(func(label): return label.text.contains("临时收编野鬼"))
+	var has_borrow_hint: bool = talisman_shop.content.find_children("*","Label",true,false).any(func(label): return label.text.contains("问灯会借鬼") and label.text.contains("照鬼定身"))
 	ok = ok and talisman_shop.buttons.has("buy_H19") and has_borrow_hint
 	var battle_session: Node = host.combat.get_node("Session")
 	var cash: float = battle_session.incense

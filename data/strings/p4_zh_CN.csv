@@ -66,7 +66,7 @@ P4_MUTATE_G12,破门 → 力士尸  ·  香火 %d
 P4_MUTATION_PREVIEW,%s：生命 %s  攻击 %s  防御 %s  速度 %s
 P4_FUSION_PENDING,融契 / 提灯：接口保留，完整配方在 P7。
 P4_REINFORCE,增潮  ·  香火 %d
-P4_REINFORCE_INFO,从潮源补 %d 只白衣  ·  剩余 %d 次  ·  冷却 %.1f 秒
+P4_REINFORCE_INFO,从潮源补 %d 只%s  ·  剩余 %d 次  ·  冷却 %.1f 秒
 P4_COMMANDS,暂停决策
 P4_CLOSE,关闭 / B
 P4_RESUME,继续战斗 / Space

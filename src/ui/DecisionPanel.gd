@@ -1045,7 +1045,7 @@ func open_reinforce() -> void:
 	current_panel = "reinforce"
 	_clear_content(tr("P4_COMMAND_REINFORCE"))
 	var rule: Dictionary = session.rules.reinforce
-	_label(content, tr("P4_REINFORCE_INFO") % [rule.count, maxi(0, int(rule.limit) - session.reinforce_count), session.reinforce_left])
+	_label(content, tr("P4_REINFORCE_INFO") % [rule.count, Data.get_unit(session.simulation.tide.config.get("supply_id","G01"))["名称"], maxi(0, int(rule.limit) - session.reinforce_count), session.reinforce_left])
 	var reason := ""
 	if session.reinforce_count >= int(rule.limit):
 		reason = "P4_REINFORCE_LIMIT"

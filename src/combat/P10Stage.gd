@@ -122,7 +122,14 @@ func _spawn_formations() -> void:
 			return
 		var floor_id := int(formation.floor)
 		var x := Rules.body_to_px(float(formation.x))
-		var unit: Node2D = simulation.tide.spawn(str(formation.unit), int(formation.lane), x)
+		var id: String = formation.unit
+		var tide: RefCounted = simulation.tide
+		if state.boss_id == "B01" and tide.config.has("supply_id"):
+			if int(state.formation) % int(tide.config.supply_slots) != 0:
+				state.formation = int(state.formation) + 1
+				continue
+			id = tide.config.supply_id
+		var unit: Node2D = tide.spawn(id,int(formation.lane),x)
 		if unit == null:
 			return
 		unit.floor_id = floor_id
@@ -255,6 +262,8 @@ func stage_text() -> String:
 	match state.boss_id:
 		"B01":
 			text = tr("P10_B01_FLOODED" if state.gate_flooded else ("P10_B01_OPEN" if state.gate_broken else spec.description_key))
+			if not state.gate_broken and simulation.tide.config.has("supply_id"):
+				text = tr("P10_B01_FAMILY_PRESSURE") % Data.get_unit(simulation.tide.config.supply_id)["名称"]
 		"B02":
 			if state.upper_lost:
 				text = tr("P10_B02_LOST")

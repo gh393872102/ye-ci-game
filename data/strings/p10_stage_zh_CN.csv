@@ -1,6 +1,7 @@
 key,zh_CN
 P10_B01,正殿失守
 P10_B01_PRESSURE,殿门已危 · 身后的门厅有力士
+P10_B01_FAMILY_PRESSURE,殿门已危 · %s正逼近门厅
 P10_B01_OPEN,殿门已破 · 潮正向门厅移动
 P10_B01_FLOODED,潮已灌入门厅 · 守住楼梯和名册
 P10_B02,梁上剧场

@@ -57,7 +57,7 @@ func new_run(mode: String, kind := "example", seed_text := "") -> Dictionary:
 
 func new_growth_run(mode: String, seed_text := "", build_id := "", faction := "") -> Dictionary:
 	if not state.is_empty() and state.phase != "ended": return _reject("P5_NIGHT_RUNNING")
-	if not faction.is_empty() and (mode != "shouxiang" or not Opening.PAIRS.has(faction) or not build_id.is_empty()):
+	if not faction.is_empty() and (not Opening.accepts(mode,faction) or not build_id.is_empty()):
 		return _reject("P7_INVALID_BUILD")
 	var catalog := GrowthNight.table()
 	if mode not in ["shouxiang","duoming"] or (not build_id.is_empty() and (not catalog.paths.has(build_id) or catalog.paths[build_id].seat != mode)):
@@ -73,7 +73,9 @@ func new_growth_run(mode: String, seed_text := "", build_id := "", faction := ""
 	state.departed = []
 	state.growth_build_id = build_id
 	state.growth = GrowthNight.initial(str(state.seed),mode,build_id)
-	if not faction.is_empty():
+	if Opening.FAMILIES.has(faction):
+		state.opening_family = faction
+	elif not faction.is_empty():
 		state.opening_faction = faction
 		state.growth.defense_objective = "hold_register"
 	_record("growth_night",{"build_id":build_id})
@@ -104,7 +106,7 @@ func new_p10_run(mode: String, kind: String, seed_text: String, choice: String, 
 		return _reject("P11_STORY_CONFIG")
 	if seed_text.is_empty(): seed_text = "夜-%d-%d" % [Time.get_unix_time_from_system(),Time.get_ticks_usec()]
 	var ritual := P10Plan.selected_ritual(seed_text) if choice.is_empty() and kind == "fierce" else choice
-	if not faction.is_empty() and (kind != "example" or mode != "shouxiang" or not Opening.PAIRS.has(faction)):
+	if not faction.is_empty() and (kind != "example" or not Opening.accepts(mode,faction) or (mode == "duoming" and ritual != "R01")):
 		return _reject("P7_INVALID_BUILD")
 	var planned := GrowthNight.configure(base_config,"")
 	if not faction.is_empty(): Opening.apply(planned,faction)
@@ -546,6 +548,10 @@ func load_save(path: String) -> Dictionary:
 		return loaded
 	var candidate: Dictionary = loaded.state
 	var previous_config: Dictionary = config
+	if candidate.has("opening_family"):
+		if candidate.has("nameless_modifiers") and candidate.get("ritual") != "R01": return _reject("P5_SAVE_INVALID")
+		if not candidate.get("growth") is Dictionary or candidate.get("mode") != "duoming" or candidate.get("kind") != "example" or candidate.get("growth_build_id") != "" or not Opening.FAMILIES.has(candidate.opening_family):
+			return _reject("P5_SAVE_INVALID")
 	if candidate.has("opening_faction"):
 		if not candidate.get("growth") is Dictionary or candidate.growth.get("defense_objective") != "hold_register" or not Opening.PAIRS.has(candidate.opening_faction) or candidate.get("mode") != "shouxiang" or candidate.get("kind") != "example" or candidate.get("growth_build_id") != "":
 			return _reject("P5_SAVE_INVALID")
@@ -555,6 +561,8 @@ func load_save(path: String) -> Dictionary:
 		config = GrowthNight.configure(base_config,str(candidate.growth_build_id))
 		if candidate.has("opening_faction"):
 			Opening.apply(config,candidate.opening_faction)
+		elif candidate.has("opening_family"):
+			Opening.apply(config,candidate.opening_family)
 	else:
 		config = base_config.duplicate(true)
 	if candidate.has("nameless_modifiers"):

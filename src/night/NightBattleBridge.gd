@@ -61,6 +61,13 @@ func start(combat: Node, run: RefCounted) -> Dictionary:
 	session.rules = Data.battle_rules.duplicate(true)
 	session.rules.duration = float(battle_profile.duration)
 	_apply_build(session.rules,run.state.build)
+	if run.state.has("opening_family"):
+		var opening = preload("res://src/night/FactionOpening.gd")
+		var family: Dictionary = opening.FAMILIES[run.state.opening_family]
+		sim.tide.config.waves = opening.family_waves(sim.tide.config.waves,family)
+		sim.tide.config.supply_id = family.id
+		sim.tide.config.supply_slots = family.slots
+		session.rules.reinforce.count = floori(float(Data.battle_rules.reinforce.count) / family.slots) + int(run.state.build.get("reinforce_count_delta",0))
 	if run.state.has("growth"):
 		session.rules.incense_regen = float(run.config.growth_night.incense_regen)
 	sim.serial = 0
@@ -434,6 +441,11 @@ func _valid_bridge_state(combat: Node, run: RefCounted, state: Dictionary) -> bo
 		return false
 	if run.state.get("phase") != "battle" or state.session.get("mode") != run.state.get("mode"):
 		return false
+	if run.state.has("opening_family"):
+		var family: Dictionary = preload("res://src/night/FactionOpening.gd").FAMILIES[run.state.opening_family]
+		var tide_config = state.tide.get("config")
+		if not tide_config is Dictionary or tide_config.get("supply_id") != family.id or tide_config.get("supply_slots") != family.slots:
+			return false
 	if run.state.has("nameless_modifiers"):
 		var ritual = state.get("ritual")
 		var stage = state.get("stage")
