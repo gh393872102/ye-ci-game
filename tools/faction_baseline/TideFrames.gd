@@ -65,7 +65,9 @@ func run() -> void:
 	if capture: shot.save_webp("/tmp/ye-r5-tide.webp",false,0.82)
 	var input_ms := []
 	var pay_visible := false
-	var deploy_probe := OS.get_cmdline_user_args().has("--deploy-probe")
+	var hall_probe := OS.get_cmdline_user_args().has("--hall-probe")
+	var deploy_probe := hall_probe or OS.get_cmdline_user_args().has("--deploy-probe")
+	var destination := "post_hall_door" if hall_probe else "post_register"
 	var deploy_feedback := {}
 	for trial in 12:
 		var key := InputEventKey.new()
@@ -91,7 +93,7 @@ func run() -> void:
 			decisions.buttons.buy_H22.pressed.emit()
 			await RenderingServer.frame_post_draw
 			await RenderingServer.frame_post_draw
-			var quick: Button = decisions.content.find_child("defend_register",true,false)
+			var quick: Button = decisions.content.find_child("defend_hall" if hall_probe else "defend_register",true,false)
 			if is_instance_valid(quick):
 				var rect := quick.get_global_rect()
 				var sent_click := Time.get_ticks_usec()
@@ -103,7 +105,7 @@ func run() -> void:
 					root.push_input(mouse,true)
 				var paid: float = cash - session.incense
 				await RenderingServer.frame_post_draw
-				deploy_feedback = {"milliseconds":(Time.get_ticks_usec()-sent_click)/1000.0,"paid":paid,"placed":sim.humans.any(func(actor): return actor.unit_id=="H22" and actor.current_post=="post_register"),"inside_viewport":root.get_visible_rect().encloses(rect)}
+				deploy_feedback = {"post":destination,"feedback":decisions.feedback.text,"milliseconds":(Time.get_ticks_usec()-sent_click)/1000.0,"paid":paid,"placed":sim.humans.any(func(actor): return actor.unit_id=="H22" and actor.current_post==destination),"inside_viewport":root.get_visible_rect().encloses(rect)}
 		key = key.duplicate()
 		key.pressed = false
 		Input.parse_input_event(key)
@@ -116,9 +118,11 @@ func run() -> void:
 	if not input_ms.is_empty(): result.input_percentile_ms = percentiles(input_ms)
 	if deploy_probe:
 		passed = passed and deploy_feedback.get("placed",false) and deploy_feedback.get("paid") == 10 and deploy_feedback.get("inside_viewport",false)
+		if hall_probe: passed = passed and "主殿门厅" in str(deploy_feedback.get("feedback",""))
 		result.passed = passed
 		result.deploy_feedback = deploy_feedback
 	var filename := "native-deploy.json" if deploy_probe else "native-tide.json"
+	if hall_probe: filename = "native-hall.json"
 	FileAccess.open("res://tools/faction_baseline/"+filename,FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",passed," frames ",result.frame_percentile_ms," visible ",visible_min,"..",visible_max," input samples ",input_ms.size())
 	DirAccess.remove_absolute(host.save_path)

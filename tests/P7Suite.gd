@@ -69,6 +69,45 @@ func event(kind:String)->bool:
 	return false
 func _run()->void:
 	if capture:get_window().size=Vector2i(1920,1080)
+	if "--brace-frame" in OS.get_cmdline_user_args():
+		if DisplayServer.get_name() == "headless":
+			get_tree().quit(2)
+			return
+		_rig("shouxiang",{"defense_objective":"hold_register"})
+		var defender := human("H20")
+		var foe := ghost()
+		foe.position = defender.position + Vector2(85,0)
+		foe.floor_id = defender.floor_id
+		equip(defender,"I08");equip(defender,"Y11")
+		var camera := scene.get_node("BattleCamera")
+		camera.make_current()
+		camera.set_left(defender.position.x - 960)
+		defender.receive_damage(400,foe)
+		growth.advance(0.16)
+		sim.queue_redraw()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var shot := get_viewport().get_texture().get_image()
+		var valid: bool = shot.get_size() == Vector2i(1920,1080) and event("paper_brace") and not defender.dead
+		if valid:
+			valid = shot.save_jpg("/tmp/ye-ci-paper-brace.jpg",0.86) == OK
+		growth.state.fields.clear()
+		sim.queue_redraw()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var control := get_viewport().get_texture().get_image()
+		var origin: Vector2i = defender.get_global_transform_with_canvas().origin
+		var changed := 0
+		for y in range(origin.y-155,origin.y-80):
+			for x in range(origin.x-42,origin.x+42):
+				if shot.get_pixel(x,y) != control.get_pixel(x,y): changed += 1
+		valid = valid and changed >= 100
+		print("Changed pixels above guard ",changed)
+		print("Paper brace rendered ",valid," at ",defender.get_global_transform_with_canvas().origin)
+		scene.free()
+		await get_tree().create_timer(0.3).timeout
+		get_tree().quit(0 if valid else 1)
+		return
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--replay-only="):
 			await _disk_replay(arg.trim_prefix("--replay-only="),"chaodu");get_tree().quit(1 if failures else 0);return
@@ -154,6 +193,28 @@ func _arts()->void:
 	_rig();u=human();ally=human("H09");equip(u,"Y08");u.growth.cooldowns.test=4.0;ally.growth.cooldowns.test=4.0;session.simulation_speed=2;tick(2);check(near(u.growth.cooldowns.test,3) and near(ally.growth.cooldowns.test,2),"Y08 Real cooldown ticks at one-clock rate while normal cooldown runs double","Y08")
 	_rig();u=human("H09","post_gate_inner");equip(u,"Y09");d=sim.world.get_node("door_outer");d.set_durability(500);paid=session.repair(str(d.name));check(paid.ok and near(session.repair_jobs[0].duration,2.25),"Y09 Actual paid repair job is twenty-five percent shorter","Y09")
 	_rig();u=human();g=ghost();equip(u,"Y10");a=hit(u,g,"melee",5);growth.apply_status(g,"revealed",3);b=hit(u,g,"melee",5);check(near(b/a,1.2),"Y10 Real hit against a revealed target gains twenty percent","Y10")
+	_rig("shouxiang",{"defense_objective":"hold_register"});u=human();g=ghost()
+	equip(u,"I08");equip(u,"Y11")
+	u.receive_damage(4,g)
+	check(not event("paper_brace"),"Nonlethal hit preserves the blank note")
+	var hp_before:float=u.hp
+	u.receive_damage(400,g)
+	check(near(u.hp,hp_before) and event("paper_brace"),"Register pair cancels one lethal breaker hit")
+	var names_before:float=session.names
+	growth.apply_status(u,"name_erase",3)
+	check(session.names < names_before,"Spent paper no longer protects the name")
+	u.receive_damage(400,g)
+	check(u.dead,"Second lethal breaker hit kills")
+	_rig("shouxiang",{"defense_objective":"hold_register"});u=human();g=ghost();equip(u,"I08");equip(u,"Y11")
+	growth.apply_status(u,"name_erase",3)
+	u.receive_damage(400,g)
+	check(u.dead and not event("paper_brace"),"Erasure spent the shared note before the hit")
+	_rig();u=human();g=ghost();equip(u,"I08");equip(u,"Y11")
+	u.receive_damage(400,g)
+	check(u.dead and not event("paper_brace"),"Other objectives preserve the existing item rules")
+	_rig("shouxiang",{"defense_objective":"hold_register"});u=human("H01","post_hall_door");g=ghost();equip(u,"I08");equip(u,"Y11")
+	u.receive_damage(400,g)
+	check(u.dead and not event("paper_brace"),"The hall does not activate the register pair")
 	_rig();u=human();g=ghost();u.receive_damage(4,g);var hp:float=u.hp;equip(u,"Y11");u.receive_damage(4,g);check(near(hp-u.hp,3),"Y11 Actual breaking-tag injury falls twenty-five percent","Y11")
 	_rig("duoming");g=ghost("G09",87);equip(g,"Y12");check(near(growth.stair_factor(g,.55),1),"Y12 Ghost stair movement receives unpenalized factor","Y12")
 	# Use the genuine GhostBrain climb step for observable movement, with a controlled initial climb contact.

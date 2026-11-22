@@ -25,6 +25,7 @@ const DUO_COMMANDS := [
 ]
 var managed_by_night := false
 var preferred_faction := ""
+var previous_casualties: Dictionary = {}
 var observation_mode := false
 var replay_read_only := false
 var simulation: Node2D
@@ -367,7 +368,7 @@ func _build_purchase() -> void:
 	var offers: Array = _query("purchase_options")
 	if recruitable_faction_only:
 		offers = offers.filter(func(offer):
-			return offer.allowed and Data.get_unit(offer.id).get("所属", "") == preferred_faction and not _query("legal_posts", {"id":offer.id}).is_empty()
+			return offer.allowed and not previous_casualties.has(offer.id) and Data.get_unit(offer.id).get("所属", "") == preferred_faction and not _query("legal_posts", {"id":offer.id}).is_empty()
 		)
 	offers.sort_custom(func(a, b):
 		var first := str(a.id)
@@ -393,7 +394,7 @@ func _build_purchase() -> void:
 	var hint := _label(content, tr("P9_PURCHASE_HELP"), 16)
 	if not preferred_faction.is_empty():
 		if recruitable_faction_only:
-			hint.text = "%s · 当前可买且有空岗的援军 %d 人" % [preferred_faction, offers.size()]
+			hint.text = "%s · 此前节点未阵亡、可买且有岗的援军 %d 人" % [preferred_faction, offers.size()]
 			if offers.is_empty(): hint.text += "。可返回全部查看缺香、满员等原因。"
 		else:
 			hint.text = "%s优先 · %s" % [preferred_faction,hint.text]
@@ -444,7 +445,7 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	var stats := _label(column, tr("P9_PURCHASE_STATS") % [data.get("生命", "?"), data.get("攻击", "?"), data.get("防御", "?"), float(profile.get("range_body", 1))], 16)
 	stats.add_theme_color_override("font_color", Ink.PAPER)
 	stats.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var caption := _label(column, tr("P4_AVAILABLE") if offer.allowed else tr(offer.reason), 15)
+	var caption := _label(column, _offer_status_text(offer), 15)
 	caption.clip_text = true
 	caption.add_theme_color_override("font_color", COPPER if offer.allowed else MUTED)
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -452,6 +453,10 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	var button := _button(column, "buy_" + id, tr("P9_PAY_INCENSE") % offer.cost, _purchase.bind(id), offer.allowed, offer.reason)
 	button.add_theme_font_size_override("font_size", 18)
 	button.custom_minimum_size.y = 36
+
+func _offer_status_text(offer: Dictionary) -> String:
+	if not offer.allowed: return tr(offer.reason)
+	return "可再招 · 前战阵亡" if previous_casualties.has(offer.id) else tr("P4_AVAILABLE")
 
 func _toggle_purchase_scope() -> void:
 	recruitable_faction_only = not recruitable_faction_only
@@ -476,6 +481,8 @@ func _build_deploy() -> void:
 	var header := _panel_header(tr("P4_DEPLOY_TITLE") % Data.get_unit(session.pending_purchase).get("姓名", ""))
 	if not preferred_faction.is_empty() and "post_register" in legal_post_ids:
 		_button(header, "defend_register", "守名册房 · 余%d位" % session.post_vacancies("post_register"), select_post.bind("post_register", true))
+	if not preferred_faction.is_empty() and "post_hall_door" in legal_post_ids:
+		_button(header, "defend_hall", "守门厅 · 余%d位" % session.post_vacancies("post_hall_door"), select_post.bind("post_hall_door", true))
 	_button(header, "close", tr("P9_BATTLE_CLOSE"), _cancel_purchase)
 	var hint := _label(content, tr("P9_DEPLOY_HELP"), 17)
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -526,7 +533,7 @@ func select_post(post_id: String, quick := false) -> void:
 	if answer.ok:
 		close_panel()
 		if quick:
-			feedback.text = "%s已到名册房" % answer.unit.display_name
+			feedback.text = "%s已到%s" % [answer.unit.display_name,tr(post_id.to_upper())]
 			Clock.set_paused(paused_before_purchase)
 		elif answer.has("unit"):
 			select_unit(answer.unit)
@@ -1190,7 +1197,7 @@ func _process(delta: float) -> void:
 				if offer_status.has(offer.id) and is_instance_valid(buttons.get(key)):
 					buttons[key].disabled = not offer.allowed
 					buttons[key].tooltip_text = buttons[key].text if offer.allowed else tr(offer.reason)
-					offer_status[offer.id].text = tr("P4_AVAILABLE") if offer.allowed else tr(offer.reason)
+					offer_status[offer.id].text = _offer_status_text(offer)
 	if current_panel in ["deploy", "ritual"] or not active_channels.is_empty():
 		highlights.queue_redraw()
 

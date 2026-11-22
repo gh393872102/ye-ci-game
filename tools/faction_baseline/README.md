@@ -119,3 +119,9 @@ godot --headless --script tools/faction_baseline/RestReserve.gd
 加 `-relay` 时，第一名援军在第八节点升两次；第九节点再次空队时，在正式休整页请另一名未阵亡角色，第十节点给接防者升两次。与同种子的 `-veteran` 比较，可将第九节点保留常规休整和再次付费请援的终局记录配对。
 
 在 1920×1080 原生窗口给 `RestReserve.gd` 传入 `-- --input-probe`，可复测四司各一次从请援按钮鼠标输入到地图出帧、实扣金额和按钮是否位于屏内。样本来自可重复的空队夹具。
+
+### 问灯的末战岗位与守册装备
+
+在例夜索引 2 使用 `camp-fire-posts` 或 `camp-mirror-posts`，末参数可取渡口、灯市、秋社。先完整复现第六及第九节点接防，保存第十节点进场状态。每次从这份存档重新进入相同战斗。post_trials 用10香火分别招问灯守册、守门厅；主记录仍花16香火给原守军升两级。gear_trials 也升两级，只从当局真实库存装备无字帖、承撞或两件一起。记录数量、实际扣款、岗位、临时归属、第一次占册、结算及纸帖触发事件。首次占册时间为本场秒数，装备事件中的 time 为成长系统累计时间。
+
+以 `godot --headless --script tools/faction_baseline/RecruitHistory.gd` 验证前战阵亡标记、可招名单和门厅快捷派驻。1080p原生窗口使用 `TideFrames.gd -- --hall-probe` 可复跑门厅输入；使用 `tests/P7Suite.tscn -- --brace-frame` 可截取构造致命伤后的真实绘制帧。该图片用于检查纸帖的位置与可见性。

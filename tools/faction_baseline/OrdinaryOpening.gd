@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = []) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -72,11 +72,21 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		observe(unit,faction)
 		row.posts[unit.unit_id] = unit.current_post
 		row.roster_price += session.rules.purchases.get(unit.unit_id,0)
-	if track_register and row.node == "n08":
+	if track_register and row.node in ["n08","n10"]:
 		row.same_faction_offers = []
 		for offer in session.purchase_options():
 			if root.get_node("Data").get_unit(offer.id).get("所属","") != faction: continue
 			row.same_faction_offers.append({"id":offer.id,"cost":offer.cost,"allowed":offer.allowed,"reason":offer.reason,"posts":session.legal_posts(offer.id),"previously_fallen":night.state.fallen.any(func(member): return member.id == offer.id)})
+	for carried_item in carried_items:
+		var guard: Node = sim.humans[0]
+		var clock := root.get_node("Clock")
+		var cost_before: float = session.incense
+		var qty_before: int = session.growth.state.inventory.get(carried_item,0)
+		clock.set_paused(true)
+		var gear: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":guard.instance_id,"item_id":carried_item,"slot_index":0},"player")
+		clock.set_paused(false)
+		if not row.has("gear"): row.gear = []
+		row.gear.append({"id":carried_item,"owner":guard.unit_id,"ok":gear.ok,"before":qty_before,"after":session.growth.state.inventory.get(carried_item,0),"paid":cost_before-session.incense,"slots":guard.growth.slots.duplicate(true)})
 	if upgrade_pair:
 		row.upgrades = []
 		for level in upgrade_rounds:
@@ -161,6 +171,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			row.first_occupation = {"seconds":sim.simulation_time,"guards":guards,"intruders":intruders}
 		for unit in sim.humans: observe(unit,faction)
 		if not session.running: break
+	if not carried_items.is_empty():
+		row.brace_events = session.growth.state.events.filter(func(entry): return entry.kind == "paper_brace")
 	row.foreign_units = foreign_units.duplicate()
 	row.result = session.result.duplicate(true)
 	var settled: Dictionary = night.accept_battle(bridge.collect(scene,night))

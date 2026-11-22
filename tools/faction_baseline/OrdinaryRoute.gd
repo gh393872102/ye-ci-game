@@ -1,6 +1,6 @@
 extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 ## Paired ordinary routes. Each policy changes only its documented orders.
-const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay"]
+const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
 func run() -> void:
@@ -13,7 +13,8 @@ func run() -> void:
 		quit(2)
 		return
 	var camp := policy.begins_with("camp-")
-	var relay := policy.ends_with("-relay")
+	var compare_posts := policy.ends_with("-posts")
+	var relay := policy.ends_with("-relay") or compare_posts
 	var two_levels := relay or policy.ends_with("-veteran")
 	var reserve_id := "H18" if policy.begins_with("camp-mirror") else "H20"
 	var upgraded := policy == "upgrade"
@@ -57,6 +58,33 @@ func run() -> void:
 					if second: ordered_id = "H19" if policy == "borrow" else "H22"
 					if fifth and (camp or policy in ["reserve-hire","reserve-both","reserve-trained"]): ordered_id = "H24"
 					if not ordered_id.is_empty(): aid_post = "post_register"
+				if compare_posts and night.state.current_node_id == "n10":
+					var path := "user://final-posts-%d.json" % OS.get_process_id()
+					var saved: bool = night.save(path).ok
+					step.post_trials = []
+					for post in ["post_register","post_hall_door"]:
+						var branch: RefCounted = load("res://src/night/NightRun.gd").new()
+						if not saved or not branch.load_save(path).ok:
+							quit(2)
+							return
+						var trial: Dictionary = await fight(branch,faction,seed_text,false,post,false,"H19",true)
+						step.post_trials.append(trial)
+						if not trial.get("settled",false) or not trial.get("aid",{}).get("placed",false) or trial.aid.paid != 10:
+							quit(2)
+							return
+					step.gear_trials = []
+					for items in [["I08"],["Y11"],["I08","Y11"]]:
+						if not items.all(func(id): return int(night.state.growth.inventory.get(id,0)) > 0): continue
+						var branch: RefCounted = load("res://src/night/NightRun.gd").new()
+						if not branch.load_save(path).ok:
+							quit(2)
+							return
+						var trial: Dictionary = await fight(branch,faction,seed_text,true,"",false,"",true,false,2,items)
+						step.gear_trials.append(trial)
+						if not trial.get("settled",false) or not trial.gear.all(func(r): return r.ok and r.before - r.after == 1 and r.paid == 0):
+							quit(2)
+							return
+					DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1)
 				step.battle = result
 				ok = result.get("settled",false)

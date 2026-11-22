@@ -630,6 +630,12 @@ func before_receive(unit:Node2D,amount:float,attacker:Node2D=null,kind:String="p
 		attacker.receive_damage(amount*float(params("I12").reflect),unit,"reflection")
 		if rng.randf()<float(params("I12").reveal_chance):apply_status(attacker,"revealed",float(params("I12").reveal_duration),unit)
 		_event("reflection",unit,attacker.instance_id);_visual("mirror",unit.position,unit.floor_id,1)
+	if amount >= unit.hp and unit.side == "xianghuo" and has(unit,"Y11") and has(unit,"I08") and _uses(unit,"I08") == 0:
+		if state.get("defense_objective","") == "hold_register" and is_instance_valid(attacker) and attacker.side == "yegui" and "破门" in attacker.tags and sim().world.room_at(unit.position,unit.floor_id) == "register":
+			_spent(unit,"I08")
+			_event("paper_brace",unit,attacker.instance_id)
+			_visual("paper_brace",unit.position,unit.floor_id,0.65)
+			return 0.0
 	if amount>=unit.hp and has(unit,"I13") and _uses(unit,"I13")==0:
 		var candidates:Array=sim().humans if unit.side=="xianghuo" else sim().targets
 		for substitute in candidates:
@@ -909,6 +915,14 @@ func draw_effects(canvas:Node2D)->void:
 		match kind:
 			"light", "revealed", "fear", "bone_lantern", "seal", "incense_transfer", "incense_restored", "gold_mirror", "dispel", "false_god_unmasked", "crossbow_shot", "cold_light", "river_lantern", "crow_path", "beam_pounce", "purified":
 				continue
+			"paper_brace":
+				var t := clampf(1.0 - float(field.left) / 0.65,0,1)
+				var center := point - Vector2(0,112 + 20*t)
+				for side in [-1,1]:
+					var half := Vector2(side * (9 + 24*t),0)
+					var paper := PackedVector2Array([center + half + Vector2(-6,-16),center + half + Vector2(8,-14),center + half + Vector2(5,12),center + half + Vector2(-9,17)])
+					canvas.draw_colored_polygon(paper,Color(0.96,0.85,0.62,1-t))
+					canvas.draw_line(center + half - Vector2(0,9),center + half + Vector2(0,5),Color(0.7,0.17,0.1,1-t),3)
 			"charge_warning":canvas.draw_dashed_line(point-Vector2(0,12),Vector2(field.end[0],field.end[1])-Vector2(0,12),Color("c6a77c"),4,18)
 			"hold_gate":
 				var glint := clampf(float(field.left), 0.0, 1.0)

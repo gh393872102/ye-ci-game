@@ -163,6 +163,9 @@ func _prepare_battle(candidate: RefCounted, restoring: bool) -> Dictionary:
 	var decision: CanvasLayer = next_combat.get_node("Decisions")
 	decision.managed_by_night = true
 	decision.preferred_faction = str(candidate.state.get("opening_faction",""))
+	if not decision.preferred_faction.is_empty():
+		for member in candidate.state.fallen:
+			decision.previous_casualties[member.id] = true
 	decision.prebattle.hide()
 	var next_bridge: RefCounted = Bridge.new()
 	var previous_snapshot: Dictionary = candidate.state.get("battle_snapshot", {}).duplicate(true)
