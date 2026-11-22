@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -150,6 +150,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	var capture_pin := train_aid and OS.get_environment("YE_CI_CAPTURE_PIN") == "1" and DisplayServer.get_name() != "headless"
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and session.register_guards.is_empty():
+			row.relief = request_register_relief(scene,night,faction,id)
 		if capture_pin:
 			for effect in session.roster.state.get("effects",[]):
 				if effect.kind != "bone_pin" or effect.left > effect.duration * 0.80: continue
@@ -200,3 +202,36 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	scene.free()
 	await process_frame
 	return row
+
+func request_register_relief(scene: Node, night: RefCounted, faction: String, id: String) -> Dictionary:
+	var session := scene.get_node("Session")
+	var sim := scene.get_node("Simulation")
+	var menu := scene.get_node("Decisions")
+	menu.managed_by_night = true
+	menu.preferred_faction = faction
+	for member in night.state.fallen: menu.previous_casualties[member.id] = true
+	menu._update_warnings()
+	var cash: float = session.incense
+	var receipt := {"time":sim.simulation_time,"occupation":session.occupation,"balance_before":cash,"vacancies":session.post_vacancies("post_register"),"offered":false,"id":id,"post":"post_register"}
+	if menu.relief_button.visible:
+		menu.relief_button.pressed.emit()
+		receipt.catalog_price = session.rules.purchases.get(id)
+		receipt.available = []
+		while true:
+			for candidate in menu.content.find_children("buy_*","Button",true,false):
+				if not candidate.disabled: receipt.available.append(str(candidate.name).trim_prefix("buy_"))
+			if menu.buttons.purchase_next.disabled: break
+			menu.buttons.purchase_next.pressed.emit()
+		if receipt.available.is_empty(): receipt.empty_hint = menu._empty_relief_hint()
+		while menu.purchase_page > 0: menu.buttons.purchase_prev.pressed.emit()
+		var buy: Button = menu.content.find_child("buy_"+id,true,false)
+		while buy == null and not menu.buttons.purchase_next.disabled:
+			menu.buttons.purchase_next.pressed.emit()
+			buy = menu.content.find_child("buy_"+id,true,false)
+		if is_instance_valid(buy) and not buy.disabled:
+			receipt.offered = true
+			buy.pressed.emit()
+		menu.close_panel()
+	receipt.paid = cash-session.incense
+	receipt.placed = receipt.offered and sim.humans.any(func(actor): return not actor.dead and actor.unit_id==id and actor.current_post=="post_register")
+	return receipt

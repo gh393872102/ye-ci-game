@@ -129,9 +129,54 @@ func run() -> void:
 		filename = "native-lamp.json"
 		result.passed = passed and "问灯" in str(deploy_feedback.get("feedback",""))
 		passed = result.passed
+	if OS.get_cmdline_user_args().has("--relief-probe"):
+		result.relief = await probe_relief(host)
+		passed = passed and result.relief.passed
+		result.passed = passed
+		filename = "native-relief.json"
 	FileAccess.open("res://tools/faction_baseline/"+filename,FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",passed," frames ",result.frame_percentile_ms," visible ",visible_min,"..",visible_max," input samples ",input_ms.size())
 	DirAccess.remove_absolute(host.save_path)
 	host.free()
 	await create_timer(0.65).timeout
 	quit(0 if passed else 1)
+
+func click(button: Button) -> void:
+	for down in [true,false]:
+		var mouse := InputEventMouseButton.new()
+		mouse.button_index = MOUSE_BUTTON_LEFT
+		mouse.position = button.get_global_rect().get_center()
+		mouse.pressed = down
+		root.push_input(mouse,true)
+
+func probe_relief(host: Node) -> Dictionary:
+	var sim: Node = host.combat.get_node("Simulation")
+	var session: Node = host.combat.get_node("Session")
+	var panel: Node = host.combat.get_node("Decisions")
+	sim.set_physics_process(false)
+	# Isolate warning -> panel -> payment feedback from the preceding live crowd sample.
+	session.register_attackers = 1
+	session.register_guards.clear()
+	session.occupation = 2
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var cash: float = session.incense
+	var row := {"passed":false,"fixture":"paused simulation updates, one reported attacker, no guard, 2 s occupation"}
+	if not panel.relief_button.is_visible_in_tree(): return row
+	var sent := Time.get_ticks_usec()
+	click(panel.relief_button)
+	await RenderingServer.frame_post_draw
+	row.warning_to_panel_ms = (Time.get_ticks_usec()-sent)/1000.0
+	if not panel.register_relief or not root.get_node("Clock").paused: return row
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_webp("/tmp/r17-relief.webp",false,0.87)
+	var buy: Button = panel.content.find_child("buy_H22",true,false)
+	if not is_instance_valid(buy) or buy.disabled or not panel.panel_scroll.get_global_rect().encloses(buy.get_global_rect()): return row
+	sent = Time.get_ticks_usec()
+	click(buy)
+	row.paid = cash-session.incense
+	await RenderingServer.frame_post_draw
+	row.payment_to_feedback_ms = (Time.get_ticks_usec()-sent)/1000.0
+	row.feedback = panel.feedback.text
+	row.passed = row.paid==10 and sim.humans.any(func(u):return u.unit_id=="H22" and u.current_post=="post_register") and "三戒" in row.feedback and not root.get_node("Clock").paused and session.pending_purchase.is_empty()
+	return row

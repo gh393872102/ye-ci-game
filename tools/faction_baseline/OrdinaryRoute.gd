@@ -5,7 +5,7 @@ const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","rese
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
 	var policy := args[1] if args.size() >= 2 else "base"
@@ -37,7 +37,7 @@ func run() -> void:
 			"map":
 				var nodes: Array = night.available_nodes()
 				step.choice = nodes[0].id
-				var recall: bool = step.choice == "n05" and (policy == "dispel-recall" or policy in RESERVE_POLICIES)
+				var recall: bool = step.choice == "n05" and (policy in ["dispel-recall","relief-8-recall"] or policy in RESERVE_POLICIES)
 				if recall or (step.choice == "n03" and policy in ["register","hall"]):
 					var post := "post_register" if recall or policy == "register" else "post_hall_door"
 					step.orders = []
@@ -53,8 +53,8 @@ func run() -> void:
 				var train_reserve: bool = (night.state.current_node_id == "n08" and (policy.ends_with("-up") or two_levels)) or (relay and not early and night.state.current_node_id == "n10")
 				var second: bool = night.state.current_node_id == "n03"
 				var aid_post := ""
-				if second and policy.begins_with("aid-"):
-					aid_post = "post_register" if policy == "aid-register" else "post_hall_door"
+				if second and (policy.begins_with("aid-") or policy=="relief-open"):
+					aid_post = "post_register" if policy in ["aid-register","relief-open"] else "post_hall_door"
 				var hire_early: bool = early and night.state.current_node_id == "n08"
 				var ordered_id := "H19" if hire_early else ""
 				if paired_talisman:
@@ -103,10 +103,18 @@ func run() -> void:
 							quit(2)
 							return
 					DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,[],hire_early)
+				var delay := -1.0
+				if second and policy in ["relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall"]:
+					delay = float(policy.get_slice("-",1))
+				if fifth and policy=="relief-8-next":
+					delay = 8.0
+					ordered_id = "H02"
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,[],hire_early,delay)
 				step.battle = result
 				ok = result.get("settled",false)
-				if not ordered_id.is_empty():
+				if delay >= 0:
+					ok = ok and result.get("relief",{}).get("placed",false)
+				if not ordered_id.is_empty() and delay < 0:
 					var receipt: Dictionary = result.get("aid",{})
 					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == (8.0 if fifth else 10.0)
 				if hire_early:
@@ -156,6 +164,8 @@ func run() -> void:
 					ok = hired and is_equal_approx(step.hire.paid,12.0)
 				else: ok = night.finish_rest().ok
 			_: ok = false
+		if policy.begins_with("relief-"):
+			step.roster_after = night.state.roster.map(func(unit): return [unit.uid,unit.id,unit.post])
 		for unit in night.state.roster:
 			if root.get_node("Data").get_unit(unit.id).get("所属","") != faction and not unit.id in report.foreign:
 				report.foreign.append(unit.id)

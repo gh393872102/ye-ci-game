@@ -52,6 +52,8 @@ var target_hint: Label
 var warning_plate: PanelContainer
 var wedge_carrier_index := 0
 var register_warning_plate: PanelContainer
+var relief_button: Button
+var register_relief := false
 var register_warning: Button
 var activity_plate: PanelContainer
 var channel_progress: ProgressBar
@@ -129,7 +131,11 @@ func _ready() -> void:
 	register_warning.tooltip_text = "查看册房战况"
 	register_warning.add_theme_font_size_override("font_size",22)
 	register_warning.pressed.connect(_view_register)
-	register_warning_plate.add_child(register_warning)
+	var register_column := VBoxContainer.new()
+	register_warning_plate.add_child(register_column)
+	register_column.add_child(register_warning)
+	relief_button = _button(register_column, "register_relief", "派同司援军守册", _open_register_relief)
+	relief_button.hide()
 	register_warning.add_theme_font_override("font", Ink.serif_font())
 	register_warning.add_theme_color_override("font_color", Ink.PAPER)
 	register_warning_plate.hide()
@@ -294,7 +300,10 @@ func close_panel() -> void:
 		growth_panel.close()
 	if not read_only() and not session.pending_purchase.is_empty():
 		_issue("cancel_purchase")
+	if register_relief:
+		Clock.set_paused(paused_before_purchase)
 	current_panel = ""
+	register_relief = false
 	legal_post_ids.clear()
 	legal_ritual_targets.clear()
 	valid_post_hover = ""
@@ -359,13 +368,24 @@ func open_commands() -> void:
 	_button(row, "close", tr("P9_BATTLE_CLOSE"), close_panel)
 	_focus_first(row)
 
-func open_purchase() -> void:
+func _relief_available() -> bool:
+	return (managed_by_night and not preferred_faction.is_empty() and view_seat() == "shouxiang"
+		and session.register_attackers > 0 and session.register_guards.is_empty()
+		and current_panel.is_empty() and session.pending_purchase.is_empty() and _can_command() and not _blocked())
+
+func _open_register_relief() -> void:
+	if _relief_available():
+		_view_register()
+		open_purchase(true)
+
+func open_purchase(for_register := false) -> void:
 	if not _can_command() or view_seat() != "shouxiang":
 		return
 	close_panel()
 	paused_before_purchase = Clock.paused
 	purchase_page = 0
-	recruitable_faction_only = false
+	register_relief = for_register
+	recruitable_faction_only = for_register
 	current_panel = "purchase"
 	_build_purchase()
 
@@ -374,7 +394,10 @@ func _build_purchase() -> void:
 	var offers: Array = _query("purchase_options")
 	if recruitable_faction_only:
 		offers = offers.filter(func(offer):
-			return offer.allowed and not previous_casualties.has(offer.id) and Data.get_unit(offer.id).get("所属", "") == preferred_faction and not _query("legal_posts", {"id":offer.id}).is_empty()
+			if not offer.allowed or previous_casualties.has(offer.id) or Data.get_unit(offer.id).get("所属","") != preferred_faction:
+				return false
+			var posts: Array = _query("legal_posts", {"id":offer.id})
+			return "post_register" in posts if register_relief else not posts.is_empty()
 		)
 	offers.sort_custom(func(a, b):
 		var first := str(a.id)
@@ -389,7 +412,7 @@ func _build_purchase() -> void:
 	)
 	var pages := maxi(1, ceili(offers.size() / float(PURCHASE_PAGE_SIZE)))
 	purchase_page = clampi(purchase_page, 0, pages - 1)
-	var nav := _panel_header(tr("P4_BUY_TITLE"))
+	var nav := _panel_header("册房求援" if register_relief else tr("P4_BUY_TITLE"))
 	if not preferred_faction.is_empty():
 		_button(nav, "purchase_scope", "看全部" if recruitable_faction_only else "可招同司", _toggle_purchase_scope)
 	_button(nav, "purchase_prev", tr("P9_PAGE_PREV"), _purchase_page.bind(-1), purchase_page > 0)
@@ -401,7 +424,10 @@ func _build_purchase() -> void:
 	if not preferred_faction.is_empty():
 		if recruitable_faction_only:
 			hint.text = "%s · 此前节点未阵亡、可买且有岗的援军 %d 人" % [preferred_faction, offers.size()]
-			if offers.is_empty(): hint.text += "。可返回全部查看缺香、满员等原因。"
+			if register_relief: hint.text = "%s · 可直接派往名册房 %d 人。选人付款，到岗后恢复原战速" % [preferred_faction,offers.size()]
+			if offers.is_empty():
+				if register_relief: hint.text = _empty_relief_hint()
+				else: hint.text += "。可返回全部查看缺香、满员等原因。"
 		else:
 			hint.text = "%s优先 · %s" % [preferred_faction,hint.text]
 		if page_offers.any(func(offer): return offer.id == "H19"):
@@ -415,6 +441,19 @@ func _build_purchase() -> void:
 		_purchase_card(row, offer)
 	if not _focus_first(row):
 		_focus_first(nav)
+
+func _empty_relief_hint() -> String:
+	var reasons := PackedStringArray()
+	for offer in _query("purchase_options"):
+		var unit: Dictionary = Data.get_unit(offer.id)
+		if unit.get("所属","") != preferred_faction: continue
+		var reason := "无册房空岗"
+		if previous_casualties.has(offer.id): reason = "前战阵亡"
+		elif not offer.allowed: reason = tr(offer.reason).trim_suffix("。")
+		reasons.append("%s·%s" % [unit.get("姓名",offer.id),reason])
+	var detail := "本司暂无战场报价" if reasons.is_empty() else "，".join(reasons)
+	return "可用香火 %d · 册房余 %d 位。%s。看全部可选其他援军。" % [floori(available_incense()),session.post_vacancies("post_register"),detail]
+
 
 func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	var id: String = offer.id
@@ -438,11 +477,24 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	illustration.color = Color("130f13")
 	illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	column.add_child(illustration)
-	var figure := PurchaseFigure.new()
-	figure.unit_id = id
-	figure.height_px = 110.0
-	illustration.add_child(figure)
-	illustration.resized.connect(func(): figure.position = Vector2(illustration.size.x / 2, 119))
+	var portrait_index := id.substr(1).to_int()-1
+	if register_relief and id.begins_with("H") and portrait_index >= 0 and portrait_index < 32:
+		var bust := AtlasTexture.new()
+		bust.atlas = preload("res://assets/portraits/p8/relief-busts.webp")
+		bust.region = Rect2((portrait_index % 8)*192,floori(portrait_index/8.0)*128,192,128)
+		var image := TextureRect.new()
+		image.texture = bust
+		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		illustration.add_child(image)
+		image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	else:
+		var figure := PurchaseFigure.new()
+		figure.unit_id = id
+		figure.height_px = 110.0
+		illustration.add_child(figure)
+		illustration.resized.connect(func(): figure.position = Vector2(illustration.size.x / 2, 119))
 	if not preferred_faction.is_empty():
 		var specialty := _label(illustration, str(data.get("定位","")), 16)
 		specialty.set_position(Vector2(4, 0))
@@ -456,7 +508,8 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	caption.add_theme_color_override("font_color", COPPER if offer.allowed else MUTED)
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	offer_status[id] = caption
-	var button := _button(column, "buy_" + id, tr("P9_PAY_INCENSE") % offer.cost, _purchase.bind(id), offer.allowed, offer.reason)
+	var price := "守册 · %d 香火" % offer.cost if register_relief else tr("P9_PAY_INCENSE") % offer.cost
+	var button := _button(column, "buy_" + id, price, _purchase.bind(id), offer.allowed, offer.reason)
 	button.add_theme_font_size_override("font_size", 18)
 	button.custom_minimum_size.y = 36
 
@@ -465,6 +518,7 @@ func _offer_status_text(offer: Dictionary) -> String:
 	return "可再招 · 前战阵亡" if previous_casualties.has(offer.id) else tr("P4_AVAILABLE")
 
 func _toggle_purchase_scope() -> void:
+	register_relief = false
 	recruitable_faction_only = not recruitable_faction_only
 	purchase_page = 0
 	_build_purchase()
@@ -478,6 +532,17 @@ func _purchase(id: String) -> void:
 	var answer: Dictionary = _issue("purchase", {"id":id})
 	_feedback(answer)
 	if answer.ok:
+		if register_relief:
+			var stationed: Dictionary = _issue("deploy_at", {"post_id":"post_register"})
+			if stationed.ok:
+				close_panel()
+				feedback.text = "%s已到%s" % [stationed.unit.display_name,tr("POST_REGISTER")]
+				Clock.set_paused(paused_before_purchase)
+			else:
+				_issue("cancel_purchase")
+				_feedback(stationed)
+				_build_purchase()
+			return
 		current_panel = "deploy"
 		_build_deploy()
 
@@ -1344,6 +1409,7 @@ func _update_warnings() -> void:
 	if register_warning.text != right:
 		register_warning.text = right
 		register_warning_plate.reset_size()
+	relief_button.visible = _relief_available()
 	register_warning_plate.visible = not register_notices.is_empty()
 
 func _draw_highlights() -> void:

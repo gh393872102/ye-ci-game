@@ -2,6 +2,18 @@
 
 本实验用正式 Combat.tscn 和双席胜负裁决，比较初始编制分别来自一司与一谱的战斗。每行依次与无名潮、习俗厉、大形、无册谱交战。每局都让引擎自然结算。JSON 逐局给出守军与岗位、没有合法岗位或不在购买表中的角色、攻方名单、赢家、原因、模拟秒数及结算时存活数。
 
+## 普通守香 · 册房求援
+
+从四司入口的守香司编制，经正常节点与战斗结算，比较同一名援军到册房的时机。下面的命令在仓库根目录执行。用不同存档目录可以并行测试。
+
+```sh
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 relief-open 渡口
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 relief-8 渡口
+godot --headless --script tools/faction_baseline/RegisterRelief.gd
+```
+
+第二个参数可换为 `relief-1`、`relief-4`、`relief-10`。末尾种子可选渡口、灯市、秋社。`relief-8-recall` 在第五节点前将唯一幸存者调往合法册房岗位；`relief-8-next` 尝试请营地援军祝禧，预期采购失败、原样结算，工具返回1。后者的失败是对正式售卖目录的一条反例。数据按 `post-种子-策略-0.json` 输出；`foreign` 汇总外司角色，`roster_after` 记录每段之后的具名队员与岗位。`TideFrames.gd -- --relief-probe` 需真实图形显示，先采大潮帧间隔，再以固定警报测按钮反馈。[配对结果](../../docs/optimization/README.md)
+
 ## 本轮实跑（同一种子，80 个测试条件）
 
 表内数字为守方在四个不同对手中获胜的局数。每行有 16 场。
