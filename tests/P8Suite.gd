@@ -95,7 +95,45 @@ func event(kind: String, unit_id := "") -> bool:
 		if entry.kind == "roster_"+kind and (unit_id.is_empty() or str(entry.unit) == unit_id): return true
 	return false
 
+func _lamp_frame() -> void:
+	if DisplayServer.get_name() == "headless":
+		get_tree().quit(2)
+		return
+	get_window().size = Vector2i(1920,1080)
+	rig("shouxiang",{"defense_objective":"hold_register","inventory":{"I08":1}})
+	var caster := human("H19")
+	var foe := ghost("G01",115)
+	foe.position = caster.position - Vector2(96,0)
+	foe.floor_id = caster.floor_id
+	session.execute_for("shouxiang","equip_item",{"unit_id":caster.instance_id,"item_id":"I08"},"player")
+	var cast: Dictionary = skill(caster,{"target_id":foe.instance_id})
+	var camera := scene.get_node("BattleCamera")
+	camera.make_current()
+	camera.set_left(caster.position.x-960)
+	sim.queue_redraw()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var shot := get_viewport().get_texture().get_image()
+	var center: Vector2i = foe.get_global_transform_with_canvas().origin - Vector2(0,108)
+	session.growth.state.fields = session.growth.state.fields.filter(func(f): return f.kind != "lamp_reveal")
+	sim.queue_redraw()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var control := get_viewport().get_texture().get_image()
+	var changed := 0
+	for y in range(center.y-30,center.y+30):
+		for x in range(center.x-30,center.x+30):
+			if shot.get_pixel(x,y) != control.get_pixel(x,y): changed += 1
+	var ok: bool = cast.ok and changed > 100 and shot.get_size()==Vector2i(1920,1080) and shot.save_jpg("/tmp/r9-lamp.jpg",0.86)==OK
+	print("Lamp ring differential pixels ",changed,"; target ",center,"; validated ",ok)
+	scene.free()
+	await get_tree().create_timer(0.4).timeout
+	get_tree().quit(0 if ok else 1)
+
 func _run() -> void:
+	if "--lamp-frame" in OS.get_cmdline_user_args():
+		await _lamp_frame()
+		return
 	if capture: get_window().size=Vector2i(1920,1080)
 	_catalog()
 	_codex_model()
@@ -395,6 +433,15 @@ func _human_supplementary() -> void:
 	result=skill(u); hp=u.hp; var other_hp:float=g.hp
 	u.receive_damage(8,g,"occult")
 	check(result.ok and near(u.hp,hp) and g.hp<other_hp and g.growth.statuses.has("revealed") and event("gold_reflect",u.instance_id),"H18 The next real directed occult strike is reflected and reveals its source","H18")
+	rig("shouxiang",{"defense_objective":"hold_register","inventory":{"I08":1}})
+	u=human("H19"); g=ghost("G01",115)
+	var equipped: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":u.instance_id,"item_id":"I08","slot_index":0},"player")
+	var lamp_cost := float(Data.get_unit("H19").get("技能香耗",0))
+	var before_lamp: float = session.incense
+	result=skill(u,{"target_id":g.instance_id})
+	check(equipped.ok and result.ok and g in sim.targets and g.side=="yegui" and near(before_lamp-session.incense,lamp_cost),"Equipped Wengdeng pays his normal skill cost and keeps the ghost hostile")
+	check(near(g.growth.statuses.revealed.left,3) and near(g.growth.statuses.stun.left,1.5),"Lamp marks and briefly stuns a valid target")
+	check(not skill(u,{"target_id":g.instance_id}).ok,"Repeated lamp command respects cooldown")
 	rig(); u=human("H19"); g=ghost("G01",115)
 	result=skill(u,{"target_id":g.instance_id})
 	check(result.ok and g.side=="xianghuo" and g in sim.humans and g not in sim.targets,"H19 Borrowing actually changes the gray ghost's group and brain ownership","H19")

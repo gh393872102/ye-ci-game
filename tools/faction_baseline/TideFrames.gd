@@ -66,7 +66,9 @@ func run() -> void:
 	var input_ms := []
 	var pay_visible := false
 	var hall_probe := OS.get_cmdline_user_args().has("--hall-probe")
-	var deploy_probe := hall_probe or OS.get_cmdline_user_args().has("--deploy-probe")
+	var lamp_probe := OS.get_cmdline_user_args().has("--lamp-probe")
+	var recruit := "H19" if lamp_probe else "H22"
+	var deploy_probe := lamp_probe or hall_probe or OS.get_cmdline_user_args().has("--deploy-probe")
 	var destination := "post_hall_door" if hall_probe else "post_register"
 	var deploy_feedback := {}
 	for trial in 12:
@@ -84,13 +86,13 @@ func run() -> void:
 			decisions.buttons.purchase_scope.pressed.emit()
 			await RenderingServer.frame_post_draw
 			await RenderingServer.frame_post_draw
-			var button: Button = decisions.content.find_child("buy_H22",true,false)
+			var button: Button = decisions.content.find_child("buy_"+recruit,true,false)
 			pay_visible = is_instance_valid(button) and not button.disabled and decisions.panel_scroll.get_global_rect().encloses(button.get_global_rect())
 			if capture: root.get_texture().get_image().save_webp("/tmp/ye-r5-shop.webp",false,0.82)
 		if deploy_probe and trial == 11 and pay_visible:
 			var session: Node = battle.get_node("Session")
 			var cash: float = session.incense
-			decisions.buttons.buy_H22.pressed.emit()
+			decisions.buttons["buy_"+recruit].pressed.emit()
 			await RenderingServer.frame_post_draw
 			await RenderingServer.frame_post_draw
 			var quick: Button = decisions.content.find_child("defend_hall" if hall_probe else "defend_register",true,false)
@@ -105,7 +107,7 @@ func run() -> void:
 					root.push_input(mouse,true)
 				var paid: float = cash - session.incense
 				await RenderingServer.frame_post_draw
-				deploy_feedback = {"post":destination,"feedback":decisions.feedback.text,"milliseconds":(Time.get_ticks_usec()-sent_click)/1000.0,"paid":paid,"placed":sim.humans.any(func(actor): return actor.unit_id=="H22" and actor.current_post==destination),"inside_viewport":root.get_visible_rect().encloses(rect)}
+				deploy_feedback = {"post":destination,"feedback":decisions.feedback.text,"milliseconds":(Time.get_ticks_usec()-sent_click)/1000.0,"paid":paid,"placed":sim.humans.any(func(actor): return actor.unit_id==recruit and actor.current_post==destination),"inside_viewport":root.get_visible_rect().encloses(rect)}
 		key = key.duplicate()
 		key.pressed = false
 		Input.parse_input_event(key)
@@ -123,6 +125,10 @@ func run() -> void:
 		result.deploy_feedback = deploy_feedback
 	var filename := "native-deploy.json" if deploy_probe else "native-tide.json"
 	if hall_probe: filename = "native-hall.json"
+	if lamp_probe:
+		filename = "native-lamp.json"
+		result.passed = passed and "问灯" in str(deploy_feedback.get("feedback",""))
+		passed = result.passed
 	FileAccess.open("res://tools/faction_baseline/"+filename,FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",passed," frames ",result.frame_percentile_ms," visible ",visible_min,"..",visible_max," input samples ",input_ms.size())
 	DirAccess.remove_absolute(host.save_path)

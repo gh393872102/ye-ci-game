@@ -1,6 +1,6 @@
 extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 ## Paired ordinary routes. Each policy changes only its documented orders.
-const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts"]
+const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
 func run() -> void:
@@ -13,8 +13,11 @@ func run() -> void:
 		quit(2)
 		return
 	var camp := policy.begins_with("camp-")
-	var compare_posts := policy.ends_with("-posts")
-	var relay := policy.ends_with("-relay") or compare_posts
+	var compare_lamp := policy.ends_with("-lamp")
+	var compare_posts := policy.ends_with("-posts") or compare_lamp
+	var duo := policy.ends_with("-duo")
+	var early := policy.ends_with("-early") or duo
+	var relay := policy.ends_with("-relay") or compare_posts or early
 	var two_levels := relay or policy.ends_with("-veteran")
 	var reserve_id := "H18" if policy.begins_with("camp-mirror") else "H20"
 	var upgraded := policy == "upgrade"
@@ -47,12 +50,13 @@ func run() -> void:
 			"battle":
 				var fifth: bool = night.state.current_node_id == "n05"
 				var strengthen: bool = fifth and (camp or policy in ["reserve-upgrade","reserve-both","reserve-trained"])
-				var train_reserve: bool = (night.state.current_node_id == "n08" and (policy.ends_with("-up") or two_levels)) or (relay and night.state.current_node_id == "n10")
+				var train_reserve: bool = (night.state.current_node_id == "n08" and (policy.ends_with("-up") or two_levels)) or (relay and not early and night.state.current_node_id == "n10")
 				var second: bool = night.state.current_node_id == "n03"
 				var aid_post := ""
 				if second and policy.begins_with("aid-"):
 					aid_post = "post_register" if policy == "aid-register" else "post_hall_door"
-				var ordered_id := ""
+				var hire_early: bool = early and night.state.current_node_id == "n08"
+				var ordered_id := "H19" if hire_early else ""
 				if paired_talisman:
 					if night.state.current_node_id == "n01": ordered_id = "H17"
 					if second: ordered_id = "H19" if policy == "borrow" else "H22"
@@ -61,6 +65,8 @@ func run() -> void:
 				if compare_posts and night.state.current_node_id == "n10":
 					var path := "user://final-posts-%d.json" % OS.get_process_id()
 					var saved: bool = night.save(path).ok
+					if compare_lamp and not OS.get_environment("YE_CI_LAMP_CHECKPOINT").is_empty():
+						night.save(OS.get_environment("YE_CI_LAMP_CHECKPOINT"))
 					step.post_trials = []
 					for post in ["post_register","post_hall_door"]:
 						var branch: RefCounted = load("res://src/night/NightRun.gd").new()
@@ -72,6 +78,18 @@ func run() -> void:
 						if not trial.get("settled",false) or not trial.get("aid",{}).get("placed",false) or trial.aid.paid != 10:
 							quit(2)
 							return
+					if compare_lamp:
+						step.lamp_trials = []
+						for post in ["post_register","post_hall_door"]:
+							var branch: RefCounted = load("res://src/night/NightRun.gd").new()
+							if not branch.load_save(path).ok:
+								quit(2)
+								return
+							var tested: Dictionary = await fight(branch,faction,seed_text,false,post,false,"H19",true,false,1,[],true)
+							step.lamp_trials.append(tested)
+							if not tested.get("settled",false) or not tested.get("recruit_gear",{}).get("ok",false):
+								quit(2)
+								return
 					step.gear_trials = []
 					for items in [["I08"],["Y11"],["I08","Y11"]]:
 						if not items.all(func(id): return int(night.state.growth.inventory.get(id,0)) > 0): continue
@@ -85,12 +103,14 @@ func run() -> void:
 							quit(2)
 							return
 					DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1)
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,[],hire_early)
 				step.battle = result
 				ok = result.get("settled",false)
 				if not ordered_id.is_empty():
 					var receipt: Dictionary = result.get("aid",{})
 					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == (8.0 if fifth else 10.0)
+				if hire_early:
+					ok = ok and result.get("recruit_gear",{}).get("ok",false)
 				if train_reserve:
 					var payments: Array = result.get("upgrades",[])
 					var expected := {"id":reserve_id,"ok":true,"paid":8.0}
@@ -125,7 +145,7 @@ func run() -> void:
 				if camp: step.offered = night.state.offers.map(func(card): return card.id)
 				ok = night.leave_node().ok
 			"rest":
-				if camp and (night.state.current_node_id == "n06" or (relay and night.state.current_node_id == "n09")):
+				if camp and (night.state.current_node_id == "n06" or (relay and night.state.current_node_id == "n09" and (night.state.roster.is_empty() or duo))):
 					if night.state.current_node_id == "n09":
 						reserve_id = "H20" if reserve_id == "H18" else "H18"
 					var id := reserve_id
@@ -133,7 +153,7 @@ func run() -> void:
 					step.options = night.rest_reserve_options()
 					var hired := await rest_via_menu(night,id)
 					step.hire = {"id":id,"paid":before-night.state.incense,"saved_and_reloaded":hired}
-					ok = hired and step.hire.paid == 12
+					ok = hired and is_equal_approx(step.hire.paid,12.0)
 				else: ok = night.finish_rest().ok
 			_: ok = false
 		for unit in night.state.roster:
@@ -148,6 +168,8 @@ func run() -> void:
 	if args.size() == 3 or policy not in ["base","upgrade"]:
 		filename = "post-%s-%s-%d.json" % [seed_text,policy,index]
 	FileAccess.open("res://tools/faction_baseline/" + filename,FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
+	if OS.get_environment("YE_CI_DEBRIEF_SAVE") != "" and report.policy_finished:
+		night.save(OS.get_environment("YE_CI_DEBRIEF_SAVE"))
 	print("ROUTE ",faction," ",report.phase," ",report.outcome)
 	await create_timer(0.6).timeout
 	quit(0 if report.policy_finished else 1)
@@ -156,6 +178,7 @@ func rest_via_menu(night: RefCounted, id: String) -> bool:
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
 	host.save_path = "/tmp/ye-ci-route-rest-%d.json" % OS.get_process_id()
 	root.add_child(host)
+	var previous_ids: Array = night.state.roster.map(func(member): return member.uid)
 	var saved: bool = night.save(host.save_path).ok
 	if saved: host.continue_run()
 	var button: Button = host.panel.buttons.get("reserve_"+id)
@@ -166,7 +189,7 @@ func rest_via_menu(night: RefCounted, id: String) -> bool:
 			await RenderingServer.frame_post_draw
 			root.get_texture().get_image().save_jpg("/tmp/ye-ci-rest-menu.jpg",0.86)
 		button.pressed.emit()
-		loaded = night.load_save(host.save_path).ok and night.state.phase == "map" and night.state.roster.size() == 1 and night.state.roster[0].id == id
+		loaded = night.load_save(host.save_path).ok and night.state.phase == "map" and night.state.roster.size() == previous_ids.size()+1 and night.state.roster.any(func(member): return member.id == id and member.uid not in previous_ids) and previous_ids.all(func(uid): return night.state.roster.any(func(member): return member.uid == uid))
 	DirAccess.remove_absolute(host.save_path)
 	host.free()
 	return loaded

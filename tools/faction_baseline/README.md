@@ -125,3 +125,19 @@ godot --headless --script tools/faction_baseline/RestReserve.gd
 在例夜索引 2 使用 `camp-fire-posts` 或 `camp-mirror-posts`，末参数可取渡口、灯市、秋社。先完整复现第六及第九节点接防，保存第十节点进场状态。每次从这份存档重新进入相同战斗。post_trials 用10香火分别招问灯守册、守门厅；主记录仍花16香火给原守军升两级。gear_trials 也升两级，只从当局真实库存装备无字帖、承撞或两件一起。记录数量、实际扣款、岗位、临时归属、第一次占册、结算及纸帖触发事件。首次占册时间为本场秒数，装备事件中的 time 为成长系统累计时间。
 
 以 `godot --headless --script tools/faction_baseline/RecruitHistory.gd` 验证前战阵亡标记、可招名单和门厅快捷派驻。1080p原生窗口使用 `TideFrames.gd -- --hall-probe` 可复跑门厅输入；使用 `tests/P7Suite.tscn -- --brace-frame` 可截取构造致命伤后的真实绘制帧。该图片用于检查纸帖的位置与可见性。
+
+## 问灯佩帖、末战前最后一次休整
+
+在普通例夜复现同一司的三种时序。将种子换为灯市或秋社，路径中的 fire 换为 mirror 即可复现另五组条件。
+
+```sh
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 2 camp-fire-lamp 渡口
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 2 camp-fire-early 渡口
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 2 camp-fire-duo 渡口
+godot --headless --script tools/faction_baseline/LastHit.gd
+godot --headless --script tools/faction_baseline/RestReserve.gd
+godot --headless --script tools/faction_baseline/GhostSupply.gd
+godot --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/TideFrames.gd -- --lamp-probe
+```
+
+末战复用时看 `steps[-1].post_trials` 与 `lamp_trials`，主线换装与请援回执在发生操作的节点。每战的外援看 `foreign_units`，每条分支单独判定；`lamp_events` 保留携带至该节点的整夜成长事件。阵亡记录按本场时间计，`result.killer_id` 按胜负原因计。早招有伤进场与晚招满血入场在档案中分列。

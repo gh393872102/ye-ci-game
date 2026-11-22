@@ -97,10 +97,12 @@ func receive_damage(amount: float, attacker: Node2D = null, kind := "physical") 
 	if side == "xianghuo" and brain != null and brain.channel.active and simulation.session != null and simulation.session.active:
 		if engine == null or not engine.channel_damage(self):
 			brain.channel.cancel("P4_RITUAL_INTERRUPTED_DAMAGE")
+	var hp_before := hp
 	hp = maxf(0, hp - amount)
 	hit_flash = 0.15
 	if hp <= 0:
 		dead = true
+		simulation.lethal_hit.emit(self,attacker,kind,amount,hp_before)
 		corpse_left = Rules.CORPSE_SECONDS
 		current_speed = 0
 		velocity = Vector2.ZERO

@@ -399,7 +399,7 @@ func _build_purchase() -> void:
 		else:
 			hint.text = "%s优先 · %s" % [preferred_faction,hint.text]
 		if page_offers.any(func(offer): return offer.id == "H19"):
-			hint.text += "　问灯会临时收编野鬼。"
+			hint.text += "　问灯会借鬼；守册战给他装备无字帖，可改为照鬼定身。"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hint.add_theme_color_override("font_color", Ink.MUTED)
 	var row := HBoxContainer.new()

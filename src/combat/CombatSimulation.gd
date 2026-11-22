@@ -1,5 +1,6 @@
 extends Node2D
 signal unit_spawned(unit: Node2D)
+signal lethal_hit(unit: Node2D, attacker: Node2D, kind: String, damage: float, hp_before: float)
 signal unit_fallen(unit: Node2D)
 signal unit_allegiance_changed(unit: Node2D, old_side: String, new_side: String)
 signal step_completed(delta: float)

@@ -86,6 +86,7 @@ P9_CODEX_CUSTOM_ART,风俗册 · 书契示意
 P9_CODEX_FAILURE_UNKNOWN,抹掉者无记录
 P9_CODEX_FAILURE_TIME,科仪时限
 NIGHT_REST_RESERVE_TITLE,守军已尽 · %s来援
-NIGHT_REST_RESERVE_HELP,现有 %d 香火。请一人接防会用掉本次休整，放弃回香与名分。
+NIGHT_REST_RESERVE_HELP,现有 %d 香火。请一人接防会用掉本次休整，放弃疗伤、回香与名分。
 NIGHT_REST_RESERVE_BUY,请援 · %d香火
 NIGHT_REST_RESERVE_SHORT,香火不足 · 需%d
+NIGHT_REST_LAST_GUARD,决战前仅余一人 · %s可增援

@@ -286,7 +286,7 @@ P11_UNIT_H18_TAGS,金;符
 P11_UNIT_H19_NAME,问灯
 P11_UNIT_H19_AFFILIATION,符法司
 P11_UNIT_H19_ROLE,高风险收编
-P11_UNIT_H19_SKILL,借鬼：短时收编一只野鬼为灰色友军
+P11_UNIT_H19_SKILL,借鬼：短时收编一只野鬼为灰色友军。守册战佩无字帖时改为照见3秒、定身1.5秒，照鬼仍耗香。
 P11_UNIT_H19_TRAIT,反噬：若该鬼在借期被无册触及，问灯自身会被错录
 P11_UNIT_H19_TAGS,灯;超度;无册
 P11_UNIT_H20_NAME,焚词
@@ -734,7 +734,7 @@ P4_END_HELD_TO_DAYBREAK,科仪完成，名册守至天亮。
 P4_END_NAMES_DRAINED,名分已被抽尽。
 P4_END_REGISTER_CAPTURED,名册房持续失守，已被占领。
 P4_END_REGISTER_EXTINGUISHED,名分归零，将熄窗口已尽。
-P4_END_RITUAL_LINE_BROKEN,晚已倒下，无守香司且无力再购入，点册线断。
+P4_END_RITUAL_LINE_BROKEN,已无人接守，现有香火与岗位也请不到能接手点册的人。
 P4_END_TIDE_EXHAUSTED,潮已清空，且无法再增潮。
 P5_DEFEAT,此夜线断
 P10_WARD_DEFEATED,%s · 已阵亡

@@ -79,6 +79,8 @@ func start(combat: Node, run: RefCounted) -> Dictionary:
 	session._record("night_node_start",0,str(node.id))
 	combat.set_meta("night_profile",battle_profile.duplicate(true))
 	sim.unit_spawned.connect(callback)
+	if not sim.lethal_hit.is_connected(_lethal_hit):
+		sim.lethal_hit.connect(_lethal_hit)
 	if not sim.unit_fallen.is_connected(_fallen):
 		sim.unit_fallen.connect(_fallen)
 	if not sim.unit_allegiance_changed.is_connected(_allegiance_changed):
@@ -227,6 +229,14 @@ func _roster_record(unit: Node2D) -> Dictionary:
 func _note_seen(id: String) -> void:
 	if id not in encountered:
 		encountered.append(id)
+
+func _lethal_hit(unit: Node2D, attacker: Node2D, kind: String, damage: float, hp_before: float) -> void:
+	var uid := str(unit.get_meta("night_uid",""))
+	if not tracked.has(uid): return
+	tracked[uid].fatal_hit = {"source":attacker.unit_id if is_instance_valid(attacker) else "",
+		"instance":attacker.instance_id if is_instance_valid(attacker) else "", "kind":kind,
+		"room":unit.simulation.world.room_at(unit.position,unit.floor_id),"post":unit.current_post,
+		"seconds":unit.simulation.simulation_time,"damage":damage,"hp_before":hp_before}
 
 func _fallen(unit: Node2D) -> void:
 	_note_seen(unit.unit_id)
@@ -392,6 +402,8 @@ func restore(combat: Node, run: RefCounted, state: Dictionary) -> Dictionary:
 	var callback := Callable(self,"_spawned")
 	if not sim.unit_spawned.is_connected(callback):
 		sim.unit_spawned.connect(callback)
+	if not sim.lethal_hit.is_connected(_lethal_hit):
+		sim.lethal_hit.connect(_lethal_hit)
 	if not sim.unit_fallen.is_connected(_fallen):
 		sim.unit_fallen.connect(_fallen)
 	if not sim.unit_allegiance_changed.is_connected(_allegiance_changed):
@@ -556,6 +568,8 @@ static func _valid_departures(value: Variant) -> bool:
 
 func _settled_record(unit: Node2D) -> Dictionary:
 	var record := _roster_record(unit)
+	var previous: Dictionary = tracked.get(record.uid,{})
+	if unit.dead and previous.has("fatal_hit"): record.fatal_hit = previous.fatal_hit.duplicate(true)
 	var misrecord: Dictionary = unit.roster.get("statuses",{}).get("misrecord",{})
 	if not misrecord.is_empty():
 		record.side = str(misrecord.original_side)

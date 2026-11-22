@@ -363,7 +363,10 @@ func resolve_event(choice_id: String) -> Dictionary:
 
 func rest_reserve_options() -> Array[Dictionary]:
 	var options: Array[Dictionary] = []
-	if not _phase("rest") or state.mode != "shouxiang" or not state.roster.is_empty():
+	if not _phase("rest") or state.mode != "shouxiang" or not state.has("opening_faction"):
+		return options
+	var before_final: bool = current_node().next.any(func(id): return _terminal(_node(str(id))))
+	if state.roster.size() > 1 or (state.roster.size() == 1 and not before_final):
 		return options
 	for id in Opening.REST_RESERVES.get(state.get("opening_faction",""),[]):
 		if state.fallen.any(func(member): return member.id == id): continue

@@ -21,6 +21,17 @@ func run() -> void:
 		night.state.phase = "rest"
 		night.state.current_node_id = "n06"
 		passed = passed and night.rest_reserve_options().is_empty()
+		var before: Dictionary = night.state.duplicate(true)
+		night.state.roster.pop_back()
+		passed = passed and night.rest_reserve_options().is_empty()
+		night.state.current_node_id = "n09"
+		night.state.roster[0].hp = 2.0
+		night.state.incense = 12
+		var offers: Array = night.rest_reserve_options()
+		var old_names: float = night.state.names
+		passed = passed and offers.size() == 2 and night.finish_rest(offers[0].id).ok
+		passed = passed and night.state.incense == 0 and night.state.names == old_names and night.state.roster.size() == 2 and night.state.roster[0].hp == 2.0
+		night.state = before
 		night.state.roster.clear()
 		night.state.incense = 11
 		host.refresh()

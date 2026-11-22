@@ -609,7 +609,7 @@ func _rest() -> void:
 		Ink.label(_page, str(host.run.current_node().description), Rect2(477, 342, 966, 132), 31, Ink.PAPER, true)
 		Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)
 		return
-	Ink.label(_page, tr("NIGHT_REST_RESERVE_TITLE") % host.run.state.opening_faction, Rect2(466,305,980,62),34,Ink.PAPER,true)
+	Ink.label(_page, tr("NIGHT_REST_RESERVE_TITLE" if host.run.state.roster.is_empty() else "NIGHT_REST_LAST_GUARD") % host.run.state.opening_faction, Rect2(466,305,980,62),34,Ink.PAPER,true)
 	Ink.label(_page, tr("NIGHT_REST_RESERVE_HELP") % int(host.run.state.incense),Rect2(466,373,990,50),22,Ink.MUTED)
 	var recruit_buttons: Array[Button] = []
 	for i in reserves.size():
@@ -636,8 +636,25 @@ func _mercy() -> void:
 	var summary: Dictionary = host.run.summary()
 	Ink.label(_page, tr(summary.reason), Rect2(478, 330, 964, 74), 28, Ink.RUST)
 	Ink.label(_page, tr("P5_MERCY_HELP"), Rect2(478, 418, 964, 120), 23, Ink.MUTED)
+	var detail := _recent_loss()
+	if not detail.is_empty():
+		Ink.label(_page,detail,Rect2(478,530,964,86),22,Ink.PAPER)
 	_focus = _button("mercy", tr("P5_MERCY"), Rect2(556, 626, 390, 64), host.use_mercy, true, true)
 	_button("decline", tr("P5_DECLINE"), Rect2(970, 626, 390, 64), host.leave_node)
+
+func _recent_loss() -> String:
+	var latest: Dictionary = {}
+	var victim := ""
+	for member in host.run.state.last_battle.get("fallen",[]):
+		var hit = member.get("fatal_hit")
+		if hit is Dictionary and hit.has_all(["seconds","source","damage","hp_before","kind","room"]) and hit.seconds >= latest.get("seconds",0):
+			latest = hit
+			victim = _unit_name(member.id)
+	if latest.is_empty(): return ""
+	var who := _unit_name(latest.source) if not str(latest.source).is_empty() else "无来源记录"
+	var location := "名册房 · " if latest.room == "register" else ""
+	var kind := str({"melee":"近战","charge":"冲撞","physical":"攻击","projectile":"远击"}.get(latest.kind,"攻击"))
+	return "%.2f秒　%s%s阵亡 · %s%s %.2f，受击前生命 %.2f" % [latest.seconds,location,victim,who,kind,latest.damage,latest.hp_before]
 
 func _summary() -> void:
 	var summary: Dictionary = host.run.summary()

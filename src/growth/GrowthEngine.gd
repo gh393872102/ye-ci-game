@@ -523,7 +523,10 @@ func _auto_skill(unit:Node2D,_delta:float)->void:
 		"H19":
 			var target=_nearest(unit,Rules.body_to_px(2.5),false)
 			if target!=null and sim().world.inside_base(target.position) and _ready(unit,"borrow_ghost") and _pay(unit,float(unit.skill_cost)):
-				_gray(target,unit,float(rules().borrow.gray_duration));_cd(unit,"borrow_ghost",float(rules().skills.status_skill_cooldown));_event("borrow_ghost",unit,target.instance_id)
+				if not light_without_borrowing(unit,target):
+					_gray(target,unit,float(rules().borrow.gray_duration))
+					_event("borrow_ghost",unit,target.instance_id)
+				_cd(unit,"borrow_ghost",float(rules().skills.status_skill_cooldown))
 		"H22":
 			var target=_nearest(unit,Rules.body_to_px(float(rules().skills.status_radius_body)),false)
 			if target!=null and target.unit_id=="G30" and _ready(unit,"dispel") and _pay(unit,float(unit.skill_cost)):
@@ -804,6 +807,15 @@ func _finish_borrow(caster:Node2D)->void:
 			unit.floor_id=caster.floor_id;unit.position=caster.position;_gray(unit,caster,float(rules().borrow.success_duration));unit.display_name="祠神援手"
 		_event("borrow_success",caster,"G11");_visual("god",caster.position,caster.floor_id,2)
 	state.rng_state=str(rng.state)
+func light_without_borrowing(caster: Node2D, target: Node2D) -> bool:
+	if caster.unit_id != "H19" or caster.side != "xianghuo" or target.side != "yegui": return false
+	if state.get("defense_objective","") != "hold_register" or not has(caster,"I08"): return false
+	apply_status(target,"revealed",3.0,caster)
+	apply_status(target,"stun",1.5,caster)
+	_event("lamp_reveal",caster,target.instance_id)
+	_visual("lamp_reveal",target.position,target.floor_id,0.65,0,caster.position)
+	return true
+
 func _gray(unit:Node2D,caster:Node2D,duration:float)->void:
 	var old_side:String=unit.side
 	ensure(unit);ensure(caster)
@@ -915,6 +927,12 @@ func draw_effects(canvas:Node2D)->void:
 		match kind:
 			"light", "revealed", "fear", "bone_lantern", "seal", "incense_transfer", "incense_restored", "gold_mirror", "dispel", "false_god_unmasked", "crossbow_shot", "cold_light", "river_lantern", "crow_path", "beam_pounce", "purified":
 				continue
+			"lamp_reveal":
+				var fade := clampf(float(field.left)/0.65,0,1)
+				var target := point - Vector2(0,108)
+				var lamp := Vector2(field.end[0],field.end[1])-Vector2(0,76)
+				canvas.draw_line(lamp,target,Color(1,0.75,0.28,fade*0.8),3)
+				canvas.draw_arc(target,16 + (1-fade)*12,0,TAU,24,Color(1,0.78,0.31,fade),3)
 			"paper_brace":
 				var t := clampf(1.0 - float(field.left) / 0.65,0,1)
 				var center := point - Vector2(0,112 + 20*t)
