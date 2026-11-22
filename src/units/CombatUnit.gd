@@ -122,6 +122,16 @@ func _draw() -> void:
 	preload("res://src/units/UnitAppearance.gd").draw(self)
 	if dead:
 		return
+	if roster.get("window_wedge")=="ready":
+		var grip := Vector2(10,-height_px*0.46)
+		draw_colored_polygon(PackedVector2Array([grip+Vector2(-3,-4),grip+Vector2(5,4),grip+Vector2(19,-18)]),Color("d8a970"))
+		draw_line(grip,grip+Vector2(5,-5),Color("983b31"),3)
+	elif roster.has("wedge_break_time"):
+		var age: float = simulation.simulation_time-float(roster.wedge_break_time)
+		if age>=0 and age<0.35:
+			for n in range(3):
+				var chip := Vector2(18+age*(23+n*12),-height_px*0.46+(n-1)*age*51)
+				draw_line(chip,chip+Vector2(6,-4+n*2),Color("e4bd83"),3)
 	if unit_id=="G07" and roster.has("window_paper"):
 		_draw_window_paper()
 	if bool(growth.get("gray",false)):

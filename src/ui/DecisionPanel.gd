@@ -50,6 +50,7 @@ var paused_before_purchase := true
 var offer_status: Dictionary = {}
 var target_hint: Label
 var warning_plate: PanelContainer
+var wedge_carrier_index := 0
 var register_warning_plate: PanelContainer
 var register_warning: Button
 var activity_plate: PanelContainer
@@ -1079,14 +1080,31 @@ func open_reinforce() -> void:
 		_button(row,"window_paper","披纸甲 × %d · %d香火" % [ready,rule.cost],reinforce.bind("paper"),armor_reason.is_empty(),armor_reason)
 		var preview := HBoxContainer.new()
 		content.add_child(preview)
+		var carrier := OptionButton.new()
+		carrier.name = "WedgeCarrier"
+		carrier.add_item("侧窗童亡")
+		carrier.add_item("正门白衣")
+		carrier.select(wedge_carrier_index)
+		preview.add_child(carrier)
 		var portrait := TextureRect.new()
-		portrait.texture = preload("res://src/units/UnitAppearance.gd").portrait_texture("G07")
+		var art = preload("res://src/units/UnitAppearance.gd")
+		var wedges: int = session.window_gear_targets("window_wedge","G01" if wedge_carrier_index==1 else "G07").size()
+		var wedge_reason := "WINDOW_WEDGE_NO_TARGET" if reason.is_empty() and wedges==0 else reason
+		var equip := _button(preview,"window_wedge","带门楔 × %d · %d香火" % [wedges,rule.cost],func():reinforce("ground_wedge" if carrier.selected==1 else "wedge"),wedge_reason.is_empty(),wedge_reason)
+		carrier.item_selected.connect(func(index):
+			wedge_carrier_index=index
+			portrait.texture=art.portrait_texture("G01" if index==1 else "G07")
+			var count: int=session.window_gear_targets("window_wedge","G01" if index==1 else "G07").size()
+			equip.text="带门楔 × %d · %d香火" % [count,rule.cost]
+			equip.disabled=not reason.is_empty() or count==0
+			equip.tooltip_text=tr(reason) if not reason.is_empty() else (tr("WINDOW_WEDGE_NO_TARGET") if count==0 else equip.text))
+		portrait.texture = art.portrait_texture("G01" if wedge_carrier_index==1 else "G07")
 		portrait.custom_minimum_size = Vector2(64,88)
 		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		preview.add_child(portrait)
-		var note := _label(preview,"选好目标，再派童亡走窗。本战所有童亡进册房后按此令出手。披纸甲另用一次补潮，每只挡一箭，靠前者优先。",18)
+		var note := _label(preview,"选好目标，再派童亡走窗。本战所有童亡进册房后按此令出手。披纸甲另用一次补潮，每只挡一箭，靠前者优先。门楔另用一次补潮，首次打门额外削60耐久，用后折断。",18)
 		var stopped: int = session.roster.state.get("window_bolts_blocked",0)
 		if stopped>0: note.text += " 本战纸甲已挡%d箭。" % stopped
 		note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1108,6 +1126,8 @@ func reinforce(formation := "") -> void:
 		feedback.text = "童亡已候潮。进册后先打%s。" % ("弩手" if formation=="window_bow" else "点册人")
 	elif answer.ok and formation == "window":
 		feedback.text = "%d只童亡已候潮，将从侧窗入楼。" % session.window_recruits()
+	elif answer.ok and formation in ["wedge","ground_wedge"]:
+		feedback.text = "%s已带门楔，打门后折断。" % ("白衣" if formation=="ground_wedge" else "童亡")
 	elif answer.ok and formation=="paper":
 		feedback.text = "%d只童亡已披纸甲，各可挡一支弩箭。" % recipients
 

@@ -1,0 +1,39 @@
+{
+	"initial_hash": "68002d35aff193a1e03059622aa9b682a69a5099c64047950b8201b92cb67dbe",
+	"node": "n08",
+	"orders": [
+		{
+			"cost": 10.0,
+			"formation": "window_bow",
+			"time": 0.0
+		},
+		{
+			"cost": 10.0,
+			"formation": "ground_wedge",
+			"time": 55.0166666666648
+		}
+	],
+	"result": {
+		"elapsed": 240.000000000083,
+		"first_breach": {
+			"door": "door_outer",
+			"time": 55.1166666666648
+		},
+		"humans_alive": 2,
+		"incense": 60.0,
+		"killer_id": "",
+		"mode": "duoming",
+		"names": 8.22083333333349,
+		"outcome": "defeat",
+		"reason": "P4_END_DAYBREAK",
+		"register_break": {
+			"at_dawn": true,
+			"peak": 11.1166666666668,
+			"required": 12.0,
+			"seconds": 240.000000000083
+		},
+		"remaining": 0.0,
+		"tide_alive": 109
+	},
+	"seed": "渡口"
+}

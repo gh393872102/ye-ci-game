@@ -480,10 +480,13 @@ func window_recruits() -> int:
 	return floori(float(rules.reinforce.count) / 2.0)
 
 func paper_armor_targets() -> Array:
+	return window_gear_targets("window_paper")
+
+func window_gear_targets(key: String, carrier := "G07") -> Array:
 	var scouts := []
 	if window_recruits() == 0: return scouts
 	for unit in simulation.targets:
-		if unit.unit_id=="G07" and unit.side=="yegui" and not unit.dead and not unit.roster.has("window_paper"):
+		if unit.unit_id==carrier and unit.side=="yegui" and not unit.dead and not unit.roster.has(key):
 			scouts.append(unit)
 	scouts.sort_custom(func(a,b): return a.position.x>b.position.x if a.position.x!=b.position.x else a.instance_id<b.instance_id)
 	return scouts.slice(0,window_recruits())
@@ -503,13 +506,14 @@ func reinforce(formation := "") -> Dictionary:
 	var count := int(rules.reinforce.count)
 	var id: String = simulation.tide.config.get("supply_id","G01")
 	var detail := str(count)
-	if formation == "paper":
-		var recipients := paper_armor_targets()
-		if recipients.is_empty(): return _reject("WINDOW_PAPER_NO_TARGET")
+	if formation in ["paper","wedge","ground_wedge"]:
+		var gear := "window_paper" if formation=="paper" else "window_wedge"
+		var recipients := window_gear_targets(gear,"G01" if formation=="ground_wedge" else "G07")
+		if recipients.is_empty(): return _reject("WINDOW_WEDGE_NO_TARGET" if formation!="paper" else "WINDOW_PAPER_NO_TARGET")
 		for unit in recipients:
-			unit.roster.window_paper = "ready"
+			unit.roster[gear] = "ready"
 			unit.queue_redraw()
-		detail = "纸甲 × %d" % recipients.size()
+		detail = "%s × %d" % ["纸甲" if formation=="paper" else "门楔",recipients.size()]
 	else:
 		if not formation.is_empty():
 			if formation not in ["window","window_bow","window_reader"] or window_recruits() == 0: return _reject("P6_INVALID_ACTION")

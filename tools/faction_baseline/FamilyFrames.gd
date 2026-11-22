@@ -14,9 +14,11 @@ func run() -> void:
 	root.add_child(host)
 	var shell: Node = host.shell
 	shell.title_buttons.start.pressed.emit()
+	var gate := "--gate-wedge" in OS.get_cmdline_user_args()
+	var wedge := gate or "--wedge" in OS.get_cmdline_user_args()
 	var paper := "--paper" in OS.get_cmdline_user_args()
 	var bow := "--bow" in OS.get_cmdline_user_args()
-	var window := bow or paper or "--window" in OS.get_cmdline_user_args()
+	var window := wedge or bow or paper or "--window" in OS.get_cmdline_user_args()
 	var family := 1 if window else 3
 	shell.family_picker.select(family)
 	shell.family_picker.item_selected.emit(family)
@@ -29,7 +31,7 @@ func run() -> void:
 	var sim: Node = host.combat.get_node("Simulation")
 	var panel: Node = host.combat.get_node("Decisions")
 	var camera: Node = host.combat.get_node("BattleCamera")
-	if paper:
+	if paper or wedge:
 		sim.set_physics_process(false)
 		if not sim.session.reinforce("window").ok:
 			quit(2)
@@ -56,12 +58,16 @@ func run() -> void:
 		high = maxi(high,count)
 	panel.open_reinforce()
 	await RenderingServer.frame_post_draw
-	if window and not paper and not bow: root.get_texture().get_image().save_webp("res://docs/optimization/window-supply.webp",true,0.80)
+	if window and not paper and not bow and not wedge: root.get_texture().get_image().save_webp("res://docs/optimization/window-supply.webp",true,0.80)
 	var button: Button = panel.buttons.window_reinforce if window else panel.buttons.reinforce
 	var scouts: Array = []
-	if paper:
-		button = panel.buttons.window_paper
-		scouts = sim.session.paper_armor_targets()
+	if paper or wedge:
+		button = panel.buttons.window_wedge if wedge else panel.buttons.window_paper
+		if gate:
+			var carrier: OptionButton = panel.find_child("WedgeCarrier",true,false)
+			carrier.select(1)
+			carrier.item_selected.emit(1)
+		scouts = sim.session.window_gear_targets("window_wedge","G01" if gate else "G07") if wedge else sim.session.paper_armor_targets()
 		if scouts.is_empty() or button.disabled:
 			quit(3)
 			return
@@ -72,6 +78,7 @@ func run() -> void:
 	var rect := button.get_global_rect()
 	var session: Node = sim.session
 	var cash: float = session.incense
+	var before_queue: Array = session.simulation.tide.pending.duplicate()
 	var started := Time.get_ticks_usec()
 	for down in [true,false]:
 		var event := InputEventMouseButton.new()
@@ -85,8 +92,11 @@ func run() -> void:
 	var queued: Array = sim.tide.pending.duplicate()
 	var ordered := samples.duplicate()
 	ordered.sort()
-	var ok: bool = portrait_ok and low >= 30 and is_equal_approx(cash-session.incense,10) and session.reinforce_count == (2 if paper else 1)
-	if paper:
+	var ok: bool = portrait_ok and low >= 30 and is_equal_approx(cash-session.incense,10) and session.reinforce_count == (2 if paper or wedge else 1)
+	if wedge:
+		ok = ok and scouts.all(func(u):return u.roster.get("window_wedge")=="ready") and panel.feedback.text.contains("打门后折断") and queued==before_queue
+		root.get_texture().get_image().save_webp("res://docs/optimization/gate-wedge.webp" if gate else "res://docs/optimization/window-wedge.webp",true,0.8)
+	elif paper:
 		ok = ok and scouts.all(func(u):return u.roster.get("window_paper")=="ready") and panel.feedback.text.contains("已披纸甲")
 		root.get_texture().get_image().save_webp("res://docs/optimization/window-paper.webp",true,0.80)
 	else:
@@ -94,7 +104,7 @@ func run() -> void:
 	if bow:
 		ok = ok and session.roster.state.get("window_focus")=="window_bow" and panel.feedback.text.contains("先打弩手")
 		root.get_texture().get_image().save_webp("res://docs/optimization/window-focus.webp",true,0.80)
-	if window and not paper and not bow: ok = ok and panel.feedback.text.contains("4只童亡")
+	if window and not paper and not bow and not wedge: ok = ok and panel.feedback.text.contains("4只童亡")
 	var broken := ""
 	if paper:
 		panel.close_panel()
@@ -111,9 +121,23 @@ func run() -> void:
 		ok = ok and not broken.is_empty()
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_webp("res://docs/optimization/window-paper-break.webp",true,0.80)
+	if wedge:
+		panel.close_panel()
+		sim.set_physics_process(false)
+		for tick in 5400:
+			sim.advance(1.0/60.0)
+			for scout in scouts:
+				if is_instance_valid(scout) and scout.roster.has("wedge_break_time"):
+					broken=scout.instance_id
+					camera.set_left(scout.position.x-900)
+					break
+			if not broken.is_empty(): break
+		ok=ok and not broken.is_empty()
+		await RenderingServer.frame_post_draw
+		root.get_texture().get_image().save_webp("res://docs/optimization/gate-wedge-break.webp" if gate else "res://docs/optimization/window-wedge-break.webp",true,0.8)
 	var result := {"passed":ok,"portrait":portrait_ok,"resolution":[1920,1080],"visible":[low,high],"frame_ms":samples,"frame_percentiles":[ordered[89],ordered[170],ordered[178]],"click_feedback_ms":ms,"feedback":panel.feedback.text,"renderer":RenderingServer.get_video_adapter_name(),"paid":paid,"queued":queued}
-	if paper: result.first_broken = broken
-	FileAccess.open("res://tools/faction_baseline/native-%s.json" % ("bow" if bow else ("paper" if paper else ("window" if window else "family"))),FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	if paper or wedge: result.first_broken = broken
+	FileAccess.open("res://tools/faction_baseline/native-%s.json" % (("gate-wedge" if gate else "wedge") if wedge else ("bow" if bow else ("paper" if paper else ("window" if window else "family")))),FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",ok," ",result.frame_percentiles," ",ms)
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(host.save_path))
 	host.free()

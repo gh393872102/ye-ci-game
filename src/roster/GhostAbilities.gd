@@ -447,7 +447,14 @@ func before_receive(unit:Node2D,amount:float,attacker:Node2D,kind:String)->float
 	if unit.unit_id=="G30" and is_instance_valid(attacker) and attacker.unit_id=="H22":amount*=p(unit,"dispel_multiplier")
 	if unit.unit_id=="G32" and float(state(unit).get("naming_left",0))>0:amount*=p(unit,"named_damage_multiplier")
 	return amount
-func before_structure_damage(_attacker:Node2D,_object:Node2D,amount:float)->float:return amount
+func before_structure_damage(attacker:Node2D,object:Node2D,amount:float)->float:
+	if is_instance_valid(attacker) and attacker.unit_id in ["G01","G07"] and attacker.side=="yegui" and attacker.roster.get("window_wedge")=="ready" and amount>0 and object.is_in_group("doors") and object.durability>0:
+		attacker.roster.window_wedge="spent"
+		attacker.roster.wedge_break_time=engine.sim().simulation_time
+		attacker.queue_redraw()
+		event("wedge_used",attacker,str(object.name))
+		return amount+60.0
+	return amount
 func ritual_duration(_caster:Node2D,target:Node2D,base:float)->float:
 	if target.unit_id=="G01":base*=p(target,"ritual_multiplier")
 	if target.unit_id=="G02" and target.hp/target.max_hp<=p(target,"low_hp_ratio"):base*=p(target,"ritual_multiplier")

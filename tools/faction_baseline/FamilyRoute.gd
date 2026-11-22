@@ -11,11 +11,11 @@ func run() -> void:
 		args.remove_at(args.find("--capture"))
 		root.size=Vector2i(1920,1080)
 	var families: Array = load("res://src/night/FactionOpening.gd").FAMILIES.keys()
-	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["white","window","erase","bow","bow40","bow3"]) or args[0] not in ["渡口","灯市","秋社"] or args[1] not in families:
+	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["white","window","erase","bow","bow40","bow3","bowWedge","bowPaper","bowGate","bowGate45"]) or args[0] not in ["渡口","灯市","秋社"] or args[1] not in families:
 		quit(2)
 		return
 	var order := args[2] if args.size()==3 else ""
-	if (order in ["window","white","bow","bow40","bow3"] and args[1]!="无名潮") or (order=="erase" and args[1]!="无册谱"):
+	if (order in ["window","white","bow","bow40","bow3","bowWedge","bowPaper","bowGate","bowGate45"] and args[1]!="无名潮") or (order=="erase" and args[1]!="无册谱"):
 		quit(2)
 		return
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
@@ -50,7 +50,7 @@ func run() -> void:
 			if not order.is_empty():
 				row.events = []
 				sim.event_recorded.connect(func(kind,unit,detail):
-					if kind in ["roster_window_entered","roster_window_route_started","roster_erase_name"]:
+					if kind in ["roster_window_entered","roster_window_route_started","roster_erase_name","roster_wedge_used"]:
 						row.events.append([sim.simulation_time,kind,unit.instance_id,detail]))
 			if order in ["white","window"] and night.state.current_node_id=="n01":
 				var cash: float = sim.session.incense
@@ -66,6 +66,14 @@ func run() -> void:
 			var later_battle: bool = night.state.current_node_id!="n01"
 			var budget := 3 if later_battle and order=="bow3" else 2
 			var second_at := 40.0 if later_battle and order=="bow40" else 0.0
+			if order.begins_with("bow"):
+				row.timeline = {"doors":{},"deaths":[],"first_scout":null}
+				sim.door_damaged.connect(func(door,_previous):
+					if door.durability<=0:row.timeline.doors[str(door.name)]=sim.simulation_time)
+				sim.lethal_hit.connect(func(unit,attacker,_kind,_damage,_hp):
+					if unit.side=="xianghuo" and sim.world.room_at(unit.position,unit.floor_id)=="register":
+						row.timeline.deaths.append([sim.simulation_time,unit.instance_id,unit.display_name,attacker.instance_id if is_instance_valid(attacker) else ""]))
+			if order=="bowGate45" and night.state.current_node_id=="n03": second_at=45.0
 			var last_occupation := 0.0
 			var was_advancing := false
 			if order.begins_with("bow"):
@@ -76,6 +84,8 @@ func run() -> void:
 				if order.begins_with("bow") and row.orders.size()<budget and (row.orders.is_empty() or sim.simulation_time>=second_at) and sim.session.reinforce_left<=0 and sim.session.incense>=sim.session.rules.reinforce.cost:
 					var cash: float = sim.session.incense
 					var formation := "window" if row.orders.is_empty() else "window_bow"
+					if later_battle and order in ["bowWedge","bowPaper","bowGate","bowGate45"]:
+						formation = "window_bow" if row.orders.is_empty() else {"bowWedge":"wedge","bowPaper":"paper","bowGate":"ground_wedge","bowGate45":"ground_wedge"}[order]
 					var receipt: Dictionary = sim.session.execute_for("duoming","reinforce",{"formation":formation},"player")
 					if not receipt.ok:
 						push_error(str(receipt))
@@ -102,6 +112,7 @@ func run() -> void:
 					for scout in sim.targets:
 						if scout.unit_id=="G07" and not scout.dead and scout.instance_id not in row.register.scouts and sim.world.room_at(scout.position,scout.floor_id)=="register":
 							row.register.scouts.append(scout.instance_id)
+							if row.timeline.first_scout==null: row.timeline.first_scout=sim.simulation_time
 					for guard in sim.humans:
 						if not guard.dead and sim.world.room_at(guard.position,guard.floor_id)=="register":
 							row.register.guards[guard.instance_id]=minf(row.register.guards.get(guard.instance_id,guard.hp),guard.hp)

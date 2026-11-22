@@ -1,0 +1,496 @@
+{
+	"family": "无名潮",
+	"outcome": "defeat",
+	"phase": "mercy",
+	"reason": "P4_END_DAYBREAK",
+	"seed": "灯市",
+	"steps": [
+		{
+			"cash": 16.0,
+			"node": "n01",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G01_tide_10": "G01",
+				"G01_tide_11": "G01",
+				"G01_tide_12": "G01",
+				"G01_tide_13": "G01",
+				"G01_tide_14": "G01",
+				"G01_tide_15": "G01",
+				"G01_tide_16": "G01",
+				"G01_tide_17": "G01",
+				"G01_tide_18": "G01",
+				"G01_tide_19": "G01",
+				"G01_tide_20": "G01",
+				"G01_tide_21": "G01",
+				"G01_tide_22": "G01",
+				"G01_tide_23": "G01",
+				"G01_tide_24": "G01",
+				"G01_tide_25": "G01",
+				"G01_tide_30": "G01",
+				"G01_tide_31": "G01",
+				"G01_tide_32": "G01",
+				"G01_tide_33": "G01",
+				"G01_tide_34": "G01",
+				"G01_tide_35": "G01",
+				"G01_tide_36": "G01",
+				"G01_tide_37": "G01",
+				"G01_tide_38": "G01",
+				"G01_tide_39": "G01",
+				"G01_tide_40": "G01",
+				"G01_tide_41": "G01",
+				"G01_tide_46": "G01",
+				"G01_tide_47": "G01",
+				"G01_tide_48": "G01",
+				"G01_tide_49": "G01",
+				"G01_tide_50": "G01",
+				"G01_tide_51": "G01",
+				"G01_tide_52": "G01",
+				"G01_tide_53": "G01",
+				"G07_tide_26": "G07",
+				"G07_tide_27": "G07",
+				"G07_tide_28": "G07",
+				"G07_tide_29": "G07",
+				"G07_tide_42": "G07",
+				"G07_tide_43": "G07",
+				"G07_tide_44": "G07",
+				"G07_tide_45": "G07"
+			},
+			"cash": 16.0,
+			"events": [
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_26",
+					"window_side_passage"
+				],
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_27",
+					"window_side_passage"
+				],
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_28",
+					"window_side_passage"
+				],
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_29",
+					"window_side_passage"
+				],
+				[
+					30.0333333333329,
+					"roster_window_route_started",
+					"G07_tide_42",
+					"window_side_passage"
+				],
+				[
+					30.0333333333329,
+					"roster_window_route_started",
+					"G07_tide_43",
+					"window_side_passage"
+				],
+				[
+					30.0333333333329,
+					"roster_window_route_started",
+					"G07_tide_44",
+					"window_side_passage"
+				],
+				[
+					30.0333333333329,
+					"roster_window_route_started",
+					"G07_tide_45",
+					"window_side_passage"
+				],
+				[
+					44.5999999999988,
+					"roster_window_entered",
+					"G07_tide_27",
+					"post_window_1"
+				],
+				[
+					44.5999999999988,
+					"roster_window_entered",
+					"G07_tide_28",
+					"post_window_1"
+				],
+				[
+					44.5999999999988,
+					"roster_window_entered",
+					"G07_tide_29",
+					"post_window_1"
+				],
+				[
+					72.8833333333305,
+					"roster_window_entered",
+					"G07_tide_42",
+					"post_window_1"
+				],
+				[
+					72.8833333333305,
+					"roster_window_entered",
+					"G07_tide_43",
+					"post_window_1"
+				],
+				[
+					72.8833333333305,
+					"roster_window_entered",
+					"G07_tide_44",
+					"post_window_1"
+				],
+				[
+					72.8833333333305,
+					"roster_window_entered",
+					"G07_tide_45",
+					"post_window_1"
+				]
+			],
+			"family": "无名潮",
+			"foreign": [],
+			"interruptions": [],
+			"orders": [
+				{
+					"before": 16.0,
+					"cost": 10.0,
+					"formation": "window",
+					"time": 0.0
+				},
+				{
+					"before": 13.2039999999992,
+					"cost": 10.0,
+					"formation": "window_bow",
+					"time": 30.0166666666662
+				}
+			],
+			"phase": "battle",
+			"register": {
+				"fighters_ticks": 1682,
+				"guards": {
+					"H01_5": 2.0,
+					"T02_4": 2.0
+				},
+				"peak_occupation": 12.0000000000002,
+				"scouts": [
+					"G07_tide_28",
+					"G07_tide_42",
+					"G07_tide_43",
+					"G07_tide_45",
+					"G07_tide_44"
+				]
+			},
+			"result": {
+				"elapsed": 116.366666666661,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 58.4166666666646
+				},
+				"humans_alive": 2,
+				"incense": 23.9280000000005,
+				"killer_id": "G07",
+				"mode": "duoming",
+				"names": 5.00000000000017,
+				"outcome": "victory",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 63.6333333332956,
+				"tide_alive": 39
+			},
+			"timeline": {
+				"deaths": [
+					[
+						91.5333333333294,
+						"T02_4",
+						"弩手",
+						"G07_tide_42"
+					],
+					[
+						104.383333333329,
+						"H01_5",
+						"晚",
+						"G07_tide_44"
+					]
+				],
+				"doors": {
+					"door_gallery": 78.7999999999968,
+					"door_inner": 109.149999999995,
+					"door_outer": 58.4166666666646
+				},
+				"first_scout": 88.3499999999963
+			}
+		},
+		{
+			"cash": 35.9280000000005,
+			"choice": "p7_I11",
+			"phase": "reward"
+		},
+		{
+			"cash": 35.9280000000005,
+			"node": "n02",
+			"phase": "map"
+		},
+		{
+			"cash": 35.9280000000005,
+			"phase": "market"
+		},
+		{
+			"cash": 35.9280000000005,
+			"node": "n03",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G01_tide_10": "G01",
+				"G01_tide_11": "G01",
+				"G01_tide_12": "G01",
+				"G01_tide_13": "G01",
+				"G01_tide_14": "G01",
+				"G01_tide_15": "G01",
+				"G01_tide_16": "G01",
+				"G01_tide_17": "G01",
+				"G01_tide_18": "G01",
+				"G01_tide_19": "G01",
+				"G01_tide_20": "G01",
+				"G01_tide_21": "G01",
+				"G01_tide_22": "G01",
+				"G01_tide_23": "G01",
+				"G01_tide_24": "G01",
+				"G01_tide_25": "G01",
+				"G01_tide_26": "G01",
+				"G01_tide_27": "G01",
+				"G01_tide_28": "G01",
+				"G01_tide_29": "G01",
+				"G01_tide_30": "G01",
+				"G01_tide_31": "G01",
+				"G01_tide_32": "G01",
+				"G01_tide_33": "G01",
+				"G01_tide_34": "G01",
+				"G01_tide_35": "G01",
+				"G01_tide_36": "G01",
+				"G01_tide_37": "G01",
+				"G01_tide_41": "G01",
+				"G01_tide_42": "G01",
+				"G01_tide_43": "G01",
+				"G01_tide_44": "G01",
+				"G01_tide_45": "G01",
+				"G01_tide_46": "G01",
+				"G01_tide_47": "G01",
+				"G01_tide_48": "G01",
+				"G01_tide_53": "G01",
+				"G01_tide_54": "G01",
+				"G01_tide_55": "G01",
+				"G01_tide_56": "G01",
+				"G01_tide_57": "G01",
+				"G01_tide_58": "G01",
+				"G01_tide_59": "G01",
+				"G01_tide_60": "G01",
+				"G01_tide_61": "G01",
+				"G01_tide_62": "G01",
+				"G01_tide_63": "G01",
+				"G01_tide_64": "G01",
+				"G01_tide_65": "G01",
+				"G01_tide_66": "G01",
+				"G01_tide_67": "G01",
+				"G01_tide_68": "G01",
+				"G01_tide_69": "G01",
+				"G01_tide_70": "G01",
+				"G01_tide_71": "G01",
+				"G01_tide_72": "G01",
+				"G01_tide_73": "G01",
+				"G01_tide_74": "G01",
+				"G01_tide_75": "G01",
+				"G01_tide_76": "G01",
+				"G01_tide_77": "G01",
+				"G01_tide_78": "G01",
+				"G01_tide_79": "G01",
+				"G01_tide_80": "G01",
+				"G01_tide_81": "G01",
+				"G01_tide_82": "G01",
+				"G01_tide_83": "G01",
+				"G01_tide_84": "G01",
+				"G01_tide_85": "G01",
+				"G07_tide_38": "G07",
+				"G07_tide_39": "G07",
+				"G07_tide_40": "G07",
+				"G07_tide_49": "G07",
+				"G07_tide_50": "G07",
+				"G07_tide_51": "G07",
+				"G07_tide_52": "G07"
+			},
+			"cash": 35.9280000000005,
+			"events": [
+				[
+					3.04999999999999,
+					"roster_window_route_started",
+					"G07_tide_38",
+					"window_side_passage"
+				],
+				[
+					3.04999999999999,
+					"roster_window_route_started",
+					"G07_tide_39",
+					"window_side_passage"
+				],
+				[
+					3.04999999999999,
+					"roster_window_route_started",
+					"G07_tide_40",
+					"window_side_passage"
+				],
+				[
+					3.93333333333332,
+					"roster_window_route_started",
+					"G07_tide_49",
+					"window_side_passage"
+				],
+				[
+					4.34999999999999,
+					"roster_window_route_started",
+					"G07_tide_50",
+					"window_side_passage"
+				],
+				[
+					4.38333333333332,
+					"roster_window_route_started",
+					"G07_tide_51",
+					"window_side_passage"
+				],
+				[
+					4.38333333333332,
+					"roster_window_route_started",
+					"G07_tide_52",
+					"window_side_passage"
+				],
+				[
+					45.8999999999987,
+					"roster_window_entered",
+					"G07_tide_39",
+					"post_window_1"
+				],
+				[
+					45.8999999999987,
+					"roster_window_entered",
+					"G07_tide_40",
+					"post_window_1"
+				],
+				[
+					46.783333333332,
+					"roster_window_entered",
+					"G07_tide_49",
+					"post_window_1"
+				],
+				[
+					47.1999999999986,
+					"roster_window_entered",
+					"G07_tide_50",
+					"post_window_1"
+				],
+				[
+					47.2333333333319,
+					"roster_window_entered",
+					"G07_tide_51",
+					"post_window_1"
+				],
+				[
+					47.2333333333319,
+					"roster_window_entered",
+					"G07_tide_52",
+					"post_window_1"
+				]
+			],
+			"family": "无名潮",
+			"foreign": [],
+			"interruptions": [],
+			"orders": [
+				{
+					"before": 35.9280000000005,
+					"cost": 10.0,
+					"formation": "window_bow",
+					"time": 0.0
+				},
+				{
+					"before": 33.1320000000019,
+					"cost": 10.0,
+					"formation": "paper",
+					"time": 30.0166666666662
+				}
+			],
+			"phase": "battle",
+			"register": {
+				"fighters_ticks": 2173,
+				"guards": {
+					"H01_5": 2.0,
+					"H17_3": 2.5,
+					"T02_4": 2.0
+				},
+				"peak_occupation": 9.75000000000006,
+				"scouts": [
+					"G07_tide_40",
+					"G07_tide_51",
+					"G07_tide_52",
+					"G07_tide_50",
+					"G07_tide_49"
+				]
+			},
+			"result": {
+				"elapsed": 210.000000000059,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 58.4166666666646
+				},
+				"humans_alive": 1,
+				"incense": 60.0,
+				"killer_id": "",
+				"mode": "duoming",
+				"names": 6.56250000000031,
+				"outcome": "defeat",
+				"reason": "P4_END_DAYBREAK",
+				"register_break": {
+					"at_dawn": true,
+					"peak": 9.75000000000006,
+					"required": 12.0,
+					"seconds": 210.000000000059
+				},
+				"remaining": 0.0,
+				"tide_alive": 62
+			},
+			"timeline": {
+				"deaths": [
+					[
+						193.58333333338,
+						"H01_5",
+						"晚",
+						"G01_tide_12"
+					],
+					[
+						200.016666666718,
+						"H17_3",
+						"朱砂",
+						"G01_tide_10"
+					],
+					[
+						200.266666666718,
+						"T02_4",
+						"弩手",
+						"G01_tide_12"
+					]
+				],
+				"doors": {
+					"door_gallery": 61.9666666666644,
+					"door_hall": 149.600000000011,
+					"door_inner": 109.149999999995,
+					"door_outer": 58.4166666666646,
+					"door_register": 179.116666666701
+				},
+				"first_scout": 71.5166666666639
+			}
+		},
+		{
+			"cash": 60.0,
+			"phase": "mercy"
+		}
+	]
+}
