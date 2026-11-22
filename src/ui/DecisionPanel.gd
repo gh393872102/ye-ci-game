@@ -10,7 +10,7 @@ const ALERT := Color("f1ad91")
 const PURCHASE_PAGE_SIZE := 3
 const DRAG_THRESHOLD := 12.0
 const ACTION_RECT := Rect2(558, 712, 1338, 273)
-const PURCHASE_RECT := Rect2(1225, 568, 668, 418)
+const PURCHASE_RECT := Rect2(1225, 510, 668, 476)
 const DEPLOY_RECT := Rect2(1179, 720, 714, 268)
 const UPGRADE_RECT := Rect2(83, 152, 594, 487)
 const PORTRAIT_RECT := Rect2(83, 141, 1036, 784)
@@ -44,6 +44,7 @@ var selected_group: Array[Node2D] = []
 var valid_post_hover := ""
 var legal_ritual_targets: Array[Node2D] = []
 var purchase_page := 0
+var recruitable_faction_only := false
 var offer_status: Dictionary = {}
 var target_hint: Label
 var warning_plate: PanelContainer
@@ -355,12 +356,17 @@ func open_purchase() -> void:
 		return
 	close_panel()
 	purchase_page = 0
+	recruitable_faction_only = false
 	current_panel = "purchase"
 	_build_purchase()
 
 func _build_purchase() -> void:
 	_clear_content("")
 	var offers: Array = _query("purchase_options")
+	if recruitable_faction_only:
+		offers = offers.filter(func(offer):
+			return offer.allowed and Data.get_unit(offer.id).get("所属", "") == preferred_faction and not _query("legal_posts", {"id":offer.id}).is_empty()
+		)
 	offers.sort_custom(func(a, b):
 		var first := str(a.id)
 		var second := str(b.id)
@@ -375,6 +381,8 @@ func _build_purchase() -> void:
 	var pages := maxi(1, ceili(offers.size() / float(PURCHASE_PAGE_SIZE)))
 	purchase_page = clampi(purchase_page, 0, pages - 1)
 	var nav := _panel_header(tr("P4_BUY_TITLE"))
+	if not preferred_faction.is_empty():
+		_button(nav, "purchase_scope", "看全部" if recruitable_faction_only else "可招同司", _toggle_purchase_scope)
 	_button(nav, "purchase_prev", tr("P9_PAGE_PREV"), _purchase_page.bind(-1), purchase_page > 0)
 	_label(nav, tr("P9_PAGE_COUNT") % [purchase_page + 1, pages], 17)
 	_button(nav, "purchase_next", tr("P9_PAGE_NEXT"), _purchase_page.bind(1), purchase_page + 1 < pages)
@@ -382,7 +390,11 @@ func _build_purchase() -> void:
 	var page_offers := offers.slice(purchase_page * PURCHASE_PAGE_SIZE, (purchase_page + 1) * PURCHASE_PAGE_SIZE)
 	var hint := _label(content, tr("P9_PURCHASE_HELP"), 16)
 	if not preferred_faction.is_empty():
-		hint.text = "%s优先 · %s" % [preferred_faction,hint.text]
+		if recruitable_faction_only:
+			hint.text = "%s · 当前可买且有空岗的援军 %d 人" % [preferred_faction, offers.size()]
+			if offers.is_empty(): hint.text += "。可返回全部查看缺香、满员等原因。"
+		else:
+			hint.text = "%s优先 · %s" % [preferred_faction,hint.text]
 		if page_offers.any(func(offer): return offer.id == "H19"):
 			hint.text += "　问灯会临时收编野鬼。"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -422,6 +434,11 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	figure.height_px = 110.0
 	illustration.add_child(figure)
 	illustration.resized.connect(func(): figure.position = Vector2(illustration.size.x / 2, 119))
+	if not preferred_faction.is_empty():
+		var specialty := _label(illustration, str(data.get("定位","")), 16)
+		specialty.set_position(Vector2(4, 0))
+		specialty.add_theme_constant_override("outline_size",4)
+		specialty.add_theme_color_override("font_outline_color",Color("130f13"))
 	var stats := _label(column, tr("P9_PURCHASE_STATS") % [data.get("生命", "?"), data.get("攻击", "?"), data.get("防御", "?"), float(profile.get("range_body", 1))], 16)
 	stats.add_theme_color_override("font_color", Ink.PAPER)
 	stats.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -433,6 +450,12 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	var button := _button(column, "buy_" + id, tr("P9_PAY_INCENSE") % offer.cost, _purchase.bind(id), offer.allowed, offer.reason)
 	button.add_theme_font_size_override("font_size", 18)
 	button.custom_minimum_size.y = 36
+
+func _toggle_purchase_scope() -> void:
+	recruitable_faction_only = not recruitable_faction_only
+	purchase_page = 0
+	_build_purchase()
+	buttons["purchase_scope"].grab_focus()
 
 func _purchase_page(direction: int) -> void:
 	purchase_page += direction

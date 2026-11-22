@@ -541,6 +541,11 @@ func draw_effects(canvas: Node2D) -> void:
 			"H19":
 				canvas.draw_dashed_line(a,b,cold,5,12)
 				canvas.draw_arc(b,45,0,TAU,8,ink,4)
+				# The paper lantern travels from the caster to the borrowed ghost.
+				var lamp := a.lerp(b,phase)
+				canvas.draw_rect(Rect2(lamp-Vector2(10,14),Vector2(20,28)),red)
+				canvas.draw_line(lamp-Vector2(12,14),lamp+Vector2(12,-14),ink,4)
+				canvas.draw_line(lamp+Vector2(0,14),lamp+Vector2(0,23),ink,3)
 			"H20","H26":
 				for i in range(7):
 					var p: Vector2=b+Vector2(-90+i*30,-10 if i%2==0 else 15)

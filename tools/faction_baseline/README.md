@@ -79,3 +79,18 @@ godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 aid-regis
 输出 post-种子-策略-索引.json。orders 是在地图上获准的调动，battle.posts 是实际启动战斗时的位置。aid 记录开局之后的实付款和增援岗位。first_occupation 在启用采样的记录中表示该场首次出现无守军争夺的占册模拟步；若后来夺回，不能把它到终局的间隔当作连续倒计时。未采样的记录省略此字段。相同种子中的重复第一场不可重复计入胜率分母。
 
 补充策略 watch 使用「渡口」从首战开始，在每场开战时查看真实战场商店：最多招募一位尚可购买、未列入阵亡名单的同司角色。按原商品顺序，首选名册房，其次门厅、内门；用实际扣款和正式部署接口执行。各司可购买角色和价格不同，本组用于验证正常资源路线可达性，不与三种等造价站位合并计数。
+
+## 符法司双援军与 1080p 大潮
+
+普通例夜索引 2 使用 borrow、dispel 或 dispel-recall，末尾传入「渡口」「灯市」「秋社」之一。第一战都购买朱砂，第二战分别购买问灯或三戒，都布置到册房，第五节点不再采购。dispel-recall 在进入第五节点前通过正式换岗把月讳调回册房。逐战 register_guards 以实例为键，记录开场已在册房的守军首次离房或阵亡，held 表示到结算仍未观测到这两件事。foreign_units 另行监测归属。
+
+```sh
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 2 dispel-recall 秋社
+godot --headless --script tools/faction_baseline/OpeningMenu.gd
+```
+
+帧间隔测试需要真实显示服务、1920×1080 和 OpenGL。Linux 在独立 XDG_DATA_HOME 下运行，以免与个人图鉴共用。测试在正式例夜 n01 注入四路共44名鬼怪，使用真实时间和原生渲染，记录180个相邻出帧间隔及12次模拟物理 Q 键到招募页可见的耗时。原始毫秒序列在 native-tide.json。分位数取有序样本的第 ceil(p×N) 项。可选 --capture 在 /tmp 输出战场及招募页图片。
+
+```sh
+XDG_DATA_HOME="$(mktemp -d)" godot --display-driver x11 --rendering-method gl_compatibility --audio-driver Dummy --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/TideFrames.gd -- --capture
+```

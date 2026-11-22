@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -79,6 +79,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			var receipt: Dictionary = session.upgrade(unit)
 			row.upgrades.append({"id":unit.unit_id, "ok":receipt.ok, "paid":before-session.incense})
 	var id: String = {"守香司":"H01","武卫司":"H09","符法司":"H17","奇人司":"H25"}[faction]
+	if not ordered_id.is_empty(): id = ordered_id
 	if fill_watch:
 		for offer in session.purchase_options():
 			if not offer.allowed or root.get_node("Data").get_unit(offer.id).get("所属","") != faction: continue
@@ -102,8 +103,26 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	sim.unit_spawned.connect(func(unit): observe(unit,faction))
 	sim.unit_allegiance_changed.connect(func(unit,_old,_new): observe(unit,faction))
 	row.first_occupation = {}
+	var inside := {}
+	if track_register:
+		row.register_guards = {}
+		for guard in sim.humans:
+			if sim.world.room_at(guard.position,guard.floor_id) == "register":
+				inside[guard.instance_id] = guard
+				row.register_guards[guard.instance_id] = {"id":guard.unit_id,"first_change":"held"}
+		sim.unit_fallen.connect(func(unit):
+			if inside.erase(unit.instance_id):
+				row.register_guards[unit.instance_id].merge({"first_change":"fallen","seconds":sim.simulation_time},true)
+		)
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if not inside.is_empty():
+			for key in inside.keys():
+				var guard: Node2D = inside[key]
+				var room: String = sim.world.room_at(guard.position,guard.floor_id)
+				if room != "register":
+					row.register_guards[key].merge({"first_change":"left_room","seconds":sim.simulation_time,"room":room,"post":guard.current_post,"purpose":guard.brain.purpose,"last_reason":guard.brain.last_reason},true)
+					inside.erase(key)
 		if session.occupation > 0 and row.first_occupation.is_empty():
 			var guards := []
 			for unit in sim.humans:

@@ -73,7 +73,40 @@ func run() -> void:
 	talisman_shop.open_purchase()
 	var has_borrow_hint: bool = talisman_shop.content.find_children("*","Label",true,false).any(func(label): return label.text.contains("临时收编野鬼"))
 	ok = ok and talisman_shop.buttons.has("buy_H19") and has_borrow_hint
-	print("menu, faction shop and mid-battle restore: ",ok)
+	var battle_session: Node = host.combat.get_node("Session")
+	var cash: float = battle_session.incense
+	talisman_shop.buttons.purchase_scope.pressed.emit()
+	var expected := []
+	for offer in battle_session.purchase_options():
+		if offer.allowed and root.get_node("Data").get_unit(offer.id).get("所属","") == "符法司" and not battle_session.legal_posts(offer.id).is_empty():
+			expected.append(offer.id)
+	expected.sort()
+	var shown := []
+	while true:
+		for card in talisman_shop.content.find_children("buy_*","Button",true,false):
+			shown.append(str(card.name).trim_prefix("buy_"))
+		if talisman_shop.buttons.purchase_next.disabled: break
+		talisman_shop.buttons.purchase_next.pressed.emit()
+	ok = ok and shown == expected and "H19" in shown and "H22" in shown and not "H21" in shown
+	ok = ok and is_equal_approx(battle_session.incense,cash) and battle_session.pending_purchase.is_empty()
+	talisman_shop.buttons.purchase_scope.pressed.emit()
+	ok = ok and talisman_shop.purchase_page == 0 and not talisman_shop.recruitable_faction_only
+	battle_session.incense = 0
+	talisman_shop.buttons.purchase_scope.pressed.emit()
+	ok = ok and talisman_shop.offer_status.is_empty() and talisman_shop.buttons.purchase_prev.disabled and talisman_shop.buttons.purchase_next.disabled
+	talisman_shop.buttons.purchase_scope.pressed.emit()
+	ok = ok and not talisman_shop.offer_status.is_empty()
+	battle_session.incense = cash
+	talisman_shop.buttons.purchase_scope.pressed.emit()
+	while not talisman_shop.offer_status.has("H22") and not talisman_shop.buttons.purchase_next.disabled:
+		talisman_shop.buttons.purchase_next.pressed.emit()
+	if talisman_shop.offer_status.has("H22"):
+		talisman_shop.buttons.buy_H22.pressed.emit()
+		ok = ok and battle_session.pending_purchase == "H22" and battle_session.incense == cash - 10
+		talisman_shop.buttons.post_post_register.pressed.emit()
+		ok = ok and battle_session.pending_purchase.is_empty() and host.combat.get_node("Simulation").humans.any(func(actor): return actor.unit_id=="H22" and actor.current_post=="post_register")
+	else: ok = false
+	print("menu, faction shop, purchase and mid-battle restore: ",ok," visible candidates: ",shown)
 	DirAccess.remove_absolute(host.save_path)
 	host.free()
 	await create_timer(0.5).timeout
