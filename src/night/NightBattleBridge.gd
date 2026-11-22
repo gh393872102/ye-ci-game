@@ -1,6 +1,7 @@
 extends RefCounted
 ## Applies one night's owned roster and data profiles to the existing G0 simulator.
 # The shipped P10 source at 10d8719. Its actions cannot be replayed under P11.
+const PILOT_TRIAL_RULES := "8f8e0dc25f49973a78a9f6885d50cc3344c040d798c60955a52ba5050ecc0b6a"
 const P11_REVIEW_RULES := "1f94085406a4fd4ca08507962d8998ba590faa5d11bcdd2db02a57ce89ae9b9c"
 const P10_RULES := "8554a9e4eed596d0f7db6b2e434f17b7800ad5a9fc9e708edb53e1aa9a5f4671"
 const GROWTH_CARRY_FIELDS := ["roster","growth","side","tags","skill_id","trait_id","skill_cost","skill_text","trait_text","display_name","role","profile","speed_stat"]
@@ -90,7 +91,7 @@ func start(combat: Node, run: RefCounted) -> Dictionary:
 			if float(spec.hp) <= 0:
 				continue
 			var deploy_post: String = str(spec.post)
-			var legal: Array[String] = session.legal_posts(str(spec.id))
+			var legal: Array[String] = session.legal_posts(str(spec.id), true)
 			if spec.get("side","") == "xianghuo" and spec.get("growth",{}).get("gray",false):
 				legal.assign([deploy_post] if sim.world.can_deploy_at(deploy_post) else session.legal_posts())
 			if not legal.has(deploy_post):
@@ -411,6 +412,8 @@ func _begin_recording(combat: Node, run: RefCounted, resume: Dictionary = {}, mi
 func _prior_recording_rules(bridge: Dictionary, checkpoint: Variant) -> String:
 	if not checkpoint is Dictionary:
 		return ""
+	if checkpoint.get("rules_hash") == PILOT_TRIAL_RULES:
+		return PILOT_TRIAL_RULES
 	var expected := P11_REVIEW_RULES if bridge.has("renown_peak") else P10_RULES
 	return expected if checkpoint.get("rules_hash") == expected else ""
 

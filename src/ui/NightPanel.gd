@@ -478,6 +478,10 @@ func _offer_type(offer: Dictionary) -> String:
 	var effect: Dictionary = offer.effect
 	match str(effect.kind):
 		"recruit":
+			var source := Data.get_unit(str(effect.unit_id))
+			var faction := str(source.get("谱系", source.get("所属", "")))
+			if not faction.is_empty():
+				return faction
 			return tr("P9_OFFER_GHOST" if str(effect.unit_id).begins_with("G") else "P9_OFFER_HUMAN")
 		"equipment":
 			return tr("P9_OFFER_CENSER")

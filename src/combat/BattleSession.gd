@@ -163,19 +163,19 @@ func purchase_options() -> Array[Dictionary]:
 		options.append({"id":id, "cost":rules.purchases[id], "allowed":reason.is_empty(), "reason":reason})
 	return options
 
-func legal_posts(id: String = "") -> Array[String]:
+func legal_posts(id: String = "", already_owned := false) -> Array[String]:
 	var posts: Array[String] = []
 	if simulation == null:
 		return posts
 	for post in simulation.world.posts:
-		if deployment_reason(str(post.name), id).is_empty():
+		if deployment_reason(str(post.name), id, already_owned).is_empty():
 			posts.append(str(post.name))
 	return posts
 
-func deployment_reason(post_id: String, id: String) -> String:
+func deployment_reason(post_id: String, id: String, already_owned := false) -> String:
 	if not simulation.world.can_deploy_at(post_id):
 		return "P4_ILLEGAL_POST"
-	if not id.is_empty() and not rules.purchases.has(id):
+	if not id.is_empty() and (not Data.combat_profiles.has(id) or (not already_owned and not rules.purchases.has(id))):
 		return "P4_UNKNOWN_PURCHASE"
 	var post: Marker2D = simulation.world.get_node(post_id)
 	if not id.is_empty():

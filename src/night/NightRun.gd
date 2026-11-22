@@ -731,7 +731,7 @@ func _effect_reason(effect: Dictionary, target_uid: String, allow_missing := fal
 				for unit in state.roster:
 					if str(unit.id).begins_with("T"):
 						troops += 1
-				if troops + int(effect.count) > int(Data.battle_rules.troop_cap):
+				if str(effect.unit_id).begins_with("T") and troops + int(effect.count) > int(Data.battle_rules.troop_cap):
 					return "P5_ROSTER_CAP"
 				var named := 0
 				var at_post := 0

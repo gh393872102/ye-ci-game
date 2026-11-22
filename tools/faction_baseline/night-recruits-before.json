@@ -1,0 +1,538 @@
+{
+	"failed_checks": 4,
+	"rows": [
+		{
+			"affordable_at_eight": {
+				"H03": {
+					"cost": 8.0,
+					"faction": "守香司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H11": {
+					"cost": 7.0,
+					"faction": "武卫司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H21": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H24": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H25": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H27": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				}
+			},
+			"layout": [
+				"C01",
+				"C03",
+				"C04"
+			],
+			"opening_incense": 20.0,
+			"passed": true,
+			"ritual": "R01",
+			"seed": "渡口",
+			"start": "P5_BATTLE_STARTED",
+			"tested_unit": ""
+		},
+		{
+			"balance": 5.0,
+			"extra_troop": "P5_ROSTER_CAP",
+			"in_battle_shop": false,
+			"layout": [
+				"C01",
+				"C03",
+				"C04",
+				"C07",
+				"C12"
+			],
+			"market_result": "P5_COMMAND_OK",
+			"named_with_full_troops": "P5_ROSTER_CAP",
+			"opening_incense": 16.0,
+			"passed": false,
+			"posts": [],
+			"price": 11.0,
+			"ritual": "R03",
+			"seed": "渡口",
+			"start": "P5_INVALID_ROSTER_POST",
+			"tested_unit": "H20"
+		},
+		{
+			"affordable_at_eight": {
+				"H03": {
+					"cost": 8.0,
+					"faction": "守香司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H11": {
+					"cost": 7.0,
+					"faction": "武卫司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H21": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H24": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H25": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H27": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				}
+			},
+			"layout": [
+				"C01",
+				"C03",
+				"C04"
+			],
+			"opening_incense": 20.0,
+			"passed": true,
+			"ritual": "R01",
+			"seed": "灯市",
+			"start": "P5_BATTLE_STARTED",
+			"tested_unit": ""
+		},
+		{
+			"balance": 6.0,
+			"extra_troop": "P5_ROSTER_CAP",
+			"in_battle_shop": false,
+			"layout": [
+				"C01",
+				"C03",
+				"C04",
+				"C08",
+				"C10"
+			],
+			"market_result": "P5_COMMAND_OK",
+			"named_with_full_troops": "P5_ROSTER_CAP",
+			"opening_incense": 16.0,
+			"passed": false,
+			"posts": [],
+			"price": 10.0,
+			"ritual": "R03",
+			"seed": "灯市",
+			"start": "P5_INVALID_ROSTER_POST",
+			"tested_unit": "H26"
+		},
+		{
+			"affordable_at_eight": {
+				"H03": {
+					"cost": 8.0,
+					"faction": "守香司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H11": {
+					"cost": 7.0,
+					"faction": "武卫司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H21": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H24": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H25": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H27": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				}
+			},
+			"layout": [
+				"C01",
+				"C03",
+				"C04"
+			],
+			"opening_incense": 20.0,
+			"passed": true,
+			"ritual": "R01",
+			"seed": "秋社",
+			"start": "P5_BATTLE_STARTED",
+			"tested_unit": ""
+		},
+		{
+			"balance": 7.0,
+			"extra_troop": "P5_ROSTER_CAP",
+			"in_battle_shop": false,
+			"layout": [
+				"C01",
+				"C03",
+				"C04",
+				"C08",
+				"C12"
+			],
+			"market_result": "P5_COMMAND_OK",
+			"named_with_full_troops": "P5_ROSTER_CAP",
+			"opening_incense": 16.0,
+			"passed": false,
+			"posts": [],
+			"price": 9.0,
+			"ritual": "R04",
+			"seed": "秋社",
+			"start": "P5_INVALID_ROSTER_POST",
+			"tested_unit": "H14"
+		},
+		{
+			"affordable_at_eight": {
+				"H03": {
+					"cost": 8.0,
+					"faction": "守香司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H11": {
+					"cost": 7.0,
+					"faction": "武卫司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H21": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H24": {
+					"cost": 8.0,
+					"faction": "符法司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H25": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				},
+				"H27": {
+					"cost": 8.0,
+					"faction": "奇人司",
+					"posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear"
+					]
+				}
+			},
+			"layout": [
+				"C01",
+				"C03",
+				"C04"
+			],
+			"opening_incense": 20.0,
+			"passed": true,
+			"ritual": "R01",
+			"seed": "霜降",
+			"start": "P5_BATTLE_STARTED",
+			"tested_unit": ""
+		},
+		{
+			"balance": 7.0,
+			"extra_troop": "P5_ROSTER_CAP",
+			"in_battle_shop": false,
+			"layout": [
+				"C01",
+				"C03",
+				"C04",
+				"C05",
+				"C11"
+			],
+			"market_result": "P5_COMMAND_OK",
+			"named_with_full_troops": "P5_ROSTER_CAP",
+			"opening_incense": 16.0,
+			"passed": false,
+			"posts": [],
+			"price": 9.0,
+			"ritual": "R07",
+			"seed": "霜降",
+			"start": "P5_INVALID_ROSTER_POST",
+			"tested_unit": "H29"
+		}
+	],
+	"rules_hash": "8f8e0dc25f49973a78a9f6885d50cc3344c040d798c60955a52ba5050ecc0b6a"
+}
