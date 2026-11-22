@@ -25,6 +25,7 @@ var material_ids: Array[String] = []
 var selected_pose := 0
 var selected_slot := 0
 var selected_item := ""
+var awaiting_item_choice := false
 var selected_recipe := ""
 var selected_partner := ""
 var selected_material := ""
@@ -54,6 +55,7 @@ func _ready() -> void:
 func open_for(target: Node2D, tab := "equipment") -> void:
 	if not is_instance_valid(target) or target.dead or not decisions.growth_enabled(): return
 	unit = target
+	awaiting_item_choice = false
 	current_tab = tab
 	decisions.panel.hide()
 	decisions.current_panel = "growth"
@@ -137,6 +139,7 @@ func _equipment(options: Dictionary) -> void:
 	slot_picker.select(selected_slot)
 	slot_picker.item_selected.connect(func(index: int):
 		selected_slot = index
+		awaiting_item_choice = false
 		selected_item = ""
 		render()
 	)
@@ -157,9 +160,15 @@ func _equipment(options: Dictionary) -> void:
 		item_picker.disabled = true
 		selected_item = ""
 	else:
-		item_picker.select(maxi(0, item_ids.find(selected_item)))
-		selected_item = item_ids[item_picker.selected]
+		if awaiting_item_choice:
+			item_picker.select(-1)
+			item_picker.text = tr("P7_PICK_NEXT")
+			selected_item = ""
+		else:
+			item_picker.select(maxi(0,item_ids.find(selected_item)))
+			selected_item = item_ids[item_picker.selected]
 		item_picker.item_selected.connect(func(index: int):
+			awaiting_item_choice = false
 			selected_item = item_ids[index]
 			_refresh_description()
 		)
@@ -172,11 +181,58 @@ func _equipment(options: Dictionary) -> void:
 	var editable := _editable()
 	_button(actions, "equip_item", tr("P7_EQUIP_CONFIRM"), _equip, editable and bool(options.get("eligible", true)) and not selected_item.is_empty() and not _item_unavailable(selected_item))
 	_button(actions, "unequip_item", tr("P7_UNEQUIP_CONFIRM"), _unequip, editable)
+	_register_equipment(left,actions)
+	var growth: RefCounted = decisions.session.growth
+	if unit.role=="ritual" and (growth.has(unit,"I17") or growth.has(unit,"Y01")) and editable:
+		_button(actions,"inspect_ritual_targets",tr("P7_INSPECT_READING"),_inspect_ritual_targets)
 	_refresh_description()
 	if not options.get("eligible", true):
 		_label(left, tr(str(options.get("reason", "P7_EQUIP_INELIGIBLE"))), 16)
 	if decisions.read_only() and options.get("reason", "") != "P6_READ_ONLY":
 		_label(left, tr("P6_READ_ONLY"), 16)
+
+## Leads to the ordinary per-slot preview. Only the normal confirm button spends stock.
+func _register_equipment(parent: Control,actions: Control) -> void:
+	var growth: RefCounted = decisions.session.growth
+	if unit.side != "xianghuo" or growth.state.get("defense_objective","") != "hold_register":
+		return
+	var stock: Dictionary = growth.state.inventory
+	var paper: bool = growth.has(unit,"I08")
+	var brace: bool = growth.has(unit,"Y11")
+	if not (paper or brace or stock.get("I08",0)>0 or stock.get("Y11",0)>0):
+		return
+	var in_room: bool = decisions.simulation.world.room_at(unit.position,unit.floor_id) == "register"
+	var state_text := tr("P7_PAIR_HERE") if in_room else tr("P7_PAIR_AWAY")
+	if paper and int(unit.growth.charges.get("I08",0)) > 0:
+		state_text = tr("P7_PAIR_SPENT")
+	elif not paper or not brace:
+		var missing := []
+		for id in ["I08","Y11"]:
+			if growth.has(unit,id): continue
+			var item_name: String = Data.growth_rules.items[id].name
+			missing.append(item_name if stock.get(id,0)>0 else tr("P7_PAIR_OUT_OF_STOCK") % item_name)
+		state_text = tr("P7_PAIR_MISSING") % "、".join(missing)
+	_label(parent,tr("P7_PAIR_TITLE") % state_text,17)
+	if paper and brace: return
+	var id := "I08" if not paper and int(stock.get("I08",0))>0 else "Y11"
+	if (id=="Y11" and brace) or int(stock.get(id,0))<=0: return
+	var slot := 0
+	if id == "Y11":
+		var arts: Array = unit.growth.slots.arts
+		var free := arts.find("")
+		slot = free+1 if free>=0 else (2 if selected_slot==2 else 1)
+	_button(actions,"inspect_register_item",tr("P7_PAIR_INSPECT") % Data.growth_rules.items[id].name,_inspect_slot.bind(slot,id))
+
+func _inspect_ritual_targets() -> void:
+	decisions.select_unit(unit)
+	decisions.open_ritual()
+
+func _inspect_slot(slot: int,id: String) -> void:
+	selected_slot = slot
+	awaiting_item_choice = false
+	selected_item = id
+	render()
+	if not buttons.equip_item.disabled: buttons.equip_item.grab_focus()
 
 func _refresh_description() -> void:
 	var slots: Dictionary = unit.growth.get("slots", {})
@@ -193,6 +249,8 @@ func _refresh_description() -> void:
 	var price: float = decisions.session.growth.equip_price(old_id, selected_item)
 	description.text += "\n" + tr("P7_CANDIDATE_ITEM") % [item.name, item.description]
 	description.text += "\n" + tr("P7_SWAP_PRICE") % [str(price).trim_suffix(".0"), str(item.remove_cost).trim_suffix(".0")]
+	if selected_item in ["I17","Y01"]:
+		description.text += "\n" + tr("P7_READ_COMMAND_HINT" if unit.role=="ritual" else "P7_READ_WEARER_HINT")
 	if selected_item == "I20": description.text += "\n" + tr("P7_ITEM_INTERFACE")
 	elif item.get("status","") in ["interface","locked"]: description.text += "\n" + tr("P7_NOT_OPEN")
 	if selected_item == "I19" and decisions.session.growth.state.get("locked_paths",[]).is_empty(): description.text += "\n" + tr("P7_NO_LOCK")
@@ -346,6 +404,7 @@ func _send(action: String, args: Dictionary) -> void:
 	Clock.set_paused(true)
 	var result: Dictionary = decisions._issue(action,args)
 	decisions._feedback(result)
+	if result.ok and action=="equip_item": awaiting_item_choice = true
 	if result.ok and is_instance_valid(decisions.selected): decisions._refresh_card()
 	if is_instance_valid(unit) and not unit.dead: render()
 	else: close()

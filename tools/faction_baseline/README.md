@@ -170,3 +170,19 @@ godot --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/Fam
 ```
 
 另两个种子为灯市与秋社。首战同时记录免费与付费策略；无册谱首战早于30秒结算，相应记录没有 `at_30s`。全夜记录各战斗的出生、转换与正式裁决。两类实验独立开局，不合并推算胜率。补潮档位工具使用构造的成长加成和真实消费命令，区分于自然获得奖励的通关路线。
+
+### 守香司普通末战的装备对照
+
+Godot 4.7.2。在项目根目录运行。以下两步分别生成普通地图存档、读取该存档进行末战对照。灯市换成秋社即可生成另一份。渡口也可直接用仓库中已保存的压缩快照。请给并行进程分开设置 XDG_DATA_HOME。
+
+```sh
+YE_CI_FINAL_MAP_SAVE=/tmp/yeci-market-final.json godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 rear-camp-pair 灯市
+godot --headless --script tools/faction_baseline/GuardGear.gd -- 灯市 /tmp/yeci-market-final.json
+godot --headless --script tools/faction_baseline/GuardGear.gd -- 渡口 res://tools/faction_baseline/rear-final-map.json.gz
+```
+
+GuardGear 按实际库存筛选五种穿法，并从相同的开战前状态分别支付0、8、16香火训练祝禧。输出记录存档 SHA-256、库存、扣费、佩戴者、装备槽、实际抵命事件、致命伤来源及结算。
+
+第五节点的全程对照在 `OrdinaryRoute.gd -- 0 <策略> <种子>` 中运行。策略 rear-camp-pair 为空槽，rear-camp-ritual 给晚穿当夜已有的册底针、余香和承撞。二者均不命令点册。rear-read-bare 与 rear-read-gear 每秒查合法目标，优先破门鬼，无破门鬼则选择第一名合法目标，最多两次正常施法。rear-read-breaker 穿同样的装备，只对破门鬼下令。rear-read-beam 只对有上楼标签的敌人下令。rear-read-beam-late 再加180秒时间门槛。检查输出的 read_orders、reading_events、survivors 和 foreign。每次成功施法按当场扣费与回报分别记账。
+
+原生图形环境运行 `godot --display-driver x11 --rendering-method gl_compatibility --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/TideFrames.gd -- --guard-gear`。普通首战测四路大潮的连续渲染，再读普通末战存档，以鼠标点击真实配装按钮，记录实付、预览不改库存、确认后防连点和自然抵命发生的像素变化。软件渲染批次不能代表目标独显或真人反应时间。

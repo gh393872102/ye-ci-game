@@ -137,6 +137,11 @@ func run() -> void:
 		passed = passed and result.relief.passed
 		result.passed = passed
 		filename = "native-train.json" if OS.get_cmdline_user_args().has("--train-probe") else "native-relief.json"
+	if OS.get_cmdline_user_args().has("--guard-gear"):
+		result.guard_gear = await probe_guard_gear(host)
+		passed = passed and result.guard_gear.passed
+		result.passed = passed
+		filename = "native-guard-gear.json"
 	if not rear.is_empty():
 		result.rear = rear
 		passed = passed and rear.passed
@@ -225,4 +230,73 @@ func probe_rear(host: Node) -> Dictionary:
 			if not host.run.state.roster.any(func(u):return u.id=="H21" and u.post==target): return row
 			root.get_texture().get_image().save_jpg("/tmp/r18-map.jpg",0.74)
 	row.passed = money==host.run.state.incense
+	return row
+
+func probe_guard_gear(host: Node) -> Dictionary:
+	var row := {"passed":false,"click_ms":[],"fixture":"ordinary 渡口 n10 H02, actual carried stock, paused equipment panel"}
+	var packed := FileAccess.get_file_as_bytes("res://tools/faction_baseline/rear-final-map.json.gz")
+	var save := FileAccess.open(host.save_path,FileAccess.WRITE)
+	save.store_buffer(packed.decompress_dynamic(8*1024*1024,FileAccess.COMPRESSION_GZIP))
+	save.close()
+	host.continue_run()
+	host.choose_node("n10")
+	var sim: Node = host.combat.get_node("Simulation")
+	sim.set_physics_process(false)
+	var session: Node = host.combat.get_node("Session")
+	var decisions: Node = host.combat.get_node("Decisions")
+	var guard: Node = sim.humans[0]
+	decisions.select_unit(guard)
+	decisions.open_growth()
+	var panel: Node = decisions.growth_panel
+	var balance: float = session.incense
+	for id in ["I08","Y11"]:
+		for button_id in ["inspect_register_item","equip_item"]:
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			var button: Button = panel.buttons.get(button_id)
+			if not is_instance_valid(button) or button.disabled or not panel.scroll.get_global_rect().encloses(button.get_global_rect()):
+				row.blocked = {"button":button_id,"panel":decisions.current_panel,"objective":session.growth.state.get("defense_objective",""),"stock":session.growth.state.inventory,"keys":panel.buttons.keys(),"clip":str(panel.scroll.get_global_rect()),"rect":str(button.get_global_rect()) if is_instance_valid(button) else ""}
+				return row
+			var sent := Time.get_ticks_usec()
+			click(button)
+			await RenderingServer.frame_post_draw
+			row.click_ms.append((Time.get_ticks_usec()-sent)/1000.0)
+			if button_id == "inspect_register_item" and (panel.selected_item!=id or session.growth.has(guard,id) or session.growth.state.inventory[id]!=1): return row
+			if button_id == "equip_item" and (not session.growth.has(guard,id) or session.growth.state.inventory[id]!=0 or not panel.buttons.equip_item.disabled or not panel.selected_item.is_empty()): return row
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_jpg("/tmp/r19-equipment.jpg",0.82)
+	row.slots = guard.growth.slots.duplicate(true)
+	row.paid = balance-session.incense
+	var armed: bool = guard.unit_id=="H02" and row.paid==0 and root.get_node("Clock").paused and panel.content.find_children("*","Label",true,false).any(func(label):return "已就绪" in label.text)
+	if not armed: return row
+	decisions.close_panel()
+	root.get_node("Clock").set_paused(false)
+	var camera: Node = host.combat.get_node("BattleCamera")
+	camera.make_current()
+	camera.set_left(guard.position.x-960)
+	for tick in 2400:
+		sim.advance(1.0/60)
+		for field in session.growth.state.fields:
+			if field.kind!="paper_brace" or field.left>0.44: continue
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			var shot := root.get_texture().get_image()
+			row.effect_at = sim.simulation_time
+			var stamp: Node2D = sim.vfx.get_node("TalismanSeal")
+			var point := Vector2(field.point[0],field.point[1]-112)
+			var center := Vector2i(stamp.get_global_transform_with_canvas()*point)
+			var area := Rect2i(center-Vector2i(90,50),Vector2i(180,100)).intersection(Rect2i(Vector2i.ZERO,shot.get_size()))
+			stamp.hide()
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			var control := root.get_texture().get_image()
+			var changed := 0
+			for y in range(area.position.y,area.end.y):
+				for x in range(area.position.x,area.end.x):
+					if shot.get_pixel(x,y)!=control.get_pixel(x,y): changed+=1
+			stamp.show()
+			row.stamp_changed_pixels = changed
+			row.passed = changed>=80 and shot.get_size()==Vector2i(1920,1080) and shot.save_jpg("/tmp/r19-paper.jpg",0.84)==OK
+			return row
+		if not session.running: break
 	return row

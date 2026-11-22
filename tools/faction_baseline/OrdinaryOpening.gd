@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "") -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -79,16 +79,24 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		for offer in session.purchase_options():
 			if root.get_node("Data").get_unit(offer.id).get("所属","") != faction: continue
 			row.same_faction_offers.append({"id":offer.id,"cost":offer.cost,"allowed":offer.allowed,"reason":offer.reason,"posts":session.legal_posts(offer.id),"previously_fallen":night.state.fallen.any(func(member): return member.id == offer.id)})
+	var started_growth_time: float = session.growth.state.get("time",0.0)
 	for carried_item in carried_items:
-		var guard: Node = sim.humans[0]
+		var matches: Array = sim.humans.filter(func(u): return gear_owner.is_empty() or u.unit_id==gear_owner)
+		if matches.is_empty():
+			row.gear_error = "missing wearer "+gear_owner
+			break
+		var guard: Node = matches[0]
+		var index := 0
+		if root.get_node("Data").growth_rules.items[carried_item].slot == "art":
+			index = maxi(0,guard.growth.slots.arts.find(""))
 		var clock := root.get_node("Clock")
 		var cost_before: float = session.incense
 		var qty_before: int = session.growth.state.inventory.get(carried_item,0)
 		clock.set_paused(true)
-		var gear: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":guard.instance_id,"item_id":carried_item,"slot_index":0},"player")
+		var gear: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":guard.instance_id,"item_id":carried_item,"slot_index":index},"player")
 		clock.set_paused(false)
 		if not row.has("gear"): row.gear = []
-		row.gear.append({"id":carried_item,"owner":guard.unit_id,"ok":gear.ok,"before":qty_before,"after":session.growth.state.inventory.get(carried_item,0),"paid":cost_before-session.incense,"slots":guard.growth.slots.duplicate(true)})
+		row.gear.append({"id":carried_item,"owner":guard.unit_id,"instance":guard.instance_id,"ok":gear.ok,"before":qty_before,"after":session.growth.state.inventory.get(carried_item,0),"paid":cost_before-session.incense,"slots":guard.growth.slots.duplicate(true)})
 	if upgrade_pair:
 		row.upgrades = []
 		for level in upgrade_rounds:
@@ -150,8 +158,23 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	if not train_id.is_empty() and sim.humans.any(func(u): return u.unit_id==train_id and not u.dead):
 		row.target_training = train_guard(session,sim,train_id)
 	var capture_pin := train_aid and OS.get_environment("YE_CI_CAPTURE_PIN") == "1" and DisplayServer.get_name() != "headless"
+	var reader: Node2D
+	if order_readings:
+		for unit in sim.humans:
+			if unit.unit_id=="H01": reader=unit
+		row.read_orders = []
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if order_readings and sim.simulation_time>=read_after and tick % 60 == 0 and row.read_orders.size()<2 and session.running and is_instance_valid(reader) and not reader.dead:
+			var target: Node2D
+			for enemy in sim.targets:
+				if not read_tag.is_empty() and read_tag not in enemy.tags: continue
+				if not session.preview_ritual(reader,enemy).reason.is_empty(): continue
+				if target==null or ("破门" in enemy.tags and "破门" not in target.tags): target=enemy
+			if is_instance_valid(target):
+				var balance: float = session.incense
+				var answer: Dictionary = session.execute_for("shouxiang","start_ritual",{"caster_id":reader.instance_id,"target_id":target.instance_id},"player")
+				row.read_orders.append({"seconds":sim.simulation_time,"ok":answer.ok,"paid":balance-session.incense,"target":target.unit_id,"instance":target.instance_id})
 		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and session.register_guards.is_empty():
 			row.relief = request_register_relief(scene,night,faction,id,train_id=="H01")
 			if row.relief.has("training"): row.target_training = row.relief.training
@@ -186,6 +209,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			row.first_occupation = {"seconds":sim.simulation_time,"guards":guards,"intruders":intruders}
 		for unit in sim.humans: observe(unit,faction)
 		if not session.running: break
+	if not carried_items.is_empty() or order_readings:
+		row.reading_events = session.growth.state.events.filter(func(e): return e.kind in ["channel_guard","ritual_release"] and float(e.time)>started_growth_time)
 	if not carried_items.is_empty():
 		row.brace_events = session.growth.state.events.filter(func(entry): return entry.kind == "paper_brace")
 	row.foreign_units = foreign_units.duplicate()

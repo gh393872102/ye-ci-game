@@ -49,6 +49,13 @@ func run() -> void:
 	pick(panel, "I17")
 	check(panel.description.text.contains("当前槽位为空"), "Empty-slot comparison")
 	await click(panel.buttons.equip_item)
+	check(panel.selected_item.is_empty() and panel.buttons.equip_item.disabled, "An equip click cannot silently arm the next inventory item")
+	if unit.role=="ritual":
+		var before: float = session.incense
+		await click(panel.buttons.inspect_ritual_targets)
+		check(decisions.current_panel=="ritual" and decisions.caster==unit and session.incense==before,"Equipment leads to the wearer's target preview without issuing a paid order")
+		decisions.select_unit(unit)
+		decisions.open_growth()
 	session.incense = 6
 	pick(panel, "I01")
 	check(panel.description.text.contains(items.I17.name) and panel.description.text.contains(items.I01.description), "Old and prospective effects both visible")
@@ -62,6 +69,32 @@ func run() -> void:
 	panel.render()
 	pick(panel, "I01")
 	check(panel.buttons.equip_item.disabled and panel.description.text.contains(panel.tr("P7_ALREADY_EQUIPPED")), "Duplicate purchase explained")
+	# Explicit held slots and stock isolate UI selection from ordinary reward randomness.
+	session.growth.state.defense_objective = "hold_register"
+	session.incense = 20
+	session.growth.state.inventory.I08 = 1
+	session.growth.state.inventory.Y11 = 0
+	panel.render()
+	await click(panel.buttons.inspect_register_item)
+	check(panel.selected_item=="I08" and unit.growth.slots.censer=="I01" and session.growth.state.inventory.I08==1,"Inspecting a pair item previews replacement without changing ownership")
+	await click(panel.buttons.equip_item)
+	check(not panel.buttons.has("inspect_register_item") and panel.content.find_children("*","Label",true,false).any(func(l):return "库存无余件" in l.text),"Missing partner is visible and unavailable stock cannot be equipped")
+	session.growth.state.inventory.Y01 = 1
+	panel.slot_picker.item_selected.emit(1)
+	pick(panel,"Y01")
+	await click(panel.buttons.equip_item)
+	session.growth.state.inventory.Y11 = 1
+	panel.render()
+	await click(panel.buttons.inspect_register_item)
+	check(panel.selected_item=="Y11" and panel.selected_slot==2,"Existing art stays in slot one when a free art slot exists")
+	await click(panel.buttons.equip_item)
+	check(unit.growth.slots.arts==["Y01","Y11"] and not panel.buttons.has("inspect_register_item"),"Both arts coexist after confirmation")
+	unit.growth.charges.I08 = 1
+	panel.render()
+	check(panel.content.find_children("*","Label",true,false).any(func(l):return "已耗尽" in l.text),"Shared spent paper charge is shown on reinspection")
+	session.growth.state.defense_objective = ""
+	panel.render()
+	check(not panel.content.find_children("*","Label",true,false).any(func(l):return "守册抵命" in l.text),"Other battle objectives omit the register condition")
 	lab.show_menu()
 	lab.buttons.build_pomen.pressed.emit()
 	decisions = lab.combat.get_node("Decisions")

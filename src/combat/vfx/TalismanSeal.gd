@@ -20,10 +20,28 @@ func _draw() -> void:
 		path(foot, [Vector2(-25, 0), Vector2(-25, -102), Vector2(-17, -115), Vector2(17, -115), Vector2(25, -102), Vector2(25, 0)], Color(RED, .58 * pulse), 4)
 		_paper(foot + Vector2(0, -56), 1.0, pulse, false)
 		fleck(foot + Vector2(-28, -8), Vector2(56, 4), Color(AMBER, .37 * pulse))
+	for field in growth.state.fields:
+		if field.kind == "paper_brace":
+			var center := pixel(Vector2(field.point[0],field.point[1]-112))
+			if frame.has_point(center): _broken_stamp(center,clampf(1.0-float(field.left)/0.65,0,1))
 	var roster: RefCounted = simulation.roster_engine()
 	if roster != null:
 		for effect in roster.state.effects:
 			_draw_cast(effect)
+
+## The two sides of the vermilion stamp follow the combat layer's torn paper halves.
+func _broken_stamp(center: Vector2,phase: float) -> void:
+	var ink := Color("b23829",1.0-phase)
+	for side in [-1,1]:
+		var origin := center+Vector2(side*(9+24*phase),-20*phase)
+		path(origin,[Vector2(-4*side,-11),Vector2(5*side,-11),Vector2(5*side,8),Vector2(-4*side,8)],ink,2)
+		if phase<0.70:
+			var flash := Color(AMBER,0.86*(1-phase/0.7))
+			var tip := origin+Vector2(side*(17+34*phase),-8-18*phase)
+			path(tip,[Vector2(-9*side,6),Vector2(0,0),Vector2(5*side,-6)],flash,3)
+		for i in 3:
+			var ash := origin+Vector2(side*(8+i*4+phase*12),12+i*6+20*phase*phase)
+			fleck(ash,Vector2(3,2+i),Color(AMBER,(1-phase)*0.7))
 
 func _draw_cast(effect: Dictionary) -> void:
 	var kind: String = effect.kind

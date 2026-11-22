@@ -14,6 +14,12 @@ const REAR_POLICIES := {
 	"rear-carry-up": {"train": {"n03": "H01", "n05": "H01"}, "recall": true},
 	"rear-hall-return": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01"}, "recall": true},
 	"rear-camp-heal": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H02"}},
+	"rear-camp-ritual": {"train":{"n03":"H01"},"recall":true,"camp":{"n06":"H08","n09":"H02"},"ritual_gear":true},
+	"rear-read-gear": {"train":{"n03":"H01"},"recall":true,"camp":{"n06":"H08","n09":"H02"},"ritual_gear":true,"read":true},
+	"rear-read-breaker": {"train":{"n03":"H01"},"recall":true,"camp":{"n06":"H08","n09":"H02"},"ritual_gear":true,"read":true,"tag":"破门"},
+	"rear-read-beam": {"train":{"n03":"H01"},"recall":true,"camp":{"n06":"H08","n09":"H02"},"ritual_gear":true,"read":true,"tag":"上楼"},
+	"rear-read-beam-late": {"train":{"n03":"H01"},"recall":true,"camp":{"n06":"H08","n09":"H02"},"ritual_gear":true,"read":true,"tag":"上楼","after":180},
+	"rear-read-bare": {"train":{"n03":"H01"},"recall":true,"camp":{"n06":"H08","n09":"H02"},"read":true},
 	"rear-camp-book": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H08"}},
 	"rear-camp-pair": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H08", "n09": "H02"}},
 	"rear-eighth": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01", "n08": "H01"}, "recall": true},
@@ -147,9 +153,16 @@ func run() -> void:
 					delay = 8.0
 					ordered_id = "H02"
 				var train_id: String = orders.get("train",{}).get(night.state.current_node_id,"")
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,[],hire_early,delay,train_id)
+				var items: Array = []
+				if fifth and orders.get("ritual_gear",false):
+					for item in ["I17","Y01","Y11"]:
+						if night.state.growth.inventory.get(item,0)>0: items.append(item)
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,"H01" if not items.is_empty() else "",fifth and orders.get("read",false),orders.get("tag",""),orders.get("after",0))
 				step.battle = result
 				ok = result.get("settled",false)
+				if not items.is_empty():
+					var equipped: Array = result.get("gear",[])
+					ok = ok and equipped.size()==items.size() and equipped.all(func(g):return g.ok and g.owner=="H01" and g.paid==0 and g.before-g.after==1)
 				if not train_id.is_empty(): ok = ok and result.get("target_training",{}).get("paid")==8
 				if delay >= 0:
 					ok = ok and result.get("relief",{}).get("placed",false)
@@ -193,6 +206,7 @@ func run() -> void:
 				ok = night.leave_node().ok
 			"rest":
 				var reserve: String = orders.get("camp",{}).get(night.state.current_node_id,"")
+				if (orders.get("ritual_gear",false) or orders.get("read",false)) and not night.rest_reserve_options().any(func(o): return o.id==reserve and o.allowed): reserve = ""
 				if not reserve.is_empty():
 					var id := reserve
 					var cash: float = night.state.incense
