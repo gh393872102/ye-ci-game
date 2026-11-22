@@ -510,12 +510,17 @@ func reinforce(formation := "") -> Dictionary:
 		detail = "纸甲 × %d" % recipients.size()
 	else:
 		if not formation.is_empty():
-			if formation != "window" or window_recruits() == 0: return _reject("P6_INVALID_ACTION")
+			if formation not in ["window","window_bow","window_reader"] or window_recruits() == 0: return _reject("P6_INVALID_ACTION")
 			count = window_recruits()
 			id = "G07"
 			detail = "%s × %d" % [id,count]
 		if simulation.targets.size() + simulation.tide.pending.size() + count > int(simulation.tide.config.capacity):
 			return _reject("P4_TIDE_CAP")
+		if not formation.is_empty():
+			if formation=="window":
+				roster.state.erase("window_focus")
+			else:
+				roster.state.window_focus=formation
 		for index in count:
 			simulation.tide.pending.append(id)
 	incense -= float(rules.reinforce.cost)

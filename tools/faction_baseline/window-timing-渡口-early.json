@@ -49,6 +49,28 @@
 		"first_hud": "册房争夺 · 1鬼 / 2守\n守方：弩手、晚\n查看册房 ›",
 		"guards": {
 			"H01_5": {
+				"contact": {
+					"G07_tide_28": {
+						"in_range_ticks": 16,
+						"min_px": 95.1929779052734
+					},
+					"G07_tide_42": {
+						"in_range_ticks": 481,
+						"min_px": 94.6265258789062
+					},
+					"G07_tide_43": {
+						"in_range_ticks": 413,
+						"min_px": 94.6662521362305
+					},
+					"G07_tide_44": {
+						"in_range_ticks": 238,
+						"min_px": 95.1929779052734
+					},
+					"G07_tide_45": {
+						"in_range_ticks": 107,
+						"min_px": 93.7184982299805
+					}
+				},
 				"first_hp": 70.0,
 				"min_hp": 26.0,
 				"name": "晚",
@@ -56,6 +78,28 @@
 				"ticks": 528
 			},
 			"T02_4": {
+				"contact": {
+					"G07_tide_28": {
+						"in_range_ticks": 0,
+						"min_px": 126.499443054199
+					},
+					"G07_tide_42": {
+						"in_range_ticks": 0,
+						"min_px": 127.888282775879
+					},
+					"G07_tide_43": {
+						"in_range_ticks": 0,
+						"min_px": 127.013854980469
+					},
+					"G07_tide_44": {
+						"in_range_ticks": 0,
+						"min_px": 126.499443054199
+					},
+					"G07_tide_45": {
+						"in_range_ticks": 0,
+						"min_px": 123.542442321777
+					}
+				},
 				"first_hp": 38.0,
 				"min_hp": 38.0,
 				"name": "弩手",

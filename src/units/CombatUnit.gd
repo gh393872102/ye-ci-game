@@ -130,6 +130,14 @@ func _draw() -> void:
 		var ratio := hp / max_hp
 		draw_rect(Rect2(-24,-height_px-12,48,5),Color("141d20"))
 		draw_rect(Rect2(-24,-height_px-12,48 * ratio,5),Color("94b69b") if side == "xianghuo" else Color("a1766c"))
+	if roster.has("window_strike_at"):
+		var elapsed: float = simulation.simulation_time - float(roster.window_strike_at)
+		if elapsed >= 0 and elapsed < 0.45:
+			var tip := Vector2(0,-height_px-17)
+			var spread := 6.0+8.0*elapsed/0.45
+			var paper := PackedVector2Array([tip+Vector2(-spread,-16),tip+Vector2(0,-10),tip+Vector2(spread,-16),tip])
+			draw_colored_polygon(paper,Color("e4cc9a"))
+			draw_line(tip+Vector2(0,-10),tip,Color("aa412e"),3)
 	if hold_lock:
 		draw_rect(Rect2(-5,-101,10,6),Color("c5b47c"))
 	if side == "xianghuo" and role == "ritual" and brain != null and brain.channel.active:

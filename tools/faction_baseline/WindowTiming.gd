@@ -2,7 +2,7 @@ extends "res://tools/faction_baseline/FamilyFirstNight.gd"
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size()!=2 or args[0] not in ["渡口","灯市","秋社"] or args[1] not in ["early","late","paper","ground"]:
+	if args.size()!=2 or args[0] not in ["渡口","灯市","秋社"] or args[1] not in ["early","late","paper","ground","bow","reader","bow35","bow40","bow45","bow60"]:
 		quit(2)
 		return
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
@@ -30,12 +30,15 @@ func run() -> void:
 		if book.scouts.has(unit.instance_id):
 			book.scouts[unit.instance_id].fallen={"time":sim.simulation_time,"floor":unit.floor_id,"x":roundi(unit.position.x),"source":attacker.unit_id if is_instance_valid(attacker) else "","kind":kind,"damage":amount,"hp":hp})
 	book.contest={"ticks":0,"unopposed_ticks":0,"peak_occupation":0.0,"guards":{},"first_hud":""}
+	var second_at: float = {"late":75.0,"bow35":35.0,"bow40":40.0,"bow45":45.0,"bow60":60.0}.get(args[1],0.0)
 	for tick in 10802:
 		var session: Node = sim.session
-		if tick==0 or (book.orders.size()==1 and session.reinforce_left<=0 and session.incense>=session.rules.reinforce.cost and (args[1]!="late" or sim.simulation_time>=75)):
+		if tick==0 or (book.orders.size()==1 and session.reinforce_left<=0 and session.incense>=session.rules.reinforce.cost and sim.simulation_time>=second_at):
 			var cash: float = session.incense
 			var choice := "paper" if book.orders.size()==1 and args[1]=="paper" else "window"
 			if book.orders.size()==1 and args[1]=="ground": choice=""
+			if book.orders.size()==1 and args[1].begins_with("bow"): choice="window_bow"
+			if book.orders.size()==1 and args[1]=="reader": choice="window_reader"
 			var result: Dictionary = session.execute_for("duoming","reinforce",{"formation":choice},"player")
 			if not result.ok:
 				push_error(str(result))
@@ -54,6 +57,15 @@ func run() -> void:
 				for guard in sim.humans:
 					if guard.dead or sim.world.room_at(guard.position,guard.floor_id)!="register": continue
 					var record: Dictionary = book.contest.guards.get(guard.instance_id,{"name":guard.display_name,"ticks":0,"first_hp":guard.hp,"min_hp":guard.hp,"post":guard.current_post})
+					if args[1] in ["bow","reader","early"]:
+						for scout in sim.targets:
+							if scout.dead or scout.unit_id!="G07" or scout.floor_id!=guard.floor_id or sim.world.room_at(scout.position,scout.floor_id)!="register": continue
+							var contact: Dictionary = record.get("contact",{})
+							var pair: Dictionary = contact.get(scout.instance_id,{"min_px":INF,"in_range_ticks":0})
+							pair.min_px=minf(pair.min_px,scout.position.distance_to(guard.position))
+							if sim.can_attack(scout,guard): pair.in_range_ticks+=1
+							contact[scout.instance_id]=pair
+							record.contact=contact
 					record.ticks+=1
 					record.min_hp=minf(record.min_hp,guard.hp)
 					book.contest.guards[guard.instance_id]=record

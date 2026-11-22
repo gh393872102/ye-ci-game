@@ -15,7 +15,8 @@ func run() -> void:
 	var shell: Node = host.shell
 	shell.title_buttons.start.pressed.emit()
 	var paper := "--paper" in OS.get_cmdline_user_args()
-	var window := paper or "--window" in OS.get_cmdline_user_args()
+	var bow := "--bow" in OS.get_cmdline_user_args()
+	var window := bow or paper or "--window" in OS.get_cmdline_user_args()
 	var family := 1 if window else 3
 	shell.family_picker.select(family)
 	shell.family_picker.item_selected.emit(family)
@@ -55,7 +56,7 @@ func run() -> void:
 		high = maxi(high,count)
 	panel.open_reinforce()
 	await RenderingServer.frame_post_draw
-	if window and not paper: root.get_texture().get_image().save_webp("res://docs/optimization/window-supply.webp",true,0.80)
+	if window and not paper and not bow: root.get_texture().get_image().save_webp("res://docs/optimization/window-supply.webp",true,0.80)
 	var button: Button = panel.buttons.window_reinforce if window else panel.buttons.reinforce
 	var scouts: Array = []
 	if paper:
@@ -65,6 +66,9 @@ func run() -> void:
 			quit(3)
 			return
 		camera.set_left(scouts[0].position.x-800)
+	if bow:
+		var focus: OptionButton = panel.find_child("WindowFocus",true,false)
+		focus.select(1)
 	var rect := button.get_global_rect()
 	var session: Node = sim.session
 	var cash: float = session.incense
@@ -87,7 +91,10 @@ func run() -> void:
 		root.get_texture().get_image().save_webp("res://docs/optimization/window-paper.webp",true,0.80)
 	else:
 		ok = ok and (sim.tide.pending.slice(-4)==["G07","G07","G07","G07"] if window else sim.tide.pending.slice(-2)==["G17","G17"])
-	if window and not paper: ok = ok and panel.feedback.text.contains("4只童亡")
+	if bow:
+		ok = ok and session.roster.state.get("window_focus")=="window_bow" and panel.feedback.text.contains("先打弩手")
+		root.get_texture().get_image().save_webp("res://docs/optimization/window-focus.webp",true,0.80)
+	if window and not paper and not bow: ok = ok and panel.feedback.text.contains("4只童亡")
 	var broken := ""
 	if paper:
 		panel.close_panel()
@@ -106,7 +113,7 @@ func run() -> void:
 		root.get_texture().get_image().save_webp("res://docs/optimization/window-paper-break.webp",true,0.80)
 	var result := {"passed":ok,"portrait":portrait_ok,"resolution":[1920,1080],"visible":[low,high],"frame_ms":samples,"frame_percentiles":[ordered[89],ordered[170],ordered[178]],"click_feedback_ms":ms,"feedback":panel.feedback.text,"renderer":RenderingServer.get_video_adapter_name(),"paid":paid,"queued":queued}
 	if paper: result.first_broken = broken
-	FileAccess.open("res://tools/faction_baseline/native-%s.json" % ("paper" if paper else ("window" if window else "family")),FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	FileAccess.open("res://tools/faction_baseline/native-%s.json" % ("bow" if bow else ("paper" if paper else ("window" if window else "family"))),FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",ok," ",result.frame_percentiles," ",ms)
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(host.save_path))
 	host.free()

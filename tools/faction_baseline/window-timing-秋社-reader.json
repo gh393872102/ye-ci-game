@@ -1,0 +1,284 @@
+{
+	"arrivals": {
+		"G01_tide_10": "G01",
+		"G01_tide_11": "G01",
+		"G01_tide_12": "G01",
+		"G01_tide_13": "G01",
+		"G01_tide_14": "G01",
+		"G01_tide_15": "G01",
+		"G01_tide_16": "G01",
+		"G01_tide_17": "G01",
+		"G01_tide_18": "G01",
+		"G01_tide_19": "G01",
+		"G01_tide_20": "G01",
+		"G01_tide_21": "G01",
+		"G01_tide_22": "G01",
+		"G01_tide_23": "G01",
+		"G01_tide_24": "G01",
+		"G01_tide_25": "G01",
+		"G01_tide_30": "G01",
+		"G01_tide_31": "G01",
+		"G01_tide_32": "G01",
+		"G01_tide_33": "G01",
+		"G01_tide_34": "G01",
+		"G01_tide_35": "G01",
+		"G01_tide_36": "G01",
+		"G01_tide_37": "G01",
+		"G01_tide_38": "G01",
+		"G01_tide_39": "G01",
+		"G01_tide_40": "G01",
+		"G01_tide_41": "G01",
+		"G01_tide_46": "G01",
+		"G01_tide_47": "G01",
+		"G01_tide_48": "G01",
+		"G01_tide_49": "G01",
+		"G01_tide_50": "G01",
+		"G01_tide_51": "G01",
+		"G01_tide_52": "G01",
+		"G01_tide_53": "G01",
+		"G07_tide_26": "G07",
+		"G07_tide_27": "G07",
+		"G07_tide_28": "G07",
+		"G07_tide_29": "G07",
+		"G07_tide_42": "G07",
+		"G07_tide_43": "G07",
+		"G07_tide_44": "G07",
+		"G07_tide_45": "G07"
+	},
+	"contest": {
+		"first_hud": "册房争夺 · 1鬼 / 2守\n守方：弩手、晚\n查看册房 ›",
+		"guards": {
+			"H01_5": {
+				"contact": {
+					"G07_tide_28": {
+						"in_range_ticks": 16,
+						"min_px": 95.1929779052734
+					},
+					"G07_tide_42": {
+						"in_range_ticks": 481,
+						"min_px": 94.6265258789062
+					},
+					"G07_tide_43": {
+						"in_range_ticks": 413,
+						"min_px": 94.6662521362305
+					},
+					"G07_tide_44": {
+						"in_range_ticks": 238,
+						"min_px": 95.1929779052734
+					},
+					"G07_tide_45": {
+						"in_range_ticks": 107,
+						"min_px": 93.7184982299805
+					}
+				},
+				"first_hp": 70.0,
+				"min_hp": 26.0,
+				"name": "晚",
+				"post": "post_register",
+				"ticks": 528
+			},
+			"T02_4": {
+				"contact": {
+					"G07_tide_28": {
+						"in_range_ticks": 0,
+						"min_px": 126.499443054199
+					},
+					"G07_tide_42": {
+						"in_range_ticks": 0,
+						"min_px": 127.888282775879
+					},
+					"G07_tide_43": {
+						"in_range_ticks": 0,
+						"min_px": 127.013854980469
+					},
+					"G07_tide_44": {
+						"in_range_ticks": 0,
+						"min_px": 126.499443054199
+					},
+					"G07_tide_45": {
+						"in_range_ticks": 0,
+						"min_px": 123.542442321777
+					}
+				},
+				"first_hp": 38.0,
+				"min_hp": 38.0,
+				"name": "弩手",
+				"post": "post_register",
+				"ticks": 528
+			}
+		},
+		"peak_occupation": 0.0,
+		"ticks": 528,
+		"unopposed_ticks": 0
+	},
+	"family": "无名潮",
+	"foreign": [],
+	"orders": [
+		{
+			"cost": 10.0,
+			"seconds": 0.0
+		},
+		{
+			"cost": 10.0,
+			"seconds": 30.0166666666662
+		}
+	],
+	"phase": "mercy",
+	"result": {
+		"elapsed": 180.000000000035,
+		"first_breach": {
+			"door": "door_outer",
+			"time": 58.4166666666646
+		},
+		"humans_alive": 4,
+		"incense": 39.1999999999992,
+		"killer_id": "",
+		"mode": "duoming",
+		"names": 8.0,
+		"outcome": "defeat",
+		"reason": "P4_END_DAYBREAK",
+		"remaining": 0.0,
+		"tide_alive": 34
+	},
+	"scouts": {
+		"G07_tide_26": {
+			"entry": null,
+			"fallen": {
+				"damage": 6.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "H17",
+				"time": 43.7666666666655,
+				"x": 7108
+			},
+			"hits": {},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_27": {
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 2,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 44.8499999999987,
+				"x": 7248
+			},
+			"hits": {},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_28": {
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 89.4499999999962,
+				"x": 9202
+			},
+			"hits": {
+				"H01_5": 1,
+				"door_gallery": 30
+			},
+			"register": 88.3499999999963,
+			"spawn": 1.75
+		},
+		"G07_tide_29": {
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 2,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 81.0666666666634,
+				"x": 8077
+			},
+			"hits": {
+				"door_gallery": 29
+			},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_42": {
+			"entry": 72.8833333333305,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 8.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 97.1499999999958,
+				"x": 9195
+			},
+			"hits": {
+				"H01_5": 8,
+				"door_gallery": 4
+			},
+			"register": 88.4666666666629,
+			"spawn": 30.0333333333329
+		},
+		"G07_tide_43": {
+			"entry": 72.8833333333305,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 96.0499999999958,
+				"x": 9198
+			},
+			"hits": {
+				"H01_5": 7,
+				"door_gallery": 4
+			},
+			"register": 88.4833333333296,
+			"spawn": 30.0333333333329
+		},
+		"G07_tide_44": {
+			"entry": 72.8833333333305,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 93.849999999996,
+				"x": 9202
+			},
+			"hits": {
+				"H01_5": 4,
+				"door_gallery": 4
+			},
+			"register": 89.0499999999962,
+			"spawn": 30.0333333333329
+		},
+		"G07_tide_45": {
+			"entry": 72.8833333333305,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 91.6499999999961,
+				"x": 9208
+			},
+			"hits": {
+				"H01_5": 2,
+				"door_gallery": 4
+			},
+			"register": 88.8833333333296,
+			"spawn": 30.0333333333329
+		}
+	},
+	"second": "reader",
+	"seed": "秋社"
+}

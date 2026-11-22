@@ -1,0 +1,216 @@
+{
+	"arrivals": {
+		"G01_tide_10": "G01",
+		"G01_tide_11": "G01",
+		"G01_tide_12": "G01",
+		"G01_tide_13": "G01",
+		"G01_tide_14": "G01",
+		"G01_tide_15": "G01",
+		"G01_tide_16": "G01",
+		"G01_tide_17": "G01",
+		"G01_tide_18": "G01",
+		"G01_tide_19": "G01",
+		"G01_tide_20": "G01",
+		"G01_tide_21": "G01",
+		"G01_tide_22": "G01",
+		"G01_tide_23": "G01",
+		"G01_tide_24": "G01",
+		"G01_tide_25": "G01",
+		"G01_tide_30": "G01",
+		"G01_tide_31": "G01",
+		"G01_tide_32": "G01",
+		"G01_tide_33": "G01",
+		"G01_tide_34": "G01",
+		"G01_tide_35": "G01",
+		"G01_tide_36": "G01",
+		"G01_tide_37": "G01",
+		"G01_tide_38": "G01",
+		"G01_tide_39": "G01",
+		"G01_tide_40": "G01",
+		"G01_tide_41": "G01",
+		"G01_tide_42": "G01",
+		"G01_tide_43": "G01",
+		"G01_tide_44": "G01",
+		"G01_tide_45": "G01",
+		"G01_tide_46": "G01",
+		"G01_tide_47": "G01",
+		"G01_tide_48": "G01",
+		"G01_tide_49": "G01",
+		"G07_tide_26": "G07",
+		"G07_tide_27": "G07",
+		"G07_tide_28": "G07",
+		"G07_tide_29": "G07",
+		"G07_tide_50": "G07",
+		"G07_tide_51": "G07",
+		"G07_tide_52": "G07",
+		"G07_tide_53": "G07"
+	},
+	"contest": {
+		"first_hud": "册房争夺 · 1鬼 / 2守\n守方：弩手、晚\n查看册房 ›",
+		"guards": {
+			"H01_5": {
+				"first_hp": 70.0,
+				"min_hp": 2.0,
+				"name": "晚",
+				"post": "post_register",
+				"ticks": 962
+			},
+			"T02_4": {
+				"first_hp": 38.0,
+				"min_hp": 2.0,
+				"name": "弩手",
+				"post": "post_register",
+				"ticks": 191
+			}
+		},
+		"peak_occupation": 12.0000000000002,
+		"ticks": 962,
+		"unopposed_ticks": 720
+	},
+	"family": "无名潮",
+	"foreign": [],
+	"orders": [
+		{
+			"cost": 10.0,
+			"seconds": 0.0
+		},
+		{
+			"cost": 10.0,
+			"seconds": 40.0166666666657
+		}
+	],
+	"phase": "reward",
+	"result": {
+		"elapsed": 122.966666666661,
+		"first_breach": {
+			"door": "door_outer",
+			"time": 58.4166666666646
+		},
+		"humans_alive": 3,
+		"incense": 25.512000000001,
+		"killer_id": "G07",
+		"mode": "duoming",
+		"names": 5.00000000000017,
+		"outcome": "victory",
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"remaining": 57.033333333296,
+		"tide_alive": 39
+	},
+	"scouts": {
+		"G07_tide_26": {
+			"entry": null,
+			"fallen": {
+				"damage": 6.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "H17",
+				"time": 43.7666666666655,
+				"x": 7108
+			},
+			"hits": {},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_27": {
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 2,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 44.8499999999987,
+				"x": 7248
+			},
+			"hits": {},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_28": {
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 95.9833333333292,
+				"x": 9237
+			},
+			"hits": {
+				"T02_4": 1,
+				"door_gallery": 36
+			},
+			"register": 94.9499999999959,
+			"spawn": 1.75
+		},
+		"G07_tide_29": {
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 2,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 87.666666666663,
+				"x": 8077
+			},
+			"hits": {
+				"door_gallery": 35
+			},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_50": {
+			"entry": 82.8833333333299,
+			"hits": {
+				"H01_5": 11,
+				"T02_4": 3,
+				"door_gallery": 1
+			},
+			"register": 95.0666666666626,
+			"spawn": 40.0333333333323
+		},
+		"G07_tide_51": {
+			"entry": 82.8833333333299,
+			"hits": {
+				"H01_5": 12,
+				"T02_4": 2,
+				"door_gallery": 1
+			},
+			"register": 95.0833333333292,
+			"spawn": 40.0333333333323
+		},
+		"G07_tide_52": {
+			"entry": 82.8833333333299,
+			"hits": {
+				"H01_5": 12,
+				"T02_4": 2,
+				"door_gallery": 1
+			},
+			"register": 95.6499999999959,
+			"spawn": 40.0333333333323
+		},
+		"G07_tide_53": {
+			"entry": 82.8833333333299,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 98.183333333329,
+				"x": 9243
+			},
+			"hits": {
+				"T02_4": 2,
+				"door_gallery": 1
+			},
+			"register": 95.4833333333292,
+			"spawn": 40.0333333333323
+		}
+	},
+	"second": "bow40",
+	"seed": "渡口"
+}

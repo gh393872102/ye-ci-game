@@ -3,11 +3,11 @@ extends "res://tools/faction_baseline/FamilyFirstNight.gd"
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
 	var families: Array = load("res://src/night/FactionOpening.gd").FAMILIES.keys()
-	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["white","window","erase"]) or args[0] not in ["渡口","灯市","秋社"] or args[1] not in families:
+	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["white","window","erase","bow"]) or args[0] not in ["渡口","灯市","秋社"] or args[1] not in families:
 		quit(2)
 		return
 	var order := args[2] if args.size()==3 else ""
-	if (order in ["window","white"] and args[1]!="无名潮") or (order=="erase" and args[1]!="无册谱"):
+	if (order in ["window","white","bow"] and args[1]!="无名潮") or (order=="erase" and args[1]!="无册谱"):
 		quit(2)
 		return
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
@@ -51,8 +51,29 @@ func run() -> void:
 					quit(2)
 					return
 			if order == "window": row.window_positions = []
+			if order=="bow":
+				row.orders = []
+				row.register = {"scouts":[],"guards":{},"peak_occupation":0.0,"fighters_ticks":0}
 			for tick in ceili(sim.session.remaining*60)+2:
+				if order=="bow" and row.orders.size()<2 and sim.session.reinforce_left<=0 and sim.session.incense>=sim.session.rules.reinforce.cost:
+					var cash: float = sim.session.incense
+					var formation := "window" if row.orders.is_empty() else "window_bow"
+					var receipt: Dictionary = sim.session.execute_for("duoming","reinforce",{"formation":formation},"player")
+					if not receipt.ok:
+						push_error(str(receipt))
+						quit(3)
+						return
+					row.orders.append({"time":sim.simulation_time,"before":cash,"cost":cash-sim.session.incense,"formation":formation})
 				sim.advance(1.0/60.0)
+				if order=="bow" and sim.session.register_attackers>0:
+					row.register.peak_occupation=maxf(row.register.peak_occupation,sim.session.occupation)
+					row.register.fighters_ticks+=1
+					for scout in sim.targets:
+						if scout.unit_id=="G07" and not scout.dead and scout.instance_id not in row.register.scouts and sim.world.room_at(scout.position,scout.floor_id)=="register":
+							row.register.scouts.append(scout.instance_id)
+					for guard in sim.humans:
+						if not guard.dead and sim.world.room_at(guard.position,guard.floor_id)=="register":
+							row.register.guards[guard.instance_id]=minf(row.register.guards.get(guard.instance_id,guard.hp),guard.hp)
 				if order == "window" and tick % 900 == 899:
 					var scouts := []
 					for actor in sim.targets:

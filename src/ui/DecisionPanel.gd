@@ -1066,7 +1066,14 @@ func open_reinforce() -> void:
 	var scouts: int = session.window_recruits()
 	if scouts > 0:
 		var window_reason := "P4_TIDE_CAP" if reason.is_empty() and vacancies < scouts else reason
-		_button(row,"window_reinforce","童亡走窗 × %d · %d香火" % [scouts,rule.cost],reinforce.bind("window"),window_reason.is_empty(),window_reason)
+		var focus := OptionButton.new()
+		focus.name = "WindowFocus"
+		for label in ["就近攻击","先打弩手","先打点册人"]: focus.add_item(label)
+		var orders := ["window","window_bow","window_reader"]
+		focus.select(maxi(0,orders.find(session.roster.state.get("window_focus","window"))))
+		focus.tooltip_text = "补入童亡后，全队童亡按所选目标争夺册房"
+		row.add_child(focus)
+		_button(row,"window_reinforce","童亡走窗 × %d · %d香火" % [scouts,rule.cost],func(): reinforce(orders[focus.selected]),window_reason.is_empty(),window_reason)
 		var ready: int = session.paper_armor_targets().size()
 		var armor_reason := "WINDOW_PAPER_NO_TARGET" if reason.is_empty() and ready==0 else reason
 		_button(row,"window_paper","披纸甲 × %d · %d香火" % [ready,rule.cost],reinforce.bind("paper"),armor_reason.is_empty(),armor_reason)
@@ -1079,7 +1086,7 @@ func open_reinforce() -> void:
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		preview.add_child(portrait)
-		var note := _label(preview,"童亡从侧窗上楼。披纸甲会用掉一次补潮，优先给靠前的童亡，每只可挡一支弩箭。",18)
+		var note := _label(preview,"选好目标，再派童亡走窗。本战所有童亡进册房后按此令出手。披纸甲另用一次补潮，每只挡一箭，靠前者优先。",18)
 		var stopped: int = session.roster.state.get("window_bolts_blocked",0)
 		if stopped>0: note.text += " 本战纸甲已挡%d箭。" % stopped
 		note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1097,7 +1104,9 @@ func reinforce(formation := "") -> void:
 	var answer := _issue("reinforce",{} if formation.is_empty() else {"formation":formation})
 	_feedback(answer)
 	open_reinforce()
-	if answer.ok and formation == "window":
+	if answer.ok and formation in ["window_bow","window_reader"]:
+		feedback.text = "童亡已候潮。进册后先打%s。" % ("弩手" if formation=="window_bow" else "点册人")
+	elif answer.ok and formation == "window":
 		feedback.text = "%d只童亡已候潮，将从侧窗入楼。" % session.window_recruits()
 	elif answer.ok and formation=="paper":
 		feedback.text = "%d只童亡已披纸甲，各可挡一支弩箭。" % recipients

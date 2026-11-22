@@ -37,10 +37,13 @@ func advance(delta: float) -> void:
 	if in_reach and unit.unit_id == "G12":
 		_strike(barrier)
 		return
-	var human: Node2D = sim.nearest_human(unit,Rules.body_to_px(unit.profile.range_body))
+	var priority := _register_target()
+	var human: Node2D = priority if priority!=null else sim.nearest_human(unit,Rules.body_to_px(unit.profile.range_body))
 	if human != null and sim.can_attack(unit,human) and unit.attacks_enabled:
 		unit.set_state("Engage")
-		sim.perform_attack(unit,human)
+		if sim.perform_attack(unit,human) and priority==human:
+			human.roster.window_strike_at = sim.simulation_time
+			human.queue_redraw()
 		return
 	if in_reach and sim.roster_engine()!=null and unit.unit_id=="G24" and str(barrier.name) in Data.roster_rules.routes.mechanism_side_route.front_doors:
 		unit.set_state("WaitForSideAccess")
@@ -50,7 +53,7 @@ func advance(delta: float) -> void:
 		return
 	if not unit.motion_enabled:
 		return
-	var maximum: float = Rules.REGISTER_X
+	var maximum: float = maxf(Rules.REGISTER_X,priority.position.x) if priority!=null else Rules.REGISTER_X
 	if barrier != null:
 		maximum = minf(maximum,sim.barrier_left(barrier) - Rules.FOOT_RADIUS_PX)
 	var spacing: float = tide.config.dense_spacing if barrier != null and sim.barrier_left(barrier) - unit.position.x < 400 else tide.config.spacing
@@ -152,6 +155,22 @@ func _follow_chunk_link(delta: float) -> bool:
 		unit.sync_meta()
 		tide.effect("chunk_enter" if complete.begins_with("chunk_path:") else "chunk_leave", unit.position, id)
 	return true
+
+func _register_target() -> Node2D:
+	if unit.unit_id!="G07" or unit.side!="yegui" or sim.roster_engine()==null: return null
+	var order: String = sim.roster_engine().state.get("window_focus","")
+	if order not in ["window_bow","window_reader"] or sim.world.room_at(unit.position,unit.floor_id)!="register": return null
+	var role := "crossbow" if order=="window_bow" else "ritual"
+	var nearest: Node2D
+	var distance := INF
+	for guard in sim.floor_defenders.get(unit.floor_id,[]):
+		if guard.dead or guard.role!=role or sim.world.room_at(guard.position,guard.floor_id)!="register": continue
+		if not sim.can_attack(unit,guard) and guard.position.x<=unit.position.x: continue
+		var gap: float = unit.position.distance_squared_to(guard.position)
+		if gap<distance:
+			distance=gap
+			nearest=guard
+	return nearest
 
 func _strike(barrier: Node2D) -> void:
 	unit.set_state("AttackBarrier")
