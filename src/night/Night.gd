@@ -348,9 +348,9 @@ func open_observer(seed_text := "") -> void:
 	_dispose_battle()
 	get_tree().change_scene_to_file("res://scenes/modes/Observatory.tscn")
 
-func start_p10_night(mode: String, kind: String, seed_text: String, ritual: String, modifiers: Array) -> void:
+func start_p10_night(mode: String, kind: String, seed_text: String, ritual: String, modifiers: Array, faction := "") -> void:
 	var candidate: RefCounted = Run.new()
-	var answer: Dictionary = candidate.new_p10_run(mode,kind,seed_text,ritual,modifiers,Data.codex_store.path)
+	var answer: Dictionary = candidate.new_p10_run(mode,kind,seed_text,ritual,modifiers,Data.codex_store.path,faction)
 	_start_roster_candidate(candidate,answer)
 
 func start_growth_run(mode: String, seed := "", build_id := "") -> void:

@@ -1,5 +1,6 @@
 extends RefCounted
 ## One local night: validated decisions, persistent resources, weighted offers and explicit recovery.
+const Opening = preload("res://src/night/FactionOpening.gd")
 const P10Plan = preload("res://src/night/P10NightPlan.gd")
 const Chunks = preload("res://src/data/ChunkCatalog.gd")
 const GrowthNight = preload("res://src/growth/GrowthNight.gd")
@@ -54,12 +55,15 @@ func new_run(mode: String, kind := "example", seed_text := "") -> Dictionary:
 	_record("new_night",{"mode":mode,"seed":seed_text,"initial_roster_note":config.initial_roster_note})
 	return _ok()
 
-func new_growth_run(mode: String, seed_text := "", build_id := "") -> Dictionary:
+func new_growth_run(mode: String, seed_text := "", build_id := "", faction := "") -> Dictionary:
 	if not state.is_empty() and state.phase != "ended": return _reject("P5_NIGHT_RUNNING")
+	if not faction.is_empty() and (mode != "shouxiang" or not Opening.PAIRS.has(faction) or not build_id.is_empty()):
+		return _reject("P7_INVALID_BUILD")
 	var catalog := GrowthNight.table()
 	if mode not in ["shouxiang","duoming"] or (not build_id.is_empty() and (not catalog.paths.has(build_id) or catalog.paths[build_id].seat != mode)):
 		return _reject("P7_INVALID_BUILD")
 	config = GrowthNight.configure(base_config,build_id)
+	if not faction.is_empty(): Opening.apply(config,faction)
 	_starting_growth = true
 	var answer := new_run(mode,"example",seed_text)
 	_starting_growth = false
@@ -69,11 +73,14 @@ func new_growth_run(mode: String, seed_text := "", build_id := "") -> Dictionary
 	state.departed = []
 	state.growth_build_id = build_id
 	state.growth = GrowthNight.initial(str(state.seed),mode,build_id)
+	if not faction.is_empty():
+		state.opening_faction = faction
+		state.growth.defense_objective = "hold_register"
 	_record("growth_night",{"build_id":build_id})
 	return answer
 
-func new_roster_run(mode: String, seed_text := "", build_id := "", codex_path := "", ritual_id := "example_incense") -> Dictionary:
-	var answer := new_growth_run(mode,seed_text,build_id)
+func new_roster_run(mode: String, seed_text := "", build_id := "", codex_path := "", ritual_id := "example_incense", faction := "") -> Dictionary:
+	var answer := new_growth_run(mode,seed_text,build_id,faction)
 	if not answer.ok: return answer
 	codex = Codex.new(codex_path,not codex_path.is_empty())
 	if not codex_path.is_empty() and FileAccess.file_exists(codex_path): codex.load_save()
@@ -92,14 +99,17 @@ func _custom_entry(rule_id: String) -> String:
 		if entry.book == "customs" and entry.source.get("rule_id") == rule_id: return id
 	return ""
 
-func new_p10_run(mode: String, kind: String, seed_text: String, choice: String, modifiers: Array, codex_path := "") -> Dictionary:
+func new_p10_run(mode: String, kind: String, seed_text: String, choice: String, modifiers: Array, codex_path := "", faction := "") -> Dictionary:
 	if Story.rules().is_empty():
 		return _reject("P11_STORY_CONFIG")
 	if seed_text.is_empty(): seed_text = "夜-%d-%d" % [Time.get_unix_time_from_system(),Time.get_ticks_usec()]
 	var ritual := P10Plan.selected_ritual(seed_text) if choice.is_empty() and kind == "fierce" else choice
+	if not faction.is_empty() and (kind != "example" or mode != "shouxiang" or not Opening.PAIRS.has(faction)):
+		return _reject("P7_INVALID_BUILD")
 	var planned := GrowthNight.configure(base_config,"")
+	if not faction.is_empty(): Opening.apply(planned,faction)
 	if not P10Plan.configure(planned,kind,seed_text,ritual,modifiers): return _reject("P10_INVALID_PLAN")
-	var answer := new_roster_run(mode,seed_text,"",codex_path,ritual)
+	var answer := new_roster_run(mode,seed_text,"",codex_path,ritual,faction)
 	if not answer.ok: return answer
 	config = planned
 	state.kind = kind
@@ -487,10 +497,15 @@ func load_save(path: String) -> Dictionary:
 		return loaded
 	var candidate: Dictionary = loaded.state
 	var previous_config: Dictionary = config
+	if candidate.has("opening_faction"):
+		if not candidate.get("growth") is Dictionary or candidate.growth.get("defense_objective") != "hold_register" or not Opening.PAIRS.has(candidate.opening_faction) or candidate.get("mode") != "shouxiang" or candidate.get("kind") != "example" or candidate.get("growth_build_id") != "":
+			return _reject("P5_SAVE_INVALID")
 	if candidate.has("growth"):
 		if not candidate.get("growth_build_id") is String or (not str(candidate.growth_build_id).is_empty() and not GrowthNight.table().paths.has(candidate.growth_build_id)):
 			return _reject("P5_SAVE_INVALID")
 		config = GrowthNight.configure(base_config,str(candidate.growth_build_id))
+		if candidate.has("opening_faction"):
+			Opening.apply(config,candidate.opening_faction)
 	else:
 		config = base_config.duplicate(true)
 	if candidate.has("nameless_modifiers"):

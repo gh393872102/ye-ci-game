@@ -11,6 +11,9 @@ var pause: Panel
 var preferences: Control
 var title_buttons: Dictionary = {}
 var pause_buttons: Dictionary = {}
+var faction_picker: OptionButton
+var faction_detail: Label
+var faction_portraits: Array[TextureRect] = []
 var seed_input: LineEdit
 var night_kind: OptionButton
 var fierce_options: Control
@@ -82,7 +85,33 @@ func _build_start() -> void:
 	night_kind.add_item(tr("P10_FIERCE"))
 	title_start.add_child(night_kind)
 	_build_fierce_options()
-	night_kind.item_selected.connect(func(index: int): fierce_options.visible = index == 2)
+	faction_picker = OptionButton.new()
+	faction_picker.position = Vector2(780, 281)
+	faction_picker.size = Vector2(640, 64)
+	faction_picker.add_item("守方开局 · 原有混编")
+	faction_picker.set_item_metadata(0, "")
+	for faction in preload("res://src/night/FactionOpening.gd").PAIRS:
+		var names := PackedStringArray()
+		for id in preload("res://src/night/FactionOpening.gd").PAIRS[faction]:
+			names.append(str(Data.get_unit(id)["姓名"]))
+		faction_picker.add_item("%s守册 · %s" % [faction, "、".join(names)])
+		faction_picker.set_item_metadata(faction_picker.item_count - 1, faction)
+	faction_picker.tooltip_text = "单司双人守册，开局保留20香火；存活的具名守军可维持防线。"
+	title_start.add_child(faction_picker)
+	faction_detail = Label.new()
+	faction_detail.position = Vector2(787, 361)
+	faction_detail.size = Vector2(635, 160)
+	faction_detail.add_theme_font_size_override("font_size", 23)
+	title_start.add_child(faction_detail)
+	for i in 2:
+		var portrait := preload("res://src/ui/LedgerInk.gd").texture(faction_detail,null,Rect2(i * 260,160,246,303),false)
+		faction_portraits.append(portrait)
+	faction_picker.item_selected.connect(_describe_faction)
+	_describe_faction(0)
+	night_kind.item_selected.connect(func(index: int):
+		fierce_options.visible = index == 2
+		faction_picker.visible = index == 0
+		faction_detail.visible = index == 0 and faction_picker.selected > 0)
 	_label(title_start, "P9_TITLE_NIGHT_SEED", Rect2(111, 369, 465, 44), 24)
 	seed_input = LineEdit.new()
 	seed_input.position = Vector2(111, 425)
@@ -96,6 +125,21 @@ func _build_start() -> void:
 	title_buttons.duoming.text += "\n" + tr("P9_TITLE_DUOMING_HELP")
 	restart_note = _label(title_start, "P9_TITLE_START_OVER", Rect2(111, 767, 560, 42), 21, Color("d8bb80"))
 	title_buttons.back = _button(title_start, "P9_TITLE_RETURN", Rect2(111, 831, 228, 60), _show_home, 24)
+
+func _describe_faction(index: int) -> void:
+	faction_detail.visible = index > 0 and night_kind.selected == 0
+	if index == 0: return
+	var faction: String = faction_picker.get_item_metadata(index)
+	var lines := PackedStringArray()
+	for id in preload("res://src/night/FactionOpening.gd").PAIRS[faction]:
+		var unit := Data.get_unit(id)
+		var portrait := faction_portraits[lines.size()]
+		portrait.texture = preload("res://src/units/UnitAppearance.gd").portrait_texture(id)
+		portrait.tooltip_text = str(unit["姓名"])
+		lines.append("%s · %s" % [unit["姓名"], unit["定位"]])
+	lines.append("两人合计身价17，起手20香火。具名守军存活即可维持守册。")
+	faction_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	faction_detail.text = "\n".join(lines)
 
 func _build_fierce_options() -> void:
 	fierce_options = Panel.new()
@@ -185,7 +229,7 @@ func _start_night(mode: String) -> void:
 			if modifier_boxes[id].button_pressed: modifiers.append(id)
 		host.start_p10_night(mode,"fierce",seed_input.text,ritual_choice.get_selected_metadata(),modifiers)
 	elif night_kind.selected == 0:
-		host.start_p10_night(mode,"example",seed_input.text,"R01",[])
+		host.start_p10_night(mode,"example",seed_input.text,"R01",[], faction_picker.get_selected_metadata() if mode == "shouxiang" else "")
 	else:
 		host.start_run(mode, "example", seed_input.text)
 

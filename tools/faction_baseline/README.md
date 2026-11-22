@@ -48,3 +48,18 @@ done
 在工程根目录执行 `godot --headless --script tools/faction_baseline/NightRecruitPosts.gd -- /tmp/ye-night-recruit-posts.json`。程序在四个普通例夜种子分别购买四司各一人，并在四个凶夜招募夹具中注入源表卡，再经实际付款、地图生成和部署检查。输出包含阵营、角色、剩余资源或实付、地图和岗位。普通场记录开局的混编阵容，凶夜不计算卡片自然出现频率，两者都没有胜率分母。
 
 `night-recruits-before.json` 是修复前的四次普通开局查询与四次受控集市观测，`night-recruits-after.json` 将普通部分扩展为四种子乘四名实际购买者，并保留同一组凶夜对照。普通复跑省略可选的旧快照迁移项。若要单独复核迁移，在旧版本用同一脚本和种子设置 `YE_WRITE_PRIOR=1`，随后在新版设置 `YE_READ_PRIOR=1`；两个进程顺序运行，共享临时文件 `/tmp/ye-prior-recruit.snap`。
+
+## 正式例夜 · 四司双人开局
+
+Godot 4.7.2，先导入工程。按守香、武卫、符法、奇人的顺序，索引分别为 0–3。以下示例复跑武卫司。
+
+```sh
+godot --headless --script tools/faction_baseline/OpeningMenu.gd
+godot --headless --script tools/faction_baseline/OrdinaryOpening.gd -- 1
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 1
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 1 upgrade
+```
+
+首战脚本从标题页实际选择一司，用种子开局、读回地图存档、进入 n01、走完每个 1/60 秒模拟步并结算。输出 ordinary-opening-N.json。菜单回归另测切换模式、头像与姓名匹配、夺名不继承守方选择，以及奇人司战中保存与恢复。
+
+路线脚本用种子「渡口」走首个合法分支，商店直接离开，休息正常结算，事件选首个可用选项，奖励选首个可领取的非招募、非变异候选。若没有这种奖励就记录候选并停止。战败停在宽宥提示。普通策略无战场指令；upgrade 策略仅在 n03 开战时给两人各升一次，记录实扣，随后由角色自主行动。角色归属在初始部署、生成、换边信号、每个模拟步及节点间名册中检查。战斗结果中的人数是终局快照，归属以 foreign_units 和路线汇总 foreign 为准。路线首战与三种子的「渡口」首战重叠；不能把它再计入独立样本。
