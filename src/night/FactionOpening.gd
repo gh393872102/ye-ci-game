@@ -7,6 +7,13 @@ const PAIRS := {
 	"奇人司":["H27","H32"],
 }
 
+# A wiped ordinary watch can spend its rest stop to call one living reserve.
+const REST_RESERVES := {
+	"守香司":["H02","H08"], "武卫司":["H12","H14"],
+	"符法司":["H18","H20"], "奇人司":["H26","H29"],
+}
+const RESERVE_FEE := 12
+
 static func apply(config: Dictionary, faction: String) -> void:
 	var members := []
 	for i in 2:

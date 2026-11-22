@@ -361,9 +361,31 @@ func resolve_event(choice_id: String) -> Dictionary:
 		return _ok()
 	return _reject("P5_INVALID_CHOICE")
 
-func finish_rest() -> Dictionary:
+func rest_reserve_options() -> Array[Dictionary]:
+	var options: Array[Dictionary] = []
+	if not _phase("rest") or state.mode != "shouxiang" or not state.roster.is_empty():
+		return options
+	for id in Opening.REST_RESERVES.get(state.get("opening_faction",""),[]):
+		if state.fallen.any(func(member): return member.id == id): continue
+		var post := GrowthNight.legal_post(id,"post_register")
+		var effect := {"kind":"recruit","unit_id":id,"post":post,"count":1}
+		if not _effect_reason(effect,"").is_empty(): continue
+		options.append({"id":id,"cost":Opening.RESERVE_FEE,"post":post,"allowed":state.incense >= Opening.RESERVE_FEE,"effect":effect})
+	return options
+
+func finish_rest(reserve_id := "") -> Dictionary:
 	if not _phase("rest"):
 		return _reject("P5_WRONG_PHASE")
+	if not reserve_id.is_empty():
+		for option in rest_reserve_options():
+			if option.id != reserve_id: continue
+			if not option.allowed: return _reject("P5_NO_INCENSE")
+			state.incense -= option.cost
+			_apply(option.effect,"")
+			_record("rest_recruit",{"id":reserve_id,"cost":option.cost,"post":option.post})
+			_complete_node()
+			return _ok()
+		return _reject("P5_INVALID_CHOICE")
 	for unit in state.roster:
 		unit.hp = minf(float(unit.max_hp),float(unit.hp) + float(unit.max_hp) * float(config.rest.heal_ratio))
 	state.incense = minf(float(config.incense_cap),float(state.incense) + float(config.rest.incense))

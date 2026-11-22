@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -79,10 +79,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			row.same_faction_offers.append({"id":offer.id,"cost":offer.cost,"allowed":offer.allowed,"reason":offer.reason,"posts":session.legal_posts(offer.id),"previously_fallen":night.state.fallen.any(func(member): return member.id == offer.id)})
 	if upgrade_pair:
 		row.upgrades = []
-		for unit in sim.humans:
-			var before: float = session.incense
-			var receipt: Dictionary = session.upgrade(unit)
-			row.upgrades.append({"id":unit.unit_id, "ok":receipt.ok, "paid":before-session.incense})
+		for level in upgrade_rounds:
+			for unit in sim.humans:
+				var before: float = session.incense
+				var receipt: Dictionary = session.upgrade(unit)
+				row.upgrades.append({"id":unit.unit_id, "ok":receipt.ok, "paid":before-session.incense})
 	var id: String = {"守香司":"H01","武卫司":"H09","符法司":"H17","奇人司":"H25"}[faction]
 	if not ordered_id.is_empty(): id = ordered_id
 	if fill_watch:

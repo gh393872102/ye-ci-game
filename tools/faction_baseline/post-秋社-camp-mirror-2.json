@@ -1,0 +1,552 @@
+{
+	"faction": "符法司",
+	"foreign": [],
+	"outcome": "defeat",
+	"phase": "mercy",
+	"policy_finished": true,
+	"reason": "P4_END_REGISTER_CAPTURED",
+	"seed": "秋社",
+	"steps": [
+		{
+			"choice": "n01",
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"aid": {
+					"id": "H17",
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register"
+				},
+				"first_occupation": {},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 20.0,
+				"node": "n01",
+				"phase": "reward",
+				"posts": {
+					"H21": "post_register",
+					"H23": "post_hall_door"
+				},
+				"register_guards": {
+					"H17_12": {
+						"first_change": "held",
+						"id": "H17"
+					},
+					"H21_10": {
+						"first_change": "held",
+						"id": "H21"
+					}
+				},
+				"result": {
+					"elapsed": 180.000000000035,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 3,
+					"incense": 42.1999999999929,
+					"killer_id": "",
+					"mode": "shouxiang",
+					"names": 8.0,
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"remaining": 0.0,
+					"tide_alive": 18
+				},
+				"roster_price": 17.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle"
+		},
+		{
+			"choice": "p7_Y11",
+			"offered": [
+				"p7_Y11",
+				"p7_Y05",
+				"r_villager"
+			],
+			"phase": "reward"
+		},
+		{
+			"choice": "n02",
+			"phase": "map"
+		},
+		{
+			"offered": [
+				"p7_recruit_H25",
+				"p7_recruit_H32",
+				"p7_Y10",
+				"p7_N01"
+			],
+			"phase": "market"
+		},
+		{
+			"choice": "n03",
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"aid": {
+					"id": "H22",
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register"
+				},
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H23",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						}
+					],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 208.366666666725
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 54.1999999999929,
+				"node": "n03",
+				"phase": "reward",
+				"posts": {
+					"H17": "post_register",
+					"H21": "post_register",
+					"H23": "post_hall_door"
+				},
+				"register_guards": {
+					"H17_12": {
+						"first_change": "fallen",
+						"id": "H17",
+						"seconds": 191.200000000044
+					},
+					"H21_10": {
+						"first_change": "fallen",
+						"id": "H21",
+						"seconds": 184.783333333373
+					},
+					"H22_13": {
+						"first_change": "fallen",
+						"id": "H22",
+						"seconds": 208.366666666725
+					}
+				},
+				"result": {
+					"elapsed": 210.000000000059,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 1,
+					"incense": 60.0,
+					"killer_id": "",
+					"mode": "shouxiang",
+					"names": 11.5875,
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"remaining": 0.0,
+					"tide_alive": 21
+				},
+				"roster_price": 27.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle"
+		},
+		{
+			"choice": "p7_I08",
+			"offered": [
+				"p7_I08",
+				"r_watch",
+				"r_crossbow"
+			],
+			"phase": "reward"
+		},
+		{
+			"choice": "n04",
+			"phase": "map"
+		},
+		{
+			"choice": "light",
+			"phase": "event"
+		},
+		{
+			"choice": "n05",
+			"orders": [
+				{
+					"accepted": true,
+					"move": {
+						"from": "post_hall_door",
+						"id": "H23",
+						"to": "post_register",
+						"uid": "night_2"
+					}
+				}
+			],
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"aid": {
+					"id": "H24",
+					"paid": 8.0,
+					"placed": true,
+					"post": "post_register"
+				},
+				"aid_upgrade": {
+					"id": "H24",
+					"ok": true,
+					"paid": 8.0
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 203.316666666721
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 56.0,
+				"node": "n05",
+				"phase": "reward",
+				"posts": {
+					"H23": "post_register"
+				},
+				"register_guards": {
+					"H23_10": {
+						"first_change": "fallen",
+						"id": "H23",
+						"seconds": 189.350000000043
+					},
+					"H24_11": {
+						"first_change": "fallen",
+						"id": "H24",
+						"seconds": 203.316666666721
+					}
+				},
+				"result": {
+					"elapsed": 210.000000000059,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 0,
+					"incense": 40.4079999999959,
+					"killer_id": "",
+					"mode": "shouxiang",
+					"names": 10.3250000000001,
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"remaining": 0.0,
+					"tide_alive": 31
+				},
+				"roster_price": 9.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED",
+				"upgrades": [
+					{
+						"id": "H23",
+						"ok": true,
+						"paid": 8.0
+					}
+				]
+			},
+			"phase": "battle"
+		},
+		{
+			"choice": "p7_I13",
+			"offered": [
+				"p7_I13",
+				"p7_I17",
+				"p7_recruit_H06"
+			],
+			"phase": "reward"
+		},
+		{
+			"choice": "n06",
+			"phase": "map"
+		},
+		{
+			"hire": {
+				"id": "H18",
+				"paid": 12.0,
+				"saved_and_reloaded": true
+			},
+			"options": [
+				{
+					"allowed": true,
+					"cost": 12,
+					"effect": {
+						"count": 1,
+						"kind": "recruit",
+						"post": "post_register",
+						"unit_id": "H18"
+					},
+					"id": "H18",
+					"post": "post_register"
+				},
+				{
+					"allowed": true,
+					"cost": 12,
+					"effect": {
+						"count": 1,
+						"kind": "recruit",
+						"post": "post_register",
+						"unit_id": "H20"
+					},
+					"id": "H20",
+					"post": "post_register"
+				}
+			],
+			"phase": "rest"
+		},
+		{
+			"choice": "n07",
+			"phase": "map"
+		},
+		{
+			"choice": "accept",
+			"phase": "event"
+		},
+		{
+			"choice": "n08",
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 216.850000000065
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 48.4079999999959,
+				"node": "n08",
+				"phase": "mercy",
+				"posts": {
+					"H18": "post_register"
+				},
+				"register_guards": {
+					"H18_10": {
+						"first_change": "fallen",
+						"id": "H18",
+						"seconds": 216.850000000065
+					}
+				},
+				"result": {
+					"elapsed": 228.833333333408,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 0,
+					"incense": 53.2439999999971,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 8.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 11.1666666665837,
+					"tide_alive": 40
+				},
+				"roster_price": 0,
+				"same_faction_offers": [
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H17",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_gate"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H19",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_gate"
+						],
+						"previously_fallen": false,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H21",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_gate"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H22",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_gate"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H23",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_gate"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H24",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_gate"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle"
+		}
+	],
+	"upgrade_at_n03": false
+}

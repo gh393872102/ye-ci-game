@@ -106,3 +106,16 @@ godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 2 reserve-t
 原生渲染命令末尾使用 `-- --deploy-probe` 时，另写 native-deploy.json。12次 Q 键采样后，从招募页订购三戒，向「守名册房」按钮中心注入一次鼠标按下和抬起。脚本检查下一帧的实际到岗、净扣款与按钮边界；单次点击耗时只作功能验证。
 
 在支持原生窗口的 Linux 上，以 1920×1080 运行 reserve-trained 路线时设置 YE_CI_CAPTURE_PIN=1，可在第五节点骨针首次实际施术约五分之一动画时截取 /tmp/ye-ci-bone-pin.jpg。相机对准技能目标，结果中的阵营、资源与结算仍按逐步模拟核验。
+
+### 第六节点休整换援军
+
+符法司例夜先复现 reserve-trained。camp-mirror 请冷金，camp-fire 请焚词；加 -up 在第八节点升一级，加 -veteran 升两级。每次升级实扣8香火，招募实扣12且消耗休整机会。实跑经过正式休整存档、界面按钮、自动保存和再次读档。逐次记录此前奖励与集市的候选 ID，以及全程阵容和临时归属。使用 YE_CI_CAPTURE_REST=1 在原生窗口复跑可将休整页保存到 /tmp/ye-ci-rest-menu.jpg。
+
+```sh
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 2 camp-fire-veteran 渡口
+godot --headless --script tools/faction_baseline/RestReserve.gd
+```
+
+加 `-relay` 时，第一名援军在第八节点升两次；第九节点再次空队时，在正式休整页请另一名未阵亡角色，第十节点给接防者升两次。与同种子的 `-veteran` 比较，可将第九节点保留常规休整和再次付费请援的终局记录配对。
+
+在 1920×1080 原生窗口给 `RestReserve.gd` 传入 `-- --input-probe`，可复测四司各一次从请援按钮鼠标输入到地图出帧、实扣金额和按钮是否位于屏内。样本来自可重复的空队夹具。

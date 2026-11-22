@@ -1,0 +1,43 @@
+{
+	"fixture": "empty four-faction rest menus, first reserve fallen; click remaining reserve, 12 incense",
+	"passed": true,
+	"pixels": [
+		1920,
+		1080
+	],
+	"renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+	"samples": [
+		{
+			"faction": "守香司",
+			"id": "H08",
+			"input_to_frame_ms": 56.122,
+			"inside_viewport": true,
+			"paid": 12,
+			"phase": "map"
+		},
+		{
+			"faction": "武卫司",
+			"id": "H14",
+			"input_to_frame_ms": 50.8,
+			"inside_viewport": true,
+			"paid": 12,
+			"phase": "map"
+		},
+		{
+			"faction": "符法司",
+			"id": "H20",
+			"input_to_frame_ms": 42.737,
+			"inside_viewport": true,
+			"paid": 12,
+			"phase": "map"
+		},
+		{
+			"faction": "奇人司",
+			"id": "H29",
+			"input_to_frame_ms": 41.418,
+			"inside_viewport": true,
+			"paid": 12,
+			"phase": "map"
+		}
+	]
+}

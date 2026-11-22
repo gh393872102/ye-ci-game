@@ -603,9 +603,32 @@ func _event() -> void:
 func _rest() -> void:
 	heading.text = tr("P9_NIGHT_REST")
 	Ink.box(_page, Rect2(400, 278, 1120, 566), Color("121b1cf5"), Ink.RULE)
-	Ink.label(_page, str(host.run.current_node().description), Rect2(477, 342, 966, 132), 31, Ink.PAPER, true)
-	Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)
-	_focus = _button("rest", tr("P5_REST"), Rect2(702, 690, 516, 64), host.finish_rest, true, true)
+	var reserves: Array = host.run.rest_reserve_options()
+	_focus = _button("rest", tr("P5_REST"), Rect2(702, 698, 516, 64), host.finish_rest, true, true)
+	if reserves.is_empty():
+		Ink.label(_page, str(host.run.current_node().description), Rect2(477, 342, 966, 132), 31, Ink.PAPER, true)
+		Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)
+		return
+	Ink.label(_page, tr("NIGHT_REST_RESERVE_TITLE") % host.run.state.opening_faction, Rect2(466,305,980,62),34,Ink.PAPER,true)
+	Ink.label(_page, tr("NIGHT_REST_RESERVE_HELP") % int(host.run.state.incense),Rect2(466,373,990,50),22,Ink.MUTED)
+	var recruit_buttons: Array[Button] = []
+	for i in reserves.size():
+		var option: Dictionary = reserves[i]
+		var unit: Dictionary = Data.get_unit(option.id)
+		var x := 461 + i * 510
+		Ink.box(_page, Rect2(x,444,487,204), Color("1d2020"), Ink.RULE)
+		Ink.texture(_page, _offer_art(option.effect,0.84), Rect2(x+8,452,124,147))
+		Ink.label(_page,"%s · %s" % [unit["姓名"],unit["定位"]],Rect2(x+145,454,330,48),26,Ink.PAPER,true)
+		var skill := Ink.label(_page,str(unit["专属技能"]),Rect2(x+145,507,326,85),20,Ink.MUTED)
+		skill.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		var caption := tr("NIGHT_REST_RESERVE_BUY" if option.allowed else "NIGHT_REST_RESERVE_SHORT") % option.cost
+		var hire := _button("reserve_"+str(option.id),caption,Rect2(x+145,593,323,45),host.finish_rest.bind(option.id),option.allowed)
+		if option.allowed:
+			hire.focus_neighbor_bottom = hire.get_path_to(_focus)
+			recruit_buttons.append(hire)
+	_link_horizontal(recruit_buttons)
+	if not recruit_buttons.is_empty():
+		_focus.focus_neighbor_top = _focus.get_path_to(recruit_buttons[0])
 
 func _mercy() -> void:
 	heading.text = tr("P5_MERCY_TITLE")

@@ -124,8 +124,8 @@ func resolve_event(id: String) -> void:
 	_save_state()
 	refresh()
 
-func finish_rest() -> void:
-	_feedback(run.finish_rest())
+func finish_rest(reserve_id := "") -> void:
+	_feedback(run.finish_rest(reserve_id))
 	_save_state()
 	refresh()
 
