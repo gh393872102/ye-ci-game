@@ -1,0 +1,152 @@
+{
+	"faction": "守香司",
+	"foreign": [],
+	"outcome": "defeat",
+	"phase": "mercy",
+	"policy_finished": true,
+	"reason": "P4_END_REGISTER_CAPTURED",
+	"seed": "渡口",
+	"steps": [
+		{
+			"choice": "n01",
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"first_occupation": {},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 20.0,
+				"node": "n01",
+				"phase": "reward",
+				"posts": {
+					"H03": "post_register",
+					"H06": "post_hall_door"
+				},
+				"result": {
+					"elapsed": 180.000000000035,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 2,
+					"incense": 53.1999999999907,
+					"killer_id": "",
+					"mode": "shouxiang",
+					"names": 8.0,
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"remaining": 0.0,
+					"tide_alive": 18
+				},
+				"roster_price": 17.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle"
+		},
+		{
+			"choice": "p7_Y11",
+			"phase": "reward"
+		},
+		{
+			"choice": "n02",
+			"phase": "map"
+		},
+		{
+			"phase": "market"
+		},
+		{
+			"choice": "n03",
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"aid": {
+					"id": "H01",
+					"paid": 12.0,
+					"placed": true,
+					"post": "post_hall_door"
+				},
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H06",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						},
+						{
+							"id": "H01",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						}
+					],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 188.050000000042
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 60.0,
+				"node": "n03",
+				"phase": "mercy",
+				"posts": {
+					"H03": "post_register",
+					"H06": "post_hall_door"
+				},
+				"result": {
+					"elapsed": 200.033333333385,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 2,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 9.96666666660749,
+					"tide_alive": 31
+				},
+				"roster_price": 17.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle"
+		}
+	],
+	"upgrade_at_n03": false
+}

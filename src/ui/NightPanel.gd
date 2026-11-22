@@ -228,7 +228,29 @@ func _map(history: bool) -> void:
 	if history:
 		_focus = _button("summary_back", tr("P9_NIGHT_BACK_REPORT"), Rect2(1612, 899, 244, 64), _switch_report.bind(false), true, true)
 	var roster_bottom := 888.0 if history else 972.0
+	if not history and host.run.state.has("opening_faction") and not host.run.state.roster.is_empty():
+		roster_bottom -= 68.0
+		_post_picker()
 	_roster(Rect2(1358, roster_top, 498, roster_bottom - roster_top))
+
+func _post_picker() -> void:
+	var picker := OptionButton.new()
+	picker.name = "ReservePost"
+	picker.position = Vector2(1358,915)
+	picker.size = Vector2(498,56)
+	picker.add_theme_font_size_override("font_size",21)
+	picker.add_item("下场布防 · 免费换岗")
+	picker.set_item_disabled(0,true)
+	for option in host.run.reserve_post_options():
+		picker.add_item("%s · %s → %s" % [_unit_name(option.id),tr(str(option.from).to_upper()),tr(str(option.to).to_upper())])
+		picker.set_item_metadata(picker.item_count-1,option)
+	picker.disabled = picker.item_count == 1
+	if picker.disabled: picker.set_item_text(0,"下场布防 · 暂无可调岗位")
+	_page.add_child(picker)
+	picker.item_selected.connect(func(index: int):
+		if index <= 0: return
+		var option: Dictionary = picker.get_item_metadata(index)
+		host.reserve_post(option.uid,option.to))
 
 func _story_card(route_buttons: Array[Button]) -> float:
 	var act: Dictionary = host.run.story_act()
@@ -352,6 +374,7 @@ func _roster(rect: Rect2) -> void:
 	for unit in state.roster:
 		var field := Label.new()
 		field.text = tr("P9_NIGHT_ROSTER_ROW") % [_unit_name(str(unit.id)), unit.hp, unit.max_hp]
+		if state.has("opening_faction") and str(unit.id).begins_with("H"): field.text += " · " + tr(str(unit.post).to_upper())
 		field.add_theme_font_size_override("font_size", 20)
 		field.add_theme_color_override("font_color", Ink.PAPER)
 		rows.add_child(field)

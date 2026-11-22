@@ -24,6 +24,7 @@ const DUO_COMMANDS := [
 	["UPGRADE", "P9_MUTATE_COMMAND"], ["REGISTER_ACTION", "P9_FUSION_COMMAND"], ["BUY", "P9_REINFORCE_COMMAND"]
 ]
 var managed_by_night := false
+var preferred_faction := ""
 var observation_mode := false
 var replay_read_only := false
 var simulation: Node2D
@@ -363,6 +364,10 @@ func _build_purchase() -> void:
 	offers.sort_custom(func(a, b):
 		var first := str(a.id)
 		var second := str(b.id)
+		if not preferred_faction.is_empty():
+			var first_same: bool = Data.get_unit(first).get("所属","") == preferred_faction
+			var second_same: bool = Data.get_unit(second).get("所属","") == preferred_faction
+			if first_same != second_same: return first_same
 		if first.begins_with("T") != second.begins_with("T"):
 			return first.begins_with("T")
 		return first < second
@@ -374,13 +379,18 @@ func _build_purchase() -> void:
 	_label(nav, tr("P9_PAGE_COUNT") % [purchase_page + 1, pages], 17)
 	_button(nav, "purchase_next", tr("P9_PAGE_NEXT"), _purchase_page.bind(1), purchase_page + 1 < pages)
 	_button(nav, "close", tr("P9_BATTLE_CLOSE"), close_panel)
+	var page_offers := offers.slice(purchase_page * PURCHASE_PAGE_SIZE, (purchase_page + 1) * PURCHASE_PAGE_SIZE)
 	var hint := _label(content, tr("P9_PURCHASE_HELP"), 16)
+	if not preferred_faction.is_empty():
+		hint.text = "%s优先 · %s" % [preferred_faction,hint.text]
+		if page_offers.any(func(offer): return offer.id == "H19"):
+			hint.text += "　问灯会临时收编野鬼。"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hint.add_theme_color_override("font_color", Ink.MUTED)
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
 	content.add_child(row)
-	for offer in offers.slice(purchase_page * PURCHASE_PAGE_SIZE, (purchase_page + 1) * PURCHASE_PAGE_SIZE):
+	for offer in page_offers:
 		_purchase_card(row, offer)
 	if not _focus_first(row):
 		_focus_first(nav)

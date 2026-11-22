@@ -1,0 +1,108 @@
+{
+	"faction": "符法司",
+	"foreign": [],
+	"outcome": "defeat",
+	"phase": "mercy",
+	"policy_finished": true,
+	"reason": "P4_END_REGISTER_CAPTURED",
+	"seed": "渡口",
+	"steps": [
+		{
+			"choice": "n01",
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"foreign_units": {},
+				"hold": true,
+				"incense": 20.0,
+				"node": "n01",
+				"phase": "reward",
+				"posts": {
+					"H21": "post_register",
+					"H23": "post_hall_door"
+				},
+				"result": {
+					"elapsed": 180.000000000035,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 2,
+					"incense": 52.1999999999867,
+					"killer_id": "",
+					"mode": "shouxiang",
+					"names": 8.0,
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"remaining": 0.0,
+					"tide_alive": 18
+				},
+				"roster_price": 17.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle"
+		},
+		{
+			"choice": "p7_Y11",
+			"phase": "reward"
+		},
+		{
+			"choice": "n02",
+			"phase": "map"
+		},
+		{
+			"phase": "market"
+		},
+		{
+			"choice": "n03",
+			"orders": [
+				{
+					"accepted": true,
+					"move": {
+						"from": "post_register",
+						"id": "H21",
+						"to": "post_hall_door",
+						"uid": "night_1"
+					}
+				}
+			],
+			"phase": "map"
+		},
+		{
+			"battle": {
+				"foreign_units": {},
+				"hold": true,
+				"incense": 60.0,
+				"node": "n03",
+				"phase": "mercy",
+				"posts": {
+					"H21": "post_hall_door",
+					"H23": "post_hall_door"
+				},
+				"result": {
+					"elapsed": 187.000000000041,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 2,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 22.9999999999407,
+					"tide_alive": 31
+				},
+				"roster_price": 17.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle"
+		}
+	],
+	"upgrade_at_n03": false
+}

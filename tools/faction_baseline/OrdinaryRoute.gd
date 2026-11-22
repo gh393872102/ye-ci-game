@@ -1,15 +1,16 @@
 extends "res://tools/faction_baseline/OrdinaryOpening.gd"
-## One paired seed. No combat commands, no market purchases, no mercy.
+## Paired ordinary routes. Each policy changes only its documented orders.
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2] or (args.size() == 2 and args[1] != "upgrade") or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
-	var upgraded := args.size() == 2
+	var policy := args[1] if args.size() >= 2 else "base"
+	var upgraded := policy == "upgrade"
 	var index := int(args[0])
 	var faction: String = load("res://src/night/FactionOpening.gd").PAIRS.keys()[index]
 	var night: RefCounted = load("res://src/night/NightRun.gd").new()
-	var seed_text := "渡口"
+	var seed_text := args[2] if args.size() == 3 else "渡口"
 	var started: Dictionary = night.new_p10_run("shouxiang","example",seed_text,"R01",[],"",faction)
 	var report := {"seed":seed_text,"faction":faction,"steps":[],"foreign":[],"upgrade_at_n03":upgraded}
 	var ok: bool = started.ok
@@ -21,9 +22,21 @@ func run() -> void:
 			"map":
 				var nodes: Array = night.available_nodes()
 				step.choice = nodes[0].id
-				ok = night.choose_node(step.choice).ok
+				if step.choice == "n03" and policy in ["register","hall"]:
+					var post := "post_register" if policy == "register" else "post_hall_door"
+					step.orders = []
+					for option in night.reserve_post_options():
+						if option.to == post:
+							var change: Dictionary = night.reserve_post(option.uid,post)
+							step.orders.append({"move":option,"accepted":change.ok})
+							if not change.ok: ok = false
+				ok = ok and night.choose_node(step.choice).ok
 			"battle":
-				var result: Dictionary = await fight(night,faction,seed_text,upgraded and night.state.current_node_id == "n03")
+				var second: bool = night.state.current_node_id == "n03"
+				var aid_post := ""
+				if second and policy.begins_with("aid-"):
+					aid_post = "post_register" if policy == "aid-register" else "post_hall_door"
+				var result: Dictionary = await fight(night,faction,seed_text,upgraded and second,aid_post,policy == "watch")
 				step.battle = result
 				ok = result.get("settled",false)
 				report.foreign.append_array(result.get("foreign_units",{}).values())
@@ -58,7 +71,10 @@ func run() -> void:
 	report.outcome = night.state.outcome
 	report.reason = night.state.reason
 	report.policy_finished = ok and night.state.phase in ["ended","mercy"]
-	FileAccess.open("res://tools/faction_baseline/ordinary-route-%s%d.json" % ["upgrade-" if upgraded else "",index],FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
+	var filename := "ordinary-route-%s%d.json" % ["upgrade-" if upgraded else "",index]
+	if args.size() == 3 or policy not in ["base","upgrade"]:
+		filename = "post-%s-%s-%d.json" % [seed_text,policy,index]
+	FileAccess.open("res://tools/faction_baseline/" + filename,FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
 	print("ROUTE ",faction," ",report.phase," ",report.outcome)
 	await create_timer(0.6).timeout
 	quit(0 if report.policy_finished else 1)

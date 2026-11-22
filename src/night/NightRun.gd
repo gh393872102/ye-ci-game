@@ -199,6 +199,30 @@ func available_nodes() -> Array[Dictionary]:
 			available.append(_node(str(id)).duplicate(true))
 	return available
 
+## Core posts present on every ordinary R01 defending map.
+func reserve_post_options() -> Array[Dictionary]:
+	var options: Array[Dictionary] = []
+	if state.get("phase") != "map" or state.get("mode") != "shouxiang" or not state.has("opening_faction"): return options
+	var counts := {}
+	for member in state.roster:
+		counts[member.post] = int(counts.get(member.post,0)) + 1
+	for member in state.roster:
+		if member.hp <= 0 or not str(member.id).begins_with("H"): continue
+		for post in ["post_register","post_hall_door","post_inner_gate"]:
+			if post != member.post and counts.get(post,0) < Data.battle_rules.post_cap and _valid_post(post,member.id):
+				options.append({"uid":member.uid,"id":member.id,"from":member.post,"to":post})
+	return options
+
+func reserve_post(uid: String, post: String) -> Dictionary:
+	for option in reserve_post_options():
+		if option.uid == uid and option.to == post:
+			for member in state.roster:
+				if member.uid == uid:
+					member.post = post
+					_record("reserve_post",option)
+					return _ok()
+	return _reject("P5_INVALID_POST")
+
 func choose_node(id: String) -> Dictionary:
 	if not _phase("map"):
 		return _reject("P5_WRONG_PHASE")

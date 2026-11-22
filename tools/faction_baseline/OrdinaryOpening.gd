@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -78,10 +78,41 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			var before: float = session.incense
 			var receipt: Dictionary = session.upgrade(unit)
 			row.upgrades.append({"id":unit.unit_id, "ok":receipt.ok, "paid":before-session.incense})
+	var id: String = {"守香司":"H01","武卫司":"H09","符法司":"H17","奇人司":"H25"}[faction]
+	if fill_watch:
+		for offer in session.purchase_options():
+			if not offer.allowed or root.get_node("Data").get_unit(offer.id).get("所属","") != faction: continue
+			if night.state.fallen.any(func(unit): return unit.id == offer.id): continue
+			var legal: Array = session.legal_posts(offer.id)
+			for post in ["post_register","post_hall_door","post_inner_gate"]:
+				if post in legal:
+					id = offer.id
+					aid_post = post
+					break
+			if not aid_post.is_empty(): break
+	if not aid_post.is_empty():
+		var before: float = session.incense
+		var purchase: Dictionary = session.purchase(id)
+		var placed := false
+		if purchase.ok:
+			placed = session.deploy_at(aid_post).ok
+			if not placed: session.cancel_purchase()
+		row.aid = {"id":id,"post":aid_post,"placed":placed,"paid":before-session.incense}
+		for unit in sim.humans: observe(unit,faction)
 	sim.unit_spawned.connect(func(unit): observe(unit,faction))
 	sim.unit_allegiance_changed.connect(func(unit,_old,_new): observe(unit,faction))
+	row.first_occupation = {}
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if session.occupation > 0 and row.first_occupation.is_empty():
+			var guards := []
+			for unit in sim.humans:
+				if not unit.dead:
+					guards.append({"id":unit.unit_id,"room":sim.world.room_at(unit.position,unit.floor_id),"post":unit.current_post})
+			var intruders := []
+			for unit in sim.targets:
+				if not unit.dead and sim.world.room_at(unit.position,unit.floor_id) == "register": intruders.append(unit.unit_id)
+			row.first_occupation = {"seconds":sim.simulation_time,"guards":guards,"intruders":intruders}
 		for unit in sim.humans: observe(unit,faction)
 		if not session.running: break
 	row.foreign_units = foreign_units.duplicate()

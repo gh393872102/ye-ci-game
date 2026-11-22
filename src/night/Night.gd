@@ -83,6 +83,12 @@ func start_run(mode: String, kind := "example", seed := "") -> void:
 	_save_state()
 	refresh()
 
+func reserve_post(uid: String, post: String) -> void:
+	var answer: Dictionary = run.reserve_post(uid,post)
+	if answer.ok: answer = _save_state()
+	_feedback(answer)
+	refresh()
+
 func choose_node(id: String) -> void:
 	var answer: Dictionary = run.choose_node(id)
 	_feedback(answer)
@@ -156,6 +162,7 @@ func _prepare_battle(candidate: RefCounted, restoring: bool) -> Dictionary:
 	add_child(next_combat)
 	var decision: CanvasLayer = next_combat.get_node("Decisions")
 	decision.managed_by_night = true
+	decision.preferred_faction = str(candidate.state.get("opening_faction",""))
 	decision.prebattle.hide()
 	var next_bridge: RefCounted = Bridge.new()
 	var previous_snapshot: Dictionary = candidate.state.get("battle_snapshot", {}).duplicate(true)
