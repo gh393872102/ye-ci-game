@@ -27,6 +27,14 @@ static func _appearance_spec(id: String) -> Dictionary:
 		rules = fallback
 	return rules.get("units",{}).get(id,{})
 
+static func bust_texture(id: String) -> Texture2D:
+	var index := id.substr(1).to_int()-1
+	if not id.begins_with("H") or index < 0 or index >= 32: return null
+	var bust := AtlasTexture.new()
+	bust.atlas = preload("res://assets/portraits/p8/relief-busts.webp")
+	bust.region = Rect2((index % 8)*192, floori(index/8.0)*128, 192, 128)
+	return bust
+
 static func portrait_texture(id: String) -> Texture2D:
 	if id.begins_with("T"): return null
 	var path: String = describe(id).get("portrait","")

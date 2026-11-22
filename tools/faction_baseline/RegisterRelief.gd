@@ -56,6 +56,19 @@ func run() -> void:
 	session.register_attackers = 0
 	panel._update_warnings()
 	check(not panel.relief_button.visible,"Attacker withdrawal removes relief")
+	host.start_p10_night("shouxiang","example","渡口","R01",[],"守香司")
+	host.choose_node("n01")
+	panel=host.combat.get_node("Decisions")
+	session=host.combat.get_node("Session")
+	session.register_attackers=1
+	session.register_guards.clear()
+	session.incense=12
+	panel._open_register_relief()
+	panel.buttons.prepare_H01.pressed.emit()
+	check(panel.current_panel=="upgrade" and clock.paused and panel.selected.unit_id=="H01" and panel.selected.current_post=="post_register","Recruit opens the selected guard's paused training preview")
+	check(session.incense==0 and panel.buttons.upgrade_confirm.disabled,"Exact recruitment price leaves training unavailable")
+	panel.close_panel()
+	check(session.incense==0 and session.pending_purchase.is_empty() and panel.selected.upgrade_level==0,"Leaving training keeps only the confirmed recruit")
 	host.free()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path("user://relief-test.json"))
 	await create_timer(0.3).timeout

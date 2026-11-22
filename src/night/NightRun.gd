@@ -210,7 +210,7 @@ func reserve_post_options() -> Array[Dictionary]:
 		counts[member.post] = int(counts.get(member.post,0)) + 1
 	for member in state.roster:
 		if member.hp <= 0 or not str(member.id).begins_with("H"): continue
-		for post in ["post_register","post_hall_door","post_inner_gate"]:
+		for post in ["post_register","post_hall_door","post_inner_gate","post_rear"]:
 			if post != member.post and counts.get(post,0) < Data.battle_rules.post_cap and _valid_post(post,member.id):
 				options.append({"uid":member.uid,"id":member.id,"from":member.post,"to":post})
 	return options

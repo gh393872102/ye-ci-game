@@ -27,6 +27,17 @@ func run() -> void:
 	ok = ok and host.run.state.mode == "duoming" and not host.run.state.has("opening_faction")
 	shell.title_buttons.shouxiang.pressed.emit()
 	var picker: OptionButton = host.panel.find_child("ReservePost",true,false)
+	var rear_index := -1
+	for i in range(1,picker.item_count):
+		var order: Dictionary = picker.get_item_metadata(i)
+		if order.id=="H32" and order.to=="post_rear": rear_index=i
+	ok = ok and rear_index>0 and picker.selected==0
+	if rear_index>0:
+		var cash: float = host.run.state.incense
+		picker.item_selected.emit(rear_index)
+		host.continue_run()
+		ok = ok and host.run.state.incense==cash and host.run.state.roster.any(func(u): return u.id=="H32" and u.post=="post_rear")
+		picker=host.panel.find_child("ReservePost",true,false)
 	var selected := -1
 	for i in range(1,picker.item_count):
 		var move: Dictionary = picker.get_item_metadata(i)

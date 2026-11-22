@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "") -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -147,11 +147,14 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			if inside.erase(unit.instance_id):
 				row.register_guards[unit.instance_id].merge({"first_change":"fallen","seconds":sim.simulation_time},true)
 		)
+	if not train_id.is_empty() and sim.humans.any(func(u): return u.unit_id==train_id and not u.dead):
+		row.target_training = train_guard(session,sim,train_id)
 	var capture_pin := train_aid and OS.get_environment("YE_CI_CAPTURE_PIN") == "1" and DisplayServer.get_name() != "headless"
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
 		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and session.register_guards.is_empty():
-			row.relief = request_register_relief(scene,night,faction,id)
+			row.relief = request_register_relief(scene,night,faction,id,train_id=="H01")
+			if row.relief.has("training"): row.target_training = row.relief.training
 		if capture_pin:
 			for effect in session.roster.state.get("effects",[]):
 				if effect.kind != "bone_pin" or effect.left > effect.duration * 0.80: continue
@@ -203,7 +206,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	await process_frame
 	return row
 
-func request_register_relief(scene: Node, night: RefCounted, faction: String, id: String) -> Dictionary:
+func request_register_relief(scene: Node, night: RefCounted, faction: String, id: String, inspect_training := false) -> Dictionary:
 	var session := scene.get_node("Session")
 	var sim := scene.get_node("Simulation")
 	var menu := scene.get_node("Decisions")
@@ -224,14 +227,30 @@ func request_register_relief(scene: Node, night: RefCounted, faction: String, id
 			menu.buttons.purchase_next.pressed.emit()
 		if receipt.available.is_empty(): receipt.empty_hint = menu._empty_relief_hint()
 		while menu.purchase_page > 0: menu.buttons.purchase_prev.pressed.emit()
-		var buy: Button = menu.content.find_child("buy_"+id,true,false)
+		var button_name := ("prepare_" if inspect_training else "buy_")+id
+		var buy: Button = menu.content.find_child(button_name,true,false)
 		while buy == null and not menu.buttons.purchase_next.disabled:
 			menu.buttons.purchase_next.pressed.emit()
-			buy = menu.content.find_child("buy_"+id,true,false)
+			buy = menu.content.find_child(button_name,true,false)
 		if is_instance_valid(buy) and not buy.disabled:
 			receipt.offered = true
 			buy.pressed.emit()
+		if inspect_training and menu.current_panel=="upgrade" and menu.selected.unit_id==id:
+			var unit: Node = menu.selected
+			var before: float = session.incense
+			var hp: float = unit.hp
+			if not menu.buttons.upgrade_confirm.disabled: menu.buttons.upgrade_confirm.pressed.emit()
+			receipt.training = {"id":id,"instance":unit.instance_id,"ok":unit.hp>hp,"paid":before-session.incense,"hp_before":hp,"hp_after":unit.hp,"via_panel":true}
 		menu.close_panel()
-	receipt.paid = cash-session.incense
+	receipt.paid = cash-session.incense-float(receipt.get("training",{}).get("paid",0))
 	receipt.placed = receipt.offered and sim.humans.any(func(actor): return not actor.dead and actor.unit_id==id and actor.current_post=="post_register")
 	return receipt
+
+func train_guard(session: Node, sim: Node, id: String) -> Dictionary:
+	for unit in sim.humans:
+		if unit.unit_id==id and not unit.dead:
+			var cash: float = session.incense
+			var hp: float = unit.hp
+			var receipt: Dictionary = session.upgrade(unit)
+			return {"id":id,"instance":unit.instance_id,"ok":receipt.ok,"paid":cash-session.incense,"hp_before":hp,"hp_after":unit.hp}
+	return {"id":id,"ok":false}

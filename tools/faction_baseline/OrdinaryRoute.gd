@@ -1,17 +1,39 @@
 extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 ## Paired ordinary routes. Each policy changes only its documented orders.
+const REAR_POLICIES := {
+	"rear-priest": {"posts": {"H03": "post_rear", "H06": "post_register"}},
+	"rear-mage": {"posts": {"H03": "post_register", "H06": "post_rear"}},
+	"rear-control": {},
+	"rear-both": {"posts": {"H03": "post_rear", "H06": "post_rear"}},
+	"rear-hall": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}},
+	"rear-train-watch": {"train": {"n03": "H06"}},
+	"rear-train-relief": {"train": {"n03": "H01"}},
+	"rear-hall-late": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11},
+	"rear-hall-trained": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01"}},
+	"rear-carry": {"train": {"n03": "H01"}, "recall": true},
+	"rear-carry-up": {"train": {"n03": "H01", "n05": "H01"}, "recall": true},
+	"rear-hall-return": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01"}, "recall": true},
+	"rear-camp-heal": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H02"}},
+	"rear-camp-book": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H08"}},
+	"rear-camp-pair": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H08", "n09": "H02"}},
+	"rear-eighth": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01", "n08": "H01"}, "recall": true},
+}
 const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in REAR_POLICIES and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
 	var policy := args[1] if args.size() >= 2 else "base"
 	if (policy in RESERVE_POLICIES or policy in ["borrow","dispel","dispel-recall"]) and args[0] != "2":
 		quit(2)
 		return
+	if policy in REAR_POLICIES and args[0]!="0":
+		quit(2)
+		return
+	var orders: Dictionary = REAR_POLICIES.get(policy,{})
 	var camp := policy.begins_with("camp-")
 	var compare_lamp := policy.ends_with("-lamp")
 	var compare_posts := policy.ends_with("-posts") or compare_lamp
@@ -37,7 +59,15 @@ func run() -> void:
 			"map":
 				var nodes: Array = night.available_nodes()
 				step.choice = nodes[0].id
-				var recall: bool = step.choice == "n05" and (policy in ["dispel-recall","relief-8-recall"] or policy in RESERVE_POLICIES)
+				var recall: bool = step.choice == "n05" and (policy in ["dispel-recall","relief-8-recall"] or orders.get("recall",false) or policy in RESERVE_POLICIES)
+				if step.choice=="n03" and orders.has("posts"):
+					step.orders = []
+					for member in night.state.roster:
+						var post: String = orders.posts.get(member.id,member.post)
+						if member.post==post: continue
+						var order: Dictionary = night.reserve_post(member.uid,post)
+						step.orders.append({"id":member.id,"post":post,"ok":order.ok})
+						ok = ok and order.ok
 				if recall or (step.choice == "n03" and policy in ["register","hall"]):
 					var post := "post_register" if recall or policy == "register" else "post_hall_door"
 					step.orders = []
@@ -46,11 +76,16 @@ func run() -> void:
 							var change: Dictionary = night.reserve_post(option.uid,post)
 							step.orders.append({"move":option,"accepted":change.ok})
 							if not change.ok: ok = false
+				var checkpoint := OS.get_environment("YE_CI_FINAL_MAP_SAVE")
+				if step.choice=="n10" and not checkpoint.is_empty():
+					if not night.save(checkpoint).ok:
+						quit(2)
+						return
 				ok = ok and night.choose_node(step.choice).ok
 			"battle":
 				var fifth: bool = night.state.current_node_id == "n05"
 				var strengthen: bool = fifth and (camp or policy in ["reserve-upgrade","reserve-both","reserve-trained"])
-				var train_reserve: bool = (night.state.current_node_id == "n08" and (policy.ends_with("-up") or two_levels)) or (relay and not early and night.state.current_node_id == "n10")
+				var train_reserve: bool = (night.state.current_node_id == "n08" and ((camp and policy.ends_with("-up")) or two_levels)) or (relay and not early and night.state.current_node_id == "n10")
 				var second: bool = night.state.current_node_id == "n03"
 				var aid_post := ""
 				if second and (policy.begins_with("aid-") or policy=="relief-open"):
@@ -106,12 +141,16 @@ func run() -> void:
 				var delay := -1.0
 				if second and policy in ["relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall"]:
 					delay = float(policy.get_slice("-",1))
+				if policy in REAR_POLICIES and second:
+					delay = float(orders.get("delay",8))
 				if fifth and policy=="relief-8-next":
 					delay = 8.0
 					ordered_id = "H02"
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,[],hire_early,delay)
+				var train_id: String = orders.get("train",{}).get(night.state.current_node_id,"")
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,[],hire_early,delay,train_id)
 				step.battle = result
 				ok = result.get("settled",false)
+				if not train_id.is_empty(): ok = ok and result.get("target_training",{}).get("paid")==8
 				if delay >= 0:
 					ok = ok and result.get("relief",{}).get("placed",false)
 				if not ordered_id.is_empty() and delay < 0:
@@ -153,7 +192,14 @@ func run() -> void:
 				if camp: step.offered = night.state.offers.map(func(card): return card.id)
 				ok = night.leave_node().ok
 			"rest":
-				if camp and (night.state.current_node_id == "n06" or (relay and night.state.current_node_id == "n09" and (night.state.roster.is_empty() or duo))):
+				var reserve: String = orders.get("camp",{}).get(night.state.current_node_id,"")
+				if not reserve.is_empty():
+					var id := reserve
+					var cash: float = night.state.incense
+					var accepted := await rest_via_menu(night,id)
+					step.hire = {"id":id,"paid":cash-night.state.incense,"saved_and_reloaded":accepted}
+					ok = accepted and is_equal_approx(step.hire.paid,12.0)
+				elif camp and (night.state.current_node_id == "n06" or (relay and night.state.current_node_id == "n09" and (night.state.roster.is_empty() or duo))):
 					if night.state.current_node_id == "n09":
 						reserve_id = "H20" if reserve_id == "H18" else "H18"
 					var id := reserve_id
@@ -164,7 +210,9 @@ func run() -> void:
 					ok = hired and is_equal_approx(step.hire.paid,12.0)
 				else: ok = night.finish_rest().ok
 			_: ok = false
-		if policy.begins_with("relief-"):
+		if policy in REAR_POLICIES:
+			step.survivors = night.state.roster.map(func(u): return {"uid":u.uid,"id":u.id,"post":u.post,"hp":u.hp,"max_hp":u.max_hp})
+		if policy.begins_with("relief-") or policy in REAR_POLICIES:
 			step.roster_after = night.state.roster.map(func(unit): return [unit.uid,unit.id,unit.post])
 		for unit in night.state.roster:
 			if root.get_node("Data").get_unit(unit.id).get("所属","") != faction and not unit.id in report.foreign:

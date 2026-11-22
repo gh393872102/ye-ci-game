@@ -264,6 +264,8 @@ func _clear_content(title: String) -> void:
 	offer_status.clear()
 	target_hint = null
 	var rect: Rect2 = {"purchase":PURCHASE_RECT, "deploy":DEPLOY_RECT, "upgrade":UPGRADE_RECT}.get(current_panel, ACTION_RECT)
+	if current_panel=="purchase" and register_relief:
+		rect = rect.grow_individual(0,84,0,0)
 	panel.position = rect.position
 	panel.size = rect.size
 	if not title.is_empty():
@@ -477,11 +479,8 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	illustration.color = Color("130f13")
 	illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	column.add_child(illustration)
-	var portrait_index := id.substr(1).to_int()-1
-	if register_relief and id.begins_with("H") and portrait_index >= 0 and portrait_index < 32:
-		var bust := AtlasTexture.new()
-		bust.atlas = preload("res://assets/portraits/p8/relief-busts.webp")
-		bust.region = Rect2((portrait_index % 8)*192,floori(portrait_index/8.0)*128,192,128)
+	var bust: Texture2D = Appearance.bust_texture(id) if register_relief else null
+	if bust:
 		var image := TextureRect.new()
 		image.texture = bust
 		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -512,6 +511,11 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 	var button := _button(column, "buy_" + id, price, _purchase.bind(id), offer.allowed, offer.reason)
 	button.add_theme_font_size_override("font_size", 18)
 	button.custom_minimum_size.y = 36
+	if register_relief:
+		var train := _button(column,"prepare_"+id,"%d 香火守册 · 看训练" % offer.cost,_purchase.bind(id,true),offer.allowed,offer.reason)
+		train.custom_minimum_size.y = 32
+		train.add_theme_font_size_override("font_size",16)
+		train.tooltip_text = "付 %d 香火派驻，暂停查看训练；确认训练另付 %d。" % [offer.cost,session.rules.upgrade.cost]
 
 func _offer_status_text(offer: Dictionary) -> String:
 	if not offer.allowed: return tr(offer.reason)
@@ -528,7 +532,7 @@ func _purchase_page(direction: int) -> void:
 	purchase_page += direction
 	_build_purchase()
 
-func _purchase(id: String) -> void:
+func _purchase(id: String, inspect_training := false) -> void:
 	var answer: Dictionary = _issue("purchase", {"id":id})
 	_feedback(answer)
 	if answer.ok:
@@ -537,7 +541,9 @@ func _purchase(id: String) -> void:
 			if stationed.ok:
 				close_panel()
 				feedback.text = "%s已到%s" % [stationed.unit.display_name,tr("POST_REGISTER")]
-				Clock.set_paused(paused_before_purchase)
+				if inspect_training:
+					select_unit(stationed.unit,true)
+				else: Clock.set_paused(paused_before_purchase)
 			else:
 				_issue("cancel_purchase")
 				_feedback(stationed)
@@ -611,7 +617,7 @@ func select_post(post_id: String, quick := false) -> void:
 	else:
 		_set_target_hint(feedback.text)
 
-func select_unit(unit: Node2D) -> void:
+func select_unit(unit: Node2D, inspect_training := false) -> void:
 	if not is_instance_valid(unit) or unit.dead or not session.active:
 		return
 	if not read_only() and current_panel == "ritual" and unit.side == "yegui":
@@ -623,8 +629,11 @@ func select_unit(unit: Node2D) -> void:
 	selected.selected = true
 	selected.queue_redraw()
 	Clock.set_paused(true)
-	current_panel = "unit"
-	_build_card()
+	if inspect_training:
+		open_upgrade()
+	else:
+		current_panel = "unit"
+		_build_card()
 
 func _build_card() -> void:
 	for child in unit_panel.get_children():

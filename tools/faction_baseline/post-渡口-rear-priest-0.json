@@ -1,0 +1,497 @@
+{
+	"faction": "守香司",
+	"foreign": [],
+	"outcome": "defeat",
+	"phase": "mercy",
+	"policy_finished": true,
+	"reason": "P4_END_REGISTER_CAPTURED",
+	"seed": "渡口",
+	"steps": [
+		{
+			"choice": "n01",
+			"phase": "map",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_register"
+				],
+				[
+					"night_2",
+					"H06",
+					"post_hall_door"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_register",
+					"uid": "night_1"
+				},
+				{
+					"hp": 62.0,
+					"id": "H06",
+					"max_hp": 62.0,
+					"post": "post_hall_door",
+					"uid": "night_2"
+				}
+			]
+		},
+		{
+			"battle": {
+				"first_occupation": {},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 20.0,
+				"node": "n01",
+				"phase": "reward",
+				"posts": {
+					"H03": "post_register",
+					"H06": "post_hall_door"
+				},
+				"result": {
+					"elapsed": 180.000000000035,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 2,
+					"incense": 53.1999999999907,
+					"killer_id": "",
+					"mode": "shouxiang",
+					"names": 8.0,
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"remaining": 0.0,
+					"tide_alive": 18
+				},
+				"roster_price": 17.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_register"
+				],
+				[
+					"night_2",
+					"H06",
+					"post_hall_door"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_register",
+					"uid": "night_1"
+				},
+				{
+					"hp": 62.0,
+					"id": "H06",
+					"max_hp": 62.0,
+					"post": "post_hall_door",
+					"uid": "night_2"
+				}
+			]
+		},
+		{
+			"choice": "p7_Y11",
+			"phase": "reward",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_register"
+				],
+				[
+					"night_2",
+					"H06",
+					"post_hall_door"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_register",
+					"uid": "night_1"
+				},
+				{
+					"hp": 62.0,
+					"id": "H06",
+					"max_hp": 62.0,
+					"post": "post_hall_door",
+					"uid": "night_2"
+				}
+			]
+		},
+		{
+			"choice": "n02",
+			"phase": "map",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_register"
+				],
+				[
+					"night_2",
+					"H06",
+					"post_hall_door"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_register",
+					"uid": "night_1"
+				},
+				{
+					"hp": 62.0,
+					"id": "H06",
+					"max_hp": 62.0,
+					"post": "post_hall_door",
+					"uid": "night_2"
+				}
+			]
+		},
+		{
+			"phase": "market",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_register"
+				],
+				[
+					"night_2",
+					"H06",
+					"post_hall_door"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_register",
+					"uid": "night_1"
+				},
+				{
+					"hp": 62.0,
+					"id": "H06",
+					"max_hp": 62.0,
+					"post": "post_hall_door",
+					"uid": "night_2"
+				}
+			]
+		},
+		{
+			"choice": "n03",
+			"orders": [
+				{
+					"id": "H03",
+					"ok": true,
+					"post": "post_rear"
+				},
+				{
+					"id": "H06",
+					"ok": true,
+					"post": "post_register"
+				}
+			],
+			"phase": "map",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_rear"
+				],
+				[
+					"night_2",
+					"H06",
+					"post_register"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_rear",
+					"uid": "night_1"
+				},
+				{
+					"hp": 62.0,
+					"id": "H06",
+					"max_hp": 62.0,
+					"post": "post_register",
+					"uid": "night_2"
+				}
+			]
+		},
+		{
+			"battle": {
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H03",
+							"post": "post_rear",
+							"room": "rear_exit"
+						}
+					],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 190.250000000044
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 60.0,
+				"node": "n03",
+				"phase": "reward",
+				"posts": {
+					"H03": "post_rear",
+					"H06": "post_register"
+				},
+				"relief": {
+					"available": [
+						"H01",
+						"H06"
+					],
+					"balance_before": 54.5879999999975,
+					"catalog_price": 12.0,
+					"id": "H01",
+					"occupation": 8.01666666666664,
+					"offered": true,
+					"paid": 12.0,
+					"placed": true,
+					"post": "post_register",
+					"time": 198.25000000005,
+					"vacancies": 3
+				},
+				"result": {
+					"elapsed": 210.000000000059,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 1,
+					"incense": 40.4079999999959,
+					"killer_id": "",
+					"mode": "shouxiang",
+					"names": 9.25833333333349,
+					"outcome": "victory",
+					"reason": "P4_END_HELD_TO_DAYBREAK",
+					"remaining": 0.0,
+					"tide_alive": 32
+				},
+				"roster_price": 17.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_rear"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_rear",
+					"uid": "night_1"
+				}
+			]
+		},
+		{
+			"choice": "p7_Y14",
+			"phase": "reward",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_rear"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_rear",
+					"uid": "night_1"
+				}
+			]
+		},
+		{
+			"choice": "n04",
+			"phase": "map",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_rear"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_rear",
+					"uid": "night_1"
+				}
+			]
+		},
+		{
+			"choice": "light",
+			"phase": "event",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_rear"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_rear",
+					"uid": "night_1"
+				}
+			]
+		},
+		{
+			"choice": "n05",
+			"phase": "map",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_rear"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_rear",
+					"uid": "night_1"
+				}
+			]
+		},
+		{
+			"battle": {
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H03",
+							"post": "post_rear",
+							"room": "rear_exit"
+						}
+					],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 175.016666666698
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 48.4079999999959,
+				"node": "n05",
+				"phase": "mercy",
+				"posts": {
+					"H03": "post_rear"
+				},
+				"result": {
+					"elapsed": 187.000000000041,
+					"first_breach": {
+						"door": "door_outer",
+						"time": 56.2166666666648
+					},
+					"humans_alive": 1,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 22.9999999999407,
+					"tide_alive": 32
+				},
+				"roster_price": 8.0,
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"phase": "battle",
+			"roster_after": [
+				[
+					"night_1",
+					"H03",
+					"post_rear"
+				]
+			],
+			"survivors": [
+				{
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"post": "post_rear",
+					"uid": "night_1"
+				}
+			]
+		}
+	],
+	"upgrade_at_n03": false
+}

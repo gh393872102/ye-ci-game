@@ -2,6 +2,12 @@
 
 本实验用正式 Combat.tscn 和双席胜负裁决，比较初始编制分别来自一司与一谱的战斗。每行依次与无名潮、习俗厉、大形、无册谱交战。每局都让引擎自然结算。JSON 逐局给出守军与岗位、没有合法岗位或不在购买表中的角色、攻方名单、赢家、原因、模拟秒数及结算时存活数。
 
+## 守香司的后厢岗位与援军训练
+
+在仓库根目录运行 `godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 rear-hall-return 渡口` 可复跑三人回册路线。把策略替换为 `rear-carry` 可比较两人回册，`rear-eighth` 在第八节点追加一次训练，`rear-camp-book` 在第六节点请沈册，`rear-camp-pair` 在第九节点再请祝禧。种子另有灯市、秋社。配置表逐项列出第二战岗位、占领多久后派援、各节点的付费训练和休整决定。
+
+`survivors` 是节点结束后的角色实例、生命与岗位，`relief.paid` 只计派驻，`target_training.paid` 单计训练，`hire.paid` 计营地费用。战斗结算与存活人数需要同时读。原生 `TideFrames.gd -- --train-probe` 需1920×1080显示，另有 `--rear-probe` 检查地图换岗存读。运行 `godot --headless --script tools/faction_baseline/GuardFinal.gd` 会解压随附的真实末战地图存档，分别训练祝禧0、1、2次并独立结算。详细结果与截图见[优化档案](../../docs/optimization/README.md)。
+
 ## 普通守香 · 册房求援
 
 从四司入口的守香司编制，经正常节点与战斗结算，比较同一名援军到册房的时机。下面的命令在仓库根目录执行。用不同存档目录可以并行测试。

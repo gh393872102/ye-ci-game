@@ -29,6 +29,9 @@ func run() -> void:
 	shell.faction_picker.item_selected.emit(3)
 	shell.seed_input.text = "渡口"
 	shell.title_buttons.shouxiang.pressed.emit()
+	var rear := {}
+	if OS.get_cmdline_user_args().has("--rear-probe"):
+		rear = await probe_rear(host)
 	host.choose_node("n01")
 	var battle: Node = host.combat
 	var sim: Node = battle.get_node("Simulation")
@@ -129,11 +132,16 @@ func run() -> void:
 		filename = "native-lamp.json"
 		result.passed = passed and "问灯" in str(deploy_feedback.get("feedback",""))
 		passed = result.passed
-	if OS.get_cmdline_user_args().has("--relief-probe"):
+	if OS.get_cmdline_user_args().has("--relief-probe") or OS.get_cmdline_user_args().has("--train-probe"):
 		result.relief = await probe_relief(host)
 		passed = passed and result.relief.passed
 		result.passed = passed
-		filename = "native-relief.json"
+		filename = "native-train.json" if OS.get_cmdline_user_args().has("--train-probe") else "native-relief.json"
+	if not rear.is_empty():
+		result.rear = rear
+		passed = passed and rear.passed
+		result.passed = passed
+		filename = "native-rear.json"
 	FileAccess.open("res://tools/faction_baseline/"+filename,FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",passed," frames ",result.frame_percentile_ms," visible ",visible_min,"..",visible_max," input samples ",input_ms.size())
 	DirAccess.remove_absolute(host.save_path)
@@ -160,6 +168,8 @@ func probe_relief(host: Node) -> Dictionary:
 	session.occupation = 2
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
+	var training := OS.get_cmdline_user_args().has("--train-probe")
+	if training: session.incense = 20.0
 	var cash: float = session.incense
 	var row := {"passed":false,"fixture":"paused simulation updates, one reported attacker, no guard, 2 s occupation"}
 	if not panel.relief_button.is_visible_in_tree(): return row
@@ -170,7 +180,7 @@ func probe_relief(host: Node) -> Dictionary:
 	if not panel.register_relief or not root.get_node("Clock").paused: return row
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_webp("/tmp/r17-relief.webp",false,0.87)
-	var buy: Button = panel.content.find_child("buy_H22",true,false)
+	var buy: Button = panel.content.find_child("prepare_H22" if training else "buy_H22",true,false)
 	if not is_instance_valid(buy) or buy.disabled or not panel.panel_scroll.get_global_rect().encloses(buy.get_global_rect()): return row
 	sent = Time.get_ticks_usec()
 	click(buy)
@@ -178,5 +188,41 @@ func probe_relief(host: Node) -> Dictionary:
 	await RenderingServer.frame_post_draw
 	row.payment_to_feedback_ms = (Time.get_ticks_usec()-sent)/1000.0
 	row.feedback = panel.feedback.text
+	if training:
+		row.fixture += ", 20 incense for 10 recruitment and 8 optional training"
+		if row.paid!=10 or panel.current_panel!="upgrade" or not root.get_node("Clock").paused or panel.selected.unit_id!="H22": return row
+		await RenderingServer.frame_post_draw
+		root.get_texture().get_image().save_jpg("/tmp/r18-training.jpg",0.74)
+		var hp: float = panel.selected.hp
+		var balance: float = session.incense
+		click(panel.buttons.upgrade_confirm)
+		await RenderingServer.frame_post_draw
+		row.training_paid = balance-session.incense
+		row.hp_gain = panel.selected.hp-hp
+		row.passed = row.training_paid==8 and row.hp_gain==15 and panel.selected.current_post=="post_register"
+		return row
 	row.passed = row.paid==10 and sim.humans.any(func(u):return u.unit_id=="H22" and u.current_post=="post_register") and "三戒" in row.feedback and not root.get_node("Clock").paused and session.pending_purchase.is_empty()
+	return row
+
+func probe_rear(host: Node) -> Dictionary:
+	var row := {"passed":false}
+	var money: float = host.run.state.incense
+	for target in ["post_rear","post_register"]:
+		var picker: OptionButton = host.panel.find_child("ReservePost",true,false)
+		var selected := -1
+		for index in range(1,picker.item_count):
+			var move: Dictionary = picker.get_item_metadata(index)
+			if move.id=="H21" and move.to==target: selected=index
+		if selected<0: return row
+		picker.item_selected.emit(selected)
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		if not host.run.state.roster.any(func(u):return u.id=="H21" and u.post==target): return row
+		if target=="post_rear":
+			host.continue_run()
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			if not host.run.state.roster.any(func(u):return u.id=="H21" and u.post==target): return row
+			root.get_texture().get_image().save_jpg("/tmp/r18-map.jpg",0.74)
+	row.passed = money==host.run.state.incense
 	return row

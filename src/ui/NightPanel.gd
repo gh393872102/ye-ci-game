@@ -244,6 +244,9 @@ func _post_picker() -> void:
 	for option in host.run.reserve_post_options():
 		picker.add_item("%s · %s → %s" % [_unit_name(option.id),tr(str(option.from).to_upper()),tr(str(option.to).to_upper())])
 		picker.set_item_metadata(picker.item_count-1,option)
+		if option.to == "post_rear":
+			picker.set_item_tooltip(picker.item_count-1,"从后厢开战，原岗空出。角色仍会按自己的规则支援。")
+	picker.select(0)
 	picker.disabled = picker.item_count == 1
 	if picker.disabled: picker.set_item_text(0,"下场布防 · 暂无可调岗位")
 	_page.add_child(picker)
@@ -377,7 +380,22 @@ func _roster(rect: Rect2) -> void:
 		if state.has("opening_faction") and str(unit.id).begins_with("H"): field.text += " · " + tr(str(unit.post).to_upper())
 		field.add_theme_font_size_override("font_size", 20)
 		field.add_theme_color_override("font_color", Ink.PAPER)
-		rows.add_child(field)
+		var portrait: Texture2D = preload("res://src/units/UnitAppearance.gd").bust_texture(unit.id) if state.has("opening_faction") else null
+		if portrait:
+			var row := HBoxContainer.new()
+			row.add_theme_constant_override("separation",10)
+			rows.add_child(row)
+			var face := TextureRect.new()
+			face.texture = portrait
+			face.custom_minimum_size = Vector2(72,48)
+			face.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			face.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			row.add_child(face)
+			field.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			row.add_child(field)
+		else:
+			rows.add_child(field)
 	if state.roster.is_empty():
 		var empty := Label.new()
 		empty.text = tr("P5_NONE")
