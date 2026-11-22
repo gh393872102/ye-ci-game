@@ -1,0 +1,126 @@
+[
+	{
+		"elapsed": 240.0,
+		"ghost": "无名潮",
+		"ghost_ids": [
+			"G01",
+			"G02",
+			"G03",
+			"G05",
+			"G06",
+			"G07"
+		],
+		"guard_posts": {
+			"H17": "post_register",
+			"H19": "post_register",
+			"H21": "post_register",
+			"H22": "post_hall_door",
+			"H23": "post_hall_door",
+			"H24": "post_hall_door"
+		},
+		"human": "符法司",
+		"humans_alive": 4,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 8.0,
+		"reason": "P4_END_HELD_TO_DAYBREAK",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 1,
+		"winner": "shouxiang"
+	},
+	{
+		"elapsed": 169.2,
+		"ghost": "习俗厉",
+		"ghost_ids": [
+			"G09",
+			"G10",
+			"G11",
+			"G13",
+			"G14",
+			"G15"
+		],
+		"guard_posts": {
+			"H17": "post_register",
+			"H19": "post_register",
+			"H21": "post_register",
+			"H22": "post_hall_door",
+			"H23": "post_hall_door",
+			"H24": "post_hall_door"
+		},
+		"human": "符法司",
+		"humans_alive": 0,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 5.80416666666679,
+		"reason": "P4_END_RITUAL_LINE_BROKEN",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 4,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 141.2,
+		"ghost": "大形",
+		"ghost_ids": [
+			"G17",
+			"G18",
+			"G19",
+			"G21",
+			"G22",
+			"G23"
+		],
+		"guard_posts": {
+			"H17": "post_register",
+			"H19": "post_register",
+			"H21": "post_register",
+			"H22": "post_hall_door",
+			"H23": "post_hall_door",
+			"H24": "post_hall_door"
+		},
+		"human": "符法司",
+		"humans_alive": 3,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 6,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 183.783,
+		"ghost": "无册谱",
+		"ghost_ids": [
+			"G25",
+			"G26",
+			"G27",
+			"G29",
+			"G30",
+			"G31"
+		],
+		"guard_posts": {
+			"H17": "post_register",
+			"H19": "post_register",
+			"H21": "post_register",
+			"H22": "post_hall_door",
+			"H23": "post_hall_door",
+			"H24": "post_hall_door"
+		},
+		"human": "符法司",
+		"humans_alive": 3,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 3.00000000000006,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 6,
+		"winner": "duoming"
+	}
+]

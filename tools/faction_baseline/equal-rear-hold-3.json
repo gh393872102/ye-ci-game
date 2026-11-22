@@ -1,0 +1,114 @@
+[
+	{
+		"elapsed": 240.0,
+		"ghost": "无名潮",
+		"ghost_ids": [
+			"G01",
+			"G03",
+			"G06"
+		],
+		"guard_posts": {
+			"H25": "post_register",
+			"H27": "post_register",
+			"H32": "post_register"
+		},
+		"human": "奇人司",
+		"humans_alive": 3,
+		"ineligible_guards": [
+			"H26",
+			"H28",
+			"H29",
+			"H30",
+			"H31"
+		],
+		"names": 8.0,
+		"reason": "P4_END_HELD_TO_DAYBREAK",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 1,
+		"winner": "shouxiang"
+	},
+	{
+		"elapsed": 240.0,
+		"ghost": "习俗厉",
+		"ghost_ids": [
+			"G09",
+			"G11",
+			"G14"
+		],
+		"guard_posts": {
+			"H25": "post_register",
+			"H27": "post_register",
+			"H32": "post_register"
+		},
+		"human": "奇人司",
+		"humans_alive": 2,
+		"ineligible_guards": [
+			"H26",
+			"H28",
+			"H29",
+			"H30",
+			"H31"
+		],
+		"names": 8.0,
+		"reason": "P4_END_HELD_TO_DAYBREAK",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 0,
+		"winner": "shouxiang"
+	},
+	{
+		"elapsed": 179.85,
+		"ghost": "大形",
+		"ghost_ids": [
+			"G17",
+			"G19",
+			"G22"
+		],
+		"guard_posts": {
+			"H25": "post_register",
+			"H27": "post_register",
+			"H32": "post_register"
+		},
+		"human": "奇人司",
+		"humans_alive": 0,
+		"ineligible_guards": [
+			"H26",
+			"H28",
+			"H29",
+			"H30",
+			"H31"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 3,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 186.1,
+		"ghost": "无册谱",
+		"ghost_ids": [
+			"G25",
+			"G27",
+			"G30"
+		],
+		"guard_posts": {
+			"H25": "post_register",
+			"H27": "post_register",
+			"H32": "post_register"
+		},
+		"human": "奇人司",
+		"humans_alive": 0,
+		"ineligible_guards": [
+			"H26",
+			"H28",
+			"H29",
+			"H30",
+			"H31"
+		],
+		"names": 4.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 3,
+		"winner": "duoming"
+	}
+]

@@ -89,6 +89,19 @@ static func _sprite_spec(id: String) -> Dictionary:
 				sprite_specs = catalog.get("units", {})
 	return sprite_specs.get(id, {})
 
+static func pose_texture(id: String, pose: int) -> AtlasTexture:
+	var spec := _sprite_spec(id)
+	if spec.get("frames", []).is_empty():
+		return null
+	var sheet := _sprite_sheet(spec.sheet)
+	if sheet == null:
+		return null
+	var frame: Array = spec.frames[pose] if pose >= 0 and pose < spec.frames.size() else spec.frames[0]
+	var texture := AtlasTexture.new()
+	texture.atlas = sheet
+	texture.region = Rect2(Vector2(frame[0], frame[1]) * FRAME_SIZE, FRAME_SIZE)
+	return texture
+
 static func _sprite_sheet(sheet: String) -> Texture2D:
 	if not sprite_sheets.has(sheet):
 		var path := SHEET_PATH + sheet + ".png"

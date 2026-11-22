@@ -128,7 +128,7 @@ func _draw() -> void:
 		draw_rect(Rect2(-24,-height_px-12,48 * ratio,5),Color("94b69b") if side == "xianghuo" else Color("a1766c"))
 	if hold_lock:
 		draw_rect(Rect2(-5,-101,10,6),Color("c5b47c"))
-	if role == "ritual" and brain != null and brain.channel.active:
+	if side == "xianghuo" and role == "ritual" and brain != null and brain.channel.active:
 		draw_rect(Rect2(-32,-105,64,5),Color("263438"))
 		draw_rect(Rect2(-32,-105,64 * brain.channel.progress(),5),Color("b99e76"))
 		draw_rect(Rect2(-36,-56,9,5),Color("bc6a55"))

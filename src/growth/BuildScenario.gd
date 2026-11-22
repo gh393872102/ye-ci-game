@@ -3,6 +3,7 @@ extends RefCounted
 const IDS := ["chaodu","shoumen","pomen","dengmian","shangliang","wuce"]
 const Record = preload("res://src/replay/BattleRecord.gd")
 const Archive = preload("res://src/replay/ReplayArchive.gd")
+const FACTIONS := ["shouxiangsi", "wuweisi", "fufasi", "qirensi", "wumingchao", "xisuli", "daxing", "wucepu"]
 const STEP := 1.0 / 60.0
 var combat: Node
 var scenario: Dictionary = {}
@@ -13,7 +14,7 @@ var saved_steps := -1
 var saved_actions := -1
 
 static func read_scenario(id: String) -> Dictionary:
-	if id not in IDS: return {}
+	if id not in IDS and id not in FACTIONS: return {}
 	var value = JSON.parse_string(FileAccess.get_file_as_string("res://data/nights/accept_" + id + ".json"))
 	return value if value is Dictionary else {}
 
@@ -56,7 +57,13 @@ func start(scene: Node, id: String, seed_text := "") -> Dictionary:
 			locks.append({"id":str(spec.id),"locked":true})
 			object.set_open(false)
 	var initial := {"inventory":inventory,"materials":scenario.get("materials",[]).duplicate(),"ritual_flag":str(scenario.get("ritual_flag","")),"environments":scenario.get("environments",[]).duplicate(true),"locked_paths":locks}
+	if id in FACTIONS:
+		initial.defense_objective = "hold_register"
+	if id == "wumingchao":
+		initial.water_mutation_trial = true
 	session.configure_growth(str(scenario.seed),initial)
+	if id in FACTIONS:
+		session.configure_roster(str(scenario.seed))
 	for spec in scenario.human_roster:
 		var actor: Node2D = sim.spawn_human(str(spec.id),str(spec.post))
 		actor.position = sim.post_destination(actor,actor.current_post)
@@ -136,7 +143,7 @@ func status() -> Dictionary:
 
 static func validate(scene: Node, value: Dictionary) -> Dictionary:
 	var bad := {"ok":false,"reason":"P7_INVALID_SCENARIO"}
-	if value.get("id") not in IDS or value.get("seat") not in ["shouxiang","duoming"] or not value.get("title") is String or not value.get("seed") is String: return bad
+	if (value.get("id") not in IDS and value.get("id") not in FACTIONS) or value.get("seat") not in ["shouxiang","duoming"] or not value.get("title") is String or not value.get("seed") is String: return bad
 	for key in ["human_roster","ghost_roster","inventory"]:
 		if not value.get(key) is Array: return bad
 	for key in ["incense","names","duration"]:

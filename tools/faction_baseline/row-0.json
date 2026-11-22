@@ -1,0 +1,134 @@
+[
+	{
+		"elapsed": 225.2,
+		"ghost": "无名潮",
+		"ghost_ids": [
+			"G01",
+			"G02",
+			"G03",
+			"G04",
+			"G05",
+			"G06",
+			"G07",
+			"G08"
+		],
+		"guard_posts": {
+			"H01": "post_gate_inner",
+			"H03": "post_gate_inner",
+			"H06": "post_gate_inner"
+		},
+		"human": "守香司",
+		"humans_alive": 1,
+		"ineligible_guards": [
+			"H02",
+			"H04",
+			"H05",
+			"H07",
+			"H08"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 8,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 115.583,
+		"ghost": "习俗厉",
+		"ghost_ids": [
+			"G09",
+			"G10",
+			"G11",
+			"G12",
+			"G13",
+			"G14",
+			"G15",
+			"G16"
+		],
+		"guard_posts": {
+			"H01": "post_gate_inner",
+			"H03": "post_gate_inner",
+			"H06": "post_gate_inner"
+		},
+		"human": "守香司",
+		"humans_alive": 1,
+		"ineligible_guards": [
+			"H02",
+			"H04",
+			"H05",
+			"H07",
+			"H08"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 8,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 103.85,
+		"ghost": "大形",
+		"ghost_ids": [
+			"G17",
+			"G18",
+			"G19",
+			"G20",
+			"G21",
+			"G22",
+			"G23",
+			"G24"
+		],
+		"guard_posts": {
+			"H01": "post_gate_inner",
+			"H03": "post_gate_inner",
+			"H06": "post_gate_inner"
+		},
+		"human": "守香司",
+		"humans_alive": 1,
+		"ineligible_guards": [
+			"H02",
+			"H04",
+			"H05",
+			"H07",
+			"H08"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 8,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 148.517,
+		"ghost": "无册谱",
+		"ghost_ids": [
+			"G25",
+			"G26",
+			"G27",
+			"G28",
+			"G29",
+			"G30",
+			"G31",
+			"G32"
+		],
+		"guard_posts": {
+			"H01": "post_gate_inner",
+			"H03": "post_gate_inner",
+			"H06": "post_gate_inner"
+		},
+		"human": "守香司",
+		"humans_alive": 3,
+		"ineligible_guards": [
+			"H02",
+			"H04",
+			"H05",
+			"H07",
+			"H08"
+		],
+		"names": 0.0,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 8,
+		"winner": "duoming"
+	}
+]

@@ -1,0 +1,45 @@
+{
+  "id": "wuweisi",
+  "fixture": true,
+  "title": "武卫司",
+  "seat": "shouxiang",
+  "incense": 22,
+  "names": 6,
+  "duration": 240,
+  "seed": "FACTION-PILOT-01",
+  "human_roster": [
+    {
+      "id": "H09",
+      "post": "post_gate_inner"
+    },
+    {
+      "id": "H11",
+      "post": "post_gate_inner"
+    }
+  ],
+  "ghost_roster": [
+    {
+      "id": "G01",
+      "count": 1
+    },
+    {
+      "id": "G02",
+      "count": 1
+    },
+    {
+      "id": "G05",
+      "count": 1
+    }
+  ],
+  "inventory": [
+    "I03",
+    "I01",
+    "N04"
+  ],
+  "notes": [
+    "扛门反击，防线松动时退到内门"
+  ],
+  "steps": [
+    "固定编制测试。守方有具名成员存活即可继续守祠；名册被占仍会失败。跨系增援、招募或变异后不计纯阵营成绩。"
+  ]
+}

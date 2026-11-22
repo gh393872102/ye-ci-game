@@ -22,7 +22,7 @@ func configure(seed: String, initial: Dictionary = {}) -> void:
 		rng.state = int(state.rng_state)
 		state.seals = {};state.fields = [];state.borrow_jobs = []
 	else:
-		for key in ["inventory","materials","ritual_flag","environments","locked_paths","starting_loadouts"]:
+		for key in ["inventory","materials","ritual_flag","environments","locked_paths","starting_loadouts","defense_objective","water_mutation_trial"]:
 			if initial.has(key):state[key] = initial[key].duplicate(true) if initial[key] is Array or initial[key] is Dictionary else initial[key]
 	if not state.has("stored_items"):state.stored_items={}
 	if not state.has("starting_loadouts"):state.starting_loadouts=[]
@@ -215,6 +215,11 @@ func execute(action:String,args:Dictionary)->Dictionary:
 		session._emit_command(seat,action,args.duplicate(true))
 	return result
 
+func equip_price(old_id: String, new_id: String) -> float:
+	var items: Dictionary = rules().items
+	var removal := float(items[old_id].remove_cost) if not old_id.is_empty() else 0.0
+	return removal + float(items[new_id].equip_cost)
+
 func _equip(unit:Node2D,id:String,index:int)->Dictionary:
 	if not eligible(unit):return _reject("P7_NO_SLOTS")
 	if not rules().items.has(id):return _reject("P7_UNKNOWN_ITEM")
@@ -224,7 +229,7 @@ func _equip(unit:Node2D,id:String,index:int)->Dictionary:
 	var slot:String=item.slot
 	var old:String=unit.growth.slots.arts[index] if slot=="art" else unit.growth.slots[slot]
 	if old==id or (slot=="art" and id in unit.growth.slots.arts):return _reject("P7_ALREADY_EQUIPPED")
-	var cost:float=float(item.equip_cost)+(float(rules().items[old].remove_cost) if old!="" else 0.0)
+	var cost:float=equip_price(old, id)
 	if session.incense<cost:return _reject("P7_NO_INCENSE")
 	session.incense-=cost
 	if old!="":_return_item(unit,old)
@@ -265,14 +270,19 @@ func refresh_base(unit:Node2D)->void:
 	unit.growth.base={"hp":unit.max_hp-float(unit.growth.applied.hp),"attack":unit.attack-float(unit.growth.applied.attack),"defense":unit.defense-float(unit.growth.applied.defense)}
 	_refresh(unit)
 
+func mutation_available(id: String) -> bool:
+	return rules().mutations[id].status == "active" or (id == "V05" and state.get("water_mutation_trial", false))
+
 func mutation_reason(unit: Node2D, id: String, available_incense: float) -> String:
 	if not is_instance_valid(unit) or unit.dead or unit.side != "yegui" or not rules().mutations.has(id):
 		return "P7_INVALID_SOURCE"
 	var recipe: Dictionary = rules().mutations[id]
-	if recipe.status != "active":
+	if not mutation_available(id):
 		return "P7_LOCKED_RECIPE"
 	if unit.unit_id not in recipe.sources or unit.mutation_count >= 2:
 		return "P7_INVALID_SOURCE"
+	if id == "V05" and not in_environment(unit, "water"):
+		return "P7_NEEDS_WATER"
 	if id == "V02" and unit.position.x > Rules.body_to_px(float(sim().tide.config.climb.from_x)):
 		return "P4_MUTATION_PAST_CLIMB"
 	if available_incense < float(recipe.cost):

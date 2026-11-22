@@ -2,6 +2,8 @@ extends CanvasLayer
 ## Inventory is supplied by the current night or an explicitly authored trial.
 const Ink = preload("res://src/ui/LedgerInk.gd")
 
+const Appearance = preload("res://src/units/UnitAppearance.gd")
+
 var decisions: CanvasLayer
 var unit: Node2D
 var surface: PanelContainer
@@ -20,6 +22,7 @@ var item_ids: Array[String] = []
 var recipe_ids: Array[String] = []
 var partner_ids: Array[String] = []
 var material_ids: Array[String] = []
+var selected_pose := 0
 var selected_slot := 0
 var selected_item := ""
 var selected_recipe := ""
@@ -176,16 +179,31 @@ func _equipment(options: Dictionary) -> void:
 		_label(left, tr("P6_READ_ONLY"), 16)
 
 func _refresh_description() -> void:
+	var slots: Dictionary = unit.growth.get("slots", {})
+	var arts: Array = slots.get("arts", ["", ""])
+	var slot: String = ["censer", "art", "art", "nameplate"][selected_slot]
+	var old_id: String = arts[selected_slot - 1] if slot == "art" else slots.get(slot, "")
+	var items: Dictionary = Data.growth_rules.items
+	var old: Dictionary = items.get(old_id, {})
+	description.text = tr("P7_CURRENT_EMPTY") if old.is_empty() else tr("P7_CURRENT_ITEM") % [old.name, old.description]
 	if selected_item.is_empty():
-		description.text = tr("P7_INVENTORY_NOTE")
+		description.text += "\n" + tr("P7_INVENTORY_NOTE")
 		return
-	var item: Dictionary = Data.growth_rules.items[selected_item]
-	description.text = str(item.get("description","")) + "\n" + tr("P7_ITEM_FEES") % [item.get("equip_cost",0),item.get("remove_cost",0)]
+	var item: Dictionary = items[selected_item]
+	var price: float = decisions.session.growth.equip_price(old_id, selected_item)
+	description.text += "\n" + tr("P7_CANDIDATE_ITEM") % [item.name, item.description]
+	description.text += "\n" + tr("P7_SWAP_PRICE") % [str(price).trim_suffix(".0"), str(item.remove_cost).trim_suffix(".0")]
 	if selected_item == "I20": description.text += "\n" + tr("P7_ITEM_INTERFACE")
 	elif item.get("status","") in ["interface","locked"]: description.text += "\n" + tr("P7_NOT_OPEN")
 	if selected_item == "I19" and decisions.session.growth.state.get("locked_paths",[]).is_empty(): description.text += "\n" + tr("P7_NO_LOCK")
 	if buttons.has("equip_item") and is_instance_valid(buttons.equip_item):
-		buttons.equip_item.disabled = not _editable() or _item_unavailable(selected_item) or not decisions.session.growth.eligible(unit)
+		var duplicate := old_id == selected_item or (slot == "art" and selected_item in arts)
+		var affordable: bool = decisions.available_incense() >= price
+		if duplicate:
+			description.text += "\n" + tr("P7_ALREADY_EQUIPPED")
+		elif not affordable:
+			description.text += "\n" + tr("P7_NO_INCENSE")
+		buttons.equip_item.disabled = not _editable() or _item_unavailable(selected_item) or not decisions.session.growth.eligible(unit) or duplicate or not affordable
 
 func _item_unavailable(id: String) -> bool:
 	return id != "I20" and Data.growth_rules.items.get(id,{}).get("status","") in ["interface","locked"]
@@ -198,21 +216,49 @@ func _unequip() -> void:
 	_send("unequip_item",{"unit_id":unit.instance_id,"slot":["censer","art","art","nameplate"][selected_slot],"index":selected_slot - 1 if selected_slot in [1,2] else 0})
 
 func _forms(_options: Dictionary) -> void:
-	_label(content, tr("P7_FORM_HELP"), 17)
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 12)
+	var header := HBoxContainer.new()
+	content.add_child(header)
+	var help := _label(header, tr("P7_FORM_HELP"), 17)
+	help.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	var poses := OptionButton.new()
+	poses.name = "pose_picker"
+	for key in ["P7_POSE_IDLE", "P7_POSE_WALK", "P7_POSE_ACT"]:
+		poses.add_item(tr(key))
+	poses.select(selected_pose)
+	header.add_child(poses)
+	poses.item_selected.connect(func(index: int): selected_pose = index)
+	var row := GridContainer.new()
+	row.columns = 3
+	row.add_theme_constant_override("h_separation", 12)
 	content.add_child(row)
 	for id in Data.growth_rules.mutations:
 		var form: Dictionary = Data.growth_rules.mutations[id]
-		if form.status != "active":
+		if not decisions.session.growth.mutation_available(id):
 			continue
 		var reason: String = decisions.session.growth.mutation_reason(unit, id, decisions.available_incense())
 		var result: Dictionary = Data.get_unit(form.result_id)
+		var card := HBoxContainer.new()
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(card)
+		var texture := Appearance.pose_texture(form.result_id, selected_pose)
+		if texture != null:
+			var preview := TextureRect.new()
+			preview.name = "preview_" + str(id)
+			preview.texture = texture
+			preview.custom_minimum_size = Appearance.FRAME_SIZE
+			preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			preview.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+			preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			card.add_child(preview)
+			poses.item_selected.connect(func(index: int): preview.texture = Appearance.pose_texture(form.result_id, index))
 		var column := VBoxContainer.new()
 		column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(column)
+		card.add_child(column)
 		var text: String = tr("P9_MUTATE_PREVIEW") % [form.name, result.get("名称", form.result_id), form.cost]
 		_button(column, "mutate_" + id, text, _send.bind("mutate_form", {"unit_id":unit.instance_id, "form_id":id}), _editable() and reason.is_empty())
+		_label(column, tr("P7_FORM_ROLE") % [result.get("定位", ""), result["速度"]], 17)
 		_label(column, tr("P9_MUTATE_BASE") % [result["生命"], result["攻击"], result["防御"]], 17)
 		if not reason.is_empty():
 			_label(column, tr(reason), 16)

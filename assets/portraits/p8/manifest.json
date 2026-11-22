@@ -123,17 +123,18 @@
     "H09": {
       "id": "H09",
       "name": "铁肩",
-      "source": "Project-generated portrait source (local generation metadata withheld)",
+      "source": "项目原有铁肩立绘的定向重绘，保留门板盾、身份和祠门设定",
       "path": "res://assets/portraits/p8/H09.png",
       "status": "placeholder",
-      "qa": "Viewed in native 1920x1080 board, 8 independent source portraits per board. Distinct character/prop/pose; placeholder, not final 1.0 art.",
+      "qa": "已审阅静帧，肩顶住门盾，尚待真机图鉴和真人辨识验收。",
       "size": [
         1024,
         1536
       ],
-      "sha256": "a6fffbbdc10adb6599655eff31a51a426f5340e0fb0663195417e82990eabe8d",
+      "sha256": "1e978fc72905ddb5fc862cd85a31a14c9d54f5cdc8aae4b7d58dd69c11c5ea9b",
       "replacement_required": true,
-      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card."
+      "replacement_plan": "Replace this ID independently with commissioned final portrait, preserve file path and source-row identity; recheck face region, color/line/unknown states and 720/1080 complete card.",
+      "previous_sha256": "a6fffbbdc10adb6599655eff31a51a426f5340e0fb0663195417e82990eabe8d"
     },
     "H10": {
       "id": "H10",

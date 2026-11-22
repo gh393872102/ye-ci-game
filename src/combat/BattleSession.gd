@@ -611,7 +611,7 @@ func _advance_repairs(delta: float) -> void:
 
 func _ritual_line_broken() -> bool:
 	for unit in simulation.humans:
-		if not unit.dead and unit.role == "ritual":
+		if not unit.dead and (unit.role == "ritual" or (growth.enabled and growth.state.get("defense_objective", "") == "hold_register" and unit.unit_id.begins_with("H"))):
 			return false
 	if growth.enabled:
 		# P7 adds priests cheaper than H01. Evaluate the actual purchase space,

@@ -38,6 +38,15 @@ func _ready() -> void:
 		var id: String = Builds[index]
 		var rect := Rect2(64+(index%3)*604,250+(index/3)*310,560,240)
 		_button(menu,"build_"+id,tr("P7_BUILD_"+id.to_upper()) + "\n\n" + tr("P7_BUILD_HELP_"+id.to_upper()),rect,start_build.bind(id))
+	var factions := OptionButton.new()
+	factions.name = "faction_trial"
+	factions.position = Vector2(64, 890)
+	factions.size = Vector2(420, 62)
+	menu.add_child(factions)
+	var ids: Array = preload("res://src/growth/BuildScenario.gd").FACTIONS
+	for id in ids:
+		factions.add_item(tr("P7_BUILD_" + str(id).to_upper()))
+	_button(menu, "start_faction", "进入单阵营试炼", Rect2(510, 890, 270, 62), func(): start_build(ids[factions.selected]))
 	menu_feedback = _label(menu,"",Rect2(64,1000,1600,45),20)
 	toolbar = Control.new()
 	toolbar.theme = skin
@@ -91,7 +100,10 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	if scenario == null or not is_instance_valid(combat): return
 	var decision: CanvasLayer = combat.get_node("Decisions")
-	notes_scroll.visible = not decision.panel.visible and decision.activity.text.is_empty()
+	var growth_open: bool = decision.growth_panel.surface.visible
+	notes_scroll.visible = not growth_open and not decision.panel.visible and decision.activity.text.is_empty()
+	buttons.inspect_next.visible = not growth_open
+	buttons.growth.visible = not growth_open
 	feedback.visible = decision.feedback.text.is_empty()
 	if not combat.get_node("Session").result.is_empty() and not recording_saved:
 		var result: Dictionary = scenario.finish_recording()

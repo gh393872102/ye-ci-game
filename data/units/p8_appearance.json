@@ -241,10 +241,10 @@
       "large": false,
       "portrait": "res://assets/portraits/p8/H09.png",
       "face_region": [
-        0.34,
-        0.055,
-        0.32,
-        0.22
+        0.47,
+        0.15,
+        0.2,
+        0.15
       ],
       "default_face": "faced",
       "motion": "heavy_brace"

@@ -36,7 +36,13 @@ func visual(kind:String,unit:Node2D,duration:=1.2)->void:
 	engine.visual(kind,unit,unit.position,duration)
 func event(kind:String,unit:Node2D,detail:="")->void:engine.event(kind,unit,detail)
 func damage(source:Node2D,target:Node2D,value:float,kind:String)->void:
-	if is_instance_valid(target) and not target.dead:sim().deal_damage(source,target,kind,value)
+	if not is_instance_valid(target):
+		return
+	if target.is_in_group("units") and target.dead:
+		return
+	if not target.is_in_group("units") and target.durability <= 0:
+		return
+	sim().deal_damage(source,target,kind,value)
 func interrupt(unit:Node2D)->void:
 	if unit.side=="xianghuo" and unit.brain!=null and unit.brain.channel.active:unit.brain.channel.cancel("P8_SKILL_INTERRUPTED")
 func silent(unit:Node2D)->bool:
@@ -116,7 +122,7 @@ func cast(unit:Node2D,args:Dictionary={})->Dictionary:
 			return commit(unit,"long_claw",target.instance_id)
 		"G07","G09":
 			# The existing wall/beam route is the only movement source; no teleport.
-			if unit.brain.stage not in ["climb","upper","descend"]:return result(false)
+			if unit.side != "yegui" or unit.brain.stage not in ["climb","upper","descend"]:return result(false)
 			return commit(unit,"narrow_window" if unit.unit_id=="G07" else "beam_pounce",unit.brain.stage)
 		"G08":
 			return result(false) # Reactive explosion is on_death/ritual_completed, once.

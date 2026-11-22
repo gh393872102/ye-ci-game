@@ -1,0 +1,134 @@
+[
+	{
+		"elapsed": 219.717,
+		"ghost": "无名潮",
+		"ghost_ids": [
+			"G01",
+			"G02",
+			"G03",
+			"G04",
+			"G05",
+			"G06",
+			"G07",
+			"G08"
+		],
+		"guard_posts": {
+			"H17": "post_gate_inner",
+			"H19": "post_gate_inner",
+			"H21": "post_gate_inner",
+			"H22": "post_barricade_outer_court",
+			"H23": "post_barricade_outer_court",
+			"H24": "post_barricade_outer_court"
+		},
+		"human": "符法司",
+		"humans_alive": 6,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 3,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 111.267,
+		"ghost": "习俗厉",
+		"ghost_ids": [
+			"G09",
+			"G10",
+			"G11",
+			"G12",
+			"G13",
+			"G14",
+			"G15",
+			"G16"
+		],
+		"guard_posts": {
+			"H17": "post_gate_inner",
+			"H19": "post_gate_inner",
+			"H21": "post_gate_inner",
+			"H22": "post_barricade_outer_court",
+			"H23": "post_barricade_outer_court",
+			"H24": "post_barricade_outer_court"
+		},
+		"human": "符法司",
+		"humans_alive": 2,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 7,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 120.917,
+		"ghost": "大形",
+		"ghost_ids": [
+			"G17",
+			"G18",
+			"G19",
+			"G20",
+			"G21",
+			"G22",
+			"G23",
+			"G24"
+		],
+		"guard_posts": {
+			"H17": "post_gate_inner",
+			"H19": "post_gate_inner",
+			"H21": "post_gate_inner",
+			"H22": "post_barricade_outer_court",
+			"H23": "post_barricade_outer_court",
+			"H24": "post_barricade_outer_court"
+		},
+		"human": "符法司",
+		"humans_alive": 6,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 5.00000000000017,
+		"reason": "P4_END_REGISTER_CAPTURED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 8,
+		"winner": "duoming"
+	},
+	{
+		"elapsed": 84.15,
+		"ghost": "无册谱",
+		"ghost_ids": [
+			"G25",
+			"G26",
+			"G27",
+			"G28",
+			"G29",
+			"G30",
+			"G31",
+			"G32"
+		],
+		"guard_posts": {
+			"H17": "post_gate_inner",
+			"H19": "post_gate_inner",
+			"H21": "post_gate_inner",
+			"H22": "post_barricade_outer_court",
+			"H23": "post_barricade_outer_court",
+			"H24": "post_barricade_outer_court"
+		},
+		"human": "符法司",
+		"humans_alive": 6,
+		"ineligible_guards": [
+			"H18",
+			"H20"
+		],
+		"names": 0.0,
+		"reason": "P4_END_REGISTER_EXTINGUISHED",
+		"seed": "YECI-FACTION-BASELINE-01",
+		"tide_alive": 8,
+		"winner": "duoming"
+	}
+]

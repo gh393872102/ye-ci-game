@@ -1,0 +1,53 @@
+{
+  "id": "daxing",
+  "fixture": true,
+  "title": "大形",
+  "seat": "duoming",
+  "incense": 22,
+  "names": 6,
+  "duration": 240,
+  "seed": "FACTION-PILOT-01",
+  "human_roster": [
+    {
+      "id": "H01",
+      "post": "post_gate_inner"
+    },
+    {
+      "id": "H03",
+      "post": "post_gate_inner"
+    },
+    {
+      "id": "H06",
+      "post": "post_gate_inner"
+    }
+  ],
+  "ghost_roster": [
+    {
+      "id": "G17",
+      "count": 1
+    },
+    {
+      "id": "G19",
+      "count": 1
+    },
+    {
+      "id": "G20",
+      "count": 1
+    },
+    {
+      "id": "G22",
+      "count": 1
+    }
+  ],
+  "inventory": [
+    "I10",
+    "Y11",
+    "N01"
+  ],
+  "notes": [
+    "重型鬼压门，牵制后排"
+  ],
+  "steps": [
+    "固定编制测试。守方有具名成员存活即可继续守祠；名册被占仍会失败。跨系增援、招募或变异后不计纯阵营成绩。"
+  ]
+}

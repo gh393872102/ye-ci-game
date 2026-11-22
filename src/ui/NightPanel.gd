@@ -191,6 +191,10 @@ func _map(history: bool) -> void:
 				"traveled":node.id in host.run.state.visited and next in host.run.state.visited,
 				"color":routes[next]})
 	_route_layer.queue_redraw()
+	if host.run.state.has("growth") and not history:
+		var economy: Dictionary = host.run.config.growth_night
+		var curve := tr("P7_NIGHT_RESOURCE_CURVE") % [economy.incense_regen, economy.victory_incense, host.run.config.incense_cap]
+		Ink.label(layer, curve, Rect2(474, 10, 776, 45), 19, Ink.PAPER)
 	var legend_keys := ["safe", "risk", "special"]
 	for index in legend_keys.size():
 		var key: String = legend_keys[index]
