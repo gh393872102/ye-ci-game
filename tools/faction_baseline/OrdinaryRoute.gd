@@ -1,16 +1,18 @@
 extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 ## Paired ordinary routes. Each policy changes only its documented orders.
+const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"]
+
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
 	var policy := args[1] if args.size() >= 2 else "base"
-	if policy in ["borrow","dispel","dispel-recall"] and args[0] != "2":
+	if (policy in RESERVE_POLICIES or policy in ["borrow","dispel","dispel-recall"]) and args[0] != "2":
 		quit(2)
 		return
 	var upgraded := policy == "upgrade"
-	var paired_talisman := policy in ["borrow","dispel","dispel-recall"]
+	var paired_talisman := policy in RESERVE_POLICIES or policy in ["borrow","dispel","dispel-recall"]
 	var index := int(args[0])
 	var faction: String = load("res://src/night/FactionOpening.gd").PAIRS.keys()[index]
 	var night: RefCounted = load("res://src/night/NightRun.gd").new()
@@ -26,7 +28,7 @@ func run() -> void:
 			"map":
 				var nodes: Array = night.available_nodes()
 				step.choice = nodes[0].id
-				var recall: bool = step.choice == "n05" and policy == "dispel-recall"
+				var recall: bool = step.choice == "n05" and (policy == "dispel-recall" or policy in RESERVE_POLICIES)
 				if recall or (step.choice == "n03" and policy in ["register","hall"]):
 					var post := "post_register" if recall or policy == "register" else "post_hall_door"
 					step.orders = []
@@ -37,6 +39,8 @@ func run() -> void:
 							if not change.ok: ok = false
 				ok = ok and night.choose_node(step.choice).ok
 			"battle":
+				var fifth: bool = night.state.current_node_id == "n05"
+				var strengthen: bool = fifth and policy in ["reserve-upgrade","reserve-both","reserve-trained"]
 				var second: bool = night.state.current_node_id == "n03"
 				var aid_post := ""
 				if second and policy.begins_with("aid-"):
@@ -45,13 +49,18 @@ func run() -> void:
 				if paired_talisman:
 					if night.state.current_node_id == "n01": ordered_id = "H17"
 					if second: ordered_id = "H19" if policy == "borrow" else "H22"
+					if fifth and policy in ["reserve-hire","reserve-both","reserve-trained"]: ordered_id = "H24"
 					if not ordered_id.is_empty(): aid_post = "post_register"
-				var result: Dictionary = await fight(night,faction,seed_text,upgraded and second,aid_post,policy == "watch",ordered_id,paired_talisman)
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and policy == "reserve-trained")
 				step.battle = result
 				ok = result.get("settled",false)
 				if not ordered_id.is_empty():
 					var receipt: Dictionary = result.get("aid",{})
-					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == 10.0
+					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == (8.0 if fifth else 10.0)
+				if strengthen:
+					ok = ok and result.get("upgrades",[]) == [{"id":"H23","ok":true,"paid":8.0}]
+				if fifth and policy == "reserve-trained":
+					ok = ok and result.get("aid_upgrade",{}) == {"id":"H24","ok":true,"paid":8.0}
 				report.foreign.append_array(result.get("foreign_units",{}).values())
 			"reward":
 				var chosen := false

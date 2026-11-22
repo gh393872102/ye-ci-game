@@ -94,3 +94,15 @@ godot --headless --script tools/faction_baseline/OpeningMenu.gd
 ```sh
 XDG_DATA_HOME="$(mktemp -d)" godot --display-driver x11 --rendering-method gl_compatibility --audio-driver Dummy --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/TideFrames.gd -- --capture
 ```
+
+### 册房的八香火对照
+
+例夜索引 2，沿用三戒与第五节点召回月讳的路线。reserve-upgrade 给月讳升一次，reserve-hire 招骨针到册房，均实扣8；reserve-both 做这两件事，reserve-trained 再给骨针升一次。节点后继续原奖励、事件和休整策略，无追加指令。复跑时分别传入渡口、灯市、秋社。aid、upgrades、aid_upgrade 分开记账，register_guards 追踪房内角色直到离房或阵亡。
+
+```sh
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 2 reserve-trained 渡口
+```
+
+原生渲染命令末尾使用 `-- --deploy-probe` 时，另写 native-deploy.json。12次 Q 键采样后，从招募页订购三戒，向「守名册房」按钮中心注入一次鼠标按下和抬起。脚本检查下一帧的实际到岗、净扣款与按钮边界；单次点击耗时只作功能验证。
+
+在支持原生窗口的 Linux 上，以 1920×1080 运行 reserve-trained 路线时设置 YE_CI_CAPTURE_PIN=1，可在第五节点骨针首次实际施术约五分之一动画时截取 /tmp/ye-ci-bone-pin.jpg。相机对准技能目标，结果中的阵营、资源与结算仍按逐步模拟核验。

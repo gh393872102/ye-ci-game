@@ -184,13 +184,16 @@ func deployment_reason(post_id: String, id: String, already_owned := false) -> S
 			role = "crossbow"
 		if not role in post.get_meta("allowed_roles"):
 			return "P4_POST_ROLE"
+	if post_vacancies(post_id) == 0:
+		return "P4_POST_FULL"
+	return ""
+
+func post_vacancies(post_id: String) -> int:
 	var occupants := 0
 	for unit in simulation.humans:
 		if not unit.dead and unit.current_post == post_id:
 			occupants += 1
-	if occupants >= int(rules.post_cap):
-		return "P4_POST_FULL"
-	return ""
+	return maxi(0, int(rules.post_cap) - occupants)
 
 func purchase(id: String) -> Dictionary:
 	var reason := _purchase_reason(id)

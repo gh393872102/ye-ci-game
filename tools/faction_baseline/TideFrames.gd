@@ -65,6 +65,8 @@ func run() -> void:
 	if capture: shot.save_webp("/tmp/ye-r5-tide.webp",false,0.82)
 	var input_ms := []
 	var pay_visible := false
+	var deploy_probe := OS.get_cmdline_user_args().has("--deploy-probe")
+	var deploy_feedback := {}
 	for trial in 12:
 		var key := InputEventKey.new()
 		key.physical_keycode = KEY_Q
@@ -83,6 +85,25 @@ func run() -> void:
 			var button: Button = decisions.content.find_child("buy_H22",true,false)
 			pay_visible = is_instance_valid(button) and not button.disabled and decisions.panel_scroll.get_global_rect().encloses(button.get_global_rect())
 			if capture: root.get_texture().get_image().save_webp("/tmp/ye-r5-shop.webp",false,0.82)
+		if deploy_probe and trial == 11 and pay_visible:
+			var session: Node = battle.get_node("Session")
+			var cash: float = session.incense
+			decisions.buttons.buy_H22.pressed.emit()
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			var quick: Button = decisions.content.find_child("defend_register",true,false)
+			if is_instance_valid(quick):
+				var rect := quick.get_global_rect()
+				var sent_click := Time.get_ticks_usec()
+				for down in [true,false]:
+					var mouse := InputEventMouseButton.new()
+					mouse.button_index = MOUSE_BUTTON_LEFT
+					mouse.position = rect.get_center()
+					mouse.pressed = down
+					root.push_input(mouse,true)
+				var paid: float = cash - session.incense
+				await RenderingServer.frame_post_draw
+				deploy_feedback = {"milliseconds":(Time.get_ticks_usec()-sent_click)/1000.0,"paid":paid,"placed":sim.humans.any(func(actor): return actor.unit_id=="H22" and actor.current_post=="post_register"),"inside_viewport":root.get_visible_rect().encloses(rect)}
 		key = key.duplicate()
 		key.pressed = false
 		Input.parse_input_event(key)
@@ -93,7 +114,12 @@ func run() -> void:
 	var passed := size == Vector2i(1920,1080) and colors.size() > 12 and visible_min >= 30 and sim_end > sim_start and input_ms.size() == 12 and pay_visible
 	var result := {"passed":passed,"filtered_pay_button_visible":pay_visible,"engine":Engine.get_version_info().string,"renderer":RenderingServer.get_video_adapter_name(),"display":DisplayServer.get_name(),"pixels":[size.x,size.y],"grid_colors":colors.size(),"fixture":"ordinary n01, talisman pair, 44 added actors in four lanes, live physics","warmup_frames":30,"visible_ghost_min_max":[visible_min,visible_max],"sim_seconds":[sim_start,sim_end],"frame_ms":frames,"frame_percentile_ms":percentiles(frames),"injected_q_to_purchase_frame_ms":input_ms}
 	if not input_ms.is_empty(): result.input_percentile_ms = percentiles(input_ms)
-	FileAccess.open("res://tools/faction_baseline/native-tide.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	if deploy_probe:
+		passed = passed and deploy_feedback.get("placed",false) and deploy_feedback.get("paid") == 10 and deploy_feedback.get("inside_viewport",false)
+		result.passed = passed
+		result.deploy_feedback = deploy_feedback
+	var filename := "native-deploy.json" if deploy_probe else "native-tide.json"
+	FileAccess.open("res://tools/faction_baseline/"+filename,FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",passed," frames ",result.frame_percentile_ms," visible ",visible_min,"..",visible_max," input samples ",input_ms.size())
 	DirAccess.remove_absolute(host.save_path)
 	host.free()

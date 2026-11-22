@@ -70,6 +70,7 @@ func run() -> void:
 	shell.title_buttons.shouxiang.pressed.emit()
 	host.choose_node("n01")
 	var talisman_shop: Node = host.combat.get_node("Decisions")
+	root.get_node("Clock").set_paused(false)
 	talisman_shop.open_purchase()
 	var has_borrow_hint: bool = talisman_shop.content.find_children("*","Label",true,false).any(func(label): return label.text.contains("临时收编野鬼"))
 	ok = ok and talisman_shop.buttons.has("buy_H19") and has_borrow_hint
@@ -103,8 +104,26 @@ func run() -> void:
 	if talisman_shop.offer_status.has("H22"):
 		talisman_shop.buttons.buy_H22.pressed.emit()
 		ok = ok and battle_session.pending_purchase == "H22" and battle_session.incense == cash - 10
-		talisman_shop.buttons.post_post_register.pressed.emit()
+		var available: int = battle_session.post_vacancies("post_register")
+		var fast: Button = talisman_shop.content.find_child("defend_register",true,false)
+		ok = ok and fast != null and available == 2 and fast.text.contains("余2位")
+		if fast != null: fast.pressed.emit()
+		ok = ok and not root.get_node("Clock").paused and talisman_shop.current_panel == "" and talisman_shop.feedback.text.contains("三戒已到名册房")
+		ok = ok and battle_session.post_vacancies("post_register") == available - 1 and battle_session.incense == cash - 10
 		ok = ok and battle_session.pending_purchase.is_empty() and host.combat.get_node("Simulation").humans.any(func(actor): return actor.unit_id=="H22" and actor.current_post=="post_register")
+		# Full-room fixture after the paid H22 deployment.
+		var sim: Node = host.combat.get_node("Simulation")
+		sim.spawn_human("H17","post_register")
+		var before_full: float = battle_session.incense
+		talisman_shop.open_purchase()
+		while not talisman_shop.offer_status.has("H24") and not talisman_shop.buttons.purchase_next.disabled:
+			talisman_shop.buttons.purchase_next.pressed.emit()
+		if talisman_shop.offer_status.has("H24"):
+			talisman_shop.buttons.buy_H24.pressed.emit()
+			ok = ok and battle_session.post_vacancies("post_register") == 0 and talisman_shop.content.find_child("defend_register",true,false) == null and talisman_shop.buttons.post_post_register.disabled
+			talisman_shop.buttons.close.pressed.emit()
+			ok = ok and battle_session.incense == before_full and battle_session.pending_purchase.is_empty()
+		else: ok = false
 	else: ok = false
 	print("menu, faction shop, purchase and mid-battle restore: ",ok," visible candidates: ",shown)
 	DirAccess.remove_absolute(host.save_path)

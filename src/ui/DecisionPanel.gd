@@ -45,6 +45,7 @@ var valid_post_hover := ""
 var legal_ritual_targets: Array[Node2D] = []
 var purchase_page := 0
 var recruitable_faction_only := false
+var paused_before_purchase := true
 var offer_status: Dictionary = {}
 var target_hint: Label
 var warning_plate: PanelContainer
@@ -355,6 +356,7 @@ func open_purchase() -> void:
 	if not _can_command() or view_seat() != "shouxiang":
 		return
 	close_panel()
+	paused_before_purchase = Clock.paused
 	purchase_page = 0
 	recruitable_faction_only = false
 	current_panel = "purchase"
@@ -472,6 +474,8 @@ func _build_deploy() -> void:
 	legal_post_ids.assign(_query("legal_posts", {"id":session.pending_purchase}))
 	_clear_content("")
 	var header := _panel_header(tr("P4_DEPLOY_TITLE") % Data.get_unit(session.pending_purchase).get("姓名", ""))
+	if not preferred_faction.is_empty() and "post_register" in legal_post_ids:
+		_button(header, "defend_register", "守名册房 · 余%d位" % session.post_vacancies("post_register"), select_post.bind("post_register", true))
 	_button(header, "close", tr("P9_BATTLE_CLOSE"), _cancel_purchase)
 	var hint := _label(content, tr("P9_DEPLOY_HELP"), 17)
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -489,6 +493,8 @@ func _build_deploy() -> void:
 			continue
 		var reason: String = session.deployment_reason(id, session.pending_purchase)
 		var text: String = tr(id.to_upper())
+		if not preferred_faction.is_empty() and reason.is_empty():
+			text += " · 余%d位" % session.post_vacancies(id)
 		if not reason.is_empty():
 			text += " · " + tr(reason)
 		var button := _button(row, "post_" + id, text, select_post.bind(id), reason.is_empty(), reason)
@@ -514,12 +520,15 @@ func _set_target_hint(value: String, legal := false) -> void:
 		target_hint.text = value
 		target_hint.add_theme_color_override("font_color", COPPER if legal else ALERT)
 
-func select_post(post_id: String) -> void:
+func select_post(post_id: String, quick := false) -> void:
 	var answer: Dictionary = _issue("deploy_at", {"post_id":post_id})
 	_feedback(answer)
 	if answer.ok:
 		close_panel()
-		if answer.has("unit"):
+		if quick:
+			feedback.text = "%s已到名册房" % answer.unit.display_name
+			Clock.set_paused(paused_before_purchase)
+		elif answer.has("unit"):
 			select_unit(answer.unit)
 	else:
 		_set_target_hint(feedback.text)

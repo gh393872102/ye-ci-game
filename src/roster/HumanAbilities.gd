@@ -552,7 +552,16 @@ func draw_effects(canvas: Node2D) -> void:
 					canvas.draw_line(p+Vector2(-12,15),p+Vector2(6,-25-phase*35),red,5)
 					canvas.draw_line(p+Vector2(-14,-14),p+Vector2(14,14),ink,3)
 			"H24":
-				for i in range(3):canvas.draw_line(b+Vector2(-24+i*24,40),b+Vector2(-14+i*18,-35),ink,3)
+				# Three bone needles close on the target, then hold at the stun point.
+				var approach := (a-b).normalized()
+				if approach.is_zero_approx(): approach = Vector2.UP
+				var travel := 1.0 - smoothstep(0.0, 0.38, phase)
+				for index in range(-1, 2):
+					var direction := approach.rotated(index * 0.55)
+					var tip := b + direction * (9.0 + 46.0 * travel)
+					var grip := tip + direction * 23.0
+					canvas.draw_line(tip, grip, ink, 3)
+					canvas.draw_line(grip, grip + direction * 8.0, red, 5)
 			"H28":
 				canvas.draw_line(a+Vector2(0,-65),a+Vector2(0,-35),ink,3)
 				canvas.draw_rect(Rect2(a-Vector2(25,35),Vector2(50,65)),cold,false,5)

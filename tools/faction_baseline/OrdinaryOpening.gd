@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -72,6 +72,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		observe(unit,faction)
 		row.posts[unit.unit_id] = unit.current_post
 		row.roster_price += session.rules.purchases.get(unit.unit_id,0)
+	if track_register and row.node == "n08":
+		row.same_faction_offers = []
+		for offer in session.purchase_options():
+			if root.get_node("Data").get_unit(offer.id).get("所属","") != faction: continue
+			row.same_faction_offers.append({"id":offer.id,"cost":offer.cost,"allowed":offer.allowed,"reason":offer.reason,"posts":session.legal_posts(offer.id),"previously_fallen":night.state.fallen.any(func(member): return member.id == offer.id)})
 	if upgrade_pair:
 		row.upgrades = []
 		for unit in sim.humans:
@@ -95,10 +100,17 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		var before: float = session.incense
 		var purchase: Dictionary = session.purchase(id)
 		var placed := false
+		var recruit: Node
 		if purchase.ok:
-			placed = session.deploy_at(aid_post).ok
+			var deployment: Dictionary = session.deploy_at(aid_post)
+			placed = deployment.ok
+			if placed: recruit = deployment.unit
 			if not placed: session.cancel_purchase()
 		row.aid = {"id":id,"post":aid_post,"placed":placed,"paid":before-session.incense}
+		if placed and train_aid:
+			var cash: float = session.incense
+			var training: Dictionary = session.upgrade(recruit)
+			row.aid_upgrade = {"id":id,"ok":training.ok,"paid":cash-session.incense}
 		for unit in sim.humans: observe(unit,faction)
 	sim.unit_spawned.connect(func(unit): observe(unit,faction))
 	sim.unit_allegiance_changed.connect(func(unit,_old,_new): observe(unit,faction))
@@ -114,8 +126,22 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			if inside.erase(unit.instance_id):
 				row.register_guards[unit.instance_id].merge({"first_change":"fallen","seconds":sim.simulation_time},true)
 		)
+	var capture_pin := train_aid and OS.get_environment("YE_CI_CAPTURE_PIN") == "1" and DisplayServer.get_name() != "headless"
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if capture_pin:
+			for effect in session.roster.state.get("effects",[]):
+				if effect.kind != "bone_pin" or effect.left > effect.duration * 0.80: continue
+				var camera := scene.get_node("BattleCamera")
+				camera.make_current()
+				camera.set_left(float(effect.point[0]) - root.size.x / 2.0)
+				await RenderingServer.frame_post_draw
+				await RenderingServer.frame_post_draw
+				var shot := root.get_texture().get_image()
+				shot.save_jpg("/tmp/ye-ci-bone-pin.jpg",0.88)
+				print("BONE PIN ",row.node," ",sim.simulation_time," ",shot.get_size()," ",effect.point)
+				capture_pin = false
+				break
 		if not inside.is_empty():
 			for key in inside.keys():
 				var guard: Node2D = inside[key]
