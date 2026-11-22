@@ -127,6 +127,7 @@ static func restore(combat: Node, state: Dictionary) -> Dictionary:
 	panel.close_panel()
 	# close_panel normally refunds pending deployment; restore it after clearing stale UI.
 	_apply(sim.session,state.session,SESSION_FIELDS + SESSION_EXTRA_FIELDS,refs)
+	sim.session.refresh_register_presence()
 	panel.ending.hide()
 	panel.prebattle.hide()
 	panel.last_result = ""

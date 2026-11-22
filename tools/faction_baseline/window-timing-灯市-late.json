@@ -45,6 +45,35 @@
 		"G07_tide_52": "G07",
 		"G07_tide_53": "G07"
 	},
+	"contest": {
+		"first_hud": "册房争夺 · 1鬼 / 2守\n守方：弩手、晚\n查看册房 ›",
+		"guards": {
+			"H01_5": {
+				"first_hp": 70.0,
+				"min_hp": 66.0,
+				"name": "晚",
+				"post": "post_register",
+				"ticks": 143
+			},
+			"H17_3": {
+				"first_hp": 55.0,
+				"min_hp": 55.0,
+				"name": "朱砂",
+				"post": "post_register",
+				"ticks": 77
+			},
+			"T02_4": {
+				"first_hp": 38.0,
+				"min_hp": 38.0,
+				"name": "弩手",
+				"post": "post_register",
+				"ticks": 143
+			}
+		},
+		"peak_occupation": 0.0,
+		"ticks": 143,
+		"unopposed_ticks": 0
+	},
 	"family": "无名潮",
 	"foreign": [],
 	"orders": [

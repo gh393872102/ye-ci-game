@@ -49,6 +49,8 @@ var ledger: Array[Dictionary] = []
 var repair_jobs: Array[Dictionary] = []
 var reinforce_left := 0.0
 var reinforce_count := 0
+var register_attackers := 0
+var register_guards: Array[String] = []
 var occupation := 0.0
 var extinguish_left := 0.0
 var first_breach: Dictionary = {}
@@ -86,6 +88,8 @@ func start_battle(seat: String) -> Dictionary:
 	warnings.clear()
 	result.clear()
 	first_breach.clear()
+	register_attackers = 0
+	register_guards.clear()
 	occupation = 0
 	reinforce_count = 0
 	reinforce_left = 0
@@ -537,6 +541,20 @@ func advance(delta: float) -> void:
 		incense = minf(float(rules.incense_cap) - _reserved_cost, incense + regenerated)
 	reinforce_left = maxf(0, reinforce_left - delta)
 
+func refresh_register_presence() -> Node2D:
+	register_attackers = 0
+	register_guards.clear()
+	var leading: Node2D
+	for unit in simulation.targets:
+		if not unit.dead and simulation.world.room_at(unit.position,unit.floor_id)=="register":
+			register_attackers += 1
+			if leading==null: leading=unit
+	if register_attackers>0:
+		for unit in simulation.humans:
+			if not unit.dead and simulation.world.room_at(unit.position,unit.floor_id)=="register":
+				register_guards.append(unit.display_name)
+	return leading
+
 func after_step(delta: float) -> void:
 	if not active or not running or delta <= 0:
 		return
@@ -547,21 +565,10 @@ func after_step(delta: float) -> void:
 		_update_warnings()
 		_finish("victory" if mode == "duoming" and not dual_enabled else "defeat",ritual_failure)
 		return
-	var hostile := 0
-	var defenders := 0
-	for unit in simulation.targets:
-		if not unit.dead and simulation.world.room_at(unit.position, unit.floor_id) == "register":
-			hostile += 1
-	for unit in simulation.humans:
-		if not unit.dead and simulation.world.room_at(unit.position, unit.floor_id) == "register":
-			defenders += 1
-	# Any live defender contests the room. Reinforcement/recovery really reverses capture.
-	if hostile > 0 and defenders == 0:
+	var source := refresh_register_presence()
+	if source!=null and register_guards.is_empty():
 		occupation += delta
 		if roster.enabled:
-			var source: Node2D
-			for unit in simulation.targets:
-				if not unit.dead and simulation.world.room_at(unit.position,unit.floor_id)=="register": source=unit;break
 			roster.drain_names(float(rules.name_drain_per_second)*delta,source)
 		else: names = maxf(0, names - float(rules.name_drain_per_second) * delta)
 	else:

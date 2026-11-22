@@ -51,7 +51,7 @@ var offer_status: Dictionary = {}
 var target_hint: Label
 var warning_plate: PanelContainer
 var register_warning_plate: PanelContainer
-var register_warning: Label
+var register_warning: Button
 var activity_plate: PanelContainer
 var channel_progress: ProgressBar
 var active_channels: Array[RefCounted] = []
@@ -123,7 +123,12 @@ func _ready() -> void:
 	warning_plate.hide()
 
 	register_warning_plate = _notice_plate(Rect2(1502, 75, 392, 40), Color("a76a4d"), Color("642820"))
-	register_warning = _label(register_warning_plate, "", 24)
+	register_warning = Button.new()
+	register_warning.flat = true
+	register_warning.tooltip_text = "查看册房战况"
+	register_warning.add_theme_font_size_override("font_size",22)
+	register_warning.pressed.connect(_view_register)
+	register_warning_plate.add_child(register_warning)
 	register_warning.add_theme_font_override("font", Ink.serif_font())
 	register_warning.add_theme_color_override("font_color", Ink.PAPER)
 	register_warning_plate.hide()
@@ -1266,6 +1271,12 @@ func _watch_channels(delta: float) -> void:
 	if activity_plate.visible:
 		activity_plate.reset_size()
 
+func _view_register() -> void:
+	var camera := get_viewport().get_camera_2d()
+	if not session.running or not is_instance_valid(camera) or not camera.has_method("set_left"): return
+	camera.set_left(world.get_node("post_register").global_position.x-Rules.CAMERA_WIDTH_PX/2.0)
+	feedback.text = "已定位册房"
+
 func _update_warnings() -> void:
 	var notices: Array[String] = []
 	var register_notices: Array[String] = []
@@ -1281,8 +1292,13 @@ func _update_warnings() -> void:
 				upstairs += 1
 		if upstairs > 0:
 			notices.append(tr("P9_WARN_UPPER") % upstairs)
-		if session.occupation > 0:
-			register_notices.append(tr("P9_WARN_REGISTER_OCCUPIED"))
+		if session.register_attackers>0 and not session.register_guards.is_empty():
+			register_notices.append("册房争夺 · %d鬼 / %d守" % [session.register_attackers,session.register_guards.size()])
+			register_notices.append("守方："+"、".join(session.register_guards.slice(0,3))+(" 等" if session.register_guards.size()>3 else ""))
+		elif session.register_attackers>0:
+			register_notices.append("册房占领 %.1f / %d 秒" % [session.occupation,session.rules.occupation_seconds])
+		elif session.occupation>0:
+			register_notices.append("夺册中断 · 进度回落")
 		if not simulation.humans.any(func(unit): return unit.role == "ritual" and not unit.dead):
 			notices.append(tr("P9_WARN_CASTER"))
 	if interruption_left > 0:
@@ -1292,6 +1308,7 @@ func _update_warnings() -> void:
 		warnings.text = next
 		warning_plate.reset_size()
 	warning_plate.visible = not notices.is_empty()
+	if not register_notices.is_empty(): register_notices.append("查看册房 ›")
 	var right := "\n".join(register_notices)
 	if register_warning.text != right:
 		register_warning.text = right

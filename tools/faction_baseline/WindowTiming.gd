@@ -2,7 +2,7 @@ extends "res://tools/faction_baseline/FamilyFirstNight.gd"
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size()!=2 or args[0] not in ["渡口","灯市","秋社"] or args[1] not in ["early","late","paper"]:
+	if args.size()!=2 or args[0] not in ["渡口","灯市","秋社"] or args[1] not in ["early","late","paper","ground"]:
 		quit(2)
 		return
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
@@ -29,11 +29,13 @@ func run() -> void:
 	sim.lethal_hit.connect(func(unit,attacker,kind,amount,hp):
 		if book.scouts.has(unit.instance_id):
 			book.scouts[unit.instance_id].fallen={"time":sim.simulation_time,"floor":unit.floor_id,"x":roundi(unit.position.x),"source":attacker.unit_id if is_instance_valid(attacker) else "","kind":kind,"damage":amount,"hp":hp})
+	book.contest={"ticks":0,"unopposed_ticks":0,"peak_occupation":0.0,"guards":{},"first_hud":""}
 	for tick in 10802:
 		var session: Node = sim.session
 		if tick==0 or (book.orders.size()==1 and session.reinforce_left<=0 and session.incense>=session.rules.reinforce.cost and (args[1]!="late" or sim.simulation_time>=75)):
 			var cash: float = session.incense
 			var choice := "paper" if book.orders.size()==1 and args[1]=="paper" else "window"
+			if book.orders.size()==1 and args[1]=="ground": choice=""
 			var result: Dictionary = session.execute_for("duoming","reinforce",{"formation":choice},"player")
 			if not result.ok:
 				push_error(str(result))
@@ -41,6 +43,21 @@ func run() -> void:
 				return
 			book.orders.append({"seconds":sim.simulation_time,"cost":cash-session.incense})
 		sim.advance(1.0/60.0)
+		if session.register_attackers>0:
+			if session.register_guards.is_empty(): book.contest.unopposed_ticks+=1
+			else:
+				book.contest.ticks+=1
+				if book.contest.first_hud=="":
+					var panel: Node = host.combat.get_node("Decisions")
+					panel._update_warnings()
+					book.contest.first_hud=panel.register_warning.text
+				for guard in sim.humans:
+					if guard.dead or sim.world.room_at(guard.position,guard.floor_id)!="register": continue
+					var record: Dictionary = book.contest.guards.get(guard.instance_id,{"name":guard.display_name,"ticks":0,"first_hp":guard.hp,"min_hp":guard.hp,"post":guard.current_post})
+					record.ticks+=1
+					record.min_hp=minf(record.min_hp,guard.hp)
+					book.contest.guards[guard.instance_id]=record
+		book.contest.peak_occupation=maxf(book.contest.peak_occupation,session.occupation)
 		for i in range(sim.damage_log.size()-1,-1,-1):
 			var hit: Dictionary = sim.damage_log[i]
 			if hit.time!=sim.simulation_time: break
@@ -57,7 +74,7 @@ func run() -> void:
 	book.phase=host.run.state.phase
 	var path := "res://tools/faction_baseline/window-timing-%s-%s.json" % [args[0],args[1]]
 	FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify(book,"\t")+"\n")
-	var ok: bool = book.orders.size()==2 and book.orders.all(func(o):return o.cost==10) and book.scouts.size()==(4 if args[1]=="paper" else 8) and book.foreign.is_empty() and host.run.state.roster.all(func(u):return root.get_node("Data").get_unit(u.id)["谱系"]=="无名潮") and not book.result.is_empty()
+	var ok: bool = book.orders.size()==2 and book.orders.all(func(o):return o.cost==10) and book.scouts.size()==(4 if args[1] in ["paper","ground"] else 8) and book.foreign.is_empty() and host.run.state.roster.all(func(u):return root.get_node("Data").get_unit(u.id)["谱系"]=="无名潮") and not book.result.is_empty()
 	print("WINDOW ",ok," ",book.orders," ",book.result.reason)
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(host.save_path))
 	host.free()
