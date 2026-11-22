@@ -1062,6 +1062,9 @@ func open_reinforce() -> void:
 	if scouts > 0:
 		var window_reason := "P4_TIDE_CAP" if reason.is_empty() and vacancies < scouts else reason
 		_button(row,"window_reinforce","童亡走窗 × %d · %d香火" % [scouts,rule.cost],reinforce.bind("window"),window_reason.is_empty(),window_reason)
+		var ready: int = session.paper_armor_targets().size()
+		var armor_reason := "WINDOW_PAPER_NO_TARGET" if reason.is_empty() and ready==0 else reason
+		_button(row,"window_paper","披纸甲 × %d · %d香火" % [ready,rule.cost],reinforce.bind("paper"),armor_reason.is_empty(),armor_reason)
 		var preview := HBoxContainer.new()
 		content.add_child(preview)
 		var portrait := TextureRect.new()
@@ -1071,7 +1074,9 @@ func open_reinforce() -> void:
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		preview.add_child(portrait)
-		var note := _label(preview,"童亡从侧窗上楼。名额减半，与正门补潮共用次数和冷却。",18)
+		var note := _label(preview,"童亡从侧窗上楼。披纸甲会用掉一次补潮，优先给靠前的童亡，每只可挡一支弩箭。",18)
+		var stopped: int = session.roster.state.get("window_bolts_blocked",0)
+		if stopped>0: note.text += " 本战纸甲已挡%d箭。" % stopped
 		note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if not reason.is_empty():
@@ -1083,11 +1088,14 @@ func reinforce(formation := "") -> void:
 	if not _can_command() or view_seat() != "duoming":
 		return
 	Clock.set_paused(true)
+	var recipients: int = session.paper_armor_targets().size() if formation=="paper" else 0
 	var answer := _issue("reinforce",{} if formation.is_empty() else {"formation":formation})
 	_feedback(answer)
 	open_reinforce()
 	if answer.ok and formation == "window":
 		feedback.text = "%d只童亡已候潮，将从侧窗入楼。" % session.window_recruits()
+	elif answer.ok and formation=="paper":
+		feedback.text = "%d只童亡已披纸甲，各可挡一支弩箭。" % recipients
 
 func view_seat() -> String:
 	return str(session.player_seat) if observation_mode else str(session.mode)

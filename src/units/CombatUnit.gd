@@ -122,6 +122,8 @@ func _draw() -> void:
 	preload("res://src/units/UnitAppearance.gd").draw(self)
 	if dead:
 		return
+	if unit_id=="G07" and roster.has("window_paper"):
+		_draw_window_paper()
 	if bool(growth.get("gray",false)):
 		draw_rect(Rect2(-24,-height_px-3,48,height_px+7),Color("a2aca7"),false,3)
 	if selected or hp < max_hp or simulation.debug_rays:
@@ -134,3 +136,18 @@ func _draw() -> void:
 		draw_rect(Rect2(-32,-105,64,5),Color("263438"))
 		draw_rect(Rect2(-32,-105,64 * brain.channel.progress(),5),Color("b99e76"))
 		draw_rect(Rect2(-36,-56,9,5),Color("bc6a55"))
+
+func _draw_window_paper() -> void:
+	var shoulder := Vector2(6,-height_px*0.65)
+	if roster.window_paper=="ready":
+		var fold := PackedVector2Array([shoulder+Vector2(-6,-15),shoulder+Vector2(12,-18),shoulder+Vector2(19,1),shoulder+Vector2(9,17),shoulder+Vector2(-3,6)])
+		draw_colored_polygon(fold,Color("ddcb9d"))
+		draw_line(fold[1],fold[3],Color("8d3b2b"),3)
+		draw_line(fold[0],fold[2],Color("a98b57"),2)
+	else:
+		var left: float = float(roster.ghost.get("paper_break_until",-1))-float(simulation.growth_engine().state.time)
+		if left<=0: return
+		var drift := 1.0-left/0.45
+		for i in range(3):
+			var tip := shoulder+Vector2(7+drift*(18+i*9),-8+drift*(i-1)*32)
+			draw_line(tip,tip+Vector2(5,8-i*3),Color("ddcb9d"),4)

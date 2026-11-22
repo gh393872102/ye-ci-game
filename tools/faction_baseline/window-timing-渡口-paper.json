@@ -1,0 +1,149 @@
+{
+	"arrivals": {
+		"G01_tide_10": "G01",
+		"G01_tide_11": "G01",
+		"G01_tide_12": "G01",
+		"G01_tide_13": "G01",
+		"G01_tide_14": "G01",
+		"G01_tide_15": "G01",
+		"G01_tide_16": "G01",
+		"G01_tide_17": "G01",
+		"G01_tide_18": "G01",
+		"G01_tide_19": "G01",
+		"G01_tide_20": "G01",
+		"G01_tide_21": "G01",
+		"G01_tide_22": "G01",
+		"G01_tide_23": "G01",
+		"G01_tide_24": "G01",
+		"G01_tide_25": "G01",
+		"G01_tide_30": "G01",
+		"G01_tide_31": "G01",
+		"G01_tide_32": "G01",
+		"G01_tide_33": "G01",
+		"G01_tide_34": "G01",
+		"G01_tide_35": "G01",
+		"G01_tide_36": "G01",
+		"G01_tide_37": "G01",
+		"G01_tide_38": "G01",
+		"G01_tide_39": "G01",
+		"G01_tide_40": "G01",
+		"G01_tide_41": "G01",
+		"G01_tide_42": "G01",
+		"G01_tide_43": "G01",
+		"G01_tide_44": "G01",
+		"G01_tide_45": "G01",
+		"G01_tide_46": "G01",
+		"G01_tide_47": "G01",
+		"G01_tide_48": "G01",
+		"G01_tide_49": "G01",
+		"G07_tide_26": "G07",
+		"G07_tide_27": "G07",
+		"G07_tide_28": "G07",
+		"G07_tide_29": "G07"
+	},
+	"family": "无名潮",
+	"foreign": [],
+	"orders": [
+		{
+			"cost": 10.0,
+			"seconds": 0.0
+		},
+		{
+			"cost": 10.0,
+			"seconds": 30.0166666666662
+		}
+	],
+	"phase": "mercy",
+	"result": {
+		"elapsed": 180.000000000035,
+		"first_breach": {
+			"door": "door_outer",
+			"time": 58.4166666666646
+		},
+		"humans_alive": 4,
+		"incense": 39.1999999999992,
+		"killer_id": "",
+		"mode": "duoming",
+		"names": 8.0,
+		"outcome": "defeat",
+		"reason": "P4_END_DAYBREAK",
+		"remaining": 0.0,
+		"tide_alive": 34
+	},
+	"scouts": {
+		"G07_tide_26": {
+			"blocked": 43.0999999999988,
+			"entry": null,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 8.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 43.9499999999988,
+				"x": 7140
+			},
+			"hits": {},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_27": {
+			"blocked": 44.8499999999987,
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 2,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 75.5833333333303,
+				"x": 8077
+			},
+			"hits": {
+				"door_gallery": 25
+			},
+			"register": null,
+			"spawn": 1.75
+		},
+		"G07_tide_28": {
+			"blocked": 82.9999999999966,
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 88.3499999999963,
+				"x": 9202
+			},
+			"hits": {
+				"H01_5": 5,
+				"door_gallery": 25
+			},
+			"register": 82.8499999999966,
+			"spawn": 1.75
+		},
+		"G07_tide_29": {
+			"blocked": 85.0499999999965,
+			"entry": 44.5999999999988,
+			"fallen": {
+				"damage": 8.0,
+				"floor": 0,
+				"hp": 6.0,
+				"kind": "projectile",
+				"source": "T02",
+				"time": 87.2499999999963,
+				"x": 9208
+			},
+			"hits": {
+				"H01_5": 3,
+				"door_gallery": 25
+			},
+			"register": 82.9999999999966,
+			"spawn": 1.75
+		}
+	},
+	"second": "paper",
+	"seed": "渡口"
+}

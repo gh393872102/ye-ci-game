@@ -473,6 +473,15 @@ func window_recruits() -> int:
 	if simulation.tide.config.get("supply_id","") != "G01": return 0
 	return floori(float(rules.reinforce.count) / 2.0)
 
+func paper_armor_targets() -> Array:
+	var scouts := []
+	if window_recruits() == 0: return scouts
+	for unit in simulation.targets:
+		if unit.unit_id=="G07" and unit.side=="yegui" and not unit.dead and not unit.roster.has("window_paper"):
+			scouts.append(unit)
+	scouts.sort_custom(func(a,b): return a.position.x>b.position.x if a.position.x!=b.position.x else a.instance_id<b.instance_id)
+	return scouts.slice(0,window_recruits())
+
 func reinforce(formation := "") -> Dictionary:
 	var reason := _available("duoming")
 	if not reason.is_empty():
@@ -487,18 +496,28 @@ func reinforce(formation := "") -> Dictionary:
 		return _reject("P4_NO_INCENSE")
 	var count := int(rules.reinforce.count)
 	var id: String = simulation.tide.config.get("supply_id","G01")
-	if not formation.is_empty():
-		if formation != "window" or window_recruits() == 0: return _reject("P6_INVALID_ACTION")
-		count = window_recruits()
-		id = "G07"
-	if simulation.targets.size() + simulation.tide.pending.size() + count > int(simulation.tide.config.capacity):
-		return _reject("P4_TIDE_CAP")
+	var detail := str(count)
+	if formation == "paper":
+		var recipients := paper_armor_targets()
+		if recipients.is_empty(): return _reject("WINDOW_PAPER_NO_TARGET")
+		for unit in recipients:
+			unit.roster.window_paper = "ready"
+			unit.queue_redraw()
+		detail = "纸甲 × %d" % recipients.size()
+	else:
+		if not formation.is_empty():
+			if formation != "window" or window_recruits() == 0: return _reject("P6_INVALID_ACTION")
+			count = window_recruits()
+			id = "G07"
+			detail = "%s × %d" % [id,count]
+		if simulation.targets.size() + simulation.tide.pending.size() + count > int(simulation.tide.config.capacity):
+			return _reject("P4_TIDE_CAP")
+		for index in count:
+			simulation.tide.pending.append(id)
 	incense -= float(rules.reinforce.cost)
 	reinforce_count += 1
 	reinforce_left = float(rules.reinforce.cooldown)
-	for index in count:
-		simulation.tide.pending.append(id)
-	_record("reinforce", -float(rules.reinforce.cost), str(count) if formation.is_empty() else "%s × %d" % [id,count])
+	_record("reinforce", -float(rules.reinforce.cost), detail)
 	_emit_command("duoming","reinforce",{} if formation.is_empty() else {"formation":formation})
 	return _ok()
 

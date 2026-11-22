@@ -427,6 +427,12 @@ func damage_multiplier(attacker:Node2D,victim:Node2D,kind:String)->float:
 	if attacker.roster.statuses.has("disorder"):multiplier*=float(attacker.roster.statuses.disorder.multiplier)
 	return multiplier
 func before_receive(unit:Node2D,amount:float,attacker:Node2D,kind:String)->float:
+	if unit.unit_id=="G07" and unit.roster.get("window_paper","")=="ready" and amount>0 and kind=="projectile" and is_instance_valid(attacker) and attacker.side!=unit.side and attacker.profile.projectile=="bolt":
+		unit.roster.window_paper="spent"
+		engine.state.window_bolts_blocked=int(engine.state.get("window_bolts_blocked",0))+1
+		state(unit).paper_break_until=float(growth().state.time)+0.45
+		event("paper_stopped_bolt",unit,attacker.instance_id)
+		return 0.0
 	if unit.roster.statuses.has("cloth"):amount*=float(unit.roster.statuses.cloth.multiplier)
 	if unit.unit_id=="G07" and kind in ["fire","incense","explosion","area","incense_explosion"]:amount*=p(unit,"area_vulnerability")
 	if unit.unit_id=="G14" and is_instance_valid(attacker) and attacker.unit_id in ["H16","H22"]:amount*=p(unit,"counter_multiplier")
