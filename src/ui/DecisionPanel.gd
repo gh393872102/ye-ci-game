@@ -1304,10 +1304,12 @@ func _update_warnings() -> void:
 		if session.register_attackers>0 and not session.register_guards.is_empty():
 			register_notices.append("册房争夺 · %d鬼 / %d守" % [session.register_attackers,session.register_guards.size()])
 			register_notices.append("守方："+"、".join(session.register_guards.slice(0,3))+(" 等" if session.register_guards.size()>3 else ""))
+			if session.occupation>0:
+				register_notices.append("守军阻断 · 进度回落至 %.1f 秒" % session.occupation)
 		elif session.register_attackers>0:
 			register_notices.append("册房占领 %.1f / %d 秒" % [session.occupation,session.rules.occupation_seconds])
 		elif session.occupation>0:
-			register_notices.append("夺册中断 · 进度回落")
+			register_notices.append("攻方已撤空 · 进度回落至 %.1f 秒" % session.occupation)
 		if not simulation.humans.any(func(unit): return unit.role == "ritual" and not unit.dead):
 			notices.append(tr("P9_WARN_CASTER"))
 	if interruption_left > 0:

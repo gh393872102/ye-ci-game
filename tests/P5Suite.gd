@@ -17,9 +17,12 @@ var run: RefCounted
 var bridge: RefCounted
 var choices: Array[Dictionary] = []
 
+var replay_fixture_dir: String
+
 func _ready() -> void:
 	# P6 replay regression must never write the player's real archive directory.
-	load("res://src/replay/ReplayArchive.gd").directory = "/tmp/ye-ci-p6-p5-replay-fixtures"
+	replay_fixture_dir = OS.get_user_data_dir().path_join("test-replays-%d-%d" % [OS.get_process_id(),roundi(Time.get_unix_time_from_system()*1000000)])
+	load("res://src/replay/ReplayArchive.gd").directory = replay_fixture_dir
 	capture = OS.get_cmdline_user_args().has("--capture")
 	_run.call_deferred()
 
@@ -51,9 +54,11 @@ func _finish() -> void:
 			report_prefix = argument.trim_prefix("--report-prefix=")
 	var report := {"phase":"P5","engine":Engine.get_version_info().string,"checks":checks,"failures":failures,"capture":capture,"results":results,"nights":nights,"snapshot_evidence":snapshot_evidence,"night_replay_evidence":night_replay_evidence,"screenshots":captures,"fixture_policy":"Rule/save fixtures may alter isolated run state and battle positions. Complete example nights use actual NightRun and shared BattleSession commands, source waves and fixed simulation steps; no direct HP, position, structures, resources, rules or timer edits."}
 	FileAccess.open("res://docs/phase-reports/%s-%s-results.json" % [report_prefix,"render" if capture else "test"],FileAccess.WRITE).store_string(JSON.stringify(report,"\t") + "\n")
-	for filename in DirAccess.get_files_at("/tmp/ye-ci-p6-p5-replay-fixtures"):
-		if filename.ends_with(".json"):
-			DirAccess.remove_absolute("/tmp/ye-ci-p6-p5-replay-fixtures/" + filename)
+	if DirAccess.dir_exists_absolute(replay_fixture_dir):
+		for filename in DirAccess.get_files_at(replay_fixture_dir):
+			if filename.ends_with(".json"):
+				DirAccess.remove_absolute(replay_fixture_dir.path_join(filename))
+		DirAccess.remove_absolute(replay_fixture_dir)
 	print("P5 RESULT: %d checks, %d failures" % [checks,failures])
 	get_tree().quit(1 if failures else 0)
 

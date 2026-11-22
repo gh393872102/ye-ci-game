@@ -119,6 +119,9 @@ static func fingerprint(scene: Node) -> Dictionary:
 		actor.erase("night_home_post")
 	result.session.erase("ledger")
 	result.session.erase("warnings")
+	# The best capture attempt is a recap field. Older archives omit it.
+	result.session.erase("register_break")
+	result.session.result.erase("register_break")
 	for key in ["player_seat","_command_seat","_command_origin","control_policy"]:
 		result.session.erase(key)
 	return _normalize(result)

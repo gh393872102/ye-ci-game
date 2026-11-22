@@ -634,8 +634,18 @@ func _mercy() -> void:
 	heading.text = tr("P5_MERCY_TITLE")
 	Ink.box(_page, Rect2(400, 266, 1120, 582), Color("121b1cf5"), Ink.RULE)
 	var summary: Dictionary = host.run.summary()
-	Ink.label(_page, tr(summary.reason), Rect2(478, 330, 964, 74), 28, Ink.RUST)
+	var reason_text := tr(summary.reason)
+	if host.run.state.mode=="duoming" and summary.reason=="P4_END_DAYBREAK":
+		reason_text = "天亮前未能夺下名册。"
+	Ink.label(_page, reason_text, Rect2(478, 330, 964, 74), 28, Ink.RUST)
 	Ink.label(_page, tr("P5_MERCY_HELP"), Rect2(478, 418, 964, 120), 23, Ink.MUTED)
+	var interruption: Dictionary = host.run.state.last_battle.get("register_break",{})
+	if not interruption.is_empty():
+		var cause := "占领中天亮"
+		if not interruption.get("at_dawn",false):
+			cause = "房内已无攻方" if interruption.attackers==0 else "守方入房："+"、".join(interruption.guards)
+		var line := "最佳夺册 %.2f / %.0f 秒　·　第 %.1f 秒　·　%s" % [interruption.peak,interruption.required,interruption.seconds,cause]
+		Ink.label(_page,line,Rect2(478,478,964,52),22,Ink.PAPER)
 	var detail := _recent_loss()
 	if not detail.is_empty():
 		Ink.label(_page,detail,Rect2(478,530,964,86),22,Ink.PAPER)

@@ -51,6 +51,7 @@ var reinforce_left := 0.0
 var reinforce_count := 0
 var register_attackers := 0
 var register_guards: Array[String] = []
+var register_break: Dictionary = {}
 var occupation := 0.0
 var extinguish_left := 0.0
 var first_breach: Dictionary = {}
@@ -90,6 +91,7 @@ func start_battle(seat: String) -> Dictionary:
 	first_breach.clear()
 	register_attackers = 0
 	register_guards.clear()
+	register_break = {}
 	occupation = 0
 	reinforce_count = 0
 	reinforce_left = 0
@@ -577,6 +579,8 @@ func after_step(delta: float) -> void:
 			roster.drain_names(float(rules.name_drain_per_second)*delta,source)
 		else: names = maxf(0, names - float(rules.name_drain_per_second) * delta)
 	else:
+		if mode=="duoming" and occupation>float(register_break.get("peak",0.0)):
+			register_break={"peak":occupation,"required":rules.occupation_seconds,"seconds":simulation.simulation_time,"attackers":register_attackers,"guards":register_guards.duplicate()}
 		occupation = maxf(0, occupation - float(rules.occupation_recovery) * delta)
 	if names <= 0:
 		extinguish_left = maxf(0, extinguish_left - delta)
@@ -714,6 +718,9 @@ func _finish(outcome: String, reason: String) -> void:
 	result = {"outcome":outcome,"reason":reason,"mode":mode,"incense":incense_for("shouxiang") if dual_enabled else incense,"names":names,
 		"remaining":remaining,"elapsed":simulation.simulation_time,"first_breach":first_breach.duplicate(),
 		"humans_alive":simulation.humans.size(),"tide_alive":simulation.targets.size()}
+	if mode=="duoming" and reason=="P4_END_DAYBREAK" and occupation>float(register_break.get("peak",0.0)):
+		register_break={"peak":occupation,"required":rules.occupation_seconds,"seconds":simulation.simulation_time,"at_dawn":true}
+	if not register_break.is_empty(): result.register_break = register_break.duplicate(true)
 	if dual_enabled:
 		result.winner = "shouxiang" if outcome == "victory" else "duoming"
 		result.wallets = wallets.duplicate(true)

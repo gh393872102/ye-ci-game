@@ -2,12 +2,20 @@ extends "res://tools/faction_baseline/FamilyFirstNight.gd"
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
+	var capture := "--capture" in args
+	var capture_ending := capture
+	if capture:
+		if DisplayServer.get_name()=="headless":
+			quit(2)
+			return
+		args.remove_at(args.find("--capture"))
+		root.size=Vector2i(1920,1080)
 	var families: Array = load("res://src/night/FactionOpening.gd").FAMILIES.keys()
-	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["white","window","erase","bow"]) or args[0] not in ["渡口","灯市","秋社"] or args[1] not in families:
+	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["white","window","erase","bow","bow40","bow3"]) or args[0] not in ["渡口","灯市","秋社"] or args[1] not in families:
 		quit(2)
 		return
 	var order := args[2] if args.size()==3 else ""
-	if (order in ["window","white","bow"] and args[1]!="无名潮") or (order=="erase" and args[1]!="无册谱"):
+	if (order in ["window","white","bow","bow40","bow3"] and args[1]!="无名潮") or (order=="erase" and args[1]!="无册谱"):
 		quit(2)
 		return
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
@@ -24,7 +32,11 @@ func run() -> void:
 		var phase: String = night.state.phase
 		var row := {"phase":phase,"cash":night.state.incense}
 		report.steps.append(row)
-		if phase in ["ended","mercy"]: break
+		if phase in ["ended","mercy"]:
+			if capture_ending and phase=="mercy":
+				await RenderingServer.frame_post_draw
+				root.get_texture().get_image().save_webp("res://docs/optimization/register-recap.webp",true,0.78)
+			break
 		if phase == "map":
 			row.node = night.available_nodes()[0].id
 			host.choose_node(row.node)
@@ -51,11 +63,17 @@ func run() -> void:
 					quit(2)
 					return
 			if order == "window": row.window_positions = []
-			if order=="bow":
+			var later_battle: bool = night.state.current_node_id!="n01"
+			var budget := 3 if later_battle and order=="bow3" else 2
+			var second_at := 40.0 if later_battle and order=="bow40" else 0.0
+			var last_occupation := 0.0
+			var was_advancing := false
+			if order.begins_with("bow"):
+				row.interruptions = []
 				row.orders = []
 				row.register = {"scouts":[],"guards":{},"peak_occupation":0.0,"fighters_ticks":0}
 			for tick in ceili(sim.session.remaining*60)+2:
-				if order=="bow" and row.orders.size()<2 and sim.session.reinforce_left<=0 and sim.session.incense>=sim.session.rules.reinforce.cost:
+				if order.begins_with("bow") and row.orders.size()<budget and (row.orders.is_empty() or sim.simulation_time>=second_at) and sim.session.reinforce_left<=0 and sim.session.incense>=sim.session.rules.reinforce.cost:
 					var cash: float = sim.session.incense
 					var formation := "window" if row.orders.is_empty() else "window_bow"
 					var receipt: Dictionary = sim.session.execute_for("duoming","reinforce",{"formation":formation},"player")
@@ -65,7 +83,20 @@ func run() -> void:
 						return
 					row.orders.append({"time":sim.simulation_time,"before":cash,"cost":cash-sim.session.incense,"formation":formation})
 				sim.advance(1.0/60.0)
-				if order=="bow" and sim.session.register_attackers>0:
+				if order.begins_with("bow"):
+					var advancing: bool = sim.session.occupation>last_occupation
+					if was_advancing and not advancing:
+						var panel: Node = host.combat.get_node("Decisions")
+						panel._update_warnings()
+						row.interruptions.append({"time":sim.simulation_time,"peak":last_occupation,"attackers":sim.session.register_attackers,"guards":sim.session.register_guards.duplicate(),"hud":panel.register_warning.text})
+					if capture and later_battle and sim.session.occupation>=5:
+						host.combat.get_node("BattleCamera").set_left(sim.world.get_node("post_register").position.x-900)
+						await RenderingServer.frame_post_draw
+						root.get_texture().get_image().save_webp("res://docs/optimization/register-relay.webp",true,0.76)
+						capture=false
+					was_advancing=advancing
+					last_occupation=sim.session.occupation
+				if order.begins_with("bow") and sim.session.register_attackers>0:
 					row.register.peak_occupation=maxf(row.register.peak_occupation,sim.session.occupation)
 					row.register.fighters_ticks+=1
 					for scout in sim.targets:

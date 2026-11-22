@@ -152,6 +152,7 @@
 			],
 			"family": "无名潮",
 			"foreign": [],
+			"interruptions": [],
 			"orders": [
 				{
 					"before": 16.0,
@@ -426,6 +427,7 @@
 			],
 			"family": "无名潮",
 			"foreign": [],
+			"interruptions": [],
 			"orders": [
 				{
 					"before": 35.9280000000005,
@@ -470,6 +472,12 @@
 				"names": 7.38750000000026,
 				"outcome": "defeat",
 				"reason": "P4_END_DAYBREAK",
+				"register_break": {
+					"at_dawn": true,
+					"peak": 6.44999999999998,
+					"required": 12.0,
+					"seconds": 210.000000000059
+				},
 				"remaining": 0.0,
 				"tide_alive": 60
 			}
