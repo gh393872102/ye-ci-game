@@ -223,7 +223,7 @@ func cast(unit:Node2D,args:Dictionary={})->Dictionary:
 			return commit(unit,"sabotage_mechanism",str(barrier.name))
 		"G25":
 			var target := target_for(unit,args)
-			if target==null or not target.unit_id.begins_with("H"):return result(false)
+			if target==null or not target.unit_id.begins_with("H") or target.roster.statuses.has("nameless"):return result(false)
 			status(target,"name_erase",p(unit,"duration"),unit)
 			return commit(unit,"erase_name",target.instance_id)
 		"G26":

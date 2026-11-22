@@ -469,7 +469,11 @@ func mutate(unit: Node2D, form_id: String) -> Dictionary:
 	_emit_command("duoming","mutate",{"unit_id":unique_id,"form_id":form_id})
 	return {"ok":true,"reason":"P4_MUTATED","unit":unit}
 
-func reinforce() -> Dictionary:
+func window_recruits() -> int:
+	if simulation.tide.config.get("supply_id","") != "G01": return 0
+	return floori(float(rules.reinforce.count) / 2.0)
+
+func reinforce(formation := "") -> Dictionary:
 	var reason := _available("duoming")
 	if not reason.is_empty():
 		return _reject(reason)
@@ -481,15 +485,21 @@ func reinforce() -> Dictionary:
 		return _reject("P4_REINFORCE_COOLDOWN")
 	if incense < float(rules.reinforce.cost):
 		return _reject("P4_NO_INCENSE")
-	if simulation.targets.size() + simulation.tide.pending.size() + int(rules.reinforce.count) > int(simulation.tide.config.capacity):
+	var count := int(rules.reinforce.count)
+	var id: String = simulation.tide.config.get("supply_id","G01")
+	if not formation.is_empty():
+		if formation != "window" or window_recruits() == 0: return _reject("P6_INVALID_ACTION")
+		count = window_recruits()
+		id = "G07"
+	if simulation.targets.size() + simulation.tide.pending.size() + count > int(simulation.tide.config.capacity):
 		return _reject("P4_TIDE_CAP")
 	incense -= float(rules.reinforce.cost)
 	reinforce_count += 1
 	reinforce_left = float(rules.reinforce.cooldown)
-	for index in int(rules.reinforce.count):
-		simulation.tide.pending.append(simulation.tide.config.get("supply_id","G01"))
-	_record("reinforce", -float(rules.reinforce.cost), str(rules.reinforce.count))
-	_emit_command("duoming","reinforce",{})
+	for index in count:
+		simulation.tide.pending.append(id)
+	_record("reinforce", -float(rules.reinforce.cost), str(count) if formation.is_empty() else "%s × %d" % [id,count])
+	_emit_command("duoming","reinforce",{} if formation.is_empty() else {"formation":formation})
 	return _ok()
 
 func advance(delta: float) -> void:
@@ -794,7 +804,7 @@ func execute_for(seat: String, action: String, args: Dictionary = {}, origin := 
 		"start_ritual": response = start_ritual(_actor(str(args.get("caster_id",""))),_actor(str(args.get("target_id",""))))
 		"repair": response = repair(str(args.get("door_id","")))
 		"mutate": response = mutate(_actor(str(args.get("unit_id",""))),str(args.get("form_id","")))
-		"reinforce": response = reinforce()
+		"reinforce": response = reinforce(str(args.get("formation","")))
 		"purchase_options": response = {"ok":true,"reason":"P4_COMMAND_OK","data":purchase_options()}
 		"legal_posts": response = {"ok":true,"reason":"P4_COMMAND_OK","data":legal_posts(str(args.get("id","")))}
 		"preview_upgrade": response = {"ok":true,"reason":"P4_COMMAND_OK","data":preview_upgrade(_actor(str(args.get("unit_id",""))))}

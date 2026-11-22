@@ -14,11 +14,13 @@ func run() -> void:
 	root.add_child(host)
 	var shell: Node = host.shell
 	shell.title_buttons.start.pressed.emit()
-	shell.family_picker.select(3)
-	shell.family_picker.item_selected.emit(3)
+	var window := "--window" in OS.get_cmdline_user_args()
+	var family := 1 if window else 3
+	shell.family_picker.select(family)
+	shell.family_picker.item_selected.emit(family)
 	await RenderingServer.frame_post_draw
-	var portrait_ok: bool = shell.family_portrait.texture != null and shell.family_note.text.contains("山魅") and shell.family_portrait.is_visible_in_tree()
-	root.get_texture().get_image().save_webp("res://docs/optimization/mountain-opening.webp",true,0.80)
+	var portrait_ok: bool = shell.family_portrait.texture != null and shell.family_note.text.contains("白衣" if window else "山魅") and shell.family_portrait.is_visible_in_tree()
+	if not window: root.get_texture().get_image().save_webp("res://docs/optimization/mountain-opening.webp",true,0.80)
 	shell.seed_input.text = "渡口"
 	shell.title_buttons.duoming.pressed.emit()
 	host.choose_node("n01")
@@ -26,7 +28,7 @@ func run() -> void:
 	var panel: Node = host.combat.get_node("Decisions")
 	var camera: Node = host.combat.get_node("BattleCamera")
 	for column in 11:
-		for lane in 4: sim.tide.spawn("G17",lane,camera.left()+55+column*105+lane*10)
+		for lane in 4: sim.tide.spawn("G01" if window else "G17",lane,camera.left()+55+column*105+lane*10)
 	for warmup in 30: await RenderingServer.frame_post_draw
 	var samples := []
 	var low := 999
@@ -44,7 +46,8 @@ func run() -> void:
 		high = maxi(high,count)
 	panel.open_reinforce()
 	await RenderingServer.frame_post_draw
-	var button: Button = panel.buttons.reinforce
+	if window: root.get_texture().get_image().save_webp("res://docs/optimization/window-supply.webp",true,0.80)
+	var button: Button = panel.buttons.window_reinforce if window else panel.buttons.reinforce
 	var rect := button.get_global_rect()
 	var session: Node = sim.session
 	var cash: float = session.incense
@@ -59,9 +62,10 @@ func run() -> void:
 	var ms := (Time.get_ticks_usec()-started)/1000.0
 	var ordered := samples.duplicate()
 	ordered.sort()
-	var ok: bool = portrait_ok and low >= 30 and is_equal_approx(cash-session.incense,10) and session.reinforce_count == 1 and sim.tide.pending.slice(-2)==["G17","G17"]
+	var ok: bool = portrait_ok and low >= 30 and is_equal_approx(cash-session.incense,10) and session.reinforce_count == 1 and (sim.tide.pending.slice(-4)==["G07","G07","G07","G07"] if window else sim.tide.pending.slice(-2)==["G17","G17"])
+	if window: ok = ok and panel.feedback.text.contains("4只童亡")
 	var result := {"passed":ok,"portrait":portrait_ok,"resolution":[1920,1080],"visible":[low,high],"frame_ms":samples,"frame_percentiles":[ordered[89],ordered[170],ordered[178]],"click_feedback_ms":ms,"feedback":panel.feedback.text,"renderer":RenderingServer.get_video_adapter_name(),"paid":cash-session.incense,"queued":sim.tide.pending}
-	FileAccess.open("res://tools/faction_baseline/native-family.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	FileAccess.open("res://tools/faction_baseline/native-%s.json" % ("window" if window else "family"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",ok," ",result.frame_percentiles," ",ms)
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(host.save_path))
 	host.free()

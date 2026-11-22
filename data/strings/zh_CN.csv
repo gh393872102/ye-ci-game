@@ -514,7 +514,7 @@ P11_UNIT_G24_TAGS,机关;超度
 P11_UNIT_G25_NAME,抹名吏
 P11_UNIT_G25_AFFILIATION,无册谱
 P11_UNIT_G25_ROLE,剥夺名字
-P11_UNIT_G25_SKILL,抹名：去掉一个单位的名，使其恐慌或技能失效
+P11_UNIT_G25_SKILL,抹名：抹去一名具名守军的名字，使其技能失效；失名期间不能重复抹名
 P11_UNIT_G25_TRAIT,吏眼：优先打有名的人物，不屑打杂兵
 P11_UNIT_G25_TAGS,无册;名面
 P11_UNIT_G26_NAME,空白册页

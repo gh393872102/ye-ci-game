@@ -1,0 +1,98 @@
+{
+	"family": "无名潮",
+	"outcome": "defeat",
+	"phase": "mercy",
+	"reason": "P4_END_DAYBREAK",
+	"seed": "秋社",
+	"steps": [
+		{
+			"cash": 16.0,
+			"node": "n01",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G01_tide_10": "G01",
+				"G01_tide_11": "G01",
+				"G01_tide_12": "G01",
+				"G01_tide_13": "G01",
+				"G01_tide_14": "G01",
+				"G01_tide_15": "G01",
+				"G01_tide_16": "G01",
+				"G01_tide_17": "G01",
+				"G01_tide_18": "G01",
+				"G01_tide_19": "G01",
+				"G01_tide_20": "G01",
+				"G01_tide_21": "G01",
+				"G01_tide_22": "G01",
+				"G01_tide_23": "G01",
+				"G01_tide_24": "G01",
+				"G01_tide_25": "G01",
+				"G01_tide_26": "G01",
+				"G01_tide_27": "G01",
+				"G01_tide_28": "G01",
+				"G01_tide_29": "G01",
+				"G01_tide_30": "G01",
+				"G01_tide_31": "G01",
+				"G01_tide_32": "G01",
+				"G01_tide_33": "G01",
+				"G01_tide_34": "G01",
+				"G01_tide_35": "G01",
+				"G01_tide_36": "G01",
+				"G01_tide_37": "G01",
+				"G01_tide_38": "G01",
+				"G01_tide_39": "G01",
+				"G01_tide_40": "G01",
+				"G01_tide_41": "G01",
+				"G01_tide_42": "G01",
+				"G01_tide_43": "G01",
+				"G01_tide_44": "G01",
+				"G01_tide_45": "G01",
+				"G01_tide_46": "G01",
+				"G01_tide_47": "G01",
+				"G01_tide_48": "G01",
+				"G01_tide_49": "G01",
+				"G01_tide_50": "G01",
+				"G01_tide_51": "G01",
+				"G01_tide_52": "G01",
+				"G01_tide_53": "G01"
+			},
+			"cash": 16.0,
+			"events": [],
+			"family": "无名潮",
+			"foreign": [],
+			"paid": 10.0,
+			"phase": "battle",
+			"queued": [
+				"G01",
+				"G01",
+				"G01",
+				"G01",
+				"G01",
+				"G01",
+				"G01",
+				"G01"
+			],
+			"result": {
+				"elapsed": 180.000000000035,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 58.4166666666646
+				},
+				"humans_alive": 4,
+				"incense": 49.1999999999947,
+				"killer_id": "",
+				"mode": "duoming",
+				"names": 8.0,
+				"outcome": "defeat",
+				"reason": "P4_END_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 38
+			}
+		},
+		{
+			"cash": 49.1999999999947,
+			"phase": "mercy"
+		}
+	]
+}

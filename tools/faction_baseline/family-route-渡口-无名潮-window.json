@@ -1,0 +1,294 @@
+{
+	"family": "无名潮",
+	"outcome": "defeat",
+	"phase": "mercy",
+	"reason": "P4_END_DAYBREAK",
+	"seed": "渡口",
+	"steps": [
+		{
+			"cash": 16.0,
+			"node": "n01",
+			"phase": "map"
+		},
+		{
+			"arrivals": {
+				"G01_tide_10": "G01",
+				"G01_tide_11": "G01",
+				"G01_tide_12": "G01",
+				"G01_tide_13": "G01",
+				"G01_tide_14": "G01",
+				"G01_tide_15": "G01",
+				"G01_tide_16": "G01",
+				"G01_tide_17": "G01",
+				"G01_tide_18": "G01",
+				"G01_tide_19": "G01",
+				"G01_tide_20": "G01",
+				"G01_tide_21": "G01",
+				"G01_tide_22": "G01",
+				"G01_tide_23": "G01",
+				"G01_tide_24": "G01",
+				"G01_tide_25": "G01",
+				"G01_tide_30": "G01",
+				"G01_tide_31": "G01",
+				"G01_tide_32": "G01",
+				"G01_tide_33": "G01",
+				"G01_tide_34": "G01",
+				"G01_tide_35": "G01",
+				"G01_tide_36": "G01",
+				"G01_tide_37": "G01",
+				"G01_tide_38": "G01",
+				"G01_tide_39": "G01",
+				"G01_tide_40": "G01",
+				"G01_tide_41": "G01",
+				"G01_tide_42": "G01",
+				"G01_tide_43": "G01",
+				"G01_tide_44": "G01",
+				"G01_tide_45": "G01",
+				"G01_tide_46": "G01",
+				"G01_tide_47": "G01",
+				"G01_tide_48": "G01",
+				"G01_tide_49": "G01",
+				"G07_tide_26": "G07",
+				"G07_tide_27": "G07",
+				"G07_tide_28": "G07",
+				"G07_tide_29": "G07"
+			},
+			"cash": 16.0,
+			"events": [
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_26",
+					"window_side_passage"
+				],
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_27",
+					"window_side_passage"
+				],
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_28",
+					"window_side_passage"
+				],
+				[
+					1.75,
+					"roster_window_route_started",
+					"G07_tide_29",
+					"window_side_passage"
+				],
+				[
+					44.5999999999988,
+					"roster_window_entered",
+					"G07_tide_27",
+					"post_window_1"
+				],
+				[
+					44.5999999999988,
+					"roster_window_entered",
+					"G07_tide_28",
+					"post_window_1"
+				],
+				[
+					44.5999999999988,
+					"roster_window_entered",
+					"G07_tide_29",
+					"post_window_1"
+				]
+			],
+			"family": "无名潮",
+			"foreign": [],
+			"paid": 10.0,
+			"phase": "battle",
+			"queued": [
+				"G07",
+				"G07",
+				"G07",
+				"G07"
+			],
+			"result": {
+				"elapsed": 180.000000000035,
+				"first_breach": {
+					"door": "door_outer",
+					"time": 58.4166666666646
+				},
+				"humans_alive": 4,
+				"incense": 49.1999999999947,
+				"killer_id": "",
+				"mode": "duoming",
+				"names": 8.0,
+				"outcome": "defeat",
+				"reason": "P4_END_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 34
+			},
+			"window_positions": [
+				{
+					"alive": [
+						[
+							"G07_tide_26",
+							"main",
+							0,
+							2292,
+							14
+						],
+						[
+							"G07_tide_27",
+							"main",
+							0,
+							2292,
+							14
+						],
+						[
+							"G07_tide_28",
+							"main",
+							0,
+							2292,
+							14
+						],
+						[
+							"G07_tide_29",
+							"main",
+							0,
+							2292,
+							14
+						]
+					],
+					"seconds": 15
+				},
+				{
+					"alive": [
+						[
+							"G07_tide_26",
+							"main",
+							0,
+							4730,
+							14
+						],
+						[
+							"G07_tide_27",
+							"main",
+							0,
+							4730,
+							14
+						],
+						[
+							"G07_tide_28",
+							"main",
+							0,
+							4730,
+							14
+						],
+						[
+							"G07_tide_29",
+							"main",
+							0,
+							4730,
+							14
+						]
+					],
+					"seconds": 30
+				},
+				{
+					"alive": [
+						[
+							"G07_tide_28",
+							"upper",
+							2,
+							7277,
+							14
+						],
+						[
+							"G07_tide_29",
+							"upper",
+							2,
+							7277,
+							14
+						]
+					],
+					"seconds": 45
+				},
+				{
+					"alive": [
+						[
+							"G07_tide_28",
+							"upper",
+							2,
+							7638,
+							14
+						],
+						[
+							"G07_tide_29",
+							"upper",
+							2,
+							7638,
+							14
+						]
+					],
+					"seconds": 60
+				},
+				{
+					"alive": [
+						[
+							"G07_tide_28",
+							"upper",
+							2,
+							7638,
+							14
+						],
+						[
+							"G07_tide_29",
+							"upper",
+							2,
+							7638,
+							14
+						]
+					],
+					"seconds": 75
+				},
+				{
+					"alive": [
+						[
+							"G07_tide_28",
+							"upper",
+							2,
+							8099,
+							14
+						]
+					],
+					"seconds": 90
+				},
+				{
+					"alive": [],
+					"seconds": 105
+				},
+				{
+					"alive": [],
+					"seconds": 120
+				},
+				{
+					"alive": [],
+					"seconds": 135
+				},
+				{
+					"alive": [],
+					"seconds": 150
+				},
+				{
+					"alive": [],
+					"seconds": 165
+				},
+				{
+					"alive": [],
+					"seconds": 180
+				}
+			]
+		},
+		{
+			"cash": 49.1999999999947,
+			"phase": "mercy"
+		}
+	]
+}

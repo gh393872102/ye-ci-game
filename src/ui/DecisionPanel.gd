@@ -1055,18 +1055,39 @@ func open_reinforce() -> void:
 		reason = "P4_NO_INCENSE"
 	var row := HBoxContainer.new()
 	content.add_child(row)
-	_button(row, "reinforce", tr("P4_REINFORCE") % rule.cost, reinforce, reason.is_empty(), reason)
+	var vacancies: int = session.simulation.tide.config.capacity-session.simulation.targets.size()-session.simulation.tide.pending.size()
+	var standard_reason := "P4_TIDE_CAP" if reason.is_empty() and vacancies < int(rule.count) else reason
+	_button(row, "reinforce", tr("P4_REINFORCE") % rule.cost, reinforce, standard_reason.is_empty(), standard_reason)
+	var scouts: int = session.window_recruits()
+	if scouts > 0:
+		var window_reason := "P4_TIDE_CAP" if reason.is_empty() and vacancies < scouts else reason
+		_button(row,"window_reinforce","童亡走窗 × %d · %d香火" % [scouts,rule.cost],reinforce.bind("window"),window_reason.is_empty(),window_reason)
+		var preview := HBoxContainer.new()
+		content.add_child(preview)
+		var portrait := TextureRect.new()
+		portrait.texture = preload("res://src/units/UnitAppearance.gd").portrait_texture("G07")
+		portrait.custom_minimum_size = Vector2(64,88)
+		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		preview.add_child(portrait)
+		var note := _label(preview,"童亡从侧窗上楼。名额减半，与正门补潮共用次数和冷却。",18)
+		note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if not reason.is_empty():
 		_label(content, tr(reason), 18)
 	_button(row, "close", tr("P9_BATTLE_CLOSE"), close_panel)
 	_focus_first(row)
 
-func reinforce() -> void:
+func reinforce(formation := "") -> void:
 	if not _can_command() or view_seat() != "duoming":
 		return
 	Clock.set_paused(true)
-	_feedback(_issue("reinforce"))
+	var answer := _issue("reinforce",{} if formation.is_empty() else {"formation":formation})
+	_feedback(answer)
 	open_reinforce()
+	if answer.ok and formation == "window":
+		feedback.text = "%d只童亡已候潮，将从侧窗入楼。" % session.window_recruits()
 
 func view_seat() -> String:
 	return str(session.player_seat) if observation_mode else str(session.mode)
@@ -1107,7 +1128,7 @@ func _issue(action: String, args: Dictionary = {}) -> Dictionary:
 		"start_ritual": return session.start_ritual(_find_unit(args.caster_id), _find_unit(args.target_id))
 		"repair": return session.repair(args.door_id)
 		"mutate": return session.mutate(_find_unit(args.unit_id), args.form_id)
-		"reinforce": return session.reinforce()
+		"reinforce": return session.reinforce(str(args.get("formation","")))
 	return {"ok":false,"reason":"P6_READ_ONLY"}
 
 func _can_command() -> bool:
