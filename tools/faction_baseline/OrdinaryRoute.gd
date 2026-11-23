@@ -58,6 +58,8 @@ const EIGHTH_GUARD := {
 	"repair-inner-eighth-rear": {"rear":true,"aid":false},
 	"repair-inner-eighth-front": {"rear":false,"aid":true},
 	"repair-inner-eighth-drill": {"rear":true,"aid":true},
+	"repair-inner-final-guard": {"rear":true,"aid":true,"final":"H02"},
+	"repair-inner-final-priest": {"rear":true,"aid":true,"final":"H08"},
 	"repair-inner-eighth-reader": {"rear":true,"aid":true},
 	"repair-inner-eighth-relay": {"rear":true,"aid":true},
 }
@@ -262,7 +264,7 @@ func run() -> void:
 					final_read = true
 					reading_limit = 1
 				probe_boss_gate = final_read and night.state.roster.any(func(u): return u.id=="H01")
-				var drill_aid: bool = policy=="repair-inner-eighth-drill" and night.state.current_node_id=="n08"
+				var drill_aid: bool = (policy=="repair-inner-eighth-drill" or EIGHTH_GUARD.get(policy,{}).has("final")) and night.state.current_node_id=="n08"
 				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,drill_aid or (fifth and (policy == "reserve-trained" or camp)),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional)
 				step.battle = result
 				ok = result.get("settled",false)
@@ -323,6 +325,13 @@ func run() -> void:
 				if policy in FIFTH_POSTS and policy != "trio-aid" and night.state.current_node_id == "n06" and not night.state.roster.is_empty():
 					reserve = "" # Post comparisons take the usual heal for a surviving guard.
 				if (orders.get("ritual_gear",false) or orders.get("read",false)) and not night.rest_reserve_options().any(func(o): return o.id==reserve and o.allowed): reserve = ""
+				if policy=="repair-inner-eighth-drill" and night.state.current_node_id=="n09": reserve = ""
+				if night.state.current_node_id=="n09" and EIGHTH_GUARD.get(policy,{}).has("final"):
+					reserve = EIGHTH_GUARD[policy].final
+					var snapshot := OS.get_environment("YE_CI_LAST_CAMP_SAVE")
+					if not snapshot.is_empty() and not night.save(snapshot).ok:
+						quit(2)
+						return
 				if policy=="repair-inner-eighth-treat" and night.state.current_node_id=="n06":
 					var patient: Dictionary = night.state.roster.filter(func(u):return u.id=="H01")[0]
 					var before_hp: float = patient.hp

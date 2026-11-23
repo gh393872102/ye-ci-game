@@ -161,6 +161,11 @@ func run() -> void:
 		result.passed = passed and result.camp.passed
 		passed = result.passed
 		filename = "native-camp-health.json"
+	if OS.get_cmdline_user_args().has("--last-camp"):
+		result.camp = await probe_last_camp(host)
+		passed = passed and result.camp.passed
+		result.passed = passed
+		filename = "native-last-camp.json"
 	if not rear.is_empty():
 		result.rear = rear
 		passed = passed and rear.passed
@@ -577,3 +582,26 @@ func probe_camp_health(host: Node) -> Dictionary:
 	row.paid = cash-host.run.state.incense
 	row.passed = row.paid==4 and host.run.state.names==names and host.run.state.phase=="map" and expected.size()==host.run.state.roster.size() and host.run.state.roster.all(func(u):return expected.has(u.uid) and is_equal_approx(u.hp,expected[u.uid]))
 	return row
+
+func probe_last_camp(host: Node) -> Dictionary:
+	var receipt := {"passed":false}
+	if DirAccess.copy_absolute(OS.get_environment("YE_CI_LAST_CAMP_SAVE"),host.save_path) != OK: return receipt
+	host.continue_run()
+	await RenderingServer.frame_post_draw
+	var button: Button = host.panel.buttons.get("reserve_H02")
+	if not is_instance_valid(button) or button.disabled or host.run.state.roster.size()!=2: return receipt
+	var bounds := button.get_global_rect()
+	if not root.get_visible_rect().encloses(bounds): return receipt
+	var cash: float = host.run.state.incense
+	var names: float = host.run.state.names
+	var hp := {}
+	for unit in host.run.state.roster: hp[unit.uid] = unit.hp
+	root.get_texture().get_image().save_jpg("/tmp/ye31-last-camp.jpg",0.82)
+	var start := Time.get_ticks_usec()
+	click(button)
+	await RenderingServer.frame_post_draw
+	receipt.click_to_map_ms = (Time.get_ticks_usec()-start)/1000.0
+	host.continue_run()
+	receipt.paid = cash-host.run.state.incense
+	receipt.passed = host.run.state.phase=="map" and receipt.paid==12 and host.run.state.names==names and host.run.state.roster.size()==3 and host.run.state.roster.all(func(u): return (hp.has(u.uid) and u.hp==hp[u.uid]) or (not hp.has(u.uid) and u.id=="H02"))
+	return receipt

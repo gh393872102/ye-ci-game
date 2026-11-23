@@ -368,7 +368,7 @@ func rest_reserve_options() -> Array[Dictionary]:
 	if not _phase("rest") or state.mode != "shouxiang" or not state.has("opening_faction"):
 		return options
 	var before_final: bool = current_node().next.any(func(id): return _terminal(_node(str(id))))
-	if state.roster.size() > 1:
+	if state.roster.size() > 2 or (state.roster.size() == 2 and not before_final):
 		return options
 	if state.roster.size() == 1 and not before_final and state.roster[0].hp >= state.roster[0].max_hp:
 		return options

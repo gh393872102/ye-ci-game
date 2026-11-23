@@ -657,11 +657,13 @@ func _rest() -> void:
 	if not reserves.is_empty() and host.run.state.roster.size() == 1:
 		var guard: Dictionary = host.run.state.roster[0]
 		_focus.text = tr("NIGHT_REST_HEAL_SOLO") % [_unit_name(guard.id),guard.hp,host.run.rest_health_after(guard)]
-	if reserves.is_empty():
+	if reserves.is_empty() or host.run.state.roster.size() >= 2:
 		Ink.label(_page, str(host.run.current_node().description), Rect2(477, 324, 966, 86), 31, Ink.PAPER, true)
 		if host.run.state.has("opening_faction") and host.run.state.mode=="shouxiang" and host.run.state.roster.size()>=2:
-			Ink.label(_page,"选择集中疗伤，只治疗选中的队员，本次不领取香火和名分。",Rect2(477,418,966,46),22,Ink.MUTED)
-			var rows := Ink.scroll_rows(_page,Rect2(477,470,966,190),4)
+			var help := "集中疗伤只治疗一人，本次放弃补给。"
+			if not reserves.is_empty(): help += " 请援占用本次休整，全队不回血、不领补给。"
+			Ink.label(_page,help,Rect2(477,418,966,46),22,Ink.MUTED)
+			var rows := Ink.scroll_rows(_page,Rect2(477,470,966,154 if not reserves.is_empty() else 190),4)
 			rows.name = "RestHealthForecast"
 			for unit in host.run.state.roster:
 				var line := HBoxContainer.new()
@@ -684,6 +686,15 @@ func _rest() -> void:
 					care.disabled = not host.run.can_treat(unit)
 					care.pressed.connect(host.treat_at_rest.bind(unit.uid))
 					line.add_child(care)
+			if not reserves.is_empty():
+				for i in reserves.size():
+					var option: Dictionary = reserves[i]
+					var unit: Dictionary = Data.get_unit(option.id)
+					var caption := "%s · %s · %d香火" % [_unit_name(option.id),unit["定位"],option.cost]
+					var button := _button("reserve_"+str(option.id),caption,Rect2(477+i*486,635,474,52),host.finish_rest.bind(option.id),option.allowed)
+					button.icon = Appearance.bust_texture(option.id)
+					button.add_theme_constant_override("icon_max_width",48)
+					button.tooltip_text = "%s · %s" % [tr(str(option.post).to_upper()),unit["专属技能"]]
 			_focus.tooltip_text = tr("P5_REST_HELP")
 		else:
 			Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)

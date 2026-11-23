@@ -22,6 +22,27 @@ func run() -> void:
 		night.state.current_node_id = "n06"
 		passed = passed and night.rest_reserve_options().is_empty()
 		var before: Dictionary = night.state.duplicate(true)
+		night.state.current_node_id = "n09"
+		night.state.incense = 11
+		night.state.roster[0].hp = 1.0
+		var shortage: Dictionary = night.state.duplicate(true)
+		var pair_offers: Array = night.rest_reserve_options()
+		passed = passed and pair_offers.size()==2 and not night.finish_rest(pair_offers[0].id).ok and night.state == shortage
+		night.state.incense = 12
+		host.refresh()
+		var funded: Dictionary = night.state.duplicate(true)
+		var patient: Dictionary = night.state.roster[0]
+		var projected: float = night.treatment_health_after(patient)
+		var partner_hp: float = night.state.roster[1].hp
+		passed = passed and night.treat_at_rest(patient.uid).ok and night.state.incense==8 and night.state.roster.size()==2
+		passed = passed and night.state.roster[0].hp==projected and night.state.roster[1].hp==partner_hp and night.state.names==funded.names
+		night.state = funded
+		host.refresh()
+		var extra_id: String = pair_offers[0].id
+		passed = passed and host.panel.buttons.has("reserve_"+extra_id) and night.can_treat(night.state.roster[0])
+		passed = passed and night.finish_rest(extra_id).ok and night.state.roster.size()==3 and night.state.incense==0 and night.state.roster[0].hp==1.0
+		passed = passed and not night.finish_rest(extra_id).ok
+		night.state = before.duplicate(true)
 		night.state.roster.pop_back()
 		passed = passed and night.rest_reserve_options().is_empty()
 		var solo: Dictionary = night.state.duplicate(true)
