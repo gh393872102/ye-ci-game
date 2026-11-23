@@ -82,7 +82,7 @@ const FIFTH_POSTS := {
 const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
-const MARTIAL_POLICIES := ["martial-base","martial-swap","martial-pair","martial-iron","martial-iron-rear","martial-iron-camp","martial-iron-relay"]
+const MARTIAL_POLICIES := ["martial-base","martial-swap","martial-pair","martial-iron","martial-iron-rear","martial-iron-camp","martial-iron-relay","martial-early-book","martial-early-door","martial-early-gear"]
 
 func run() -> void:
 	var rear_policies := REAR_POLICIES.duplicate()
@@ -183,6 +183,10 @@ func run() -> void:
 							var change: Dictionary = night.reserve_post(option.uid,post)
 							step.orders.append({"move":option,"accepted":change.ok})
 							if not change.ok: ok = false
+				var patrol_map := OS.get_environment("YE_CI_PATROL_MAP")
+				if martial and step.choice=="n05" and not patrol_map.is_empty() and not night.save(patrol_map).ok:
+					quit(2)
+					return
 				var checkpoint := OS.get_environment("YE_CI_FINAL_MAP_SAVE")
 				if step.choice=="n10" and not checkpoint.is_empty():
 					if not night.save(checkpoint).ok:
@@ -202,9 +206,12 @@ func run() -> void:
 				if policy in EIGHTH_GUARD and EIGHTH_GUARD[policy].aid and night.state.current_node_id=="n08":
 					ordered_id = "H06"
 					aid_post = "post_register"
-				if policy in ["martial-iron","martial-iron-rear","martial-iron-camp","martial-iron-relay"] and second:
+				if policy in ["martial-iron","martial-iron-rear","martial-iron-camp","martial-iron-relay","martial-early-book","martial-early-door","martial-early-gear"] and second:
 					aid_post = "post_register" if policy!="martial-iron" else "post_hall_door"
 					ordered_id = "H09"
+				if fifth and policy in ["martial-early-book","martial-early-door","martial-early-gear"]:
+					ordered_id = "H12"
+					aid_post = "post_register" if policy!="martial-early-door" else "post_hall_door"
 				if paired_talisman:
 					if night.state.current_node_id == "n01": ordered_id = "H17"
 					if second: ordered_id = "H19" if policy == "borrow" else "H22"
@@ -267,6 +274,10 @@ func run() -> void:
 						if policy == "trio-gear-shen" and item == "Y11": continue
 						if night.state.growth.inventory.get(item,0)>0: items.append(item)
 				var wearer := "H01" if not items.is_empty() else ""
+				if fifth and policy=="martial-early-gear":
+					wearer = "H09"
+					for item in ["Y11","I11"]:
+						if night.state.growth.inventory.get(item,0)>0: items.append(item)
 				if policy == "trio-gear-shen" and night.state.current_node_id == "n08":
 					wearer = "H08"
 					for item in ["I08","Y11"]:
@@ -306,8 +317,8 @@ func run() -> void:
 					ok = ok and result.get("aid_upgrade",{}) == {"id":"H24","ok":true,"paid":8.0}
 				if martial:
 					ok = ok and result.foreign_units.is_empty()
-					if ordered_id=="H09":
-						ok = ok and result.get("aid",{}) == {"id":"H09","post":aid_post,"placed":true,"paid":12.0}
+					if ordered_id in ["H09","H12"]:
+						ok = ok and result.get("aid",{}) == {"id":ordered_id,"post":aid_post,"placed":true,"paid":12.0}
 				report.foreign.append_array(result.get("foreign_units",{}).values())
 			"reward":
 				if camp: step.offered = night.reward_options().map(func(card): return card.id)

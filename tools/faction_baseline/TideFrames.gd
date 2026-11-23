@@ -180,6 +180,12 @@ func run() -> void:
 		passed = passed and result.stones.passed
 		passed = passed and swap.passed and "孤刀" in result.cards.get("H10","") and "根深" in result.cards.get("H11","")
 		result.passed = passed
+	if OS.get_cmdline_user_args().has("--iron-preview"):
+		filename = "native-iron-preview.json"
+		result.iron_preview = await probe_iron(host)
+		result.patrol = await probe_iron(host,true)
+		passed = passed and result.iron_preview.passed and result.patrol.passed
+		result.passed = passed
 	if OS.get_cmdline_user_args().has("--camp-brace"):
 		filename = "native-camp-brace.json"
 	if OS.get_cmdline_user_args().has("--relief-budget"):
@@ -719,4 +725,51 @@ func probe_stones(host: Node) -> Dictionary:
 	row.received_scale = roster.humans.before_receive(blade,10.0,enemy,"melee")/10.0
 	var crowded_ok: bool = "有同伴" in row.crowded_card and "受击 ×1.2" in row.crowded_card and row.dealt_scale==1.0 and is_equal_approx(row.received_scale,1.2)
 	row.passed = row.bonus==5 and changed>=60 and card_ok and crowded_ok and shot.save_webp("/tmp/ye35-stones.webp",true,0.84)==OK
+	return row
+
+func probe_iron(host: Node, patrol := false) -> Dictionary:
+	var row := {"passed":false}
+	var recruit := "H12" if patrol else "H09"
+	if patrol:
+		if DirAccess.copy_absolute(OS.get_environment("YE_CI_PATROL_MAP"),host.save_path)!=OK: return row
+		host.continue_run()
+		host.choose_node("n05")
+	else:
+		host.start_p10_night("shouxiang","example","渡口","R01",[],"武卫司")
+		host.choose_node("n01")
+	var panel: Node = host.combat.get_node("Decisions")
+	var sim: Node = host.combat.get_node("Simulation")
+	sim.set_physics_process(false)
+	var session: Node = host.combat.get_node("Session")
+	var cash: float = session.incense
+	for confirm in [false,true]:
+		panel.open_purchase()
+		if patrol and not panel.recruitable_faction_only: return row
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var buy: Button = panel.buttons.get("buy_"+recruit)
+		if not is_instance_valid(buy) or buy.disabled: return row
+		click(buy)
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var hint: Label = panel.content.find_child("IronDeployment",true,false)
+		if not is_instance_valid(hint): return row
+		row.preview = hint.text
+		row.visible = panel.panel_scroll.get_global_rect().encloses(hint.get_global_rect())
+		row.reserved = cash-session.incense
+		if not row.visible or row.reserved!=12: return row
+		if patrol:
+			if "巡夜" not in hint.text or "余1岗" not in hint.text: return row
+		elif "断刃 75/75" not in hint.text or "石婆 95/95" not in hint.text or hint.text.count("余2岗")!=2: return row
+		if confirm:
+			root.get_texture().get_image().save_webp("/tmp/ye36-patrol.webp" if patrol else "/tmp/ye36-iron.webp",true,0.78)
+		var start := Time.get_ticks_usec()
+		click(panel.buttons.defend_register if confirm else panel.buttons.close)
+		await RenderingServer.frame_post_draw
+		if confirm: row.click_to_frame_ms = (Time.get_ticks_usec()-start)/1000.0
+		elif session.incense!=cash or not session.pending_purchase.is_empty(): return row
+	row.paid = cash-session.incense
+	row.remaining_slots = session.post_vacancies("post_register")
+	row.duplicate_reason = session.purchase(recruit).reason
+	row.passed = row.paid==12 and row.remaining_slots==(0 if patrol else 1) and row.duplicate_reason=="P4_NAMED_PRESENT" and sim.humans.any(func(u):return u.unit_id==recruit and u.current_post=="post_register")
 	return row

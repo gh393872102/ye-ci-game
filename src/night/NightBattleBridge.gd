@@ -1,6 +1,8 @@
 extends RefCounted
 ## Applies one night's owned roster and data profiles to the existing G0 simulator.
 # The shipped P10 source at 10d8719. Its actions cannot be replayed under P11.
+const MARTIAL_WATCH_RULES := "e285a4f46718e4c95b8eb23787d26074d2a49aff968a038c2411b763234c7356"
+const CAMP_BRACE_RULES := "e3df80f0913d0b8dacfcbbadd379b4b90b4dde2b271aba475c5d6032a9f73562"
 const PRE_CAMP_BRACE_RULES := "004f1b12a973af60eaa01012ad9adacd534a4970ee06fadcd4665ab5207e4237"
 const PILOT_TRIAL_RULES := "8f8e0dc25f49973a78a9f6885d50cc3344c040d798c60955a52ba5050ecc0b6a"
 const P11_REVIEW_RULES := "1f94085406a4fd4ca08507962d8998ba590faa5d11bcdd2db02a57ce89ae9b9c"
@@ -81,6 +83,12 @@ func start(combat: Node, run: RefCounted) -> Dictionary:
 	if run.story_enabled() and not session.renown_changed.is_connected(_note_renown):
 		session.renown_changed.connect(_note_renown)
 	if run.state.has("growth"): session.configure_growth(str(run.state.seed),run.state.growth)
+	# The gate guard can call his patrol partner before the third defense.
+	if node.id=="n05" and run.state.get("opening_faction","")=="武卫司":
+		var has_guard: bool = run.state.roster.any(func(member): return member.id=="H09" and member.hp>0)
+		var lost_patrol: bool = run.state.fallen.any(func(member): return member.id=="H12")
+		if has_guard and not lost_patrol:
+			session.rules.purchases["H12"] = preload("res://src/night/FactionOpening.gd").RESERVE_FEE
 	if node.id == "n10" and run.state.get("opening_faction","") == "守香司":
 		var fallen_ids: Array = run.state.fallen.map(func(unit): return unit.id)
 		if ["H01","H03","H06"].all(func(id): return id in fallen_ids) and "H07" not in fallen_ids:
@@ -440,6 +448,8 @@ func _begin_recording(combat: Node, run: RefCounted, resume: Dictionary = {}, mi
 func _prior_recording_rules(bridge: Dictionary, checkpoint: Variant) -> String:
 	if not checkpoint is Dictionary:
 		return ""
+	if checkpoint.get("rules_hash") in [MARTIAL_WATCH_RULES,CAMP_BRACE_RULES]:
+		return checkpoint.rules_hash
 	if checkpoint.get("rules_hash") == PRE_CAMP_BRACE_RULES:
 		return PRE_CAMP_BRACE_RULES
 	if checkpoint.get("rules_hash") == PILOT_TRIAL_RULES:

@@ -167,6 +167,37 @@
 					"placed": true,
 					"post": "post_register"
 				},
+				"deployment": {
+					"available_posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear",
+						"post_stage_wing"
+					],
+					"garrison": [
+						{
+							"hp": 75.0,
+							"id": "H10",
+							"instance": "H10_10",
+							"post": "post_register"
+						},
+						{
+							"hp": 95.0,
+							"id": "H11",
+							"instance": "H11_11",
+							"post": "post_hall_door"
+						}
+					],
+					"incense_before": 60.0,
+					"vacancies": 2
+				},
 				"fatal_hits": [],
 				"first_hits": {
 					"H09": {

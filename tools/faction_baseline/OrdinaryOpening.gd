@@ -139,6 +139,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			if not aid_post.is_empty(): break
 	if not aid_post.is_empty():
 		var before: float = session.incense
+		if faction=="武卫司":
+			row.deployment = {"available_posts":session.legal_posts(id),"vacancies":session.post_vacancies(aid_post),"incense_before":before,"garrison":sim.humans.map(func(u): return {"id":u.unit_id,"instance":u.instance_id,"post":u.current_post,"hp":u.hp})}
 		var purchase: Dictionary = session.purchase(id)
 		var placed := false
 		var recruit: Node

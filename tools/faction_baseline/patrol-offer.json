@@ -1,0 +1,36 @@
+[
+	{
+		"bought": true,
+		"count": 1,
+		"fixture": "ordinary",
+		"full_first_page": [
+			"H09",
+			"H10",
+			"H11"
+		],
+		"paid": 12.0,
+		"passed": true,
+		"quoted": 12,
+		"resumed": true,
+		"shortfall": "P4_NO_INCENSE",
+		"with_patrol": [
+			"H12",
+			"H13"
+		],
+		"without_patrol": [
+			"H09",
+			"H10",
+			"H11"
+		]
+	},
+	{
+		"fixture": "without_guard",
+		"passed": true,
+		"quoted": 0
+	},
+	{
+		"fixture": "fallen_patrol",
+		"passed": true,
+		"quoted": 0
+	}
+]

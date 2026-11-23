@@ -398,7 +398,7 @@ func open_purchase(for_register := false) -> void:
 	paused_before_purchase = Clock.paused
 	purchase_page = 0
 	register_relief = for_register
-	recruitable_faction_only = for_register
+	recruitable_faction_only = for_register or (preferred_faction=="武卫司" and session.rules.purchases.has("H12") and _query("purchase_options").any(func(offer): return offer.id=="H12" and offer.allowed) and not session.legal_posts("H12").is_empty())
 	current_panel = "purchase"
 	_build_purchase()
 
@@ -443,6 +443,8 @@ func _build_purchase() -> void:
 				else: hint.text += "。可返回全部查看缺香、满员等原因。"
 		else:
 			hint.text = "%s优先 · %s" % [preferred_faction,hint.text]
+		if preferred_faction=="武卫司" and page_offers.any(func(offer): return offer.id=="H12"):
+			hint.text += "　铁肩带来巡夜支援。现在请巡夜要 %d 香火，派驻前可取消。" % session.rules.purchases["H12"]
 		if page_offers.any(func(offer): return offer.id == "H19"):
 			hint.text += "　问灯会借鬼；守册战给他装备无字帖，可改为照鬼定身。"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -592,6 +594,18 @@ func _build_deploy() -> void:
 		_button(header, "defend_hall", "守门厅 · 余%d位" % session.post_vacancies("post_hall_door"), select_post.bind("post_hall_door", true))
 	_button(header, "close", tr("P9_BATTLE_CLOSE"), _cancel_purchase)
 	var hint := _label(content, tr("P9_DEPLOY_HELP"), 17)
+	if preferred_faction=="武卫司" and session.pending_purchase in ["H09","H12"]:
+		var lines := PackedStringArray()
+		for post_id in ["post_register","post_hall_door"]:
+			var names := PackedStringArray()
+			for unit in simulation.humans:
+				if not unit.dead and unit.current_post==post_id:
+					names.append("%s %d/%d" % [unit.display_name,ceili(unit.hp),ceili(unit.max_hp)])
+			var free: int = session.post_vacancies(post_id)
+			lines.append("%s · %s · %s" % [tr(post_id.to_upper()),"无人派驻" if names.is_empty() else "、".join(names),"满岗" if free==0 else "余%d岗"%free])
+		var specialty := "巡夜可用锁链阻止敌人上楼或遁水。" if session.pending_purchase=="H12" else "铁肩靠门可扛门，离门技能冷却变慢。"
+		hint.text = specialty+"选岗时的派驻\n"+"\n".join(lines)
+		hint.name = "IronDeployment"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hint.add_theme_color_override("font_color", MUTED)
 	target_hint = _label(content, tr("P9_DEPLOY_NO_POST") if legal_post_ids.is_empty() else "", 17)
