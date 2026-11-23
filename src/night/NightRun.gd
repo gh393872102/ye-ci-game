@@ -409,6 +409,9 @@ func hall_brace_target() -> String:
 	var upcoming := _node(exits[0])
 	return str(upcoming.id) if upcoming.get("boss_id","")=="B01" else ""
 
+func hall_is_braced(node: Dictionary) -> bool:
+	return node.get("boss_id","") == "B01" and state.ledger.any(func(entry): return entry.action=="brace_hall" and entry.detail.get("target","")==node.id)
+
 func brace_hall_at_rest() -> Dictionary:
 	var target := hall_brace_target()
 	if target.is_empty(): return _reject("P5_INVALID_CHOICE")

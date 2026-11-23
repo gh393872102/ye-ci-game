@@ -180,6 +180,11 @@ func run() -> void:
 		passed = passed and result.stones.passed
 		passed = passed and swap.passed and "孤刀" in result.cards.get("H10","") and "根深" in result.cards.get("H11","")
 		result.passed = passed
+	if OS.get_cmdline_user_args().has("--martial-final"):
+		filename = "native-martial-final.json"
+		result.final_map = await probe_final_map(host)
+		passed = passed and result.final_map.passed
+		result.passed = passed
 	if OS.get_cmdline_user_args().has("--iron-preview"):
 		filename = "native-iron-preview.json"
 		result.iron_preview = await probe_iron(host)
@@ -772,4 +777,76 @@ func probe_iron(host: Node, patrol := false) -> Dictionary:
 	row.remaining_slots = session.post_vacancies("post_register")
 	row.duplicate_reason = session.purchase(recruit).reason
 	row.passed = row.paid==12 and row.remaining_slots==(0 if patrol else 1) and row.duplicate_reason=="P4_NAMED_PRESENT" and sim.humans.any(func(u):return u.unit_id==recruit and u.current_post=="post_register")
+	return row
+
+func probe_final_map(host: Node) -> Dictionary:
+	var row := {"passed":false,"click_ms":[]}
+	var source := OS.get_environment("YE_CI_FINAL_MAP_SAVE")
+	if DirAccess.copy_absolute(source,host.save_path)!=OK: return row
+	host.continue_run()
+	var initial: Array = host.run.state.roster.duplicate(true)
+	var stone: Array = initial.filter(func(u): return u.id=="H11" and u.post=="post_hall_door")
+	if stone.size()!=1: return row
+	var cash: float = host.run.state.incense
+	var goods: Dictionary = host.run.state.growth.inventory.duplicate(true)
+	for dest in ["post_register","post_hall_door"]:
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var button: Button = host.panel.buttons.get("redeploy_"+str(stone[0].uid))
+		if not is_instance_valid(button) or not root.get_visible_rect().encloses(button.get_global_rect()): return row
+		if dest=="post_register":
+			row.preview = host.panel._node_note.text
+			if "6%" not in row.preview: return row
+			root.get_texture().get_image().save_webp("/tmp/ye37-boss.webp",false,0.84)
+		var start := Time.get_ticks_usec()
+		click(button)
+		await RenderingServer.frame_post_draw
+		row.click_ms.append((Time.get_ticks_usec()-start)/1000.0)
+		host.continue_run()
+		var expected := initial.duplicate(true)
+		for u in expected:
+			if u.uid==stone[0].uid: u.post=dest
+		if host.run.state.roster!=expected or host.run.state.incense!=cash or host.run.state.growth.inventory!=goods: return row
+		if dest=="post_register" and not host.run.state.roster.all(func(u): return u.post=="post_register"): return row
+	row.restored = true
+	var camp := OS.get_environment("YE_CI_FINAL_CAMP_SAVE")
+	if DirAccess.copy_absolute(camp,host.save_path)!=OK: return row
+	host.continue_run()
+	if not host.run.brace_hall_at_rest().ok or not host.run.save(host.save_path).ok: return row
+	host.continue_run()
+	await RenderingServer.frame_post_draw
+	row.braced = host.panel._node_note.text
+	if "339/650" not in row.braced: return row
+	host.choose_node("n10")
+	if not is_instance_valid(host.combat): return row
+	row.actual_gate = host.combat.get_node("Simulation").world.get_node("door_hall").durability
+	if row.actual_gate!=339 or DirAccess.copy_absolute(source,host.save_path)!=OK: return row
+	host.continue_run()
+	if not host.run.reserve_post(stone[0].uid,"post_register").ok: return row
+	host.choose_node("n10")
+	var sim: Node = host.combat.get_node("Simulation")
+	var session: Node = host.combat.get_node("Session")
+	sim.set_physics_process(false)
+	var wearer: Node = sim.humans.filter(func(u): return u.unit_id=="H11")[0]
+	root.get_node("Clock").set_paused(true)
+	for item in ["I08","Y11"]:
+		if not session.execute_for("shouxiang","equip_item",{"unit_id":wearer.instance_id,"item_id":item,"slot_index":0},"player").ok: return row
+	root.get_node("Clock").set_paused(false)
+	var camera: Node = host.combat.get_node("BattleCamera")
+	camera.set_left(wearer.position.x-root.size.x/2.0)
+	for tick in 3600:
+		sim.advance(1.0/60.0)
+		for field in session.growth.state.fields:
+			if field.kind!="paper_brace" or field.left>0.53: continue
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			if not root.get_visible_rect().has_point(wearer.get_global_transform_with_canvas().origin) or field.end==[0,0]: return row
+			row.paper = {"seconds":sim.simulation_time,"wearer":wearer.unit_id,"point":field.point,"attacker":field.end,"left":field.left,"hp":wearer.hp}
+			root.get_texture().get_image().save_webp("/tmp/ye37-impact.webp",true,0.81)
+			var decisions: Node = host.combat.get_node("Decisions")
+			decisions._update_warnings()
+			row.warnings = decisions.warnings.text
+			row.passed = not wearer.dead and "守香司已倒下" not in row.warnings and "守册将领已尽" not in row.warnings
+			return row
+		if not session.running: break
 	return row

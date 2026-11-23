@@ -679,10 +679,14 @@ func _advance_repairs(delta: float) -> void:
 		_record("repair_completed",0,str(door.name),0,"shouxiang")
 		repair_jobs.remove_at(index)
 
-func _ritual_line_broken() -> bool:
+func has_objective_defender() -> bool:
 	for unit in simulation.humans:
 		if not unit.dead and (unit.role == "ritual" or (growth.enabled and growth.state.get("defense_objective", "") == "hold_register" and unit.unit_id.begins_with("H"))):
-			return false
+			return true
+	return false
+
+func _ritual_line_broken() -> bool:
+	if has_objective_defender(): return false
 	if growth.enabled:
 		# P7 adds priests cheaper than H01. Evaluate the actual purchase space,
 		# independently of the current viewer seat or the command caller.

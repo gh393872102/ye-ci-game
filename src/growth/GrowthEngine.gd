@@ -637,7 +637,7 @@ func before_receive(unit:Node2D,amount:float,attacker:Node2D=null,kind:String="p
 		if state.get("defense_objective","") == "hold_register" and is_instance_valid(attacker) and attacker.side == "yegui" and "破门" in attacker.tags and sim().world.room_at(unit.position,unit.floor_id) == "register":
 			_spent(unit,"I08")
 			_event("paper_brace",unit,attacker.instance_id)
-			_visual("paper_brace",unit.position,unit.floor_id,0.65)
+			_visual("paper_brace",unit.position,unit.floor_id,0.65,0.0,attacker.position)
 			return 0.0
 	if amount>=unit.hp and has(unit,"I13") and _uses(unit,"I13")==0:
 		var candidates:Array=sim().humans if unit.side=="xianghuo" else sim().targets

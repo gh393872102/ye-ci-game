@@ -1,0 +1,2084 @@
+{
+	"save_sha256": "9bacc218f4e7a418225005f40a60952f487f5de80e707db3f00a3a787e2c28e3",
+	"seed": "石埠",
+	"trials": [
+		{
+			"battle": {
+				"additional_training": [
+					{
+						"hp_after": 77.0,
+						"hp_before": 62.0,
+						"id": "H09",
+						"instance": "H09_11",
+						"ok": true,
+						"paid": 8.0,
+						"paid_before_confirm": 0.0,
+						"via_menu": true
+					}
+				],
+				"aid": {
+					"id": "H13",
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register"
+				},
+				"deployment": {
+					"available_posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear",
+						"post_side_hall",
+						"post_silent_window"
+					],
+					"garrison": [
+						{
+							"hp": 70.4875,
+							"id": "H11",
+							"instance": "H11_10",
+							"post": "post_register"
+						},
+						{
+							"hp": 62.0,
+							"id": "H09",
+							"instance": "H09_11",
+							"post": "post_register"
+						}
+					],
+					"incense_before": 60.0,
+					"vacancies": 1
+				},
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.487499999999997,
+							"instance": "G01_tide_8",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 155.350000000016,
+							"source": "G01"
+						},
+						"id": "H11"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 1.0,
+							"instance": "G01_tide_15",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 140.750000000004,
+							"source": "G01"
+						},
+						"id": "H09"
+					},
+					{
+						"hit": {
+							"damage": 12.0,
+							"hp_before": 3.0,
+							"instance": "G12_tide_27",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 29.6666666666663,
+							"source": "G12"
+						},
+						"id": "H13"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_hits": {
+					"H09": {
+						"after": 62.0,
+						"attack": 10.0,
+						"attacker": "H09_11",
+						"before": 67.0,
+						"damage": 5.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.9833333333334
+					},
+					"H11": {
+						"after": 67.0,
+						"attack": 8.0,
+						"attacker": "H11_10",
+						"before": 70.0,
+						"damage": 3.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.1333333333334
+					}
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 155.350000000016
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": null,
+					"first_repair": 9.75000000000006,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 60.0,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 70.4875,
+						"id": "H11",
+						"instance": "H11_10",
+						"max_hp": 95.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 62.0,
+						"id": "H09",
+						"instance": "H09_11",
+						"max_hp": 110.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H09": "post_register",
+					"H11": "post_register"
+				},
+				"register_guards": {
+					"H09_11": {
+						"first_change": "fallen",
+						"id": "H09",
+						"seconds": 140.750000000004
+					},
+					"H11_10": {
+						"first_change": "fallen",
+						"id": "H11",
+						"seconds": 155.350000000016
+					},
+					"H13_13": {
+						"first_change": "fallen",
+						"id": "H13",
+						"seconds": 29.6666666666663
+					}
+				},
+				"result": {
+					"elapsed": 167.333333333359,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 8.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 192.666666666711,
+					"tide_alive": 45
+				},
+				"roster_price": 19.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H09",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 7.0,
+						"id": "H11",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H10",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H13",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				{
+					"attack": 8.0,
+					"defense": 15.0,
+					"display_name": "石婆",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 15.0,
+							"hp": 95.0
+						},
+						"charges": {},
+						"cooldowns": {
+							"barricade": 0.0
+						},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 70.4875,
+					"id": "H11",
+					"max_hp": 95.0,
+					"mutation_count": 0.0,
+					"post": "post_hall_door",
+					"profile": {
+						"height_px": 80.0,
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "p7_h11_skill",
+						"trait_id": "p7_h11_trait"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {
+							"last_position": [
+								8280.0,
+								500.0
+							],
+							"stationary_seconds": 81.38333333333
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 5.0,
+					"skill_id": "p7_h11_skill",
+					"skill_text": "土垒：在指定地面抬起一截短墙，可被力士砸坏",
+					"speed_stat": 4.0,
+					"tags": [
+						"机关",
+						"破门"
+					],
+					"trait_id": "p7_h11_trait",
+					"trait_text": "根深：站定越久防御越高，一移动就清零",
+					"uid": "night_2",
+					"upgrade_level": 0.0
+				},
+				{
+					"attack": 10.0,
+					"defense": 16.0,
+					"display_name": "铁肩",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 10.0,
+							"defense": 16.0,
+							"hp": 110.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 62.0,
+					"id": "H09",
+					"max_hp": 110.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "kang_men",
+						"trait_id": "men_pu"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4.0,
+					"skill_id": "kang_men",
+					"skill_text": "扛门：贴门时把门耐久暂时算在自己身上",
+					"speed_stat": 5.0,
+					"tags": [
+						"破门",
+						"金"
+					],
+					"trait_id": "men_pu",
+					"trait_text": "门仆：离开门口后技能冷却加长",
+					"uid": "n03:H09_12",
+					"upgrade_level": 0.0
+				}
+			],
+			"cash": 60.0,
+			"holder": "",
+			"inventory": {
+				"I04": 1.0,
+				"I17": 1.0,
+				"I20": 1.0,
+				"Y01": 1.0,
+				"Y05": 1.0,
+				"Y13": 1.0
+			},
+			"items": [],
+			"layout": "book"
+		},
+		{
+			"battle": {
+				"additional_training": [
+					{
+						"hp_after": 85.4875,
+						"hp_before": 70.4875,
+						"id": "H11",
+						"instance": "H11_10",
+						"ok": true,
+						"paid": 8.0,
+						"paid_before_confirm": 0.0,
+						"via_menu": true
+					}
+				],
+				"aid": {
+					"id": "H13",
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register"
+				},
+				"deployment": {
+					"available_posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear",
+						"post_side_hall",
+						"post_silent_window"
+					],
+					"garrison": [
+						{
+							"hp": 70.4875,
+							"id": "H11",
+							"instance": "H11_10",
+							"post": "post_register"
+						},
+						{
+							"hp": 62.0,
+							"id": "H09",
+							"instance": "H09_11",
+							"post": "post_register"
+						}
+					],
+					"incense_before": 60.0,
+					"vacancies": 1
+				},
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.487499999999997,
+							"instance": "G01_tide_7",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 153.933333333348,
+							"source": "G01"
+						},
+						"id": "H11"
+					},
+					{
+						"hit": {
+							"damage": 8.0,
+							"hp_before": 6.0,
+							"instance": "G12_tide_27",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 38.4666666666658,
+							"source": "G12"
+						},
+						"id": "H09"
+					},
+					{
+						"hit": {
+							"damage": 12.0,
+							"hp_before": 3.0,
+							"instance": "G12_tide_27",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 29.6666666666663,
+							"source": "G12"
+						},
+						"id": "H13"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_hits": {
+					"H09": {
+						"after": 62.0,
+						"attack": 10.0,
+						"attacker": "H09_11",
+						"before": 67.0,
+						"damage": 5.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.9833333333334
+					},
+					"H11": {
+						"after": 67.0,
+						"attack": 8.0,
+						"attacker": "H11_10",
+						"before": 70.0,
+						"damage": 3.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.1333333333334
+					}
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 153.933333333348
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": null,
+					"first_repair": 9.75000000000006,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 60.0,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 70.4875,
+						"id": "H11",
+						"instance": "H11_10",
+						"max_hp": 95.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 62.0,
+						"id": "H09",
+						"instance": "H09_11",
+						"max_hp": 110.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H09": "post_register",
+					"H11": "post_register"
+				},
+				"register_guards": {
+					"H09_11": {
+						"first_change": "fallen",
+						"id": "H09",
+						"seconds": 38.4666666666658
+					},
+					"H11_10": {
+						"first_change": "fallen",
+						"id": "H11",
+						"seconds": 153.933333333348
+					},
+					"H13_13": {
+						"first_change": "fallen",
+						"id": "H13",
+						"seconds": 29.6666666666663
+					}
+				},
+				"result": {
+					"elapsed": 165.916666666691,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 8.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 194.083333333379,
+					"tide_alive": 46
+				},
+				"roster_price": 19.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H09",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 7.0,
+						"id": "H11",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H10",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H13",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				{
+					"attack": 8.0,
+					"defense": 15.0,
+					"display_name": "石婆",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 15.0,
+							"hp": 95.0
+						},
+						"charges": {},
+						"cooldowns": {
+							"barricade": 0.0
+						},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 70.4875,
+					"id": "H11",
+					"max_hp": 95.0,
+					"mutation_count": 0.0,
+					"post": "post_hall_door",
+					"profile": {
+						"height_px": 80.0,
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "p7_h11_skill",
+						"trait_id": "p7_h11_trait"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {
+							"last_position": [
+								8280.0,
+								500.0
+							],
+							"stationary_seconds": 81.38333333333
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 5.0,
+					"skill_id": "p7_h11_skill",
+					"skill_text": "土垒：在指定地面抬起一截短墙，可被力士砸坏",
+					"speed_stat": 4.0,
+					"tags": [
+						"机关",
+						"破门"
+					],
+					"trait_id": "p7_h11_trait",
+					"trait_text": "根深：站定越久防御越高，一移动就清零",
+					"uid": "night_2",
+					"upgrade_level": 0.0
+				},
+				{
+					"attack": 10.0,
+					"defense": 16.0,
+					"display_name": "铁肩",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 10.0,
+							"defense": 16.0,
+							"hp": 110.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 62.0,
+					"id": "H09",
+					"max_hp": 110.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "kang_men",
+						"trait_id": "men_pu"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4.0,
+					"skill_id": "kang_men",
+					"skill_text": "扛门：贴门时把门耐久暂时算在自己身上",
+					"speed_stat": 5.0,
+					"tags": [
+						"破门",
+						"金"
+					],
+					"trait_id": "men_pu",
+					"trait_text": "门仆：离开门口后技能冷却加长",
+					"uid": "n03:H09_12",
+					"upgrade_level": 0.0
+				}
+			],
+			"cash": 60.0,
+			"holder": "",
+			"inventory": {
+				"I04": 1.0,
+				"I17": 1.0,
+				"I20": 1.0,
+				"Y01": 1.0,
+				"Y05": 1.0,
+				"Y13": 1.0
+			},
+			"items": [],
+			"layout": "book"
+		},
+		{
+			"battle": {
+				"additional_training": [
+					{
+						"hp_after": 100.0,
+						"hp_before": 85.0,
+						"id": "H13",
+						"instance": "H13_13",
+						"ok": true,
+						"paid": 8.0,
+						"paid_before_confirm": 0.0,
+						"via_menu": true
+					}
+				],
+				"aid": {
+					"id": "H13",
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register"
+				},
+				"deployment": {
+					"available_posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear",
+						"post_side_hall",
+						"post_silent_window"
+					],
+					"garrison": [
+						{
+							"hp": 70.4875,
+							"id": "H11",
+							"instance": "H11_10",
+							"post": "post_register"
+						},
+						{
+							"hp": 62.0,
+							"id": "H09",
+							"instance": "H09_11",
+							"post": "post_register"
+						}
+					],
+					"incense_before": 60.0,
+					"vacancies": 1
+				},
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 6.0,
+							"hp_before": 4.4875,
+							"instance": "G12_tide_26",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 157.450000000017,
+							"source": "G12"
+						},
+						"id": "H11"
+					},
+					{
+						"hit": {
+							"damage": 8.0,
+							"hp_before": 2.0,
+							"instance": "G12_tide_26",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 149.750000000011,
+							"source": "G12"
+						},
+						"id": "H09"
+					},
+					{
+						"hit": {
+							"damage": 11.0,
+							"hp_before": 1.0,
+							"instance": "G12_tide_27",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 32.9666666666661,
+							"source": "G12"
+						},
+						"id": "H13"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_hits": {
+					"H09": {
+						"after": 62.0,
+						"attack": 10.0,
+						"attacker": "H09_11",
+						"before": 67.0,
+						"damage": 5.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.9833333333334
+					},
+					"H11": {
+						"after": 67.0,
+						"attack": 8.0,
+						"attacker": "H11_10",
+						"before": 70.0,
+						"damage": 3.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.1333333333334
+					}
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 157.450000000017
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": null,
+					"first_repair": 9.75000000000006,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 60.0,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 70.4875,
+						"id": "H11",
+						"instance": "H11_10",
+						"max_hp": 95.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 62.0,
+						"id": "H09",
+						"instance": "H09_11",
+						"max_hp": 110.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H09": "post_register",
+					"H11": "post_register"
+				},
+				"register_guards": {
+					"H09_11": {
+						"first_change": "fallen",
+						"id": "H09",
+						"seconds": 149.750000000011
+					},
+					"H11_10": {
+						"first_change": "fallen",
+						"id": "H11",
+						"seconds": 157.450000000017
+					},
+					"H13_13": {
+						"first_change": "fallen",
+						"id": "H13",
+						"seconds": 32.9666666666661
+					}
+				},
+				"result": {
+					"elapsed": 169.43333333336,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 8.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 190.566666666709,
+					"tide_alive": 42
+				},
+				"roster_price": 19.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H09",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 7.0,
+						"id": "H11",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H10",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H13",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				{
+					"attack": 8.0,
+					"defense": 15.0,
+					"display_name": "石婆",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 15.0,
+							"hp": 95.0
+						},
+						"charges": {},
+						"cooldowns": {
+							"barricade": 0.0
+						},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 70.4875,
+					"id": "H11",
+					"max_hp": 95.0,
+					"mutation_count": 0.0,
+					"post": "post_hall_door",
+					"profile": {
+						"height_px": 80.0,
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "p7_h11_skill",
+						"trait_id": "p7_h11_trait"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {
+							"last_position": [
+								8280.0,
+								500.0
+							],
+							"stationary_seconds": 81.38333333333
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 5.0,
+					"skill_id": "p7_h11_skill",
+					"skill_text": "土垒：在指定地面抬起一截短墙，可被力士砸坏",
+					"speed_stat": 4.0,
+					"tags": [
+						"机关",
+						"破门"
+					],
+					"trait_id": "p7_h11_trait",
+					"trait_text": "根深：站定越久防御越高，一移动就清零",
+					"uid": "night_2",
+					"upgrade_level": 0.0
+				},
+				{
+					"attack": 10.0,
+					"defense": 16.0,
+					"display_name": "铁肩",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 10.0,
+							"defense": 16.0,
+							"hp": 110.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 62.0,
+					"id": "H09",
+					"max_hp": 110.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "kang_men",
+						"trait_id": "men_pu"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4.0,
+					"skill_id": "kang_men",
+					"skill_text": "扛门：贴门时把门耐久暂时算在自己身上",
+					"speed_stat": 5.0,
+					"tags": [
+						"破门",
+						"金"
+					],
+					"trait_id": "men_pu",
+					"trait_text": "门仆：离开门口后技能冷却加长",
+					"uid": "n03:H09_12",
+					"upgrade_level": 0.0
+				}
+			],
+			"cash": 60.0,
+			"holder": "",
+			"inventory": {
+				"I04": 1.0,
+				"I17": 1.0,
+				"I20": 1.0,
+				"Y01": 1.0,
+				"Y05": 1.0,
+				"Y13": 1.0
+			},
+			"items": [],
+			"layout": "book"
+		},
+		{
+			"battle": {
+				"additional_training": [
+					{
+						"hp_after": 77.0,
+						"hp_before": 62.0,
+						"id": "H09",
+						"instance": "H09_11",
+						"ok": true,
+						"paid": 8.0,
+						"paid_before_confirm": 0.0,
+						"via_menu": true
+					},
+					{
+						"hp_after": 85.4875,
+						"hp_before": 70.4875,
+						"id": "H11",
+						"instance": "H11_10",
+						"ok": true,
+						"paid": 8.0,
+						"paid_before_confirm": 0.0,
+						"via_menu": true
+					},
+					{
+						"hp_after": 100.0,
+						"hp_before": 85.0,
+						"id": "H13",
+						"instance": "H13_13",
+						"ok": true,
+						"paid": 8.0,
+						"paid_before_confirm": 0.0,
+						"via_menu": true
+					}
+				],
+				"aid": {
+					"id": "H13",
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register"
+				},
+				"deployment": {
+					"available_posts": [
+						"post_gate_inner",
+						"post_barricade_outer_court",
+						"post_inner_gate",
+						"post_hall_door",
+						"post_table_hall",
+						"post_window_1",
+						"post_window_2",
+						"post_stair_head",
+						"post_register",
+						"post_rear",
+						"post_side_hall",
+						"post_silent_window"
+					],
+					"garrison": [
+						{
+							"hp": 70.4875,
+							"id": "H11",
+							"instance": "H11_10",
+							"post": "post_register"
+						},
+						{
+							"hp": 62.0,
+							"id": "H09",
+							"instance": "H09_11",
+							"post": "post_register"
+						}
+					],
+					"incense_before": 60.0,
+					"vacancies": 1
+				},
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 5.0,
+							"hp_before": 3.4875,
+							"instance": "G12_tide_26",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 161.850000000021,
+							"source": "G12"
+						},
+						"id": "H11"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 1.0,
+							"instance": "G01_tide_21",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 150.933333333346,
+							"source": "G01"
+						},
+						"id": "H09"
+					},
+					{
+						"hit": {
+							"damage": 11.0,
+							"hp_before": 1.0,
+							"instance": "G12_tide_27",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 32.9666666666661,
+							"source": "G12"
+						},
+						"id": "H13"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_hits": {
+					"H09": {
+						"after": 62.0,
+						"attack": 10.0,
+						"attacker": "H09_11",
+						"before": 67.0,
+						"damage": 5.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.9833333333334
+					},
+					"H11": {
+						"after": 67.0,
+						"attack": 8.0,
+						"attacker": "H11_10",
+						"before": 70.0,
+						"damage": 3.0,
+						"defense": 10.0,
+						"kind": "melee",
+						"multiplier": 1.0,
+						"target": "G12_tide_12",
+						"time": 21.1333333333334
+					}
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 161.850000000021
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": null,
+					"first_repair": 9.75000000000006,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 60.0,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 70.4875,
+						"id": "H11",
+						"instance": "H11_10",
+						"max_hp": 95.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 62.0,
+						"id": "H09",
+						"instance": "H09_11",
+						"max_hp": 110.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H09": "post_register",
+					"H11": "post_register"
+				},
+				"register_guards": {
+					"H09_11": {
+						"first_change": "fallen",
+						"id": "H09",
+						"seconds": 150.933333333346
+					},
+					"H11_10": {
+						"first_change": "fallen",
+						"id": "H11",
+						"seconds": 161.850000000021
+					},
+					"H13_13": {
+						"first_change": "fallen",
+						"id": "H13",
+						"seconds": 32.9666666666661
+					}
+				},
+				"result": {
+					"elapsed": 173.833333333364,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 8.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 186.166666666706,
+					"tide_alive": 41
+				},
+				"roster_price": 19.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H09",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 7.0,
+						"id": "H11",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H10",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 10.0,
+						"id": "H13",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				{
+					"attack": 8.0,
+					"defense": 15.0,
+					"display_name": "石婆",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 15.0,
+							"hp": 95.0
+						},
+						"charges": {},
+						"cooldowns": {
+							"barricade": 0.0
+						},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 70.4875,
+					"id": "H11",
+					"max_hp": 95.0,
+					"mutation_count": 0.0,
+					"post": "post_hall_door",
+					"profile": {
+						"height_px": 80.0,
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "p7_h11_skill",
+						"trait_id": "p7_h11_trait"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {
+							"last_position": [
+								8280.0,
+								500.0
+							],
+							"stationary_seconds": 81.38333333333
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 5.0,
+					"skill_id": "p7_h11_skill",
+					"skill_text": "土垒：在指定地面抬起一截短墙，可被力士砸坏",
+					"speed_stat": 4.0,
+					"tags": [
+						"机关",
+						"破门"
+					],
+					"trait_id": "p7_h11_trait",
+					"trait_text": "根深：站定越久防御越高，一移动就清零",
+					"uid": "night_2",
+					"upgrade_level": 0.0
+				},
+				{
+					"attack": 10.0,
+					"defense": 16.0,
+					"display_name": "铁肩",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 10.0,
+							"defense": 16.0,
+							"hp": 110.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 62.0,
+					"id": "H09",
+					"max_hp": 110.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.2,
+						"return_after": 0.0,
+						"role": "guard",
+						"skill_id": "kang_men",
+						"trait_id": "men_pu"
+					},
+					"role": "guard",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4.0,
+					"skill_id": "kang_men",
+					"skill_text": "扛门：贴门时把门耐久暂时算在自己身上",
+					"speed_stat": 5.0,
+					"tags": [
+						"破门",
+						"金"
+					],
+					"trait_id": "men_pu",
+					"trait_text": "门仆：离开门口后技能冷却加长",
+					"uid": "n03:H09_12",
+					"upgrade_level": 0.0
+				}
+			],
+			"cash": 60.0,
+			"holder": "",
+			"inventory": {
+				"I04": 1.0,
+				"I17": 1.0,
+				"I20": 1.0,
+				"Y01": 1.0,
+				"Y05": 1.0,
+				"Y13": 1.0
+			},
+			"items": [],
+			"layout": "book"
+		}
+	]
+}

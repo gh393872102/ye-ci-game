@@ -23,7 +23,18 @@ func _draw() -> void:
 	for field in growth.state.fields:
 		if field.kind == "paper_brace":
 			var center := pixel(Vector2(field.point[0],field.point[1]-112))
-			if frame.has_point(center): _broken_stamp(center,clampf(1.0-float(field.left)/0.65,0,1))
+			if not frame.has_point(center): continue
+			var phase := clampf(1.0-float(field.left)/0.65,0,1)
+			_broken_stamp(center,phase)
+			# Older snapshots stored no attacker position.
+			var source: Array = field.get("end",[])
+			if phase < 0.6 and source.size()==2 and source!=[0,0]:
+				var side := signf(float(source[0])-float(field.point[0]))
+				if side!=0:
+					var edge := center+Vector2(side*(25+10*phase),30)
+					var alpha := 1.0-phase/0.6
+					path(edge,[Vector2(-side*7,-18),Vector2(side*4,-9),Vector2(side*7,2),Vector2(0,15)],Color(INK,alpha),7)
+					path(edge,[Vector2(-side*7,-18),Vector2(side*4,-9),Vector2(side*7,2),Vector2(0,15)],Color(AMBER,alpha),3)
 	var roster: RefCounted = simulation.roster_engine()
 	if roster != null:
 		for effect in roster.state.effects:

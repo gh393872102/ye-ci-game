@@ -1558,8 +1558,9 @@ func _update_warnings() -> void:
 			register_notices.append("无人守册 · 夺册还需 %.1f 秒" % maxf(0.0, session.rules.occupation_seconds - session.occupation))
 		elif session.occupation>0:
 			register_notices.append("攻方已撤空 · 进度回落至 %.1f 秒" % session.occupation)
-		if not simulation.humans.any(func(unit): return unit.role == "ritual" and not unit.dead):
-			notices.append(tr("P9_WARN_CASTER"))
+		if not session.has_objective_defender():
+			var hold: bool = session.growth.enabled and session.growth.state.get("defense_objective","")=="hold_register"
+			notices.append("守册将领已尽" if hold else tr("P9_WARN_CASTER"))
 	if interruption_left > 0:
 		notices.append(interruption)
 	var next := "\n".join(notices)

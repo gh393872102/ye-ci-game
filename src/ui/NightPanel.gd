@@ -203,7 +203,9 @@ func _map(history: bool) -> void:
 		legend.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		Ink.box(layer, Rect2(56 + index * 148, 53, 68, 1), ROUTE_COLORS[key])
 	var ready: Dictionary = {}
-	for node in host.run.available_nodes():
+	var available: Array = host.run.available_nodes()
+	var boss_next: bool = not history and available.size()==1 and available[0].get("boss_id","")=="B01" and host.run.state.mode=="shouxiang"
+	for node in available:
 		ready[str(node.id)] = true
 	Ink.folio(_page, Rect2(64, 864, 1276, 108))
 	_boss_portrait = Ink.texture(_page,null,Rect2(80,870,80,94))
@@ -213,7 +215,7 @@ func _map(history: bool) -> void:
 	var current: Dictionary = host.run.current_node()
 	if current.is_empty():
 		current = nodes[0]
-	_show_route_node(current)
+	_show_route_node(available[0] if boss_next else current)
 	var available_controls: Array[Button] = []
 	for node in nodes:
 		var id: String = node.id
@@ -234,7 +236,7 @@ func _map(history: bool) -> void:
 	if not history and host.run.state.has("opening_faction") and not host.run.state.roster.is_empty():
 		roster_bottom -= 68.0
 		_post_picker()
-	_roster(Rect2(1358, roster_top, 498, roster_bottom - roster_top))
+	_roster(Rect2(1358, roster_top, 498, roster_bottom - roster_top),boss_next)
 
 func _post_picker() -> void:
 	var picker := OptionButton.new()
@@ -379,6 +381,11 @@ func _show_route_node(node: Dictionary) -> void:
 		var rams: Array = spec.formations.filter(func(f): return f.role == "ram")
 		_boss_portrait.texture = Appearance.portrait_texture(lead.unit)
 		_node_note.text = "主殿门开战时剩 %d%% 耐久。一名%s已在门内。" % [roundi(spec.initial_doors.door_hall*100),_unit_name(lead.unit)]
+		if host.run.hall_is_braced(node):
+			var profile: Dictionary = host.run.config.battle_profiles[node.profile_id]
+			var maximum: float = profile.get("door_durability",{}).get("door_hall",Data.tide_rules.door_durability.door_hall)
+			var start := minf(maximum,maximum*float(spec.initial_doors.door_hall)+float(Data.battle_rules.repair.heal))
+			_node_note.text = "主殿门已加固，开战耐久 %d/%d。一名%s已在门内。" % [roundi(start),roundi(maximum),_unit_name(lead.unit)]
 		if not rams.is_empty():
 			_node_note.text += "\n第 %s 秒，第二名%s从门外赶来。" % [String.num(rams[0].at).trim_suffix(".0"),_unit_name(rams[0].unit)]
 
@@ -403,13 +410,18 @@ func _draw_paths() -> void:
 				var end := mini(index + 1, points.size() - 1)
 				_route_layer.draw_line(points[index], points[end], tone.darkened(0.32), 2, true)
 
-func _roster(rect: Rect2) -> void:
+func _roster(rect: Rect2, boss_next: bool) -> void:
 	Ink.folio(_page, rect, Color("181518eb"))
 	var state: Dictionary = host.run.state
 	Ink.label(_page, tr("P5_ROSTER"), Rect2(rect.position + Vector2(28, 18), Vector2(420, 56)), 32, Ink.PAPER, true)
 	Ink.label(_page, tr("P9_NIGHT_ROSTER_COUNTS") % [state.roster.size(), state.fallen.size()], Rect2(rect.position + Vector2(30, 81), Vector2(425, 37)), 20, Ink.MUTED)
 	Ink.box(_page, Rect2(rect.position + Vector2(30, 133), Vector2(rect.size.x - 60, 1)), Ink.RULE)
 	var rows := Ink.scroll_rows(_page, Rect2(rect.position + Vector2(29, 151), Vector2(rect.size.x - 58, rect.size.y - 258)), 5)
+	var moves := {}
+	if boss_next:
+		for option in host.run.reserve_post_options():
+			if [option.from,option.to] in [["post_hall_door","post_register"],["post_register","post_hall_door"]]:
+				moves[option.uid] = option
 	for unit in state.roster:
 		var field := Label.new()
 		field.text = tr("P9_NIGHT_ROSTER_ROW") % [_unit_name(str(unit.id)), unit.hp, unit.max_hp]
@@ -430,6 +442,13 @@ func _roster(rect: Rect2) -> void:
 			field.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			row.add_child(field)
+			if moves.has(unit.uid):
+				var move: Dictionary = moves[unit.uid]
+				var label := "回守册房" if move.to=="post_register" else "前往殿门"
+				var key := "redeploy_"+str(unit.uid)
+				var order := Ink.button(row,key,label,Rect2(),host.reserve_post.bind(unit.uid,move.to))
+				order.tooltip_text = "%s免费换岗，伤势与装备随人。%s留守 %d 人。" % [_unit_name(unit.id),tr(str(unit.post).to_upper()),state.roster.filter(func(u): return u.post==unit.post and u.uid!=unit.uid).size()]
+				buttons[key] = order
 		else:
 			rows.add_child(field)
 	if state.roster.is_empty():

@@ -193,7 +193,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	if probe_boss_gate:
 		hall = sim.world.get_node("door_hall")
 		row.gate = {"initial_hp":hall.durability,"maximum":hall.max_durability,"break_seconds":null,"first_repair":null,"first_read":null}
-		reader = sim.humans.filter(func(u): return u.unit_id=="H01")[0]
+		for guard in sim.humans:
+			if guard.unit_id=="H01": reader = guard
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		if probe_boss_gate and tick % 15 == 0:
 			if row.gate.first_repair == null and session.preview_repair("door_hall").ok:

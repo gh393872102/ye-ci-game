@@ -168,7 +168,7 @@ func start(combat: Node, run: RefCounted) -> Dictionary:
 			ward.brain.settled_position = ward.position
 		if not preload("res://src/data/StageOptions.gd").start(session,node.boss_id,run.state.nameless_modifiers,seed_text):
 			return {"ok":false,"reason":"P10_INVALID_PLAN"}
-	if node.get("boss_id","")=="B01" and run.state.ledger.any(func(entry): return entry.action=="brace_hall" and entry.detail.get("target","")==node.id):
+	if run.hall_is_braced(node):
 		var hall: Node = sim.world.get_node("door_hall")
 		hall.set_durability(minf(hall.max_durability,hall.durability + float(Data.battle_rules.repair.heal)))
 		session._update_warnings()
