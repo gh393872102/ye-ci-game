@@ -133,11 +133,12 @@ func run() -> void:
 		filename = "native-lamp.json"
 		result.passed = passed and "问灯" in str(deploy_feedback.get("feedback",""))
 		passed = result.passed
-	if OS.get_cmdline_user_args().has("--last-guard") or OS.get_cmdline_user_args().has("--relief-probe") or OS.get_cmdline_user_args().has("--train-probe"):
+	if OS.get_cmdline_user_args().has("--training-target") or OS.get_cmdline_user_args().has("--last-guard") or OS.get_cmdline_user_args().has("--relief-probe") or OS.get_cmdline_user_args().has("--train-probe"):
 		result.relief = await probe_relief(host)
 		passed = passed and result.relief.passed
 		result.passed = passed
 		filename = "native-train.json" if OS.get_cmdline_user_args().has("--train-probe") else "native-relief.json"
+	if OS.get_cmdline_user_args().has("--training-target"): filename = "native-training-target.json"
 	if OS.get_cmdline_user_args().has("--last-guard"): filename = "native-last-guard.json"
 	if OS.get_cmdline_user_args().has("--guard-gear"):
 		result.guard_gear = await probe_guard_gear(host)
@@ -183,7 +184,8 @@ func probe_relief(host: Node) -> Dictionary:
 		session.occupation = 0
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
-	var training := OS.get_cmdline_user_args().has("--train-probe")
+	var target_probe := OS.get_cmdline_user_args().has("--training-target")
+	var training := target_probe or OS.get_cmdline_user_args().has("--train-probe")
 	if training: session.incense = 20.0
 	var cash: float = session.incense
 	var row := {"passed":false,"fixture":"paused simulation updates, one reported attacker, no guard, 2 s occupation"}
@@ -211,6 +213,47 @@ func probe_relief(host: Node) -> Dictionary:
 		if row.paid!=10 or panel.current_panel!="upgrade" or not root.get_node("Clock").paused or panel.selected.unit_id!="H22": return row
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_jpg("/tmp/r18-training.jpg",0.74)
+		if target_probe:
+			var recruit: Node = panel.selected
+			var picker: OptionButton = panel.content.get_node("TrainingRoster/TrainingTarget")
+			var index := (picker.selected+1) % picker.item_count
+			if picker.item_count < 2: return row
+			var target_id: String = picker.get_item_metadata(index)
+			var other: Node = panel._find_unit(target_id)
+			var recruit_hp: float = recruit.hp
+			var other_level: int = other.upgrade_level
+			other.hp = other.max_hp-9.0
+			row.fixture += ", target starts nine HP below maximum for the UI check"
+			var balance: float = session.incense
+			click(picker)
+			await RenderingServer.frame_post_draw
+			var popup := picker.get_popup()
+			row.menu_open = popup.visible
+			if not popup.visible: return row
+			popup.hide()
+			await RenderingServer.frame_post_draw
+			click(panel.buttons.next_guard)
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			row.selected = panel.selected.instance_id
+			row.prepaid = balance-session.incense
+			if panel.selected != other or row.prepaid != 0: return row
+			row.confirm_visible = panel.panel_scroll.get_global_rect().encloses(panel.buttons.upgrade_confirm.get_global_rect())
+			if not row.confirm_visible: return row
+			root.get_texture().get_image().save_webp("/tmp/r24-training-target.webp",false,0.88)
+			var before_hp: float = other.hp
+			sent = Time.get_ticks_usec()
+			click(panel.buttons.upgrade_confirm)
+			await RenderingServer.frame_post_draw
+			row.confirm_to_frame_ms = (Time.get_ticks_usec()-sent)/1000.0
+			row.training_paid = balance-session.incense
+			row.hp_before = before_hp
+			row.hp_after = other.hp
+			row.max_after = other.max_hp
+			row.hp_gain = other.hp-before_hp
+			row.recruit_hp_change = recruit.hp-recruit_hp
+			row.passed = row.training_paid==8 and row.hp_gain==15 and row.recruit_hp_change==0 and other.upgrade_level==other_level+1
+			return row
 		var hp: float = panel.selected.hp
 		var balance: float = session.incense
 		click(panel.buttons.upgrade_confirm)

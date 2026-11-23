@@ -24,6 +24,19 @@ const REAR_POLICIES := {
 	"rear-camp-pair": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H08", "n09": "H02"}},
 	"rear-eighth": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01", "n08": "H01"}, "recall": true},
 }
+const FIFTH_TRAIN := {
+	"trio-fifth-control": [],
+	"trio-fifth-wan": ["H01"],
+	"trio-fifth-qing": ["H03"],
+	"trio-fifth-shuang": ["H06"],
+	"trio-fifth-split": ["H03","H06"],
+	"trio-fifth-stack": ["H03","H03"],
+	"trio-fifth-cap": ["H03","H03","H03"],
+	"trio-fifth-mixed": ["H03","H03","H06"],
+	"trio-fifth-lamp-two": ["H06","H06"],
+	"trio-fifth-lamp-three": ["H06","H06","H06"],
+	"trio-fifth-lamp-mixed": ["H03","H06","H06"],
+}
 const REGROUP_TRAIN := {"trio-regroup":"","trio-train-wan":"H01","trio-train-shen":"H08","trio-gear-shen":""}
 const FIFTH_POSTS := {
 	"trio-aid": {"H01":"post_register","H03":"post_register","H06":"post_register"},
@@ -46,11 +59,14 @@ const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","rese
 func run() -> void:
 	var rear_policies := REAR_POLICIES.duplicate()
 	var placements := FIFTH_POSTS.duplicate()
+	for key in FIFTH_TRAIN: placements[key] = FIFTH_POSTS["trio-reader"]
 	for key in REGROUP_TRAIN: placements[key] = FIFTH_POSTS["trio-reader"]
 	for key in placements:
 		var split: Dictionary = REAR_POLICIES["rear-read-beam"].duplicate(true)
 		split.erase("recall")
 		split.fifth_posts = placements[key]
+		if key in FIFTH_TRAIN and not FIFTH_TRAIN[key].is_empty():
+			split.train.n05 = FIFTH_TRAIN[key][0]
 		if key in REGROUP_TRAIN and REGROUP_TRAIN[key] != "": split.train.n08 = REGROUP_TRAIN[key]
 		if key.begins_with("trio-"):
 			split.posts = REAR_POLICIES["rear-hall-trained"].posts
@@ -197,13 +213,17 @@ func run() -> void:
 					wearer = "H08"
 					for item in ["I08","Y11"]:
 						if night.state.growth.inventory.get(item,0)>0: items.append(item)
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,fifth and orders.get("read",false),orders.get("tag",""),orders.get("after",0))
+				var additional: Array = FIFTH_TRAIN.get(policy,[]).slice(1) if fifth else []
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,fifth and orders.get("read",false),orders.get("tag",""),orders.get("after",0),false,false,additional)
 				step.battle = result
 				ok = result.get("settled",false)
 				if not items.is_empty():
 					var equipped: Array = result.get("gear",[])
 					ok = ok and equipped.size()==items.size() and equipped.all(func(g):return g.ok and g.owner==wearer and g.paid==0 and g.before-g.after==1)
 				if not train_id.is_empty(): ok = ok and result.get("target_training",{}).get("paid")==8
+				if not additional.is_empty():
+					var paid: Array = result.get("additional_training",[])
+					ok = ok and paid.size()==additional.size() and paid.all(func(r): return r.ok and r.paid==8 and r.paid_before_confirm==0)
 				if delay >= 0:
 					ok = ok and result.get("relief",{}).get("placed",false)
 				if not ordered_id.is_empty() and delay < 0:
@@ -252,7 +272,7 @@ func run() -> void:
 				if not reserve.is_empty():
 					var id := reserve
 					var cash: float = night.state.incense
-					var regroup: bool = policy in REGROUP_TRAIN and night.state.current_node_id == "n06"
+					var regroup: bool = (policy in REGROUP_TRAIN or policy in FIFTH_TRAIN) and night.state.current_node_id == "n06" and night.rest_reserve_options().any(func(o): return o.id==id and o.can_regroup)
 					var accepted := await rest_via_menu(night,id,regroup)
 					step.hire = {"regroup":regroup,"id":id,"paid":cash-night.state.incense,"saved_and_reloaded":accepted}
 					ok = accepted and is_equal_approx(step.hire.paid,12.0)

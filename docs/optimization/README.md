@@ -1,5 +1,55 @@
 # 夜祠 · 阵营与构筑优化档案
 
+## 2026-11-23 · 第五战的训练该给谁？
+
+战中打开「升级」，现在能按姓名、岗位和剩余生命选在场守军，也能点「下一位」连续比较。角色半身像随选人切换。旧版用生命上限作预览，受伤时容易高估训练收益。现在能看到河灯从 47 血升到 62 血，上限 71，伤势仍保留 9 点。确认才付 8 香火，生命与上限各加 15、防御加 2。确认键移到了装备栏前面。[战中训练实拍](training-target.webp)
+
+**普通夜程的同价对照。** 基于 `cc8d752`，Godot 4.7.2，普通守香司。渡口、灯市、秋社各跑十一种策略，从开局至结算共33条，逐战跟踪新增单位和阵营变化，逐节点核对幸存者。共用开局身价17、初始香火20；第三战用12请若晚、8训练。第五战若晚守后廊，青笺、霜盏守名册房，三人均可在训练面板选择。装备只取该种子实际库存，灯市少一件「承撞」。营地按实际存活与招募资格决定是否花12请人或休整，末战沿用既有岗位，无额外临场求援。
+
+| 第五战训练 | 当战追加／整程主动支出 | 第五战名册开始被占 | 第五战后存活者及生命 | 第八战后存活者及生命 | 末战名册开始被占／结算 |
+|---|---:|---:|---|---|---:|
+| 不追加 | 0／44 | 198.47 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 若晚一次 | 8／52 | 198.47 秒 | 若晚 40 | 沈册 41 | 28.88 秒／40.87 秒 |
+| 青笺一次 | 8／52 | 205.38 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 霜盏一次 | 8／52 | 204.47 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 青笺、霜盏各一次 | 16／60 | 206.67 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 青笺两次 | 16／60 | 208.67 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 霜盏两次 | 16／60 | 207.75 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 青笺三次 | 24／68 | 209.95 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 青笺两次、霜盏一次 | 24／68 | 209.78 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 霜盏三次 | 24／68 | 208.87 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+| 青笺一次、霜盏两次 | 24／68 | 208.87 秒 | 若晚 25 | 沈册 26 | 27.88 秒／39.87 秒 |
+
+时间从对应战斗入场算起。「名册开始被占」要求敌人进房并触发占领计时；无人值守但没有敌人时不计。生命值取战后存档。整程支出累加手动招募、营地招募和训练，战中自动施术、收入与资源上限另行影响钱包。最后一批并行跑9条时，3个进程在写出结算前被终止，已缩为3路重新从开局跑完，样本只计完整记录。每行三个种子的表内结果一致；不同种子的奖励确有差异。同价结论按实际支出和岗位核对。
+
+**为什么多守几秒仍可能丢掉下一战？** 单练若晚，第五战仅她幸存，随后第八战她阵亡，沈册却以41血活下来，比对照多15血。末战多守1秒。单练青笺或霜盏，都把第五战开始被占的时间推后，却都没多带走一人。投入16香火时，两次都练青笺比平分多守2秒；她在205.38秒遭缢鬼（G09）击倒，霜盏在208.67秒倒下，距天亮只差1.33秒。再花8把青笺练到三级，她在207.57秒倒下，最后一名册房守军霜盏在209.95秒被缢鬼击倒，距天亮仅0.05秒。24香火在两名前排之间的四种分配均已测试，均未额外保住一人。三种子、十一种策略全部第五战守到天亮，却没有任何一条纯阵营路线赢下末战。天亮前多挡几秒可以保住这一场的名册，保住一名能参加下一战的人是另一项验收。
+
+末战早段另外记录力士尸的首次有效伤害。每半秒查看最近200条结算记录；「击中门」和「击倒人」分开统计。渡口单练青笺路线的首条是4.83秒击破主殿门（门剩39，结算40），此后沈册在23.48秒被力士尸击倒，祝禧在27.88秒阵亡。第五战的致命伤会随训练分配变化，不能直接拿末战的破门抗性当第五战通解。
+
+**原生窗口与回归。** 原生 X11、Mesa llvmpipe 软件渲染、1920×1080。普通首战四路注入44名敌人，画面可见40–44名。帧耗专场在夜程模拟结束后单独运行，关闭垂直同步，着色器磁盘缓存未启用。热身30帧，采180个相邻绘制完成间隔，P50／P95／P99 为 **36.706／57.539／183.069 毫秒**。注入12次 Q 到招募面板绘制为 28.019／48.334／48.334 毫秒。在另设的受伤与求援场景中，鼠标打开名单、切换到河灯，预览扣费0；点击确认，下一绘制帧用时28.697毫秒（一次），河灯增加15血，三戒生命不变。[P4 正式交互与战斗回归](../phase-reports/p4-test-results.json)114项通过。渡口的青笺两练另从开局复跑一次，逐节点 JSON 与首跑完全一致，未重复计入样本。初版确认键落在滚动区下方，调整顺序后在1080p直接点击通过。回归退出时引擎仍报告4个对象、2个资源未释放。沿用现有角色画稿和抽取权重；真人手感、RTX 2060及八阵营普通通关仍待实证。[逐帧数据与输入记录](../../tools/faction_baseline/native-training-target.json)
+
+**下一项。** 从三个种子相同的第五战入场状态比较门受损时派人修缮与训练前排，为两组设相同支出上限，余款带入下一战。按缢鬼进门前后的宽时间窗复跑，验收多活一人、营地是否还能招人，以及末战结算。
+
+<details><summary>33条完整夜程的逐节点账本与复跑方法</summary>
+
+从项目根目录运行 `godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 trio-fifth-stack 渡口`。末两个参数可换为下表策略和种子。窗口测试运行 `godot --display-driver x11 --rendering-method gl_compatibility --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/TideFrames.gd -- --training-target`。帧耗来自软件渲染，采样包含场景处理、绘制和系统调度。
+
+| 策略参数 | 渡口 | 灯市 | 秋社 |
+|---|---|---|---|
+| trio-fifth-control | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-control-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-control-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-control-0.json) |
+| trio-fifth-wan | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-wan-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-wan-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-wan-0.json) |
+| trio-fifth-qing | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-qing-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-qing-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-qing-0.json) |
+| trio-fifth-shuang | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-shuang-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-shuang-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-shuang-0.json) |
+| trio-fifth-split | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-split-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-split-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-split-0.json) |
+| trio-fifth-stack | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-stack-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-stack-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-stack-0.json) |
+| trio-fifth-cap | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-cap-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-cap-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-cap-0.json) |
+| trio-fifth-mixed | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-mixed-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-mixed-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-mixed-0.json) |
+| trio-fifth-lamp-two | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-lamp-two-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-lamp-two-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-lamp-two-0.json) |
+| trio-fifth-lamp-three | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-lamp-three-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-lamp-three-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-lamp-three-0.json) |
+| trio-fifth-lamp-mixed | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-lamp-mixed-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-lamp-mixed-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-lamp-mixed-0.json) |
+
+</details>
+
 ## 2026-11-23 · 阿卯的更鼓该留给谁？
 
 **这次改了两个判断。** 阿卯现在会把自动敲更留给同层的眩晕或入梦同伴、隐身或入梦的鬼。若归客在队，有尚未标记的精英可供追猎时也会自动出手。玩家仍可手动敲更，给明处敌人挂标记，面板会显示唤醒、显形和标记的实际人数。正式角色技能现已读取「更鼓槌」的两身位加成，与装备说明一致。普通范围3身位，持槌5身位，仍占一个香具槽、受楼层限制、每次技能原价3香火。敲击时槌头摆动，声波沿同层向两侧展开。[1080p敲更帧，受控战场](watch-drum.webp)

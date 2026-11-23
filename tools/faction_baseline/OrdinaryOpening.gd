@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false, additional_training: Array = []) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -164,7 +164,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 				row.register_guards[unit.instance_id].merge({"first_change":"fallen","seconds":sim.simulation_time},true)
 		)
 	if not train_id.is_empty() and sim.humans.any(func(u): return u.unit_id==train_id and not u.dead):
-		row.target_training = train_guard(session,sim,train_id)
+		row.target_training = train_guard(session,sim,train_id,scene.get_node("Decisions") if row.node == "n05" else null)
+	if not additional_training.is_empty():
+		row.additional_training = []
+		for trainee in additional_training:
+			row.additional_training.append(train_guard(session,sim,trainee,scene.get_node("Decisions")))
 	var capture_pin := train_aid and OS.get_environment("YE_CI_CAPTURE_PIN") == "1" and DisplayServer.get_name() != "headless"
 	var reader: Node2D
 	if order_readings:
@@ -173,6 +177,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		row.read_orders = []
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if tick % 30 == 0 and row.node in ["n05","n10"] and not row.has("first_breaker_hit"):
+			for logged in sim.damage_log:
+				if str(logged.attacker).begins_with("G12") and logged.after < logged.before:
+					row.first_breaker_hit = logged.duplicate()
+					break
 		if order_readings and not row.read_orders.is_empty():
 			var latest: Dictionary = row.read_orders.back()
 			if not latest.has("ended") and (not is_instance_valid(reader) or reader.dead or not reader.brain.channel.active):
@@ -301,11 +310,24 @@ func request_register_relief(scene: Node, night: RefCounted, faction: String, id
 	receipt.placed = receipt.offered and sim.humans.any(func(actor): return not actor.dead and actor.unit_id==id and actor.current_post=="post_register")
 	return receipt
 
-func train_guard(session: Node, sim: Node, id: String) -> Dictionary:
+func train_guard(session: Node, sim: Node, id: String, panel: Node = null) -> Dictionary:
 	for unit in sim.humans:
 		if unit.unit_id==id and not unit.dead:
 			var cash: float = session.incense
 			var hp: float = unit.hp
+			if panel != null:
+				panel.select_unit(sim.humans[0],true)
+				var picker: OptionButton = panel.content.get_node("TrainingRoster/TrainingTarget")
+				for index in picker.item_count:
+					if picker.get_item_metadata(index) == unit.instance_id:
+						picker.item_selected.emit(index)
+						break
+				var paid_before_confirm: float = cash-session.incense
+				if panel.selected != unit or panel.buttons.upgrade_confirm.disabled: return {"id":id,"ok":false}
+				panel.buttons.upgrade_confirm.pressed.emit()
+				panel.close_panel()
+				root.get_node("Clock").set_paused(false)
+				return {"id":id,"instance":unit.instance_id,"ok":unit.hp>hp,"paid":cash-session.incense,"paid_before_confirm":paid_before_confirm,"hp_before":hp,"hp_after":unit.hp,"via_menu":true}
 			var receipt: Dictionary = session.upgrade(unit)
 			return {"id":id,"instance":unit.instance_id,"ok":receipt.ok,"paid":cash-session.incense,"hp_before":hp,"hp_after":unit.hp}
 	return {"id":id,"ok":false}

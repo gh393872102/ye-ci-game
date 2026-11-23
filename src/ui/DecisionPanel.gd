@@ -12,7 +12,7 @@ const DRAG_THRESHOLD := 12.0
 const ACTION_RECT := Rect2(558, 712, 1338, 273)
 const PURCHASE_RECT := Rect2(1225, 510, 668, 476)
 const DEPLOY_RECT := Rect2(1179, 720, 714, 268)
-const UPGRADE_RECT := Rect2(83, 152, 594, 487)
+const UPGRADE_RECT := Rect2(83, 152, 594, 550)
 const PORTRAIT_RECT := Rect2(83, 141, 1036, 784)
 const RITUAL_INTERRUPTS := ["P4_RITUAL_INTERRUPTED_DAMAGE", "P4_RITUAL_INTERRUPTED_MOVEMENT",
 	"CHANNEL_RETREAT", "CHANNEL_CANCELLED", "CHANNEL_BROKEN"]
@@ -816,23 +816,47 @@ func open_upgrade() -> void:
 	current_panel = "upgrade"
 	var preview: Dictionary = _query("preview_upgrade", {"unit_id":selected.instance_id})
 	_clear_content(selected.display_name)
+	var picker := OptionButton.new()
+	picker.name = "TrainingTarget"
+	picker.tooltip_text = "查看守军的当前岗位和生命，再决定训练谁"
+	for ally in simulation.humans:
+		if ally.dead or ally.side != selected.side: continue
+		picker.add_item("%s · %s · %s / %s 生命" % [ally.display_name,tr(str(ally.current_post).to_upper()),String.num(ally.hp,2),String.num(ally.max_hp,2)])
+		picker.set_item_metadata(picker.item_count-1,ally.instance_id)
+		if ally == selected: picker.select(picker.item_count-1)
+	picker.disabled = picker.item_count < 2
+	var targets := HBoxContainer.new()
+	targets.name = "TrainingRoster"
+	content.add_child(targets)
+	picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	targets.add_child(picker)
+	var inspect := func(index: int):
+		var ally := _find_unit(str(picker.get_item_metadata(index)))
+		if is_instance_valid(ally) and not ally.dead and _owned_selected() and ally.side == selected.side:
+			select_unit(ally,true)
+	picker.item_selected.connect(inspect)
+	_button(targets,"next_guard","下一位",func(): inspect.call((picker.selected+1) % picker.item_count),picker.item_count>1)
 	var current := _label(content, Card.format(selected.unit_id, selected).stats, 22)
 	current.add_theme_color_override("font_color", Ink.COPPER)
 	var plate := _panel(content, Rect2())
 	var prospect := HBoxContainer.new()
 	prospect.add_theme_constant_override("separation", 15)
 	plate.add_child(prospect)
-	var ember := TextureRect.new()
-	ember.texture = Ink.ritual_art(3)
-	ember.custom_minimum_size = Vector2(61, 61)
-	ember.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	ember.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	prospect.add_child(ember)
-	var forecast := _label(prospect, tr("P4_UPGRADE_PREVIEW") % [preview.cost, preview.current_hp, preview.next_hp, preview.current_defense, preview.next_defense], 21)
+	var face := TextureRect.new()
+	face.texture = Appearance.bust_texture(selected.unit_id)
+	if face.texture == null: face.texture = Ink.ritual_art(3)
+	face.custom_minimum_size = Vector2(108, 72)
+	face.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	face.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	face.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	prospect.add_child(face)
+	var after_hp := float(selected.hp) + float(preview.hp_bonus)
+	var forecast := _label(prospect, "花费 %d 香火 · 防御 %s → %s\n生命 %s → %s / %s" % [
+		preview.cost,String.num(preview.current_defense,2),String.num(preview.next_defense,2),
+		String.num(selected.hp,2),String.num(after_hp,2),String.num(preview.next_hp,2)], 21)
 	forecast.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	forecast.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	forecast.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_show_upgrade_slots()
 	var row := HBoxContainer.new()
 	content.add_child(row)
 	_button(row, "upgrade_confirm", tr("P4_CONFIRM_UPGRADE"), _upgrade, preview.allowed, preview.reason)
@@ -847,6 +871,7 @@ func open_upgrade() -> void:
 	_button(row, "close", tr("P9_BATTLE_CLOSE"), close_panel)
 	for button in row.get_children():
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_show_upgrade_slots()
 	_focus_first(row)
 
 func _show_upgrade_slots() -> void:

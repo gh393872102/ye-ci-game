@@ -1,6 +1,6 @@
 {
 	"capture": false,
-	"checks": 113,
+	"checks": 114,
 	"engine": "4.7.2-stable (official)",
 	"failures": 0,
 	"fixture_policy": "Only isolated rule fixtures modify actor state/resources. Full battles use start_battle plus public decisions and fixed-step shared advance; no HP, position, durability, rules or timer rewrites.",
@@ -5291,6 +5291,15 @@
 				"names": 2.95416666666684,
 				"outcome": "victory",
 				"reason": "P4_END_REGISTER_CAPTURED",
+				"register_break": {
+					"attackers": 52,
+					"guards": [
+						"弩手"
+					],
+					"peak": 5.86666666666665,
+					"required": 12.0,
+					"seconds": 134.666666666666
+				},
 				"remaining": 75.8499999999138,
 				"tide_alive": 69
 			},
@@ -6707,7 +6716,11 @@
 			"passed": true
 		},
 		{
-			"check": "S4 Controller opens purchase with keyboard-free menu focus",
+			"check": "S4 Controller opens the battle command list with keyboard-free focus",
+			"passed": true
+		},
+		{
+			"check": "S4 Controller confirms purchase from the command list",
 			"passed": true
 		},
 		{
