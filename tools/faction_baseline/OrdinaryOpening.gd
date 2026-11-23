@@ -170,7 +170,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			row.aid_upgrade = {"id":id,"ok":training.ok,"paid":cash-session.incense}
 		for unit in sim.humans: observe(unit,faction)
 	sim.unit_spawned.connect(func(unit): observe(unit,faction))
-	sim.unit_allegiance_changed.connect(func(unit,_old,_new): observe(unit,faction))
+	row.allegiance_changes = []
+	sim.unit_allegiance_changed.connect(func(unit,old_side,new_side):
+		observe(unit,faction)
+		row.allegiance_changes.append({"time":sim.simulation_time,"instance":unit.instance_id,"from":old_side,"to":new_side,"borrower":unit.growth.get("borrowed_by",""),"borrower_instance":unit.growth.get("borrower_id","")})
+	)
 	if trace_pin:
 		row.pins = []
 		sim.event_recorded.connect(func(kind,actor,detail):

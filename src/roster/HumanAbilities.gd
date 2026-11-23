@@ -274,7 +274,10 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 			if target == null or target.unit_id not in ["G01","G02","G03","G04","G05","G06","G07","G08","G24"] or not _sim().world.inside_base(target.position): return engine.reject()
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
 			if growth.light_without_borrowing(unit,target):
-				return _done(unit,id,"lamp_reveal",target)
+				# The growth effect already has both endpoints. A generic cast adds a beam from the origin.
+				engine.cooldown(unit,float(p.cooldown))
+				engine.event("lamp_reveal",unit,target.instance_id)
+				return engine.ok()
 			if unit.side == "xianghuo" and target.side == "yegui":
 				engine.session._record("recruited_ghost", 0, target.instance_id)
 			growth._gray(target,unit,float(p.duration))

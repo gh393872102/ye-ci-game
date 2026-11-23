@@ -463,7 +463,11 @@ func _build_purchase() -> void:
 		if preferred_faction=="武卫司" and page_offers.any(func(offer): return offer.id=="H12"):
 			hint.text += "　铁肩带来巡夜支援。现在请巡夜要 %d 香火，派驻前可取消。" % session.rules.purchases["H12"]
 		if page_offers.any(func(offer): return offer.id == "H19"):
-			hint.text += "　问灯会借鬼；守册战给他装备无字帖，可改为照鬼定身。"
+			if growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register":
+				var stock: int = session.growth.state.inventory.get("I08",0)
+				hint.text += "　问灯会借鬼入阵。无字帖库存 %d，派驻后可佩戴，改为照鬼定身。" % stock if stock>0 else "　问灯会借鬼入阵。无字帖库存为零；要守纯司，可查看其他同司守军。"
+			else:
+				hint.text += "　问灯会借鬼入阵。"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hint.add_theme_color_override("font_color", Ink.MUTED)
 	if register_relief and preferred_faction == "武卫司":
@@ -904,7 +908,13 @@ func open_unit_skill() -> void:
 		return
 	current_panel = "unit_skill"
 	_clear_content(tr("P8_SKILL_TITLE") % selected.display_name)
-	_label(content,selected.skill_text,18)
+	var register_lamp: bool = selected.unit_id=="H19" and growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register"
+	if register_lamp:
+		var behavior := "借鬼 · 普通鬼会暂时加入我方。"
+		if session.growth.has(selected,"I08"): behavior = "照鬼 · 敌人显形3秒、定身1.5秒，保持敌对。"
+		_label(content,behavior+"  基础耗香 %d" % selected.skill_cost,18)
+	else:
+		_label(content,selected.skill_text,18)
 	if selected.unit_id=="H13":
 		var rule: Dictionary = session.roster.params(selected)
 		_label(content,"行刑 · 只列同层 %.1f 身位内，生命不高于 %d%% 的普通鬼。技能耗 %d 香，行刑扣 %d 名分。" % [rule.radius_body,roundi(rule.hp_threshold*100),selected.skill_cost,rule.name_penalty],17)
@@ -998,6 +1008,15 @@ func open_unit_skill() -> void:
 		elif funds < session.growth.ritual_cost(selected,selected.skill_cost): reason = "香火不足"
 		buttons.skill_cast.text = "开镜护身" if reason.is_empty() else reason
 		buttons.skill_cast.disabled = not reason.is_empty()
+	if register_lamp:
+		skill_mode_picker.hide()
+		buttons.skill_cast.text = "照鬼定身" if session.growth.has(selected,"I08") else "借鬼入阵"
+	if register_lamp and not session.growth.has(selected,"I08") and session.growth.state.inventory.get("I08",0)>0:
+		_button(row,"lamp_equipment","查看无字帖",func():
+			growth_panel.selected_slot = 0
+			growth_panel.selected_item = "I08"
+			open_growth()
+		)
 	if selected.unit_id=="H24" and growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register":
 		_button(row,"pin_equipment","查看香具",func():
 			growth_panel.selected_slot = 0

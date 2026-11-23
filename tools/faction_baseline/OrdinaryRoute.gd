@@ -79,7 +79,7 @@ const FIFTH_POSTS := {
 	"trio-return": {"H01":"post_rear","H03":"post_register","H06":"post_register"},
 	"trio-table": {"H01":"post_table_hall","H03":"post_register","H06":"post_register"},
 }
-const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-fire-pin-early","camp-fire-pin-single-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
+const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-fire-pin-early","camp-fire-pin-single-early","camp-fire-stock-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
 const PIN_POLICIES := ["bone-book","bone-book-seal","bone-hall","bone-hall-seal","bone-early","bone-early-seal"]
@@ -127,7 +127,8 @@ func run() -> void:
 		return
 	var early_pin := policy.begins_with("bone-early")
 	var camp := policy.begins_with("camp-")
-	var pin_route := policy in ["camp-fire-pin-early","camp-fire-pin-single-early"]
+	var stock_route := policy == "camp-fire-stock-early"
+	var pin_route := stock_route or policy in ["camp-fire-pin-early","camp-fire-pin-single-early"]
 	var compare_lamp := policy.ends_with("-lamp")
 	var compare_posts := policy.ends_with("-posts") or compare_lamp
 	var duo := policy.ends_with("-duo")
@@ -210,6 +211,8 @@ func run() -> void:
 					aid_post = "post_register" if policy in ["aid-register","relief-open"] else "post_hall_door"
 				var hire_early: bool = early and night.state.current_node_id == "n08"
 				var ordered_id := "H19" if hire_early else ""
+				if hire_early and stock_route and night.state.growth.inventory.get("I08",0)==0:
+					ordered_id = "H17"
 				if policy in EIGHTH_GUARD and EIGHTH_GUARD[policy].aid and night.state.current_node_id=="n08":
 					ordered_id = "H06"
 					aid_post = "post_register"
@@ -298,7 +301,7 @@ func run() -> void:
 					reading_limit = 1
 				probe_boss_gate = final_read and night.state.roster.any(func(u): return u.id=="H01")
 				var drill_aid: bool = (policy=="repair-inner-eighth-drill" or EIGHTH_GUARD.get(policy,{}).has("final")) and night.state.current_node_id=="n08"
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,drill_aid or (fifth and (policy == "reserve-trained" or camp)),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional,ordered_id=="H24" and policy in PIN_POLICIES and policy.ends_with("-seal"),policy in PIN_POLICIES or pin_route)
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,drill_aid or (fifth and (policy == "reserve-trained" or camp)),2 if train_reserve and two_levels else 1,items,hire_early and ordered_id=="H19",delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional,ordered_id=="H24" and policy in PIN_POLICIES and policy.ends_with("-seal"),policy in PIN_POLICIES or pin_route)
 				step.battle = result
 				ok = result.get("settled",false)
 				if not items.is_empty():
@@ -316,7 +319,7 @@ func run() -> void:
 				if ordered_id=="H24" and policy in PIN_POLICIES and policy.ends_with("-seal"):
 					var gear: Dictionary = result.get("recruit_gear",{})
 					ok = ok and gear.get("ok",false) and gear.owner=="H24" and gear.before-gear.after==1 and gear.paid==0
-				if hire_early:
+				if hire_early and ordered_id=="H19":
 					ok = ok and result.get("recruit_gear",{}).get("ok",false)
 				if train_reserve:
 					var payments: Array = result.get("upgrades",[])
@@ -334,7 +337,14 @@ func run() -> void:
 			"reward":
 				if camp: step.offered = night.reward_options().map(func(card): return card.id)
 				var chosen := false
-				for card in night.reward_options():
+				var rewards: Array = night.reward_options().duplicate()
+				if stock_route and night.state.growth.inventory.get("I08",0)==0:
+					for offer in rewards.duplicate():
+						if offer.id=="p7_I08" and offer.allowed:
+							rewards.erase(offer)
+							rewards.push_front(offer)
+							break
+				for card in rewards:
 					if not card.allowed or card.effect.kind in ["mutate","recruit"]: continue
 					var targets: Array = night.target_options(card.id)
 					if card.requires_target and targets.is_empty(): continue
