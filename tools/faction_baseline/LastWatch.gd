@@ -14,6 +14,15 @@ func run() -> void:
 	if args.size()==3 and args[2]=="pure":
 		plans = ["同守连读","同守训练"]
 		purify_only = true
+	elif args.size()==3 and args[2] in ["relief","relief-click"]:
+		plans = ["一人时接守","空岗即接守","被占八秒接守"]
+		purify_only = true
+		if args[2]=="relief-click":
+			if DisplayServer.get_name()=="headless":
+				quit(2)
+				return
+			plans = ["空岗即接守"]
+			capture_relief_click = true
 	elif args.size()==3 and args[2]=="forward":
 		plans = ["同守训练","同守配装","殿门连读"]
 	elif args.size()==3:
@@ -49,10 +58,23 @@ func run() -> void:
 					break
 			if gear.is_empty(): continue
 		var train := "H08" if plan.ends_with("训练") else ""
-		var b := await fight(night,"守香司",args[0],false,"",false,"",true,false,1,gear,false,-1,train,"H08",true,"破门")
+		var relief: bool = plan.ends_with("接守")
+		var delay := 8.0 if plan=="被占八秒接守" else 0.0
+		var b := await fight(night,"守香司",args[0],false,"",false,"H03" if relief else "",true,false,1,gear,false,delay if relief else -1.0,train,"H08",true,"破门",0.0,plan=="一人时接守")
 		if not b.get("settled",false) or b.posts.size()!=3:
 			quit(2)
 			return
+		if relief:
+			var receipt: Dictionary = b.get("relief",{})
+			var recruit: Dictionary = receipt.get("new_guard",{})
+			if not receipt.get("placed",false) or recruit.is_empty() or receipt.paid!=receipt.catalog_price or not is_equal_approx(receipt.balance_before-receipt.paid,receipt.balance_after):
+				printerr("Missing or inconsistent relief receipt: ",receipt)
+				quit(2)
+				return
+			if not b.foreign_units.is_empty() or b.opening_guards.any(func(guard): return guard.instance==recruit.instance) or receipt.quote!="到岗后余 %d 香火" % floori(receipt.balance_after) or (capture_relief_click and (not receipt.get("arrival_visible",false) or "青笺" not in receipt.get("register_text",""))):
+				printerr("Relief identity, budget or input check failed: ",receipt)
+				quit(2)
+				return
 		if capture_breaker_shortcut and (b.read_orders.is_empty() or not b.read_orders.all(func(order): return order.ok and order.has("click_ms"))):
 			quit(2)
 			return

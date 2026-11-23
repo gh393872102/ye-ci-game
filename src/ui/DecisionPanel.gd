@@ -48,10 +48,13 @@ var purchase_page := 0
 var recruitable_faction_only := false
 var paused_before_purchase := true
 var offer_status: Dictionary = {}
+var training_forecast: Label
 var target_hint: Label
 var warning_plate: PanelContainer
 var wedge_carrier_index := 0
 var register_warning_plate: PanelContainer
+var arriving_guard: Node2D
+var arrival_left := 0.0
 var relief_button: Button
 var register_relief := false
 var occupation_bar: ProgressBar
@@ -269,6 +272,7 @@ func _clear_content(title: String) -> void:
 		child.queue_free()
 	panel_scroll.scroll_vertical = 0
 	offer_status.clear()
+	training_forecast = null
 	target_hint = null
 	var rect: Rect2 = {"purchase":PURCHASE_RECT, "deploy":DEPLOY_RECT, "upgrade":UPGRADE_RECT}.get(current_panel, ACTION_RECT)
 	if current_panel=="purchase" and register_relief:
@@ -433,7 +437,7 @@ func _build_purchase() -> void:
 	if not preferred_faction.is_empty():
 		if recruitable_faction_only:
 			hint.text = "%s · 此前节点未阵亡、可买且有岗的援军 %d 人" % [preferred_faction, offers.size()]
-			if register_relief: hint.text = "%s · 可直接派往名册房 %d 人。选人付款，到岗后恢复原战速" % [preferred_faction,offers.size()]
+			if register_relief: hint.text = "%s · 可招 %d 人。同名新兵独立入阵，到岗后恢复原战速" % [preferred_faction,offers.size()]
 			if offers.is_empty():
 				if register_relief: hint.text = _empty_relief_hint()
 				else: hint.text += "。可返回全部查看缺香、满员等原因。"
@@ -522,11 +526,25 @@ func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:
 		var train := _button(column,"prepare_"+id,"%d 香火守册 · 看训练" % offer.cost,_purchase.bind(id,true),offer.allowed,offer.reason)
 		train.custom_minimum_size.y = 32
 		train.add_theme_font_size_override("font_size",16)
-		train.tooltip_text = "付 %d 香火派驻，暂停查看训练；确认训练另付 %d。" % [offer.cost,session.rules.upgrade.cost]
+		_update_training_offer(train,offer)
+
+func _update_training_offer(button: Button, offer: Dictionary) -> void:
+	button.disabled = not offer.allowed
+	button.tooltip_text = tr(offer.reason) if not offer.allowed else "派驻 %d，训练另付 %d。合计%s。" % [
+		offer.cost,session.rules.upgrade.cost,_budget_after(offer.cost + session.rules.upgrade.cost)]
+
 
 func _offer_status_text(offer: Dictionary) -> String:
 	if not offer.allowed: return tr(offer.reason)
+	if register_relief:
+		return "到岗后%s" % _budget_after(offer.cost)
 	return "可再招 · 前战阵亡" if previous_casualties.has(offer.id) else tr("P4_AVAILABLE")
+
+func _budget_after(cost: float) -> String:
+	var balance := available_incense() - cost
+	if balance < 0:
+		return "缺 %d 香火" % ceili(-balance)
+	return "余 %d 香火" % floori(balance)
 
 func _toggle_purchase_scope() -> void:
 	register_relief = false
@@ -547,7 +565,12 @@ func _purchase(id: String, inspect_training := false) -> void:
 			var stationed: Dictionary = _issue("deploy_at", {"post_id":"post_register"})
 			if stationed.ok:
 				close_panel()
-				feedback.text = "%s已到%s" % [stationed.unit.display_name,tr("POST_REGISTER")]
+				session.refresh_register_presence()
+				_update_warnings()
+				arriving_guard = stationed.unit
+				arrival_left = 1.5
+				highlights.queue_redraw()
+				feedback.text = "%s已到%s · 余 %d 香火" % [stationed.unit.display_name,tr("POST_REGISTER"),floori(available_incense())]
 				if inspect_training:
 					select_unit(stationed.unit,true)
 				else: Clock.set_paused(paused_before_purchase)
@@ -804,6 +827,11 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 		feedback.text = "敲更 · 唤醒 %d 人，显出 %d 鬼，标记 %d 鬼" % [beat.woken.size(),beat.hidden.size(),beat.marked.size()]
 	_refresh_card()
 
+func _training_text(preview: Dictionary) -> String:
+	return "训练 %d 香火（%s） · 防御 %s → %s\n生命 %s → %s / %s" % [
+		preview.cost,_budget_after(preview.cost),String.num(preview.current_defense,2),String.num(preview.next_defense,2),
+		String.num(selected.hp,2),String.num(selected.hp + preview.hp_bonus,2),String.num(preview.next_hp,2)]
+
 func open_upgrade() -> void:
 	if not _can_command() or view_seat() != "shouxiang":
 		return
@@ -850,17 +878,14 @@ func open_upgrade() -> void:
 	face.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	face.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	prospect.add_child(face)
-	var after_hp := float(selected.hp) + float(preview.hp_bonus)
-	var forecast := _label(prospect, "花费 %d 香火 · 防御 %s → %s\n生命 %s → %s / %s" % [
-		preview.cost,String.num(preview.current_defense,2),String.num(preview.next_defense,2),
-		String.num(selected.hp,2),String.num(after_hp,2),String.num(preview.next_hp,2)], 21)
-	forecast.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	forecast.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	forecast.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	training_forecast = _label(prospect, _training_text(preview), 21)
+	training_forecast.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	training_forecast.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	training_forecast.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var row := HBoxContainer.new()
 	content.add_child(row)
 	_button(row, "upgrade_confirm", tr("P4_CONFIRM_UPGRADE"), _upgrade, preview.allowed, preview.reason)
-	if not preview.allowed:
+	if not preview.allowed and preview.reason!="P4_NO_INCENSE":
 		_label(content, tr(preview.reason), 18)
 	if growth_enabled():
 		_button(row, "growth", tr("P9_EQUIPMENT_COMMAND"), open_growth)
@@ -1368,6 +1393,12 @@ func _show_ending() -> void:
 	_focus_first(box)
 
 func _process(delta: float) -> void:
+	if arrival_left > 0.0:
+		arrival_left = maxf(0.0,arrival_left-delta)
+		if not session.running or not is_instance_valid(arriving_guard) or arriving_guard.dead:
+			arrival_left = 0.0
+		if arrival_left==0.0: arriving_guard = null
+		highlights.queue_redraw()
 	if not session.active:
 		prebattle.hide()
 		ending.hide()
@@ -1421,6 +1452,13 @@ func _process(delta: float) -> void:
 					buttons[key].disabled = not offer.allowed
 					buttons[key].tooltip_text = buttons[key].text if offer.allowed else tr(offer.reason)
 					offer_status[offer.id].text = _offer_status_text(offer)
+					if register_relief and buttons.has("prepare_"+offer.id):
+						_update_training_offer(buttons["prepare_"+offer.id],offer)
+		elif current_panel=="upgrade" and _owned_selected() and is_instance_valid(training_forecast):
+			var preview: Dictionary = _query("preview_upgrade", {"unit_id":selected.instance_id})
+			training_forecast.text = _training_text(preview)
+			buttons.upgrade_confirm.disabled = not preview.allowed
+			buttons.upgrade_confirm.tooltip_text = tr(preview.reason) if not preview.allowed else buttons.upgrade_confirm.text
 	if current_panel in ["deploy", "ritual"] or not active_channels.is_empty():
 		highlights.queue_redraw()
 
@@ -1475,7 +1513,9 @@ func _update_warnings() -> void:
 	var register_notices: Array[String] = []
 	if session.running:
 		for key in session.warnings:
-			if key.begins_with("P4_WARN_REGISTER_") or key == "P10_WARN_NAME_SEEP":
+			if key=="P4_WARN_REGISTER_CRITICAL" and not session.register_guards.is_empty():
+				register_notices.append("名册告急 · 名分余 %.1f" % session.names)
+			elif key.begins_with("P4_WARN_REGISTER_") or key == "P10_WARN_NAME_SEEP":
 				register_notices.append(tr(key))
 			elif key != "P4_WARN_UPPER_PRESSURE":
 				notices.append(tr(key))
@@ -1518,6 +1558,11 @@ func _update_warnings() -> void:
 func _draw_highlights() -> void:
 	if not session.active:
 		return
+	if arrival_left>0 and is_instance_valid(arriving_guard) and not arriving_guard.dead:
+		var point: Vector2 = arriving_guard.position
+		var radius := 15.0 + 15.0 * arrival_left / 1.5
+		highlights.draw_arc(point-Vector2(0,5),radius,0,TAU,32,COPPER,2.5,true)
+		_world_label(arriving_guard.display_name+"接守",point-Vector2(0,arriving_guard.height_px+18),PAPER)
 	if current_panel == "deploy" and not session.pending_purchase.is_empty():
 		for id in legal_post_ids:
 			if not session.deployment_reason(id, session.pending_purchase).is_empty():

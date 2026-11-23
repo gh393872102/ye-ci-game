@@ -1,0 +1,1544 @@
+{
+	"save_sha256": "2a77c87e5c3511169722847b1d7a7a2dda06d1d0e916fb5c97c4ab7d2f065379",
+	"seed": "灯市",
+	"trials": [
+		{
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 29.0666666666663,
+							"source": "G01"
+						},
+						"id": "H03"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.25,
+							"instance": "G01_tide_28",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 44.7166666666654,
+							"source": "G01"
+						},
+						"id": "H01"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 1.0,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 95.0666666666626,
+							"source": "G01"
+						},
+						"id": "H08"
+					},
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_28",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 51.316666666665,
+							"source": "G01"
+						},
+						"id": "H03"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 95.0666666666626
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": 17.0000000000003,
+					"first_repair": null,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 47.7039999999957,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 56.25,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 80.0,
+						"id": "H08",
+						"instance": "H08_12",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_register",
+					"H08": "post_register"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_13",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.9 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 28.033333333333,
+						"instance": "G12_tide_27",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 6.7 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 24.0166666666666,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_13",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "G12_tide_27",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 868.033333332873,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 44.7166666666654
+					},
+					"H03_10": {
+						"first_change": "fallen",
+						"id": "H03",
+						"seconds": 29.0666666666663
+					},
+					"H08_12": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 95.0666666666626
+					}
+				},
+				"relief": {
+					"available": [
+						"H01",
+						"H03"
+					],
+					"balance_after": 23.4359999999901,
+					"balance_before": 31.4359999999901,
+					"catalog_price": 8.0,
+					"guards_at_request": [
+						"沈册"
+					],
+					"id": "H03",
+					"later_transactions": [
+						{
+							"action": "purchase_reserved",
+							"detail": "H03",
+							"incense": 23.4359999999901,
+							"incense_delta": -8.0,
+							"names": 12.0,
+							"names_delta": 0.0,
+							"time": 44.7166666666654
+						}
+					],
+					"new_guard": {
+						"hp": 60.0,
+						"instance": "H03_33",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 8.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 23 香火",
+					"time": 44.7166666666654,
+					"vacancies": 2
+				},
+				"result": {
+					"elapsed": 95.0666666666626,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 0.519999999990079,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 11.9985416666667,
+					"outcome": "defeat",
+					"reason": "P4_END_RITUAL_LINE_BROKEN",
+					"remaining": 264.93333333342,
+					"tide_alive": 34
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				{
+					"attack": 6.0,
+					"defense": 7.0,
+					"display_name": "青笺",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 6.0,
+							"defense": 7.0,
+							"hp": 60.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {
+							"named_ward": 1.0
+						},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"height_px": 80.0,
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 2.2,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "p7_h03_skill",
+						"trait_id": "p7_h03_trait"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {
+							"named_this_battle": true
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 5.0,
+					"skill_id": "p7_h03_skill",
+					"skill_text": "点名：令一名友军本场暂时有名，免疫一次抹名",
+					"speed_stat": 9.0,
+					"tags": [
+						"名面",
+						"超度"
+					],
+					"trait_id": "p7_h03_trait",
+					"trait_text": "册香：每次成功超度，为名册补少量名分",
+					"uid": "night_1",
+					"upgrade_level": 0.0
+				},
+				{
+					"attack": 8.0,
+					"defense": 10.0,
+					"display_name": "晚",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 10.0,
+							"hp": 85.0
+						},
+						"charges": {
+							"I17": 0.0,
+							"Y01": 0.0
+						},
+						"cooldowns": {
+							"I17": 0.0,
+							"Y01": 0.0
+						},
+						"counters": {
+							"named_ward": 1.0
+						},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 56.25,
+					"id": "H01",
+					"max_hp": 85.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.0,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "dian_ce",
+						"trait_id": "qing_deng_juan_gu"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {},
+						"counters": {
+							"named_this_battle": true
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4.0,
+					"skill_id": "dian_ce",
+					"skill_text": "点册：指定一只鬼进入超度/收编读条，并短暂暴露隐形",
+					"speed_stat": 10.0,
+					"tags": [
+						"香火",
+						"超度",
+						"名面"
+					],
+					"trait_id": "qing_deng_juan_gu",
+					"trait_text": "青灯眷顾：场上有青灯或灯骨时，点册加快",
+					"uid": "n03:H01_41",
+					"upgrade_level": 1.0
+				},
+				{
+					"attack": 5.0,
+					"defense": 12.0,
+					"equipment_id": "",
+					"hp": 80.0,
+					"id": "H08",
+					"max_hp": 80.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"uid": "night_3",
+					"upgrade_level": 0.0
+				}
+			],
+			"plan": "一人时接守",
+			"pure": true
+		},
+		{
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 29.0666666666663,
+							"source": "G01"
+						},
+						"id": "H03"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.25,
+							"instance": "G01_tide_28",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 44.7166666666654,
+							"source": "G01"
+						},
+						"id": "H01"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 1.0,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 88.4666666666629,
+							"source": "G01"
+						},
+						"id": "H08"
+					},
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 95.0666666666626,
+							"source": "G01"
+						},
+						"id": "H03"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H03",
+							"post": "post_register",
+							"room": "register"
+						}
+					],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 88.4666666666629
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": 17.0000000000003,
+					"first_repair": null,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 47.7039999999957,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 56.25,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 80.0,
+						"id": "H08",
+						"instance": "H08_12",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_register",
+					"H08": "post_register"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_13",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.9 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 28.033333333333,
+						"instance": "G12_tide_27",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 6.7 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 24.0166666666666,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_13",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "G12_tide_27",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 868.033333332873,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 44.7166666666654
+					},
+					"H03_10": {
+						"first_change": "fallen",
+						"id": "H03",
+						"seconds": 29.0666666666663
+					},
+					"H08_12": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 88.4666666666629
+					}
+				},
+				"relief": {
+					"available": [
+						"H01",
+						"H03"
+					],
+					"balance_after": 8.9359999999926,
+					"balance_before": 16.9359999999926,
+					"catalog_price": 8.0,
+					"guards_at_request": [],
+					"id": "H03",
+					"later_transactions": [
+						{
+							"action": "purchase_reserved",
+							"detail": "H03",
+							"incense": 8.9359999999926,
+							"incense_delta": -8.0,
+							"names": 11.9958333333333,
+							"names_delta": 0.0,
+							"time": 88.4666666666629
+						}
+					],
+					"new_guard": {
+						"hp": 60.0,
+						"instance": "H03_45",
+						"post": "post_register"
+					},
+					"occupation": 0.0166666666666667,
+					"offered": true,
+					"paid": 8.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 8 香火",
+					"time": 88.4666666666629,
+					"vacancies": 3
+				},
+				"result": {
+					"elapsed": 95.0666666666626,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 5.51999999999243,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 11.9916666666667,
+					"outcome": "defeat",
+					"reason": "P4_END_RITUAL_LINE_BROKEN",
+					"remaining": 264.93333333342,
+					"tide_alive": 34
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				{
+					"attack": 6.0,
+					"defense": 7.0,
+					"display_name": "青笺",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 6.0,
+							"defense": 7.0,
+							"hp": 60.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {
+							"named_ward": 1.0
+						},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"height_px": 80.0,
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 2.2,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "p7_h03_skill",
+						"trait_id": "p7_h03_trait"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {
+							"named_this_battle": true
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 5.0,
+					"skill_id": "p7_h03_skill",
+					"skill_text": "点名：令一名友军本场暂时有名，免疫一次抹名",
+					"speed_stat": 9.0,
+					"tags": [
+						"名面",
+						"超度"
+					],
+					"trait_id": "p7_h03_trait",
+					"trait_text": "册香：每次成功超度，为名册补少量名分",
+					"uid": "night_1",
+					"upgrade_level": 0.0
+				},
+				{
+					"attack": 8.0,
+					"defense": 10.0,
+					"display_name": "晚",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 10.0,
+							"hp": 85.0
+						},
+						"charges": {
+							"I17": 0.0,
+							"Y01": 0.0
+						},
+						"cooldowns": {
+							"I17": 0.0,
+							"Y01": 0.0
+						},
+						"counters": {
+							"named_ward": 1.0
+						},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 56.25,
+					"id": "H01",
+					"max_hp": 85.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.0,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "dian_ce",
+						"trait_id": "qing_deng_juan_gu"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {},
+						"counters": {
+							"named_this_battle": true
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4.0,
+					"skill_id": "dian_ce",
+					"skill_text": "点册：指定一只鬼进入超度/收编读条，并短暂暴露隐形",
+					"speed_stat": 10.0,
+					"tags": [
+						"香火",
+						"超度",
+						"名面"
+					],
+					"trait_id": "qing_deng_juan_gu",
+					"trait_text": "青灯眷顾：场上有青灯或灯骨时，点册加快",
+					"uid": "n03:H01_41",
+					"upgrade_level": 1.0
+				},
+				{
+					"attack": 5.0,
+					"defense": 12.0,
+					"equipment_id": "",
+					"hp": 80.0,
+					"id": "H08",
+					"max_hp": 80.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"uid": "night_3",
+					"upgrade_level": 0.0
+				}
+			],
+			"plan": "空岗即接守",
+			"pure": true
+		},
+		{
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 29.0666666666663,
+							"source": "G01"
+						},
+						"id": "H03"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.25,
+							"instance": "G01_tide_28",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 44.7166666666654,
+							"source": "G01"
+						},
+						"id": "H01"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 1.0,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 88.4666666666629,
+							"source": "G01"
+						},
+						"id": "H08"
+					},
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_31",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 101.983333333329,
+							"source": "G01"
+						},
+						"id": "H03"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 88.4666666666629
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": 17.0000000000003,
+					"first_repair": null,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 47.7039999999957,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 56.25,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 80.0,
+						"id": "H08",
+						"instance": "H08_12",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_register",
+					"H08": "post_register"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_13",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.9 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 28.033333333333,
+						"instance": "G12_tide_27",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 6.7 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 24.0166666666666,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_13",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "G12_tide_27",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 868.033333332873,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 44.7166666666654
+					},
+					"H03_10": {
+						"first_change": "fallen",
+						"id": "H03",
+						"seconds": 29.0666666666663
+					},
+					"H08_12": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 88.4666666666629
+					}
+				},
+				"relief": {
+					"available": [
+						"H01",
+						"H03"
+					],
+					"balance_after": 10.8559999999932,
+					"balance_before": 18.8559999999932,
+					"catalog_price": 8.0,
+					"guards_at_request": [],
+					"id": "H03",
+					"later_transactions": [
+						{
+							"action": "purchase_reserved",
+							"detail": "H03",
+							"incense": 10.8559999999932,
+							"incense_delta": -8.0,
+							"names": 9.99583333333345,
+							"names_delta": 0.0,
+							"time": 96.4666666666625
+						}
+					],
+					"new_guard": {
+						"hp": 60.0,
+						"instance": "H03_45",
+						"post": "post_register"
+					},
+					"occupation": 8.01666666666664,
+					"offered": true,
+					"paid": 8.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 10 香火",
+					"time": 96.4666666666625,
+					"vacancies": 3
+				},
+				"result": {
+					"elapsed": 101.983333333329,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 7.1799999999931,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 9.99166666666678,
+					"outcome": "defeat",
+					"reason": "P4_END_RITUAL_LINE_BROKEN",
+					"remaining": 258.016666666759,
+					"tide_alive": 45
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				{
+					"attack": 6.0,
+					"defense": 7.0,
+					"display_name": "青笺",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 6.0,
+							"defense": 7.0,
+							"hp": 60.0
+						},
+						"charges": {},
+						"cooldowns": {},
+						"counters": {
+							"named_ward": 1.0
+						},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 60.0,
+					"id": "H03",
+					"max_hp": 60.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"height_px": 80.0,
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 2.2,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "p7_h03_skill",
+						"trait_id": "p7_h03_trait"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {
+							"skill": 0.0
+						},
+						"counters": {
+							"named_this_battle": true
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 5.0,
+					"skill_id": "p7_h03_skill",
+					"skill_text": "点名：令一名友军本场暂时有名，免疫一次抹名",
+					"speed_stat": 9.0,
+					"tags": [
+						"名面",
+						"超度"
+					],
+					"trait_id": "p7_h03_trait",
+					"trait_text": "册香：每次成功超度，为名册补少量名分",
+					"uid": "night_1",
+					"upgrade_level": 0.0
+				},
+				{
+					"attack": 8.0,
+					"defense": 10.0,
+					"display_name": "晚",
+					"equipment_id": "",
+					"growth": {
+						"applied": {
+							"attack": 0.0,
+							"defense": 0.0,
+							"hp": 0.0
+						},
+						"base": {
+							"attack": 8.0,
+							"defense": 10.0,
+							"hp": 85.0
+						},
+						"charges": {
+							"I17": 0.0,
+							"Y01": 0.0
+						},
+						"cooldowns": {
+							"I17": 0.0,
+							"Y01": 0.0
+						},
+						"counters": {
+							"named_ward": 1.0
+						},
+						"environment": {},
+						"fusion_id": "",
+						"gray": false,
+						"gray_left": 0.0,
+						"job_tags": [],
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						},
+						"statuses": {},
+						"temporary": false
+					},
+					"hp": 56.25,
+					"id": "H01",
+					"max_hp": 85.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"profile": {
+						"may_briefly_leave_base": false,
+						"projectile": "",
+						"range_body": 1.0,
+						"return_after": 0.0,
+						"role": "ritual",
+						"skill_id": "dian_ce",
+						"trait_id": "qing_deng_juan_gu"
+					},
+					"role": "ritual",
+					"roster": {
+						"cooldowns": {},
+						"counters": {
+							"named_this_battle": true
+						},
+						"face_state": "faced",
+						"initialized": true,
+						"marked": false,
+						"reserve_incense": 0.0,
+						"statuses": {}
+					},
+					"side": "xianghuo",
+					"skill_cost": 4.0,
+					"skill_id": "dian_ce",
+					"skill_text": "点册：指定一只鬼进入超度/收编读条，并短暂暴露隐形",
+					"speed_stat": 10.0,
+					"tags": [
+						"香火",
+						"超度",
+						"名面"
+					],
+					"trait_id": "qing_deng_juan_gu",
+					"trait_text": "青灯眷顾：场上有青灯或灯骨时，点册加快",
+					"uid": "n03:H01_41",
+					"upgrade_level": 1.0
+				},
+				{
+					"attack": 5.0,
+					"defense": 12.0,
+					"equipment_id": "",
+					"hp": 80.0,
+					"id": "H08",
+					"max_hp": 80.0,
+					"mutation_count": 0.0,
+					"post": "post_register",
+					"uid": "night_3",
+					"upgrade_level": 0.0
+				}
+			],
+			"plan": "被占八秒接守",
+			"pure": true
+		}
+	]
+}

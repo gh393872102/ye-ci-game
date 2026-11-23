@@ -396,6 +396,15 @@ func _ui_inputs() -> void:
 	check(panel.panel.visible and panel.buttons.has("upgrade_confirm"),"K4 E opens actual upgrade preview")
 	labels = _all_text(panel.content)
 	check(labels.contains(str(int(human.max_hp))) and labels.contains(str(int(human.max_hp + 15))) and labels.contains(str(int(human.defense + 2))) and not labels.contains("变异"),"K4 Guard upgrade preview shows stat changes without mutation main command")
+	var saved_funds: float = session.incense
+	session.incense = float(session.rules.upgrade.cost) - 0.25
+	panel.refresh_left = 0
+	panel._process(0.31)
+	check(panel.training_forecast.text.contains("缺 1 香火") and panel.buttons.upgrade_confirm.disabled,"Training forecast rounds a fractional shortage up and disables payment")
+	session.incense = saved_funds
+	panel.refresh_left = 0
+	panel._process(0.31)
+	check(panel.training_forecast.text.contains("余 %d 香火" % floori(saved_funds-session.rules.upgrade.cost)) and not panel.buttons.upgrade_confirm.disabled,"Training quote refreshes spendable balance without spending")
 	await _shot("03b-upgrade-preview")
 	panel.buttons.upgrade_confirm.grab_focus()
 	await _key(KEY_SPACE)

@@ -1,5 +1,6 @@
 extends SceneTree
 ## Exercises the real title button, map save and first ordinary combat. Autonomy only.
+var capture_relief_click := false
 var probe_boss_gate := false
 var failures := 0
 var foreign_units := {}
@@ -84,7 +85,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	row.incense = session.incense
 	row.posts = {}
 	if track_register and row.node == "n10":
-		row.opening_guards = sim.humans.map(func(u): return {"id":u.unit_id,"hp":u.hp,"max_hp":u.max_hp,"post":u.current_post,"slots":u.growth.get("slots",{}).duplicate(true)})
+		row.opening_guards = sim.humans.map(func(u): return {"instance":u.instance_id,"id":u.unit_id,"hp":u.hp,"max_hp":u.max_hp,"post":u.current_post,"slots":u.growth.get("slots",{}).duplicate(true)})
 	row.roster_price = 0
 	foreign_units.clear()
 	for unit in sim.humans:
@@ -319,7 +320,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 				row.read_orders.append(reading)
 		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and (session.register_guards.is_empty() or (last_guard_relief and session.register_guards.size() == 1)):
 			var holding: Array = session.register_guards.duplicate()
-			row.relief = request_register_relief(scene,night,faction,id,train_id=="H01")
+			row.relief = await request_register_relief(scene,night,faction,id,train_id=="H01")
 			row.relief.guards_at_request = holding
 			if row.relief.has("training"): row.target_training = row.relief.training
 		if order_drum and row.has("relief") and not row.has("manual_drum") and tick % 6 == 0 and session.running:
@@ -371,6 +372,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		row.brace_events = session.growth.state.events.filter(func(entry): return entry.kind == "paper_brace")
 	if row.node=="n05" and not repair_policy.is_empty():
 		row.repair_ledger = session.ledger.filter(func(e): return str(e.action).begins_with("repair_"))
+	if row.has("relief") and row.node=="n10":
+		row.relief.later_transactions = session.ledger.filter(func(entry): return entry.time>=row.relief.time and entry.incense_delta!=0)
 	row.foreign_units = foreign_units.duplicate()
 	row.result = session.result.duplicate(true)
 	var report: Dictionary = bridge.collect(scene,night)
@@ -420,7 +423,32 @@ func request_register_relief(scene: Node, night: RefCounted, faction: String, id
 			buy = menu.content.find_child(button_name,true,false)
 		if is_instance_valid(buy) and not buy.disabled:
 			receipt.offered = true
-			buy.pressed.emit()
+			receipt.quote = menu.offer_status[id].text
+			var existing: Array = sim.humans.map(func(unit): return unit.instance_id)
+			if capture_relief_click:
+				await RenderingServer.frame_post_draw
+				await RenderingServer.frame_post_draw
+				var viewport := root.get_visible_rect()
+				if buy.is_visible_in_tree() and viewport.encloses(buy.get_global_rect()):
+					root.get_texture().get_image().save_jpg("/tmp/ye33-relief.jpg",0.87)
+					var started := Time.get_ticks_usec()
+					for down in [true,false]:
+						var event := InputEventMouseButton.new()
+						event.button_index = MOUSE_BUTTON_LEFT
+						event.position = buy.get_global_rect().get_center()
+						event.pressed = down
+						root.push_input(event,true)
+					await RenderingServer.frame_post_draw
+					receipt.click_ms = (Time.get_ticks_usec()-started)/1000.0
+					receipt.arrival_visible = is_instance_valid(menu.arriving_guard) and menu.arrival_left>0 and menu.arriving_guard.unit_id==id and root.get_visible_rect().has_point(menu.arriving_guard.get_global_transform_with_canvas().origin)
+					receipt.feedback = menu.feedback.text
+					receipt.register_text = menu.register_warning.text
+					root.get_texture().get_image().save_jpg("/tmp/ye33-arrival.jpg",0.87)
+			else:
+				buy.pressed.emit()
+			for recruit in sim.humans:
+				if recruit.unit_id==id and recruit.instance_id not in existing and recruit.current_post=="post_register":
+					receipt.new_guard = {"instance":recruit.instance_id,"hp":recruit.hp,"post":recruit.current_post}
 		if inspect_training and menu.current_panel=="upgrade" and menu.selected.unit_id==id:
 			var unit: Node = menu.selected
 			var before: float = session.incense
@@ -428,6 +456,7 @@ func request_register_relief(scene: Node, night: RefCounted, faction: String, id
 			if not menu.buttons.upgrade_confirm.disabled: menu.buttons.upgrade_confirm.pressed.emit()
 			receipt.training = {"id":id,"instance":unit.instance_id,"ok":unit.hp>hp,"paid":before-session.incense,"hp_before":hp,"hp_after":unit.hp,"via_panel":true}
 		menu.close_panel()
+	receipt.balance_after = session.incense
 	receipt.paid = cash-session.incense-float(receipt.get("training",{}).get("paid",0))
 	receipt.placed = receipt.offered and sim.humans.any(func(actor): return not actor.dead and actor.unit_id==id and actor.current_post=="post_register")
 	return receipt
