@@ -245,6 +245,11 @@ func _post_picker() -> void:
 	picker.add_theme_font_size_override("font_size",21)
 	picker.add_item("下场布防 · 免费换岗")
 	picker.set_item_disabled(0,true)
+	var pair: Array = host.run.martial_swap_pair()
+	if not pair.is_empty():
+		picker.size.x = 260
+		var swap := _button("swap_martial","两人换防",Rect2(1630,915,226,56),host.swap_martial_posts.bind(pair[0].uid,pair[1].uid))
+		swap.tooltip_text = "断刃去%s，石婆去%s。同时换岗，伤势与装备随人保留；免费。" % [tr(str(pair[1].post).to_upper()),tr(str(pair[0].post).to_upper())]
 	var members := {}
 	for member in host.run.state.roster:
 		members[member.uid] = member

@@ -215,6 +215,27 @@ func reserve_post_options() -> Array[Dictionary]:
 				options.append({"uid":member.uid,"id":member.id,"from":member.post,"to":post})
 	return options
 
+func martial_swap_pair() -> Array:
+	if state.get("phase")!="map" or state.get("opening_faction")!="武卫司": return []
+	var pair := []
+	for id in ["H10","H11"]:
+		var living: Array = state.roster.filter(func(member): return member.id==id and member.hp>0)
+		if living.size()!=1: return []
+		pair.append(living[0])
+	if pair[0].post==pair[1].post: return []
+	for i in 2:
+		if not _valid_post(pair[1-i].post,pair[i].id,state.has("nameless_modifiers")): return []
+	return pair
+
+func swap_martial_posts(first_uid: String, second_uid: String) -> Dictionary:
+	var pair := martial_swap_pair()
+	if pair.is_empty() or pair[0].uid!=first_uid or pair[1].uid!=second_uid: return _reject("P5_INVALID_POST")
+	var old_post: String = pair[0].post
+	pair[0].post = pair[1].post
+	pair[1].post = old_post
+	_record("swap_posts",{"first":first_uid,"second":second_uid,"first_post":pair[0].post,"second_post":pair[1].post})
+	return _ok()
+
 func reserve_post(uid: String, post: String) -> Dictionary:
 	for option in reserve_post_options():
 		if option.uid == uid and option.to == post:

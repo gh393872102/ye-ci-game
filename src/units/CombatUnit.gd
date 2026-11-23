@@ -122,6 +122,8 @@ func _draw() -> void:
 	preload("res://src/units/UnitAppearance.gd").draw(self)
 	if dead:
 		return
+	if unit_id=="H11" and roster.get("counters",{}).has("stationary_seconds"):
+		_draw_rooted_stones()
 	if roster.get("window_wedge")=="ready":
 		var grip := Vector2(10,-height_px*0.46)
 		draw_colored_polygon(PackedVector2Array([grip+Vector2(-3,-4),grip+Vector2(5,4),grip+Vector2(19,-18)]),Color("d8a970"))
@@ -154,6 +156,21 @@ func _draw() -> void:
 		draw_rect(Rect2(-32,-105,64,5),Color("263438"))
 		draw_rect(Rect2(-32,-105,64 * brain.channel.progress(),5),Color("b99e76"))
 		draw_rect(Rect2(-36,-56,9,5),Color("bc6a55"))
+
+func _draw_rooted_stones() -> void:
+	var engine: RefCounted = simulation.roster_engine()
+	if engine==null or not engine.enabled: return
+	var bonus: float = engine.humans.rooted_defense_bonus(self)
+	var cap: float = engine.params(self).max_defense_bonus
+	# Three pairs of foundation stones rise as the sentry settles into place.
+	for i in 3:
+		var raised := clampf(bonus/cap*3.0-i,0,1)
+		if raised<=0: break
+		var height := roundf(raised*(6+i*2))
+		for side in [-1,1]:
+			var foot := Vector2(side*(17+8*i),1)
+			draw_rect(Rect2(foot.x-4,foot.y-height,8,height),Color("606b66"))
+			draw_line(foot+Vector2(-4,-height),foot+Vector2(3,-height-1),Color("ded0a7"),2)
 
 func _draw_window_paper() -> void:
 	var shoulder := Vector2(6,-height_px*0.65)

@@ -83,6 +83,12 @@ func start_run(mode: String, kind := "example", seed := "") -> void:
 	_save_state()
 	refresh()
 
+func swap_martial_posts(first_uid: String, second_uid: String) -> void:
+	var answer: Dictionary = run.swap_martial_posts(first_uid,second_uid)
+	if answer.ok: answer = _save_state()
+	_feedback(answer)
+	refresh()
+
 func reserve_post(uid: String, post: String) -> void:
 	var answer: Dictionary = run.reserve_post(uid,post)
 	if answer.ok: answer = _save_state()

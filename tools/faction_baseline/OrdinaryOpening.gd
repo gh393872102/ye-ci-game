@@ -97,6 +97,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		for offer in session.purchase_options():
 			if root.get_node("Data").get_unit(offer.id).get("所属","") != faction: continue
 			row.same_faction_offers.append({"id":offer.id,"cost":offer.cost,"allowed":offer.allowed,"reason":offer.reason,"posts":session.legal_posts(offer.id),"previously_fallen":night.state.fallen.any(func(member): return member.id == offer.id)})
+	var martial := faction=="武卫司"
+	if martial: row.first_hits = {}
 	var started_growth_time: float = session.growth.state.get("time",0.0)
 	for carried_item in carried_items:
 		var matches: Array = sim.humans.filter(func(u): return gear_owner.is_empty() or u.unit_id==gear_owner)
@@ -200,6 +202,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 						row.gate.first_read = sim.simulation_time
 						break
 		sim.advance(1.0/60.0)
+		if martial and tick%15==0:
+			for hit in sim.damage_log.slice(-30):
+				var actor: String = str(hit.attacker).get_slice("_",0)
+				if actor in ["H09","H10","H11"] and not row.first_hits.has(actor):
+					row.first_hits[actor] = hit.duplicate()
 		if probe_boss_gate and row.gate.break_seconds == null and hall.destroyed:
 			row.gate.break_seconds = sim.simulation_time
 		if row.node=="n05" and not repair_policy.is_empty() and not row.has("repair") and tick % 60==0:
@@ -377,7 +384,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	row.foreign_units = foreign_units.duplicate()
 	row.result = session.result.duplicate(true)
 	var report: Dictionary = bridge.collect(scene,night)
-	if row.node == "n10" or order_readings:
+	if martial or row.node == "n10" or order_readings:
 		row.fatal_hits = []
 		for fallen in report.fallen:
 			row.fatal_hits.append({"id":fallen.id,"hit":fallen.get("fatal_hit",{})})

@@ -429,8 +429,13 @@ func damage_multiplier(attacker: Node2D, victim: Node2D, _kind: String) -> float
 		if attacker.unit_id == "H22" and victim.unit_id == "G30": amount *= float(engine.params(attacker).god_damage_multiplier)
 	return amount
 
+func rooted_defense_bonus(unit: Node2D) -> float:
+	var held := float(unit.roster.get("counters",{}).get("stationary_seconds",0))
+	var params: Dictionary = engine.params(unit)
+	return minf(float(params.max_defense_bonus),held*float(params.stationary_defense_per_second))
+
 func defense_for(unit: Node2D, base: float) -> float:
-	if unit.unit_id == "H11": base += minf(float(engine.params(unit).max_defense_bonus),float(unit.roster.counters.get("stationary_seconds",0))*float(engine.params(unit).stationary_defense_per_second))
+	if unit.unit_id == "H11": base += rooted_defense_bonus(unit)
 	if unit.unit_id == "H08": base += float(engine.params(unit).max_defense_bonus)*(1-engine.session.names/float(Data.mode_rules.limits.names_max))
 	return base
 

@@ -25,10 +25,14 @@ func run() -> void:
 	root.add_child(host)
 	var shell: Node = host.shell
 	shell.title_buttons.start.pressed.emit()
-	shell.faction_picker.select(3)
-	shell.faction_picker.item_selected.emit(3)
+	var martial := OS.get_cmdline_user_args().has("--martial-watch")
+	var opening := 2 if martial else 3
+	shell.faction_picker.select(opening)
+	shell.faction_picker.item_selected.emit(opening)
 	shell.seed_input.text = "渡口"
 	shell.title_buttons.shouxiang.pressed.emit()
+	var swap := {}
+	if martial: swap = await probe_swap(host)
 	var rear := {}
 	var table := OS.get_cmdline_user_args().has("--table-probe")
 	if table or OS.get_cmdline_user_args().has("--rear-probe"):
@@ -38,6 +42,17 @@ func run() -> void:
 	var sim: Node = battle.get_node("Simulation")
 	var camera: Node = battle.get_node("BattleCamera")
 	var decisions: Node = battle.get_node("Decisions")
+	var cards := {}
+	if martial:
+		for actor in sim.humans:
+			if actor.unit_id not in ["H10","H11"]: continue
+			decisions.select_unit(actor)
+			await RenderingServer.frame_post_draw
+			cards[actor.unit_id] = decisions._martial_trait_readout().strip_edges()
+			if cards[actor.unit_id] not in decisions.details.text: cards.erase(actor.unit_id)
+			if actor.unit_id=="H11": root.get_texture().get_image().save_webp("/tmp/ye35-card.webp",false,0.83)
+		decisions.close_panel()
+		root.get_node("Clock").set_paused(false)
 	var actors := ["G01","G09","G11","G12"]
 	for column in 11:
 		for lane in 4:
@@ -71,7 +86,7 @@ func run() -> void:
 	var pay_visible := false
 	var hall_probe := OS.get_cmdline_user_args().has("--hall-probe")
 	var lamp_probe := OS.get_cmdline_user_args().has("--lamp-probe")
-	var recruit := "H19" if lamp_probe else "H22"
+	var recruit := "H09" if martial else ("H19" if lamp_probe else "H22")
 	var deploy_probe := lamp_probe or hall_probe or OS.get_cmdline_user_args().has("--deploy-probe")
 	var destination := "post_hall_door" if hall_probe else "post_register"
 	var deploy_feedback := {}
@@ -156,6 +171,15 @@ func run() -> void:
 		result.passed = passed
 		filename = "native-post-cover.json"
 		if OS.get_cmdline_user_args().has("--boss-brief"): filename = "native-boss-brief.json"
+	if martial:
+		filename = "native-martial-watch.json"
+		result.fixture = "ordinary n01, martial pair after swap, 44 added actors in four lanes, live physics"
+		result.swap = swap
+		result.cards = cards
+		result.stones = await probe_stones(host)
+		passed = passed and result.stones.passed
+		passed = passed and swap.passed and "孤刀" in result.cards.get("H10","") and "根深" in result.cards.get("H11","")
+		result.passed = passed
 	if OS.get_cmdline_user_args().has("--camp-brace"):
 		filename = "native-camp-brace.json"
 	if OS.get_cmdline_user_args().has("--relief-budget"):
@@ -611,3 +635,88 @@ func probe_last_camp(host: Node) -> Dictionary:
 	receipt.paid = cash-host.run.state.incense
 	receipt.passed = host.run.state.phase=="map" and receipt.paid==12 and host.run.state.names==names and host.run.state.roster.size()==3 and host.run.state.roster.all(func(u): return (hp.has(u.uid) and u.hp==hp[u.uid]) or (not hp.has(u.uid) and u.id=="H02"))
 	return receipt
+
+func probe_swap(host: Node) -> Dictionary:
+	var row := {"passed":false}
+	var original: Array = host.run.state.roster.duplicate(true)
+	if host.run.martial_swap_pair().size()!=2: return row
+	var cash: float = host.run.state.incense
+	if host.run.swap_martial_posts(original[1].uid,original[0].uid).ok: return row
+	var button: Button = host.panel.buttons.get("swap_martial")
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	if not is_instance_valid(button) or not root.get_visible_rect().encloses(button.get_global_rect()): return row
+	row.preview = button.tooltip_text
+	root.get_texture().get_image().save_webp("/tmp/ye35-map.webp",false,0.84)
+	var sent := Time.get_ticks_usec()
+	click(button)
+	await RenderingServer.frame_post_draw
+	row.click_to_map_ms = (Time.get_ticks_usec()-sent)/1000.0
+	row.before = original
+	row.clicked = host.run.state.roster.duplicate(true)
+	host.continue_run()
+	row.resumed = host.run.state.roster.duplicate(true)
+	row.paid = cash-host.run.state.incense
+	for i in 2:
+		var actual: Dictionary = host.run.state.roster[i].duplicate(true)
+		if actual.post != original[1-i].post: return row
+		actual.post = original[i].post
+		if actual!=JSON.parse_string(JSON.stringify(original[i])): return row
+	row.passed = row.paid==0
+	return row
+
+func probe_stones(host: Node) -> Dictionary:
+	var row := {"passed":false}
+	host.start_p10_night("shouxiang","example","渡口","R01",[],"武卫司")
+	host.choose_node("n01")
+	var sim: Node = host.combat.get_node("Simulation")
+	var camera: Node = host.combat.get_node("BattleCamera")
+	var stone: Node2D = sim.humans.filter(func(u): return u.unit_id=="H11")[0]
+	sim.set_physics_process(false)
+	for tick in 1080: sim.advance(1.0/60.0)
+	camera.make_current()
+	camera.set_left(stone.position.x-960)
+	stone.queue_redraw()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var shot := root.get_texture().get_image()
+	var center := Vector2i(stone.get_global_transform_with_canvas().origin)
+	var area := Rect2i(center-Vector2i(42,16),Vector2i(84,22)).intersection(Rect2i(Vector2i.ZERO,shot.get_size()))
+	row.held = stone.roster.counters.stationary_seconds
+	row.bonus = sim.roster_engine().humans.rooted_defense_bonus(stone)
+	stone.roster.counters.stationary_seconds = 0.0
+	stone.queue_redraw()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var control := root.get_texture().get_image()
+	stone.roster.counters.stationary_seconds = row.held
+	stone.queue_redraw()
+	var changed := 0
+	for y in range(area.position.y,area.end.y):
+		for x in range(area.position.x,area.end.x):
+			if shot.get_pixel(x,y)!=control.get_pixel(x,y): changed+=1
+	row.changed_pixels = changed
+	var panel: Node = host.combat.get_node("Decisions")
+	panel.select_unit(stone)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	row.card = panel._martial_trait_readout().strip_edges()
+	var card_ok: bool = "+5.0 / 5" in row.card and row.card in panel.details.text
+	if card_ok: root.get_texture().get_image().save_webp("/tmp/ye35-card.webp",true,0.83)
+	# A frozen proximity fixture checks the card against combat's actual multipliers.
+	var blade: Node2D = sim.humans.filter(func(u): return u.unit_id=="H10")[0]
+	var enemy: Node2D = sim.tide.spawn("G01",0,blade.position.x)
+	var other: Node2D = sim.tide.spawn("G01",1,blade.position.x)
+	stone.floor_id = blade.floor_id
+	stone.position = blade.position
+	for ghost in [enemy,other]:
+		ghost.floor_id = blade.floor_id
+		ghost.position = blade.position
+	panel.select_unit(blade)
+	var roster: RefCounted = sim.roster_engine()
+	row.crowded_card = panel._martial_trait_readout().strip_edges()
+	row.dealt_scale = roster.humans.damage_multiplier(blade,enemy,"melee")
+	row.received_scale = roster.humans.before_receive(blade,10.0,enemy,"melee")/10.0
+	var crowded_ok: bool = "有同伴" in row.crowded_card and "受击 ×1.2" in row.crowded_card and row.dealt_scale==1.0 and is_equal_approx(row.received_scale,1.2)
+	row.passed = row.bonus==5 and changed>=60 and card_ok and crowded_ok and shot.save_webp("/tmp/ye35-stones.webp",true,0.84)==OK
+	return row

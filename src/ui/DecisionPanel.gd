@@ -747,7 +747,7 @@ func _refresh_card() -> void:
 	var body: String = "\n\n".join([
 		"[font_size=53][color=#e7c496][b]%s[/b][/color][/font_size]\n[color=#c8b596]%s　·　%s[/color]" % [info.title, info.affiliation, tr("P11R_CARD_FOLIO") % selected.unit_id],
 		"[font_size=21][color=#e3c39e]%s[/color][/font_size]" % info.stats,
-		info.skill, info.trait, info.slots,
+		info.skill, info.trait + _martial_trait_readout(), info.slots,
 		"[color=#bcb29e]%s\n%s[/color]" % [info.tags, info.state]
 	])
 	if details.text != body:
@@ -759,6 +759,16 @@ func _refresh_card() -> void:
 		if portrait.material is ShaderMaterial:
 			portrait.material.set_shader_parameter("face_hidden", state == "faceless")
 		portrait_note.text = tr("P8_FACE_FACELESS" if state == "faceless" else "P8_FACE_FACED")
+
+func _martial_trait_readout() -> String:
+	if not roster_enabled() or selected.unit_id not in ["H10","H11"]: return ""
+	var params: Dictionary = session.roster.params(selected)
+	if selected.unit_id=="H11":
+		var held := float(selected.roster.get("counters",{}).get("stationary_seconds",0))
+		return "\n站定 %.1f 秒 · 根深防御 +%.1f / %.0f" % [held,session.roster.humans.rooted_defense_bonus(selected),params.max_defense_bonus]
+	var alone: bool = session.roster.near(selected,2,true).is_empty()
+	var threats: int = session.roster.near(selected,2,false).size()
+	return "\n两身位内 · %s · 敌人 %d · 孤刀攻击 ×%.1f，受击 ×%.1f" % ["独守" if alone else "有同伴",threats,params.alone_attack_multiplier if alone else 1.0,params.focused_damage_multiplier if threats>=2 else 1.0]
 
 func roster_enabled() -> bool:
 	var engine = session.get("roster")
