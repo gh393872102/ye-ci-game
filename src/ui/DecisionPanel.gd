@@ -57,6 +57,7 @@ var arriving_guard: Node2D
 var arrival_left := 0.0
 var relief_button: Button
 var register_relief := false
+var include_replacement_recruits := false
 var occupation_bar: ProgressBar
 var register_warning: Button
 var activity_plate: PanelContainer
@@ -407,6 +408,7 @@ func open_purchase(for_register := false) -> void:
 	close_panel()
 	paused_before_purchase = Clock.paused
 	purchase_page = 0
+	include_replacement_recruits = false
 	register_relief = for_register
 	recruitable_faction_only = for_register or (preferred_faction=="武卫司" and session.rules.purchases.has("H12") and _query("purchase_options").any(func(offer): return offer.id=="H12" and offer.allowed) and not session.legal_posts("H12").is_empty())
 	current_panel = "purchase"
@@ -417,7 +419,9 @@ func _build_purchase() -> void:
 	var offers: Array = _query("purchase_options")
 	if recruitable_faction_only:
 		offers = offers.filter(func(offer):
-			if not offer.allowed or previous_casualties.has(offer.id) or Data.get_unit(offer.id).get("所属","") != preferred_faction:
+			if not offer.allowed or Data.get_unit(offer.id).get("所属","") != preferred_faction:
+				return false
+			if previous_casualties.has(offer.id) and not (register_relief and include_replacement_recruits):
 				return false
 			var posts: Array = _query("legal_posts", {"id":offer.id})
 			return "post_register" in posts if register_relief else not posts.is_empty()
@@ -442,6 +446,9 @@ func _build_purchase() -> void:
 	_label(nav, tr("P9_PAGE_COUNT") % [purchase_page + 1, pages], 17)
 	_button(nav, "purchase_next", tr("P9_PAGE_NEXT"), _purchase_page.bind(1), purchase_page + 1 < pages)
 	_button(nav, "close", tr("P9_BATTLE_CLOSE"), close_panel)
+	if register_relief and _has_replacement_offer():
+		var toggle := _button(content, "replacement_scope", "收起同名新兵" if include_replacement_recruits else "查看本司同名新兵", _toggle_replacements)
+		toggle.tooltip_text = "可另请与前战阵亡者同名的新兵，自付原价，直接守册。"
 	var page_offers := offers.slice(purchase_page * PURCHASE_PAGE_SIZE, (purchase_page + 1) * PURCHASE_PAGE_SIZE)
 	var hint := _label(content, tr("P9_PURCHASE_HELP"), 16)
 	if not preferred_faction.is_empty():
@@ -531,7 +538,7 @@ func _empty_relief_hint() -> String:
 		var unit: Dictionary = Data.get_unit(offer.id)
 		if unit.get("所属","") != preferred_faction: continue
 		var reason := "无册房空岗"
-		if previous_casualties.has(offer.id): reason = "前战阵亡"
+		if previous_casualties.has(offer.id) and not include_replacement_recruits: reason = "前战阵亡"
 		elif not offer.allowed: reason = tr(offer.reason).trim_suffix("。")
 		reasons.append("%s·%s" % [unit.get("姓名",offer.id),reason])
 	var detail := "本司暂无战场报价" if reasons.is_empty() else "，".join(reasons)
@@ -607,7 +614,8 @@ func _update_training_offer(button: Button, offer: Dictionary) -> void:
 func _offer_status_text(offer: Dictionary) -> String:
 	if not offer.allowed: return tr(offer.reason)
 	if register_relief:
-		return "到岗后%s" % _budget_after(offer.cost)
+		var prefix := "同名新兵 · " if previous_casualties.has(offer.id) else ""
+		return prefix + "到岗后%s" % _budget_after(offer.cost)
 	return "可再招 · 前战阵亡" if previous_casualties.has(offer.id) else tr("P4_AVAILABLE")
 
 func _budget_after(cost: float) -> String:
@@ -615,6 +623,18 @@ func _budget_after(cost: float) -> String:
 	if balance < 0:
 		return "缺 %d 香火" % ceili(-balance)
 	return "余 %d 香火" % floori(balance)
+
+func _has_replacement_offer() -> bool:
+	for id in previous_casualties:
+		if Data.get_unit(id).get("所属", "") == preferred_faction and session.rules.purchases.has(id):
+			return true
+	return false
+
+func _toggle_replacements() -> void:
+	include_replacement_recruits = not include_replacement_recruits
+	purchase_page = 0
+	_build_purchase()
+	buttons["replacement_scope"].grab_focus()
 
 func _toggle_purchase_scope() -> void:
 	register_relief = false
@@ -628,6 +648,7 @@ func _purchase_page(direction: int) -> void:
 	_build_purchase()
 
 func _purchase(id: String, inspect_training := false) -> void:
+	var balance_before := available_incense()
 	var answer: Dictionary = _issue("purchase", {"id":id})
 	_feedback(answer)
 	if answer.ok:
@@ -641,6 +662,8 @@ func _purchase(id: String, inspect_training := false) -> void:
 				arrival_left = 1.5
 				highlights.queue_redraw()
 				feedback.text = "%s已到%s · 余 %d 香火" % [stationed.unit.display_name,tr("POST_REGISTER"),floori(available_incense())]
+				if previous_casualties.has(id):
+					feedback.text = "新兵%s已守册 · 实付 %d 香火 · 余 %d" % [stationed.unit.display_name,roundi(balance_before-available_incense()),floori(available_incense())]
 				if inspect_training:
 					select_unit(stationed.unit,true)
 				else: Clock.set_paused(paused_before_purchase)

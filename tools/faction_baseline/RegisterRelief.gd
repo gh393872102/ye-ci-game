@@ -38,8 +38,20 @@ func run() -> void:
 	panel.previous_casualties["H01"] = true
 	panel.relief_button.pressed.emit()
 	check(panel.register_relief and clock.paused and panel.content.find_child("buy_H01",true,false)==null,"Pause and exclude a prior casualty")
+	var replacements := panel.content.find_child("replacement_scope",true,false) as Button
+	check(replacements != null,"Prior same-faction casualty exposes the replacement filter")
+	if replacements:
+		replacements.pressed.emit()
+		var replacement := panel.content.find_child("buy_H01",true,false) as Button
+		check(replacement != null and panel.offer_status["H01"].text.contains("同名新兵") and session.incense == money and panel.register_relief,"Opt-in quotes a new recruit at the register without spending")
+		panel.buttons.replacement_scope.pressed.emit()
+		check(panel.content.find_child("buy_H01",true,false) == null and session.incense == money,"Closing the filter restores the original offers")
+		panel.buttons.replacement_scope.pressed.emit()
 	panel.buttons.close.pressed.emit()
 	check(not clock.paused and session.incense==money and session.pending_purchase.is_empty(),"Cancel restores running state without a charge")
+	panel._open_register_relief()
+	check(not panel.include_replacement_recruits and panel.content.find_child("buy_H01",true,false) == null,"Reopening relief resets the explicit opt-in")
+	panel.close_panel()
 	panel.previous_casualties.clear()
 	session.incense = 0
 	panel._open_register_relief()

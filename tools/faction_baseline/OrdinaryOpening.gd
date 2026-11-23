@@ -1,6 +1,7 @@
 extends SceneTree
 ## Exercises the real title button, map save and first ordinary combat. Autonomy only.
 var capture_relief_click := false
+var inspect_replacements := false
 var probe_boss_gate := false
 var failures := 0
 var foreign_units := {}
@@ -427,6 +428,12 @@ func request_register_relief(scene: Node, night: RefCounted, faction: String, id
 	var receipt := {"time":sim.simulation_time,"occupation":session.occupation,"balance_before":cash,"vacancies":session.post_vacancies("post_register"),"offered":false,"id":id,"post":"post_register"}
 	if menu.relief_button.visible:
 		menu.relief_button.pressed.emit()
+		if inspect_replacements:
+			var toggle: Button = menu.content.find_child("replacement_scope", true, false)
+			receipt.previously_fallen = menu.previous_casualties.has(id)
+			receipt.visible_before_toggle = menu.content.find_child("buy_"+id, true, false) != null
+			if toggle: toggle.pressed.emit()
+			receipt.scope_paid = cash-session.incense
 		receipt.available = []
 		while true:
 			for candidate in menu.content.find_children("buy_*","Button",true,false):
