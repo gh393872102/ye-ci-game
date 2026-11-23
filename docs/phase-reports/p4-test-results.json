@@ -1,6 +1,6 @@
 {
 	"capture": false,
-	"checks": 114,
+	"checks": 116,
 	"engine": "4.7.2-stable (official)",
 	"failures": 0,
 	"fixture_policy": "Only isolated rule fixtures modify actor state/resources. Full battles use start_battle plus public decisions and fixed-step shared advance; no HP, position, durability, rules or timer rewrites.",
@@ -6524,7 +6524,15 @@
 			"passed": true
 		},
 		{
+			"check": "K6 Repair quote reserves neither worker nor incense",
+			"passed": true
+		},
+		{
 			"check": "K6 Repair pays six incense and creates real repairer job",
+			"passed": true
+		},
+		{
+			"check": "K6 Payment dispatches the quoted guard and blocks a duplicate repair",
 			"passed": true
 		},
 		{

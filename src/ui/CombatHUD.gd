@@ -323,7 +323,7 @@ func _update_battle() -> void:
 	elif "P10_WARN_NAME_SEEP" in session.warnings:
 		register_status.text = tr("P10_WARN_NAME_SEEP")
 	register_status.add_theme_color_override("font_color", ALERT if register_status.text != tr("P9_REGISTER_STABLE") else PAPER)
-	incense.text = tr("P9_WALLET_PAIR") % [session.incense_for("shouxiang"), session.incense_for("duoming")] if session.dual_enabled else str(floori(session.incense))
+	incense.text = tr("P9_WALLET_PAIR") % [session.incense_for("shouxiang"), session.incense_for("duoming")] if session.dual_enabled else (String.num(session.incense,2).trim_suffix(".0") if Clock.paused else str(floori(session.incense)))
 	names.text = "%.1f" % session.names
 	var upper_ghosts := 0
 	var alive_ghosts := 0

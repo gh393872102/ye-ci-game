@@ -49,6 +49,8 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
+var repair_policy := ""
+
 func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false, additional_training: Array = []) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
@@ -177,6 +179,27 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		row.read_orders = []
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if row.node=="n05" and not repair_policy.is_empty() and not row.has("repair") and tick % 60==0:
+			var door_id: String = {"repair-inner":"door_inner","repair-outer":"door_outer"}.get(repair_policy,"door_hall")
+			var door: Node2D = sim.world.get_node(door_id)
+			var late: bool = sim.targets.any(func(ghost): return not ghost.dead and ghost.unit_id=="G09" and sim.world.room_at(ghost.position,ghost.floor_id)=="register")
+			if door.durability < door.max_durability and (repair_policy!="repair-late" or late):
+				var offer: Dictionary = session.preview_repair(door_id)
+				if not row.has("repair_window"):
+					row.repair_window = {"start":sim.simulation_time,"door_hp":door.durability,"rejections":{}}
+				if not offer.ok:
+					var reasons: Dictionary = row.repair_window.rejections
+					reasons[offer.reason] = int(reasons.get(offer.reason,0))+1
+				if offer.ok:
+					var cash: float = session.incense
+					var panel: Node = scene.get_node("Decisions")
+					panel.open_repair()
+					var button: Button = panel.buttons["repair_"+door_id]
+					row.repair = {"seconds":sim.simulation_time,"door_hp":door.durability,"worker":offer.unit.unit_id,"post":offer.unit.current_post,"preview":button.text,"enabled":not button.disabled,"quote":offer.cost,"prepaid":cash-session.incense}
+					if not button.disabled: button.pressed.emit()
+					row.repair.paid = cash-session.incense
+					panel.close_panel()
+					root.get_node("Clock").set_paused(false)
 		if tick % 30 == 0 and row.node in ["n05","n10"] and not row.has("first_breaker_hit"):
 			for logged in sim.damage_log:
 				if str(logged.attacker).begins_with("G12") and logged.after < logged.before:
@@ -249,6 +272,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		row.reading_events = session.growth.state.events.filter(func(e): return e.kind in ["channel_guard","ritual_release"] and float(e.time)>started_growth_time)
 	if not carried_items.is_empty():
 		row.brace_events = session.growth.state.events.filter(func(entry): return entry.kind == "paper_brace")
+	if row.node=="n05" and not repair_policy.is_empty():
+		row.repair_ledger = session.ledger.filter(func(e): return str(e.action).begins_with("repair_"))
 	row.foreign_units = foreign_units.duplicate()
 	row.result = session.result.duplicate(true)
 	var report: Dictionary = bridge.collect(scene,night)

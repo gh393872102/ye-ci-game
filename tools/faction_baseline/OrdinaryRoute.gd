@@ -25,6 +25,14 @@ const REAR_POLICIES := {
 	"rear-eighth": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01", "n08": "H01"}, "recall": true},
 }
 const FIFTH_TRAIN := {
+	"repair-early": [],
+	"repair-late": [],
+	"repair-inner": [],
+	"repair-inner-qing": ["H03"],
+	"repair-inner-shuang": ["H06"],
+	"repair-outer": [],
+	"repair-forward": [],
+	"repair-forward-control": [],
 	"trio-fifth-control": [],
 	"trio-fifth-wan": ["H01"],
 	"trio-fifth-qing": ["H03"],
@@ -60,6 +68,9 @@ func run() -> void:
 	var rear_policies := REAR_POLICIES.duplicate()
 	var placements := FIFTH_POSTS.duplicate()
 	for key in FIFTH_TRAIN: placements[key] = FIFTH_POSTS["trio-reader"]
+	for key in ["repair-forward","repair-forward-control"]:
+		placements[key] = FIFTH_POSTS["trio-reader"].duplicate()
+		placements[key].H06 = "post_hall_door"
 	for key in REGROUP_TRAIN: placements[key] = FIFTH_POSTS["trio-reader"]
 	for key in placements:
 		var split: Dictionary = REAR_POLICIES["rear-read-beam"].duplicate(true)
@@ -68,7 +79,7 @@ func run() -> void:
 		if key in FIFTH_TRAIN and not FIFTH_TRAIN[key].is_empty():
 			split.train.n05 = FIFTH_TRAIN[key][0]
 		if key in REGROUP_TRAIN and REGROUP_TRAIN[key] != "": split.train.n08 = REGROUP_TRAIN[key]
-		if key.begins_with("trio-"):
+		if key.begins_with("trio-") or key.begins_with("repair-"):
 			split.posts = REAR_POLICIES["rear-hall-trained"].posts
 			split.delay = REAR_POLICIES["rear-hall-trained"].delay
 		rear_policies[key] = split
@@ -83,6 +94,8 @@ func run() -> void:
 	if policy in rear_policies and args[0]!="0":
 		quit(2)
 		return
+	repair_policy = policy if policy.begins_with("repair-") and policy!="repair-forward-control" else ""
+	if policy.begins_with("repair-inner-"): repair_policy = "repair-inner"
 	var orders: Dictionary = rear_policies.get(policy,{})
 	var camp := policy.begins_with("camp-")
 	var compare_lamp := policy.ends_with("-lamp")

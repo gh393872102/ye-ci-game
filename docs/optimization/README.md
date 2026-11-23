@@ -1,5 +1,55 @@
 # 夜祠 · 阵营与构筑优化档案
 
+## 2026-11-23 · 修门会调走谁？
+
+修门面板现在逐扇门显示守军姓名、原岗位、实付香火、到门后的作业时长和最多能修的耐久。玩家可在暂停中看到霜盏会离开名册房，再决定要不要派她。途中遇袭可能损失这笔香火。确认后战场提示显示守军在赶路还是已经动工。预览和下令共用同一套寻路、岗位和成长结算。[修门面板实拍](repair-crew.webp)
+
+**普通夜程。** 守香司三种子、八种策略共24条完整夜程，全部保持纯阵营，均未通关。第五战同花14香火修内门并训练一人：练青笺，霜盏带57血过关，第八战距天亮2.08秒失守；练霜盏，她带35血过关，队伍守过第八战，末战37.67秒失守。 从 GitHub `01e97e6` 续做，Godot 4.7.2。渡口、灯市、秋社各跑八项策略，自开局记录到胜负结算，共24条新记录。另取上一轮同版本战斗规则、同种子的6条保留资源和训练青笺记录对照。每局初始阵容身价17、初始香火20，第三战统一花12请若晚、8训练，岗位经过正式界面校验。逐战核实入场、战内新增单位、阵营变化与战后存活名单。不同种子奖励按实取用。三个种子表内的结果一致，表格每行代表三个种子。数值刻画这些决策的后果，八阵营普通通关和玩家胜率仍待验证。
+
+| 第五节点策略 | 第五节点／全程主动支出 | 接单→结束（秒） | 作业 | 册房开始被占（秒） | 第五节点结算与剩余生命 | 全程终点（秒） |
+|---|---:|---|---|---:|---|---|
+| 册房出发，修主殿门 | 6／26 | 157.02 → 165.53 | 中断 | 186.87 | 失守，若晚 25 | n05，198.85 |
+| 册房出发，缢鬼进房后修主殿门 | 0／44 | — → — | 无派工 | 198.47 | 守住，若晚 25 | n10，39.87 |
+| 练青笺、修内门 | 14／34 | 77.02 → 102.32 | 完工 | — | 守住，霜盏 57、若晚 25 | n08，237.92 |
+| 练霜盏、修内门 | 14／46 | 77.02 → 102.32 | 完工 | — | 守住，霜盏 35、若晚 25 | n10，37.67 |
+| 册房出发，修内门 | 6／50 | 77.02 → 102.32 | 完工 | 209.47 | 守住，若晚 25 | n10，39.87 |
+| 册房出发，修外门 | 6／50 | 23.02 → 58.87 | 完工 | 202.38 | 守住，若晚 25 | n10，39.87 |
+| 门厅出发，修主殿门 | 6／26 | 159.02 → 171.97 | 完工 | 188.05 | 失守，若晚 25 | n05，201.33 |
+| 门厅驻守，保留香火 | 0／20 | — → — | 无派工 | 188.05 | 失守，若晚 25 | n05，204.03 |
+| 册房驻守，保留香火（上轮） | 0／44 | — → — | 无派工 | 198.47 | 守住，若晚 25 | n10，39.87 |
+| 训练青笺（上轮） | 8／52 | — → — | 无派工 | 205.38 | 守住，若晚 25 | n10，39.87 |
+
+作业起止、占房和终点均按各自战斗入场计时。整程主动支出包括招募、营地、训练与修门；失守较早会少花后续费用。比较同价修门请看当战追加6的各行，比较同价训练加修门请看追加14的两行。迟派和无派工实际花费为0。作业结束时间包含赶路与可能发生的中断；第五战守至天亮需210秒。
+
+**派工距离和时机。** 从名册房修主殿门，第123.02秒门已受损，此后连续34次没有可达的工人。第157.02秒霜盏接单时门已被击破。第165.53秒她在楼梯被白衣无面（G01）击倒，已付6香火，门没有得到修复。改为开战守门厅，接单时她已退至楼梯口，第159.02秒出发、171.97秒完工；同样开战守门厅，派她修门反而比留守早失守2.70秒。等缢鬼进入名册房才想修主殿门，从204.02秒开始连续6次没有可达的修理者，未扣钱。从常规岗位优先修内门则在77.02秒派工、102.32秒完工。三扇门每次派工都是6香火，守军离开哪里、要走多久，会改变这一单是否值得。
+
+**多保住一人，为什么仍过不了末战？** 两种14香火方案都让敌人整场没能开始占领名册。练青笺的路线留下霜盏57血、若晚25血；练霜盏的路线留下霜盏35血、若晚25血。两人进营地都触发原有双人休整条件，无法另招沈册。前一组霜盏休整后62血，后一组54.25血，但后一组保留了她本人的训练。两组在第八战都让若晚守后廊、霜盏守名册；只有后一组守到天亮。霜盏仍然阵亡，若晚以56.25血进营地，花12请祝禧；两人末战分守后廊和名册，37.67秒失守。第五战只修内门的路线反而能在营地招沈册，末战撑到39.87秒。选择训练目标时，还要考虑谁能把收益带到下一场、营地会给哪种补员。
+
+**折扣与实机。** 单独设置受损内门、铁肩和精确余额4.8，按正式装备操作装上开山楔和稳钉，配合兼职印。预览与实际派工一致，铁肩从外门内侧出发，实付4.8香火，到门后需2.25秒，最多修210耐久。预览扣费0，点击只扣一次，任务进行中无法重复派单。这里只验证该装备组合；没有新增抽取项或调整权重。[原生窗口逐帧记录及点击结果](../../tools/faction_baseline/native-repair.json)
+
+**大潮与输入。** X11、Mesa llvmpipe 软件渲染、1920×1080、关闭垂直同步；普通首战在四路加入44名敌人，画面可见40至44名。热身30帧后取180次相邻绘制完成间隔，P50／P95／P99 为 **35.763／42.382／112.423 毫秒**。注入12次 Q，至招募面板画出的分位数为 30.022／43.431／43.431 毫秒；鼠标在修门窗口确认至下一绘制帧 27.663 毫秒（一次）。这是云端软件渲染下的完整帧间隔，不能据此判断 RTX 2060 的表现。尚无真人操作样本。本轮沿用角色半身像。P4 战斗与交互回归116项全部通过，退出时仍报告4个对象、2个资源未释放。[回归明细](../phase-reports/p4-test-results.json)
+
+**下一项。** 复用训练霜盏并修内门的三种子路线，在第八战分别让若晚守后廊、合守名册，以同等开销比较两人的存活和末战可用岗位。再对照末战若晚与祝禧分守或合守名册的结果。
+
+<details><summary>逐局账本与复跑方法</summary>
+
+从项目根目录运行 `godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 repair-inner 渡口`，策略和种子取下表。修门窗口与大潮用 `godot --display-driver x11 --rendering-method gl_compatibility --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/TideFrames.gd -- --repair-quote`。首轮80场固定试炼未计入本表。
+
+| 复跑参数 | 渡口 | 灯市 | 秋社 |
+|---|---|---|---|
+| repair-early | [渡口](../../tools/faction_baseline/post-渡口-repair-early-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-early-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-early-0.json) |
+| repair-late | [渡口](../../tools/faction_baseline/post-渡口-repair-late-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-late-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-late-0.json) |
+| repair-inner-qing | [渡口](../../tools/faction_baseline/post-渡口-repair-inner-qing-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-inner-qing-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-inner-qing-0.json) |
+| repair-inner-shuang | [渡口](../../tools/faction_baseline/post-渡口-repair-inner-shuang-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-inner-shuang-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-inner-shuang-0.json) |
+| repair-inner | [渡口](../../tools/faction_baseline/post-渡口-repair-inner-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-inner-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-inner-0.json) |
+| repair-outer | [渡口](../../tools/faction_baseline/post-渡口-repair-outer-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-outer-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-outer-0.json) |
+| repair-forward | [渡口](../../tools/faction_baseline/post-渡口-repair-forward-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-forward-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-forward-0.json) |
+| repair-forward-control | [渡口](../../tools/faction_baseline/post-渡口-repair-forward-control-0.json) | [灯市](../../tools/faction_baseline/post-灯市-repair-forward-control-0.json) | [秋社](../../tools/faction_baseline/post-秋社-repair-forward-control-0.json) |
+| trio-fifth-control | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-control-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-control-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-control-0.json) |
+| trio-fifth-qing | [渡口](../../tools/faction_baseline/post-渡口-trio-fifth-qing-0.json) | [灯市](../../tools/faction_baseline/post-灯市-trio-fifth-qing-0.json) | [秋社](../../tools/faction_baseline/post-秋社-trio-fifth-qing-0.json) |
+
+</details>
+
 ## 2026-11-23 · 第五战的训练该给谁？
 
 战中打开「升级」，现在能按姓名、岗位和剩余生命选在场守军，也能点「下一位」连续比较。角色半身像随选人切换。旧版用生命上限作预览，受伤时容易高估训练收益。现在能看到河灯从 47 血升到 62 血，上限 71，伤势仍保留 9 点。确认才付 8 香火，生命与上限各加 15、防御加 2。确认键移到了装备栏前面。[战中训练实拍](training-target.webp)

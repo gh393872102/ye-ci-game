@@ -145,6 +145,11 @@ func run() -> void:
 		passed = passed and result.guard_gear.passed
 		result.passed = passed
 		filename = "native-guard-gear.json"
+	if OS.get_cmdline_user_args().has("--repair-quote"):
+		filename = "native-repair.json"
+		result.repair = await probe_repair(battle)
+		passed = passed and result.repair.passed
+		result.passed = passed
 	if not rear.is_empty():
 		result.rear = rear
 		passed = passed and rear.passed
@@ -409,4 +414,49 @@ func probe_range(battle: Node) -> Dictionary:
 	panel.highlights.show()
 	row.endpoint_pixels = changed
 	row.passed = "受击或离位" in row.bare_conditions and "30%" in row.needle_conditions and row.needle_used==1 and row.targets==0 and row.cost==0 and "身位" in row.hint and panel.buttons.ritual_confirm.disabled and changed>=10 and shot.save_webp("/tmp/r20-range.webp",false,0.84)==OK
+	return row
+
+
+func probe_repair(battle: Node) -> Dictionary:
+	var sim: Node = battle.get_node("Simulation")
+	var session: Node = battle.get_node("Session")
+	var panel: Node = battle.get_node("Decisions")
+	sim.set_physics_process(false)
+	var door: Node2D = sim.world.get_node("door_inner")
+	door.set_durability(door.max_durability-300)
+	var row := {"passed":false,"fixture":"post-crowd UI check: damaged inner door, added H09 with J01, wallet set to discounted price"}
+	var worker: Node2D = sim.spawn_human("H09","post_gate_inner")
+	if worker == null: return row
+	root.get_node("Clock").set_paused(true)
+	worker.growth.job_tags.assign(["J01"])
+	for item in ["I10","Y09"]:
+		session.growth.state.inventory[item] = 1
+		var equipped: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":worker.instance_id,"item_id":item,"slot_index":0},"player")
+		if not equipped.ok: return row
+	row.fixture += ", equipped I10 and Y09 from fixture inventory"
+	session.incense = session.growth.repair_cost(worker,session.rules.repair.cost)
+	var offer: Dictionary = session.preview_repair("door_inner")
+	if not offer.ok:
+		row.reason = offer.reason
+		return row
+	var cash: float = session.incense
+	panel.open_repair()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var button: Button = panel.buttons.repair_door_inner
+	row.caption = button.text
+	row.worker = offer.unit.unit_id
+	row.quote = offer.cost
+	row.heal = offer.heal
+	row.duration = offer.duration
+	row.prepaid = cash-session.incense
+	row.visible = panel.panel_scroll.get_global_rect().encloses(button.get_global_rect())
+	if button.disabled or not row.visible: return row
+	root.get_texture().get_image().save_webp("/tmp/r25-repair.webp",false,0.85)
+	var sent := Time.get_ticks_usec()
+	click(button)
+	await RenderingServer.frame_post_draw
+	row.feedback_ms = (Time.get_ticks_usec()-sent)/1000.0
+	row.paid = cash-session.incense
+	row.passed = row.prepaid==0 and row.quote<6 and row.paid==row.quote and session.repair_jobs.size()==1 and session.repair_jobs[0].unit==offer.unit and panel.buttons.repair_door_inner.disabled and is_equal_approx(row.heal,210) and row.duration==2.25 and session.repair_jobs[0].duration==row.duration and is_equal_approx(session.repair_jobs[0].heal,row.heal)
 	return row

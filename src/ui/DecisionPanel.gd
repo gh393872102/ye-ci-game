@@ -1006,11 +1006,21 @@ func open_repair() -> void:
 	row.add_theme_constant_override("h_separation", 10)
 	row.add_theme_constant_override("v_separation", 6)
 	content.add_child(row)
-	var repair_cost := int(session.rules.get("repair", {}).get("cost", 5))
 	for door in world.doors:
-		var text: String = tr("P4_REPAIR_DOOR") % [tr(str(door.name).to_upper()), door.durability, door.max_durability, repair_cost]
-		var button := _button(row, "repair_" + str(door.name), text, _repair.bind(str(door.name)), door.durability < door.max_durability and available_incense() >= repair_cost)
+		var offer: Dictionary = _query("preview_repair",{"door_id":str(door.name)})
+		var detail := tr(str(offer.get("reason","P4_INVALID_DOOR")))
+		if offer.get("ok",false):
+			detail = "%s离开%s · %s香火" % [offer.unit.display_name,tr(str(offer.unit.current_post).to_upper()),String.num(offer.cost,1)]
+			detail += "\n到门后 %s 秒 · 最多修 %s" % [String.num(offer.duration,2),String.num(offer.heal,2)]
+		elif door.durability >= door.max_durability:
+			detail = "完好"
+		var caption := "%s %d/%d\n%s" % [tr(str(door.name).to_upper()),door.durability,door.max_durability,detail]
+		var button := _button(row,"repair_"+str(door.name),caption,_repair.bind(str(door.name)),offer.get("ok",false),detail)
 		button.custom_minimum_size.x = 290
+		if offer.get("ok",false):
+			button.icon = Appearance.bust_texture(offer.unit.unit_id)
+			button.expand_icon = true
+			button.add_theme_constant_override("icon_max_width",48)
 		button.add_theme_font_size_override("font_size", 17)
 	_button(row, "close", tr("P9_BATTLE_CLOSE"), close_panel)
 	_focus_first(row)
@@ -1272,6 +1282,7 @@ func _query(action: String, args: Dictionary = {}):
 	match action:
 		"purchase_options": return session.purchase_options()
 		"legal_posts": return session.legal_posts(str(args.get("id", "")))
+		"preview_repair": return session.preview_repair(args.door_id)
 		"preview_upgrade": return session.preview_upgrade(_find_unit(args.unit_id))
 		"preview_mutation": return session.preview_mutation(_find_unit(args.unit_id), args.form_id)
 		"preview_ritual": return session.preview_ritual(_find_unit(args.caster_id), _find_unit(args.target_id))
@@ -1412,7 +1423,11 @@ func _watch_channels(delta: float) -> void:
 	interruption_left = maxf(0, interruption_left - delta)
 	if not session.repair_jobs.is_empty() and watching.is_empty():
 		var job: Dictionary = session.repair_jobs[0]
-		jobs.append(tr("P4_REPAIR_JOB") % [tr(str(job.door.name).to_upper()), job.elapsed])
+		var worker: Node2D = job.unit
+		if is_instance_valid(worker) and not worker.dead:
+			var action := "赶往" if not worker.brain.route.is_empty() else "修缮"
+			var progress := "" if action=="赶往" else " · %.1f / %.1f 秒" % [job.elapsed,job.get("duration",session.rules.repair.duration)]
+			jobs.append("%s%s%s%s" % [worker.display_name,action,tr(str(job.door.name).to_upper()),progress])
 	activity.text = "\n".join(jobs)
 	activity_plate.position = notice_position
 	channel_progress.visible = not watching.is_empty()

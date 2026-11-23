@@ -294,10 +294,13 @@ func _repair_rules() -> void:
 	door.receive_damage(400) # Isolated damaged structure fixture, never part of full runs.
 	var damaged: float = door.durability
 	var funds: float = session.incense
+	var preview: Dictionary = session.preview_repair("door_inner")
+	check(preview.ok and preview.cost==6 and session.incense==funds and session.repair_jobs.is_empty(),"K6 Repair quote reserves neither worker nor incense")
 	var command: Dictionary = session.repair("door_inner")
 	check(command.ok and session.incense == funds - 6 and session.repair_jobs.size() == 1,"K6 Repair pays six incense and creates real repairer job")
 	if command.ok:
 		var worker: Node2D = session.repair_jobs[0].unit
+		check(worker==preview.unit and session.preview_repair("door_inner").reason=="P4_REPAIR_BUSY","K6 Payment dispatches the quoted guard and blocks a duplicate repair")
 		var origin: Vector2 = worker.position
 		_tick(0.1)
 		check(worker.position != origin and door.durability == damaged,"K6 Repairer walks first; a distant damaged door does not instantly heal")

@@ -385,7 +385,7 @@ func ritual_completed(caster: Node2D, target: Node2D) -> void:
 	simulation.tide.effect("purified", target.position, target.instance_id)
 	simulation.vfx.purification(target.position, recruited, names > names_before_credit)
 
-func repair(door_id: String) -> Dictionary:
+func preview_repair(door_id: String) -> Dictionary:
 	var reason := _available("shouxiang")
 	if not reason.is_empty():
 		return _reject(reason)
@@ -427,6 +427,21 @@ func repair(door_id: String) -> Dictionary:
 		return _reject("P4_NO_INCENSE" if growth.enabled and reachable_worker else "P4_REPAIR_ROUTE")
 	var repair_cost: float = growth.repair_cost(repairer,float(rules.repair.cost)) if growth.enabled else float(rules.repair.cost)
 	if incense < repair_cost: return _reject("P4_NO_INCENSE")
+	var duration := float(rules.repair.duration)
+	var heal := float(rules.repair.heal)
+	if growth.enabled:
+		duration = growth.repair_duration(repairer,duration)
+		heal *= growth.repair_multiplier(repairer)
+	return {"ok":true,"cost":repair_cost,"unit":repairer,"door":door,"destination":destination,"route":best_path,"duration":duration,"heal":heal}
+
+func repair(door_id: String) -> Dictionary:
+	var offer := preview_repair(door_id)
+	if not offer.ok: return offer
+	var repairer: Node2D = offer.unit
+	var door: Node2D = offer.door
+	var repair_cost: float = offer.cost
+	var best_path: Array[Dictionary] = offer.route
+	var destination: Vector2 = offer.destination
 	incense -= repair_cost
 	repairer.brain.repair_door = door
 	repairer.brain.route = best_path
@@ -435,8 +450,8 @@ func repair(door_id: String) -> Dictionary:
 	repairer.set_state("RepairApproach")
 	var job := {"unit":repairer,"door":door,"elapsed":0.0,"destination":destination}
 	if growth.enabled:
-		job.duration = growth.repair_duration(repairer,float(rules.repair.duration))
-		job.heal = float(rules.repair.heal) * growth.repair_multiplier(repairer)
+		job.duration = offer.duration
+		job.heal = offer.heal
 	repair_jobs.append(job)
 	_record("repair_started", -repair_cost, door_id)
 	_emit_command("shouxiang","repair",{"door_id":door_id})
@@ -826,7 +841,7 @@ func execute_for(seat: String, action: String, args: Dictionary = {}, origin := 
 		return _reject("P6_INVALID_ORIGIN")
 	if origin == "player" and dual_enabled and (player_seat.is_empty() or seat != player_seat):
 		return _reject("P6_READ_ONLY" if player_seat.is_empty() else "P6_PLAYER_SEAT")
-	var queries := ["purchase_options","legal_posts","preview_upgrade","preview_mutation","preview_ritual"]
+	var queries := ["purchase_options","legal_posts","preview_repair","preview_upgrade","preview_mutation","preview_ritual"]
 	if not action in queries and not action in preload("res://src/modes/Seat.gd").commands(seat):
 		return _reject("P6_INVALID_ACTION")
 	if not dual_enabled and mode != seat:
@@ -849,6 +864,7 @@ func execute_for(seat: String, action: String, args: Dictionary = {}, origin := 
 		"reinforce": response = reinforce(str(args.get("formation","")))
 		"purchase_options": response = {"ok":true,"reason":"P4_COMMAND_OK","data":purchase_options()}
 		"legal_posts": response = {"ok":true,"reason":"P4_COMMAND_OK","data":legal_posts(str(args.get("id","")))}
+		"preview_repair": response = {"ok":true,"data":preview_repair(str(args.get("door_id","")))}
 		"preview_upgrade": response = {"ok":true,"reason":"P4_COMMAND_OK","data":preview_upgrade(_actor(str(args.get("unit_id",""))))}
 		"preview_mutation": response = {"ok":true,"reason":"P4_COMMAND_OK","data":preview_mutation(_actor(str(args.get("unit_id",""))),str(args.get("form_id","")))}
 		"preview_ritual": response = {"ok":true,"reason":"P4_COMMAND_OK","data":preview_ritual(_actor(str(args.get("caster_id",""))),_actor(str(args.get("target_id",""))))}
