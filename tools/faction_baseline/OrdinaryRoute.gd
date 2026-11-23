@@ -24,22 +24,46 @@ const REAR_POLICIES := {
 	"rear-camp-pair": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H08", "n09": "H02"}},
 	"rear-eighth": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01", "n08": "H01"}, "recall": true},
 }
+const FIFTH_POSTS := {
+	"trio-aid": {"H01":"post_register","H03":"post_register","H06":"post_register"},
+	"trio-control": {"H01":"post_register","H03":"post_register","H06":"post_register"},
+	"reader-stair": {"H01":"post_stair_head","H06":"post_register"},
+	"trio-stair": {"H01":"post_stair_head","H03":"post_register","H06":"post_register"},
+	"reader-hall": {"H01":"post_hall_door","H06":"post_register"},
+	"reader-table": {"H01":"post_table_hall","H06":"post_register"},
+	"reader-rear": {"H01":"post_rear","H06":"post_register"},
+	"reader-control": {"H01":"post_register","H06":"post_register"},
+	"trio-priest": {"H01":"post_register","H03":"post_rear","H06":"post_register"},
+	"trio-lamp": {"H01":"post_register","H03":"post_register","H06":"post_rear"},
+	"trio-reader": {"H01":"post_rear","H03":"post_register","H06":"post_register"},
+	"trio-return": {"H01":"post_rear","H03":"post_register","H06":"post_register"},
+	"trio-table": {"H01":"post_table_hall","H03":"post_register","H06":"post_register"},
+}
 const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
 func run() -> void:
+	var rear_policies := REAR_POLICIES.duplicate()
+	for key in FIFTH_POSTS:
+		var split: Dictionary = REAR_POLICIES["rear-read-beam"].duplicate(true)
+		split.erase("recall")
+		split.fifth_posts = FIFTH_POSTS[key]
+		if key.begins_with("trio-"):
+			split.posts = REAR_POLICIES["rear-hall-trained"].posts
+			split.delay = REAR_POLICIES["rear-hall-trained"].delay
+		rear_policies[key] = split
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in REAR_POLICIES and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in rear_policies and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
 	var policy := args[1] if args.size() >= 2 else "base"
 	if (policy in RESERVE_POLICIES or policy in ["borrow","dispel","dispel-recall"]) and args[0] != "2":
 		quit(2)
 		return
-	if policy in REAR_POLICIES and args[0]!="0":
+	if policy in rear_policies and args[0]!="0":
 		quit(2)
 		return
-	var orders: Dictionary = REAR_POLICIES.get(policy,{})
+	var orders: Dictionary = rear_policies.get(policy,{})
 	var camp := policy.begins_with("camp-")
 	var compare_lamp := policy.ends_with("-lamp")
 	var compare_posts := policy.ends_with("-posts") or compare_lamp
@@ -66,10 +90,16 @@ func run() -> void:
 				var nodes: Array = night.available_nodes()
 				step.choice = nodes[0].id
 				var recall: bool = step.choice == "n05" and (policy in ["dispel-recall","relief-8-recall"] or orders.get("recall",false) or policy in RESERVE_POLICIES)
-				if step.choice=="n03" and orders.has("posts"):
+				var post_orders := {}
+				match step.choice:
+					"n03": post_orders = orders.get("posts",{})
+					"n05": post_orders = orders.get("fifth_posts",{})
+					"n08":
+						if policy == "trio-return": post_orders = {"H01":"post_register"}
+				if not post_orders.is_empty():
 					step.orders = []
 					for member in night.state.roster:
-						var post: String = orders.posts.get(member.id,member.post)
+						var post: String = post_orders.get(member.id,member.post)
 						if member.post==post: continue
 						var order: Dictionary = night.reserve_post(member.uid,post)
 						step.orders.append({"id":member.id,"post":post,"ok":order.ok})
@@ -147,7 +177,7 @@ func run() -> void:
 				var delay := -1.0
 				if second and policy in ["relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall"]:
 					delay = float(policy.get_slice("-",1))
-				if policy in REAR_POLICIES and second:
+				if policy in rear_policies and second:
 					delay = float(orders.get("delay",8))
 				if fifth and policy=="relief-8-next":
 					delay = 8.0
@@ -206,6 +236,8 @@ func run() -> void:
 				ok = night.leave_node().ok
 			"rest":
 				var reserve: String = orders.get("camp",{}).get(night.state.current_node_id,"")
+				if policy in FIFTH_POSTS and policy != "trio-aid" and night.state.current_node_id == "n06" and not night.state.roster.is_empty():
+					reserve = "" # Post comparisons take the usual heal for a surviving guard.
 				if (orders.get("ritual_gear",false) or orders.get("read",false)) and not night.rest_reserve_options().any(func(o): return o.id==reserve and o.allowed): reserve = ""
 				if not reserve.is_empty():
 					var id := reserve
@@ -224,9 +256,9 @@ func run() -> void:
 					ok = hired and is_equal_approx(step.hire.paid,12.0)
 				else: ok = night.finish_rest().ok
 			_: ok = false
-		if policy in REAR_POLICIES:
+		if policy in rear_policies:
 			step.survivors = night.state.roster.map(func(u): return {"uid":u.uid,"id":u.id,"post":u.post,"hp":u.hp,"max_hp":u.max_hp})
-		if policy.begins_with("relief-") or policy in REAR_POLICIES:
+		if policy.begins_with("relief-") or policy in rear_policies:
 			step.roster_after = night.state.roster.map(func(unit): return [unit.uid,unit.id,unit.post])
 		for unit in night.state.roster:
 			if root.get_node("Data").get_unit(unit.id).get("所属","") != faction and not unit.id in report.foreign:
@@ -248,20 +280,25 @@ func run() -> void:
 
 func rest_via_menu(night: RefCounted, id: String) -> bool:
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
-	host.save_path = "/tmp/ye-ci-route-rest-%d.json" % OS.get_process_id()
+	host.save_path = "user://ye-ci-route-rest-%d.json" % OS.get_process_id()
 	root.add_child(host)
 	var previous_ids: Array = night.state.roster.map(func(member): return member.uid)
+	var expected_seed: String = night.state.seed
+	var expected_node: String = night.state.current_node_id
 	var saved: bool = night.save(host.save_path).ok
 	if saved: host.continue_run()
 	var button: Button = host.panel.buttons.get("reserve_"+id)
 	var loaded := false
-	if is_instance_valid(button) and not button.disabled:
+	if host.run.state.get("seed") == expected_seed and host.run.state.get("current_node_id") == expected_node and is_instance_valid(button) and not button.disabled:
 		if OS.get_environment("YE_CI_CAPTURE_REST") == "1" and DisplayServer.get_name() != "headless":
 			await RenderingServer.frame_post_draw
 			await RenderingServer.frame_post_draw
 			root.get_texture().get_image().save_jpg("/tmp/ye-ci-rest-menu.jpg",0.86)
 		button.pressed.emit()
-		loaded = night.load_save(host.save_path).ok and night.state.phase == "map" and night.state.roster.size() == previous_ids.size()+1 and night.state.roster.any(func(member): return member.id == id and member.uid not in previous_ids) and previous_ids.all(func(uid): return night.state.roster.any(func(member): return member.uid == uid))
-	DirAccess.remove_absolute(host.save_path)
+		loaded = night.load_save(host.save_path).ok and night.state.seed == expected_seed and night.state.phase == "map" and night.state.roster.size() == previous_ids.size()+1 and night.state.roster.any(func(member): return member.id == id and member.uid not in previous_ids) and previous_ids.all(func(uid): return night.state.roster.any(func(member): return member.uid == uid))
+	if loaded:
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(host.save_path))
+	else:
+		printerr("Rest reload failed at ",expected_node," / ",expected_seed," (",id,"): ",host.feedback.text,". Fixture: ",ProjectSettings.globalize_path(host.save_path))
 	host.free()
 	return loaded

@@ -60,13 +60,13 @@ P9_DEPLOY_COVER,这里没有合法掩体。请选择带标记的岗位。
 P9_DEPLOY_AVAILABLE,可部署 · %s
 P9_DEPLOY_NO_POST,暂无合适或空余的岗位。取消可退回预留香火。
 P9_UPGRADE_NOW,当前 · %s
-P9_RITUAL_HELP,%s 留在香案或名册旁，可选已入厅的鬼。受击或离位会中断读条。
+P9_RITUAL_HELP,%s 可对同层已入厅的鬼点册。受击或离位会中断读条。
 P9_RITUAL_NO_CASTER,当前没有可以点册的守香司。
 P9_RITUAL_UNSAFE,点册者须留在香案或名册旁。
 P9_RITUAL_MOVING,点册者正在移动，需到达岗位再读条。
 P9_RITUAL_WAIT_HALL,目标尚未进厅，等它进入门厅。
 P9_RITUAL_WRONG_FLOOR,点册目标须与施术者同层。
-P9_RITUAL_DISTANCE,目标离香案或名册太远。
+P9_RITUAL_DISTANCE,目标在施术者的点册射程外。
 P9_RITUAL_OCCLUDED,点册视线被门墙挡住。
 P9_RITUAL_PICK,请选择已入厅且在点册范围内的鬼物。
 P9_RITUAL_ACTIVE,%s 正在点册 · 可打断
@@ -95,3 +95,5 @@ P9_MUTATE_PREVIEW,%s → %s · %.0f 香火
 P9_MUTATE_BASE,形态基础值 · 生命 %s　攻击 %s　防御 %s
 P9_COMMAND_BINDING,%s · 键盘 %s
 P9_BATTLE_CLOSE,关闭
+P9_RITUAL_NEAREST,%s距施术者%.1f身位 · %s
+P9_RITUAL_NEEDLE_HELP,%s 已装册底针。每次受伤损失已有进度的 %d%%，离位或阵亡会打断点册。

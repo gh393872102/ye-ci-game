@@ -244,7 +244,11 @@ func _post_picker() -> void:
 	for option in host.run.reserve_post_options():
 		picker.add_item("%s · %s → %s" % [_unit_name(option.id),tr(str(option.from).to_upper()),tr(str(option.to).to_upper())])
 		picker.set_item_metadata(picker.item_count-1,option)
-		if option.to == "post_rear":
+		if option.to == "post_stair_head":
+			picker.set_item_tooltip(picker.item_count-1,"从楼梯口开战，退守方向是名册房。同层且视线通畅才能点册。")
+		elif option.to == "post_table_hall":
+			picker.set_item_tooltip(picker.item_count-1,"从门厅香案开战，退守方向是楼梯口。点册须同层、在射程内且视线通畅。")
+		elif option.to == "post_rear":
 			picker.set_item_tooltip(picker.item_count-1,"从后厢开战，原岗空出。角色仍会按自己的规则支援。")
 	picker.select(0)
 	picker.disabled = picker.item_count == 1
@@ -623,6 +627,9 @@ func _rest() -> void:
 	Ink.box(_page, Rect2(400, 278, 1120, 566), Color("121b1cf5"), Ink.RULE)
 	var reserves: Array = host.run.rest_reserve_options()
 	_focus = _button("rest", tr("P5_REST"), Rect2(702, 698, 516, 64), host.finish_rest, true, true)
+	if not reserves.is_empty() and host.run.state.roster.size() == 1:
+		var guard: Dictionary = host.run.state.roster[0]
+		_focus.text = tr("NIGHT_REST_HEAL_SOLO") % [_unit_name(guard.id),guard.hp,host.run.rest_health_after(guard)]
 	if reserves.is_empty():
 		Ink.label(_page, str(host.run.current_node().description), Rect2(477, 342, 966, 132), 31, Ink.PAPER, true)
 		Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)

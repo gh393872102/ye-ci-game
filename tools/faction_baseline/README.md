@@ -2,6 +2,17 @@
 
 本实验用正式 Combat.tscn 和双席胜负裁决，比较初始编制分别来自一司与一谱的战斗。每行依次与无名潮、习俗厉、大形、无册谱交战。每局都让引擎自然结算。JSON 逐局给出守军与岗位、没有合法岗位或不在购买表中的角色、攻方名单、赢家、原因、模拟秒数及结算时存活数。
 
+## 第五节点的门厅、楼梯口与名册房
+
+在已导入的项目根目录执行以下命令，可分别得到一份整夜路线账本和一份实机呈现记录。
+
+```sh
+godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 trio-control 渡口
+godot --display-driver x11 --rendering-method gl_compatibility --resolution 1920x1080 --disable-vsync --script tools/faction_baseline/TideFrames.gd -- --table-probe
+```
+
+双人组使用 `reader-control/hall/table/stair/rear`（如 `reader-table`）。三人组使用 `trio-control/priest/lamp/reader/table/stair`。另用 `trio-aid` 从相同三人守册路线在第六节点付费请沈册，与 `trio-control` 的常规疗伤配对。`trio-return` 从晚守后厢的路线，在第八节点前免费调她回册，可与 `trio-reader` 配对。种子可选渡口、灯市、秋社。每局从普通首战开始，比较第五节点岗位，同时记录后续营地与末战。战内计时从该节点开战起算。显示设备与显卡驱动不同会影响帧间隔，原生渲染样本可与战斗回放分开运行。[逐岗结果](../../docs/optimization/README.md)
+
 ## 守香司的后厢岗位与援军训练
 
 在仓库根目录运行 `godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 rear-hall-return 渡口` 可复跑三人回册路线。把策略替换为 `rear-carry` 可比较两人回册，`rear-eighth` 在第八节点追加一次训练，`rear-camp-book` 在第六节点请沈册，`rear-camp-pair` 在第九节点再请祝禧。种子另有灯市、秋社。配置表逐项列出第二战岗位、占领多久后派援、各节点的付费训练和休整决定。

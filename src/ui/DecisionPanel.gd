@@ -884,7 +884,11 @@ func open_ritual() -> void:
 		return
 	current_panel = "ritual"
 	_clear_content(tr("P4_RITUAL_TITLE"))
-	_label(content, tr("P9_RITUAL_HELP") % caster.display_name, 18)
+	var help := tr("P9_RITUAL_HELP") % caster.display_name
+	if growth_enabled() and session.growth.has(caster, "I17"):
+		var loss := roundi(100.0 * float(session.growth.params("I17").progress_loss))
+		help = tr("P9_RITUAL_NEEDLE_HELP") % [caster.display_name, loss]
+	_label(content, help, 18).name = "RitualConditions"
 	target_hint = _label(content, tr("P9_RITUAL_PICK"), 18)
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 10)
@@ -893,14 +897,17 @@ func open_ritual() -> void:
 	picker.custom_minimum_size.x = 535
 	picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(picker)
-	var first_blocker := ""
+	var nearest_blocker := ""
+	var nearest_distance := INF
 	for target in simulation.targets:
 		if target.dead:
 			continue
 		var condition := _ritual_preview(target)
 		if not condition.reason.is_empty():
-			if first_blocker.is_empty():
-				first_blocker = tr(condition.hint)
+			var distance: float = caster.position.distance_to(target.position)
+			if distance < nearest_distance:
+				nearest_distance = distance
+				nearest_blocker = tr("P9_RITUAL_NEAREST") % [target.display_name,distance / Rules.BODY_PX,tr(condition.hint)]
 			continue
 		legal_ritual_targets.append(target)
 		picker.add_item(tr("P4_RITUAL_TARGET") % [target.display_name, target.hp, target.position.distance_to(caster.position) / Rules.BODY_PX])
@@ -908,7 +915,7 @@ func open_ritual() -> void:
 	picker.disabled = not has_targets
 	if not has_targets:
 		picker.add_item(tr("P4_NO_TARGETS"))
-		_set_target_hint(first_blocker if not first_blocker.is_empty() else tr("P9_RITUAL_PICK"))
+		_set_target_hint(nearest_blocker if not nearest_blocker.is_empty() else tr("P9_RITUAL_PICK"))
 	else:
 		_show_ritual_preview(legal_ritual_targets[0])
 		picker.select(0)
@@ -1435,6 +1442,14 @@ func _draw_highlights() -> void:
 			highlights.draw_line(center - Vector2(0, 54), center - Vector2(0, 28), color, 2)
 			_world_label(tr(id.to_upper()), center - Vector2(0, 69), color)
 	elif current_panel == "ritual":
+		if is_instance_valid(caster):
+			var origin: Vector2 = caster.position - Vector2(0,8)
+			var reach := Rules.body_to_px(float(session.rules.ritual.range_body))
+			var left := origin-Vector2(reach,0)
+			var right := origin+Vector2(reach,0)
+			highlights.draw_dashed_line(left,right,Color(COPPER,0.72),2,12)
+			for tip in [left,right]:
+				highlights.draw_line(tip-Vector2(0,9),tip+Vector2(0,3),PAPER,3)
 		for target in legal_ritual_targets:
 			if not is_instance_valid(target) or target.dead:
 				continue

@@ -30,8 +30,9 @@ func run() -> void:
 	shell.seed_input.text = "渡口"
 	shell.title_buttons.shouxiang.pressed.emit()
 	var rear := {}
-	if OS.get_cmdline_user_args().has("--rear-probe"):
-		rear = await probe_rear(host)
+	var table := OS.get_cmdline_user_args().has("--table-probe")
+	if table or OS.get_cmdline_user_args().has("--rear-probe"):
+		rear = await probe_rear(host,"post_table_hall" if table else "post_rear")
 	host.choose_node("n01")
 	var battle: Node = host.combat
 	var sim: Node = battle.get_node("Simulation")
@@ -146,7 +147,11 @@ func run() -> void:
 		result.rear = rear
 		passed = passed and rear.passed
 		result.passed = passed
-		filename = "native-rear.json"
+		filename = "native-table.json" if table else "native-rear.json"
+	if table:
+		result.ritual_panel = await probe_range(battle)
+		passed = passed and result.ritual_panel.passed
+		result.passed = passed
 	FileAccess.open("res://tools/faction_baseline/"+filename,FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
 	print("NATIVE ",passed," frames ",result.frame_percentile_ms," visible ",visible_min,"..",visible_max," input samples ",input_ms.size())
 	DirAccess.remove_absolute(host.save_path)
@@ -209,10 +214,11 @@ func probe_relief(host: Node) -> Dictionary:
 	row.passed = row.paid==10 and sim.humans.any(func(u):return u.unit_id=="H22" and u.current_post=="post_register") and "三戒" in row.feedback and not root.get_node("Clock").paused and session.pending_purchase.is_empty()
 	return row
 
-func probe_rear(host: Node) -> Dictionary:
+func probe_rear(host: Node, destination: String) -> Dictionary:
 	var row := {"passed":false}
 	var money: float = host.run.state.incense
-	for target in ["post_rear","post_register"]:
+	row.destination = destination
+	for target in [destination,"post_register"]:
 		var picker: OptionButton = host.panel.find_child("ReservePost",true,false)
 		var selected := -1
 		for index in range(1,picker.item_count):
@@ -223,12 +229,16 @@ func probe_rear(host: Node) -> Dictionary:
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		if not host.run.state.roster.any(func(u):return u.id=="H21" and u.post==target): return row
-		if target=="post_rear":
+		if target==destination:
 			host.continue_run()
 			await RenderingServer.frame_post_draw
 			await RenderingServer.frame_post_draw
 			if not host.run.state.roster.any(func(u):return u.id=="H21" and u.post==target): return row
-			root.get_texture().get_image().save_jpg("/tmp/r18-map.jpg",0.74)
+			var map_image := root.get_texture().get_image()
+			if target=="post_table_hall":
+				if map_image.save_webp("/tmp/r20-table.webp",false,0.84)!=OK: return row
+			else:
+				map_image.save_jpg("/tmp/r18-map.jpg",0.74)
 	row.passed = money==host.run.state.incense
 	return row
 
@@ -299,4 +309,53 @@ func probe_guard_gear(host: Node) -> Dictionary:
 			row.passed = changed>=80 and shot.get_size()==Vector2i(1920,1080) and shot.save_jpg("/tmp/r19-paper.jpg",0.84)==OK
 			return row
 		if not session.running: break
+	return row
+
+func probe_range(battle: Node) -> Dictionary:
+	var sim: Node = battle.get_node("Simulation")
+	var panel: Node = battle.get_node("Decisions")
+	var camera: Node = battle.get_node("BattleCamera")
+	var session: Node = battle.get_node("Session")
+	var row := {"passed":false}
+	var readers: Array = sim.humans.filter(func(u):return u.unit_id=="H21" and not u.dead)
+	if readers.is_empty(): return row
+	var reader: Node = readers[0]
+	sim.set_physics_process(false)
+	camera.set_left(reader.position.x-960)
+	panel.select_unit(reader)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var cash: float = session.incense
+	var sent := Time.get_ticks_usec()
+	click(panel.buttons.card_ritual)
+	await RenderingServer.frame_post_draw
+	row.click_ms = (Time.get_ticks_usec()-sent)/1000.0
+	if panel.current_panel!="ritual": return row
+	row.bare_conditions = panel.content.get_node("RitualConditions").text
+	var inventory_before: int = session.growth.state.inventory.get("I17",0)
+	var equipped: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":reader.instance_id,"item_id":"I17","slot_index":0},"player")
+	if not equipped.ok: return row
+	panel.open_ritual()
+	row.needle_conditions = panel.content.get_node("RitualConditions").text
+	row.needle_used = inventory_before-int(session.growth.state.inventory.get("I17",0))
+	row.hint = panel.target_hint.text
+	row.cost = cash-session.incense
+	row.targets = panel.legal_ritual_targets.size()
+	await RenderingServer.frame_post_draw
+	var shot := root.get_texture().get_image()
+	var reach := float(session.rules.ritual.range_body)*float(root.get_node("Rules").BODY_PX)
+	var point: Vector2 = reader.position+Vector2(-reach,-8)
+	var center := Vector2i(panel.highlights.get_global_transform_with_canvas()*point)
+	panel.highlights.hide()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var control := root.get_texture().get_image()
+	var changed := 0
+	var area := Rect2i(center-Vector2i(3,11),Vector2i(8,18)).intersection(Rect2i(Vector2i.ZERO,shot.get_size()))
+	for y in range(area.position.y,area.end.y):
+		for x in range(area.position.x,area.end.x):
+			if shot.get_pixel(x,y)!=control.get_pixel(x,y): changed+=1
+	panel.highlights.show()
+	row.endpoint_pixels = changed
+	row.passed = "受击或离位" in row.bare_conditions and "30%" in row.needle_conditions and row.needle_used==1 and row.targets==0 and row.cost==0 and "身位" in row.hint and panel.buttons.ritual_confirm.disabled and changed>=10 and shot.save_webp("/tmp/r20-range.webp",false,0.84)==OK
 	return row

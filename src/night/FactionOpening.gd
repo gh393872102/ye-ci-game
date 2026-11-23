@@ -28,7 +28,7 @@ static func family_waves(waves: Array, family: Dictionary) -> Array:
 		converted.append(group)
 	return converted
 
-# A wiped ordinary watch can spend its rest stop to call one living reserve.
+# A depleted ordinary watch can give up rest and pay for a living faction reserve.
 const REST_RESERVES := {
 	"守香司":["H02","H08"], "武卫司":["H12","H14"],
 	"符法司":["H18","H20"], "奇人司":["H26","H29"],

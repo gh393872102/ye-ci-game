@@ -40,10 +40,25 @@ func malformed(night,bad:Dictionary,label:String) -> void:
 	var prior = JSON.stringify(night.state)
 	check(not night.load_save("/tmp/p5-malformed-nested.save").ok,label+" rejected")
 	check(JSON.stringify(night.state)==prior,label+" rejection preserves current state")
+func check_reserve_posts() -> void:
+	var night = Run.new()
+	night.new_p10_run("shouxiang","example","渡口","R01",[],"","守香司")
+	var uid: String = night.state.roster[0].uid
+	var incense: float = night.state.incense
+	for post in ["post_table_hall","post_stair_head"]:
+		check(night.reserve_post(uid,post).ok,"ordinary map accepts "+post)
+		check(night.state.incense==incense and night.state.roster[0].post==post,"free assignment recorded "+post)
+		check(not night.reserve_post(uid,post).ok,"cannot reserve current post twice")
+	var path := "user://posts-%d.json"%OS.get_process_id()
+	check(night.save(path).ok and night.load_save(path).ok and night.state.roster[0].post=="post_stair_head","upper post survives map reload")
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	night.choose_node("n01")
+	check(not night.reserve_post(uid,"post_table_hall").ok,"live battle rejects free map reassignment")
 func run() -> void:
 	await get_tree().process_frame
 	Run=load("res://src/night/NightRun.gd")
 	Save=load("res://src/night/NightSave.gd")
+	check_reserve_posts()
 	var white = make("duoming")
 	white.state.roster=[]
 	for index in 120: white.state.roster.append(white._unit("G01","ghost_main_path"))

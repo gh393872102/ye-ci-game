@@ -24,6 +24,19 @@ func run() -> void:
 		var before: Dictionary = night.state.duplicate(true)
 		night.state.roster.pop_back()
 		passed = passed and night.rest_reserve_options().is_empty()
+		var solo: Dictionary = night.state.duplicate(true)
+		night.state.roster[0].hp = 2.0
+		night.state.incense = 11
+		var wounded: Array = night.rest_reserve_options()
+		passed = passed and wounded.size() == 2 and wounded.all(func(o): return not o.allowed)
+		night.state.incense = 12
+		host.refresh()
+		var heal_text: String = host.panel.buttons.rest.text
+		passed = passed and ("%.2f → %.2f" % [2.0,night.rest_health_after(night.state.roster[0])]) in heal_text
+		var names_at_camp: float = night.state.names
+		var accepted: Dictionary = night.finish_rest(wounded[0].id) if not wounded.is_empty() else {"ok":false}
+		passed = passed and accepted.ok and night.state.incense == 0 and night.state.names == names_at_camp and night.state.roster.size() == 2 and night.state.roster[0].hp == 2.0
+		night.state = solo
 		night.state.current_node_id = "n09"
 		night.state.roster[0].hp = 2.0
 		night.state.incense = 12

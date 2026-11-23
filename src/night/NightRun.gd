@@ -210,7 +210,7 @@ func reserve_post_options() -> Array[Dictionary]:
 		counts[member.post] = int(counts.get(member.post,0)) + 1
 	for member in state.roster:
 		if member.hp <= 0 or not str(member.id).begins_with("H"): continue
-		for post in ["post_register","post_hall_door","post_inner_gate","post_rear"]:
+		for post in ["post_register","post_hall_door","post_table_hall","post_stair_head","post_inner_gate","post_rear"]:
 			if post != member.post and counts.get(post,0) < Data.battle_rules.post_cap and _valid_post(post,member.id):
 				options.append({"uid":member.uid,"id":member.id,"from":member.post,"to":post})
 	return options
@@ -368,7 +368,9 @@ func rest_reserve_options() -> Array[Dictionary]:
 	if not _phase("rest") or state.mode != "shouxiang" or not state.has("opening_faction"):
 		return options
 	var before_final: bool = current_node().next.any(func(id): return _terminal(_node(str(id))))
-	if state.roster.size() > 1 or (state.roster.size() == 1 and not before_final):
+	if state.roster.size() > 1:
+		return options
+	if state.roster.size() == 1 and not before_final and state.roster[0].hp >= state.roster[0].max_hp:
 		return options
 	for id in Opening.REST_RESERVES.get(state.get("opening_faction",""),[]):
 		if state.fallen.any(func(member): return member.id == id): continue
@@ -377,6 +379,9 @@ func rest_reserve_options() -> Array[Dictionary]:
 		if not _effect_reason(effect,"").is_empty(): continue
 		options.append({"id":id,"cost":Opening.RESERVE_FEE,"post":post,"allowed":state.incense >= Opening.RESERVE_FEE,"effect":effect})
 	return options
+
+func rest_health_after(unit: Dictionary) -> float:
+	return minf(float(unit.max_hp),float(unit.hp) + float(unit.max_hp) * float(config.rest.heal_ratio))
 
 func finish_rest(reserve_id := "") -> Dictionary:
 	if not _phase("rest"):
@@ -392,7 +397,7 @@ func finish_rest(reserve_id := "") -> Dictionary:
 			return _ok()
 		return _reject("P5_INVALID_CHOICE")
 	for unit in state.roster:
-		unit.hp = minf(float(unit.max_hp),float(unit.hp) + float(unit.max_hp) * float(config.rest.heal_ratio))
+		unit.hp = rest_health_after(unit)
 	state.incense = minf(float(config.incense_cap),float(state.incense) + float(config.rest.incense))
 	state.names = minf(float(config.names_cap),float(state.names) + float(config.rest.names))
 	_record("rest",config.rest.duplicate(true))

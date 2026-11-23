@@ -165,6 +165,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		row.read_orders = []
 	for tick in ceili(session.rules.duration * 60.0) + 2:
 		sim.advance(1.0/60.0)
+		if order_readings and not row.read_orders.is_empty():
+			var latest: Dictionary = row.read_orders.back()
+			if not latest.has("ended") and (not is_instance_valid(reader) or reader.dead or not reader.brain.channel.active):
+				latest.ended = sim.simulation_time
+				latest.end_reason = "fallen" if not is_instance_valid(reader) or reader.dead else reader.brain.channel.last_result
 		if order_readings and sim.simulation_time>=read_after and tick % 60 == 0 and row.read_orders.size()<2 and session.running and is_instance_valid(reader) and not reader.dead:
 			var target: Node2D
 			for enemy in sim.targets:
@@ -209,6 +214,13 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			row.first_occupation = {"seconds":sim.simulation_time,"guards":guards,"intruders":intruders}
 		for unit in sim.humans: observe(unit,faction)
 		if not session.running: break
+	if order_readings and not row.read_orders.is_empty():
+		var last_read: Dictionary = row.read_orders.back()
+		if not last_read.has("ended") and is_instance_valid(reader) and reader.brain.channel.active:
+			var channel: RefCounted = reader.brain.channel
+			last_read.observed_until = sim.simulation_time
+			last_read.channel_seconds = channel.elapsed
+			last_read.required_seconds = channel.duration
 	if not carried_items.is_empty() or order_readings:
 		row.reading_events = session.growth.state.events.filter(func(e): return e.kind in ["channel_guard","ritual_release"] and float(e.time)>started_growth_time)
 	if not carried_items.is_empty():
@@ -216,7 +228,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	row.foreign_units = foreign_units.duplicate()
 	row.result = session.result.duplicate(true)
 	var report: Dictionary = bridge.collect(scene,night)
-	if row.node == "n10":
+	if row.node == "n10" or order_readings:
 		row.fatal_hits = []
 		for fallen in report.fallen:
 			row.fatal_hits.append({"id":fallen.id,"hit":fallen.get("fatal_hit",{})})

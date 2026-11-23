@@ -89,4 +89,5 @@ NIGHT_REST_RESERVE_TITLE,守军已尽 · %s来援
 NIGHT_REST_RESERVE_HELP,现有 %d 香火。请一人接防会用掉本次休整，放弃疗伤、回香与名分。
 NIGHT_REST_RESERVE_BUY,请援 · %d香火
 NIGHT_REST_RESERVE_SHORT,香火不足 · 需%d
-NIGHT_REST_LAST_GUARD,决战前仅余一人 · %s可增援
+NIGHT_REST_LAST_GUARD,只剩一人守夜 · %s可增援
+NIGHT_REST_HEAL_SOLO,休整 · %s生命 %.2f → %.2f
