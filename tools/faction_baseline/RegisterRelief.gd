@@ -56,6 +56,11 @@ func run() -> void:
 	session.incense = 0
 	panel._open_register_relief()
 	check(panel.content.find_children("buy_*","Button",true,false).is_empty() and panel._empty_relief_hint().contains("可用香火 0") and panel._empty_relief_hint().contains("晚"),"No budget lists the available wallet, vacancies and priced allies")
+	check(not panel._empty_relief_hint().contains("看全部可请"),"An empty purse never advertises an affordable out-of-faction guard")
+	if session.rules.purchases.has("H11"):
+		session.incense = session.rules.purchases.H11
+		check(panel._empty_relief_hint().contains("武卫司的石婆，7香"),"Empty list explains the seven-incense alternative and its faction")
+		session.incense = 0
 	panel.buttons.purchase_scope.pressed.emit()
 	check(not panel.register_relief and not panel.recruitable_faction_only,"Full catalogue restores ordinary staged deployment")
 	panel.close_panel()

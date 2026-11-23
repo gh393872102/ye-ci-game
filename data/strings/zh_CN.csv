@@ -734,7 +734,7 @@ P4_END_HELD_TO_DAYBREAK,科仪完成，名册守至天亮。
 P4_END_NAMES_DRAINED,名分已被抽尽。
 P4_END_REGISTER_CAPTURED,名册房持续失守，已被占领。
 P4_END_REGISTER_EXTINGUISHED,名分归零，将熄窗口已尽。
-P4_END_RITUAL_LINE_BROKEN,已无人接守，现有香火与岗位也请不到能接手点册的人。
+P4_END_RITUAL_LINE_BROKEN,守军已断，现有香火和空岗请不到能接手本场目标的人。
 P4_END_TIDE_EXHAUSTED,潮已清空，且无法再增潮。
 P5_DEFEAT,此夜线断
 P10_WARD_DEFEATED,%s · 已阵亡

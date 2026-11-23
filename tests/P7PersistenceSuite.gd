@@ -87,6 +87,34 @@ func ritual_purchase_boundary() -> void:
 	session.incense=9.48
 	check(session._ritual_line_broken(),"Legacy mode retains the original twelve-incense H01 recovery threshold")
 	combat.free()
+func register_replacement_boundary() -> void:
+	var combat = scene()
+	var session = combat.get_node("Session")
+	session.start_battle("shouxiang")
+	session.configure_growth("register-rescue",{})
+	session.growth.state.defense_objective = "hold_register"
+	for unit in combat.get_node("Simulation").humans: unit.dead = true
+	ClockNode.set_paused(true)
+	session.incense = 6.99
+	check(session._ritual_line_broken(),"Register falls below the cheapest named defender's price")
+	session.incense = 7.0
+	check(not session._ritual_line_broken() and session.legal_posts("H11").size()>0,"Seven incense and a legal post preserve a non-reader's rescue")
+	var posts = session.legal_posts("H11")
+	var roles := {}
+	for post in combat.get_node("Simulation").world.posts:
+		roles[post.name] = post.get_meta("allowed_roles")
+		post.set_meta("allowed_roles",[])
+	check(session._ritual_line_broken(),"Wallet alone cannot rescue when every job is unavailable")
+	for post in combat.get_node("Simulation").world.posts:
+		post.set_meta("allowed_roles",roles[post.name])
+	var bought = session.execute_for("shouxiang","purchase",{"id":"H11"},"player")
+	check(bought.ok and session.incense==0 and not session._ritual_line_broken(),"Paid non-reader reservation remains recoverable at zero balance")
+	var placed = session.execute_for("shouxiang","deploy_at",{"post_id":posts[0]},"player")
+	check(placed.ok and session.has_objective_defender(),"The quoted seven-incense recruit legally takes a post")
+	session.growth.state.erase("defense_objective")
+	check(not session.has_objective_defender() and session._ritual_line_broken(),"Reader-only objective still needs a reader")
+	combat.free()
+
 func run() -> void:
 	await process_frame
 	Run=load("res://src/night/NightRun.gd")
@@ -100,6 +128,7 @@ func run() -> void:
 	check(root.get_node("Data").errors.is_empty(),"Current source data passes startup validation")
 	repair_affordability()
 	ritual_purchase_boundary()
+	register_replacement_boundary()
 	for mode in ["shouxiang","duoming"]:
 		var n=Run.new()
 		check(n.new_growth_run(mode,"P7-persistence-"+mode).ok,"Growth night starts for "+mode)

@@ -534,15 +534,24 @@ func _train_watch_guard(uid: String) -> void:
 
 func _empty_relief_hint() -> String:
 	var reasons := PackedStringArray()
+	var alternative := {}
 	for offer in _query("purchase_options"):
 		var unit: Dictionary = Data.get_unit(offer.id)
-		if unit.get("所属","") != preferred_faction: continue
+		if unit.get("所属","") != preferred_faction:
+			if offer.allowed and str(offer.id).begins_with("H") and (alternative.is_empty() or offer.cost < alternative.cost):
+				var posts: Array = _query("legal_posts",{"id":offer.id})
+				if not posts.is_empty():
+					alternative = {"cost":offer.cost,"name":unit.get("姓名",offer.id),"faction":unit.get("所属",""),"at_register":"post_register" in posts}
+			continue
 		var reason := "无册房空岗"
-		if previous_casualties.has(offer.id) and not include_replacement_recruits: reason = "前战阵亡"
-		elif not offer.allowed: reason = tr(offer.reason).trim_suffix("。")
+		if not offer.allowed: reason = tr(offer.reason).trim_suffix("。")
+		elif previous_casualties.has(offer.id) and not include_replacement_recruits: reason = "前战阵亡"
 		reasons.append("%s·%s" % [unit.get("姓名",offer.id),reason])
 	var detail := "本司暂无战场报价" if reasons.is_empty() else "，".join(reasons)
-	return "可用香火 %d · 册房余 %d 位。%s。看全部可选其他援军。" % [floori(available_incense()),session.post_vacancies("post_register"),detail]
+	var hint := "可用香火 %d · 册房余 %d 位。%s。" % [floori(available_incense()),session.post_vacancies("post_register"),detail]
+	if not alternative.is_empty():
+		return hint + "看全部可请%s的%s，%d香，%s。" % [alternative.faction,alternative.name,alternative.cost,"可守册房" if alternative.at_register else "须另选岗位"]
+	return hint + "看全部可查其余报价。"
 
 
 func _purchase_card(row: HBoxContainer, offer: Dictionary) -> void:

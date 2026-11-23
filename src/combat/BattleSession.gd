@@ -679,17 +679,19 @@ func _advance_repairs(delta: float) -> void:
 		_record("repair_completed",0,str(door.name),0,"shouxiang")
 		repair_jobs.remove_at(index)
 
+func _can_defend_objective(id: String, role: String) -> bool:
+	return role == "ritual" or (growth.enabled and growth.state.get("defense_objective", "") == "hold_register" and id.begins_with("H"))
+
 func has_objective_defender() -> bool:
 	for unit in simulation.humans:
-		if not unit.dead and (unit.role == "ritual" or (growth.enabled and growth.state.get("defense_objective", "") == "hold_register" and unit.unit_id.begins_with("H"))):
+		if not unit.dead and _can_defend_objective(unit.unit_id, unit.role):
 			return true
 	return false
 
 func _ritual_line_broken() -> bool:
 	if has_objective_defender(): return false
 	if growth.enabled:
-		# P7 adds priests cheaper than H01. Evaluate the actual purchase space,
-		# independently of the current viewer seat or the command caller.
+		# A pending reservation is refundable. Check the defending wallet even when viewing the attacking seat.
 		var named_count := 0
 		for unit in simulation.humans:
 			if not unit.dead and unit.unit_id.begins_with("H"):
@@ -698,7 +700,7 @@ func _ritual_line_broken() -> bool:
 			return true
 		var available_incense := incense_for("shouxiang") + _reserved_cost
 		for id in rules.purchases:
-			if Data.combat_profiles.get(id,{}).get("role","") != "ritual":
+			if not _can_defend_objective(id, Data.combat_profiles.get(id, {}).get("role", "")):
 				continue
 			if available_incense >= float(rules.purchases[id]) and not legal_posts(id).is_empty():
 				return false
