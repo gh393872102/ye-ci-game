@@ -209,6 +209,7 @@ func _run() -> void:
 			await _drum_reach()
 			_human_first_eight()
 			_human_second_eight()
+			_impact_mirror()
 			_human_supplementary()
 			_departures()
 			_codex_battle_events()
@@ -483,6 +484,38 @@ func _human_second_eight() -> void:
 	friend.hp=10
 	var healed:float=roster.heal(friend,10)
 	check(near(healed,7) and near(friend.hp,17),"H16 The same nearby friendly healing really loses thirty percent","H16")
+
+func _impact_mirror() -> void:
+	rig("shouxiang",{"defense_objective":"hold_register","inventory":{"Y11":1}})
+	var guard := human("H18")
+	var common := ghost("G01")
+	common.position = guard.position
+	var gear: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":guard.instance_id,"item_id":"Y11","slot_index":0},"player")
+	var cash: float = session.incense
+	check(gear.ok and not skill(guard).ok and near(cash,session.incense),"Cold Gold waits for a breaker when using Impact","H18")
+	var breaker := ghost("G12")
+	breaker.position = guard.position
+	breaker.floor_id = guard.floor_id + 1
+	check(not skill(guard).ok and near(cash,session.incense),"Breaker on another floor cannot open the mirror","H18")
+	breaker.floor_id = guard.floor_id
+	var panel: Node = scene.get_node("Decisions")
+	panel.select_unit(guard,true)
+	panel.open_unit_skill()
+	check(not panel.buttons.skill_cast.disabled and not panel.skill_target_picker.visible,"Self-guard mirror offers one legal cast","H18")
+	panel.buttons.skill_cast.pressed.emit()
+	check(guard.roster.statuses.has("impact_mirror") and not guard.roster.statuses.has("mirror") and near(cash-session.incense,guard.skill_cost) and panel.feedback.text.contains("承撞护身"),"Paid cast has the correct stance and receipt","H18")
+	var hp: float = guard.hp
+	guard.receive_damage(4,common,"melee")
+	check(guard.hp<hp and guard.roster.statuses.has("impact_mirror"),"Ordinary melee passes the raised mirror","H18")
+	hp=guard.hp
+	guard.receive_damage(4,breaker,"occult")
+	check(guard.hp<hp and guard.roster.statuses.has("impact_mirror"),"Impact stance gives up occult reflection","H18")
+	hp=guard.hp
+	var enemy_hp: float = breaker.hp
+	guard.receive_damage(8,breaker,"melee")
+	check(near(hp,guard.hp) and near(enemy_hp,breaker.hp) and not guard.roster.statuses.has("impact_mirror") and event("impact_block",guard.instance_id),"One breaker strike is absorbed without a counterattack","H18")
+	guard.receive_damage(8,breaker,"melee")
+	check(guard.hp<hp and not skill(guard).ok,"Second strike lands during mirror cooldown","H18")
 
 func _human_supplementary() -> void:
 	rig(); var u=human("H17","post_gate_inner"); var g=ghost("G12",49)

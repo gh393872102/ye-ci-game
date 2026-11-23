@@ -928,7 +928,25 @@ func open_unit_skill() -> void:
 		advice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		advice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		advice.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	if selected.unit_id not in ["H13","H24"]: _label(content,tr("P8_SKILL_HELP"),17)
+	if selected.unit_id=="H18":
+		var mirror: Dictionary = session.roster.params(selected)
+		var scope := "金镜反术 · 同层五身位内遇敌开镜，反射一道邪术；近身挨打仍会受伤。"
+		if session.roster.humans.uses_impact_mirror(selected):
+			scope = "承撞护身 · 同层%.0f身位内有破门鬼才开镜。抵挡它们的一次物理攻击，放弃反术。" % mirror.radius_body
+		var mirror_row := HBoxContainer.new()
+		content.add_child(mirror_row)
+		var image := TextureRect.new()
+		image.texture = Appearance.bust_texture("H18")
+		image.custom_minimum_size = Vector2(144,96)
+		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		mirror_row.add_child(image)
+		var help := _label(mirror_row,scope,17)
+		help.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		help.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		_label(content,"基础开销 %d 香 · 持续 %d 秒 · 冷却 %d 秒" % [selected.skill_cost,mirror.duration,mirror.cooldown],17)
+	if selected.unit_id not in ["H13","H24","H18"]: _label(content,tr("P8_SKILL_HELP"),17)
 	if selected.unit_id == "H28":
 		var market: Dictionary = Data.roster_rules.abilities.H28
 		var item: Dictionary = Data.growth_rules.items.get(str(market.market_item),{})
@@ -969,6 +987,17 @@ func open_unit_skill() -> void:
 		if not axe and not session.roster.ready(selected):
 			buttons.skill_cast.disabled = true
 			buttons.skill_cast.text = "回针中 · %.1f 秒" % float(selected.roster.cooldowns.skill)
+	if selected.unit_id=="H18":
+		skill_target_picker.hide()
+		skill_mode_picker.hide()
+		buttons.skill_auto.hide()
+		var funds: float = available_incense()+float(selected.roster.get("reserve_incense",0))
+		var reason := ""
+		if not session.roster.ready(selected): reason = "回镜中"
+		elif not session.roster.humans.can_raise_mirror(selected): reason = "附近没有可开镜的敌人"
+		elif funds < session.growth.ritual_cost(selected,selected.skill_cost): reason = "香火不足"
+		buttons.skill_cast.text = "开镜护身" if reason.is_empty() else reason
+		buttons.skill_cast.disabled = not reason.is_empty()
 	if selected.unit_id=="H24" and growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register":
 		_button(row,"pin_equipment","查看香具",func():
 			growth_panel.selected_slot = 0
@@ -1006,6 +1035,11 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 				var duration: float = target.growth.statuses.get("stun",{}).get("left",0)
 				var cost := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
 				feedback.text = "骨针钉住%s %.1f 秒 · 实耗 %s 香火" % [target.display_name,duration,String.num(cost,2)]
+		open_unit_skill()
+	if selected.unit_id=="H18":
+		if answer.ok and answer.get("effect_applied",true):
+			var cost := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
+			feedback.text = "%s · 实付 %s 香" % ["承撞护身" if selected.roster.statuses.has("impact_mirror") else "金镜反术",String.num(cost,2)]
 		open_unit_skill()
 	if answer.has("drum"):
 		var beat: Dictionary = answer.drum

@@ -56,7 +56,7 @@ func _broken_stamp(center: Vector2,phase: float) -> void:
 
 func _draw_cast(effect: Dictionary) -> void:
 	var kind: String = effect.kind
-	if kind not in ["gold_mirror", "false_god_unmasked", "dispel", "misname", "register_pin"]:
+	if kind not in ["gold_mirror", "false_god_unmasked", "dispel", "misname", "register_pin", "impact_mirror", "impact_block"]:
 		return
 	var at := pixel(Vector2(effect.point[0], effect.point[1] - 40.0))
 	if not frame.has_point(at):
@@ -70,6 +70,15 @@ func _draw_cast(effect: Dictionary) -> void:
 			var stroke: Array[Vector2] = [Vector2(0,11),Vector2.ZERO,Vector2(-side*9,-6)]
 			path(edge,stroke,Color("1e2725",alpha),7)
 			path(edge,stroke,Color("98d4c8",alpha),3)
+	elif kind in ["impact_mirror","impact_block"]:
+		var split := 18.0*phase if kind=="impact_block" else 0.0
+		for side in [-1,1]:
+			var edge := at+Vector2(side*split,0)
+			var rim: Array[Vector2] = [Vector2(side*2,-31),Vector2(side*24,-18),Vector2(side*21,12),Vector2(side*2,29)]
+			path(edge,rim,Color(INK,alpha),8)
+			path(edge,rim,Color(AMBER,alpha),4)
+			if kind=="impact_block":
+				fleck(edge+Vector2(side*(20+phase*17),-12-15*phase),Vector2(5,4),Color(AMBER,alpha))
 	elif kind == "gold_mirror":
 		var outline := PackedVector2Array()
 		for i in 9:

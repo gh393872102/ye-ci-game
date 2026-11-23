@@ -23,6 +23,15 @@ func uses_register_pin(unit: Node2D) -> bool:
 	var growth: RefCounted = engine.growth()
 	return unit.unit_id == "H24" and growth.state.get("defense_objective","") == "hold_register" and growth.has(unit,"I17")
 
+func uses_impact_mirror(unit: Node2D) -> bool:
+	var growth: RefCounted = engine.growth()
+	return unit.unit_id == "H18" and growth.state.get("defense_objective","") == "hold_register" and growth.has(unit,"Y11")
+
+func can_raise_mirror(unit: Node2D) -> bool:
+	if uses_impact_mirror(unit):
+		return engine.near(unit,float(engine.params("H18").radius_body)).any(func(enemy): return "破门" in enemy.tags)
+	return not engine.near(unit,5,false).is_empty()
+
 func pin_targets(unit: Node2D) -> Array:
 	var candidates: Array = engine.near(unit,float(engine.params("H24").radius_body))
 	if uses_register_pin(unit):
@@ -250,8 +259,14 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 			growth.seal_door(unit,door)
 			return _done(unit,id,"seal")
 		"H18":
-			if engine.near(unit,5,false).is_empty(): return engine.reject()
+			if not can_raise_mirror(unit): return engine.reject()
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
+			if uses_impact_mirror(unit):
+				unit.roster.statuses.erase("mirror")
+				engine.status(unit,"impact_mirror",float(p.duration),unit)
+				engine.cooldown(unit,float(p.cooldown))
+				return engine.ok()
+			unit.roster.statuses.erase("impact_mirror")
 			engine.status(unit,"mirror",float(p.duration),unit)
 			return _done(unit,id,"gold_mirror")
 		"H19":
@@ -469,7 +484,13 @@ func defense_for(unit: Node2D, base: float) -> float:
 	return base
 
 func before_receive(unit: Node2D, amount: float, attacker: Node2D, kind: String) -> float:
-	if unit.unit_id == "H18" and kind in ["melee","physical","charge"]: amount *= float(engine.params(unit).physical_multiplier)
+	if unit.unit_id == "H18" and kind in ["melee","physical","charge"]:
+		if amount > 0 and unit.roster.statuses.has("impact_mirror") and is_instance_valid(attacker) and attacker.side != unit.side and "破门" in attacker.tags:
+			unit.roster.statuses.erase("impact_mirror")
+			engine.event("impact_block",unit,attacker.instance_id)
+			engine.visual("impact_block",unit)
+			return 0
+		amount *= float(engine.params(unit).physical_multiplier)
 	if unit.roster.statuses.has("mirror") and kind not in ["melee","physical","charge","reflection"] and is_instance_valid(attacker):
 		unit.roster.statuses.erase("mirror")
 		attacker.receive_damage(amount*float(engine.params("H18").reflection_multiplier),unit,"reflection")
