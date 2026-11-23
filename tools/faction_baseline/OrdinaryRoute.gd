@@ -79,7 +79,13 @@ const FIFTH_POSTS := {
 	"trio-return": {"H01":"post_rear","H03":"post_register","H06":"post_register"},
 	"trio-table": {"H01":"post_table_hall","H03":"post_register","H06":"post_register"},
 }
-const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-fire-pin-early","camp-fire-pin-single-early","camp-fire-stock-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
+const SECOND_POSTS := {
+	"camp-fire-stock-relieve-early":"post_window_1",
+	"camp-fire-stock-window-early":"post_window_1",
+	"camp-fire-stock-rear-early":"post_rear",
+}
+const SECOND_RELIEF := {"camp-fire-stock-aid4-early":4.0,"camp-fire-stock-aid8-early":8.0}
+const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-fire-pin-early","camp-fire-pin-single-early","camp-fire-stock-early","camp-fire-stock-window-early","camp-fire-stock-rear-early","camp-fire-stock-relieve-early","camp-fire-stock-aid4-early","camp-fire-stock-aid8-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
 const PIN_POLICIES := ["bone-book","bone-book-seal","bone-hall","bone-hall-seal","bone-early","bone-early-seal"]
@@ -127,7 +133,7 @@ func run() -> void:
 		return
 	var early_pin := policy.begins_with("bone-early")
 	var camp := policy.begins_with("camp-")
-	var stock_route := policy == "camp-fire-stock-early"
+	var stock_route := policy == "camp-fire-stock-early" or policy in SECOND_POSTS or policy in SECOND_RELIEF
 	var pin_route := stock_route or policy in ["camp-fire-pin-early","camp-fire-pin-single-early"]
 	var compare_lamp := policy.ends_with("-lamp")
 	var compare_posts := policy.ends_with("-posts") or compare_lamp
@@ -171,6 +177,7 @@ func run() -> void:
 							post_orders = {"H01":"post_register","H03":"post_register"}
 						elif policy.begins_with("repair-inner-pair-"):
 							post_orders = {"H01":"post_rear" if policy.ends_with("-eighth") else "post_register"}
+				if step.choice=="n03" and policy=="camp-fire-stock-relieve-early": post_orders = {"H23":"post_register"}
 				if not post_orders.is_empty():
 					step.orders = []
 					for member in night.state.roster:
@@ -226,7 +233,7 @@ func run() -> void:
 					if night.state.current_node_id == "n01": ordered_id = "H17"
 					if second: ordered_id = "H24" if early_pin else ("H19" if policy == "borrow" else "H22")
 					if fifth and not early_pin and (policy in PIN_POLICIES or camp or policy in ["reserve-hire","reserve-both","reserve-trained"]): ordered_id = "H24"
-					if not ordered_id.is_empty(): aid_post = "post_register"
+					if not ordered_id.is_empty(): aid_post = SECOND_POSTS.get(policy,"post_register") if second else "post_register"
 					if fifth and policy.begins_with("bone-hall"): aid_post = "post_hall_door"
 				if compare_posts and night.state.current_node_id == "n10":
 					var path := "user://final-posts-%d.json" % OS.get_process_id()
@@ -270,6 +277,9 @@ func run() -> void:
 							return
 					DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 				var delay := -1.0
+				if second and policy in SECOND_RELIEF:
+					delay = SECOND_RELIEF[policy]
+					aid_post = ""
 				if second and policy in ["relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall"]:
 					delay = float(policy.get_slice("-",1))
 				if policy in rear_policies and second:

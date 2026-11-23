@@ -586,6 +586,8 @@ func _human_supplementary() -> void:
 	rig(); u=human("H22"); g=ghost("G30",115)
 	hp=g.hp; result=skill(u,{"target_id":g.instance_id})
 	check(result.ok and g.hp<hp and event("false_god_unmasked",u.instance_id),"H22 The false god is actually exposed and harmed by exorcism","H22")
+	var dispel_fx: Dictionary = roster.state.effects.back()
+	check(dispel_fx.kind=="false_god_unmasked" and dispel_fx.source[0]==u.position.x and dispel_fx.point[0]==g.position.x,"Three-ring cast records actual caster and false god positions","H22")
 	rig(); u=human("H23"); g=ghost("G25",115)
 	result=skill(u,{"target_id":g.instance_id})
 	var names:float=session.names; attack=roster.cast(g,{"target_id":u.instance_id})
@@ -642,6 +644,15 @@ func _human_supplementary() -> void:
 
 func _register_focus() -> void:
 	rig("shouxiang",{"defense_objective":"hold_register"})
+	var deploy_panel: Node = scene.get_node("Decisions")
+	deploy_panel.preferred_faction="符法司"
+	var before: float = session.incense
+	deploy_panel.open_purchase()
+	deploy_panel._purchase("H22")
+	var hints: Array = deploy_panel.content.find_children("*","Label",true,false)
+	check(deploy_panel.current_panel=="deploy" and hints.any(func(label):return label.text.contains("另留人守册")) and near(before-session.incense,session.rules.purchases.H22),"Three Ring deployment explains room presence with the correct reserved price")
+	deploy_panel._cancel_purchase()
+	check(near(before,session.incense) and session.pending_purchase.is_empty(),"Canceling post selection refunds the full reservation")
 	var shooter := human("H22")
 	shooter.position.x -= 150 # Clear the register desk in this targeting fixture.
 	var front := ghost("G01")

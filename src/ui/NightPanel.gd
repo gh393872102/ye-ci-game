@@ -479,6 +479,11 @@ func _roster(rect: Rect2, boss_next: bool) -> void:
 
 func _offers(market: bool) -> void:
 	heading.text = tr("P9_NIGHT_MARKET" if market else "P5_REWARD_TITLE")
+	if not market:
+		var muster := _reward_muster(host.run.state.get("last_battle",{}))
+		if not muster.is_empty():
+			var line := Ink.label(_page,muster,Rect2(100,166,1720,42),21,Ink.PAPER)
+			line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var offers: Array = host.run.market_options() if market else host.run.reward_options()
 	var count := offers.size()
 	var width := 397.0 if market else 466.0
@@ -504,6 +509,22 @@ func _offers(market: bool) -> void:
 	else:
 		var help := Ink.label(_page, tr("P5_REWARD_HELP"), Rect2(100, 924, 1720, 51), 22, Ink.MUTED)
 		help.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+func _reward_muster(battle: Dictionary) -> String:
+	if not battle.get("roster") is Array or not battle.get("fallen") is Array: return ""
+	var line := "战后编制 %d 人　·　本战阵亡 %d 人" % [battle.roster.size(),battle.fallen.size()]
+	var latest := -1.0
+	var name_at_hit := ""
+	for member in battle.fallen:
+		var hit = member.get("fatal_hit",{})
+		if not hit is Dictionary or typeof(hit.get("seconds")) not in [TYPE_INT,TYPE_FLOAT]: continue
+		var seconds := float(hit.seconds)
+		if seconds >= 0.0 and seconds > latest and seconds <= float(battle.get("elapsed",-1)):
+			latest = seconds
+			name_at_hit = _unit_name(member.id)
+	if latest >= 0.0:
+		line += "　·　%s在结算前 %.2f 秒阵亡" % [name_at_hit,float(battle.elapsed)-latest]
+	return line
 
 func _offer_card(offer: Dictionary, rect: Rect2, market: bool) -> Button:
 	var effect: Dictionary = offer.effect

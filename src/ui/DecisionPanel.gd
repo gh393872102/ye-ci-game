@@ -698,6 +698,8 @@ func _build_deploy() -> void:
 		_button(header, "defend_hall", "守门厅 · 余%d位" % session.post_vacancies("post_hall_door"), select_post.bind("post_hall_door", true))
 	_button(header, "close", tr("P9_BATTLE_CLOSE"), _cancel_purchase)
 	var hint := _label(content, tr("P9_DEPLOY_HELP"), 17)
+	if preferred_faction=="符法司" and session.pending_purchase=="H22" and growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register":
+		hint.text += "　敌人进册房时，房内有人才能压住占领进度。三戒在窗边或后厢射击时，需另留人守册。"
 	if preferred_faction=="武卫司" and session.pending_purchase in ["H09","H12","H13"]:
 		var lines := PackedStringArray()
 		for post_id in ["post_register","post_hall_door"]:

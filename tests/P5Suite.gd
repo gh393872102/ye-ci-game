@@ -415,6 +415,12 @@ func _ui_flow() -> void:
 	host.refresh()
 	await get_tree().process_frame
 	check(host.run.state.phase == "reward" and _all_text(host.panel).contains(tr("P5_REWARD_TITLE")),"K3 Battle reward screen visibly requires one of three cards")
+	check(_all_text(host.panel).contains("战后编制 %d 人　·　本战阵亡 0 人" % host.run.state.roster.size()),"Reward screen shows settled roster count after an intact victory")
+	var legacy := {"roster":[],"fallen":[{"id":"H21"}],"elapsed":210}
+	check(host.panel._reward_muster(legacy)=="战后编制 0 人　·　本战阵亡 1 人","Old casualties without hit timing retain their count")
+	legacy.fallen.append({"id":"H22","fatal_hit":{"seconds":208.3666666667}})
+	legacy.fallen.append({"id":"H17","fatal_hit":{"seconds":191.2}})
+	check(host.panel._reward_muster(legacy).ends_with("三戒在结算前 1.63 秒阵亡"),"Reward readout selects the most recent timed casualty regardless of array order")
 	await _shot("04-three-rewards",true)
 	var offers: Array = host.run.reward_options()
 	for offer in offers:

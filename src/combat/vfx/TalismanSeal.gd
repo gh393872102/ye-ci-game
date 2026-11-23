@@ -91,12 +91,16 @@ func _draw_cast(effect: Dictionary) -> void:
 	elif kind == "misname":
 		_paper(at, .78, alpha, false)
 	else:
-		for i in 3:
-			var offset := Vector2((i - 1) * (25 + 36 * phase), -phase * (38 + 10 * i))
-			_paper(at + offset, .64 - .15 * absf(i - 1), alpha, i % 2 == 0)
-		for i in 7:
-			var crumb := at + Vector2.from_angle(i * 2.39996) * (8.0 + phase * 60.0)
-			fleck(crumb, Vector2(4, 3), Color(AMBER, alpha * .65))
+		# The three brass rings leave the staff in succession and close on the target.
+		var hand := pixel(Vector2(effect.source[0],effect.source[1]-26))
+		for ring in 3:
+			var travel := clampf((phase-ring*0.10)/0.48,0,1)
+			var center := hand.lerp(at,travel) + Vector2(0,-sin(PI*travel)*22)
+			var radius := 5.0 + ring*2.0 + travel*7.0
+			draw_arc(center,radius,0,TAU,16,Color(INK,alpha),5)
+			draw_arc(center,radius,0,TAU,16,Color(AMBER,alpha),2)
+		if kind=="false_god_unmasked" and phase>=0.48:
+			_broken_stamp(at,(phase-0.48)/0.52)
 
 func _paper(at: Vector2, size: float, alpha: float, reverse: bool) -> void:
 	var paper_size := Vector2(53, 107) * size
