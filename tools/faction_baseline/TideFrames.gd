@@ -150,6 +150,11 @@ func run() -> void:
 		result.repair = await probe_repair(battle)
 		passed = passed and result.repair.passed
 		result.passed = passed
+	if OS.get_cmdline_user_args().has("--post-cover"):
+		result.cover = await probe_post_cover(host)
+		passed = passed and result.cover.passed
+		result.passed = passed
+		filename = "native-post-cover.json"
 	if not rear.is_empty():
 		result.rear = rear
 		passed = passed and rear.passed
@@ -459,4 +464,62 @@ func probe_repair(battle: Node) -> Dictionary:
 	row.feedback_ms = (Time.get_ticks_usec()-sent)/1000.0
 	row.paid = cash-session.incense
 	row.passed = row.prepaid==0 and row.quote<6 and row.paid==row.quote and session.repair_jobs.size()==1 and session.repair_jobs[0].unit==offer.unit and panel.buttons.repair_door_inner.disabled and is_equal_approx(row.heal,210) and row.duration==2.25 and session.repair_jobs[0].duration==row.duration and is_equal_approx(session.repair_jobs[0].heal,row.heal)
+	return row
+
+func probe_post_cover(host: Node) -> Dictionary:
+	var row := {"passed":false,"labels":[]}
+	var source := OS.get_environment("YE_CI_POST_MAP")
+	if source.is_empty() or DirAccess.copy_absolute(source,host.save_path) != OK: return row
+	host.continue_run()
+	var cash: float = host.run.state.incense
+	for target in ["post_rear","post_register"]:
+		await RenderingServer.frame_post_draw
+		var picker: OptionButton = host.panel.find_child("ReservePost",true,false)
+		if not is_instance_valid(picker):
+			row.failure = "missing picker"
+			return row
+		if not root.get_visible_rect().encloses(picker.get_global_rect()):
+			row.failure = str(picker.get_global_rect())
+			return row
+		var index := -1
+		for i in range(1,picker.item_count):
+			var move: Dictionary = picker.get_item_metadata(i)
+			if move.id == "H01" and move.to == target: index = i
+		if index < 0:
+			row.failure = "missing option " + target
+			return row
+		var caption := picker.get_item_text(index)
+		row.labels.append(caption)
+		var origin := picker.get_item_tooltip(index)
+		row.get_or_add("tooltips",[]).append(origin)
+		if ("祝禧" if target=="post_rear" else "无人驻守") not in origin: return row
+		if ("独守" if target=="post_rear" else "与祝禧合守") not in caption: return row
+		picker.show_popup()
+		await RenderingServer.frame_post_draw
+		if not is_instance_valid(picker) or not picker.get_popup().visible:
+			row.failure = "popup closed"
+			return row
+		if target == "post_register":
+			root.get_texture().get_image().save_webp("/tmp/r26-post.webp",true,0.85)
+		var popup := picker.get_popup()
+		popup.set_focused_item(index)
+		var sent := Time.get_ticks_usec()
+		var first_frame_ms := 0.0
+		for down in [true,false]:
+			var key := InputEventKey.new()
+			key.keycode = KEY_ENTER
+			key.physical_keycode = KEY_ENTER
+			key.pressed = down
+			Input.parse_input_event(key)
+			await RenderingServer.frame_post_draw
+			if first_frame_ms == 0 and host.run.state.roster.any(func(u): return u.id=="H01" and u.post==target):
+				first_frame_ms = (Time.get_ticks_usec()-sent)/1000.0
+		if first_frame_ms == 0:
+			await RenderingServer.frame_post_draw
+			if not host.run.state.roster.any(func(u): return u.id=="H01" and u.post==target): return row
+			first_frame_ms = (Time.get_ticks_usec()-sent)/1000.0
+		row.get_or_add("enter_to_post_frame_ms",[]).append(first_frame_ms)
+		host.continue_run()
+		if not host.run.state.roster.any(func(unit): return unit.id=="H01" and unit.post==target): return row
+	row.passed = is_equal_approx(cash,host.run.state.incense)
 	return row

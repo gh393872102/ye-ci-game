@@ -2,7 +2,8 @@ extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 ## Counterfactual loadouts from an ordinary map save, before entering n10.
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() != 2 or args[0] not in ["渡口","灯市","秋社"]:
+	var paired := args.size() == 3 and args[2] == "paired"
+	if (args.size() != 2 and not paired) or args[0] not in ["渡口","灯市","秋社"]:
 		quit(2)
 		return
 	var seed_text := args[0]
@@ -15,6 +16,11 @@ func run() -> void:
 	var save := FileAccess.open(path,FileAccess.WRITE)
 	save.store_buffer(data)
 	save.close()
+	if paired:
+		var ok := await compare_pair(path,seed_text)
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+		quit(0 if ok else 2)
+		return
 	var rows := []
 	var stock := {}
 	for levels in [0,1,2]:
@@ -50,3 +56,21 @@ func valid_trial(battle: Dictionary,levels: int,items: Array) -> bool:
 		return false
 	var gear: Array = battle.get("gear",[])
 	return gear.map(func(g): return g.id)==items and gear.all(func(g): return g.ok and g.owner=="H02" and g.before-g.after==1 and g.paid==0)
+
+func compare_pair(path: String, seed_text: String) -> bool:
+	var rows := []
+	for wearer in ["","H01","H02"]:
+		var night: RefCounted = load("res://src/night/NightRun.gd").new()
+		if not night.load_save(path).ok or night.state.phase!="map" or night.state.opening_faction!="守香司" or night.state.seed!=seed_text: return false
+		var roster: Array = night.state.roster
+		if roster.size()!=2 or not roster.all(func(u): return u.id in ["H01","H02"] and u.post=="post_register"): return false
+		var stock: Dictionary = night.state.growth.inventory.duplicate()
+		if stock.get("I08",0)<1 or not night.choose_node("n10").ok: return false
+		var items := [] if wearer.is_empty() else ["I08"]
+		var b := await fight(night,"守香司",seed_text,false,"",false,"",true,false,1,items,false,-1.0,"",wearer)
+		if not b.get("settled",false) or not b.foreign_units.is_empty(): return false
+		if not wearer.is_empty() and (b.get("gear",[]).size()!=1 or not b.gear[0].ok or b.gear[0].owner!=wearer or b.gear[0].before-b.gear[0].after!=1): return false
+		rows.append({"wearer":wearer,"stock":stock,"battle":b})
+	var file := FileAccess.open("res://tools/faction_baseline/paired-paper-%s.json"%seed_text,FileAccess.WRITE)
+	file.store_string(JSON.stringify({"source_sha256":FileAccess.get_sha256(path),"seed":seed_text,"trials":rows},"\t")+"\n")
+	return true

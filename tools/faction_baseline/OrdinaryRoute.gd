@@ -30,6 +30,9 @@ const FIFTH_TRAIN := {
 	"repair-inner": [],
 	"repair-inner-qing": ["H03"],
 	"repair-inner-shuang": ["H06"],
+	"repair-inner-pair-eighth": ["H06"],
+	"repair-inner-pair-final": ["H06"],
+	"repair-inner-pair-both": ["H06"],
 	"repair-outer": [],
 	"repair-forward": [],
 	"repair-forward-control": [],
@@ -128,7 +131,10 @@ func run() -> void:
 					"n03": post_orders = orders.get("posts",{})
 					"n05": post_orders = orders.get("fifth_posts",{})
 					"n08":
-						if policy == "trio-return": post_orders = {"H01":"post_register"}
+						if policy in ["trio-return","repair-inner-pair-eighth","repair-inner-pair-both"]: post_orders = {"H01":"post_register"}
+					"n10":
+						if policy.begins_with("repair-inner-pair-"):
+							post_orders = {"H01":"post_rear" if policy.ends_with("-eighth") else "post_register"}
 				if not post_orders.is_empty():
 					step.orders = []
 					for member in night.state.roster:
