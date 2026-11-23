@@ -245,10 +245,15 @@ func _post_picker() -> void:
 	picker.add_theme_font_size_override("font_size",21)
 	picker.add_item("下场布防 · 免费换岗")
 	picker.set_item_disabled(0,true)
+	var members := {}
+	for member in host.run.state.roster:
+		members[member.uid] = member
 	for option in host.run.reserve_post_options():
 		var allies: Array = host.run.state.roster.filter(func(unit): return unit.post == option.to)
 		var coverage := "独守" if allies.is_empty() else "与%s合守" % "、".join(_unit_names(allies))
-		picker.add_item("%s · %s → %s（%s）" % [_unit_name(option.id),tr(str(option.from).to_upper()),tr(str(option.to).to_upper()),coverage])
+		var member: Dictionary = members[option.uid]
+		picker.add_icon_item(preload("res://src/units/UnitAppearance.gd").bust_texture(option.id), "%s %.0f/%.0f · %s → %s（%s）" % [_unit_name(option.id),member.hp,member.max_hp,tr(str(option.from).to_upper()),tr(str(option.to).to_upper()),coverage])
+		picker.get_popup().set_item_icon_max_width(picker.item_count-1,48)
 		picker.set_item_metadata(picker.item_count-1,option)
 		var left: Array = host.run.state.roster.filter(func(unit): return unit.uid != option.uid and unit.post == option.from)
 		var origin := "原岗将无人驻守。" if left.is_empty() else "原岗仍有%s驻守。" % "、".join(_unit_names(left))
@@ -257,7 +262,7 @@ func _post_picker() -> void:
 			"post_stair_head": hint = "从楼梯口开战，退守方向是名册房。同层且视线通畅才能点册。"
 			"post_table_hall": hint = "从门厅香案开战，退守方向是楼梯口。点册须同层、在射程内且视线通畅。"
 			"post_rear": hint = "从后厢开战，角色仍会按自己的规则支援。"
-		picker.set_item_tooltip(picker.item_count-1,origin + hint)
+		picker.set_item_tooltip(picker.item_count-1,"到岗后 %d/%d 人。%s%s" % [allies.size()+1,Data.battle_rules.post_cap,origin,hint])
 	picker.select(0)
 	picker.disabled = picker.item_count == 1
 	if picker.disabled: picker.set_item_text(0,"下场布防 · 暂无可调岗位")

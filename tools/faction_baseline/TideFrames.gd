@@ -498,8 +498,11 @@ func probe_post_cover(host: Node) -> Dictionary:
 			row.failure = "missing option " + target
 			return row
 		var caption := picker.get_item_text(index)
+		var hp_pair: Dictionary = host.run.state.roster.filter(func(u): return u.uid==picker.get_item_metadata(index).uid)[0]
+		if picker.get_item_icon(index)==null or ("%.0f/%.0f" % [hp_pair.hp,hp_pair.max_hp]) not in caption: return row
 		row.labels.append(caption)
 		var origin := picker.get_item_tooltip(index)
+		if ("到岗后 1/3 人" if target=="post_rear" else "到岗后 2/3 人") not in origin: return row
 		row.get_or_add("tooltips",[]).append(origin)
 		if ("祝禧" if target=="post_rear" else "无人驻守") not in origin: return row
 		if ("独守" if target=="post_rear" else "与祝禧合守") not in caption: return row

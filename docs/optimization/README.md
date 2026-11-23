@@ -1,5 +1,29 @@
 # 夜祠 · 阵营与构筑优化档案
 
+## 2026-11-23 · 带青笺活到末战
+
+四组普通种子各跑三条完整纯守香司夜程。青笺第五节点换去后厢后，四组都能原人满血进入末战，但晚在第八节点阵亡。两条同花46香火的路线，带青笺守到40.87秒，带晚守到40.97秒（石埠）。十二条路线均未通关。 布防菜单为每个可调动的具名角色显示已有头像、当前生命和上限；岗位置换提示列出到岗人数/容量及原岗留守人。玩家能据此预判调走残血队友后谁来守名册。[1080p 换岗实拍](reserve-roster.jpg)
+
+**验证条件。** 基线 `1e47959`，Godot 4.7.2。渡口用于复核，另预先指定松溪、槐桥、石埠。每组均从普通 R01 标准资源20、开局编制17跑完五战。逐战检查出场归属、幸存者身份和换岗合法性。四组共12条完整夜程、60场战斗；共用 R01 敌潮，不外推普通胜率。
+
+| 种子 | 晚随队，末战留香（46） | 青笺随队，末战留香（46） | 晚随队，末战超度一次（50） |
+|---|---:|---:|---:|
+| 渡口 | 41.97 | 40.87 | 47.90 |
+| 松溪 | 40.97 | 40.87 | 47.38 |
+| 槐桥 | 40.97 | 40.87 | 47.38 |
+| 石埠 | 40.97 | 40.87 | 47.38 |
+
+表内为末战失守秒数，括号为全路线主动花费。两组同价都支付第三节点征援12及训练8、第五节点训练霜盏8及修内门6、第九节点招祝禧12。对照第五节点青笺守名册、晚守后厢；另一组互换岗位，第五节点结束青笺60血、晚25血。第八节点沿用各自岗位，到末战前由地图免费调回名册。入场时平行核验开局 UID，排除阵亡后同名重招。三条新种子同向，但换岗同时影响两名队员，不能单独归因于青笺的被动。与上轮三人末战不同，本轮末战只有两名守军，不能把守到60秒的结果移植过来。
+
+**表现与回归。** 原生 X11 / llvmpipe，1920×1080，四路增44鬼，同屏[40, 44]；30帧预热，180帧间隔 P50/P95/P99 为 59.693/94.25/153.38 ms，12次自动Q键到菜单为 59.639/111.01/111.01 ms；两次键盘换岗且读档回验，分别为 [392.785, 262.318] ms。[原始帧序列与岗位回执](../../tools/faction_baseline/native-roster-posts.json)。第一次误用回归报告作存档，第二次并行渲染进程被终止；只采信正确存档的完整复跑。P5夜程207项、领域63项，均通过。未做真人和 RTX 2060 验收，菜单使用既有头像。本轮未更改掉落池。
+
+**下一项。** 在第五节点完成后，以同一对幸存者比较第八节点的换岗或增援。验收时同时核对晚、青笺两个原始 UID、末战可用岗位及额外支出，避免只追求一名角色存活。
+
+- 渡口 [hold](../../tools/faction_baseline/post-渡口-repair-inner-qing-hold-0.json) / [carry](../../tools/faction_baseline/post-渡口-repair-inner-qing-carry-0.json) / [control](../../tools/faction_baseline/post-渡口-repair-inner-qing-control-0.json)
+- 松溪 [hold](../../tools/faction_baseline/post-松溪-repair-inner-qing-hold-0.json) / [carry](../../tools/faction_baseline/post-松溪-repair-inner-qing-carry-0.json) / [control](../../tools/faction_baseline/post-松溪-repair-inner-qing-control-0.json)
+- 槐桥 [hold](../../tools/faction_baseline/post-槐桥-repair-inner-qing-hold-0.json) / [carry](../../tools/faction_baseline/post-槐桥-repair-inner-qing-carry-0.json) / [control](../../tools/faction_baseline/post-槐桥-repair-inner-qing-control-0.json)
+- 石埠 [hold](../../tools/faction_baseline/post-石埠-repair-inner-qing-hold-0.json) / [carry](../../tools/faction_baseline/post-石埠-repair-inner-qing-carry-0.json) / [control](../../tools/faction_baseline/post-石埠-repair-inner-qing-control-0.json)
+
 ## 2026-11-23 · 最后四点香火
 
 普通 B01 点册菜单在确认前显示施术者当前生命、立即扣费和中断不退款。册底针的受击退条说明与目标读条时长仍在同一菜单。 [1920×1080 游戏实拍](ritual-cost.jpg)

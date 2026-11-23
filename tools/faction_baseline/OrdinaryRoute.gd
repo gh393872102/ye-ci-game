@@ -33,6 +33,9 @@ const FIFTH_TRAIN := {
 	"repair-inner-pair-eighth": ["H06"],
 	"repair-inner-pair-final": ["H06"],
 	"repair-inner-pair-final-read": ["H06"],
+	"repair-inner-qing-carry": ["H06"],
+	"repair-inner-qing-control": ["H06"],
+	"repair-inner-qing-hold": ["H06"],
 	"repair-inner-pair-both": ["H06"],
 	"repair-outer": [],
 	"repair-forward": [],
@@ -75,6 +78,7 @@ func run() -> void:
 	for key in ["repair-forward","repair-forward-control"]:
 		placements[key] = FIFTH_POSTS["trio-reader"].duplicate()
 		placements[key].H06 = "post_hall_door"
+	placements["repair-inner-qing-carry"] = FIFTH_POSTS["trio-priest"]
 	for key in REGROUP_TRAIN: placements[key] = FIFTH_POSTS["trio-reader"]
 	for key in placements:
 		var split: Dictionary = REAR_POLICIES["rear-read-beam"].duplicate(true)
@@ -88,7 +92,7 @@ func run() -> void:
 			split.delay = REAR_POLICIES["rear-hall-trained"].delay
 		rear_policies[key] = split
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in rear_policies and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社"]) or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in rear_policies and args[1] not in RESERVE_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社","松溪","槐桥","石埠"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
 	var policy := args[1] if args.size() >= 2 else "base"
@@ -134,7 +138,9 @@ func run() -> void:
 					"n08":
 						if policy in ["trio-return","repair-inner-pair-eighth","repair-inner-pair-both"]: post_orders = {"H01":"post_register"}
 					"n10":
-						if policy.begins_with("repair-inner-pair-"):
+						if policy in ["repair-inner-qing-control","repair-inner-qing-carry","repair-inner-qing-hold"]:
+							post_orders = {"H01":"post_register","H03":"post_register"}
+						elif policy.begins_with("repair-inner-pair-"):
 							post_orders = {"H01":"post_rear" if policy.ends_with("-eighth") else "post_register"}
 				if not post_orders.is_empty():
 					step.orders = []
@@ -236,7 +242,10 @@ func run() -> void:
 				var additional: Array = FIFTH_TRAIN.get(policy,[]).slice(1) if fifth else []
 				var final_read: bool = policy=="repair-inner-pair-final-read" and night.state.current_node_id=="n10"
 				if final_read: train_id = "H01"
-				probe_boss_gate = final_read
+				if policy in ["repair-inner-qing-control","repair-inner-qing-carry"] and night.state.current_node_id=="n10":
+					final_read = true
+					reading_limit = 1
+				probe_boss_gate = final_read and night.state.roster.any(func(u): return u.id=="H01")
 				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional)
 				step.battle = result
 				ok = result.get("settled",false)
