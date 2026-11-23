@@ -33,6 +33,25 @@ func run() -> void:
 		host.refresh()
 		var heal_text: String = host.panel.buttons.rest.text
 		passed = passed and ("%.2f → %.2f" % [2.0,night.rest_health_after(night.state.roster[0])]) in heal_text
+		var unchanged: Dictionary = night.state.duplicate(true)
+		passed = passed and not night.finish_rest("",true).ok and night.state == unchanged
+		if night.state.roster[0].post == wounded[0].post:
+			passed = passed and not night.finish_rest(wounded[0].id,true).ok and night.state == unchanged
+		# Test the paired command from a legal old post with this faction's real role.
+		for candidate in ["post_rear","post_hall_door","post_table_hall"]:
+			if candidate == wounded[0].post or not night._valid_post(candidate,night.state.roster[0].id): continue
+			night.state.roster[0].post = candidate
+			var pair: Dictionary = night.rest_reserve_options()[0]
+			if not pair.can_regroup: continue
+			night.state.incense = 11
+			var short_state: Dictionary = night.state.duplicate(true)
+			passed = passed and not night.finish_rest(pair.id,true).ok and night.state == short_state
+			night.state.incense = 12
+			passed = passed and night.finish_rest(pair.id,true).ok and night.state.incense == 0 and night.state.roster.size() == 2
+			passed = passed and night.state.roster.all(func(u):return u.post == pair.post) and night.state.roster[0].hp == 2.0
+			passed = passed and not night.finish_rest(pair.id,true).ok
+			break
+		night.state = unchanged
 		var names_at_camp: float = night.state.names
 		var accepted: Dictionary = night.finish_rest(wounded[0].id) if not wounded.is_empty() else {"ok":false}
 		passed = passed and accepted.ok and night.state.incense == 0 and night.state.names == names_at_camp and night.state.roster.size() == 2 and night.state.roster[0].hp == 2.0

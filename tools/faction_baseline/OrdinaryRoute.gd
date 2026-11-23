@@ -24,6 +24,7 @@ const REAR_POLICIES := {
 	"rear-camp-pair": {"train": {"n03": "H01"}, "recall": true, "camp": {"n06": "H08", "n09": "H02"}},
 	"rear-eighth": {"posts": {"H03": "post_rear", "H06": "post_hall_door"}, "delay": 11, "train": {"n03": "H01", "n08": "H01"}, "recall": true},
 }
+const REGROUP_TRAIN := {"trio-regroup":"","trio-train-wan":"H01","trio-train-shen":"H08","trio-gear-shen":""}
 const FIFTH_POSTS := {
 	"trio-aid": {"H01":"post_register","H03":"post_register","H06":"post_register"},
 	"trio-control": {"H01":"post_register","H03":"post_register","H06":"post_register"},
@@ -44,10 +45,13 @@ const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","rese
 
 func run() -> void:
 	var rear_policies := REAR_POLICIES.duplicate()
-	for key in FIFTH_POSTS:
+	var placements := FIFTH_POSTS.duplicate()
+	for key in REGROUP_TRAIN: placements[key] = FIFTH_POSTS["trio-reader"]
+	for key in placements:
 		var split: Dictionary = REAR_POLICIES["rear-read-beam"].duplicate(true)
 		split.erase("recall")
-		split.fifth_posts = FIFTH_POSTS[key]
+		split.fifth_posts = placements[key]
+		if key in REGROUP_TRAIN and REGROUP_TRAIN[key] != "": split.train.n08 = REGROUP_TRAIN[key]
 		if key.begins_with("trio-"):
 			split.posts = REAR_POLICIES["rear-hall-trained"].posts
 			split.delay = REAR_POLICIES["rear-hall-trained"].delay
@@ -186,13 +190,19 @@ func run() -> void:
 				var items: Array = []
 				if fifth and orders.get("ritual_gear",false):
 					for item in ["I17","Y01","Y11"]:
+						if policy == "trio-gear-shen" and item == "Y11": continue
 						if night.state.growth.inventory.get(item,0)>0: items.append(item)
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,"H01" if not items.is_empty() else "",fifth and orders.get("read",false),orders.get("tag",""),orders.get("after",0))
+				var wearer := "H01" if not items.is_empty() else ""
+				if policy == "trio-gear-shen" and night.state.current_node_id == "n08":
+					wearer = "H08"
+					for item in ["I08","Y11"]:
+						if night.state.growth.inventory.get(item,0)>0: items.append(item)
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,fifth and orders.get("read",false),orders.get("tag",""),orders.get("after",0))
 				step.battle = result
 				ok = result.get("settled",false)
 				if not items.is_empty():
 					var equipped: Array = result.get("gear",[])
-					ok = ok and equipped.size()==items.size() and equipped.all(func(g):return g.ok and g.owner=="H01" and g.paid==0 and g.before-g.after==1)
+					ok = ok and equipped.size()==items.size() and equipped.all(func(g):return g.ok and g.owner==wearer and g.paid==0 and g.before-g.after==1)
 				if not train_id.is_empty(): ok = ok and result.get("target_training",{}).get("paid")==8
 				if delay >= 0:
 					ok = ok and result.get("relief",{}).get("placed",false)
@@ -242,8 +252,9 @@ func run() -> void:
 				if not reserve.is_empty():
 					var id := reserve
 					var cash: float = night.state.incense
-					var accepted := await rest_via_menu(night,id)
-					step.hire = {"id":id,"paid":cash-night.state.incense,"saved_and_reloaded":accepted}
+					var regroup: bool = policy in REGROUP_TRAIN and night.state.current_node_id == "n06"
+					var accepted := await rest_via_menu(night,id,regroup)
+					step.hire = {"regroup":regroup,"id":id,"paid":cash-night.state.incense,"saved_and_reloaded":accepted}
 					ok = accepted and is_equal_approx(step.hire.paid,12.0)
 				elif camp and (night.state.current_node_id == "n06" or (relay and night.state.current_node_id == "n09" and (night.state.roster.is_empty() or duo))):
 					if night.state.current_node_id == "n09":
@@ -278,7 +289,7 @@ func run() -> void:
 	await create_timer(0.6).timeout
 	quit(0 if report.policy_finished else 1)
 
-func rest_via_menu(night: RefCounted, id: String) -> bool:
+func rest_via_menu(night: RefCounted, id: String, regroup := false) -> bool:
 	var host: Node = load("res://scenes/night/Night.tscn").instantiate()
 	host.save_path = "user://ye-ci-route-rest-%d.json" % OS.get_process_id()
 	root.add_child(host)
@@ -287,14 +298,30 @@ func rest_via_menu(night: RefCounted, id: String) -> bool:
 	var expected_node: String = night.state.current_node_id
 	var saved: bool = night.save(host.save_path).ok
 	if saved: host.continue_run()
-	var button: Button = host.panel.buttons.get("reserve_"+id)
+	var button: Button = host.panel.buttons.get(("regroup_" if regroup else "reserve_")+id)
 	var loaded := false
 	if host.run.state.get("seed") == expected_seed and host.run.state.get("current_node_id") == expected_node and is_instance_valid(button) and not button.disabled:
 		if OS.get_environment("YE_CI_CAPTURE_REST") == "1" and DisplayServer.get_name() != "headless":
 			await RenderingServer.frame_post_draw
 			await RenderingServer.frame_post_draw
 			root.get_texture().get_image().save_jpg("/tmp/ye-ci-rest-menu.jpg",0.86)
-		button.pressed.emit()
+		if regroup and OS.get_environment("YE_CI_REGROUP_CAPTURE") == "1" and DisplayServer.get_name() != "headless":
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			var bounds := button.get_global_rect()
+			if not root.get_visible_rect().encloses(bounds): return false
+			root.get_texture().get_image().save_webp("/tmp/r21-regroup.webp",true,0.82)
+			var sent := Time.get_ticks_usec()
+			for down in [true,false]:
+				var mouse := InputEventMouseButton.new()
+				mouse.button_index = MOUSE_BUTTON_LEFT
+				mouse.position = bounds.get_center()
+				mouse.pressed = down
+				root.push_input(mouse,true)
+			await RenderingServer.frame_post_draw
+			print("REGROUP_CLICK_MS ",(Time.get_ticks_usec()-sent)/1000.0)
+		else:
+			button.pressed.emit()
 		loaded = night.load_save(host.save_path).ok and night.state.seed == expected_seed and night.state.phase == "map" and night.state.roster.size() == previous_ids.size()+1 and night.state.roster.any(func(member): return member.id == id and member.uid not in previous_ids) and previous_ids.all(func(uid): return night.state.roster.any(func(member): return member.uid == uid))
 	if loaded:
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(host.save_path))

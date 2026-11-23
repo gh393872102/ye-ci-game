@@ -1,0 +1,32 @@
+{
+  "seed": "渡口",
+  "fixture": "OrdinaryRoute trio-regroup, n06 from earned state, injected mouse press and release, one observation, concurrent headless routes",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "renderer": "Mesa - llvmpipe (LLVM 19.1.7, 256 bits)",
+  "click_to_next_draw_ms": 157.301,
+  "receipt": {
+    "id": "H08",
+    "paid": 12.0,
+    "regroup": true,
+    "saved_and_reloaded": true
+  },
+  "survivors": [
+    {
+      "hp": 25.0,
+      "id": "H01",
+      "max_hp": 85.0,
+      "post": "post_register",
+      "uid": "n03:H01_41"
+    },
+    {
+      "hp": 80.0,
+      "id": "H08",
+      "max_hp": 80.0,
+      "post": "post_register",
+      "uid": "night_3"
+    }
+  ]
+}

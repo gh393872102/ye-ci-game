@@ -377,19 +377,26 @@ func rest_reserve_options() -> Array[Dictionary]:
 		var post := GrowthNight.legal_post(id,"post_register")
 		var effect := {"kind":"recruit","unit_id":id,"post":post,"count":1}
 		if not _effect_reason(effect,"").is_empty(): continue
-		options.append({"id":id,"cost":Opening.RESERVE_FEE,"post":post,"allowed":state.incense >= Opening.RESERVE_FEE,"effect":effect})
+		var regroup: bool = state.roster.size() == 1 and state.roster[0].post != post and Data.battle_rules.post_cap >= 2 and _valid_post(post,state.roster[0].id)
+		options.append({"can_regroup":regroup,"id":id,"cost":Opening.RESERVE_FEE,"post":post,"allowed":state.incense >= Opening.RESERVE_FEE,"effect":effect})
 	return options
 
 func rest_health_after(unit: Dictionary) -> float:
 	return minf(float(unit.max_hp),float(unit.hp) + float(unit.max_hp) * float(config.rest.heal_ratio))
 
-func finish_rest(reserve_id := "") -> Dictionary:
+func finish_rest(reserve_id := "", regroup := false) -> Dictionary:
 	if not _phase("rest"):
 		return _reject("P5_WRONG_PHASE")
+	if regroup and reserve_id.is_empty(): return _reject("P5_INVALID_CHOICE")
 	if not reserve_id.is_empty():
 		for option in rest_reserve_options():
 			if option.id != reserve_id: continue
 			if not option.allowed: return _reject("P5_NO_INCENSE")
+			if regroup and not option.can_regroup: return _reject("P5_INVALID_POST")
+			if regroup:
+				var guard: Dictionary = state.roster[0]
+				_record("reserve_post",{"uid":guard.uid,"id":guard.id,"from":guard.post,"to":option.post})
+				guard.post = option.post
 			state.incense -= option.cost
 			_apply(option.effect,"")
 			_record("rest_recruit",{"id":reserve_id,"cost":option.cost,"post":option.post})

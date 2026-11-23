@@ -637,12 +637,14 @@ func _rest() -> void:
 	Ink.label(_page, tr("NIGHT_REST_RESERVE_TITLE" if host.run.state.roster.is_empty() else "NIGHT_REST_LAST_GUARD") % host.run.state.opening_faction, Rect2(466,305,980,62),34,Ink.PAPER,true)
 	Ink.label(_page, tr("NIGHT_REST_RESERVE_HELP") % int(host.run.state.incense),Rect2(466,373,990,50),22,Ink.MUTED)
 	var recruit_buttons: Array[Button] = []
+	var regroup_buttons: Array[Button] = []
 	for i in reserves.size():
 		var option: Dictionary = reserves[i]
 		var unit: Dictionary = Data.get_unit(option.id)
 		var x := 461 + i * 510
 		Ink.box(_page, Rect2(x,444,487,204), Color("1d2020"), Ink.RULE)
 		Ink.texture(_page, _offer_art(option.effect,0.84), Rect2(x+8,452,124,147))
+		Ink.label(_page,"生命 %s" % unit["生命"],Rect2(x+12,601,123,36),18,Ink.PAPER)
 		Ink.label(_page,"%s · %s" % [unit["姓名"],unit["定位"]],Rect2(x+145,454,330,48),26,Ink.PAPER,true)
 		var skill := Ink.label(_page,str(unit["专属技能"]),Rect2(x+145,507,326,85),20,Ink.MUTED)
 		skill.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -651,8 +653,19 @@ func _rest() -> void:
 		if option.allowed:
 			hire.focus_neighbor_bottom = hire.get_path_to(_focus)
 			recruit_buttons.append(hire)
+		if option.can_regroup:
+			var label := "请援并调%s至%s · %d香火" % [_unit_name(host.run.state.roster[0].id),tr(str(option.post).to_upper()),option.cost]
+			var paired := _button("regroup_"+str(option.id),label,Rect2(x,647,487,44),host.finish_rest.bind(option.id,true),option.allowed)
+			if option.allowed:
+				hire.focus_neighbor_bottom = hire.get_path_to(paired)
+				paired.focus_neighbor_top = paired.get_path_to(hire)
+				paired.focus_neighbor_bottom = paired.get_path_to(_focus)
+				regroup_buttons.append(paired)
 	_link_horizontal(recruit_buttons)
-	if not recruit_buttons.is_empty():
+	_link_horizontal(regroup_buttons)
+	if not regroup_buttons.is_empty():
+		_focus.focus_neighbor_top = _focus.get_path_to(regroup_buttons[0])
+	elif not recruit_buttons.is_empty():
 		_focus.focus_neighbor_top = _focus.get_path_to(recruit_buttons[0])
 
 func _mercy() -> void:
