@@ -133,11 +133,12 @@ func run() -> void:
 		filename = "native-lamp.json"
 		result.passed = passed and "问灯" in str(deploy_feedback.get("feedback",""))
 		passed = result.passed
-	if OS.get_cmdline_user_args().has("--relief-probe") or OS.get_cmdline_user_args().has("--train-probe"):
+	if OS.get_cmdline_user_args().has("--last-guard") or OS.get_cmdline_user_args().has("--relief-probe") or OS.get_cmdline_user_args().has("--train-probe"):
 		result.relief = await probe_relief(host)
 		passed = passed and result.relief.passed
 		result.passed = passed
 		filename = "native-train.json" if OS.get_cmdline_user_args().has("--train-probe") else "native-relief.json"
+	if OS.get_cmdline_user_args().has("--last-guard"): filename = "native-last-guard.json"
 	if OS.get_cmdline_user_args().has("--guard-gear"):
 		result.guard_gear = await probe_guard_gear(host)
 		passed = passed and result.guard_gear.passed
@@ -176,12 +177,19 @@ func probe_relief(host: Node) -> Dictionary:
 	session.register_attackers = 1
 	session.register_guards.clear()
 	session.occupation = 2
+	var last_guard := OS.get_cmdline_user_args().has("--last-guard")
+	if last_guard:
+		session.register_guards.assign(["守军"])
+		session.occupation = 0
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	var training := OS.get_cmdline_user_args().has("--train-probe")
 	if training: session.incense = 20.0
 	var cash: float = session.incense
 	var row := {"passed":false,"fixture":"paused simulation updates, one reported attacker, no guard, 2 s occupation"}
+	if last_guard:
+		row.fixture = "one reported attacker and one remaining guard, no occupation, simulation stopped for UI check"
+		root.get_texture().get_image().save_webp("/tmp/r22-last-guard.webp",false,0.88)
 	if not panel.relief_button.is_visible_in_tree(): return row
 	var sent := Time.get_ticks_usec()
 	click(panel.relief_button)

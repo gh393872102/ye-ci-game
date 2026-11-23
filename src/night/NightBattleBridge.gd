@@ -80,6 +80,10 @@ func start(combat: Node, run: RefCounted) -> Dictionary:
 	if run.story_enabled() and not session.renown_changed.is_connected(_note_renown):
 		session.renown_changed.connect(_note_renown)
 	if run.state.has("growth"): session.configure_growth(str(run.state.seed),run.state.growth)
+	if node.id == "n10" and run.state.get("opening_faction","") == "守香司":
+		var fallen_ids: Array = run.state.fallen.map(func(unit): return unit.id)
+		if ["H01","H03","H06"].all(func(id): return id in fallen_ids) and "H07" not in fallen_ids:
+			session.rules.purchases["H07"] = preload("res://src/night/FactionOpening.gd").RESERVE_FEE
 	if run.story_enabled():
 		session.rules.purchases.merge(Story.rules().battle_recruits)
 	session.ledger.clear()

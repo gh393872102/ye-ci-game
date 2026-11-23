@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -180,8 +180,10 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 				var balance: float = session.incense
 				var answer: Dictionary = session.execute_for("shouxiang","start_ritual",{"caster_id":reader.instance_id,"target_id":target.instance_id},"player")
 				row.read_orders.append({"seconds":sim.simulation_time,"ok":answer.ok,"paid":balance-session.incense,"target":target.unit_id,"instance":target.instance_id})
-		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and session.register_guards.is_empty():
+		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and (session.register_guards.is_empty() or (last_guard_relief and session.register_guards.size() == 1)):
+			var holding: Array = session.register_guards.duplicate()
 			row.relief = request_register_relief(scene,night,faction,id,train_id=="H01")
+			row.relief.guards_at_request = holding
 			if row.relief.has("training"): row.target_training = row.relief.training
 		if capture_pin:
 			for effect in session.roster.state.get("effects",[]):
@@ -255,13 +257,16 @@ func request_register_relief(scene: Node, night: RefCounted, faction: String, id
 	var receipt := {"time":sim.simulation_time,"occupation":session.occupation,"balance_before":cash,"vacancies":session.post_vacancies("post_register"),"offered":false,"id":id,"post":"post_register"}
 	if menu.relief_button.visible:
 		menu.relief_button.pressed.emit()
-		receipt.catalog_price = session.rules.purchases.get(id)
 		receipt.available = []
 		while true:
 			for candidate in menu.content.find_children("buy_*","Button",true,false):
 				if not candidate.disabled: receipt.available.append(str(candidate.name).trim_prefix("buy_"))
 			if menu.buttons.purchase_next.disabled: break
 			menu.buttons.purchase_next.pressed.emit()
+		if id == "@first" and not receipt.available.is_empty():
+			id = receipt.available.front()
+			receipt.id = id
+		receipt.catalog_price = session.rules.purchases.get(id)
 		if receipt.available.is_empty(): receipt.empty_hint = menu._empty_relief_hint()
 		while menu.purchase_page > 0: menu.buttons.purchase_prev.pressed.emit()
 		var button_name := ("prepare_" if inspect_training else "buy_")+id

@@ -54,6 +54,7 @@ var wedge_carrier_index := 0
 var register_warning_plate: PanelContainer
 var relief_button: Button
 var register_relief := false
+var occupation_bar: ProgressBar
 var register_warning: Button
 var activity_plate: PanelContainer
 var channel_progress: ProgressBar
@@ -134,6 +135,12 @@ func _ready() -> void:
 	var register_column := VBoxContainer.new()
 	register_warning_plate.add_child(register_column)
 	register_column.add_child(register_warning)
+	occupation_bar = ProgressBar.new()
+	occupation_bar.show_percentage = false
+	occupation_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	occupation_bar.custom_minimum_size.y = 8
+	occupation_bar.step = 0.0
+	register_column.add_child(occupation_bar)
 	relief_button = _button(register_column, "register_relief", "派同司援军守册", _open_register_relief)
 	relief_button.hide()
 	register_warning.add_theme_font_override("font", Ink.serif_font())
@@ -372,7 +379,7 @@ func open_commands() -> void:
 
 func _relief_available() -> bool:
 	return (managed_by_night and not preferred_faction.is_empty() and view_seat() == "shouxiang"
-		and session.register_attackers > 0 and session.register_guards.is_empty()
+		and session.register_attackers > 0 and session.register_guards.size() <= 1
 		and current_panel.is_empty() and session.pending_purchase.is_empty() and _can_command() and not _blocked())
 
 func _open_register_relief() -> void:
@@ -1408,7 +1415,7 @@ func _update_warnings() -> void:
 			if session.occupation>0:
 				register_notices.append("守军阻断 · 进度回落至 %.1f 秒" % session.occupation)
 		elif session.register_attackers>0:
-			register_notices.append("册房占领 %.1f / %d 秒" % [session.occupation,session.rules.occupation_seconds])
+			register_notices.append("无人守册 · 夺册还需 %.1f 秒" % maxf(0.0, session.rules.occupation_seconds - session.occupation))
 		elif session.occupation>0:
 			register_notices.append("攻方已撤空 · 进度回落至 %.1f 秒" % session.occupation)
 		if not simulation.humans.any(func(unit): return unit.role == "ritual" and not unit.dead):
@@ -1425,6 +1432,10 @@ func _update_warnings() -> void:
 	if register_warning.text != right:
 		register_warning.text = right
 		register_warning_plate.reset_size()
+	occupation_bar.visible = session.occupation > 0
+	if occupation_bar.visible:
+		occupation_bar.max_value = session.rules.occupation_seconds
+		occupation_bar.value = session.occupation
 	relief_button.visible = _relief_available()
 	register_warning_plate.visible = not register_notices.is_empty()
 

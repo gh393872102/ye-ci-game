@@ -1,0 +1,1132 @@
+{
+	"save_sha256": "e724c8bac7beaa5c707c0eaf930a023a5b91221067a3539ec984585b3104e41e",
+	"seed": "渡口",
+	"trials": [
+		{
+			"battle": {
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 10.0,
+							"hp_before": 5.0,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 23.4833333333333,
+							"source": "G12"
+						},
+						"id": "H08"
+					},
+					{
+						"hit": {
+							"damage": 11.5,
+							"hp_before": 7.0,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 27.883333333333,
+							"source": "G12"
+						},
+						"id": "H02"
+					}
+				],
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G12",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 27.883333333333
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 42.8759999999956,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 26.0,
+						"id": "H08",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 65.0,
+						"id": "H02",
+						"max_hp": 65.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H02": "post_register",
+					"H08": "post_register"
+				},
+				"register_guards": {
+					"H02_11": {
+						"first_change": "fallen",
+						"id": "H02",
+						"seconds": 27.883333333333
+					},
+					"H08_10": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 23.4833333333333
+					}
+				},
+				"result": {
+					"elapsed": 39.8666666666657,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 41.4439999999903,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 320.13333333337,
+					"tide_alive": 24
+				},
+				"roster_price": 0,
+				"same_faction_offers": [
+					{
+						"allowed": true,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"post": "post_register",
+			"timing": "none"
+		},
+		{
+			"battle": {
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 10.0,
+							"hp_before": 5.0,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 23.4833333333333,
+							"source": "G12"
+						},
+						"id": "H08"
+					},
+					{
+						"hit": {
+							"damage": 11.5,
+							"hp_before": 7.0,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 27.883333333333,
+							"source": "G12"
+						},
+						"id": "H02"
+					}
+				],
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G12",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 27.883333333333
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 42.8759999999956,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 26.0,
+						"id": "H08",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 65.0,
+						"id": "H02",
+						"max_hp": 65.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H02": "post_register",
+					"H08": "post_register"
+				},
+				"register_guards": {
+					"H02_11": {
+						"first_change": "fallen",
+						"id": "H02",
+						"seconds": 27.883333333333
+					},
+					"H08_10": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 23.4833333333333
+					}
+				},
+				"relief": {
+					"available": [],
+					"balance_before": 38.5679999999919,
+					"catalog_price": null,
+					"empty_hint": "可用香火 38 · 册房余 3 位。晚·前战阵亡，青笺·前战阵亡，霜盏·前战阵亡。看全部可选其他援军。",
+					"guards_at_request": [],
+					"id": "@first",
+					"occupation": 0.0166666666666667,
+					"offered": false,
+					"paid": 0.0,
+					"placed": false,
+					"post": "post_register",
+					"time": 27.883333333333,
+					"vacancies": 3
+				},
+				"result": {
+					"elapsed": 39.8666666666657,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 41.4439999999903,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 320.13333333337,
+					"tide_alive": 24
+				},
+				"roster_price": 0,
+				"same_faction_offers": [
+					{
+						"allowed": true,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"post": "post_register",
+			"timing": "empty"
+		},
+		{
+			"battle": {
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 10.0,
+							"hp_before": 5.0,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 23.4833333333333,
+							"source": "G12"
+						},
+						"id": "H08"
+					},
+					{
+						"hit": {
+							"damage": 11.5,
+							"hp_before": 7.0,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 27.883333333333,
+							"source": "G12"
+						},
+						"id": "H02"
+					}
+				],
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G12",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 27.883333333333
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 42.8759999999956,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 26.0,
+						"id": "H08",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 65.0,
+						"id": "H02",
+						"max_hp": 65.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H02": "post_register",
+					"H08": "post_register"
+				},
+				"register_guards": {
+					"H02_11": {
+						"first_change": "fallen",
+						"id": "H02",
+						"seconds": 27.883333333333
+					},
+					"H08_10": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 23.4833333333333
+					}
+				},
+				"relief": {
+					"available": [],
+					"balance_before": 37.5119999999925,
+					"catalog_price": null,
+					"empty_hint": "可用香火 37 · 册房余 2 位。晚·前战阵亡，青笺·前战阵亡，霜盏·前战阵亡。看全部可选其他援军。",
+					"guards_at_request": [
+						"祝禧"
+					],
+					"id": "@first",
+					"occupation": 0.0,
+					"offered": false,
+					"paid": 0.0,
+					"placed": false,
+					"post": "post_register",
+					"time": 23.4833333333333,
+					"vacancies": 2
+				},
+				"result": {
+					"elapsed": 39.8666666666657,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 41.4439999999903,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 320.13333333337,
+					"tide_alive": 24
+				},
+				"roster_price": 0,
+				"same_faction_offers": [
+					{
+						"allowed": true,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"post": "post_register",
+			"timing": "last"
+		},
+		{
+			"battle": {
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 11.5,
+							"hp_before": 11.5,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 25.6833333333332,
+							"source": "G12"
+						},
+						"id": "H02"
+					}
+				],
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H08",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						}
+					],
+					"intruders": [
+						"G12",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 25.6833333333332
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 42.8759999999956,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 26.0,
+						"id": "H08",
+						"max_hp": 80.0,
+						"post": "post_hall_door",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 65.0,
+						"id": "H02",
+						"max_hp": 65.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H02": "post_register",
+					"H08": "post_hall_door"
+				},
+				"register_guards": {
+					"H02_11": {
+						"first_change": "fallen",
+						"id": "H02",
+						"seconds": 25.6833333333332
+					}
+				},
+				"result": {
+					"elapsed": 37.6666666666658,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 1,
+					"incense": 51.9159999999906,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 322.333333333368,
+					"tide_alive": 24
+				},
+				"roster_price": 0,
+				"same_faction_offers": [
+					{
+						"allowed": true,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"post": "post_hall_door",
+			"timing": "none"
+		},
+		{
+			"battle": {
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 11.5,
+							"hp_before": 11.5,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 25.6833333333332,
+							"source": "G12"
+						},
+						"id": "H02"
+					}
+				],
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H08",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						}
+					],
+					"intruders": [
+						"G12",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 25.6833333333332
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 42.8759999999956,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 26.0,
+						"id": "H08",
+						"max_hp": 80.0,
+						"post": "post_hall_door",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 65.0,
+						"id": "H02",
+						"max_hp": 65.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H02": "post_register",
+					"H08": "post_hall_door"
+				},
+				"register_guards": {
+					"H02_11": {
+						"first_change": "fallen",
+						"id": "H02",
+						"seconds": 25.6833333333332
+					}
+				},
+				"relief": {
+					"available": [],
+					"balance_before": 49.0399999999922,
+					"catalog_price": null,
+					"empty_hint": "可用香火 49 · 册房余 3 位。晚·前战阵亡，青笺·前战阵亡，霜盏·前战阵亡。看全部可选其他援军。",
+					"guards_at_request": [],
+					"id": "@first",
+					"occupation": 0.0166666666666667,
+					"offered": false,
+					"paid": 0.0,
+					"placed": false,
+					"post": "post_register",
+					"time": 25.6833333333332,
+					"vacancies": 3
+				},
+				"result": {
+					"elapsed": 37.6666666666658,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 1,
+					"incense": 51.9159999999906,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 322.333333333368,
+					"tide_alive": 24
+				},
+				"roster_price": 0,
+				"same_faction_offers": [
+					{
+						"allowed": true,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"post": "post_hall_door",
+			"timing": "empty"
+		},
+		{
+			"battle": {
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 11.5,
+							"hp_before": 11.5,
+							"instance": "G12_tide_12",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 25.6833333333332,
+							"source": "G12"
+						},
+						"id": "H02"
+					}
+				],
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H08",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						}
+					],
+					"intruders": [
+						"G12",
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 25.6833333333332
+				},
+				"foreign_units": {},
+				"hold": true,
+				"incense": 42.8759999999956,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 26.0,
+						"id": "H08",
+						"max_hp": 80.0,
+						"post": "post_hall_door",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 65.0,
+						"id": "H02",
+						"max_hp": 65.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H02": "post_register",
+					"H08": "post_hall_door"
+				},
+				"register_guards": {
+					"H02_11": {
+						"first_change": "fallen",
+						"id": "H02",
+						"seconds": 25.6833333333332
+					}
+				},
+				"relief": {
+					"available": [],
+					"balance_before": 46.2759999999938,
+					"catalog_price": null,
+					"empty_hint": "可用香火 46 · 册房余 2 位。晚·前战阵亡，青笺·前战阵亡，霜盏·前战阵亡。看全部可选其他援军。",
+					"guards_at_request": [
+						"祝禧"
+					],
+					"id": "@first",
+					"occupation": 0.0,
+					"offered": false,
+					"paid": 0.0,
+					"placed": false,
+					"post": "post_register",
+					"time": 14.166666666667,
+					"vacancies": 2
+				},
+				"result": {
+					"elapsed": 37.6666666666658,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 1,
+					"incense": 51.9159999999906,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 322.333333333368,
+					"tide_alive": 24
+				},
+				"roster_price": 0,
+				"same_faction_offers": [
+					{
+						"allowed": true,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"post": "post_hall_door",
+			"timing": "last"
+		}
+	]
+}

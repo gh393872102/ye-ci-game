@@ -22,12 +22,18 @@ func run() -> void:
 	var clock := root.get_node("Clock")
 	clock.set_paused(false)
 	session.register_attackers = 1
+	session.register_guards.assign(["霜盏","青笺"])
+	panel._update_warnings()
+	check(not panel.relief_button.visible,"Two guards hold the room without a relief prompt")
 	session.register_guards.assign(["霜盏"])
 	panel._update_warnings()
-	check(not panel.relief_button.visible,"A contested room keeps the camera warning only")
+	check(panel.relief_button.visible,"The last guard can call relief before occupation begins")
 	session.register_guards.clear()
 	panel._update_warnings()
 	check(panel.relief_button.visible,"An undefended room under attack exposes ordinary relief")
+	session.occupation = 2.0
+	panel._update_warnings()
+	check(panel.occupation_bar.visible and panel.occupation_bar.value == 2.0 and panel.register_warning.text.contains("夺册还需"),"Occupation meter and remaining-time text follow the live timer")
 	var money: float = session.incense
 	panel.previous_casualties["H01"] = true
 	panel.relief_button.pressed.emit()
