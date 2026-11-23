@@ -1,5 +1,6 @@
 extends SceneTree
 ## Exercises the real title button, map save and first ordinary combat. Autonomy only.
+var probe_boss_gate := false
 var failures := 0
 var foreign_units := {}
 
@@ -177,8 +178,23 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		for unit in sim.humans:
 			if unit.unit_id=="H01": reader=unit
 		row.read_orders = []
+	var hall: Node2D
+	if probe_boss_gate:
+		hall = sim.world.get_node("door_hall")
+		row.gate = {"initial_hp":hall.durability,"maximum":hall.max_durability,"break_seconds":null,"first_repair":null,"first_read":null}
+		reader = sim.humans.filter(func(u): return u.unit_id=="H01")[0]
 	for tick in ceili(session.rules.duration * 60.0) + 2:
+		if probe_boss_gate and tick % 15 == 0:
+			if row.gate.first_repair == null and session.preview_repair("door_hall").ok:
+				row.gate.first_repair = sim.simulation_time
+			if row.gate.first_read == null and is_instance_valid(reader) and not reader.dead:
+				for enemy in sim.targets:
+					if enemy.unit_id=="G12" and not enemy.dead and session.preview_ritual(reader,enemy).reason.is_empty():
+						row.gate.first_read = sim.simulation_time
+						break
 		sim.advance(1.0/60.0)
+		if probe_boss_gate and row.gate.break_seconds == null and hall.destroyed:
+			row.gate.break_seconds = sim.simulation_time
 		if row.node=="n05" and not repair_policy.is_empty() and not row.has("repair") and tick % 60==0:
 			var door_id: String = {"repair-inner":"door_inner","repair-outer":"door_outer"}.get(repair_policy,"door_hall")
 			var door: Node2D = sim.world.get_node(door_id)
@@ -218,8 +234,43 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 				if target==null or ("破门" in enemy.tags and "破门" not in target.tags): target=enemy
 			if is_instance_valid(target):
 				var balance: float = session.incense
-				var answer: Dictionary = session.execute_for("shouxiang","start_ritual",{"caster_id":reader.instance_id,"target_id":target.instance_id},"player")
-				row.read_orders.append({"seconds":sim.simulation_time,"ok":answer.ok,"paid":balance-session.incense,"target":target.unit_id,"instance":target.instance_id})
+				var reading := {"seconds":sim.simulation_time,"target":target.unit_id,"instance":target.instance_id}
+				if probe_boss_gate:
+					var panel: Node = scene.get_node("Decisions")
+					panel.select_unit(reader)
+					panel.open_ritual()
+					var picker: OptionButton = panel.find_child("RitualTargets",true,false)
+					var index: int = panel.legal_ritual_targets.find(target)
+					if index >= 0 and picker != null:
+						picker.select(index)
+						picker.item_selected.emit(index)
+						reading.label = picker.get_item_text(index)
+						reading.preview = panel.target_hint.text
+						if OS.get_environment("YE_CI_CAPTURE_BOSS_READ")=="1" and "门外增援" in reading.label and DisplayServer.get_name()!="headless":
+							await RenderingServer.frame_post_draw
+							await RenderingServer.frame_post_draw
+							var button: Button = panel.buttons.ritual_confirm
+							reading.visible = button.is_visible_in_tree() and root.get_visible_rect().encloses(button.get_global_rect())
+							if reading.visible:
+								root.get_texture().get_image().save_webp("/tmp/r27-read.webp",true,0.87)
+								var sent := Time.get_ticks_usec()
+								for down in [true,false]:
+									var mouse := InputEventMouseButton.new()
+									mouse.button_index = MOUSE_BUTTON_LEFT
+									mouse.pressed = down
+									mouse.position = button.get_global_rect().get_center()
+									root.push_input(mouse,true)
+								await RenderingServer.frame_post_draw
+								reading.click_ms = (Time.get_ticks_usec()-sent)/1000.0
+						else:
+							panel.buttons.ritual_confirm.pressed.emit()
+					reading.ok = reader.brain.channel.active and reader.brain.channel.target == target
+					panel.close_panel()
+					root.get_node("Clock").set_paused(false)
+				else:
+					reading.ok = session.execute_for("shouxiang","start_ritual",{"caster_id":reader.instance_id,"target_id":target.instance_id},"player").ok
+				reading.paid = balance-session.incense
+				row.read_orders.append(reading)
 		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and (session.register_guards.is_empty() or (last_guard_relief and session.register_guards.size() == 1)):
 			var holding: Array = session.register_guards.duplicate()
 			row.relief = request_register_relief(scene,night,faction,id,train_id=="H01")

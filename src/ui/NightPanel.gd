@@ -25,6 +25,7 @@ var _focus: Control
 var _history := false
 var _route_layer: Control
 var _paths: Array[Dictionary] = []
+var _boss_portrait: TextureRect
 var _node_title: Label
 var _node_note: Label
 
@@ -205,6 +206,8 @@ func _map(history: bool) -> void:
 	for node in host.run.available_nodes():
 		ready[str(node.id)] = true
 	Ink.folio(_page, Rect2(64, 864, 1276, 108))
+	_boss_portrait = Ink.texture(_page,null,Rect2(80,870,80,94))
+	_boss_portrait.hide()
 	_node_title = Ink.label(_page, "", Rect2(86, 874, 300, 42), 25, Ink.COPPER, true)
 	_node_note = Ink.label(_page, "", Rect2(370, 878, 948, 76), 21, Ink.PAPER)
 	var current: Dictionary = host.run.current_node()
@@ -348,12 +351,26 @@ func _draw_route_seal(seal: Control, type: String, tone: Color, current: bool, r
 	seal.draw_string(font, center + Vector2(-width / 2, 11), glyph, HORIZONTAL_ALIGNMENT_LEFT, -1, 32, border)
 
 func _show_route_node(node: Dictionary) -> void:
+	var show_boss: bool = node.get("boss_id","") == "B01" and host.run.state.mode == "shouxiang"
+	_boss_portrait.visible = show_boss
+	_node_title.position.x = 174 if show_boss else 86
 	_node_title.text = str(node.title)
 	_node_note.text = str(node.description)
 	if host.run.state.has("nameless_modifiers") and node.has("chunk_ids"):
 		var titles := PackedStringArray()
 		for id in node.chunk_ids: titles.append(preload("res://src/data/ChunkCatalog.gd").read_chunk(id).get("title",id))
 		_node_note.text = tr("P10_ROUTE_NODE") % [str(node.description),"、".join(titles)]
+
+	_node_note.tooltip_text = _node_note.text if show_boss else ""
+	_node_note.mouse_filter = Control.MOUSE_FILTER_PASS if show_boss else Control.MOUSE_FILTER_IGNORE
+	if show_boss:
+		var spec: Dictionary = preload("res://src/data/StageOptions.gd").bosses().B01
+		var lead: Dictionary = spec.formations[0]
+		var rams: Array = spec.formations.filter(func(f): return f.role == "ram")
+		_boss_portrait.texture = Appearance.portrait_texture(lead.unit)
+		_node_note.text = "主殿门开战时剩 %d%% 耐久。一名%s已在门内。" % [roundi(spec.initial_doors.door_hall*100),_unit_name(lead.unit)]
+		if not rams.is_empty():
+			_node_note.text += "\n第 %s 秒，第二名%s从门外赶来。" % [String.num(rams[0].at).trim_suffix(".0"),_unit_name(rams[0].unit)]
 
 func _draw_paths() -> void:
 	for path in _paths:

@@ -936,6 +936,7 @@ func open_ritual() -> void:
 	picker.custom_minimum_size.x = 535
 	picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(picker)
+	picker.name = "RitualTargets"
 	var nearest_blocker := ""
 	var nearest_distance := INF
 	for target in simulation.targets:
@@ -946,10 +947,10 @@ func open_ritual() -> void:
 			var distance: float = caster.position.distance_to(target.position)
 			if distance < nearest_distance:
 				nearest_distance = distance
-				nearest_blocker = tr("P9_RITUAL_NEAREST") % [target.display_name,distance / Rules.BODY_PX,tr(condition.hint)]
+				nearest_blocker = tr("P9_RITUAL_NEAREST") % [_ritual_target_name(target),distance / Rules.BODY_PX,tr(condition.hint)]
 			continue
 		legal_ritual_targets.append(target)
-		picker.add_item(tr("P4_RITUAL_TARGET") % [target.display_name, target.hp, target.position.distance_to(caster.position) / Rules.BODY_PX])
+		picker.add_item(tr("P4_RITUAL_TARGET") % [_ritual_target_name(target), target.hp, target.position.distance_to(caster.position) / Rules.BODY_PX])
 	var has_targets := not legal_ritual_targets.is_empty()
 	picker.disabled = not has_targets
 	if not has_targets:
@@ -967,6 +968,14 @@ func open_ritual() -> void:
 	_focus_first(row)
 	highlights.queue_redraw()
 
+func _ritual_target_name(target: Node2D) -> String:
+	if target.unit_id != "G12": return target.display_name
+	var stage := simulation.get_node_or_null("P10Stage")
+	if stage != null and stage.state.boss_id == "B01":
+		if target.instance_id == stage.state.boss_actor: return target.display_name + "（殿内先遣）"
+		if target.instance_id in stage.state.gate_entrants: return target.display_name + "（门外增援）"
+	return target.display_name
+
 func _ritual_preview(target: Node2D) -> Dictionary:
 	if not is_instance_valid(caster) or caster.dead or not is_instance_valid(target):
 		return {"reason":"P4_INVALID_RITUAL", "hint":"P9_RITUAL_NO_CASTER"}
@@ -975,7 +984,7 @@ func _ritual_preview(target: Node2D) -> Dictionary:
 func _show_ritual_preview(target: Node2D) -> void:
 	var preview := _ritual_preview(target)
 	if preview.reason.is_empty():
-		_set_target_hint(tr("P9_RITUAL_PREVIEW") % [target.display_name, preview.duration, preview.cost], true)
+		_set_target_hint(tr("P9_RITUAL_PREVIEW") % [_ritual_target_name(target), preview.duration, preview.cost], true)
 	else:
 		_set_target_hint(tr(preview.hint))
 

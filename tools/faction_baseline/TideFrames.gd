@@ -150,11 +150,12 @@ func run() -> void:
 		result.repair = await probe_repair(battle)
 		passed = passed and result.repair.passed
 		result.passed = passed
-	if OS.get_cmdline_user_args().has("--post-cover"):
+	if OS.get_cmdline_user_args().has("--post-cover") or OS.get_cmdline_user_args().has("--boss-brief"):
 		result.cover = await probe_post_cover(host)
 		passed = passed and result.cover.passed
 		result.passed = passed
 		filename = "native-post-cover.json"
+		if OS.get_cmdline_user_args().has("--boss-brief"): filename = "native-boss-brief.json"
 	if not rear.is_empty():
 		result.rear = rear
 		passed = passed and rear.passed
@@ -471,6 +472,14 @@ func probe_post_cover(host: Node) -> Dictionary:
 	var source := OS.get_environment("YE_CI_POST_MAP")
 	if source.is_empty() or DirAccess.copy_absolute(source,host.save_path) != OK: return row
 	host.continue_run()
+	if OS.get_cmdline_user_args().has("--boss-brief"):
+		var terminal: Button = host.panel.buttons.node_n10
+		terminal.grab_focus()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		row.brief = host.panel._node_note.text
+		if not host.panel._boss_portrait.is_visible_in_tree() or host.panel._boss_portrait.texture == null or not ("6%" in row.brief and "力士尸" in row.brief and "4" in row.brief): return row
+		root.get_texture().get_image().save_webp("/tmp/r27-brief.webp",true,0.87)
 	var cash: float = host.run.state.incense
 	for target in ["post_rear","post_register"]:
 		await RenderingServer.frame_post_draw

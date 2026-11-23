@@ -32,6 +32,7 @@ const FIFTH_TRAIN := {
 	"repair-inner-shuang": ["H06"],
 	"repair-inner-pair-eighth": ["H06"],
 	"repair-inner-pair-final": ["H06"],
+	"repair-inner-pair-final-read": ["H06"],
 	"repair-inner-pair-both": ["H06"],
 	"repair-outer": [],
 	"repair-forward": [],
@@ -233,7 +234,10 @@ func run() -> void:
 					for item in ["I08","Y11"]:
 						if night.state.growth.inventory.get(item,0)>0: items.append(item)
 				var additional: Array = FIFTH_TRAIN.get(policy,[]).slice(1) if fifth else []
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,fifth and orders.get("read",false),orders.get("tag",""),orders.get("after",0),false,false,additional)
+				var final_read: bool = policy=="repair-inner-pair-final-read" and night.state.current_node_id=="n10"
+				if final_read: train_id = "H01"
+				probe_boss_gate = final_read
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional)
 				step.battle = result
 				ok = result.get("settled",false)
 				if not items.is_empty():
