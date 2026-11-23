@@ -122,6 +122,10 @@ func _draw() -> void:
 	preload("res://src/units/UnitAppearance.gd").draw(self)
 	if dead:
 		return
+	var engine: RefCounted = simulation.roster_engine() if side == "yegui" else null
+	if engine != null and engine.state.get("focus_fire_id","") == instance_id and not engine.growth().is_hidden(self):
+		var tip := Vector2(0,-height_px-19)
+		draw_polyline(PackedVector2Array([tip+Vector2(-9,-9),tip,tip+Vector2(9,-9)]),Color("eabe78"),3)
 	if unit_id=="H11" and roster.get("counters",{}).has("stationary_seconds"):
 		_draw_rooted_stones()
 	if roster.get("window_wedge")=="ready":

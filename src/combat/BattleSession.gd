@@ -931,10 +931,10 @@ func roster_command(action: String, args: Dictionary) -> Dictionary:
 	var reason := _available(_effective_seat())
 	if not reason.is_empty(): return _reject(reason)
 	if not roster.enabled: return _reject("P8_DISABLED")
-	var allowed: Array = ["target_id"] if action == "mark_target" else ["unit_id","target_id","mode","object_id","path_id","confirm_market"]
+	var allowed: Array = ["target_id","focus_fire"] if action == "mark_target" else ["unit_id","target_id","mode","object_id","path_id","confirm_market"]
 	for key in args:
 		if key not in allowed: return _reject("P8_INVALID_ARGUMENT")
-		if key=="confirm_market":
+		if key in ["confirm_market","focus_fire"]:
 			if not args[key] is bool: return _reject("P8_INVALID_ARGUMENT")
 		elif not args[key] is String: return _reject("P8_INVALID_ARGUMENT")
 	if args.has("mode") and args.mode not in ["pull","push"]: return _reject("P8_INVALID_ARGUMENT")
@@ -942,9 +942,21 @@ func roster_command(action: String, args: Dictionary) -> Dictionary:
 	if action == "mark_target":
 		unit = _actor(str(args.get("target_id","")))
 		if not is_instance_valid(unit) or unit.dead or unit.side != "yegui" or _effective_seat() != "shouxiang": return _reject("P8_INVALID_TARGET")
-		roster.ensure(unit)
-		unit.roster.marked = true
-		roster.event("target_marked",unit)
+		if args.has("focus_fire"):
+			if growth.state.get("defense_objective","") != "hold_register": return _reject("P8_INVALID_ARGUMENT")
+			var previous: Node2D = roster.actor(roster.state.get("focus_fire_id",""))
+			if args.focus_fire:
+				roster.state.focus_fire_id = unit.instance_id
+			elif previous == unit:
+				roster.state.erase("focus_fire_id")
+			else:
+				return _reject("P8_INVALID_TARGET")
+			if is_instance_valid(previous): previous.queue_redraw()
+			unit.queue_redraw()
+		else:
+			roster.ensure(unit)
+			unit.roster.marked = true
+			roster.event("target_marked",unit)
 		_emit_command("shouxiang",action,args)
 		return roster.ok()
 	if not _owned(unit,"xianghuo" if _effective_seat()=="shouxiang" else "yegui"): return _reject("P4_INVALID_UNIT")

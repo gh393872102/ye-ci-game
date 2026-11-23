@@ -221,6 +221,7 @@ func _run() -> void:
 			var all_troops:=true
 			for number in range(1,5): all_troops=all_troops and bool(effects.get("T%02d" % number,false))
 			check(all_troops,"K1 All four troop templates execute their actual supported battlefield behavior")
+			_register_focus()
 		if capture:
 			await _feedback_frames()
 			if not OS.get_cmdline_user_args().has("--feedback-only"):
@@ -638,6 +639,41 @@ func _human_supplementary() -> void:
 	session.incense=0; hp=friend.hp; other_hp=u.hp
 	result=skill(u,{"target_id":friend.instance_id})
 	check(attack.ok and not result.ok and near(friend.hp,hp) and near(u.hp,other_hp),"H02 Insufficient-incense rekindling in a poison field has no preflight damage side effect","H02")
+
+func _register_focus() -> void:
+	rig("shouxiang",{"defense_objective":"hold_register"})
+	var shooter := human("H22")
+	shooter.position.x -= 150 # Clear the register desk in this targeting fixture.
+	var front := ghost("G01")
+	var breaker := ghost("G12")
+	for foe in [front,breaker]: foe.floor_id = shooter.floor_id
+	front.position = shooter.position - Vector2(48,0)
+	breaker.position = shooter.position - Vector2(96,0)
+	var cash: float = session.incense
+	var panel: Node = scene.get_node("Decisions")
+	panel.select_unit(breaker)
+	check(sim.nearest_shootable(shooter)==front and panel.buttons.has("card_focus"),"Register guard normally aims at the nearer enemy")
+	panel.buttons.card_focus.pressed.emit()
+	check(sim.nearest_shootable(shooter)==breaker and panel.feedback.text.contains(breaker.display_name) and panel.buttons.card_focus.text=="解除集火" and not breaker.roster.marked and near(cash,session.incense),"Card order changes ranged aim for free without applying the hunter mark")
+	var saved: Dictionary = roster.state.duplicate(true)
+	panel.buttons.card_focus.pressed.emit()
+	check(sim.nearest_shootable(shooter)==front and not roster.state.has("focus_fire_id"),"Cancel returns the guard to free aim")
+	roster.restore(saved)
+	check(sim.nearest_shootable(shooter)==breaker,"Restored roster remembers the designated instance")
+	breaker.position.x -= Rules.body_to_px(100)
+	check(sim.nearest_shootable(shooter)==front,"Out-of-range focus leaves a legal alternate shot")
+	var args := {"target_id":front.instance_id,"focus_fire":true}
+	check(not session.execute_for("duoming","mark_target",args,"player").ok,"Attacking seat cannot designate defender fire")
+	check(session.execute_for("shouxiang","mark_target",args,"player").ok and roster.state.focus_fire_id==front.instance_id,"New order replaces the old enemy")
+	roster.set_allegiance(front,"xianghuo",2.0)
+	check(not roster.state.has("focus_fire_id"),"Change of allegiance clears focus")
+	args = {"target_id":breaker.instance_id,"focus_fire":"yes"}
+	check(not session.execute_for("shouxiang","mark_target",args,"player").ok and not roster.state.has("focus_fire_id"),"Malformed order cannot change aim")
+	args.focus_fire=true
+	session.execute_for("shouxiang","mark_target",args,"player")
+	breaker.receive_damage(10000,shooter,"melee")
+	sim.advance(1.0/60)
+	check(breaker.dead and not roster.state.has("focus_fire_id"),"Fallen enemy releases the order")
 
 func _departures() -> void:
 	rig(); var u=human("H31","post_gate_inner",false); var g=ghost("G12",49)

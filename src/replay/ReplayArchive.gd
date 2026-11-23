@@ -104,6 +104,7 @@ static func _validate_rules(record: Dictionary, expected_hash: String) -> Dictio
 		var required: Array = {"unit_skill":["unit_id"],"mark_target":["target_id"],"purchase":["id"],"deploy_at":["post_id"],"upgrade":["unit_id"],"equip":["unit_id"],"start_ritual":["caster_id","target_id"],"repair":["door_id"],"mutate":["unit_id","form_id"],"equip_item":["unit_id","item_id"],"unequip_item":["unit_id","slot"],"mutate_form":["unit_id","form_id"],"fuse":["first_id","recipe_id"],"stamp_job":["unit_id","job_id"],"borrow_god":["unit_id"],"use_key":["unit_id"]}.get(action.action,[])
 		for key in required:
 			if not action.arguments.get(key) is String or action.arguments[key].is_empty(): return {"ok":false,"reason":"P6_ARCHIVE_INVALID"}
+		if action.action=="mark_target" and not action.arguments.get("focus_fire",false) is bool: return {"ok":false,"reason":"P6_ARCHIVE_INVALID"}
 		if action.action=="start_ritual" and not action.arguments.get("purify_only",false) is bool: return {"ok":false,"reason":"P6_ARCHIVE_INVALID"}
 		if action.arguments.has("slot_index") and not _integer(action.arguments.slot_index,0,1): return {"ok":false,"reason":"P6_ARCHIVE_INVALID"}
 		if action.action not in ["pause","speed"] and action.action not in preload("res://src/modes/Seat.gd").commands(str(action.seat)): return {"ok":false,"reason":"P6_ARCHIVE_INVALID"}

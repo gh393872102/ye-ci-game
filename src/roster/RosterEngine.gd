@@ -380,6 +380,7 @@ static func valid_state(value: Variant) -> bool:
 	if value.get("enabled") != true or not value.get("seed") is String or not value.get("rng_state") is String or not str(value.rng_state).is_valid_int(): return false
 	for key in ["time","register_ward","register_ward_multiplier"]:
 		if not _number(value.get(key)) or float(value[key]) < 0: return false
+	if value.has("focus_fire_id") and not value.focus_fire_id is String: return false
 	if not value.get("broken_paths") is Array: return false
 	for id in value.broken_paths:
 		if not id is String or id not in ["stair_main","stair_beam","stair_rear","stair_side_entry","stair_side_exit","stair_water_entry","stair_water_exit","stair_stone_entry","stair_stone_exit","stair_side_hall"]: return false

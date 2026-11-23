@@ -2,12 +2,14 @@ extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size()!=2:
+	var focus_pair := args.size()==3 and args[2]=="focus-pair"
+	if args.size()!=2 and not focus_pair:
 		quit(2)
 		return
 	var rows := []
-	for choice in ["","H17","H22","H22-relay"]:
-		var recruit: String = "H22" if choice=="H22-relay" else choice
+	var choices := ["free","focus","free-window","focus-window"] if focus_pair else ["","H17","H22","H22-relay"]
+	for choice in choices:
+		var recruit: String = "H22" if focus_pair or choice=="H22-relay" else choice
 		var night: RefCounted = load("res://src/night/NightRun.gd").new()
 		if not night.load_save(args[0]).ok or night.state.opening_faction!="符法司":
 			quit(2)
@@ -45,7 +47,8 @@ func run() -> void:
 				scene.free()
 				await process_frame
 				continue
-			if "post_register" not in row.posts or not session.deploy_at("post_register").ok:
+			var post := "post_window_1" if str(choice).ends_with("-window") else "post_register"
+			if post not in row.posts or not session.deploy_at(post).ok:
 				quit(2)
 				return
 			row.paid = row.cash-session.incense
@@ -55,12 +58,38 @@ func run() -> void:
 		for u in sim.humans:
 			observe(u,"符法司")
 			row.guards.append({"id":u.unit_id,"uid":u.instance_id,"post":u.current_post,"hp":u.hp})
+		var breaker: Node2D
+		if focus_pair:
+			row.shots = []
+			row.guard_roles = {}
+			for u in sim.humans: row.guard_roles[u.instance_id]=u.role
+			sim.event_recorded.connect(func(kind,u,detail):
+				if kind=="projectile_fired" and u.side=="xianghuo":
+					row.shots.append({"time":sim.simulation_time,"actor":u.instance_id,"aim":detail}))
 		var open_seals := {}
 		var lit := {}
 		var offset: int = session.growth.state.events.size()
 		for tick in 21602:
 			if not session.running: break
+			if focus_pair and not row.has("target"):
+				for foe in sim.targets:
+					if foe.unit_id!="G12" or foe.dead: continue
+					for guard in sim.humans:
+						if guard.role not in ["crossbow","talisman"] or not sim.can_attack(guard,foe): continue
+						breaker=foe
+						row.target=foe.instance_id
+						row.first_shootable=sim.simulation_time
+						row.hp_at_order=foe.hp
+						if str(choice).begins_with("focus") and not session.execute_for("shouxiang","mark_target",{"target_id":row.target,"focus_fire":true},"player").ok:
+							quit(2)
+							return
+						break
+					if row.has("target"): break
 			sim.advance(1.0/60)
+			if is_instance_valid(breaker):
+				row.target_hp = breaker.hp
+				if breaker.dead and not row.has("target_death"): row.target_death=sim.simulation_time
+				if row.occupation<0 and session.occupation>0: row.occupation_hp=breaker.hp
 			if not row.has("seal_opportunity"):
 				for u in sim.humans:
 					if u.dead or u.unit_id!="H17" or session.roster.near(u,4).is_empty(): continue

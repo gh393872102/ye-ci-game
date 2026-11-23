@@ -853,6 +853,9 @@ func _build_card() -> void:
 		_button(actions, "card_skill", tr("P8_SKILL_BUTTON"), open_unit_skill)
 	if roster_enabled() and not read_only() and view_seat() == "shouxiang" and selected.side == "yegui":
 		_button(actions, "card_mark", tr("P8_MARK_TARGET"), _mark_selected)
+		if growth_enabled() and session.growth.state.get("defense_objective","") == "hold_register":
+			var focus := _button(actions, "card_focus", _focus_label(), _focus_selected)
+			focus.tooltip_text = "弩手和符手优先向该敌射击。超出射程或被墙挡住时照常选敌；前排敌人仍能挡下弹道。"
 	if growth_enabled():
 		_button(actions, "card_growth", tr("P7_GROWTH_OPEN"), open_growth)
 	_button(actions, "close", tr("P9_BATTLE_CLOSE"), close_panel)
@@ -895,6 +898,18 @@ func roster_enabled() -> bool:
 
 func _owned_selected() -> bool:
 	return is_instance_valid(selected) and not selected.dead and selected.side == ("xianghuo" if view_seat() == "shouxiang" else "yegui")
+
+func _focus_label() -> String:
+	return "解除集火" if session.roster.state.get("focus_fire_id","") == selected.instance_id else "远程集火"
+
+func _focus_selected() -> void:
+	if not _can_command() or not is_instance_valid(selected): return
+	var enable: bool = session.roster.state.get("focus_fire_id","") != selected.instance_id
+	var answer := _issue("mark_target",{"target_id":selected.instance_id,"focus_fire":enable})
+	_feedback(answer)
+	if answer.ok:
+		buttons.card_focus.text = _focus_label()
+		feedback.text = "弩手和符手优先射击%s，前排敌人仍能挡下弹道。" % selected.display_name if enable else "已解除集火，恢复自由射击。"
 
 func _mark_selected() -> void:
 	if not _can_command() or not is_instance_valid(selected): return

@@ -79,6 +79,7 @@ func run() -> void:
 	sim.humans.clear();sim.targets.clear();sim.corpses.clear()
 	sim.tide.pending.clear();sim.tide.config.waves=[];sim.tide.wave_index=0
 	session.configure_dual({"shouxiang":60.0,"duoming":60.0},"shouxiang")
+	session.configure_growth("P8-contact-persistence",{"defense_objective":"hold_register"})
 	session.configure_roster("P8-contact-persistence")
 	var hunter=sim.spawn_human("H31","post_gate_inner")
 	var guard=sim.spawn_human("H09","post_gate_inner")
@@ -89,12 +90,14 @@ func run() -> void:
 	target.motion_enabled=false;scribe.motion_enabled=false
 	var recording=Record.new()
 	recording.begin(live,{"seed":"P8-contact-persistence","source":"p8_controlled_fixture","node_id":"p8-contact","label":"P8有限香火施术/标记/错录/猎步片段，非普通整夜","mode":"duel","director_limit":0})
+	check(session.execute_for("shouxiang","mark_target",{"target_id":target.instance_id,"focus_fire":true},"player").ok,"Focus order enters the recording alongside the independent hunt mark")
 	check(session.execute_for("shouxiang","mark_target",{"target_id":target.instance_id},"player").ok,"Mark is a real recorded player command")
 	check(session.execute_for("shouxiang","unit_skill",{"unit_id":hunter.instance_id,"target_id":target.instance_id},"player").ok,"H31 paid hunt starts through seat command")
 	check(session.execute_for("duoming","unit_skill",{"unit_id":scribe.instance_id,"target_id":guard.instance_id},"ai").ok,"G29 real opposing skill changes side through paid API")
 	step(live,10)
 	var snapshot=Snapshot.capture(live)
 	check(guard.side=="yegui" and guard.roster.statuses.has("misrecord"),"Checkpoint captures active temporary side change")
+	check(snapshot.roster_engine.get("focus_fire_id","")==target.instance_id,"Saved focus points to the designated enemy")
 	check(hunter.roster.has("hunt"),"Checkpoint captures H31 moving job before return")
 	var path="/tmp/ye-ci-p8-contact-exact.json"
 	check(Save.save(path,{"exact":Marshalls.raw_to_base64(var_to_bytes(snapshot)),"mirror":snapshot}).ok,"Active effects serialize to actual isolated disk file")

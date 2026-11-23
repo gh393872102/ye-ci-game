@@ -36,6 +36,8 @@ var session: Node = null
 var vfx: Node2D
 
 func _ready() -> void:
+	unit_allegiance_changed.connect(func(unit, _old_side, _new_side): _clear_focus(unit))
+	unit_fallen.connect(_clear_focus)
 	reload_defense_layout()
 	if tide_enabled:
 		tide = preload("res://src/combat/TideController.gd").new(self)
@@ -331,13 +333,24 @@ func nearest_human(unit: Node2D, radius: float) -> Node2D:
 			best_distance = distance
 	return best
 
+func _clear_focus(unit: Node2D) -> void:
+	var roster := roster_engine()
+	if roster != null and roster.state.get("focus_fire_id","") == unit.instance_id:
+		roster.state.erase("focus_fire_id")
+		unit.queue_redraw()
+
 func nearest_shootable(unit: Node2D) -> Node2D:
 	var best: Node2D
 	var distance := INF
+	var roster := roster_engine()
+	var focus_id: String = roster.state.get("focus_fire_id","") if roster != null and unit.side == "xianghuo" else ""
 	for target in targets:
-		if can_attack(unit, target) and unit.position.distance_to(target.position) < distance:
+		if not can_attack(unit, target): continue
+		if target.instance_id == focus_id: return target
+		var candidate_distance := unit.position.distance_to(target.position)
+		if candidate_distance < distance:
 			best = target
-			distance = unit.position.distance_to(target.position)
+			distance = candidate_distance
 	return best
 
 func can_attack(unit: Node2D, target: Node2D) -> bool:
