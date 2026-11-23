@@ -89,7 +89,8 @@ P9_MINIMAP_GUARD,守香
 P9_MINIMAP_TIDE,鬼潮
 P9_DEBUG_FPS,帧率 %d · 单位 %d · 速度 %.0f · %s
 P9_DEBUG_UNIT,%s %s · 生命 %s · %s
-P9_RITUAL_PREVIEW,%s · 读条 %.1f 秒 · 消耗 %.1f 香火
+P9_RITUAL_PREVIEW,%s · 读条 %.1f 秒 · 确认即付 %.1f 香火
+P9_RITUAL_CASTER_HP,%s · 生命 %d/%d · 中断不退香火
 P9_RITUAL_STARTED,点册已开始。继续战斗后读条推进，其他编制照常作战。
 P9_MUTATE_PREVIEW,%s → %s · %.0f 香火
 P9_MUTATE_BASE,形态基础值 · 生命 %s　攻击 %s　防御 %s

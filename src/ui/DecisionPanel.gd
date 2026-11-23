@@ -927,6 +927,7 @@ func open_ritual() -> void:
 	if growth_enabled() and session.growth.has(caster, "I17"):
 		var loss := roundi(100.0 * float(session.growth.params("I17").progress_loss))
 		help = tr("P9_RITUAL_NEEDLE_HELP") % [caster.display_name, loss]
+	help += "\n" + tr("P9_RITUAL_CASTER_HP") % [caster.display_name, ceili(caster.hp), ceili(caster.max_hp)]
 	_label(content, help, 18).name = "RitualConditions"
 	target_hint = _label(content, tr("P9_RITUAL_PICK"), 18)
 	var row := HBoxContainer.new()

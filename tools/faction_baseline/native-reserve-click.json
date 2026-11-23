@@ -1,0 +1,16 @@
+{
+  "caster": "H01_10",
+  "caster_hp": 55.25,
+  "click_ms": 45.601,
+  "conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 56/85 · 中断不退香火",
+  "end_reason": "fallen",
+  "ended": 31.2666666666662,
+  "instance": "G12_tide_26",
+  "label": "力士尸（门外增援）  /  生命 70  /  距离 7.8 身位",
+  "ok": true,
+  "paid": 4.0,
+  "preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+  "seconds": 23.0166666666666,
+  "target": "G12",
+  "visible": true
+}

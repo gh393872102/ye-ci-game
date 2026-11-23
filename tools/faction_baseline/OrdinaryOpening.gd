@@ -52,6 +52,9 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 
 var repair_policy := ""
 
+var reading_limit := 2
+var second_read_after := 0.0
+
 func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false, additional_training: Array = []) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
@@ -226,7 +229,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			if not latest.has("ended") and (not is_instance_valid(reader) or reader.dead or not reader.brain.channel.active):
 				latest.ended = sim.simulation_time
 				latest.end_reason = "fallen" if not is_instance_valid(reader) or reader.dead else reader.brain.channel.last_result
-		if order_readings and sim.simulation_time>=read_after and tick % 60 == 0 and row.read_orders.size()<2 and session.running and is_instance_valid(reader) and not reader.dead:
+		if order_readings and sim.simulation_time>=read_after and tick % 60 == 0 and row.read_orders.size()<reading_limit and (row.read_orders.is_empty() or sim.simulation_time>=second_read_after) and session.running and is_instance_valid(reader) and not reader.dead:
 			var target: Node2D
 			for enemy in sim.targets:
 				if not read_tag.is_empty() and read_tag not in enemy.tags: continue
@@ -244,6 +247,9 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 					if index >= 0 and picker != null:
 						picker.select(index)
 						picker.item_selected.emit(index)
+						reading.caster = reader.instance_id
+						reading.caster_hp = reader.hp
+						reading.conditions = panel.find_child("RitualConditions",true,false).text
 						reading.label = picker.get_item_text(index)
 						reading.preview = panel.target_hint.text
 						if OS.get_environment("YE_CI_CAPTURE_BOSS_READ")=="1" and "门外增援" in reading.label and DisplayServer.get_name()!="headless":
