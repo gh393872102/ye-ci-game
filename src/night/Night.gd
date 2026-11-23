@@ -124,6 +124,12 @@ func resolve_event(id: String) -> void:
 	_save_state()
 	refresh()
 
+func treat_at_rest(uid: String) -> void:
+	var answer: Dictionary = run.treat_at_rest(uid)
+	if answer.ok: answer = _save_state()
+	_feedback(answer)
+	refresh()
+
 func finish_rest(reserve_id := "", regroup := false) -> void:
 	_feedback(run.finish_rest(reserve_id,regroup))
 	_save_state()

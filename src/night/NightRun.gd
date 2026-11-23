@@ -384,6 +384,24 @@ func rest_reserve_options() -> Array[Dictionary]:
 func rest_health_after(unit: Dictionary) -> float:
 	return minf(float(unit.max_hp),float(unit.hp) + float(unit.max_hp) * float(config.rest.heal_ratio))
 
+func treatment_health_after(unit: Dictionary) -> float:
+	return minf(unit.max_hp,unit.hp + unit.max_hp * config.rest.treatment_ratio)
+
+func can_treat(unit: Dictionary) -> bool:
+	return _phase("rest") and state.mode=="shouxiang" and state.has("opening_faction") and state.roster.size()>=2 and unit.hp>0 and treatment_health_after(unit)>rest_health_after(unit) and state.incense>=config.rest.treatment_cost
+
+func treat_at_rest(uid: String) -> Dictionary:
+	for unit in state.get("roster",[]):
+		if unit.uid!=uid: continue
+		if not can_treat(unit): return _reject("P5_INVALID_CHOICE")
+		var before: float = unit.hp
+		unit.hp = treatment_health_after(unit)
+		state.incense -= config.rest.treatment_cost
+		_record("rest_treatment",{"uid":uid,"before":before,"after":unit.hp,"cost":config.rest.treatment_cost})
+		_complete_node()
+		return _ok()
+	return _reject("P5_INVALID_CHOICE")
+
 func finish_rest(reserve_id := "", regroup := false) -> Dictionary:
 	if not _phase("rest"):
 		return _reject("P5_WRONG_PHASE")

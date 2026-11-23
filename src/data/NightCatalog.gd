@@ -34,11 +34,11 @@ static func read_config(path: String, profiles: Dictionary) -> Dictionary:
 					result.errors.append("Invalid initial night unit reference")
 				else:
 					_number(item,"count",1,result.errors)
-	for key in ["heal_ratio","incense","names"]:
+	for key in ["heal_ratio","incense","names","treatment_ratio","treatment_cost"]:
 		_number(config.rest,key,0,result.errors)
 	for key in ["limit","minimum_incense","minimum_names","minimum_hp_ratio"]:
 		_number(config.mercy,key,0,result.errors)
-	if config.rest.get("heal_ratio",2) > 1 or config.mercy.get("minimum_hp_ratio",2) > 1 or config.mercy.get("limit",2) != 1:
+	if config.rest.get("treatment_ratio",2) > 1 or config.rest.get("heal_ratio",2) > 1 or config.mercy.get("minimum_hp_ratio",2) > 1 or config.mercy.get("limit",2) != 1:
 		result.errors.append("Invalid night healing/mercy range")
 	for key in config.build_caps:
 		if typeof(config.build_caps[key]) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(config.build_caps[key])):

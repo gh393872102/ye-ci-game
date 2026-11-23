@@ -658,8 +658,35 @@ func _rest() -> void:
 		var guard: Dictionary = host.run.state.roster[0]
 		_focus.text = tr("NIGHT_REST_HEAL_SOLO") % [_unit_name(guard.id),guard.hp,host.run.rest_health_after(guard)]
 	if reserves.is_empty():
-		Ink.label(_page, str(host.run.current_node().description), Rect2(477, 342, 966, 132), 31, Ink.PAPER, true)
-		Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)
+		Ink.label(_page, str(host.run.current_node().description), Rect2(477, 324, 966, 86), 31, Ink.PAPER, true)
+		if host.run.state.has("opening_faction") and host.run.state.mode=="shouxiang" and host.run.state.roster.size()>=2:
+			Ink.label(_page,"选择集中疗伤，只治疗选中的队员，本次不领取香火和名分。",Rect2(477,418,966,46),22,Ink.MUTED)
+			var rows := Ink.scroll_rows(_page,Rect2(477,470,966,190),4)
+			rows.name = "RestHealthForecast"
+			for unit in host.run.state.roster:
+				var line := HBoxContainer.new()
+				rows.add_child(line)
+				var face := TextureRect.new()
+				face.texture = Appearance.bust_texture(unit.id)
+				face.custom_minimum_size = Vector2(58,40)
+				face.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+				face.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+				line.add_child(face)
+				var hp := Label.new()
+				var after: float = host.run.rest_health_after(unit)
+				hp.text = "%s　休整 %.2f → %.2f / %.0f" % [_unit_name(unit.id),unit.hp,after,unit.max_hp]
+				hp.add_theme_font_size_override("font_size",22)
+				line.add_child(hp)
+				if host.run.treatment_health_after(unit)>after:
+					var care := Button.new()
+					care.text = "集中疗伤至 %.2f · %d香火" % [host.run.treatment_health_after(unit),host.run.config.rest.treatment_cost]
+					care.add_theme_font_size_override("font_size",22)
+					care.disabled = not host.run.can_treat(unit)
+					care.pressed.connect(host.treat_at_rest.bind(unit.uid))
+					line.add_child(care)
+			_focus.tooltip_text = tr("P5_REST_HELP")
+		else:
+			Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)
 		return
 	Ink.label(_page, tr("NIGHT_REST_RESERVE_TITLE" if host.run.state.roster.is_empty() else "NIGHT_REST_LAST_GUARD") % host.run.state.opening_faction, Rect2(466,305,980,62),34,Ink.PAPER,true)
 	Ink.label(_page, tr("NIGHT_REST_RESERVE_HELP") % int(host.run.state.incense),Rect2(466,373,990,50),22,Ink.MUTED)

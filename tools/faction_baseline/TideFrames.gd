@@ -156,6 +156,11 @@ func run() -> void:
 		result.passed = passed
 		filename = "native-post-cover.json"
 		if OS.get_cmdline_user_args().has("--boss-brief"): filename = "native-boss-brief.json"
+	if OS.get_cmdline_user_args().has("--camp-health"):
+		result.camp = await probe_camp_health(host)
+		result.passed = passed and result.camp.passed
+		passed = result.passed
+		filename = "native-camp-health.json"
 	if not rear.is_empty():
 		result.rear = rear
 		passed = passed and rear.passed
@@ -534,4 +539,41 @@ func probe_post_cover(host: Node) -> Dictionary:
 		host.continue_run()
 		if not host.run.state.roster.any(func(unit): return unit.id=="H01" and unit.post==target): return row
 	row.passed = is_equal_approx(cash,host.run.state.incense)
+	return row
+
+func probe_camp_health(host: Node) -> Dictionary:
+	var row := {"passed":false,"forecasts":[]}
+	var source := OS.get_environment("YE_CI_CAMP_MAP")
+	if source.is_empty() or DirAccess.copy_absolute(source,host.save_path) != OK: return row
+	host.continue_run()
+	await RenderingServer.frame_post_draw
+	var rows: Node = host.panel.find_child("RestHealthForecast",true,false)
+	if rows == null or rows.get_child_count()!=host.run.state.roster.size(): return row
+	var expected := {}
+	var selected_care: Button
+	var cash: float = host.run.state.incense
+	var names: float = host.run.state.names
+	for i in rows.get_child_count():
+		var line: Node = rows.get_child(i)
+		var unit: Dictionary = host.run.state.roster[i]
+		var after: float = host.run.rest_health_after(unit)
+		if line.get_child(0).texture == null or ("%.2f → %.2f" % [unit.hp,after]) not in line.get_child(1).text: return row
+		row.forecasts.append(line.get_child(1).text)
+		expected[unit.uid] = unit.hp
+		if unit.id=="H01" and line.get_child_count()==3:
+			selected_care = line.get_child(2)
+			expected[unit.uid] = host.run.treatment_health_after(unit)
+	if selected_care==null or selected_care.disabled: return row
+	var button: Button = selected_care
+	if not button.is_visible_in_tree() or not root.get_visible_rect().encloses(button.get_global_rect()): return row
+	root.get_texture().get_image().save_webp("/tmp/r30-rest.webp",false,0.86)
+	var start := Time.get_ticks_usec()
+	click(button)
+	await RenderingServer.frame_post_draw
+	row.click_to_map_ms = (Time.get_ticks_usec()-start)/1000.0
+	if host.run.state.phase!="map": return row
+	host.continue_run()
+	row.balance_after = host.run.state.incense
+	row.paid = cash-host.run.state.incense
+	row.passed = row.paid==4 and host.run.state.names==names and host.run.state.phase=="map" and expected.size()==host.run.state.roster.size() and host.run.state.roster.all(func(u):return expected.has(u.uid) and is_equal_approx(u.hp,expected[u.uid]))
 	return row

@@ -1,5 +1,39 @@
 # 夜祠 · 阵营与构筑优化档案
 
+## 2026-11-23 · 两人退守，谁来守册
+
+渡口、松溪、槐桥、石埠四组均以同一名晚和青笺通过第八节点。两人守后厢，另付9香火重招前战阵亡的霜盏守册、8香火训练她；霜盏撑到队友可以活着进入末战。四组全夜程主动支出55香火，末战守到47.18–48.28秒，仍失守。
+
+**营地实改。** 普通守方阵营夜程至少两人存活时，玩家可以把整队休整改为一次集中疗伤。正常休整每人恢复25%最大生命并领取4香火、1名分（资源封顶）；集中疗伤消耗4香火，仅一人恢复50%最大生命，放弃两项补给。治疗受生命上限约束，普通休整已能回满的队员没有额外付费选项。界面按人显示头像、两种预期生命。此选择来自营地固定入口，既有奖励候选权重与抽样次数均未变。[营地实际画面](camp-treatment.jpg)
+
+**同价对照。** 基于 `3bf82fb`，Godot 4.7.2。标准 R01、编制17、香火20；18条普通纯守香司夜程，共82场自然结算战斗，未使用救场续关。第八节点规则需守足240秒，末战360秒。表中“带两人”同时要求进入末战并保留晚、青笺此前的两个 UID。全程支出包括后续招募和成功下达的施法；提前失守的路线自然少花。对比第八战同价时，用进场当刻的9或17香火投入。
+
+| 路线 | 种子数 | 全程主动支出 | 第八节点结束秒数 | 原两人进末战 | 末战失守秒数 |
+|---|---:|---:|---:|---:|---:|
+| 两人后厢，空名册 | 2 | 34 | 215.77 | 0/2 | 未到达 |
+| 晚守册、青笺后厢，请霜盏合守 | 4 | 43 | 240.00 | 0/4 | 39.87 |
+| 两人后厢，霜盏独守册 | 4 | 43 | 237.92 | 0/4 | 未到达 |
+| 两人后厢，训练守册的霜盏 | 4 | 55 | 240.00 | 4/4 | 47.18–48.28 |
+| 两人后厢，训练后厢的晚，霜盏守册 | 2 | 51 | 237.92 | 0/2 | 未到达 |
+| 营地集中疗伤给晚，晚守册，青笺后厢 | 2 | 50 | 240.00 | 0/2 | 40.87 |
+
+两人都退后、无人守册时，队员仍然活着，名册却在215.77秒丢失。第八节点只花9香火重招霜盏，她单独守册至237.92秒。同样在第八节点花17香火，训练谁决定两人能否通过。霜盏是第五节点牺牲后的同名重招，付费和落位均核对过；晚与青笺本人从未重招。第九节点两人尚在，单人请援选项不开放。末战只有两人，不能复用上轮三人守过60秒的结论。
+
+**疗伤反例。** 渡口、石埠第六节点，晚25/85生命，青笺满血。集中疗伤后晚67.50，普通休整预览46.25。两次付费路线均未保住第八节点留守的晚。额外血量在这条路线上不足以替代守方的第三个岗位。新选择的其他阵营收益尚待测。
+
+**回归与失败。** 普通夜程207项、领域70项通过，含错误阶段、余额不足、无效目标、重复提交、治疗上限及补给互斥。早期诊断从基础表读取霜盏价格遇到缺键，且旧脚本把新路线名的 relay 后缀识别为另一个阵营的训练策略，多花32香火。按账本发现后限定匹配范围，四个种子从头重跑。两类异常运行均不计入18条路线。首次并行渲染被终止，重跑原生X11、Mesa llvmpipe、1920×1080，四路增44鬼，同屏40–44；预热30帧，随后180帧帧耗 P50/P95/P99 为 66.144/93.896/214.002 ms。12次自动Q键到菜单为 63.251/110.544/110.544 ms；从真实营地存档鼠标选择治疗到地图绘制 154.559 ms，扣4，读档复核两人生命和名分。石埠另测180帧，P50/P95/P99 为78.928/114.252/195.661 ms，营地点击到地图绘制217.780 ms。[石埠回执](../../tools/faction_baseline/native-camp-health-first.json)。两轮均为软件渲染，未做真人或RTX 2060验收。[帧序列及治疗回执](../../tools/faction_baseline/native-camp-health.json)
+
+**下一项。** 验证末战第三岗能否在普通第九节点的正常资源内补齐，分别记录首次入队和同名重招。同步复跑另一司对集中疗伤的受益与机会成本。
+
+复跑示例：`godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 repair-inner-eighth-drill 渡口`。
+
+- 两人后厢，空名册　[渡口](../../tools/faction_baseline/post-渡口-repair-inner-eighth-rear-0.json) · [松溪](../../tools/faction_baseline/post-松溪-repair-inner-eighth-rear-0.json)
+- 晚守册、青笺后厢，请霜盏合守　[渡口](../../tools/faction_baseline/post-渡口-repair-inner-eighth-front-0.json) · [松溪](../../tools/faction_baseline/post-松溪-repair-inner-eighth-front-0.json) · [槐桥](../../tools/faction_baseline/post-槐桥-repair-inner-eighth-front-0.json) · [石埠](../../tools/faction_baseline/post-石埠-repair-inner-eighth-front-0.json)
+- 两人后厢，霜盏独守册　[渡口](../../tools/faction_baseline/post-渡口-repair-inner-eighth-relay-0.json) · [松溪](../../tools/faction_baseline/post-松溪-repair-inner-eighth-relay-0.json) · [槐桥](../../tools/faction_baseline/post-槐桥-repair-inner-eighth-relay-0.json) · [石埠](../../tools/faction_baseline/post-石埠-repair-inner-eighth-relay-0.json)
+- 两人后厢，训练守册的霜盏　[渡口](../../tools/faction_baseline/post-渡口-repair-inner-eighth-drill-0.json) · [松溪](../../tools/faction_baseline/post-松溪-repair-inner-eighth-drill-0.json) · [槐桥](../../tools/faction_baseline/post-槐桥-repair-inner-eighth-drill-0.json) · [石埠](../../tools/faction_baseline/post-石埠-repair-inner-eighth-drill-0.json)
+- 两人后厢，训练后厢的晚，霜盏守册　[渡口](../../tools/faction_baseline/post-渡口-repair-inner-eighth-reader-0.json) · [石埠](../../tools/faction_baseline/post-石埠-repair-inner-eighth-reader-0.json)
+- 营地集中疗伤给晚，晚守册，青笺后厢　[渡口](../../tools/faction_baseline/post-渡口-repair-inner-eighth-treat-0.json) · [石埠](../../tools/faction_baseline/post-石埠-repair-inner-eighth-treat-0.json)
+
 ## 2026-11-23 · 带青笺活到末战
 
 四组普通种子各跑三条完整纯守香司夜程。青笺第五节点换去后厢后，四组都能原人满血进入末战，但晚在第八节点阵亡。两条同花46香火的路线，带青笺守到40.87秒，带晚守到40.97秒（石埠）。十二条路线均未通关。 布防菜单为每个可调动的具名角色显示已有头像、当前生命和上限；岗位置换提示列出到岗人数/容量及原岗留守人。玩家能据此预判调走残血队友后谁来守名册。[1080p 换岗实拍](reserve-roster.jpg)

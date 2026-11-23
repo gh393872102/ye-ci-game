@@ -54,11 +54,34 @@ func check_reserve_posts() -> void:
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 	night.choose_node("n01")
 	check(not night.reserve_post(uid,"post_table_hall").ok,"live battle rejects free map reassignment")
+func check_camp_treatment() -> void:
+	var night = Run.new()
+	night.new_p10_run("shouxiang","example","渡口","R01",[],"","守香司")
+	var patient: Dictionary = night.state.roster[0]
+	var partner: Dictionary = night.state.roster[1]
+	patient.hp = 8.0
+	partner.hp = 10.0
+	check(not night.treat_at_rest(patient.uid).ok,"treatment rejected outside camp")
+	night.state.current_node_id="n06"
+	night.state.phase="rest"
+	night.state.incense=3
+	check(not night.treat_at_rest(patient.uid).ok and patient.hp==8,"insufficient incense preserves health")
+	night.state.incense=4
+	var names: float = night.state.names
+	patient.hp = patient.max_hp-1
+	check(not night.treat_at_rest(patient.uid).ok and night.state.incense==4,"normal rest already reaches cap; no needless fee")
+	patient.hp = 8.0
+	check(not night.treat_at_rest("unknown_uid").ok and night.state.incense==4,"stale treatment target preserves balance")
+	check(night.treat_at_rest(patient.uid).ok and patient.hp==8+patient.max_hp*0.5,"focused care restores half maximum health")
+	check(partner.hp==10 and night.state.incense==0 and night.state.names==names,"treatment pays four without team heal or supplies")
+	check(not night.treat_at_rest(patient.uid).ok and night.state.phase=="map","completed camp rejects second treatment")
+
 func run() -> void:
 	await get_tree().process_frame
 	Run=load("res://src/night/NightRun.gd")
 	Save=load("res://src/night/NightSave.gd")
 	check_reserve_posts()
+	check_camp_treatment()
 	var white = make("duoming")
 	white.state.roster=[]
 	for index in 120: white.state.roster.append(white._unit("G01","ghost_main_path"))

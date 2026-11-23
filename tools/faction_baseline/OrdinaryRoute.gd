@@ -52,6 +52,15 @@ const FIFTH_TRAIN := {
 	"trio-fifth-lamp-three": ["H06","H06","H06"],
 	"trio-fifth-lamp-mixed": ["H03","H06","H06"],
 }
+# Buy the same guard at the same price, varying only the eighth battle's posts.
+const EIGHTH_GUARD := {
+	"repair-inner-eighth-treat": {"rear":false,"aid":false},
+	"repair-inner-eighth-rear": {"rear":true,"aid":false},
+	"repair-inner-eighth-front": {"rear":false,"aid":true},
+	"repair-inner-eighth-drill": {"rear":true,"aid":true},
+	"repair-inner-eighth-reader": {"rear":true,"aid":true},
+	"repair-inner-eighth-relay": {"rear":true,"aid":true},
+}
 const REGROUP_TRAIN := {"trio-regroup":"","trio-train-wan":"H01","trio-train-shen":"H08","trio-gear-shen":""}
 const FIFTH_POSTS := {
 	"trio-aid": {"H01":"post_register","H03":"post_register","H06":"post_register"},
@@ -79,6 +88,7 @@ func run() -> void:
 		placements[key] = FIFTH_POSTS["trio-reader"].duplicate()
 		placements[key].H06 = "post_hall_door"
 	placements["repair-inner-qing-carry"] = FIFTH_POSTS["trio-priest"]
+	for key in EIGHTH_GUARD: placements[key] = FIFTH_POSTS["trio-priest"]
 	for key in REGROUP_TRAIN: placements[key] = FIFTH_POSTS["trio-reader"]
 	for key in placements:
 		var split: Dictionary = REAR_POLICIES["rear-read-beam"].duplicate(true)
@@ -86,6 +96,7 @@ func run() -> void:
 		split.fifth_posts = placements[key]
 		if key in FIFTH_TRAIN and not FIFTH_TRAIN[key].is_empty():
 			split.train.n05 = FIFTH_TRAIN[key][0]
+		if key in EIGHTH_GUARD: split.train.n05 = "H06"
 		if key in REGROUP_TRAIN and REGROUP_TRAIN[key] != "": split.train.n08 = REGROUP_TRAIN[key]
 		if key.begins_with("trio-") or key.begins_with("repair-"):
 			split.posts = REAR_POLICIES["rear-hall-trained"].posts
@@ -110,7 +121,7 @@ func run() -> void:
 	var compare_posts := policy.ends_with("-posts") or compare_lamp
 	var duo := policy.ends_with("-duo")
 	var early := policy.ends_with("-early") or duo
-	var relay := policy.ends_with("-relay") or compare_posts or early
+	var relay := (camp and policy.ends_with("-relay")) or compare_posts or early
 	var two_levels := relay or policy.ends_with("-veteran")
 	var reserve_id := "H18" if policy.begins_with("camp-mirror") else "H20"
 	var upgraded := policy == "upgrade"
@@ -136,9 +147,10 @@ func run() -> void:
 					"n03": post_orders = orders.get("posts",{})
 					"n05": post_orders = orders.get("fifth_posts",{})
 					"n08":
+						if policy in EIGHTH_GUARD and EIGHTH_GUARD[policy].rear: post_orders = {"H01":"post_rear"}
 						if policy in ["trio-return","repair-inner-pair-eighth","repair-inner-pair-both"]: post_orders = {"H01":"post_register"}
 					"n10":
-						if policy in ["repair-inner-qing-control","repair-inner-qing-carry","repair-inner-qing-hold"]:
+						if policy in EIGHTH_GUARD or policy in ["repair-inner-qing-control","repair-inner-qing-carry","repair-inner-qing-hold"]:
 							post_orders = {"H01":"post_register","H03":"post_register"}
 						elif policy.begins_with("repair-inner-pair-"):
 							post_orders = {"H01":"post_rear" if policy.ends_with("-eighth") else "post_register"}
@@ -174,6 +186,9 @@ func run() -> void:
 					aid_post = "post_register" if policy in ["aid-register","relief-open"] else "post_hall_door"
 				var hire_early: bool = early and night.state.current_node_id == "n08"
 				var ordered_id := "H19" if hire_early else ""
+				if policy in EIGHTH_GUARD and EIGHTH_GUARD[policy].aid and night.state.current_node_id=="n08":
+					ordered_id = "H06"
+					aid_post = "post_register"
 				if paired_talisman:
 					if night.state.current_node_id == "n01": ordered_id = "H17"
 					if second: ordered_id = "H19" if policy == "borrow" else "H22"
@@ -229,6 +244,7 @@ func run() -> void:
 					delay = 8.0
 					ordered_id = "H02"
 				var train_id: String = orders.get("train",{}).get(night.state.current_node_id,"")
+				if policy=="repair-inner-eighth-reader" and night.state.current_node_id=="n08": train_id = "H01"
 				var items: Array = []
 				if fifth and orders.get("ritual_gear",false):
 					for item in ["I17","Y01","Y11"]:
@@ -242,11 +258,12 @@ func run() -> void:
 				var additional: Array = FIFTH_TRAIN.get(policy,[]).slice(1) if fifth else []
 				var final_read: bool = policy=="repair-inner-pair-final-read" and night.state.current_node_id=="n10"
 				if final_read: train_id = "H01"
-				if policy in ["repair-inner-qing-control","repair-inner-qing-carry"] and night.state.current_node_id=="n10":
+				if (policy in EIGHTH_GUARD or policy in ["repair-inner-qing-control","repair-inner-qing-carry"]) and night.state.current_node_id=="n10":
 					final_read = true
 					reading_limit = 1
 				probe_boss_gate = final_read and night.state.roster.any(func(u): return u.id=="H01")
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,fifth and (policy == "reserve-trained" or camp),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional)
+				var drill_aid: bool = policy=="repair-inner-eighth-drill" and night.state.current_node_id=="n08"
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,drill_aid or (fifth and (policy == "reserve-trained" or camp)),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional)
 				step.battle = result
 				ok = result.get("settled",false)
 				if not items.is_empty():
@@ -260,7 +277,7 @@ func run() -> void:
 					ok = ok and result.get("relief",{}).get("placed",false)
 				if not ordered_id.is_empty() and delay < 0:
 					var receipt: Dictionary = result.get("aid",{})
-					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == (8.0 if fifth else 10.0)
+					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == (9.0 if ordered_id=="H06" else (8.0 if fifth else 10.0))
 				if hire_early:
 					ok = ok and result.get("recruit_gear",{}).get("ok",false)
 				if train_reserve:
@@ -297,11 +314,22 @@ func run() -> void:
 				if camp: step.offered = night.state.offers.map(func(card): return card.id)
 				ok = night.leave_node().ok
 			"rest":
+				var rest_checkpoint := OS.get_environment("YE_CI_EIGHTH_CAMP_SAVE")
+				if night.state.current_node_id=="n06" and not rest_checkpoint.is_empty():
+					if not night.save(rest_checkpoint).ok:
+						quit(2)
+						return
 				var reserve: String = orders.get("camp",{}).get(night.state.current_node_id,"")
 				if policy in FIFTH_POSTS and policy != "trio-aid" and night.state.current_node_id == "n06" and not night.state.roster.is_empty():
 					reserve = "" # Post comparisons take the usual heal for a surviving guard.
 				if (orders.get("ritual_gear",false) or orders.get("read",false)) and not night.rest_reserve_options().any(func(o): return o.id==reserve and o.allowed): reserve = ""
-				if not reserve.is_empty():
+				if policy=="repair-inner-eighth-treat" and night.state.current_node_id=="n06":
+					var patient: Dictionary = night.state.roster.filter(func(u):return u.id=="H01")[0]
+					var before_hp: float = patient.hp
+					var before_cash: float = night.state.incense
+					ok = night.treat_at_rest(patient.uid).ok
+					step.treatment = {"uid":patient.uid,"before":before_hp,"after":patient.hp,"paid":before_cash-night.state.incense}
+				elif not reserve.is_empty():
 					var id := reserve
 					var cash: float = night.state.incense
 					var regroup: bool = (policy in REGROUP_TRAIN or policy in FIFTH_TRAIN) and night.state.current_node_id == "n06" and night.rest_reserve_options().any(func(o): return o.id==id and o.can_regroup)
