@@ -1,0 +1,976 @@
+{
+	"save_sha256": "a0b3b4a4b2c5201ef8483cb6fb5453cba61f585df7b12aaa94415ae3bfc65da2",
+	"seed": "渡口",
+	"trials": [
+		{
+			"breaker_entries": {
+				"G12_tide_12": 14.216666666667,
+				"G12_tide_25": 136.516666666667,
+				"G12_tide_26": 20.4166666666668
+			},
+			"deaths": [
+				{
+					"id": "H13_32",
+					"post": "post_register",
+					"seconds": 29.6666666666663
+				},
+				{
+					"id": "H09_11",
+					"post": "post_register",
+					"seconds": 38.4666666666658
+				},
+				{
+					"id": "H11_10",
+					"post": "post_register",
+					"seconds": 151.733333333346
+				}
+			],
+			"executions": [
+				{
+					"detail": "1.0",
+					"kind": "roster_names_drained",
+					"names": 11.0,
+					"seconds": 27.733333333333,
+					"unit": "H13_32"
+				},
+				{
+					"detail": "G01_tide_29",
+					"kind": "roster_execution",
+					"names": 11.0,
+					"seconds": 27.733333333333,
+					"unit": "H13_32"
+				}
+			],
+			"foreign": {},
+			"ok": true,
+			"orders": [
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 50.0,
+					"balance_before": 60.0,
+					"catalog_price": 10.0,
+					"guards": [
+						"石婆",
+						"铁肩"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_32",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 50 香火",
+					"time": 15.016666666667,
+					"vacancies": 1
+				}
+			],
+			"plan": {
+				"budget": 150,
+				"guards": 2,
+				"id": "no_rehire",
+				"interval_ticks": 180,
+				"limit": 20,
+				"no_rehire": true,
+				"rotation": true,
+				"train": false
+			},
+			"result": {
+				"elapsed": 163.716666666689,
+				"first_breach": {
+					"door": "door_hall",
+					"time": 4.83333333333332
+				},
+				"humans_alive": 0,
+				"incense": 60.0,
+				"killer_id": "G01",
+				"mode": "shouxiang",
+				"names": 8.00000000000017,
+				"outcome": "defeat",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 196.28333333338,
+				"tide_alive": 46
+			},
+			"roster": [
+				[
+					"night_2",
+					"H11",
+					70.4875,
+					"post_register"
+				],
+				[
+					"n03:H09_12",
+					"H09",
+					62.0,
+					"post_register"
+				]
+			],
+			"spent": 10.0,
+			"start_cash": 60.0,
+			"start_names": 12.0
+		},
+		{
+			"breaker_entries": {
+				"G12_tide_12": 14.216666666667,
+				"G12_tide_25": 136.516666666667,
+				"G12_tide_26": 20.4166666666668,
+				"G12_tide_84": 276.516666666744,
+				"G12_tide_85": 276.516666666744,
+				"G12_tide_98": 336.11666666669
+			},
+			"deaths": [
+				{
+					"id": "H13_32",
+					"post": "post_register",
+					"seconds": 29.6666666666663
+				},
+				{
+					"id": "H13_33",
+					"post": "post_register",
+					"seconds": 145.383333333341
+				},
+				{
+					"id": "H09_11",
+					"post": "post_register",
+					"seconds": 149.016666666677
+				},
+				{
+					"id": "H11_10",
+					"post": "post_register",
+					"seconds": 156.716666666684
+				},
+				{
+					"id": "H11_68",
+					"post": "post_register",
+					"seconds": 169.916666666694
+				},
+				{
+					"id": "H11_69",
+					"post": "post_register",
+					"seconds": 183.950000000039
+				},
+				{
+					"id": "H11_71",
+					"post": "post_register",
+					"seconds": 207.500000000057
+				},
+				{
+					"id": "H13_70",
+					"post": "post_register",
+					"seconds": 265.066666666754
+				},
+				{
+					"id": "H09_67",
+					"post": "post_register",
+					"seconds": 273.866666666746
+				},
+				{
+					"id": "H09_101",
+					"post": "post_register",
+					"seconds": 326.650000000032
+				},
+				{
+					"id": "H13_93",
+					"post": "post_register",
+					"seconds": 330.866666666694
+				}
+			],
+			"ending": {
+				"battles": [
+					{
+						"elapsed": 180.000000000035,
+						"node_id": "n01",
+						"outcome": "victory",
+						"reason": "P4_END_HELD_TO_DAYBREAK",
+						"reward_incense": 11.8000000000049,
+						"reward_names": 4.0
+					},
+					{
+						"elapsed": 210.000000000059,
+						"node_id": "n03",
+						"outcome": "victory",
+						"reason": "P4_END_HELD_TO_DAYBREAK",
+						"reward_incense": 0.0,
+						"reward_names": 0.0
+					},
+					{
+						"elapsed": 210.000000000059,
+						"node_id": "n05",
+						"outcome": "victory",
+						"reason": "P4_END_HELD_TO_DAYBREAK",
+						"reward_incense": 4.47600000000195,
+						"reward_names": 0.0
+					},
+					{
+						"elapsed": 240.000000000083,
+						"node_id": "n08",
+						"outcome": "victory",
+						"reason": "P4_END_HELD_TO_DAYBREAK",
+						"reward_incense": 0.0,
+						"reward_names": 1.0
+					},
+					{
+						"elapsed": 360.000000000001,
+						"node_id": "n10",
+						"outcome": "victory",
+						"reason": "P4_END_HELD_TO_DAYBREAK",
+						"reward_incense": 12.0,
+						"reward_names": 4.0
+					}
+				],
+				"living": [
+					[
+						"H11",
+						"n10:H11_88",
+						25.2575000000001
+					],
+					[
+						"H09",
+						"n10:H09_102",
+						62.0
+					],
+					[
+						"H13",
+						"n10:H13_103",
+						85.0
+					]
+				],
+				"mercy": false,
+				"names": 11.0,
+				"outcome": "victory",
+				"reason": "P5_NIGHT_COMPLETE"
+			},
+			"executions": [
+				{
+					"detail": "1.0",
+					"kind": "roster_names_drained",
+					"names": 11.0,
+					"seconds": 27.733333333333,
+					"unit": "H13_32"
+				},
+				{
+					"detail": "G01_tide_29",
+					"kind": "roster_execution",
+					"names": 11.0,
+					"seconds": 27.733333333333,
+					"unit": "H13_32"
+				},
+				{
+					"detail": "1.0",
+					"kind": "roster_names_drained",
+					"names": 10.0,
+					"seconds": 180.300000000036,
+					"unit": "H13_70"
+				},
+				{
+					"detail": "G01_tide_18",
+					"kind": "roster_execution",
+					"names": 10.0,
+					"seconds": 180.300000000036,
+					"unit": "H13_70"
+				},
+				{
+					"detail": "1.0",
+					"kind": "roster_names_drained",
+					"names": 9.0,
+					"seconds": 196.866666666715,
+					"unit": "H13_70"
+				},
+				{
+					"detail": "G01_tide_57",
+					"kind": "roster_execution",
+					"names": 9.0,
+					"seconds": 196.866666666715,
+					"unit": "H13_70"
+				},
+				{
+					"detail": "1.0",
+					"kind": "roster_names_drained",
+					"names": 8.0,
+					"seconds": 272.583333333414,
+					"unit": "H13_93"
+				},
+				{
+					"detail": "G01_tide_79",
+					"kind": "roster_execution",
+					"names": 8.0,
+					"seconds": 272.583333333414,
+					"unit": "H13_93"
+				},
+				{
+					"detail": "1.0",
+					"kind": "roster_names_drained",
+					"names": 7.0,
+					"seconds": 281.21666666674,
+					"unit": "H13_93"
+				},
+				{
+					"detail": "G01_tide_82",
+					"kind": "roster_execution",
+					"names": 7.0,
+					"seconds": 281.21666666674,
+					"unit": "H13_93"
+				}
+			],
+			"foreign": {},
+			"ok": true,
+			"orders": [
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 50.0,
+					"balance_before": 60.0,
+					"catalog_price": 10.0,
+					"guards": [
+						"石婆",
+						"铁肩"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_32",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 50 香火",
+					"time": 20.0166666666668,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 39.3999999999987,
+					"balance_before": 49.3999999999987,
+					"catalog_price": 10.0,
+					"guards": [
+						"石婆",
+						"铁肩"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_33",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 39 香火",
+					"time": 30.0166666666662,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H09",
+						"H13"
+					],
+					"balance_after": 48.0,
+					"balance_before": 60.0,
+					"catalog_price": 12.0,
+					"guards": [
+						"石婆"
+					],
+					"id": "H09",
+					"new_guard": {
+						"hp": 110.0,
+						"instance": "H09_67",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 12.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 48 香火",
+					"time": 150.016666666678,
+					"vacancies": 2
+				},
+				{
+					"available": [
+						"H11",
+						"H13"
+					],
+					"balance_after": 43.3999999999987,
+					"balance_before": 50.3999999999987,
+					"catalog_price": 7.0,
+					"guards": [
+						"铁肩"
+					],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_68",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 43 香火",
+					"time": 160.016666666686,
+					"vacancies": 2
+				},
+				{
+					"available": [
+						"H11",
+						"H13"
+					],
+					"balance_after": 38.7999999999973,
+					"balance_before": 45.7999999999973,
+					"catalog_price": 7.0,
+					"guards": [
+						"铁肩"
+					],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_69",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 38 香火",
+					"time": 170.016666666694,
+					"vacancies": 2
+				},
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 31.199999999996,
+					"balance_before": 41.199999999996,
+					"catalog_price": 10.0,
+					"guards": [
+						"铁肩",
+						"石婆"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_70",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 31 香火",
+					"time": 180.016666666702,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H11"
+					],
+					"balance_after": 23.5999999999968,
+					"balance_before": 30.5999999999968,
+					"catalog_price": 7.0,
+					"guards": [
+						"铁肩",
+						"赤钺"
+					],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_71",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 23 香火",
+					"time": 190.01666666671,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H11"
+					],
+					"balance_after": 30.3999999999976,
+					"balance_before": 37.3999999999976,
+					"catalog_price": 7.0,
+					"guards": [
+						"铁肩",
+						"赤钺"
+					],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_88",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 30 香火",
+					"time": 260.016666666759,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 22.7999999999977,
+					"balance_before": 32.7999999999977,
+					"catalog_price": 10.0,
+					"guards": [
+						"铁肩",
+						"石婆"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_93",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 22 香火",
+					"time": 270.01666666675,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H09"
+					],
+					"balance_after": 10.1999999999985,
+					"balance_before": 22.1999999999985,
+					"catalog_price": 12.0,
+					"guards": [
+						"石婆",
+						"赤钺"
+					],
+					"id": "H09",
+					"new_guard": {
+						"hp": 110.0,
+						"instance": "H09_101",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 12.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 10 香火",
+					"time": 280.016666666741,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H09"
+					],
+					"balance_after": 7.19999999999862,
+					"balance_before": 19.1999999999986,
+					"catalog_price": 12.0,
+					"guards": [
+						"石婆",
+						"赤钺"
+					],
+					"id": "H09",
+					"new_guard": {
+						"hp": 110.0,
+						"instance": "H09_102",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 12.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 7 香火",
+					"time": 330.016666666695,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 1.99999999999809,
+					"balance_before": 11.9999999999981,
+					"catalog_price": 10.0,
+					"guards": [
+						"石婆",
+						"铁肩"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_103",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 1 香火",
+					"time": 350.016666666677,
+					"vacancies": 1
+				}
+			],
+			"plan": {
+				"budget": 150,
+				"guards": 2,
+				"id": "check_10s",
+				"interval_ticks": 600,
+				"limit": 20,
+				"rotation": true,
+				"train": false
+			},
+			"result": {
+				"elapsed": 360.000000000001,
+				"first_breach": {
+					"door": "door_hall",
+					"time": 4.83333333333332
+				},
+				"humans_alive": 3,
+				"incense": 4.39599999999805,
+				"killer_id": "",
+				"mode": "shouxiang",
+				"names": 7.0,
+				"outcome": "victory",
+				"reason": "P4_END_HELD_TO_DAYBREAK",
+				"remaining": 0.0,
+				"tide_alive": 0
+			},
+			"roster": [
+				[
+					"night_2",
+					"H11",
+					70.4875,
+					"post_register"
+				],
+				[
+					"n03:H09_12",
+					"H09",
+					62.0,
+					"post_register"
+				]
+			],
+			"spent": 114.0,
+			"start_cash": 60.0,
+			"start_names": 12.0
+		},
+		{
+			"breaker_entries": {
+				"G12_tide_12": 14.216666666667,
+				"G12_tide_25": 136.516666666667,
+				"G12_tide_26": 20.4166666666668
+			},
+			"deaths": [
+				{
+					"id": "H13_32",
+					"post": "post_register",
+					"seconds": 29.6666666666663
+				},
+				{
+					"id": "H13_33",
+					"post": "post_register",
+					"seconds": 145.383333333341
+				},
+				{
+					"id": "H09_11",
+					"post": "post_register",
+					"seconds": 149.016666666677
+				},
+				{
+					"id": "H11_10",
+					"post": "post_register",
+					"seconds": 156.716666666684
+				},
+				{
+					"id": "H11_68",
+					"post": "post_register",
+					"seconds": 175.416666666698
+				},
+				{
+					"id": "H09_67",
+					"post": "post_register",
+					"seconds": 179.166666666701
+				},
+				{
+					"id": "H11_69",
+					"post": "post_register",
+					"seconds": 188.833333333376
+				},
+				{
+					"id": "H11_70",
+					"post": "post_register",
+					"seconds": 198.333333333383
+				},
+				{
+					"id": "H11_75",
+					"post": "post_register",
+					"seconds": 213.333333333395
+				}
+			],
+			"executions": [
+				{
+					"detail": "1.0",
+					"kind": "roster_names_drained",
+					"names": 11.0,
+					"seconds": 27.733333333333,
+					"unit": "H13_32"
+				},
+				{
+					"detail": "G01_tide_29",
+					"kind": "roster_execution",
+					"names": 11.0,
+					"seconds": 27.733333333333,
+					"unit": "H13_32"
+				}
+			],
+			"foreign": {},
+			"ok": true,
+			"orders": [
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 50.0,
+					"balance_before": 60.0,
+					"catalog_price": 10.0,
+					"guards": [
+						"石婆",
+						"铁肩"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_32",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 50 香火",
+					"time": 15.016666666667,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H13"
+					],
+					"balance_after": 40.599999999998,
+					"balance_before": 50.599999999998,
+					"catalog_price": 10.0,
+					"guards": [
+						"石婆",
+						"铁肩"
+					],
+					"id": "H13",
+					"new_guard": {
+						"hp": 85.0,
+						"instance": "H13_33",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 10.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 40 香火",
+					"time": 30.0166666666662,
+					"vacancies": 1
+				},
+				{
+					"available": [
+						"H09",
+						"H13"
+					],
+					"balance_after": 48.0,
+					"balance_before": 60.0,
+					"catalog_price": 12.0,
+					"guards": [
+						"石婆"
+					],
+					"id": "H09",
+					"new_guard": {
+						"hp": 110.0,
+						"instance": "H09_67",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 12.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 48 香火",
+					"time": 150.016666666678,
+					"vacancies": 2
+				},
+				{
+					"available": [
+						"H11",
+						"H13"
+					],
+					"balance_after": 44.599999999998,
+					"balance_before": 51.599999999998,
+					"catalog_price": 7.0,
+					"guards": [
+						"铁肩"
+					],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_68",
+						"post": "post_register"
+					},
+					"occupation": 0.0,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 44 香火",
+					"time": 165.01666666669,
+					"vacancies": 2
+				},
+				{
+					"available": [
+						"H09",
+						"H11",
+						"H13"
+					],
+					"balance_after": 41.199999999996,
+					"balance_before": 48.199999999996,
+					"catalog_price": 7.0,
+					"guards": [],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_69",
+						"post": "post_register"
+					},
+					"occupation": 0.866666666666668,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 41 香火",
+					"time": 180.016666666702,
+					"vacancies": 3
+				},
+				{
+					"available": [
+						"H09",
+						"H11",
+						"H13"
+					],
+					"balance_after": 37.799999999994,
+					"balance_before": 44.799999999994,
+					"catalog_price": 7.0,
+					"guards": [],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_70",
+						"post": "post_register"
+					},
+					"occupation": 6.19999999999998,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 37 香火",
+					"time": 195.016666666714,
+					"vacancies": 3
+				},
+				{
+					"available": [
+						"H09",
+						"H11",
+						"H13"
+					],
+					"balance_after": 34.399999999992,
+					"balance_before": 41.399999999992,
+					"catalog_price": 7.0,
+					"guards": [],
+					"id": "H11",
+					"new_guard": {
+						"hp": 95.0,
+						"instance": "H11_75",
+						"post": "post_register"
+					},
+					"occupation": 11.7000000000002,
+					"offered": true,
+					"paid": 7.0,
+					"placed": true,
+					"post": "post_register",
+					"quote": "到岗后余 34 香火",
+					"time": 210.016666666726,
+					"vacancies": 3
+				}
+			],
+			"plan": {
+				"budget": 150,
+				"guards": 2,
+				"id": "check_15s",
+				"interval_ticks": 900,
+				"limit": 20,
+				"rotation": true,
+				"train": false
+			},
+			"result": {
+				"elapsed": 220.216666666734,
+				"first_breach": {
+					"door": "door_hall",
+					"time": 4.83333333333332
+				},
+				"humans_alive": 0,
+				"incense": 36.8479999999907,
+				"killer_id": "G01",
+				"mode": "shouxiang",
+				"names": 4.5833333333337,
+				"outcome": "defeat",
+				"reason": "P4_END_REGISTER_CAPTURED",
+				"remaining": 139.783333333335,
+				"tide_alive": 40
+			},
+			"roster": [
+				[
+					"night_2",
+					"H11",
+					70.4875,
+					"post_register"
+				],
+				[
+					"n03:H09_12",
+					"H09",
+					62.0,
+					"post_register"
+				]
+			],
+			"spent": 60.0,
+			"start_cash": 60.0,
+			"start_names": 12.0
+		}
+	]
+}

@@ -75,6 +75,29 @@ func run() -> void:
 	check(session.incense==0 and panel.buttons.upgrade_confirm.disabled,"Exact recruitment price leaves training unavailable")
 	panel.close_panel()
 	check(session.incense==0 and session.pending_purchase.is_empty() and panel.selected.upgrade_level==0,"Leaving training keeps only the confirmed recruit")
+	host.start_p10_night("shouxiang","example","渡口","R01",[],"武卫司")
+	host.choose_node("n01")
+	sim = host.combat.get_node("Simulation")
+	sim.set_physics_process(false)
+	panel = host.combat.get_node("Decisions")
+	session = sim.session
+	session.register_guards.assign(["断刃","石婆"])
+	session.register_attackers = 1
+	panel._update_warnings()
+	check(panel.relief_button.visible,"Martial watch offers an affordable ally with two present and an open post")
+	var wallet: float = session.incense
+	session.incense = 0
+	panel._update_warnings()
+	check(not panel.relief_button.visible,"Two-guard watch hides the early offer when no candidate is affordable")
+	session.incense = wallet
+	for offer in session.purchase_options():
+		if root.get_node("Data").get_unit(offer.id).get("所属","")=="武卫司": panel.previous_casualties[offer.id] = true
+	panel._update_warnings()
+	check(not panel.relief_button.visible,"A previously fallen martial ally cannot trigger the early offer")
+	panel.previous_casualties.clear()
+	session.register_attackers = 0
+	panel._update_warnings()
+	check(not panel.relief_button.visible,"A vacant post without an attacker does not call for relief")
 	host.free()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path("user://relief-test.json"))
 	await create_timer(0.3).timeout

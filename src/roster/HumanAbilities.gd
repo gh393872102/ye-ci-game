@@ -1,5 +1,6 @@
 extends RefCounted
 ## Source-named human and troop behaviors; numbers are in p8_humans.json.
+const COMMON_GHOSTS := ["G01","G02","G03","G04","G05","G06","G07","G08"]
 var _engine: WeakRef
 var engine: RefCounted:
 	get: return _engine.get_ref()
@@ -17,6 +18,10 @@ func _target(unit: Node2D, args: Dictionary, friendly := false, radius := -1.0) 
 		if selected == unit and friendly: return selected
 		return selected if selected in candidates else null
 	return candidates[0] if not candidates.is_empty() else null
+
+func execution_targets(unit: Node2D) -> Array:
+	var rule: Dictionary = engine.params("H13")
+	return engine.near(unit,float(rule.radius_body)).filter(func(target): return target.unit_id in COMMON_GHOSTS and target.hp/target.max_hp<=float(rule.hp_threshold))
 
 func _paid(unit: Node2D, id: String, extra := 0.0, copied := false) -> bool:
 	var cost := float(Data.get_unit(id).get("技能香耗",0))+extra
@@ -171,8 +176,8 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 		"H10","H13":
 			target = _target(unit,args)
 			if target == null or target.hp/target.max_hp > float(p.hp_threshold): return engine.reject()
-			if id == "H10" and target.unit_id in ["G01","G02","G03","G04","G05","G06","G07","G08"]: return engine.reject()
-			if id == "H13" and target.unit_id not in ["G01","G02","G03","G04","G05","G06","G07","G08"]: return engine.reject("P8_NOT_COMMON_GHOST")
+			if id == "H10" and target.unit_id in COMMON_GHOSTS: return engine.reject()
+			if id == "H13" and target.unit_id not in COMMON_GHOSTS: return engine.reject("P8_NOT_COMMON_GHOST")
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
 			if unit.side == "xianghuo" and target.side == "yegui":
 				engine.session._record("slay_exorcisable", 0, target.instance_id)
@@ -549,8 +554,21 @@ func draw_effects(canvas: Node2D) -> void:
 			"H08":
 				canvas.draw_colored_polygon(PackedVector2Array([a+Vector2(-70,-35),a+Vector2(70,-35),a+Vector2(50,45),a+Vector2(0,70),a+Vector2(-50,45)]),Color(cold,.28))
 				canvas.draw_line(a+Vector2(-50,-8),a+Vector2(50,-8),ink,6)
-			"H10","H13","H31":
-				canvas.draw_line(b+Vector2(-60,-48),b+Vector2(65,40),red if str(effect.unit_id)=="H13" else ink,8)
+			"H13":
+				if effect.kind=="execution":
+					var facing := -1.0 if b.x<a.x else 1.0
+					var swing := smoothstep(0,0.32,phase)
+					var grip := a+Vector2(9*facing,-6)
+					var shaft := Vector2(facing*sin(lerpf(-0.45,1.95,swing)),-cos(lerpf(-0.45,1.95,swing)))
+					var edge := Vector2(-shaft.y,shaft.x)*facing
+					var tip := grip+shaft*55
+					var tint := Color(0.92,0.77,0.51,1-smoothstep(0.32,0.85,phase))
+					canvas.draw_line(grip,tip,Color(red,tint.a),5)
+					canvas.draw_colored_polygon(PackedVector2Array([tip-shaft*15,tip,tip+edge*16+shaft*5,tip+edge*23-shaft*8,tip+edge*19-shaft*21]),tint)
+					if phase>=0.20:
+						canvas.draw_line(b-Vector2(facing*12,24),b+Vector2(facing*18,14),Color(red,1-phase),4)
+			"H10","H31":
+				canvas.draw_line(b+Vector2(-60,-48),b+Vector2(65,40),ink,8)
 				canvas.draw_line(b+Vector2(-50,40),b+Vector2(58,-44),cold,4)
 				if str(effect.unit_id)=="H31":canvas.draw_dashed_line(a,b,cold,4,22)
 			"H11","H25":

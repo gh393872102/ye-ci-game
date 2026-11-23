@@ -23,6 +23,12 @@ func run() -> void:
 	host.title_shell_enabled = true
 	host.save_path = "/tmp".path_join("ye-tide-%d.json" % OS.get_process_id())
 	root.add_child(host)
+	if OS.get_cmdline_user_args().has("--axe-only"):
+		var diagnosis := await probe_axe_relief(host)
+		print("AXE ",JSON.stringify(diagnosis))
+		host.free()
+		quit(0 if diagnosis.passed else 2)
+		return
 	var shell: Node = host.shell
 	shell.title_buttons.start.pressed.emit()
 	var martial := OS.get_cmdline_user_args().has("--martial-watch")
@@ -179,6 +185,11 @@ func run() -> void:
 		result.stones = await probe_stones(host)
 		passed = passed and result.stones.passed
 		passed = passed and swap.passed and "孤刀" in result.cards.get("H10","") and "根深" in result.cards.get("H11","")
+		result.passed = passed
+	if OS.get_cmdline_user_args().has("--axe-relief"):
+		filename = "native-axe-relief.json"
+		result.axe_relief = await probe_axe_relief(host)
+		passed = passed and result.axe_relief.passed
 		result.passed = passed
 	if OS.get_cmdline_user_args().has("--martial-final"):
 		filename = "native-martial-final.json"
@@ -849,4 +860,90 @@ func probe_final_map(host: Node) -> Dictionary:
 			row.passed = not wearer.dead and "守香司已倒下" not in row.warnings and "守册将领已尽" not in row.warnings
 			return row
 		if not session.running: break
+	return row
+
+func probe_axe_relief(host: Node) -> Dictionary:
+	var row := {"passed":false}
+	if DirAccess.copy_absolute(OS.get_environment("YE_CI_FINAL_MAP_SAVE"),host.save_path)!=OK: return row
+	host.continue_run()
+	for guard in host.run.state.roster:
+		if guard.post!="post_register" and not host.run.reserve_post(guard.uid,"post_register").ok: return row
+	host.choose_node("n10")
+	var sim := host.combat.get_node("Simulation") as Node
+	var session: Node = sim.session
+	var panel: Node = host.combat.get_node("Decisions")
+	sim.set_physics_process(false)
+	for tick in 3000:
+		sim.advance(1.0/60)
+		if session.register_attackers>0: break
+	panel._update_warnings()
+	if session.register_guards.size()!=2 or not panel.relief_button.visible: return row
+	row.guards = session.register_guards.duplicate()
+	row.alert = panel.relief_button.text
+	row.alert_seconds = sim.simulation_time
+	var cash: float = session.incense
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	click(panel.relief_button)
+	await RenderingServer.frame_post_draw
+	if not panel.register_relief or not root.get_node("Clock").paused: return row
+	var buy: Button = panel.buttons.get("buy_H13")
+	if not is_instance_valid(buy) or buy.disabled or not root.get_visible_rect().encloses(buy.get_global_rect()): return row
+	root.get_texture().get_image().save_webp("/tmp/ye38-relief.webp",true,0.82)
+	var start := Time.get_ticks_usec()
+	click(buy)
+	await RenderingServer.frame_post_draw
+	row.click_ms = (Time.get_ticks_usec()-start)/1000.0
+	var axe: Node = panel.arriving_guard
+	panel._update_warnings()
+	if not is_instance_valid(axe) or axe.unit_id!="H13" or panel.relief_button.visible or cash-session.incense!=10 or root.get_node("Clock").paused: return row
+	row.receipt = panel.feedback.text
+	# Independent frozen target-selection fixture after the legal arrival.
+	panel.select_unit(axe)
+	panel.open_unit_skill()
+	if not panel.buttons.skill_cast.disabled: return row
+	var common: Node = sim.tide.spawn("G01",0,axe.position.x)
+	common.floor_id = axe.floor_id
+	common.position = axe.position+Vector2(-18,0)
+	common.hp = common.max_hp*0.3
+	var elite: Node = sim.tide.spawn("G12",0,axe.position.x)
+	elite.floor_id = axe.floor_id
+	elite.position = axe.position+Vector2(-8,0)
+	elite.hp = 1
+	panel.open_unit_skill()
+	if panel.skill_target_ids!=["",common.instance_id] or panel.buttons.skill_cast.disabled: return row
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	row.pick = panel.skill_target_picker.get_item_text(panel.skill_target_picker.selected)
+	var balance: float = session.incense+float(axe.roster.reserve_incense)
+	var names: float = session.names
+	panel.panel_scroll.ensure_control_visible(panel.buttons.skill_cast)
+	await RenderingServer.frame_post_draw
+	row.cast_bounds = str(panel.buttons.skill_cast.get_global_rect())
+	row.skill_ready = session.roster.ready(axe)
+	row.cooldown = axe.roster.cooldowns.duplicate()
+	root.get_texture().get_image().save_webp("/tmp/ye38-target.webp",true,0.82)
+	click(panel.buttons.skill_cast)
+	await RenderingServer.frame_post_draw
+	row.cast_feedback = panel.feedback.text
+	row.skill_paid = balance-session.incense-float(axe.roster.reserve_incense)
+	row.names_lost = names-session.names
+	if not common.dead or elite.dead or row.names_lost!=1 or row.skill_paid!=axe.skill_cost or not panel.buttons.skill_cast.disabled or "行刑" not in row.cast_feedback: return row
+	panel.close_panel()
+	root.get_node("Clock").set_paused(false)
+	for tick in 13: sim.advance(1.0/60)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_webp("/tmp/ye38-swing.webp",true,0.82)
+	if not session.roster.state.effects.any(func(e):return e.unit_id=="H13" and e.kind=="execution"): return row
+	var completed := OS.get_environment("YE_CI_COMPLETED_MAP")
+	if completed.is_empty() or DirAccess.copy_absolute(completed,host.save_path)!=OK: return row
+	host.continue_run()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var report: Dictionary = host.run.summary()
+	if host.run.state.phase!="ended" or not host.panel.buttons.has("map_history") or report.outcome!="victory" or report.reason!="P5_NIGHT_COMPLETE": return row
+	row.ending = {"seed":report.seed,"reason":report.reason,"battles":report.battles.size(),"mercy":report.mercy_used,"survivors":report.roster.size(),"story":report.story.ending}
+	root.get_texture().get_image().save_webp("/tmp/ye38-dawn.webp",true,0.82)
+	row.passed = report.battles.size()==5 and not report.mercy_used
 	return row

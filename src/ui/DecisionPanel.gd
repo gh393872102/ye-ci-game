@@ -383,8 +383,16 @@ func open_commands() -> void:
 
 func _relief_available() -> bool:
 	return (managed_by_night and not preferred_faction.is_empty() and view_seat() == "shouxiang"
-		and session.register_attackers > 0 and session.register_guards.size() <= 1
-		and current_panel.is_empty() and session.pending_purchase.is_empty() and _can_command() and not _blocked())
+		and session.register_attackers > 0 and current_panel.is_empty()
+		and session.pending_purchase.is_empty() and _can_command() and not _blocked()
+		and (session.register_guards.size() <= 1 or _can_fill_martial_watch()))
+
+func _can_fill_martial_watch() -> bool:
+	if preferred_faction!="武卫司" or session.register_guards.size()!=2 or session.post_vacancies("post_register")==0: return false
+	for offer in session.purchase_options():
+		if offer.allowed and not previous_casualties.has(offer.id) and Data.get_unit(offer.id).get("所属","")==preferred_faction and session.deployment_reason("post_register",offer.id).is_empty():
+			return true
+	return false
 
 func _open_register_relief() -> void:
 	if _relief_available():
@@ -594,7 +602,7 @@ func _build_deploy() -> void:
 		_button(header, "defend_hall", "守门厅 · 余%d位" % session.post_vacancies("post_hall_door"), select_post.bind("post_hall_door", true))
 	_button(header, "close", tr("P9_BATTLE_CLOSE"), _cancel_purchase)
 	var hint := _label(content, tr("P9_DEPLOY_HELP"), 17)
-	if preferred_faction=="武卫司" and session.pending_purchase in ["H09","H12"]:
+	if preferred_faction=="武卫司" and session.pending_purchase in ["H09","H12","H13"]:
 		var lines := PackedStringArray()
 		for post_id in ["post_register","post_hall_door"]:
 			var names := PackedStringArray()
@@ -604,6 +612,7 @@ func _build_deploy() -> void:
 			var free: int = session.post_vacancies(post_id)
 			lines.append("%s · %s · %s" % [tr(post_id.to_upper()),"无人派驻" if names.is_empty() else "、".join(names),"满岗" if free==0 else "余%d岗"%free])
 		var specialty := "巡夜可用锁链阻止敌人上楼或遁水。" if session.pending_purchase=="H12" else "铁肩靠门可扛门，离门技能冷却变慢。"
+		if session.pending_purchase=="H13": specialty = "赤钺能斩杀残血普通鬼，行刑会消耗名分。力士尸不能斩杀。"
 		hint.text = specialty+"选岗时的派驻\n"+"\n".join(lines)
 		hint.name = "IronDeployment"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -797,16 +806,20 @@ func _mark_selected() -> void:
 
 func open_unit_skill() -> void:
 	if not _can_command() or not _owned_selected() or not roster_enabled(): return
+	unit_panel.hide()
 	if selected.unit_id == "H01":
 		open_ritual()
 		return
 	current_panel = "unit_skill"
 	_clear_content(tr("P8_SKILL_TITLE") % selected.display_name)
 	_label(content,selected.skill_text,18)
+	if selected.unit_id=="H13":
+		var rule: Dictionary = session.roster.params(selected)
+		_label(content,"行刑 · 只列同层 %.1f 身位内，生命不高于 %d%% 的普通鬼。技能耗 %d 香，行刑扣 %d 名分。" % [rule.radius_body,roundi(rule.hp_threshold*100),selected.skill_cost,rule.name_penalty],17)
 	if selected.unit_id == "H07":
 		var radius: float = session.growth.drum_radius(selected,float(session.roster.params(selected).radius_body))
 		_label(content,"同层 %.0f 身位 · 自动敲更唤醒同伴、显出隐鬼或打断梦境。归客在队时也会标记精英。手动可标记明处的鬼。" % radius,17)
-	_label(content,tr("P8_SKILL_HELP"),17)
+	if selected.unit_id!="H13": _label(content,tr("P8_SKILL_HELP"),17)
 	if selected.unit_id == "H28":
 		var market: Dictionary = Data.roster_rules.abilities.H28
 		var item: Dictionary = Data.growth_rules.items.get(str(market.market_item),{})
@@ -819,7 +832,8 @@ func open_unit_skill() -> void:
 	skill_target_ids.clear()
 	skill_target_ids.append("")
 	skill_target_picker.add_item(tr("P8_TARGET_AUTO"))
-	for target in simulation.humans + simulation.targets:
+	var targets: Array = session.roster.humans.execution_targets(selected) if selected.unit_id=="H13" else simulation.humans+simulation.targets
+	for target in targets:
 		if target.dead: continue
 		skill_target_ids.append(target.instance_id)
 		skill_target_picker.add_item(tr("P8_TARGET_ROW") % [target.display_name,target.unit_id,target.hp])
@@ -829,6 +843,14 @@ func open_unit_skill() -> void:
 	row.add_child(skill_mode_picker)
 	_button(row,"skill_auto",tr("P8_SKILL_AUTO"),_cast_selected_skill.bind(true))
 	_button(row,"skill_cast",tr("P8_SKILL_CAST"),_cast_selected_skill.bind(false))
+	if selected.unit_id=="H13":
+		skill_target_picker.set_item_text(0,"当前没有可行刑的普通鬼" if targets.is_empty() else "选择行刑目标")
+		skill_target_picker.set_item_disabled(0,true)
+		if not targets.is_empty(): skill_target_picker.select(1)
+		skill_mode_picker.hide()
+		buttons.skill_auto.hide()
+		buttons.skill_cast.text = "行刑"
+		buttons.skill_cast.disabled = targets.is_empty()
 	if selected.unit_id == "H28":
 		skill_target_picker.hide()
 		skill_mode_picker.hide()
@@ -844,8 +866,15 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 	if not automatic and skill_target_picker.selected > 0: args.target_id = skill_target_ids[skill_target_picker.selected]
 	if skill_mode_picker.selected > 0: args.mode = ["auto","pull","push"][skill_mode_picker.selected]
 	if confirm_market: args.confirm_market = true
+	var axe: bool = selected.unit_id=="H13"
+	var cash_before: float = available_incense()+float(selected.roster.get("reserve_incense",0)) if axe else 0.0
+	var names_before: float = session.names
 	var answer := _issue("unit_skill",args)
 	_feedback(answer)
+	if axe and answer.ok and answer.get("effect_applied",true):
+		var paid := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
+		feedback.text = "行刑 · 实耗 %s 香火 · 名分 %s → %s" % [String.num(paid,2),String.num(names_before,2),String.num(session.names,2)]
+		open_unit_skill()
 	if answer.has("drum"):
 		var beat: Dictionary = answer.drum
 		feedback.text = "敲更 · 唤醒 %d 人，显出 %d 鬼，标记 %d 鬼" % [beat.woken.size(),beat.hidden.size(),beat.marked.size()]
@@ -1578,6 +1607,8 @@ func _update_warnings() -> void:
 		occupation_bar.max_value = session.rules.occupation_seconds
 		occupation_bar.value = session.occupation
 	relief_button.visible = _relief_available()
+	if relief_button.visible:
+		relief_button.text = "同司补守 · 余 %d 岗" % session.post_vacancies("post_register") if session.register_guards.size()==2 else "派同司援军守册"
 	register_warning_plate.visible = not register_notices.is_empty()
 
 func _draw_highlights() -> void:
