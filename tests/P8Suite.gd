@@ -519,7 +519,12 @@ func _impact_mirror() -> void:
 
 func _human_supplementary() -> void:
 	rig(); var u=human("H17","post_gate_inner"); var g=ghost("G12",49)
-	var door=sim.world.get_node("door_outer"); var result:Dictionary=skill(u)
+	var door=sim.world.get_node("door_outer")
+	var seal_panel: Node = scene.get_node("Decisions")
+	seal_panel.select_unit(u,true)
+	seal_panel.open_unit_skill()
+	check(not seal_panel.buttons.skill_cast.disabled and seal_panel.buttons.skill_cast.text=="封住"+tr("DOOR_OUTER") and not seal_panel.skill_target_picker.visible,"Cinnabar panel names the door actually reachable from his post")
+	var result:Dictionary=skill(u)
 	var hp:float=g.hp; var durability:float=door.durability
 	hit(g,door,4,"structure")
 	check(result.ok and door.durability==durability and g.hp<hp and event("seal",u.instance_id),"H17 The actual sealed doorway absorbs a real strike and reflects injury","H17")
@@ -543,8 +548,15 @@ func _human_supplementary() -> void:
 	check(session.growth.has(u,"I08") and session.growth.state.inventory.get("I08",0)==0,"Confirmation equips exactly one paper on the selected lantern bearer")
 	var lamp_cost := float(Data.get_unit("H19").get("技能香耗",0))
 	var before_lamp: float = session.incense
-	result=skill(u,{"target_id":g.instance_id})
-	check(result.ok and g in sim.targets and g.side=="yegui" and near(before_lamp-session.incense,lamp_cost),"Equipped Wengdeng pays his normal skill cost and keeps the ghost hostile")
+	var blocker := ghost("G12",115)
+	blocker.position = u.position
+	g.position = u.position+Vector2(12,0)
+	lamp_panel.open_unit_skill()
+	check(g.instance_id in lamp_panel.skill_target_ids and blocker.instance_id not in lamp_panel.skill_target_ids,"Lantern picker excludes an ineligible nearer breaker")
+	check(not skill(u,{"target_id":blocker.instance_id}).ok and near(before_lamp,session.incense),"Invalid explicit lantern choice never retargets or spends")
+	lamp_panel.buttons.skill_auto.pressed.emit()
+	check(lamp_panel.feedback.text.contains("照见"+g.display_name),"Auto-cast receipt identifies the actual common ghost behind the breaker")
+	check(g in sim.targets and g.side=="yegui" and near(before_lamp-session.incense,lamp_cost),"Equipped Wengdeng pays his normal skill cost and keeps the ghost hostile")
 	var beams: Array = session.growth.state.fields.filter(func(f): return f.kind=="lamp_reveal")
 	check(beams.size()==1 and beams[0].end==[u.position.x,u.position.y] and beams[0].point==[g.position.x,g.position.y] and event("lamp_reveal",u.instance_id),"One reveal beam travels from the actual lantern to the hostile target")
 	check(near(g.growth.statuses.revealed.left,3) and near(g.growth.statuses.stun.left,1.5),"Lamp marks and briefly stuns a valid target")

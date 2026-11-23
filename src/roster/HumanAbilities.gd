@@ -19,6 +19,10 @@ func _target(unit: Node2D, args: Dictionary, friendly := false, radius := -1.0) 
 		return selected if selected in candidates else null
 	return candidates[0] if not candidates.is_empty() else null
 
+func lantern_targets(unit: Node2D) -> Array:
+	var nearby: Array = engine.near(unit,float(engine.params(unit).get("radius_body",3)))
+	return nearby.filter(func(target): return (target.unit_id in COMMON_GHOSTS or target.unit_id=="G24") and _sim().world.inside_base(target.position))
+
 func uses_register_pin(unit: Node2D) -> bool:
 	var growth: RefCounted = engine.growth()
 	return unit.unit_id == "H24" and growth.state.get("defense_objective","") == "hold_register" and growth.has(unit,"I17")
@@ -253,8 +257,8 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 			_sim().deal_damage(unit,target,"opening_staff",unit.attack)
 			return _done(unit,id,"opening_staff",target)
 		"H17":
-			var door := _near_door(unit,float(p.radius_body))
-			if door == null or engine.near(unit,4,false).is_empty() or str(door.name) in growth.state.seals: return engine.reject()
+			var door := seal_target(unit)
+			if door == null: return engine.reject()
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
 			growth.seal_door(unit,door)
 			return _done(unit,id,"seal")
@@ -270,18 +274,20 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 			engine.status(unit,"mirror",float(p.duration),unit)
 			return _done(unit,id,"gold_mirror")
 		"H19":
-			target = _target(unit,args)
-			if target == null or target.unit_id not in ["G01","G02","G03","G04","G05","G06","G07","G08","G24"] or not _sim().world.inside_base(target.position): return engine.reject()
+			var candidates := lantern_targets(unit)
+			if candidates.is_empty(): return engine.reject()
+			target = engine.actor(str(args.target_id)) if args.has("target_id") else candidates[0]
+			if target not in candidates: return engine.reject()
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
 			if growth.light_without_borrowing(unit,target):
 				# The growth effect already has both endpoints. A generic cast adds a beam from the origin.
 				engine.cooldown(unit,float(p.cooldown))
 				engine.event("lamp_reveal",unit,target.instance_id)
-				return engine.ok()
+				return engine.ok().merged({"lantern_target":target.instance_id,"borrowed":false})
 			if unit.side == "xianghuo" and target.side == "yegui":
 				engine.session._record("recruited_ghost", 0, target.instance_id)
 			growth._gray(target,unit,float(p.duration))
-			return _done(unit,id,"borrow_ghost",target)
+			return _done(unit,id,"borrow_ghost",target).merged({"lantern_target":target.instance_id,"borrowed":true})
 		"H20":
 			target = _target(unit,args)
 			if target == null or growth.state.get("ritual_flag","") in ["hanshi","寒食"]: return engine.reject()
@@ -410,6 +416,11 @@ func _light(unit: Node2D, id: String, radius: float, duration: float) -> void:
 
 func _open_face_light(id: String, target: Node2D) -> bool:
 	return id == "H06" and engine.session.ritual.has_flag("reveal_faces") and target.roster.get("face_state","faced") == "faceless"
+
+func seal_target(unit: Node2D) -> Node2D:
+	var door := _near_door(unit,float(engine.params("H17").radius_body))
+	if door == null or str(door.name) in engine.growth().state.seals or engine.near(unit,4,false).is_empty(): return null
+	return door
 
 func _near_door(unit: Node2D, radius: float) -> Node2D:
 	var best: Node2D

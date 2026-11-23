@@ -970,6 +970,7 @@ func open_unit_skill() -> void:
 	skill_target_ids.append("")
 	skill_target_picker.add_item(tr("P8_TARGET_AUTO"))
 	var targets: Array = session.roster.humans.execution_targets(selected) if selected.unit_id=="H13" else simulation.humans+simulation.targets
+	if selected.unit_id=="H19": targets = session.roster.humans.lantern_targets(selected)
 	if selected.unit_id=="H24": targets = session.roster.humans.pin_targets(selected)
 	for target in targets:
 		if target.dead: continue
@@ -997,6 +998,17 @@ func open_unit_skill() -> void:
 		if not axe and not session.roster.ready(selected):
 			buttons.skill_cast.disabled = true
 			buttons.skill_cast.text = "回针中 · %.1f 秒" % float(selected.roster.cooldowns.skill)
+	if selected.unit_id=="H17":
+		skill_target_picker.hide()
+		skill_mode_picker.hide()
+		buttons.skill_auto.hide()
+		var door: Node2D = session.roster.humans.seal_target(selected)
+		var reason := ""
+		if not session.roster.ready(selected): reason = "封门符冷却中"
+		elif door==null: reason = "附近没有可封的受威胁门户"
+		elif available_incense()+float(selected.roster.get("reserve_incense",0)) < session.growth.ritual_cost(selected,selected.skill_cost): reason = "香火不足"
+		buttons.skill_cast.disabled = not reason.is_empty()
+		buttons.skill_cast.text = reason if not reason.is_empty() else "封住"+tr(str(door.name).to_upper())
 	if selected.unit_id=="H18":
 		skill_target_picker.hide()
 		skill_mode_picker.hide()
@@ -1008,8 +1020,12 @@ func open_unit_skill() -> void:
 		elif funds < session.growth.ritual_cost(selected,selected.skill_cost): reason = "香火不足"
 		buttons.skill_cast.text = "开镜护身" if reason.is_empty() else reason
 		buttons.skill_cast.disabled = not reason.is_empty()
-	if register_lamp:
+	if selected.unit_id=="H19":
 		skill_mode_picker.hide()
+		if targets.is_empty(): skill_target_picker.set_item_text(0,"附近没有可施术的入祠鬼")
+		buttons.skill_auto.disabled = targets.is_empty()
+		buttons.skill_cast.disabled = targets.is_empty()
+	if register_lamp:
 		buttons.skill_cast.text = "照鬼定身" if session.growth.has(selected,"I08") else "借鬼入阵"
 	if register_lamp and not session.growth.has(selected,"I08") and session.growth.state.inventory.get("I08",0)>0:
 		_button(row,"lamp_equipment","查看无字帖",func():
@@ -1047,6 +1063,7 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 		var paid := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
 		feedback.text = "行刑 · 实耗 %s 香火 · 名分 %s → %s" % [String.num(paid,2),String.num(names_before,2),String.num(session.names,2)]
 		open_unit_skill()
+	if selected.unit_id=="H17": open_unit_skill()
 	if selected.unit_id=="H24":
 		if answer.ok and answer.get("effect_applied",true):
 			var target := _find_unit(str(args.get("target_id","")))
@@ -1059,6 +1076,12 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 		if answer.ok and answer.get("effect_applied",true):
 			var cost := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
 			feedback.text = "%s · 实付 %s 香" % ["承撞护身" if selected.roster.statuses.has("impact_mirror") else "金镜反术",String.num(cost,2)]
+		open_unit_skill()
+	if answer.has("lantern_target"):
+		var lit := _find_unit(str(answer.lantern_target))
+		if is_instance_valid(lit):
+			var paid := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
+			feedback.text = "%s%s · 实付 %s 香" % ["借入" if answer.borrowed else "照见",lit.display_name,String.num(paid,2)]
 		open_unit_skill()
 	if answer.has("drum"):
 		var beat: Dictionary = answer.drum
