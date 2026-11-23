@@ -381,6 +381,22 @@ func rest_reserve_options() -> Array[Dictionary]:
 		options.append({"can_regroup":regroup,"id":id,"cost":Opening.RESERVE_FEE,"post":post,"allowed":state.incense >= Opening.RESERVE_FEE,"effect":effect})
 	return options
 
+func hall_brace_target() -> String:
+	if not _phase("rest") or not state.has("opening_faction") or state.mode!="shouxiang" or state.roster.is_empty(): return ""
+	var exits: Array = current_node().next
+	if exits.size()!=1: return ""
+	var upcoming := _node(exits[0])
+	return str(upcoming.id) if upcoming.get("boss_id","")=="B01" else ""
+
+func brace_hall_at_rest() -> Dictionary:
+	var target := hall_brace_target()
+	if target.is_empty(): return _reject("P5_INVALID_CHOICE")
+	if state.incense<Opening.RESERVE_FEE: return _reject("P5_NO_INCENSE")
+	state.incense -= Opening.RESERVE_FEE
+	_record("brace_hall",{"target":target,"cost":Opening.RESERVE_FEE})
+	_complete_node()
+	return _ok()
+
 func rest_health_after(unit: Dictionary) -> float:
 	return minf(float(unit.max_hp),float(unit.hp) + float(unit.max_hp) * float(config.rest.heal_ratio))
 

@@ -156,6 +156,8 @@ func run() -> void:
 		result.passed = passed
 		filename = "native-post-cover.json"
 		if OS.get_cmdline_user_args().has("--boss-brief"): filename = "native-boss-brief.json"
+	if OS.get_cmdline_user_args().has("--camp-brace"):
+		filename = "native-camp-brace.json"
 	if OS.get_cmdline_user_args().has("--relief-budget"):
 		filename = "native-relief-budget.json"
 	if OS.get_cmdline_user_args().has("--last-watch"):

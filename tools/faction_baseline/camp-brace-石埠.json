@@ -1,0 +1,1826 @@
+{
+	"camp_sha256": "526a59fb50d2278c9c3d627a64eec59e208fd7f5b701f016070cbb6c5403d089",
+	"trials": [
+		{
+			"after": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				],
+				[
+					"night_3",
+					80.0,
+					"post_register"
+				]
+			],
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 29.0666666666663,
+							"source": "G01"
+						},
+						"id": "H03"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.25,
+							"instance": "G01_tide_28",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 44.7166666666654,
+							"source": "G01"
+						},
+						"id": "H01"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 1.0,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 88.4666666666629,
+							"source": "G01"
+						},
+						"id": "H08"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 88.4666666666629
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": 17.0000000000003,
+					"first_repair": null,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 47.7039999999957,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 56.25,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 80.0,
+						"id": "H08",
+						"instance": "H08_12",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_register",
+					"H08": "post_register"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_13",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.9 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 28.033333333333,
+						"instance": "G12_tide_27",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 6.7 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 24.0166666666666,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_13",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "G12_tide_27",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 868.033333332873,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 44.7166666666654
+					},
+					"H03_10": {
+						"first_change": "fallen",
+						"id": "H03",
+						"seconds": 29.0666666666663
+					},
+					"H08_12": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 88.4666666666629
+					}
+				},
+				"result": {
+					"elapsed": 100.449999999996,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 19.8119999999936,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 259.550000000091,
+					"tide_alive": 42
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				]
+			],
+			"choice": "reserve_H08",
+			"click_ms": -1.0,
+			"net_cost": 12.0,
+			"plan": "reserve_H08",
+			"starting_cash": 59.7039999999957
+		},
+		{
+			"after": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				]
+			],
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_29",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 34.4333333333327,
+							"source": "G01"
+						},
+						"id": "H03"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.25,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 50.0333333333318,
+							"source": "G01"
+						},
+						"id": "H01"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 299.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_26",
+					"before": 339.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 50.0333333333318
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 10.3333333333334,
+					"first_read": 17.0000000000003,
+					"first_repair": null,
+					"initial_hp": 339.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 47.7039999999957,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 56.25,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_register"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_12",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.9 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 33.0333333333327,
+						"instance": "G12_tide_26",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 7.3 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 29.0166666666663,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_12",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "G12_tide_26",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 873.033333332868,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 50.0333333333318
+					},
+					"H03_10": {
+						"first_change": "fallen",
+						"id": "H03",
+						"seconds": 34.4333333333327
+					}
+				},
+				"result": {
+					"elapsed": 62.0166666666644,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 10.3333333333334
+					},
+					"humans_alive": 0,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 297.98333333339,
+					"tide_alive": 34
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				]
+			],
+			"choice": "brace_hall",
+			"click_ms": -1.0,
+			"net_cost": 12.0,
+			"plan": "brace_hall",
+			"starting_cash": 59.7039999999957
+		},
+		{
+			"after": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					77.5,
+					"post_rear"
+				]
+			],
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 2.5,
+							"hp_before": 2.5,
+							"instance": "G01_tide_29",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 29.0666666666663,
+							"source": "G01"
+						},
+						"id": "H03"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 0.5,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 50.4833333333317,
+							"source": "G01"
+						},
+						"id": "H01"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_26",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [],
+					"intruders": [
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 50.4833333333317
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": 17.0000000000003,
+					"first_repair": null,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 60.0,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 77.5,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_register"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 77.5,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 78/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_12",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.9 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 77.5,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 78/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 28.033333333333,
+						"instance": "G12_tide_26",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 6.7 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 24.0166666666666,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_12",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "G12_tide_26",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 868.033333332873,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 50.4833333333317
+					},
+					"H03_10": {
+						"first_change": "fallen",
+						"id": "H03",
+						"seconds": 29.0666666666663
+					}
+				},
+				"result": {
+					"elapsed": 62.4666666666644,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 0,
+					"incense": 60.0,
+					"killer_id": "G01",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 297.53333333339,
+					"tide_alive": 34
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				]
+			],
+			"choice": "rest",
+			"click_ms": -1.0,
+			"net_cost": -0.29600000000427,
+			"plan": "rest",
+			"starting_cash": 59.7039999999957
+		},
+		{
+			"after": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				]
+			],
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 11.0,
+							"hp_before": 1.25,
+							"instance": "G12_tide_26",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 36.1666666666659,
+							"source": "G12"
+						},
+						"id": "H01"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 299.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_26",
+					"before": 339.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H03",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						}
+					],
+					"intruders": [
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 36.1666666666659
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 10.3333333333334,
+					"first_read": 16.7500000000003,
+					"first_repair": null,
+					"initial_hp": 339.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 47.7039999999957,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_hall_door",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 56.25,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_hall_door"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_12",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.4 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 53.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 54/85 · 中断不退香火",
+						"end_reason": "fallen",
+						"ended": 36.1666666666659,
+						"instance": "G12_tide_26",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 6.8 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 29.0166666666663,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_12",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 869.183333332871,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 869.616666666204,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 870.033333332871,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 870.28333333287,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 870.716666666203,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 871.13333333287,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 871.383333332869,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 871.816666666202,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 872.233333332869,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 872.483333332868,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 872.866666666201,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 872.916666666201,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 873.333333332868,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 873.583333332867,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 873.9666666662,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 874.0166666662,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 874.433333332867,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 874.683333332866,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 875.066666666199,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 875.116666666199,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 875.533333332866,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 875.783333332865,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 876.166666666198,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 36.1666666666659
+					}
+				},
+				"result": {
+					"elapsed": 48.1499999999985,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 10.3333333333334
+					},
+					"humans_alive": 1,
+					"incense": 54.2599999999893,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.00000000000017,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 311.850000000044,
+					"tide_alive": 27
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				]
+			],
+			"choice": "brace_hall",
+			"click_ms": -1.0,
+			"net_cost": 12.0,
+			"plan": "brace_forward",
+			"starting_cash": 59.7039999999957
+		},
+		{
+			"after": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				],
+				[
+					"night_3",
+					80.0,
+					"post_register"
+				]
+			],
+			"battle": {
+				"drum_hits": [],
+				"fatal_hits": [
+					{
+						"hit": {
+							"damage": 11.0,
+							"hp_before": 1.25,
+							"instance": "G12_tide_27",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 30.7999999999995,
+							"source": "G12"
+						},
+						"id": "H01"
+					},
+					{
+						"hit": {
+							"damage": 1.0,
+							"hp_before": 1.0,
+							"instance": "G01_tide_30",
+							"kind": "melee",
+							"post": "post_register",
+							"room": "register",
+							"seconds": 37.8666666666658,
+							"source": "G01"
+						},
+						"id": "H08"
+					}
+				],
+				"first_breaker_hit": {
+					"after": 0.0,
+					"attack": 16.0,
+					"attacker": "G12_tide_27",
+					"before": 39.0,
+					"damage": 40.0,
+					"defense": 0.0,
+					"kind": "structure",
+					"multiplier": 2.5,
+					"target": "door_hall",
+					"time": 4.83333333333332
+				},
+				"first_occupation": {
+					"guards": [
+						{
+							"id": "H03",
+							"post": "post_stair_head",
+							"room": "stair_landing"
+						}
+					],
+					"intruders": [
+						"G12",
+						"G01",
+						"G01",
+						"G01",
+						"G01",
+						"G01"
+					],
+					"seconds": 37.8666666666658
+				},
+				"foreign_units": {},
+				"gate": {
+					"break_seconds": 4.83333333333332,
+					"first_read": 16.7500000000003,
+					"first_repair": null,
+					"initial_hp": 39.0,
+					"maximum": 650.0
+				},
+				"hold": true,
+				"incense": 47.7039999999957,
+				"lamp_events": [],
+				"node": "n10",
+				"opening_guards": [
+					{
+						"hp": 60.0,
+						"id": "H03",
+						"instance": "H03_10",
+						"max_hp": 60.0,
+						"post": "post_hall_door",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 56.25,
+						"id": "H01",
+						"instance": "H01_11",
+						"max_hp": 85.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"Y01",
+								""
+							],
+							"censer": "I17",
+							"nameplate": ""
+						}
+					},
+					{
+						"hp": 80.0,
+						"id": "H08",
+						"instance": "H08_12",
+						"max_hp": 80.0,
+						"post": "post_register",
+						"slots": {
+							"arts": [
+								"",
+								""
+							],
+							"censer": "",
+							"nameplate": ""
+						}
+					}
+				],
+				"phase": "mercy",
+				"posts": {
+					"H01": "post_register",
+					"H03": "post_hall_door",
+					"H08": "post_register"
+				},
+				"read_orders": [
+					{
+						"caster": "H01_11",
+						"caster_hp": 56.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 57/85 · 中断不退香火",
+						"end_reason": "P4_RITUAL_COMPLETED",
+						"ended": 21.0333333333334,
+						"instance": "G12_tide_13",
+						"label": "力士尸（殿内先遣）  /  生命 70  /  距离 7.4 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（殿内先遣） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 17.016666666667,
+						"target": "G12"
+					},
+					{
+						"caster": "H01_11",
+						"caster_hp": 55.25,
+						"conditions": "晚 已装册底针。每次受伤损失已有进度的 30%，离位或阵亡会打断点册。\n晚 · 生命 56/85 · 中断不退香火",
+						"end_reason": "fallen",
+						"ended": 30.7999999999995,
+						"instance": "G12_tide_27",
+						"label": "力士尸（门外增援）  /  生命 70  /  距离 7.8 身位",
+						"ok": true,
+						"paid": 4.0,
+						"prepaid": 0.0,
+						"preview": "力士尸（门外增援） · 读条 4.0 秒 · 确认即付 4.0 香火",
+						"seconds": 23.0166666666666,
+						"target": "G12"
+					}
+				],
+				"reading_events": [
+					{
+						"detail": "G12_tide_13",
+						"incense_delta": 0.0,
+						"kind": "ritual_release",
+						"names_delta": 0.0,
+						"time": 861.033333332879,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 863.149999999544,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 863.56666666621,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 863.81666666621,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 864.249999999543,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 864.666666666209,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 864.916666666209,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 865.349999999542,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 865.766666666208,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 866.016666666208,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 866.449999999541,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 866.866666666207,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 867.116666666207,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 867.49999999954,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 867.54999999954,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 867.966666666206,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 868.216666666206,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 868.599999999539,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 868.649999999539,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 869.066666666205,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 869.316666666205,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 869.699999999538,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 869.749999999538,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 870.166666666204,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 870.416666666204,
+						"unit_id": "H01_11"
+					},
+					{
+						"detail": "I17",
+						"incense_delta": 0.0,
+						"kind": "channel_guard",
+						"names_delta": 0.0,
+						"time": 870.799999999537,
+						"unit_id": "H01_11"
+					}
+				],
+				"register_guards": {
+					"H01_11": {
+						"first_change": "fallen",
+						"id": "H01",
+						"seconds": 30.7999999999995
+					},
+					"H08_12": {
+						"first_change": "fallen",
+						"id": "H08",
+						"seconds": 37.8666666666658
+					}
+				},
+				"result": {
+					"elapsed": 49.8499999999985,
+					"first_breach": {
+						"door": "door_hall",
+						"time": 4.83333333333332
+					},
+					"humans_alive": 1,
+					"incense": 39.6679999999891,
+					"killer_id": "G12",
+					"mode": "shouxiang",
+					"names": 9.33041666666675,
+					"outcome": "defeat",
+					"reason": "P4_END_REGISTER_CAPTURED",
+					"remaining": 310.150000000045,
+					"tide_alive": 35
+				},
+				"roster_price": 20.0,
+				"same_faction_offers": [
+					{
+						"allowed": false,
+						"cost": 12.0,
+						"id": "H01",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": false,
+						"cost": 8.0,
+						"id": "H03",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": false,
+						"reason": "P4_NAMED_PRESENT"
+					},
+					{
+						"allowed": true,
+						"cost": 9.0,
+						"id": "H06",
+						"posts": [
+							"post_gate_inner",
+							"post_barricade_outer_court",
+							"post_inner_gate",
+							"post_hall_door",
+							"post_table_hall",
+							"post_window_1",
+							"post_window_2",
+							"post_stair_head",
+							"post_register",
+							"post_rear",
+							"post_side_hall",
+							"post_silent_window"
+						],
+						"previously_fallen": true,
+						"reason": ""
+					}
+				],
+				"settled": true,
+				"start": "P5_BATTLE_STARTED"
+			},
+			"before": [
+				[
+					"night_1",
+					60.0,
+					"post_rear"
+				],
+				[
+					"n03:H01_41",
+					56.25,
+					"post_rear"
+				]
+			],
+			"choice": "reserve_H08",
+			"click_ms": -1.0,
+			"net_cost": 12.0,
+			"plan": "reserve_forward",
+			"starting_cash": 59.7039999999957
+		}
+	]
+}

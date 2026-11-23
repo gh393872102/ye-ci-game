@@ -654,6 +654,10 @@ func _rest() -> void:
 	Ink.box(_page, Rect2(400, 278, 1120, 566), Color("121b1cf5"), Ink.RULE)
 	var reserves: Array = host.run.rest_reserve_options()
 	_focus = _button("rest", tr("P5_REST"), Rect2(702, 698, 516, 64), host.finish_rest, true, true)
+	if not host.run.hall_brace_target().is_empty():
+		var fee: int = preload("res://src/night/FactionOpening.gd").RESERVE_FEE
+		var brace := _button("brace_hall","加固主殿门 · %d 香火 · 耐久 +%d · 放弃休整与请援" % [fee,Data.battle_rules.repair.heal],Rect2(485,773,950,56),host.brace_hall_at_rest,host.run.state.incense>=fee)
+		brace.tooltip_text = "耗用本次营地行动，放弃请援、疗伤和补给。下场开战生效。"
 	if not reserves.is_empty() and host.run.state.roster.size() == 1:
 		var guard: Dictionary = host.run.state.roster[0]
 		_focus.text = tr("NIGHT_REST_HEAL_SOLO") % [_unit_name(guard.id),guard.hp,host.run.rest_health_after(guard)]

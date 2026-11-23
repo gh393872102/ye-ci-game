@@ -1,6 +1,7 @@
 extends RefCounted
 ## Applies one night's owned roster and data profiles to the existing G0 simulator.
 # The shipped P10 source at 10d8719. Its actions cannot be replayed under P11.
+const PRE_CAMP_BRACE_RULES := "004f1b12a973af60eaa01012ad9adacd534a4970ee06fadcd4665ab5207e4237"
 const PILOT_TRIAL_RULES := "8f8e0dc25f49973a78a9f6885d50cc3344c040d798c60955a52ba5050ecc0b6a"
 const P11_REVIEW_RULES := "1f94085406a4fd4ca08507962d8998ba590faa5d11bcdd2db02a57ce89ae9b9c"
 const P10_RULES := "8554a9e4eed596d0f7db6b2e434f17b7800ad5a9fc9e708edb53e1aa9a5f4671"
@@ -159,6 +160,10 @@ func start(combat: Node, run: RefCounted) -> Dictionary:
 			ward.brain.settled_position = ward.position
 		if not preload("res://src/data/StageOptions.gd").start(session,node.boss_id,run.state.nameless_modifiers,seed_text):
 			return {"ok":false,"reason":"P10_INVALID_PLAN"}
+	if node.get("boss_id","")=="B01" and run.state.ledger.any(func(entry): return entry.action=="brace_hall" and entry.detail.get("target","")==node.id):
+		var hall: Node = sim.world.get_node("door_hall")
+		hall.set_durability(minf(hall.max_durability,hall.durability + float(Data.battle_rules.repair.heal)))
+		session._update_warnings()
 	_rebind_carried_references(sim)
 	var listing: Dictionary = run.state.get("story", {}).get("self_listing", {})
 	if not listing.is_empty():
@@ -435,6 +440,8 @@ func _begin_recording(combat: Node, run: RefCounted, resume: Dictionary = {}, mi
 func _prior_recording_rules(bridge: Dictionary, checkpoint: Variant) -> String:
 	if not checkpoint is Dictionary:
 		return ""
+	if checkpoint.get("rules_hash") == PRE_CAMP_BRACE_RULES:
+		return PRE_CAMP_BRACE_RULES
 	if checkpoint.get("rules_hash") == PILOT_TRIAL_RULES:
 		return PILOT_TRIAL_RULES
 	var expected := P11_REVIEW_RULES if bridge.has("renown_peak") else P10_RULES

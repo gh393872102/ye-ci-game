@@ -124,6 +124,12 @@ func resolve_event(id: String) -> void:
 	_save_state()
 	refresh()
 
+func brace_hall_at_rest() -> void:
+	var answer: Dictionary = run.brace_hall_at_rest()
+	if answer.ok: answer = _save_state()
+	_feedback(answer)
+	refresh()
+
 func treat_at_rest(uid: String) -> void:
 	var answer: Dictionary = run.treat_at_rest(uid)
 	if answer.ok: answer = _save_state()
