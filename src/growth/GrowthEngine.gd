@@ -743,8 +743,11 @@ func apply_light(caster:Node2D,radius_body:float,duration:float)->void:
 		if caster.unit_id=="G11" and enemy.unit_id in ["G01","G04"] and _ready(caster,"light_burn"):
 			enemy.receive_damage(float(rules().skills.light_damage),caster,"light");_cd(caster,"light_burn",float(rules().skills.light_tick))
 	_visual("light",caster.position,caster.floor_id,.2,radius_body)
+func drum_radius(unit: Node2D, base: float) -> float:
+	return base + (float(params("I07").radius_bonus_body) if has(unit,"I07") else 0.0)
+
 func drum(unit:Node2D)->void:
-	var radius:=float(rules().skills.drum_radius_body)+(float(params("I07").radius_bonus_body) if has(unit,"I07") else 0.0)
+	var radius:=drum_radius(unit,float(rules().skills.drum_radius_body))
 	for other in sim().humans+sim().targets:
 		if other.floor_id!=unit.floor_id or other.position.distance_to(unit.position)>Rules.body_to_px(radius):continue
 		ensure(other)
@@ -1074,7 +1077,7 @@ func _light_needed(unit:Node2D,radius_body:float)->bool:
 		if unit.unit_id=="H21" and in_environment(enemy,"water") and not enemy.growth.statuses.has("water_slow"):return true
 	return false
 func _drum_needed(unit:Node2D)->bool:
-	var radius:=float(rules().skills.drum_radius_body)+(float(params("I07").radius_bonus_body) if has(unit,"I07") else 0.0)
+	var radius:=drum_radius(unit,float(rules().skills.drum_radius_body))
 	for other in sim().humans+sim().targets:
 		if other==unit or other.dead or other.floor_id!=unit.floor_id or other.position.distance_to(unit.position)>Rules.body_to_px(radius):continue
 		ensure(other)

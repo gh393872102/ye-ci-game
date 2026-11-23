@@ -1,5 +1,7 @@
 extends RefCounted
 ## P8 named behaviors extend the same simulation; all mutable combat state is serializable.
+signal drum_resolved(unit: Node2D, receipt: Dictionary)
+
 const Humans = preload("res://src/roster/HumanAbilities.gd")
 const Ghosts = preload("res://src/roster/GhostAbilities.gd")
 var session: Node
@@ -100,6 +102,8 @@ func visual(kind: String, unit: Node2D, point := Vector2.ZERO, duration := 1.2) 
 	growth()._visual(kind,where,unit.floor_id,duration)
 	if not unit.unit_id.begins_with("G"):
 		state.effects.append({"unit_id":unit.unit_id,"kind":kind,"source":[unit.position.x,unit.position.y-40],"point":[where.x,where.y-40],"left":duration,"duration":duration})
+		if kind == "watch_drum":
+			state.effects.back().radius_body = growth().drum_radius(unit,float(params(unit).get("radius_body",3)))
 		if state.effects.size()>128: state.effects.pop_front()
 
 func reject(reason := "P8_NO_TARGET") -> Dictionary:

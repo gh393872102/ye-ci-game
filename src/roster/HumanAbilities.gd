@@ -124,19 +124,38 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 			_light(unit,id,float(p.radius_body),duration)
 			return _done(unit,id,"crow_path" if id == "H27" else "river_lantern" if id == "H21" else "cold_light")
 		"H07","T04":
-			var friends: Array = engine.near(unit,float(p.radius_body),true)
-			var enemies: Array = engine.near(unit,float(p.radius_body),false)
-			var needed := not enemies.is_empty()
+			var radius: float = growth.drum_radius(unit,float(p.radius_body))
+			var friends: Array = engine.near(unit,radius,true)
+			var enemies: Array = engine.near(unit,radius,false)
+			var wake := []
+			var hidden := []
+			var interrupted := []
+			var can_mark_elite := false
 			for ally in friends:
-				if ally.growth.statuses.has("stun") or ally.growth.statuses.has("cry_stun") or ally.roster.statuses.has("dream"): needed = true
-			if not needed: return engine.reject()
+				if ally.growth.statuses.has("stun") or ally.growth.statuses.has("cry_stun") or ally.roster.statuses.has("dream"):
+					wake.append(ally.instance_id)
+			for enemy in enemies:
+				if not enemy.roster.get("marked",false) and enemy.unit_id not in ["G01","G02","G03","G04","G05","G06","G07","G08"]:
+					can_mark_elite = true
+				if growth.is_hidden(enemy): hidden.append(enemy.instance_id)
+				if enemy.roster.statuses.has("dream"): interrupted.append(enemy.instance_id)
+			if wake.is_empty() and enemies.is_empty(): return engine.reject()
+			if args.get("watch_for_distress",false) and wake.is_empty() and hidden.is_empty() and interrupted.is_empty():
+				var hunting_pair: bool = can_mark_elite and _sim().humans.any(func(ally): return not ally.dead and ally.side == unit.side and ally.unit_id == "H31")
+				if not hunting_pair: return engine.reject()
+			var seat: String = growth.seat_of(unit)
+			var before: float = engine.session.incense_for(seat)
+			var reserve: float = unit.roster.reserve_incense
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
 			for ally in friends:
 				ally.growth.statuses.erase("stun")
 				ally.growth.statuses.erase("cry_stun")
 				ally.roster.statuses.erase("dream")
 			for enemy in enemies: engine.status(enemy,"revealed",float(p.get("reveal_seconds",3)),unit)
-			return _done(unit,id,"watch_drum")
+			var answer := _done(unit,id,"watch_drum")
+			answer.drum = {"radius":radius,"woken":wake,"hidden":hidden,"dreams":interrupted,"marked":enemies.map(func(e): return e.instance_id),"paid":before-engine.session.incense_for(seat),"reserve_paid":reserve-float(unit.roster.reserve_incense)}
+			engine.drum_resolved.emit(unit,answer.drum)
+			return answer
 		"H08":
 			if _sim().world.room_at(unit.position,unit.floor_id) != "register" or engine.near(unit,5,false).is_empty(): return engine.reject()
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
@@ -326,7 +345,7 @@ func advance(unit: Node2D, delta: float) -> void:
 	if unit.roster.has("hunt") or unit.side == "xianghuo" and (unit.brain.channel.active or not unit.brain.route.is_empty() or unit.brain.repair_door != null): return
 	if not engine.ready(unit) or not engine.can_act(unit) or not engine.growth().can_act(unit): return
 	if unit.unit_id in ["H01","H28","H30"]: return
-	engine.cast(unit)
+	engine.cast(unit,{"watch_for_distress":true} if unit.unit_id == "H07" else {})
 
 func _light(unit: Node2D, id: String, radius: float, duration: float) -> void:
 	var growth: RefCounted = engine.growth()
@@ -511,7 +530,17 @@ func draw_effects(canvas: Node2D) -> void:
 				canvas.draw_arc(a,100+phase*35,0,TAU,16,cold,4)
 				canvas.draw_line(a+Vector2(-40,-32),a+Vector2(40,32),ink,7)
 			"H07","T04":
-				for i in range(3):canvas.draw_arc(a,28+i*30+phase*40,0,TAU,12,ink,3)
+				var reach := Rules.body_to_px(float(effect.get("radius_body",3.0)))
+				var beat := minf(1,phase*2)
+				var front := lerpf(12,reach,beat)
+				for direction in [-1,1]:
+					var rim := a + Vector2(direction*front,0)
+					canvas.draw_polyline(PackedVector2Array([rim + Vector2(-direction*14,-28),rim + Vector2(0,-10),rim + Vector2(0,10),rim + Vector2(-direction*14,28)]),ink,3)
+					canvas.draw_line(rim - Vector2(direction*minf(40,front),0),rim,cold,3)
+				var grip := a + Vector2(7,-9)
+				var tip := grip + Vector2(22,-30).rotated(lerpf(-1.3,0.4,beat))
+				canvas.draw_line(grip,tip,red,5)
+				canvas.draw_circle(tip,5,ink)
 			"H08":
 				canvas.draw_colored_polygon(PackedVector2Array([a+Vector2(-70,-35),a+Vector2(70,-35),a+Vector2(50,45),a+Vector2(0,70),a+Vector2(-50,45)]),Color(cold,.28))
 				canvas.draw_line(a+Vector2(-50,-8),a+Vector2(50,-8),ink,6)

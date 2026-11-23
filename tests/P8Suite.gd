@@ -130,7 +130,71 @@ func _lamp_frame() -> void:
 	await get_tree().create_timer(0.4).timeout
 	get_tree().quit(0 if ok else 1)
 
+func _drum_reach(frame := false) -> void:
+	rig("shouxiang",{"inventory":{"I07":1}})
+	var guard := human("H07")
+	var foe := ghost("G12")
+	foe.position = guard.position - Vector2(Rules.body_to_px(4),0)
+	foe.floor_id = guard.floor_id
+	var cash: float = session.incense
+	check(not skill(guard).ok and near(session.incense,cash),"Four bodies is outside the unequipped drum")
+	var equip: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":guard.instance_id,"item_id":"I07","slot_index":0},"player")
+	check(equip.ok and not roster.cast(guard,{"watch_for_distress":true}).ok and near(session.incense,cash),"An equipped watchman conserves incense around a visible enemy")
+	foe.floor_id += 1
+	check(not skill(guard).ok,"A different floor is outside the equipped drum")
+	foe.floor_id -= 1
+	var ally := human("H08")
+	ally.position = foe.position
+	ally.floor_id = guard.floor_id
+	roster.status(ally,"stun",3,foe)
+	var result: Dictionary = roster.cast(guard,{"watch_for_distress":true})
+	check(result.ok and result.drum.radius==5 and result.drum.woken==[ally.instance_id] and result.drum.marked==[foe.instance_id] and near(cash-session.incense,3) and not ally.growth.statuses.has("stun"),"Five-body drum wakes and marks across the old boundary for three incense")
+	if not frame:
+		var partner := human("H31","post_hall_door")
+		guard.roster.cooldowns.skill = 0.0
+		foe.roster.marked = false
+		var bridge: Dictionary = roster.cast(guard,{"watch_for_distress":true})
+		check(is_instance_valid(partner) and bridge.ok and foe.roster.marked,"The watchman still automatically marks an elite for a living hunter")
+	if frame and result.ok:
+		var camera := scene.get_node("BattleCamera")
+		camera.make_current()
+		camera.set_left(guard.position.x-960)
+		for effect in roster.state.effects:
+			if effect.kind=="watch_drum": effect.left=effect.duration*0.55
+		sim.queue_redraw()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var shot := get_viewport().get_texture().get_image()
+		check(shot.get_size()==Vector2i(1920,1080) and shot.save_jpg("/tmp/r23-drum.jpg",0.88)==OK,"Rendered the five-body drum pulse at 1080p")
+		guard.roster.cooldowns.skill = 0.0
+		var panel := scene.get_node("Decisions")
+		panel.select_unit(guard)
+		panel.open_unit_skill()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var button: Button = panel.buttons.skill_cast
+		var click_at := button.get_global_rect().get_center()
+		var before_ms := Time.get_ticks_usec()
+		for down in [true,false]:
+			var mouse := InputEventMouseButton.new()
+			mouse.position = click_at
+			mouse.button_index = MOUSE_BUTTON_LEFT
+			mouse.pressed = down
+			get_viewport().push_input(mouse,true)
+		await RenderingServer.frame_post_draw
+		var elapsed_ms := (Time.get_ticks_usec()-before_ms)/1000.0
+		check(panel.feedback.text.contains("唤醒 0 人，显出 0 鬼，标记 1 鬼") and near(session.incense,cash-6),"Manual drum marks an already visible enemy and displays the actual counts")
+		print("DRUM CLICK ",elapsed_ms," ms ",panel.feedback.text)
+
+
 func _run() -> void:
+	if "--drum-frame" in OS.get_cmdline_user_args():
+		get_window().size=Vector2i(1920,1080)
+		await _drum_reach(true)
+		scene.free()
+		await get_tree().create_timer(0.3).timeout
+		get_tree().quit(1 if failures else 0)
+		return
 	if "--lamp-frame" in OS.get_cmdline_user_args():
 		await _lamp_frame()
 		return
@@ -142,6 +206,7 @@ func _run() -> void:
 			_appearance_data()
 			_spawn_all()
 		if not OS.get_cmdline_user_args().has("--catalog-only") and not OS.get_cmdline_user_args().has("--feedback-only"):
+			await _drum_reach()
 			_human_first_eight()
 			_human_second_eight()
 			_human_supplementary()

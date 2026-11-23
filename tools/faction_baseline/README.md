@@ -2,6 +2,10 @@
 
 本实验用正式 Combat.tscn 和双席胜负裁决，比较初始编制分别来自一司与一谱的战斗。每行依次与无名潮、习俗厉、大形、无册谱交战。每局都让引擎自然结算。JSON 逐局给出守军与岗位、没有合法岗位或不在购买表中的角色、攻方名单、赢家、原因、模拟秒数及结算时存活数。
 
+## 末战敲更
+
+用下节的普通夜程命令保存末战前地图。运行 `LastGuard.gd -- 渡口 /tmp/last-guard.json` 观察自动敲更，末尾追加 `manual-drum` 对照首次可敲时手动下一单。使用 Godot 的 `--headless --script tools/faction_baseline/LastGuard.gd` 启动。两个种子参数与存档内容必须一致。命中账本区分已触及的敌人、原本隐藏的敌人、受困同伴、敌方梦境、共享付款和随身付款。使用原生显示驱动运行 `godot --resolution 1920x1080 tests/P8Suite.tscn -- --drum-frame` 可单独核对四身位持槌、同层限制、技能效果与手动输入。
+
 ## 最后一人守册
 
 先以 `YE_CI_FINAL_MAP_SAVE=/tmp/last-guard.json godot --headless --script tools/faction_baseline/OrdinaryRoute.gd -- 0 trio-regroup 渡口` 生成自然夜程存档。再运行 `godot --headless --script tools/faction_baseline/LastGuard.gd -- 渡口 /tmp/last-guard.json`。更换种子时同步改两处参数及存档名。旧报价账本来自同一存档、同一求援面板和测试脚本，唯一差异是末战未添加H07报价。两份JSON内的存档摘要可逐种子对齐。

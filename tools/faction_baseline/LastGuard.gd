@@ -2,7 +2,8 @@ extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 ## Replay the same earned pair at equal starting cost, with no invented recruits.
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() != 2:
+	var manual := args.size() == 3 and args[2] == "manual-drum"
+	if args.size() != 2 and not manual:
 		quit(2)
 		return
 	var rows := []
@@ -22,7 +23,7 @@ func run() -> void:
 				quit(2)
 				return
 			var delay := -1.0 if timing == "none" else 0.0
-			var b := await fight(night,"守香司",args[0],false,"",false,"@first",true,false,1,[],false,delay,"","",false,"",0.0,timing=="last")
+			var b := await fight(night,"守香司",args[0],false,"",false,"@first",true,false,1,[],false,delay,"","",false,"",0.0,timing=="last",manual)
 			if not b.get("settled",false) or not b.foreign_units.is_empty():
 				quit(2)
 				return
@@ -32,7 +33,8 @@ func run() -> void:
 					quit(2)
 					return
 			rows.append({"post":post,"timing":timing,"battle":b})
-	var output := FileAccess.open("res://tools/faction_baseline/last-guard-%s.json" % args[0],FileAccess.WRITE)
+	var prefix := "manual-drum" if manual else "last-guard"
+	var output := FileAccess.open("res://tools/faction_baseline/%s-%s.json" % [prefix,args[0]],FileAccess.WRITE)
 	output.store_string(JSON.stringify({"seed":args[0],"save_sha256":FileAccess.get_sha256(args[1]),"trials":rows},"\t")+"\n")
 	output.close()
 	quit(0)

@@ -756,6 +756,9 @@ func open_unit_skill() -> void:
 	current_panel = "unit_skill"
 	_clear_content(tr("P8_SKILL_TITLE") % selected.display_name)
 	_label(content,selected.skill_text,18)
+	if selected.unit_id == "H07":
+		var radius: float = session.growth.drum_radius(selected,float(session.roster.params(selected).radius_body))
+		_label(content,"同层 %.0f 身位 · 自动敲更唤醒同伴、显出隐鬼或打断梦境。归客在队时也会标记精英。手动可标记明处的鬼。" % radius,17)
 	_label(content,tr("P8_SKILL_HELP"),17)
 	if selected.unit_id == "H28":
 		var market: Dictionary = Data.roster_rules.abilities.H28
@@ -794,7 +797,11 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 	if not automatic and skill_target_picker.selected > 0: args.target_id = skill_target_ids[skill_target_picker.selected]
 	if skill_mode_picker.selected > 0: args.mode = ["auto","pull","push"][skill_mode_picker.selected]
 	if confirm_market: args.confirm_market = true
-	_feedback(_issue("unit_skill",args))
+	var answer := _issue("unit_skill",args)
+	_feedback(answer)
+	if answer.has("drum"):
+		var beat: Dictionary = answer.drum
+		feedback.text = "敲更 · 唤醒 %d 人，显出 %d 鬼，标记 %d 鬼" % [beat.woken.size(),beat.hidden.size(),beat.marked.size()]
 	_refresh_card()
 
 func open_upgrade() -> void:

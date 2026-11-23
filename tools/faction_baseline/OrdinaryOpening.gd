@@ -49,7 +49,7 @@ func measure(index: int, faction: String, seed_text: String) -> Dictionary:
 	row.passed = result.get("settled",false) and result.posts.size() == 2 and result.roster_price == 17 and result.incense == 20 and result.hold and result.foreign_units.is_empty()
 	return row
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false) -> Dictionary:
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -64,6 +64,14 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		failures += 1
 		scene.free()
 		return row
+	if track_register and row.node == "n10":
+		row.drum_hits = []
+		session.roster.drum_resolved.connect(func(unit,receipt):
+			if unit.unit_id == "H07":
+				var sample: Dictionary = receipt.duplicate(true)
+				sample.seconds = sim.simulation_time
+				row.drum_hits.append(sample)
+		)
 	row.incense = session.incense
 	row.posts = {}
 	if track_register and row.node == "n10":
@@ -185,6 +193,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			row.relief = request_register_relief(scene,night,faction,id,train_id=="H01")
 			row.relief.guards_at_request = holding
 			if row.relief.has("training"): row.target_training = row.relief.training
+		if order_drum and row.has("relief") and not row.has("manual_drum") and tick % 6 == 0 and session.running:
+			for member in sim.humans:
+				if member.unit_id != "H07" or member.dead: continue
+				var answer: Dictionary = session.execute_for("shouxiang","unit_skill",{"unit_id":member.instance_id},"player")
+				if answer.has("drum"): row.manual_drum = sim.simulation_time
 		if capture_pin:
 			for effect in session.roster.state.get("effects",[]):
 				if effect.kind != "bone_pin" or effect.left > effect.duration * 0.80: continue
