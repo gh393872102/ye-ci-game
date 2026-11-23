@@ -9,6 +9,7 @@ var last_result := ""
 var start_position := Vector2.ZERO
 var damage_revision := 0
 var paid := false
+var purify_only := false
 
 func valid_target(sim: Node2D, caster: Node2D, candidate: Node2D) -> bool:
 	return target_reason(sim, caster, candidate).is_empty()
@@ -42,6 +43,7 @@ func start(sim: Node2D, caster: Node2D, candidate: Node2D) -> bool:
 		last_result = "CHANNEL_REJECT_LOCATION"
 		return false
 	target = candidate
+	purify_only = false
 	elapsed = 0
 	duration = float(Data.skills[caster.skill_id].get("duration",4.0))
 	paid = sim.session != null and sim.session.active

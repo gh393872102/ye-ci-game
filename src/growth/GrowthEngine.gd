@@ -561,7 +561,7 @@ func ritual_duration(unit:Node2D,target:Node2D,base:float)->float:
 	if unit.unit_id=="H21" and in_environment(target,"water"):base*=float(rules().skills.river_ritual_multiplier)
 	if has(unit,"Y13") and session.names<=0:base*=float(params("Y13").multiplier)
 	return base
-func ritual_completed(caster:Node2D,target:Node2D)->bool:
+func ritual_completed(caster:Node2D,target:Node2D,purify_only := false)->bool:
 	if not enabled:return false
 	ensure(caster);ensure(target)
 	if has(caster,"Y01"):
@@ -576,7 +576,7 @@ func ritual_completed(caster:Node2D,target:Node2D)->bool:
 			ensure(ally);ally.growth.statuses.procession={"left":float(params("Y03").duration)}
 	_recover_kill(caster)
 	var chance:float=float(rules().borrow.vulnerable_recruit_chance) if target.unit_id in ["G02","G08","G24"] else float(rules().borrow.recruit_chance)
-	var recruited:=rng.randf()<chance
+	var recruited:=rng.randf()<chance and not purify_only
 	state.rng_state=str(rng.state)
 	if recruited:_gray(target,caster,float(rules().borrow.gray_duration));_event("recruited",caster,target.instance_id)
 	_visual("purified",target.position,target.floor_id,1.5)

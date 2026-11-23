@@ -961,10 +961,29 @@ func open_ritual() -> void:
 		_show_ritual_preview(legal_ritual_targets[0])
 		picker.select(0)
 		picker.item_selected.connect(func(index: int): _show_ritual_preview(legal_ritual_targets[index]))
-	_button(row, "ritual_confirm", tr("P9_RITUAL_COMMAND"), func():
+	var breaker: Node2D
+	for target in legal_ritual_targets:
+		if "破门" in target.tags and (breaker == null or caster.position.distance_squared_to(target.position) < caster.position.distance_squared_to(breaker.position)):
+			breaker = target
+	if breaker != null:
+		var shortcut := _button(row,"ritual_breaker","选最近破门鬼",func():
+			if not is_instance_valid(breaker): return
+			var index := legal_ritual_targets.find(breaker)
+			if index < 0: return
+			picker.select(index)
+			_show_ritual_preview(breaker)
+		)
+		shortcut.tooltip_text = "%s · 确认施术时才扣香火。" % _ritual_target_name(breaker)
+	_button(row, "ritual_confirm", "超度／可收编" if growth_enabled() else tr("P9_RITUAL_COMMAND"), func():
 		if picker.selected >= 0 and picker.selected < legal_ritual_targets.size():
 			_ritual_target(legal_ritual_targets[picker.selected])
 	, has_targets)
+	if growth_enabled():
+		var purify := _button(row,"purify_only","只超度",func():
+			if picker.selected >= 0 and picker.selected < legal_ritual_targets.size():
+				_ritual_target(legal_ritual_targets[picker.selected],true)
+		,has_targets)
+		purify.tooltip_text = "同样消耗香火和读条时间，放弃把目标收为灰军的机会。"
 	_button(row, "close", tr("P9_BATTLE_CLOSE"), close_panel)
 	_focus_first(row)
 	highlights.queue_redraw()
@@ -989,12 +1008,12 @@ func _show_ritual_preview(target: Node2D) -> void:
 	else:
 		_set_target_hint(tr(preview.hint))
 
-func _ritual_target(target: Node2D) -> void:
+func _ritual_target(target: Node2D,purify_only := false) -> void:
 	var preview := _ritual_preview(target)
 	if not preview.reason.is_empty():
 		_set_target_hint(tr(preview.hint))
 		return
-	var answer: Dictionary = _issue("start_ritual", {"caster_id":caster.instance_id, "target_id":target.instance_id})
+	var answer: Dictionary = _issue("start_ritual", {"caster_id":caster.instance_id, "target_id":target.instance_id,"purify_only":purify_only})
 	_feedback(answer)
 	if answer.ok:
 		if not active_channels.has(caster.brain.channel):
@@ -1308,7 +1327,7 @@ func _issue(action: String, args: Dictionary = {}) -> Dictionary:
 		"cancel_purchase": return session.cancel_purchase()
 		"upgrade": return session.upgrade(_find_unit(args.unit_id))
 		"equip": return session.equip(_find_unit(args.unit_id))
-		"start_ritual": return session.start_ritual(_find_unit(args.caster_id), _find_unit(args.target_id))
+		"start_ritual": return session.start_ritual(_find_unit(args.caster_id), _find_unit(args.target_id),args.get("purify_only",false))
 		"repair": return session.repair(args.door_id)
 		"mutate": return session.mutate(_find_unit(args.unit_id), args.form_id)
 		"reinforce": return session.reinforce(str(args.get("formation","")))

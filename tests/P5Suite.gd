@@ -304,7 +304,7 @@ func _snapshot_roundtrip() -> void:
 	ranged_target.attacks_enabled = false
 	original_sim._update_units()
 	original_sim.world.get_node("door_inner").receive_damage(400)
-	check(original_session.start_ritual(caster,target).ok and original_session.repair("door_inner").ok,"Snapshot fixture has paid ritual and genuine repair job together")
+	check(original_session.start_ritual(caster,target,true).ok and original_session.repair("door_inner").ok,"Snapshot fixture has paid ritual and genuine repair job together")
 	for step in 6:
 		original_sim.advance(1.0/60)
 	var home_probe := _unit(original,"H09")
@@ -322,6 +322,7 @@ func _snapshot_roundtrip() -> void:
 	var restored_adapter: RefCounted = restored.get_meta("acceptance_bridge")
 	check(restored_adapter.restore(restored,loaded,loaded.state.battle_snapshot).ok,"S1 Adapter restores saved live battle into new combat instance")
 	check(str(_unit(restored,"H09").get_meta("night_home_post","")) == "post_gate_inner" and _unit(restored,"H09").current_post == "post_hall_door","S1 Restoring retreating unit keeps original next-node deployment post")
+	check(_unit(restored,"H01").brain.channel.purify_only,"S1 Active purify-only order survives a mid-channel reload")
 	var after: Dictionary = restored_adapter.snapshot(restored)
 	check(_equivalent(before,after),"S1 Restored semantic snapshot equals saved actors, AI, channel, repairs, projectiles, doors, queue, resources and clocks")
 	var restored_sim: Node2D = restored.get_node("Simulation")

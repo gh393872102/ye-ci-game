@@ -156,6 +156,8 @@ func run() -> void:
 		result.passed = passed
 		filename = "native-post-cover.json"
 		if OS.get_cmdline_user_args().has("--boss-brief"): filename = "native-boss-brief.json"
+	if OS.get_cmdline_user_args().has("--last-watch"):
+		filename = "native-last-watch-tide.json"
 	if OS.get_cmdline_user_args().has("--camp-health"):
 		result.camp = await probe_camp_health(host)
 		result.passed = passed and result.camp.passed

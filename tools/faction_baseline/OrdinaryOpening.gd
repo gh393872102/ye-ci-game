@@ -54,6 +54,9 @@ var repair_policy := ""
 
 var reading_limit := 2
 var second_read_after := 0.0
+var use_breaker_shortcut := false
+var purify_only := false
+var capture_breaker_shortcut := false
 
 func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false, additional_training: Array = []) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
@@ -245,8 +248,36 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 					var picker: OptionButton = panel.find_child("RitualTargets",true,false)
 					var index: int = panel.legal_ritual_targets.find(target)
 					if index >= 0 and picker != null:
-						picker.select(index)
-						picker.item_selected.emit(index)
+						if use_breaker_shortcut:
+							var shortcut: Button = panel.buttons.get("ritual_breaker")
+							if not is_instance_valid(shortcut): return {"settled":false}
+							if capture_breaker_shortcut:
+								await RenderingServer.frame_post_draw
+								await RenderingServer.frame_post_draw
+								var rect := shortcut.get_global_rect()
+								if not root.get_visible_rect().encloses(rect): return {"settled":false}
+								root.get_texture().get_image().save_jpg("/tmp/ye32-breaker.jpg",0.82)
+								var sent := Time.get_ticks_usec()
+								for down in [true,false]:
+									var click := InputEventMouseButton.new()
+									click.button_index = MOUSE_BUTTON_LEFT
+									click.position = rect.get_center()
+									click.pressed = down
+									root.push_input(click,true)
+								await RenderingServer.frame_post_draw
+								reading.click_ms = (Time.get_ticks_usec()-sent)/1000.0
+								if not shortcut.has_focus(): return {"settled":false}
+							else:
+								shortcut.pressed.emit()
+							index = picker.selected
+							target = panel.legal_ritual_targets[index]
+							reading.instance = target.instance_id
+							reading.target = target.unit_id
+							reading.prepaid = balance-session.incense
+							if "破门" not in target.tags or reading.prepaid!=0: return {"settled":false}
+						else:
+							picker.select(index)
+							picker.item_selected.emit(index)
 						reading.caster = reader.instance_id
 						reading.caster_hp = reader.hp
 						reading.conditions = panel.find_child("RitualConditions",true,false).text
@@ -269,7 +300,16 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 								await RenderingServer.frame_post_draw
 								reading.click_ms = (Time.get_ticks_usec()-sent)/1000.0
 						else:
-							panel.buttons.ritual_confirm.pressed.emit()
+							var confirm: Button = panel.buttons["purify_only" if purify_only else "ritual_confirm"]
+							if capture_breaker_shortcut:
+								for down in [true,false]:
+									var mouse := InputEventMouseButton.new()
+									mouse.button_index = MOUSE_BUTTON_LEFT
+									mouse.position = confirm.get_global_rect().get_center()
+									mouse.pressed = down
+									root.push_input(mouse,true)
+							else:
+								confirm.pressed.emit()
 					reading.ok = reader.brain.channel.active and reader.brain.channel.target == target
 					panel.close_panel()
 					root.get_node("Clock").set_paused(false)

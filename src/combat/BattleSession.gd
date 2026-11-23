@@ -330,20 +330,23 @@ func configured_ritual_duration(caster: Node2D, target: Node2D) -> float:
 		duration = roster.ritual_duration(caster, target, duration)
 	return duration * float(ritual.param("ritual_duration_multiplier",1.0))
 
-func start_ritual(caster: Node2D, target: Node2D) -> Dictionary:
+func start_ritual(caster: Node2D, target: Node2D, purify_only := false) -> Dictionary:
 	var preview := preview_ritual(caster, target)
 	if not preview.reason.is_empty():
 		return _reject(preview.reason)
 	var ritual_cost: float = preview.cost
 	if not caster.brain.channel.start(simulation, caster, target):
 		return _reject("P4_RITUAL_RANGE")
+	caster.brain.channel.purify_only = purify_only
 	caster.brain.last_channel_target = target.instance_id
 	if roster.enabled and caster.unit_id=="H01":
 		roster.status(target,"revealed",float(roster.params(caster).reveal_seconds),caster)
 		roster.cooldown(caster,float(roster.params(caster).cooldown))
 	incense -= ritual_cost
 	_record("ritual_start", -ritual_cost, target.instance_id)
-	_emit_command("shouxiang","start_ritual",{"caster_id":caster.instance_id,"target_id":target.instance_id})
+	var args := {"caster_id":caster.instance_id,"target_id":target.instance_id}
+	if purify_only: args.purify_only = true
+	_emit_command("shouxiang","start_ritual",args)
 	simulation.vfx.invalidate()
 	return _ok()
 
@@ -365,7 +368,7 @@ func ritual_completed(caster: Node2D, target: Node2D) -> void:
 	if roster.enabled:
 		name_gain = roster.name_reward(caster,target,name_gain)
 	name_gain *= rekindle_multiplier()
-	var recruited: bool = growth.ritual_completed(caster,target) if growth.enabled else false
+	var recruited: bool = growth.ritual_completed(caster,target,channel.purify_only) if growth.enabled else false
 	if not recruited:
 		target.dead = true
 		target.corpse_left = Rules.CORPSE_SECONDS
@@ -858,7 +861,7 @@ func execute_for(seat: String, action: String, args: Dictionary = {}, origin := 
 		"cancel_purchase": response = cancel_purchase()
 		"upgrade": response = upgrade(_actor(str(args.get("unit_id",""))))
 		"equip": response = equip(_actor(str(args.get("unit_id",""))))
-		"start_ritual": response = start_ritual(_actor(str(args.get("caster_id",""))),_actor(str(args.get("target_id",""))))
+		"start_ritual": response = start_ritual(_actor(str(args.get("caster_id",""))),_actor(str(args.get("target_id",""))),args.get("purify_only",false)) if args.get("purify_only",false) is bool else _reject("P4_INVALID_RITUAL")
 		"repair": response = repair(str(args.get("door_id","")))
 		"mutate": response = mutate(_actor(str(args.get("unit_id",""))),str(args.get("form_id","")))
 		"reinforce": response = reinforce(str(args.get("formation","")))

@@ -22,6 +22,7 @@ static func capture(combat: Node) -> Dictionary:
 			spec.brain = _read(unit.brain,HUMAN_FIELDS if unit.side == "xianghuo" else GHOST_FIELDS)
 			if unit.side == "xianghuo":
 				spec.channel = _read(unit.brain.channel,CHANNEL_FIELDS)
+				if unit.brain.channel.active and unit.brain.channel.purify_only: spec.channel.purify_only = true
 				spec.excursion = _read(unit.brain.excursion,EXCURSION_FIELDS)
 			actors.append(spec)
 	var structures: Array[Dictionary] = []
@@ -80,6 +81,7 @@ static func restore(combat: Node, state: Dictionary) -> Dictionary:
 		_apply(unit.brain,spec.brain,HUMAN_FIELDS if unit.side == "xianghuo" else GHOST_FIELDS,refs)
 		if unit.side == "xianghuo":
 			_apply(unit.brain.channel,spec.channel,CHANNEL_FIELDS,refs)
+			unit.brain.channel.purify_only = spec.channel.get("purify_only",false)
 			_apply(unit.brain.excursion,spec.excursion,EXCURSION_FIELDS,refs)
 		unit.sync_meta()
 		unit.queue_redraw()
@@ -189,7 +191,7 @@ static func _valid_snapshot(combat: Node, state: Dictionary) -> bool:
 		if probe.side == "xianghuo":
 			valid = valid and spec.get("channel") is Dictionary and spec.get("excursion") is Dictionary
 			if valid:
-				valid = _valid_fields(probe.brain.channel,spec.channel,CHANNEL_FIELDS) and _valid_fields(probe.brain.excursion,spec.excursion,EXCURSION_FIELDS)
+				valid = spec.channel.get("purify_only",false) is bool and _valid_fields(probe.brain.channel,spec.channel,CHANNEL_FIELDS) and _valid_fields(probe.brain.excursion,spec.excursion,EXCURSION_FIELDS)
 		probe.free()
 		if not valid:
 			return false
