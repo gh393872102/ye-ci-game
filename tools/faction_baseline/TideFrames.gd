@@ -219,6 +219,11 @@ func run() -> void:
 		passed = passed and result.camp.passed
 		result.passed = passed
 		filename = "native-last-camp.json"
+	if OS.get_cmdline_user_args().has("--bone-pin"):
+		filename = "native-register-pin.json"
+		result.pin = await probe_register_pin(host)
+		passed = passed and result.pin.passed
+		result.passed = passed
 	if not rear.is_empty():
 		result.rear = rear
 		passed = passed and rear.passed
@@ -977,4 +982,117 @@ func probe_axe_relief(host: Node) -> Dictionary:
 	row.ending = {"seed":report.seed,"reason":report.reason,"battles":report.battles.size(),"mercy":report.mercy_used,"survivors":report.roster.size(),"story":report.story.ending}
 	root.get_texture().get_image().save_webp("/tmp/ye38-dawn.webp",true,0.82)
 	row.passed = report.battles.size()==5 and not report.mercy_used
+	return row
+
+func probe_register_pin(host: Node) -> Dictionary:
+	var row := {"passed":false,"fixture":"normal n05 save; two diagnostic enemies placed near the recruited guard"}
+	if DirAccess.copy_absolute(OS.get_environment("YE_CI_PIN_MAP"),host.save_path)!=OK: return row
+	host.continue_run()
+	host.choose_node("n05")
+	var sim: Node = host.combat.get_node("Simulation")
+	var session: Node = sim.session
+	var panel: Node = host.combat.get_node("Decisions")
+	sim.set_physics_process(false)
+	var balance: float = session.incense
+	if not session.purchase("H24").ok: return row
+	var hire: Dictionary = session.deploy_at("post_register")
+	if not hire.ok: return row
+	var guard: Node = hire.unit
+	row.hire_cost = balance-session.incense
+	var common: Node = sim.tide.spawn("G01",0,guard.position.x)
+	common.floor_id = guard.floor_id
+	common.position = guard.position+Vector2(-8,0)
+	panel.select_unit(guard)
+	panel.open_unit_skill()
+	row.bare_ids = panel.skill_target_ids.duplicate()
+	var stock: int = session.growth.state.inventory.get("I17",0)
+	var purchase_cash: float = session.incense
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	click(panel.buttons.pin_equipment)
+	await RenderingServer.frame_post_draw
+	var equipment: Node = panel.growth_panel
+	if panel.current_panel!="growth" or equipment.selected_item!="I17" or equipment.buttons.equip_item.disabled: return row
+	row.preview_debit = purchase_cash-session.incense
+	row.preview_changes_stock = stock!=session.growth.state.inventory.get("I17",0)
+	if not root.get_visible_rect().encloses(equipment.buttons.equip_item.get_global_rect()): return row
+	click(equipment.buttons.equip_item)
+	await RenderingServer.frame_post_draw
+	row.stock_used = stock-int(session.growth.state.inventory.get("I17",0))
+	equipment.close()
+	panel.select_unit(guard)
+	panel.open_unit_skill()
+	row.empty_disabled = panel.buttons.skill_cast.disabled
+	var cash: float = session.incense
+	var denied: Dictionary = session.execute_for("shouxiang","unit_skill",{"unit_id":guard.instance_id,"target_id":common.instance_id},"player")
+	row.wrong_target_applied = denied.get("ok",false) and denied.get("effect_applied",true)
+	row.wrong_target_cost = cash-session.incense
+	var elite: Node = sim.tide.spawn("G12",0,guard.position.x)
+	elite.floor_id = guard.floor_id
+	elite.position = guard.position+Vector2(-20,0)
+	var original_floor: int = elite.floor_id
+	elite.floor_id += 1
+	row.other_floor_excluded = session.roster.humans.pin_targets(guard).is_empty()
+	elite.floor_id = original_floor
+	var guard_position: Vector2 = guard.position
+	var elite_position: Vector2 = elite.position
+	guard.position = sim.world.get_node("post_hall_door").position
+	elite.position = guard.position+Vector2(5,0)
+	row.outside_room = sim.world.room_at(elite.position,elite.floor_id)
+	row.outside_excluded = session.roster.humans.pin_targets(guard).is_empty()
+	guard.position = guard_position
+	elite.position = elite_position
+	panel.open_unit_skill()
+	row.named_ids = panel.skill_target_ids.duplicate()
+	row.preview = panel.skill_target_picker.get_item_text(panel.skill_target_picker.selected)
+	if row.named_ids != ["",elite.instance_id]: return row
+	panel.panel_scroll.ensure_control_visible(panel.buttons.skill_cast)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	if not root.get_visible_rect().encloses(panel.buttons.skill_cast.get_global_rect()): return row
+	root.get_texture().get_image().save_webp("/tmp/ye40-pin-panel.webp",false,0.88)
+	var start := Time.get_ticks_usec()
+	click(panel.buttons.skill_cast)
+	await RenderingServer.frame_post_draw
+	row.click_ms = (Time.get_ticks_usec()-start)/1000.0
+	row.pin_cost = cash-session.incense
+	row.stun_seconds = elite.growth.statuses.get("stun",{}).get("left",0)
+	row.cooldown = guard.roster.cooldowns.get("skill",0)
+	row.common_stunned = common.growth.statuses.has("stun")
+	row.effect = session.roster.state.effects.any(func(e):return e.kind=="register_pin" and e.unit_id=="H24")
+	row.height_px = elite.height_px
+	row.feedback = panel.feedback.text
+	row.cooldown_disabled = panel.buttons.skill_cast.disabled
+	panel.close_panel()
+	root.get_node("Clock").set_paused(false)
+	var camera: Node = host.combat.get_node("BattleCamera")
+	camera.set_left(guard.position.x-960)
+	for tick in 12: sim.advance(1.0/60)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var shot := root.get_texture().get_image()
+	shot.save_webp("/tmp/ye40-pin-fx.webp",false,0.88)
+	# At a fixed battle tick, remove only the extra binding marks. Compare target pixels.
+	var active: Array = session.roster.state.effects.filter(func(e):return e.kind=="register_pin")
+	if active.is_empty(): return row
+	var fx: Dictionary = active.back()
+	var point := Vector2(float(fx.point[0]),float(fx.point[1]))
+	var center := Vector2i(sim.get_global_transform_with_canvas()*(point+Vector2(0,-40)))
+	fx.kind = "bone_pin"
+	sim.vfx.invalidate()
+	sim.queue_redraw()
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var control := root.get_texture().get_image()
+	var box := Rect2i(center-Vector2i(40,36),Vector2i(80,72)).intersection(Rect2i(Vector2i.ZERO,shot.get_size()))
+	var changed := 0
+	for y in range(box.position.y,box.end.y):
+		for x in range(box.position.x,box.end.x):
+			if shot.get_pixel(x,y)!=control.get_pixel(x,y): changed+=1
+	row.mark_pixels = changed
+	row.mark_rect = str(box)
+	fx.kind = "register_pin"
+	sim.vfx.invalidate()
+	sim.queue_redraw()
+	row.passed = row.mark_pixels>10 and row.bare_ids==["",common.instance_id] and row.hire_cost==8 and row.empty_disabled and row.stock_used==1 and not row.preview_changes_stock and row.preview_debit==0 and row.other_floor_excluded and row.outside_room!="register" and row.outside_excluded and not row.wrong_target_applied and row.wrong_target_cost==0 and row.pin_cost==guard.skill_cost and row.stun_seconds==2 and row.cooldown==8 and not row.common_stunned and row.effect and row.cooldown_disabled and "定身 2 秒" in row.preview and "实耗" in row.feedback and elite.display_name in row.feedback
 	return row

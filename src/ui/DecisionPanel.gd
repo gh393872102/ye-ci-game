@@ -879,7 +879,24 @@ func open_unit_skill() -> void:
 	if selected.unit_id == "H07":
 		var radius: float = session.growth.drum_radius(selected,float(session.roster.params(selected).radius_body))
 		_label(content,"同层 %.0f 身位 · 自动敲更唤醒同伴、显出隐鬼或打断梦境。归客在队时也会标记精英。手动可标记明处的鬼。" % radius,17)
-	if selected.unit_id!="H13": _label(content,tr("P8_SKILL_HELP"),17)
+	if selected.unit_id=="H24":
+		var range_body: float = session.roster.params(selected).radius_body
+		var scope := "只钉已进册房的破门鬼，遇到杂鬼留香。" if session.roster.humans.uses_register_pin(selected) else "默认钉最近的敌人。守册时装备册底针，可留香专钉进册房的破门鬼。"
+		var pin_row := HBoxContainer.new()
+		pin_row.add_theme_constant_override("separation",14)
+		content.add_child(pin_row)
+		var bust := TextureRect.new()
+		bust.texture = Appearance.bust_texture("H24")
+		bust.custom_minimum_size = Vector2(144,96)
+		bust.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		bust.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		bust.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		pin_row.add_child(bust)
+		var advice := _label(pin_row,"%s\n同层 %.0f 身位内，每针 %d 香。" % [scope,range_body,selected.skill_cost],17)
+		advice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		advice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		advice.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	if selected.unit_id not in ["H13","H24"]: _label(content,tr("P8_SKILL_HELP"),17)
 	if selected.unit_id == "H28":
 		var market: Dictionary = Data.roster_rules.abilities.H28
 		var item: Dictionary = Data.growth_rules.items.get(str(market.market_item),{})
@@ -893,24 +910,39 @@ func open_unit_skill() -> void:
 	skill_target_ids.append("")
 	skill_target_picker.add_item(tr("P8_TARGET_AUTO"))
 	var targets: Array = session.roster.humans.execution_targets(selected) if selected.unit_id=="H13" else simulation.humans+simulation.targets
+	if selected.unit_id=="H24": targets = session.roster.humans.pin_targets(selected)
 	for target in targets:
 		if target.dead: continue
 		skill_target_ids.append(target.instance_id)
-		skill_target_picker.add_item(tr("P8_TARGET_ROW") % [target.display_name,target.unit_id,target.hp])
+		var caption := tr("P8_TARGET_ROW") % [target.display_name,target.unit_id,target.hp]
+		if selected.unit_id=="H24": caption += " · 定身 %s 秒" % String.num(session.roster.humans.pin_duration(target),1).trim_suffix(".0")
+		skill_target_picker.add_item(caption)
 	row.add_child(skill_target_picker)
 	skill_mode_picker = OptionButton.new()
 	for key in ["P8_SKILL_MODE","P8_SKILL_PULL","P8_SKILL_PUSH"]: skill_mode_picker.add_item(tr(key))
 	row.add_child(skill_mode_picker)
 	_button(row,"skill_auto",tr("P8_SKILL_AUTO"),_cast_selected_skill.bind(true))
 	_button(row,"skill_cast",tr("P8_SKILL_CAST"),_cast_selected_skill.bind(false))
-	if selected.unit_id=="H13":
-		skill_target_picker.set_item_text(0,"当前没有可行刑的普通鬼" if targets.is_empty() else "选择行刑目标")
+	if selected.unit_id in ["H13","H24"]:
+		var axe: bool = selected.unit_id=="H13"
+		var prompt := "选择行刑目标" if axe else "选择定身目标"
+		if targets.is_empty(): prompt = "当前没有可行刑的普通鬼" if axe else "当前没有可下针的目标"
+		skill_target_picker.set_item_text(0,prompt)
 		skill_target_picker.set_item_disabled(0,true)
 		if not targets.is_empty(): skill_target_picker.select(1)
 		skill_mode_picker.hide()
 		buttons.skill_auto.hide()
-		buttons.skill_cast.text = "行刑"
+		buttons.skill_cast.text = "行刑" if axe else "下针"
 		buttons.skill_cast.disabled = targets.is_empty()
+		if not axe and not session.roster.ready(selected):
+			buttons.skill_cast.disabled = true
+			buttons.skill_cast.text = "回针中 · %.1f 秒" % float(selected.roster.cooldowns.skill)
+	if selected.unit_id=="H24" and growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register":
+		_button(row,"pin_equipment","查看香具",func():
+			growth_panel.selected_slot = 0
+			growth_panel.selected_item = "I17"
+			open_growth()
+		)
 	if selected.unit_id == "H28":
 		skill_target_picker.hide()
 		skill_mode_picker.hide()
@@ -927,13 +959,21 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 	if skill_mode_picker.selected > 0: args.mode = ["auto","pull","push"][skill_mode_picker.selected]
 	if confirm_market: args.confirm_market = true
 	var axe: bool = selected.unit_id=="H13"
-	var cash_before: float = available_incense()+float(selected.roster.get("reserve_incense",0)) if axe else 0.0
+	var cash_before: float = available_incense()+float(selected.roster.get("reserve_incense",0))
 	var names_before: float = session.names
 	var answer := _issue("unit_skill",args)
 	_feedback(answer)
 	if axe and answer.ok and answer.get("effect_applied",true):
 		var paid := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
 		feedback.text = "行刑 · 实耗 %s 香火 · 名分 %s → %s" % [String.num(paid,2),String.num(names_before,2),String.num(session.names,2)]
+		open_unit_skill()
+	if selected.unit_id=="H24":
+		if answer.ok and answer.get("effect_applied",true):
+			var target := _find_unit(str(args.get("target_id","")))
+			if is_instance_valid(target):
+				var duration: float = target.growth.statuses.get("stun",{}).get("left",0)
+				var cost := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
+				feedback.text = "骨针钉住%s %.1f 秒 · 实耗 %s 香火" % [target.display_name,duration,String.num(cost,2)]
 		open_unit_skill()
 	if answer.has("drum"):
 		var beat: Dictionary = answer.drum

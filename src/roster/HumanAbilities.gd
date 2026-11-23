@@ -19,6 +19,22 @@ func _target(unit: Node2D, args: Dictionary, friendly := false, radius := -1.0) 
 		return selected if selected in candidates else null
 	return candidates[0] if not candidates.is_empty() else null
 
+func uses_register_pin(unit: Node2D) -> bool:
+	var growth: RefCounted = engine.growth()
+	return unit.unit_id == "H24" and growth.state.get("defense_objective","") == "hold_register" and growth.has(unit,"I17")
+
+func pin_targets(unit: Node2D) -> Array:
+	var candidates: Array = engine.near(unit,float(engine.params("H24").radius_body))
+	if uses_register_pin(unit):
+		return candidates.filter(func(enemy): return "破门" in enemy.tags and _sim().world.room_at(enemy.position,enemy.floor_id) == "register")
+	return candidates
+
+func pin_duration(target: Node2D) -> float:
+	var rule: Dictionary = engine.params("H24")
+	if target.height_px > 80: return float(rule.duration)*float(rule.large_multiplier)
+	if target.unit_id in ["G07","G04"]: return float(rule.duration)*float(rule.small_multiplier)
+	return float(rule.duration)
+
 func execution_targets(unit: Node2D) -> Array:
 	var rule: Dictionary = engine.params("H13")
 	return engine.near(unit,float(rule.radius_body)).filter(func(target): return target.unit_id in COMMON_GHOSTS and target.hp/target.max_hp<=float(rule.hp_threshold))
@@ -277,12 +293,20 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 			engine.status(target,"misname",float(p.duration),unit)
 			return _done(unit,id,"misname",target)
 		"H24":
-			target = _target(unit,args)
+			var guarded := not copied and uses_register_pin(unit)
+			if guarded:
+				var candidates := pin_targets(unit)
+				if args.has("target_id"):
+					var chosen: Node2D = engine.actor(str(args.target_id))
+					target = chosen if chosen in candidates else null
+				elif not candidates.is_empty():
+					target = candidates.front()
+			else:
+				target = _target(unit,args)
 			if target == null: return engine.reject()
 			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
-			var duration: float = float(p.duration)*(float(p.large_multiplier) if target.height_px > 80 else float(p.small_multiplier) if target.unit_id in ["G07","G04"] else 1.0)
-			engine.status(target,"stun",duration,unit)
-			return _done(unit,id,"bone_pin",target)
+			engine.status(target,"stun",pin_duration(target),unit)
+			return _done(unit,id,"register_pin" if guarded else "bone_pin",target)
 		"H26":
 			var enemies: Array = engine.near(unit,float(p.radius_body),false)
 			if enemies.is_empty(): return engine.reject()

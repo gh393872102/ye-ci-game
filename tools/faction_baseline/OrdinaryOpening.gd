@@ -59,7 +59,11 @@ var use_breaker_shortcut := false
 var purify_only := false
 var capture_breaker_shortcut := false
 
-func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false, additional_training: Array = []) -> Dictionary:
+## The paired n05 and n10 replays use a register hire and the same observer.
+func fight_pin(night: RefCounted, seed_text: String, equipped: bool, train_watch := false, train_recruit := false) -> Dictionary:
+	return await fight(night,"符法司",seed_text,train_watch,"post_register",false,"H24",true,train_recruit,1,[],false,-1,"","",false,"",0,false,false,[],equipped,true)
+
+func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair := false, aid_post := "", fill_watch := false, ordered_id := "", track_register := false, train_aid := false, upgrade_rounds := 1, carried_items: Array = [], lamp_recruit := false, relief_delay := -1.0, train_id := "", gear_owner := "", order_readings := false, read_tag := "", read_after := 0.0, last_guard_relief := false, order_drum := false, additional_training: Array = [], pin_item := false, trace_pin := false) -> Dictionary:
 	var row := {"node":night.state.current_node_id}
 	var scene: Node = load("res://scenes/combat/Combat.tscn").instantiate()
 	scene.configure_chunks(night.current_node().chunk_ids)
@@ -139,7 +143,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			if not aid_post.is_empty(): break
 	if not aid_post.is_empty():
 		var before: float = session.incense
-		if faction=="武卫司":
+		if faction=="武卫司" or trace_pin:
 			row.deployment = {"available_posts":session.legal_posts(id),"vacancies":session.post_vacancies(aid_post),"incense_before":before,"garrison":sim.humans.map(func(u): return {"id":u.unit_id,"instance":u.instance_id,"post":u.current_post,"hp":u.hp})}
 		var purchase: Dictionary = session.purchase(id)
 		var placed := false
@@ -150,14 +154,15 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 			if placed: recruit = deployment.unit
 			if not placed: session.cancel_purchase()
 		row.aid = {"id":id,"post":aid_post,"placed":placed,"paid":before-session.incense}
-		if placed and lamp_recruit:
+		if placed and (lamp_recruit or pin_item):
+			var item := "I17" if pin_item else "I08"
 			var clock := root.get_node("Clock")
 			clock.set_paused(true)
-			var qty: int = session.growth.state.inventory.get("I08",0)
+			var qty: int = session.growth.state.inventory.get(item,0)
 			var cash: float = session.incense
-			var receipt: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":recruit.instance_id,"item_id":"I08","slot_index":0},"player")
+			var receipt: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":recruit.instance_id,"item_id":item,"slot_index":0},"player")
 			clock.set_paused(false)
-			row.recruit_gear = {"ok":receipt.ok,"before":qty,"after":session.growth.state.inventory.get("I08",0),"paid":cash-session.incense}
+			row.recruit_gear = {"item":item,"owner":recruit.unit_id,"ok":receipt.ok,"before":qty,"after":session.growth.state.inventory.get(item,0),"paid":cash-session.incense}
 		if placed and train_aid:
 			var cash: float = session.incense
 			var training: Dictionary = session.upgrade(recruit)
@@ -165,6 +170,14 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		for unit in sim.humans: observe(unit,faction)
 	sim.unit_spawned.connect(func(unit): observe(unit,faction))
 	sim.unit_allegiance_changed.connect(func(unit,_old,_new): observe(unit,faction))
+	if trace_pin:
+		row.pins = []
+		sim.event_recorded.connect(func(kind,actor,detail):
+			if kind not in ["roster_bone_pin","roster_register_pin"]: return
+			var target: Node2D = session.roster.actor(detail)
+			if target != null:
+				row.pins.append({"time":sim.simulation_time,"kind":kind,"source":actor.instance_id,"target":target.unit_id,"target_instance":detail,"room":sim.world.room_at(target.position,target.floor_id),"breaker":"破门" in target.tags,"stun":target.growth.statuses.get("stun",{}).get("left",0)})
+		)
 	row.first_occupation = {}
 	var inside := {}
 	if track_register:
@@ -387,7 +400,7 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 	row.foreign_units = foreign_units.duplicate()
 	row.result = session.result.duplicate(true)
 	var report: Dictionary = bridge.collect(scene,night)
-	if martial or row.node == "n10" or order_readings:
+	if trace_pin or martial or row.node == "n10" or order_readings:
 		row.fatal_hits = []
 		for fallen in report.fallen:
 			row.fatal_hits.append({"id":fallen.id,"hit":fallen.get("fatal_hit",{})})

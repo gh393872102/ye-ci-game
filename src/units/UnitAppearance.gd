@@ -28,6 +28,7 @@ static func _appearance_spec(id: String) -> Dictionary:
 	return rules.get("units",{}).get(id,{})
 
 static func bust_texture(id: String) -> Texture2D:
+	if id == "H24": return preload("res://assets/portraits/p8/bone-needle-bust.webp")
 	if id == "H11": return preload("res://assets/portraits/p8/stone-mason-bust.webp")
 	var index := id.substr(1).to_int()-1
 	if not id.begins_with("H") or index < 0 or index >= 32: return null

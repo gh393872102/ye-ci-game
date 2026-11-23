@@ -316,7 +316,7 @@ P11_UNIT_H23_TAGS,名面;无册
 P11_UNIT_H24_NAME,骨针
 P11_UNIT_H24_AFFILIATION,符法司
 P11_UNIT_H24_ROLE,点穴稳定
-P11_UNIT_H24_SKILL,点穴：眩晕一个单位，或稳住一个即将溃散的魂
+P11_UNIT_H24_SKILL,点穴：在同层近处选一名敌人，将它钉在原地。
 P11_UNIT_H24_TRAIT,针脚：对大形单位效果缩短，对童亡、影步效果加长
 P11_UNIT_H24_TAGS,符;名面
 P11_UNIT_H25_NAME,榫卯
@@ -600,7 +600,7 @@ P11_ITEM_I15_DETAIL,每8秒轻吸4身位内最近敌人1身位。
 P11_ITEM_I16_NAME,空轿铃
 P11_ITEM_I16_DETAIL,冲锋伤害和破障+25%；守香提前1.5秒看见冲锋路径。
 P11_ITEM_I17_NAME,册底针
-P11_ITEM_I17_DETAIL,普通受伤不取消点册，改为损失30%已有进度；死亡或被拖离仍打断。
+P11_ITEM_I17_DETAIL,普通受伤不取消点册，改为损失30%已有进度；死亡或被拖离仍打断。骨针守册时佩戴，定身只对进入册房的破门鬼出手。
 P11_ITEM_I18_NAME,丧杖穗
 P11_ITEM_I18_DETAIL,对野鬼增伤20%；附近3身位人物治疗量-30%。
 P11_ITEM_I19_NAME,白骨钥

@@ -79,9 +79,10 @@ const FIFTH_POSTS := {
 	"trio-return": {"H01":"post_rear","H03":"post_register","H06":"post_register"},
 	"trio-table": {"H01":"post_table_hall","H03":"post_register","H06":"post_register"},
 }
-const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
+const CAMP_POLICIES := ["camp-mirror","camp-fire","camp-mirror-up","camp-fire-up","camp-mirror-veteran","camp-fire-veteran","camp-mirror-relay","camp-fire-relay","camp-mirror-posts","camp-fire-posts","camp-mirror-lamp","camp-fire-lamp","camp-fire-early","camp-fire-pin-early","camp-mirror-early","camp-fire-duo","camp-mirror-duo"]
 const RESERVE_POLICIES := ["reserve-hire","reserve-upgrade","reserve-both","reserve-trained"] + CAMP_POLICIES
 
+const PIN_POLICIES := ["bone-book","bone-book-seal","bone-hall","bone-hall-seal","bone-early","bone-early-seal"]
 const MARTIAL_POLICIES := ["martial-base","martial-swap","martial-pair","martial-iron","martial-iron-rear","martial-iron-camp","martial-iron-relay","martial-early-book","martial-early-door","martial-early-gear"]
 
 func run() -> void:
@@ -107,11 +108,11 @@ func run() -> void:
 			split.delay = REAR_POLICIES["rear-hall-trained"].delay
 		rear_policies[key] = split
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in rear_policies and args[1] not in RESERVE_POLICIES and args[1] not in MARTIAL_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社","松溪","槐桥","石埠"]) or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in rear_policies and args[1] not in RESERVE_POLICIES and args[1] not in MARTIAL_POLICIES and args[1] not in PIN_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社","松溪","槐桥","石埠"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
 	var policy := args[1] if args.size() >= 2 else "base"
-	if (policy in RESERVE_POLICIES or policy in ["borrow","dispel","dispel-recall"]) and args[0] != "2":
+	if (policy in RESERVE_POLICIES or policy in PIN_POLICIES or policy in ["borrow","dispel","dispel-recall"]) and args[0] != "2":
 		quit(2)
 		return
 	if policy in rear_policies and args[0]!="0":
@@ -124,6 +125,7 @@ func run() -> void:
 	if martial and args[0]!="1":
 		quit(2)
 		return
+	var early_pin := policy.begins_with("bone-early")
 	var camp := policy.begins_with("camp-")
 	var compare_lamp := policy.ends_with("-lamp")
 	var compare_posts := policy.ends_with("-posts") or compare_lamp
@@ -133,7 +135,7 @@ func run() -> void:
 	var two_levels := relay or policy.ends_with("-veteran")
 	var reserve_id := "H18" if policy.begins_with("camp-mirror") else "H20"
 	var upgraded := policy == "upgrade"
-	var paired_talisman := policy in RESERVE_POLICIES or policy in ["borrow","dispel","dispel-recall"]
+	var paired_talisman := policy in RESERVE_POLICIES or policy in PIN_POLICIES or policy in ["borrow","dispel","dispel-recall"]
 	var index := int(args[0])
 	var faction: String = load("res://src/night/FactionOpening.gd").PAIRS.keys()[index]
 	var night: RefCounted = load("res://src/night/NightRun.gd").new()
@@ -149,7 +151,7 @@ func run() -> void:
 			"map":
 				var nodes: Array = night.available_nodes()
 				step.choice = nodes[0].id
-				var recall: bool = step.choice == "n05" and (policy in ["dispel-recall","relief-8-recall"] or orders.get("recall",false) or policy in RESERVE_POLICIES)
+				var recall: bool = step.choice == "n05" and (policy in ["dispel-recall","relief-8-recall"] or orders.get("recall",false) or policy in RESERVE_POLICIES or policy in PIN_POLICIES)
 				if step.choice=="n03" and policy=="martial-swap":
 					var pair: Array = night.martial_swap_pair()
 					if pair.size()!=2 or not night.swap_martial_posts(pair[0].uid,pair[1].uid).ok:
@@ -183,6 +185,10 @@ func run() -> void:
 							var change: Dictionary = night.reserve_post(option.uid,post)
 							step.orders.append({"move":option,"accepted":change.ok})
 							if not change.ok: ok = false
+				var pin_map := OS.get_environment("YE_CI_PIN_MAP")
+				if policy in PIN_POLICIES and step.choice=="n05" and not pin_map.is_empty() and not night.save(pin_map).ok:
+					quit(2)
+					return
 				var patrol_map := OS.get_environment("YE_CI_PATROL_MAP")
 				if martial and step.choice=="n05" and not patrol_map.is_empty() and not night.save(patrol_map).ok:
 					quit(2)
@@ -195,7 +201,7 @@ func run() -> void:
 				ok = ok and night.choose_node(step.choice).ok
 			"battle":
 				var fifth: bool = night.state.current_node_id == "n05"
-				var strengthen: bool = fifth and (camp or policy in ["reserve-upgrade","reserve-both","reserve-trained"])
+				var strengthen: bool = fifth and policy!="camp-fire-pin-early" and (camp or policy in ["reserve-upgrade","reserve-both","reserve-trained"])
 				var train_reserve: bool = (night.state.current_node_id == "n08" and ((camp and policy.ends_with("-up")) or two_levels)) or (relay and not early and night.state.current_node_id == "n10")
 				var second: bool = night.state.current_node_id == "n03"
 				var aid_post := ""
@@ -214,9 +220,10 @@ func run() -> void:
 					aid_post = "post_register" if policy!="martial-early-door" else "post_hall_door"
 				if paired_talisman:
 					if night.state.current_node_id == "n01": ordered_id = "H17"
-					if second: ordered_id = "H19" if policy == "borrow" else "H22"
-					if fifth and (camp or policy in ["reserve-hire","reserve-both","reserve-trained"]): ordered_id = "H24"
+					if second: ordered_id = "H24" if early_pin else ("H19" if policy == "borrow" else "H22")
+					if fifth and not early_pin and (policy in PIN_POLICIES or camp or policy in ["reserve-hire","reserve-both","reserve-trained"]): ordered_id = "H24"
 					if not ordered_id.is_empty(): aid_post = "post_register"
+					if fifth and policy.begins_with("bone-hall"): aid_post = "post_hall_door"
 				if compare_posts and night.state.current_node_id == "n10":
 					var path := "user://final-posts-%d.json" % OS.get_process_id()
 					var saved: bool = night.save(path).ok
@@ -290,7 +297,7 @@ func run() -> void:
 					reading_limit = 1
 				probe_boss_gate = final_read and night.state.roster.any(func(u): return u.id=="H01")
 				var drill_aid: bool = (policy=="repair-inner-eighth-drill" or EIGHTH_GUARD.get(policy,{}).has("final")) and night.state.current_node_id=="n08"
-				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,drill_aid or (fifth and (policy == "reserve-trained" or camp)),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional)
+				var result: Dictionary = await fight(night,faction,seed_text,(upgraded and second) or strengthen or train_reserve,aid_post,policy == "watch",ordered_id,paired_talisman,drill_aid or (fifth and (policy == "reserve-trained" or camp)),2 if train_reserve and two_levels else 1,items,hire_early,delay,train_id,wearer,final_read or (fifth and orders.get("read",false)),"破门" if final_read else orders.get("tag",""),orders.get("after",0),false,false,additional,ordered_id=="H24" and policy in PIN_POLICIES and policy.ends_with("-seal"),policy in PIN_POLICIES or policy=="camp-fire-pin-early")
 				step.battle = result
 				ok = result.get("settled",false)
 				if not items.is_empty():
@@ -304,7 +311,10 @@ func run() -> void:
 					ok = ok and result.get("relief",{}).get("placed",false)
 				if not ordered_id.is_empty() and delay < 0 and not martial:
 					var receipt: Dictionary = result.get("aid",{})
-					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == (9.0 if ordered_id=="H06" else (8.0 if fifth else 10.0))
+					ok = ok and receipt.get("placed",false) and receipt.get("id") == ordered_id and receipt.get("paid") == (9.0 if ordered_id=="H06" else (8.0 if ordered_id=="H24" or fifth else 10.0))
+				if ordered_id=="H24" and policy in PIN_POLICIES and policy.ends_with("-seal"):
+					var gear: Dictionary = result.get("recruit_gear",{})
+					ok = ok and gear.get("ok",false) and gear.owner=="H24" and gear.before-gear.after==1 and gear.paid==0
 				if hire_early:
 					ok = ok and result.get("recruit_gear",{}).get("ok",false)
 				if train_reserve:
@@ -389,7 +399,7 @@ func run() -> void:
 					ok = hired and is_equal_approx(step.hire.paid,12.0)
 				else: ok = night.finish_rest().ok
 			_: ok = false
-		if martial or policy in rear_policies:
+		if martial or policy in rear_policies or policy in PIN_POLICIES or policy=="camp-fire-pin-early":
 			step.survivors = night.state.roster.map(func(u): return {"uid":u.uid,"id":u.id,"post":u.post,"hp":u.hp,"max_hp":u.max_hp})
 		if policy.begins_with("relief-") or policy in rear_policies:
 			step.roster_after = night.state.roster.map(func(unit): return [unit.uid,unit.id,unit.post])

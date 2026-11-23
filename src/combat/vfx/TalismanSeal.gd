@@ -56,14 +56,21 @@ func _broken_stamp(center: Vector2,phase: float) -> void:
 
 func _draw_cast(effect: Dictionary) -> void:
 	var kind: String = effect.kind
-	if kind not in ["gold_mirror", "false_god_unmasked", "dispel", "misname"]:
+	if kind not in ["gold_mirror", "false_god_unmasked", "dispel", "misname", "register_pin"]:
 		return
 	var at := pixel(Vector2(effect.point[0], effect.point[1] - 40.0))
 	if not frame.has_point(at):
 		return
 	var phase := clampf(1.0 - float(effect.left) / float(effect.duration), 0, 1)
 	var alpha := 1.0 - phase * phase
-	if kind == "gold_mirror":
+	if kind == "register_pin":
+		var width := 16.0+13.0*(1.0-smoothstep(0,0.38,phase))
+		for side in [-1,1]:
+			var edge := at+Vector2(side*width,0)
+			var stroke: Array[Vector2] = [Vector2(0,11),Vector2.ZERO,Vector2(-side*9,-6)]
+			path(edge,stroke,Color("1e2725",alpha),7)
+			path(edge,stroke,Color("98d4c8",alpha),3)
+	elif kind == "gold_mirror":
 		var outline := PackedVector2Array()
 		for i in 9:
 			outline.append(pixel(at + Vector2.from_angle(TAU * i / 8.0 + PI / 8) * Vector2(37, 42)))
