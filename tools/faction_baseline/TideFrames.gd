@@ -188,6 +188,7 @@ func run() -> void:
 		result.passed = passed
 	if OS.get_cmdline_user_args().has("--axe-relief"):
 		filename = "native-axe-relief.json"
+		if OS.get_cmdline_user_args().has("--watch-drill"): filename = "native-watch-drill.json"
 		result.axe_relief = await probe_axe_relief(host)
 		passed = passed and result.axe_relief.passed
 		result.passed = passed
@@ -887,6 +888,33 @@ func probe_axe_relief(host: Node) -> Dictionary:
 	click(panel.relief_button)
 	await RenderingServer.frame_post_draw
 	if not panel.register_relief or not root.get_node("Clock").paused: return row
+	if OS.get_cmdline_user_args().has("--watch-drill"):
+		var stone: Node = sim.humans.filter(func(u):return u.unit_id=="H11")[0]
+		var key := "watch_train_"+str(stone.instance_id)
+		var train: Button = panel.buttons.get(key)
+		if not is_instance_valid(train) or train.disabled or train.icon.get_width()!=576: return row
+		row.drills = []
+		for level in 3:
+			train = panel.buttons.get(key)
+			if train.disabled or not root.get_visible_rect().encloses(train.get_global_rect()): return row
+			var before: float = session.incense
+			var hp: float = stone.hp
+			var defense: float = stone.defense
+			var start_drill := Time.get_ticks_usec()
+			click(train)
+			await RenderingServer.frame_post_draw
+			var elapsed := (Time.get_ticks_usec()-start_drill)/1000.0
+			if before-session.incense!=8 or stone.hp-hp!=15 or stone.defense-defense!=2 or not panel.register_relief or not root.get_node("Clock").paused: return row
+			row.drills.append({"cost":before-session.incense,"hp":stone.hp,"defense":stone.defense,"click_ms":elapsed,"feedback":panel.feedback.text})
+			if level==0:
+				await RenderingServer.frame_post_draw
+				root.get_texture().get_image().save_webp("/tmp/ye39-watch.webp",true,0.85)
+		row.cap_disabled = panel.buttons[key].disabled
+		row.cap_focus_on_close = panel.buttons.close.has_focus()
+		row.drill_ledger = panel._watch_spending()
+		if row.drill_ledger!="本战请援 0 香 · 训练 24 香 · 赤钺入阵 0 次": return row
+		if not row.cap_disabled or not row.cap_focus_on_close: return row
+		cash = session.incense
 	var buy: Button = panel.buttons.get("buy_H13")
 	if not is_instance_valid(buy) or buy.disabled or not root.get_visible_rect().encloses(buy.get_global_rect()): return row
 	root.get_texture().get_image().save_webp("/tmp/ye38-relief.webp",true,0.82)
@@ -898,6 +926,9 @@ func probe_axe_relief(host: Node) -> Dictionary:
 	panel._update_warnings()
 	if not is_instance_valid(axe) or axe.unit_id!="H13" or panel.relief_button.visible or cash-session.incense!=10 or root.get_node("Clock").paused: return row
 	row.receipt = panel.feedback.text
+	if OS.get_cmdline_user_args().has("--watch-drill"):
+		row.hire_ledger = panel._watch_spending()
+		if row.hire_ledger!="本战请援 10 香 · 训练 24 香 · 赤钺入阵 1 次": return row
 	# Independent frozen target-selection fixture after the legal arrival.
 	panel.select_unit(axe)
 	panel.open_unit_skill()

@@ -3,7 +3,7 @@ extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["--rotation","--cadence","--holdout","--gear","--limits"]):
+	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["--rotation","--cadence","--holdout","--gear","--limits","--axe-limit","--axe-three","--axe-wallet","--watch-veteran","--watch-wallet","--watch-gear","--watch-budget","--watch","--watch-repeat","--watch-pair"]):
 		quit(2)
 		return
 	var plans := [
@@ -35,8 +35,33 @@ func run() -> void:
 			{"id":"check_10s","guards":2,"limit":20,"train":false,"rotation":true,"budget":150,"interval_ticks":600},
 			{"id":"check_15s","guards":2,"limit":20,"train":false,"rotation":true,"budget":150,"interval_ticks":900},
 		]
-	if args.size()==3 and args[2]=="--gear":
-		suffix = "-gear"
+	if args.size()==3 and args[2] in ["--watch","--watch-repeat","--watch-pair"]:
+		suffix = "-"+args[2].trim_prefix("--")
+		plans.clear()
+		var drills := [[],["H11"],["H09"],["H11","H11","H11"],["H09","H09","H09"]] if suffix=="-watch" else [[],["H11"],["H09"]]
+		if suffix=="-watch-pair": drills = [["H11","H11"],["H09","H09"],["H11","H09"]]
+		for drill in drills:
+			plans.append({"id":"watch_"+("_".join(drill) if not drill.is_empty() else "baseline"),"guards":2,"limit":20,"train":false,"rotation":true,"budget":91,"interval_ticks":180,"first_drill":drill})
+	if args.size()==3 and args[2] in ["--axe-limit","--axe-three","--axe-wallet"]:
+		suffix = "-"+args[2].trim_prefix("--")
+		plans.clear()
+		var limits := [1,2,3,4] if suffix=="-axe-limit" else [0,1,2]
+		if suffix=="-axe-three": limits = [3]
+		for limit in limits:
+			plans.append({"id":"axe_max%d" % limit,"guards":2,"limit":20,"train":false,"rotation":true,"budget":150 if suffix=="-axe-wallet" else 91,"interval_ticks":180,"axe_limit":limit})
+	if args.size()==3 and args[2] in ["--watch-budget","--watch-wallet","--watch-veteran"]:
+		suffix = "-"+args[2].trim_prefix("--")
+		plans.clear()
+		var caps := [81,89] if suffix=="-watch-budget" else [150]
+		var targets := [[],["H11"]] if suffix=="-watch-budget" else [["H11"],["H11","H11","H11"],["H09","H09","H09"]]
+		if suffix=="-watch-veteran": targets = [["H11","H11","H11"]]
+		for cap in caps:
+			for drill in targets:
+				var label := "_".join(drill) if not drill.is_empty() else "base"
+				if suffix=="-watch-budget" and not drill.is_empty(): label = "stone"
+				plans.append({"id":"cap%d_%s" % [cap,label],"guards":2,"limit":20,"train":false,"rotation":true,"budget":cap,"interval_ticks":180,"first_drill":drill})
+	if args.size()==3 and args[2] in ["--gear","--watch-gear"]:
+		suffix = "-"+args[2].trim_prefix("--")
 		var start: RefCounted = load("res://src/night/NightRun.gd").new()
 		if not start.load_save(args[1]).ok:
 			quit(2)
@@ -45,6 +70,10 @@ func run() -> void:
 		for gear in [["I08"],["Y11"],["I08","Y11"]]:
 			if gear.all(func(id):return start.state.growth.inventory.get(id,0)>0):
 				plans.append({"id":"stone_"+str(gear[0])+str(gear.size()),"gear":gear,"guards":2,"limit":20,"train":false,"rotation":true,"budget":150,"interval_ticks":180})
+		if suffix=="-watch-gear":
+			for plan in plans:
+				plan.first_drill = ["H11"]
+				plan.budget = 91
 	var rows := []
 	for plan in plans:
 		var row := await measure_relief(args[0],args[1],plan)
@@ -117,9 +146,29 @@ func measure_relief(seed_text: String, path: String, plan: Dictionary) -> Dictio
 				row.breaker_entries[enemy.instance_id] = sim.simulation_time
 		if tick % int(plan.get("interval_ticks",6)) != 0: continue
 		if row.orders.size() >= int(plan.limit) or session.register_attackers==0 or session.register_guards.size()>int(plan.get("guards",2)): continue
+		if plan.has("first_drill") and not row.has("drills"):
+			row.drills = []
+			if not plan.first_drill.is_empty():
+				panel._update_warnings()
+				if not panel.relief_button.visible: return {"missing_watch":true}
+				panel.relief_button.pressed.emit()
+				for id in plan.first_drill:
+					var unit: Node = sim.humans.filter(func(u):return u.unit_id==id and not u.dead)[0]
+					var button: Button = panel.buttons.get("watch_train_"+unit.instance_id)
+					var cash_before: float = session.incense
+					var hp_before: float = unit.hp
+					var defense_before: float = unit.defense
+					if not is_instance_valid(button) or button.disabled: return {"missing_training":id}
+					button.pressed.emit()
+					var paid: float = cash_before-session.incense
+					if paid!=session.rules.upgrade.cost or not is_equal_approx(unit.hp-hp_before,session.rules.upgrade.hp) or not is_equal_approx(unit.defense-defense_before,session.rules.upgrade.defense): return {"wrong_training":id}
+					row.spent += paid
+					row.drills.append({"uid":unit.instance_id,"id":id,"time":sim.simulation_time,"hp_before":hp_before,"hp_after":unit.hp,"defense_after":unit.defense,"paid":paid})
+				panel.close_panel()
 		var recruit := ""
 		var choices: Array = ["H11","H09","H13"] if plan.get("rotation",false) else ["H13"]
 		for id in choices:
+			if id=="H13" and plan.has("axe_limit") and row.orders.filter(func(o):return o.id=="H13").size()>=plan.axe_limit: continue
 			if plan.get("no_rehire",false) and enlisted.has(id): continue
 			if panel.previous_casualties.has(id) or not session.deployment_reason("post_register",id).is_empty(): continue
 			if row.spent+float(session.rules.purchases.get(id,0))>float(plan.get("budget",150)): continue

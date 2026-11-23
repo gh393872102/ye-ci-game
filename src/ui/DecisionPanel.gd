@@ -267,6 +267,8 @@ func start_battle(mode: String) -> void:
 	Clock.set_paused(false)
 
 func _clear_content(title: String) -> void:
+	for key in buttons.keys():
+		if str(key).begins_with("watch_train_"): buttons.erase(key)
 	for child in content.get_children():
 		content.remove_child(child)
 		child.queue_free()
@@ -457,6 +459,9 @@ func _build_purchase() -> void:
 			hint.text += "　问灯会借鬼；守册战给他装备无字帖，可改为照鬼定身。"
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hint.add_theme_color_override("font_color", Ink.MUTED)
+	if register_relief and preferred_faction == "武卫司":
+		hint.text += "\n"+_watch_spending()
+		_show_watch_training()
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
 	content.add_child(row)
@@ -464,6 +469,61 @@ func _build_purchase() -> void:
 		_purchase_card(row, offer)
 	if not _focus_first(row):
 		_focus_first(nav)
+
+func _watch_spending() -> String:
+	var recruits := 0.0
+	var drills := 0.0
+	var axes := 0
+	for entry in session.ledger:
+		match entry.action:
+			"purchase_reserved","purchase_cancelled": recruits -= entry.incense_delta
+			"upgrade": drills -= entry.incense_delta
+			"deployed":
+				if str(entry.detail).begins_with("H13:"): axes += 1
+	return "本战请援 %d 香 · 训练 %d 香 · 赤钺入阵 %d 次" % [roundi(recruits),roundi(drills),axes]
+
+func _is_watch_guard(unit: Node2D) -> bool:
+	return (is_instance_valid(unit) and not unit.dead and unit.side == "xianghuo"
+		and unit.current_post == "post_register" and Data.get_unit(unit.unit_id).get("所属","") == preferred_faction
+		and simulation.world.room_at(unit.position,unit.floor_id) == "register")
+
+func _show_watch_training() -> void:
+	var row := HFlowContainer.new()
+	content.add_child(row)
+	for unit in simulation.humans:
+		if not _is_watch_guard(unit): continue
+		var preview: Dictionary = _query("preview_upgrade", {"unit_id":unit.instance_id})
+		var title := "%s · 训练 %d 香" % [unit.display_name,preview.cost]
+		if preview.allowed:
+			title += "\n生命 %s → %s" % [String.num(unit.hp,1),String.num(unit.hp+preview.hp_bonus,1)]
+		else:
+			title += "\n"+tr(preview.reason)
+		var button := _button(row,"watch_train_"+unit.instance_id,title,_train_watch_guard.bind(unit.instance_id),preview.allowed,preview.reason)
+		button.add_theme_font_size_override("font_size",16)
+		button.icon = Appearance.bust_texture(unit.unit_id)
+		button.expand_icon = true
+		button.add_theme_constant_override("icon_max_width",74)
+		button.custom_minimum_size = Vector2(242,56)
+		if preview.allowed:
+			button.tooltip_text = "留在册房。基础防御 %s → %s，训练后%s。" % [String.num(unit.defense,1),String.num(preview.next_defense,1),_budget_after(preview.cost)]
+			if unit.unit_id=="H11":
+				button.tooltip_text += "站定的根深防御另加 %s，离位后重新积累。" % String.num(session.roster.humans.rooted_defense_bonus(unit),1)
+
+func _train_watch_guard(uid: String) -> void:
+	var guard := _find_unit(uid)
+	if current_panel != "purchase" or not register_relief or not _is_watch_guard(guard): return
+	var hp: float = guard.hp
+	var balance: float = available_incense()
+	var answer := _issue("upgrade",{"unit_id":uid})
+	_build_purchase()
+	var training: Button = buttons.get("watch_train_"+uid)
+	if is_instance_valid(training) and not training.disabled:
+		training.grab_focus()
+	else:
+		buttons.close.grab_focus()
+	_feedback(answer)
+	if answer.ok:
+		feedback.text = "%s留守 · 生命 %s → %s · 实付 %d 香火" % [guard.display_name,String.num(hp,1),String.num(guard.hp,1),roundi(balance-available_incense())]
 
 func _empty_relief_hint() -> String:
 	var reasons := PackedStringArray()

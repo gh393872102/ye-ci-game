@@ -98,6 +98,12 @@ func run() -> void:
 	session.register_attackers = 0
 	panel._update_warnings()
 	check(not panel.relief_button.visible,"A vacant post without an attacker does not call for relief")
+	var offer: String = ""
+	for item in session.purchase_options():
+		if item.allowed:
+			offer = item.id
+			break
+	check(not offer.is_empty() and session.purchase(offer).ok and session.cancel_purchase().ok and panel._watch_spending()=="本战请援 0 香 · 训练 0 香 · 赤钺入阵 0 次","Cancelled reservation does not add a paid arrival or net recruitment spend")
 	host.free()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path("user://relief-test.json"))
 	await create_timer(0.3).timeout
