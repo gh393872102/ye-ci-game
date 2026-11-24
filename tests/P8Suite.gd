@@ -224,13 +224,14 @@ func _run() -> void:
 			_register_focus()
 			_dispel_selection()
 			_petition_threshold()
-			await get_tree().create_timer(.7).timeout
 		if capture:
 			await _feedback_frames()
 			if not OS.get_cmdline_user_args().has("--feedback-only"):
 				await _pairs()
 				if not OS.get_cmdline_user_args().has("--humans-only"): await _face_codex_frames()
 	if is_instance_valid(scene): scene.free()
+	# Let the audio server release the final command sound before shutdown.
+	await get_tree().create_timer(.7).timeout
 	var subset:bool=OS.get_cmdline_user_args().has("--effects-only") or OS.get_cmdline_user_args().has("--catalog-only") or OS.get_cmdline_user_args().has("--humans-only") or OS.get_cmdline_user_args().has("--feedback-only")
 	var report := {"phase":"P8","coverage_status":"partial_integration" if subset else "full_suite_executed","arguments":OS.get_cmdline_user_args(),"rules_hash":load("res://src/replay/BattleRecord.gd").rules_hash(),"checks":checks,"failures":failures,"results":rows,"effects":effects,"cards":card_rows,"appearance_audit":appearance_audit,"trajectories":trajectories,"night_failure":night_failure,"ritual_completion_fixture":ritual_completion_fixture,"capture":capture,"screenshots":shots,"archive_directory":Archive.directory,"fixture_policy":"Explicit isolated starting positions/resources. Real Session commands and shared Simulation; these fixtures do not claim an ordinary complete night."}
 	FileAccess.open("res://docs/phase-reports/"+prefix+("-render" if capture else "-test")+"-results.json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
