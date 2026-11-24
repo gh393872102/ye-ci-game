@@ -700,6 +700,11 @@ func _build_deploy() -> void:
 	var hint := _label(content, tr("P9_DEPLOY_HELP"), 17)
 	if preferred_faction=="符法司" and session.pending_purchase=="H22" and growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register":
 		hint.text += "　敌人进册房时，房内有人才能压住占领进度。三戒在窗边或后厢射击时，需另留人守册。"
+	if preferred_faction=="符法司" and session.pending_purchase=="H24" and growth_enabled() and session.growth.state.get("defense_objective","")=="hold_register" and "post_rear" in legal_post_ids:
+		for guard in simulation.humans:
+			if guard.dead or guard.unit_id!="H22" or world.room_at(guard.position,guard.floor_id)!="register": continue
+			hint.text += "　三戒在册房（%d/%d 血）。骨针可同守，也可留在后厢。若要留骨针过夜，先给守册的三戒训练；后厢的人挡不住占册。" % [ceili(guard.hp),ceili(guard.max_hp)]
+			break
 	if preferred_faction=="武卫司" and session.pending_purchase in ["H09","H12","H13"]:
 		var lines := PackedStringArray()
 		for post_id in ["post_register","post_hall_door"]:
@@ -955,15 +960,19 @@ func open_unit_skill() -> void:
 		advice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		advice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		advice.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	if selected.unit_id=="H18":
+	if selected.unit_id in ["H18","H22"]:
 		var mirror: Dictionary = session.roster.params(selected)
 		var scope := "金镜反术 · 同层五身位内遇敌开镜，反射一道邪术；近身挨打仍会受伤。"
 		if session.roster.humans.uses_impact_mirror(selected):
 			scope = "承撞护身 · 同层%.0f身位内有破门鬼才开镜。抵挡它们的一次物理攻击，放弃反术。" % mirror.radius_body
+		if selected.unit_id=="H22":
+			scope = "破执可驱散寿衣或护持，对空位神造成伤害并定身。"
+			if session.roster.humans.can_extend_dispel(selected):
+				scope += " 手动借镜最远 %.0f 身位，超出常距加收 %d 香。破伪神仍须近身。" % [mirror.mirror_radius_body,mirror.mirror_extra_incense]
 		var mirror_row := HBoxContainer.new()
 		content.add_child(mirror_row)
 		var image := TextureRect.new()
-		image.texture = Appearance.bust_texture("H18")
+		image.texture = Appearance.bust_texture(selected.unit_id)
 		image.custom_minimum_size = Vector2(144,96)
 		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -972,8 +981,11 @@ func open_unit_skill() -> void:
 		help.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		help.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		_label(content,"基础开销 %d 香 · 持续 %d 秒 · 冷却 %d 秒" % [selected.skill_cost,mirror.duration,mirror.cooldown],17)
-	if selected.unit_id not in ["H13","H24","H18"]: _label(content,tr("P8_SKILL_HELP"),17)
+		if selected.unit_id=="H18":
+			_label(content,"基础开销 %d 香 · 持续 %d 秒 · 冷却 %d 秒" % [selected.skill_cost,mirror.duration,mirror.cooldown],17)
+		else:
+			_label(content,"基础耗香 %d · 常距 %.0f 身位 · 冷却 %d 秒" % [selected.skill_cost,mirror.radius_body,mirror.cooldown],17)
+	if selected.unit_id not in ["H13","H24","H18","H22"]: _label(content,tr("P8_SKILL_HELP"),17)
 	if selected.unit_id == "H28":
 		var market: Dictionary = Data.roster_rules.abilities.H28
 		var item: Dictionary = Data.growth_rules.items.get(str(market.market_item),{})
@@ -988,11 +1000,18 @@ func open_unit_skill() -> void:
 	skill_target_picker.add_item(tr("P8_TARGET_AUTO"))
 	var targets: Array = session.roster.humans.execution_targets(selected) if selected.unit_id=="H13" else simulation.humans+simulation.targets
 	if selected.unit_id=="H19": targets = session.roster.humans.lantern_targets(selected)
+	if selected.unit_id=="H22": targets = session.roster.humans.dispel_targets(selected,true)
 	if selected.unit_id=="H24": targets = session.roster.humans.pin_targets(selected)
 	for target in targets:
 		if target.dead: continue
 		skill_target_ids.append(target.instance_id)
 		var caption := tr("P8_TARGET_ROW") % [target.display_name,target.unit_id,target.hp]
+		if selected.unit_id=="H22":
+			var extra: float = session.roster.humans.dispel_extra(selected,target)
+			if extra>0: caption += " · 借镜加收 %d 香" % extra
+			if target.unit_id=="G30": caption += " · 空位神"
+			if target.roster.statuses.has("cloth"): caption += " · 寿衣"
+			if target.growth.statuses.has("ward"): caption += " · 护持"
 		if selected.unit_id=="H24": caption += " · 定身 %s 秒" % String.num(session.roster.humans.pin_duration(target),1).trim_suffix(".0")
 		skill_target_picker.add_item(caption)
 	row.add_child(skill_target_picker)
@@ -1001,6 +1020,14 @@ func open_unit_skill() -> void:
 	row.add_child(skill_mode_picker)
 	_button(row,"skill_auto",tr("P8_SKILL_AUTO"),_cast_selected_skill.bind(true))
 	_button(row,"skill_cast",tr("P8_SKILL_CAST"),_cast_selected_skill.bind(false))
+	if selected.unit_id=="H22":
+		skill_mode_picker.hide()
+		buttons.skill_auto.hide()
+		skill_target_picker.set_item_text(0,"附近没有可驱散的目标" if targets.is_empty() else "选择破执目标")
+		skill_target_picker.set_item_disabled(0,true)
+		if not targets.is_empty(): skill_target_picker.select(1)
+		skill_target_picker.item_selected.connect(_refresh_dispel_price)
+		_refresh_dispel_price(skill_target_picker.selected)
 	if selected.unit_id in ["H13","H24"]:
 		var axe: bool = selected.unit_id=="H13"
 		var prompt := "选择行刑目标" if axe else "选择定身目标"
@@ -1065,6 +1092,21 @@ func open_unit_skill() -> void:
 	_button(row,"close",tr("P9_BATTLE_CLOSE"),close_panel)
 	_focus_first(row)
 
+func _refresh_dispel_price(index: int) -> void:
+	var reason := ""
+	var price := 0.0
+	if not session.roster.ready(selected): reason = "破执冷却中"
+	elif index<=0: reason = "暂无目标"
+	else:
+		var enemy := _find_unit(skill_target_ids[index])
+		if not is_instance_valid(enemy): reason = "目标已离场"
+		else:
+			var extra: float = session.roster.humans.dispel_extra(selected,enemy)
+			price = session.growth.ritual_cost(selected,selected.skill_cost+extra)
+			if available_incense()+float(selected.roster.get("reserve_incense",0))<price: reason = "香火不足"
+	buttons.skill_cast.disabled = not reason.is_empty()
+	buttons.skill_cast.text = "破执 · %s 香" % String.num(price,2) if reason.is_empty() else reason
+
 func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 	if not _can_command() or not _owned_selected(): return
 	var args := {"unit_id":selected.instance_id}
@@ -1079,6 +1121,11 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 	if axe and answer.ok and answer.get("effect_applied",true):
 		var paid := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
 		feedback.text = "行刑 · 实耗 %s 香火 · 名分 %s → %s" % [String.num(paid,2),String.num(names_before,2),String.num(session.names,2)]
+		open_unit_skill()
+	if selected.unit_id=="H22":
+		if answer.ok and answer.get("effect_applied",true):
+			var paid := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
+			feedback.text = "破执 · %s · 实耗 %s 香火" % [skill_target_picker.get_item_text(skill_target_picker.selected),String.num(paid,2)]
 		open_unit_skill()
 	if selected.unit_id=="H17": open_unit_skill()
 	if selected.unit_id=="H24":

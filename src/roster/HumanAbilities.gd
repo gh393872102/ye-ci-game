@@ -23,6 +23,23 @@ func lantern_targets(unit: Node2D) -> Array:
 	var nearby: Array = engine.near(unit,float(engine.params(unit).get("radius_body",3)))
 	return nearby.filter(func(target): return (target.unit_id in COMMON_GHOSTS or target.unit_id=="G24") and _sim().world.inside_base(target.position))
 
+func can_extend_dispel(unit: Node2D) -> bool:
+	return unit.unit_id=="H22" and engine.growth().state.get("defense_objective","")=="hold_register" and engine.growth().has(unit,"I12")
+
+func dispel_extra(unit: Node2D, target: Node2D) -> float:
+	var rule: Dictionary = engine.params("H22")
+	if unit.position.distance_to(target.position) > Rules.body_to_px(float(rule.radius_body)):
+		return float(rule.mirror_extra_incense)
+	return 0.0
+
+func dispel_targets(unit: Node2D, manual := false) -> Array:
+	var radius: float = engine.params(unit).get("radius_body",3)
+	if manual and can_extend_dispel(unit): radius = float(engine.params("H22").mirror_radius_body)
+	var nearby: Array = engine.near(unit,radius)
+	return nearby.filter(func(enemy):
+		if enemy.unit_id=="G30": return unit.unit_id!="H22" or dispel_extra(unit,enemy)==0
+		return enemy.roster.statuses.has("cloth") or enemy.growth.statuses.has("ward"))
+
 func uses_register_pin(unit: Node2D) -> bool:
 	var growth: RefCounted = engine.growth()
 	return unit.unit_id == "H24" and growth.state.get("defense_objective","") == "hold_register" and growth.has(unit,"I17")
@@ -300,10 +317,12 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 			growth.ignite_ritual_fire(unit,target.position,target.floor_id,id)
 			return _done(unit,id,"burning_petition",target)
 		"H22":
-			target = _target(unit,args)
-			if target == null: return engine.reject()
-			if target.unit_id != "G30" and not target.roster.statuses.has("cloth") and not target.growth.statuses.has("ward"): return engine.reject()
-			if not _paid(unit,id,0,copied): return engine.reject("P4_NO_INCENSE")
+			var eligible := dispel_targets(unit,args.has("target_id") and not copied)
+			if eligible.is_empty(): return engine.reject()
+			target = engine.actor(str(args.target_id)) if args.has("target_id") else eligible.front()
+			if target not in eligible: return engine.reject()
+			var extra := 0.0 if copied else dispel_extra(unit,target)
+			if not _paid(unit,id,extra,copied): return engine.reject("P4_NO_INCENSE")
 			target.roster.statuses.erase("cloth")
 			target.growth.statuses.erase("ward")
 			if target.unit_id == "G30":

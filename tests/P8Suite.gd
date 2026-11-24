@@ -222,6 +222,7 @@ func _run() -> void:
 			for number in range(1,5): all_troops=all_troops and bool(effects.get("T%02d" % number,false))
 			check(all_troops,"K1 All four troop templates execute their actual supported battlefield behavior")
 			_register_focus()
+			_dispel_selection()
 		if capture:
 			await _feedback_frames()
 			if not OS.get_cmdline_user_args().has("--feedback-only"):
@@ -641,6 +642,66 @@ func _human_supplementary() -> void:
 	session.incense=0; hp=friend.hp; other_hp=u.hp
 	result=skill(u,{"target_id":friend.instance_id})
 	check(attack.ok and not result.ok and near(friend.hp,hp) and near(u.hp,other_hp),"H02 Insufficient-incense rekindling in a poison field has no preflight damage side effect","H02")
+
+func _dispel_selection() -> void:
+	rig(); var u:=human("H22")
+	var ordinary := ghost("G01")
+	var protected := ghost("G12")
+	for foe in [ordinary,protected]: foe.floor_id = u.floor_id
+	ordinary.position = u.position - Vector2(12,0)
+	protected.position = u.position - Vector2(30,0)
+	roster.status(protected,"cloth",6,protected,{"multiplier":0.6})
+	var panel: Node = scene.get_node("Decisions")
+	panel.select_unit(u)
+	panel.open_unit_skill()
+	check(panel.skill_target_ids==["",protected.instance_id] and panel.skill_target_picker.get_item_text(1).contains("寿衣") and not panel.buttons.skill_cast.disabled,"Three Ring picker identifies the protected enemy behind an ordinary one","H22")
+	var before_dispel: float = session.incense
+	var result:=skill(u,{"target_id":ordinary.instance_id})
+	check(not result.ok and near(session.incense,before_dispel) and roster.ready(u) and protected.roster.statuses.has("cloth"),"Invalid explicit dispel keeps funds, cooldown and enemy status","H22")
+	result=skill(u)
+	check(result.ok and not protected.roster.statuses.has("cloth") and not roster.ready(u) and session.incense<before_dispel,"Untargeted dispel reaches the closest legal enemy behind the front rank","H22")
+	panel.open_unit_skill()
+	check(panel.buttons.skill_cast.disabled and panel.skill_target_ids==[""],"Empty dispel list prevents another cast","H22")
+	roster.cooldown(u,0)
+	session.growth.apply_status(protected,"ward",5,protected)
+	protected.floor_id = u.floor_id+1
+	check(not skill(u).ok and roster.ready(u),"Dispel cannot reach a ward on another floor","H22")
+	protected.floor_id = u.floor_id
+	panel.open_unit_skill()
+	panel.buttons.skill_cast.pressed.emit()
+	check(not protected.growth.statuses.has("ward") and panel.feedback.text.contains("实耗") and panel.feedback.text.contains(protected.display_name),"Dispel button clears a ward and displays the target and real cost","H22")
+
+	rig("shouxiang",{"defense_objective":"hold_register","inventory":{"I12":1}})
+	u=human("H22")
+	protected=ghost("G12")
+	protected.floor_id=u.floor_id
+	protected.position=u.position+Vector2(Rules.body_to_px(4),0)
+	roster.status(protected,"cloth",6,protected,{"multiplier":0.6})
+	var args := {"target_id":protected.instance_id}
+	check(not skill(u,args).ok,"Distant cloth requires a worn shard","H22")
+	var gear: Dictionary = session.execute_for("shouxiang","equip_item",{"unit_id":u.instance_id,"item_id":"I12","slot_index":0},"player")
+	check(gear.ok and not skill(u).ok and roster.ready(u),"An equipped shard never spends the surcharge automatically","H22")
+	var god := ghost("G30")
+	god.floor_id=u.floor_id
+	god.position=protected.position
+	check(not skill(u,{"target_id":god.instance_id}).ok and roster.ready(u),"Distant mirror cannot damage the false god","H22")
+	session.incense=u.skill_cost
+	check(not skill(u,args).ok and near(session.incense,u.skill_cost) and protected.roster.statuses.has("cloth") and roster.ready(u),"Insufficient incense preserves the protection and cooldown","H22")
+	session.incense=30
+	panel=scene.get_node("Decisions")
+	panel.select_unit(u)
+	panel.open_unit_skill()
+	check(panel.skill_target_ids==["",protected.instance_id] and panel.skill_target_picker.get_item_text(1).contains("加收 3 香"),"Manual mirror shows the extra cost before confirmation","H22")
+	panel.buttons.skill_cast.pressed.emit()
+	check(not protected.roster.statuses.has("cloth") and near(session.incense,30-u.skill_cost-3),"Confirming distant dispel takes exactly the quoted surcharge","H22")
+
+	panel.close_panel()
+	panel.preferred_faction="符法司"
+	panel.open_purchase()
+	panel._purchase("H24")
+	var posts: Array = panel.content.find_children("*","Label",true,false)
+	check(panel.current_panel=="deploy" and posts.any(func(label):return label.text.contains("三戒在册房（64/64 血）") and label.text.contains("后厢")),"Bone Needle deployment identifies the living register guard before choosing a rear post","H24")
+	panel._cancel_purchase()
 
 func _register_focus() -> void:
 	rig("shouxiang",{"defense_objective":"hold_register"})

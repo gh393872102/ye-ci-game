@@ -249,6 +249,9 @@ func _refresh_description() -> void:
 	var price: float = decisions.session.growth.equip_price(old_id, selected_item)
 	description.text += "\n" + tr("P7_CANDIDATE_ITEM") % [item.name, item.description]
 	description.text += "\n" + tr("P7_SWAP_PRICE") % [str(price).trim_suffix(".0"), str(item.remove_cost).trim_suffix(".0")]
+	if selected_item=="I12" and unit.unit_id=="H22" and decisions.roster_enabled() and decisions.session.growth.state.get("defense_objective","")=="hold_register":
+		var rule: Dictionary = decisions.session.roster.params(unit)
+		description.text += "\n守册专用 · 手动破执从 %.0f 身位延至 %.0f，远处仅可驱散寿衣或护持，每次加收 %d 香。" % [rule.radius_body,rule.mirror_radius_body,rule.mirror_extra_incense]
 	if selected_item in ["I17","Y01"]:
 		description.text += "\n" + tr("P7_READ_COMMAND_HINT" if unit.role=="ritual" else "P7_READ_WEARER_HINT")
 	if selected_item == "I20": description.text += "\n" + tr("P7_ITEM_INTERFACE")

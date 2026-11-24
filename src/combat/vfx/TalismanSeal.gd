@@ -93,6 +93,19 @@ func _draw_cast(effect: Dictionary) -> void:
 	else:
 		# The three brass rings leave the staff in succession and close on the target.
 		var hand := pixel(Vector2(effect.source[0],effect.source[1]-26))
+		var source := Vector2(effect.source[0],effect.source[1])
+		var target := Vector2(effect.point[0],effect.point[1])
+		if kind=="dispel" and effect.unit_id=="H22" and source.distance_to(target)>Rules.body_to_px(float(Data.roster_rules.abilities.H22.radius_body)):
+			# A glint leaves the shard, then its two halves open around the target.
+			var travel := smoothstep(0,0.55,phase)
+			var center := hand.lerp(at,travel)
+			var split := 15.0*smoothstep(0.55,0.88,phase)
+			for side in [-1,1]:
+				var edge := center+Vector2(side*split,0)
+				var rim: Array[Vector2] = [Vector2(0,-13),Vector2(side*9,0),Vector2(0,13)]
+				path(edge,rim,Color(INK,alpha),6)
+				path(edge,rim,Color("a5d4d2",alpha),3)
+			return
 		for ring in 3:
 			var travel := clampf((phase-ring*0.10)/0.48,0,1)
 			var center := hand.lerp(at,travel) + Vector2(0,-sin(PI*travel)*22)

@@ -202,6 +202,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		for trainee in additional_training:
 			row.additional_training.append(train_guard(session,sim,trainee,scene.get_node("Decisions")))
 	var capture_pin := train_aid and OS.get_environment("YE_CI_CAPTURE_PIN") == "1" and DisplayServer.get_name() != "headless"
+	var mirror_guard: Node2D
+	if gear_owner=="H22" and "I12" in carried_items:
+		row.mirror_orders = {"sample_seconds":1,"checks":0,"offers":0,"casts":[]}
+		for guard in sim.humans:
+			if guard.unit_id=="H22": mirror_guard=guard
 	var reader: Node2D
 	if order_readings:
 		for unit in sim.humans:
@@ -223,6 +228,15 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 						row.gate.first_read = sim.simulation_time
 						break
 		sim.advance(1.0/60.0)
+		if tick%60==0 and session.running and is_instance_valid(mirror_guard) and not mirror_guard.dead and session.roster.ready(mirror_guard):
+			row.mirror_orders.checks += 1
+			for enemy in session.roster.humans.dispel_targets(mirror_guard,true):
+				if session.roster.humans.dispel_extra(mirror_guard,enemy)==0: continue
+				row.mirror_orders.offers += 1
+				var balance: float = session.incense
+				var order: Dictionary = session.execute_for("shouxiang","unit_skill",{"unit_id":mirror_guard.instance_id,"target_id":enemy.instance_id},"player")
+				row.mirror_orders.casts.append({"time":sim.simulation_time,"target":enemy.instance_id,"ok":order.ok,"paid":balance-session.incense})
+				break
 		if martial and tick%15==0:
 			for hit in sim.damage_log.slice(-30):
 				var actor: String = str(hit.attacker).get_slice("_",0)
@@ -348,9 +362,11 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 				row.read_orders.append(reading)
 		if relief_delay >= 0 and not row.has("relief") and session.running and session.occupation >= relief_delay and session.register_attackers > 0 and (session.register_guards.is_empty() or (last_guard_relief and session.register_guards.size() == 1)):
 			var holding: Array = session.register_guards.duplicate()
-			row.relief = await request_register_relief(scene,night,faction,id,train_id=="H01")
+			row.relief = await request_register_relief(scene,night,faction,id,train_id=="H01" or train_aid)
 			row.relief.guards_at_request = holding
-			if row.relief.has("training"): row.target_training = row.relief.training
+			if row.relief.has("training"):
+				if train_aid: row.aid_upgrade = {"id":id,"ok":row.relief.training.ok,"paid":row.relief.training.paid}
+				else: row.target_training = row.relief.training
 		if order_drum and row.has("relief") and not row.has("manual_drum") and tick % 6 == 0 and session.running:
 			for member in sim.humans:
 				if member.unit_id != "H07" or member.dead: continue

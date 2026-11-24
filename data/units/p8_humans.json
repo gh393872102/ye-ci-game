@@ -1138,6 +1138,8 @@
       "cooldown": 8.0,
       "radius_body": 3,
       "dispel_damage": 24,
+      "mirror_radius_body": 5,
+      "mirror_extra_incense": 3,
       "god_damage_multiplier": 1.25
     },
     "H23": {
