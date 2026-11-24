@@ -678,7 +678,21 @@ func draw_effects(canvas: Node2D) -> void:
 				canvas.draw_rect(Rect2(lamp-Vector2(10,14),Vector2(20,28)),red)
 				canvas.draw_line(lamp-Vector2(12,14),lamp+Vector2(12,-14),ink,4)
 				canvas.draw_line(lamp+Vector2(0,14),lamp+Vector2(0,23),ink,3)
-			"H20","H26":
+			"H20":
+				# The written sheet travels to the struck group and burns from its lower edge.
+				var throw_t := smoothstep(0.0,0.32,phase)
+				var center := a.lerp(b,throw_t)-Vector2(0,22*sin(PI*throw_t))
+				var burn := smoothstep(0.32,0.86,phase)
+				var paper := Rect2(center-Vector2(9,16),Vector2(18,32*(1.0-burn)))
+				if paper.size.y>1:
+					canvas.draw_rect(paper,ink)
+					canvas.draw_line(paper.position+Vector2(5,2),paper.position+Vector2(5,minf(19,paper.size.y)),red,2)
+				if phase>=0.32:
+					var ember := Color("eca659",1.0-burn*0.85)
+					for i in range(-1,2):
+						var base := center+Vector2(i*(5+17*burn),16-26*burn)
+						canvas.draw_line(base,base+Vector2(4*i,-6-9*burn),ember,3)
+			"H26":
 				for i in range(7):
 					var p: Vector2=b+Vector2(-90+i*30,-10 if i%2==0 else 15)
 					canvas.draw_line(p+Vector2(-12,15),p+Vector2(6,-25-phase*35),red,5)

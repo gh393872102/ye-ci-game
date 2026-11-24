@@ -54,6 +54,26 @@ func run() -> void:
 		host.refresh()
 		var heal_text: String = host.panel.buttons.rest.text
 		passed = passed and ("%.2f → %.2f" % [2.0,night.rest_health_after(night.state.roster[0])]) in heal_text
+		var lone: Dictionary = night.state.roster[0]
+		var lone_key := "treat_"+str(lone.uid)
+		var lone_price: float = night.config.rest.treatment_cost
+		var lone_after: float = night.treatment_health_after(lone)
+		var backup: Dictionary = night.state.duplicate(true)
+		var care: Button = host.panel.buttons.get(lone_key)
+		if care == null or care.disabled or host.panel.buttons.rest.get_node(host.panel.buttons.rest.focus_neighbor_right) != care:
+			quit(1)
+			return
+		var supply_tip: String = host.panel.buttons.rest.tooltip_text
+		care.pressed.emit()
+		passed = passed and night.state.phase == "map" and night.state.roster.size() == 1
+		passed = passed and night.state.roster[0].uid == lone.uid and night.state.roster[0].hp == lone_after and night.state.incense == backup.incense-lone_price and night.state.names == backup.names
+		passed = passed and not night.treat_at_rest(lone.uid).ok and "名分" in supply_tip
+		night.state = backup.duplicate(true)
+		night.state.incense = lone_price-1
+		host.refresh()
+		passed = passed and host.panel.buttons[lone_key].disabled and not night.treat_at_rest(lone.uid).ok
+		night.state = backup
+		host.refresh()
 		var unchanged: Dictionary = night.state.duplicate(true)
 		passed = passed and not night.finish_rest("",true).ok and night.state == unchanged
 		if night.state.roster[0].post == wounded[0].post:

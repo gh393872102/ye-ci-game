@@ -428,7 +428,7 @@ func treatment_health_after(unit: Dictionary) -> float:
 	return minf(unit.max_hp,unit.hp + unit.max_hp * config.rest.treatment_ratio)
 
 func can_treat(unit: Dictionary) -> bool:
-	return _phase("rest") and state.mode=="shouxiang" and state.has("opening_faction") and state.roster.size()>=2 and unit.hp>0 and treatment_health_after(unit)>rest_health_after(unit) and state.incense>=config.rest.treatment_cost
+	return _phase("rest") and state.mode=="shouxiang" and state.has("opening_faction") and unit.hp>0 and treatment_health_after(unit)>rest_health_after(unit) and state.incense>=config.rest.treatment_cost
 
 func treat_at_rest(uid: String) -> Dictionary:
 	for unit in state.get("roster",[]):

@@ -699,6 +699,11 @@ func _rest() -> void:
 	Ink.box(_page, Rect2(400, 278, 1120, 566), Color("121b1cf5"), Ink.RULE)
 	var reserves: Array = host.run.rest_reserve_options()
 	_focus = _button("rest", tr("P5_REST"), Rect2(702, 698, 516, 64), host.finish_rest, true, true)
+	var config: Dictionary = host.run.config
+	var state: Dictionary = host.run.state
+	var incense_gain := minf(config.rest.incense,config.incense_cap - state.incense)
+	var names_gain := minf(config.rest.names,config.names_cap - state.names)
+	_focus.tooltip_text = "休整后全队回血，香火 %+.2f，名分 %+.2f。" % [incense_gain,names_gain]
 	if not host.run.hall_brace_target().is_empty():
 		var fee: int = preload("res://src/night/FactionOpening.gd").RESERVE_FEE
 		var brace := _button("brace_hall","加固主殿门 · %d 香火 · 耐久 +%d · 放弃休整与请援" % [fee,Data.battle_rules.repair.heal],Rect2(485,773,950,56),host.brace_hall_at_rest,host.run.state.incense>=fee)
@@ -706,9 +711,17 @@ func _rest() -> void:
 	if not reserves.is_empty() and host.run.state.roster.size() == 1:
 		var guard: Dictionary = host.run.state.roster[0]
 		_focus.text = tr("NIGHT_REST_HEAL_SOLO") % [_unit_name(guard.id),guard.hp,host.run.rest_health_after(guard)]
+		if host.run.treatment_health_after(guard) > host.run.rest_health_after(guard):
+			_focus.position.x = 461
+			_focus.size.x = 500
+			var care := _button("treat_"+str(guard.uid),_care_caption(guard),Rect2(974,698,483,64),host.treat_at_rest.bind(guard.uid),host.run.can_treat(guard))
+			care.tooltip_text = "把药留给最后一人，放弃本次补给和请援。"
+			if not care.disabled:
+				_focus.focus_neighbor_right = _focus.get_path_to(care)
+				care.focus_neighbor_left = care.get_path_to(_focus)
 	if reserves.is_empty() or host.run.state.roster.size() >= 2:
 		Ink.label(_page, str(host.run.current_node().description), Rect2(477, 324, 966, 86), 31, Ink.PAPER, true)
-		if host.run.state.has("opening_faction") and host.run.state.mode=="shouxiang" and host.run.state.roster.size()>=2:
+		if host.run.state.has("opening_faction") and host.run.state.mode=="shouxiang" and not host.run.state.roster.is_empty():
 			var help := "集中疗伤只治疗一人，本次放弃补给。"
 			if not reserves.is_empty(): help += " 请援占用本次休整，全队不回血、不领补给。"
 			Ink.label(_page,help,Rect2(477,418,966,46),22,Ink.MUTED)
@@ -730,7 +743,8 @@ func _rest() -> void:
 				line.add_child(hp)
 				if host.run.treatment_health_after(unit)>after:
 					var care := Button.new()
-					care.text = "集中疗伤至 %.2f · %d香火" % [host.run.treatment_health_after(unit),host.run.config.rest.treatment_cost]
+					care.text = _care_caption(unit)
+					buttons["treat_"+str(unit.uid)] = care
 					care.add_theme_font_size_override("font_size",22)
 					care.disabled = not host.run.can_treat(unit)
 					care.pressed.connect(host.treat_at_rest.bind(unit.uid))
@@ -744,7 +758,6 @@ func _rest() -> void:
 					button.icon = Appearance.bust_texture(option.id)
 					button.add_theme_constant_override("icon_max_width",48)
 					button.tooltip_text = "%s · %s" % [tr(str(option.post).to_upper()),unit["专属技能"]]
-			_focus.tooltip_text = tr("P5_REST_HELP")
 		else:
 			Ink.label(_page, tr("P5_REST_HELP"), Rect2(477, 490, 966, 116), 22, Ink.MUTED)
 		return
@@ -781,6 +794,9 @@ func _rest() -> void:
 		_focus.focus_neighbor_top = _focus.get_path_to(regroup_buttons[0])
 	elif not recruit_buttons.is_empty():
 		_focus.focus_neighbor_top = _focus.get_path_to(recruit_buttons[0])
+
+func _care_caption(unit: Dictionary) -> String:
+	return "集中疗伤至 %.2f · %d香火" % [host.run.treatment_health_after(unit),host.run.config.rest.treatment_cost]
 
 func _mercy() -> void:
 	heading.text = tr("P5_MERCY_TITLE")

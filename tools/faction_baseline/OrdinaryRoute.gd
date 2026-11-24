@@ -430,7 +430,29 @@ func run() -> void:
 				if night.state.current_node_id=="n09" and not snapshot.is_empty() and not night.save(snapshot).ok:
 					quit(2)
 					return
-				if policy=="repair-inner-eighth-treat" and night.state.current_node_id=="n06":
+				if policy=="camp-fire-stock-pin-veteran8-early" and OS.get_environment("YE_CI_TREAT_SOLO")=="rest" and night.state.current_node_id=="n06":
+					ok = night.finish_rest().ok
+				elif policy=="camp-fire-stock-pin-veteran8-early" and OS.get_environment("YE_CI_TREAT_SOLO")=="1" and night.state.current_node_id=="n06":
+					var host: Node = load("res://scenes/night/Night.tscn").instantiate()
+					host.save_path = "user://solo-care-%d.json" % OS.get_process_id()
+					root.add_child(host)
+					ok = night.save(host.save_path).ok
+					host.continue_run()
+					var member: Dictionary = night.state.roster[0]
+					var uid: String = member.uid
+					var cash: float = night.state.incense
+					var expected: float = night.treatment_health_after(member)
+					var button: Button = host.panel.buttons.get("treat_"+uid)
+					step.treatment = {"uid":uid,"before":member.hp,"expected":expected,"rest_hp":night.rest_health_after(member)}
+					ok = ok and night.state.roster.size()==1 and is_instance_valid(button) and not button.disabled
+					if ok:
+						button.pressed.emit()
+						ok = night.load_save(host.save_path).ok and night.state.phase=="map"
+						step.treatment.after = night.state.roster[0].hp
+						step.treatment.paid = cash-night.state.incense
+						ok = ok and night.state.roster[0].uid==uid and is_equal_approx(step.treatment.after,expected) and is_equal_approx(step.treatment.paid,night.config.rest.treatment_cost)
+					host.free()
+				elif policy=="repair-inner-eighth-treat" and night.state.current_node_id=="n06":
 					var patient: Dictionary = night.state.roster.filter(func(u):return u.id=="H01")[0]
 					var before_hp: float = patient.hp
 					var before_cash: float = night.state.incense
@@ -471,6 +493,10 @@ func run() -> void:
 	var filename := "ordinary-route-%s%d.json" % ["upgrade-" if upgraded else "",index]
 	if args.size() == 3 or policy not in ["base","upgrade"]:
 		filename = "post-%s-%s-%d.json" % [seed_text,policy,index]
+	if OS.get_environment("YE_CI_TREAT_SOLO")=="1" and policy=="camp-fire-stock-pin-veteran8-early":
+		filename = "solo-care-"+filename
+	if OS.get_environment("YE_CI_TREAT_SOLO")=="rest" and policy=="camp-fire-stock-pin-veteran8-early":
+		filename = "solo-rest-"+filename
 	FileAccess.open("res://tools/faction_baseline/" + filename,FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
 	if OS.get_environment("YE_CI_DEBRIEF_SAVE") != "" and report.policy_finished:
 		night.save(OS.get_environment("YE_CI_DEBRIEF_SAVE"))
