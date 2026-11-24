@@ -2,6 +2,7 @@ extends SceneTree
 ## Exercises the real title button, map save and first ordinary combat. Autonomy only.
 var capture_relief_click := false
 var inspect_replacements := false
+var petition_train_at := -1.0
 var probe_boss_gate := false
 var failures := 0
 var foreign_units := {}
@@ -80,6 +81,10 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		scene.free()
 		return row
 	if track_register and row.node == "n10":
+		row.petitions = []
+		session.roster.petition_resolved.connect(func(unit,receipt):
+			row.petitions.append(receipt.merged({"seconds":sim.simulation_time,"id":unit.unit_id,"instance":unit.instance_id}))
+		)
 		row.drum_hits = []
 		session.roster.drum_resolved.connect(func(unit,receipt):
 			if unit.unit_id == "H07":
@@ -219,6 +224,8 @@ func fight(night: RefCounted, faction: String, seed_text: String, upgrade_pair :
 		for guard in sim.humans:
 			if guard.unit_id=="H01": reader = guard
 	for tick in ceili(session.rules.duration * 60.0) + 2:
+		if petition_train_at>=0 and tick==roundi(60*petition_train_at):
+			row.delayed_training = train_guard(session,sim,"H20")
 		if probe_boss_gate and tick % 15 == 0:
 			if row.gate.first_repair == null and session.preview_repair("door_hall").ok:
 				row.gate.first_repair = sim.simulation_time

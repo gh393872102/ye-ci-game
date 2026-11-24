@@ -40,6 +40,10 @@ func dispel_targets(unit: Node2D, manual := false) -> Array:
 		if enemy.unit_id=="G30": return unit.unit_id!="H22" or dispel_extra(unit,enemy)==0
 		return enemy.roster.statuses.has("cloth") or enemy.growth.statuses.has("ward"))
 
+func waits_for_petition_group(unit: Node2D) -> bool:
+	var growth: RefCounted = engine.growth()
+	return unit.unit_id=="H20" and growth.state.get("defense_objective","")=="hold_register" and growth.has(unit,"Y01")
+
 func uses_register_pin(unit: Node2D) -> bool:
 	var growth: RefCounted = engine.growth()
 	return unit.unit_id == "H24" and growth.state.get("defense_objective","") == "hold_register" and growth.has(unit,"I17")
@@ -308,14 +312,29 @@ func cast(unit: Node2D, args: Dictionary = {}) -> Dictionary:
 		"H20":
 			target = _target(unit,args)
 			if target == null or growth.state.get("ritual_flag","") in ["hanshi","寒食"]: return engine.reject()
+			var victims := []
+			var radius := Rules.body_to_px(float(p.radius_body))
+			for enemy in _sim().humans+_sim().targets:
+				if not enemy.dead and enemy.side!=unit.side and enemy.floor_id==target.floor_id and enemy.position.distance_to(target.position)<=radius:
+					victims.append(enemy)
+			if not copied and not args.has("target_id") and waits_for_petition_group(unit) and victims.size()<int(growth.params("Y01").petition_min_targets):
+				return engine.reject()
+			var wallet: float = engine.session.incense_for(growth.seat_of(unit))
+			var reserve: float = unit.roster.reserve_incense
+			var hit_count := 0
 			if not _paid(unit,id,float(p.extra_incense),copied): return engine.reject("P4_NO_INCENSE")
-			for enemy in ( _sim().humans+_sim().targets).duplicate():
-				if enemy.dead or enemy.side == unit.side or enemy.floor_id != target.floor_id or enemy.position.distance_to(target.position) > Rules.body_to_px(float(p.radius_body)): continue
+			var after_payment: float = engine.session.incense_for(growth.seat_of(unit))
+			var reserve_paid: float = reserve-float(unit.roster.reserve_incense)
+			for enemy in victims:
+				if enemy.dead or enemy.side==unit.side: continue
+				hit_count += 1
 				enemy.receive_damage(float(p.damage)*growth.ritual_fire_multiplier(unit),unit,"fire")
 				if enemy.side == "xianghuo" and enemy.brain.channel.active: enemy.brain.channel.cancel("P8_FIRE_INTERRUPTED")
 				engine.status(enemy,"misname",.5,unit)
 			growth.ignite_ritual_fire(unit,target.position,target.floor_id,id)
-			return _done(unit,id,"burning_petition",target)
+			var receipt := {"hits":hit_count,"before":wallet,"after":after_payment,"reserve_paid":reserve_paid}
+			engine.petition_resolved.emit(unit,receipt)
+			return _done(unit,id,"burning_petition",target).merged({"petition":receipt})
 		"H22":
 			var eligible := dispel_targets(unit,args.has("target_id") and not copied)
 			if eligible.is_empty(): return engine.reject()

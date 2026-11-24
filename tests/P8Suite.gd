@@ -223,6 +223,8 @@ func _run() -> void:
 			check(all_troops,"K1 All four troop templates execute their actual supported battlefield behavior")
 			_register_focus()
 			_dispel_selection()
+			_petition_threshold()
+			await get_tree().create_timer(.7).timeout
 		if capture:
 			await _feedback_frames()
 			if not OS.get_cmdline_user_args().has("--feedback-only"):
@@ -519,6 +521,24 @@ func _impact_mirror() -> void:
 	guard.receive_damage(8,breaker,"melee")
 	check(guard.hp<hp and not skill(guard).ok,"Second strike lands during mirror cooldown","H18")
 
+func _petition_threshold() -> void:
+	rig("shouxiang",{"defense_objective":"hold_register","inventory":{"Y01":1}})
+	var u=human("H20"); var g=ghost("G12",115)
+	session.execute_for("shouxiang","equip_item",{"unit_id":u.instance_id,"item_id":"Y01","slot_index":0},"player")
+	var money: float=session.incense
+	check(not skill(u).ok and near(session.incense,money) and roster.ready(u),"H20 Y01 holds fire on one enemy without cost or cooldown","H20")
+	var panel: Node = scene.get_node("Decisions")
+	panel.select_unit(u,true)
+	panel.open_unit_skill()
+	check(panel.skill_target_ids.size()==2 and panel.skill_target_ids[1]==g.instance_id,"H20 picker lists the reachable hostile target","H20")
+	panel.skill_target_picker.select(1)
+	panel.buttons.skill_cast.pressed.emit()
+	check(panel.feedback.text.contains("波及 1 名敌人") and near(money-session.incense,9),"H20 aimed petition overrides crowd threshold and shows paid receipt","H20")
+	u.roster.cooldowns.skill=0
+	ghost("G01",115);ghost("G01",115)
+	session.incense=50
+	check(skill(u).get("petition",{}).get("hits")==3,"H20 Y01 spends once when three enemies group up","H20")
+
 func _human_supplementary() -> void:
 	rig(); var u=human("H17","post_gate_inner"); var g=ghost("G12",49)
 	var door=sim.world.get_node("door_outer")
@@ -573,6 +593,7 @@ func _human_supplementary() -> void:
 	rig(); u=human("H20"); g=ghost("G12",115)
 	money=session.incense; hp=g.hp; result=skill(u,{"target_id":g.instance_id})
 	check(result.ok and g.hp<hp and near(money-session.incense,float(Data.units.H20["技能香耗"])+float(roster.params(u).extra_incense)) and event("burning_petition",u.instance_id),"H20 Real area fire harms the enemy and pays its explicit additional global incense cost","H20")
+	check(result.petition.hits>=1 and near(result.petition.before,money) and near(result.petition.after,session.incense),"H20 Receipt shows targets in the burst and actual wallet debit","H20")
 	var attack:Dictionary=roster.cast(g)
 	check(attack.ok and attack.reason=="P8_SKILL_MISFIRED" and attack.get("effect_applied",true)==false,"H20 The burned target really loses its next active skill attempt","H20")
 	rig(); u=human("H21"); g=ghost("G10",115)

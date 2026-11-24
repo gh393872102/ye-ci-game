@@ -1,5 +1,6 @@
 extends RefCounted
 ## P8 named behaviors extend the same simulation; all mutable combat state is serializable.
+signal petition_resolved(unit: Node2D, receipt: Dictionary)
 signal drum_resolved(unit: Node2D, receipt: Dictionary)
 
 const Humans = preload("res://src/roster/HumanAbilities.gd")

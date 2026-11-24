@@ -128,7 +128,7 @@ func run() -> void:
 			split.delay = REAR_POLICIES["rear-hall-trained"].delay
 		rear_policies[key] = split
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in rear_policies and args[1] not in RESERVE_POLICIES and args[1] not in THIRD_POSTS and args[1] not in MARTIAL_POLICIES and args[1] not in PIN_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社","松溪","槐桥","石埠"]) or args[0] not in ["0","1","2","3"]:
+	if args.size() not in [1,2,3] or (args.size() >= 2 and args[1] not in rear_policies and args[1] not in RESERVE_POLICIES and args[1] not in THIRD_POSTS and args[1] not in MARTIAL_POLICIES and args[1] not in PIN_POLICIES and args[1] not in ["upgrade","register","hall","base","aid-register","aid-hall","watch","relief-open","relief-1","relief-4","relief-8","relief-10","relief-8-next","relief-8-recall","borrow","dispel","dispel-recall"]) or (args.size() == 3 and args[2] not in ["渡口","灯市","秋社","松溪","槐桥","石埠","杏村","榆渡"]) or args[0] not in ["0","1","2","3"]:
 		quit(2)
 		return
 	var policy := args[1] if args.size() >= 2 else "base"

@@ -3,7 +3,7 @@ extends "res://tools/faction_baseline/OrdinaryOpening.gd"
 
 func run() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() not in [2,3] or (args.size()==3 and args[2]!="reinforcements"):
+	if args.size() not in [2,3] or (args.size()==3 and args[2] not in ["reinforcements","petitions"]):
 		quit(2)
 		return
 	probe_boss_gate = true
@@ -11,6 +11,7 @@ func run() -> void:
 	var extra := args.size()==3
 	var camps := ["rest","care","brace_hall","reserve_H18","reserve_H20","rest_pin","care_pin"]
 	if extra: camps = ["rest","care","reserve_H20"]
+	if extra and args[2]=="petitions": camps = ["reserve_H20"]
 	for camp in camps:
 		var aids: Array = ["none"]
 		if camp in ["rest","care"]:
@@ -18,7 +19,9 @@ func run() -> void:
 		if extra:
 			aids = ["H24"]
 			if camp=="reserve_H20": aids.append_array(["train_H20","train_H20_twice"])
+		if extra and args[2]=="petitions": aids = ["none","train_H20","delay_60","crowd","crowd_train","crowd_delay"]
 		for aid in aids:
+			petition_train_at = 60.0 if aid in ["delay_60","crowd_delay"] else -1.0
 			var trial := await replay(args[0],camp,aid)
 			trials.append(trial)
 			if not trial.get("checked",false):
@@ -71,8 +74,8 @@ func replay(path: String, camp: String, aid: String) -> Dictionary:
 	host.free()
 	if not is_equal_approx(trial.camp_fee,price) or not night.choose_node("n10").ok:
 		return trial
-	var train := aid.begins_with("train_")
-	var delay := -1.0 if aid=="none" or train else 4.0
+	var train := aid.begins_with("train_") or aid=="crowd_train"
+	var delay := -1.0 if aid in ["none","delay_60"] or train or aid.begins_with("crowd") else 4.0
 	var trainee := "H20" if train else ""
 	var repeat_training: Array = []
 	if aid=="train_H20_twice":
@@ -82,7 +85,11 @@ func replay(path: String, camp: String, aid: String) -> Dictionary:
 		else:
 			trial.second_training_shortfall = 2*cost-trial.after
 	var carried: Array = ["I17"] if camp.ends_with("_pin") else []
-	var battle := await fight(night,"符法司",original.seed,false,"",false,aid,true,false,1,carried,false,delay,trainee,"H24",false,"",0,false,false,repeat_training,false,true)
+	var wearer := "H24"
+	if aid.begins_with("crowd"):
+		carried = ["Y01"]
+		wearer = "H20"
+	var battle := await fight(night,"符法司",original.seed,false,"",false,aid,true,false,1,carried,false,delay,trainee,wearer,false,"",0,false,false,repeat_training,false,true)
 	trial.battle = battle
 	trial.checked = battle.get("settled",false) and battle.hold and battle.foreign_units.is_empty()
 	if train:
@@ -90,5 +97,5 @@ func replay(path: String, camp: String, aid: String) -> Dictionary:
 		if not repeat_training.is_empty(): trial.checked = trial.checked and battle.additional_training[0].ok and is_equal_approx(battle.additional_training[0].paid,8.0)
 	if not carried.is_empty():
 		var receipt: Dictionary = battle.gear[0]
-		trial.checked = trial.checked and receipt.ok and receipt.owner=="H24" and receipt.paid==0 and receipt.before-receipt.after==1
+		trial.checked = trial.checked and receipt.ok and receipt.owner==wearer and receipt.paid==0 and receipt.before-receipt.after==1
 	return trial

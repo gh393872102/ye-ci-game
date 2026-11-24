@@ -937,6 +937,10 @@ func open_unit_skill() -> void:
 		_label(content,behavior+"  基础耗香 %d" % selected.skill_cost,18)
 	else:
 		_label(content,selected.skill_text,18)
+	if selected.unit_id=="H20":
+		var fee: float = selected.skill_cost+session.roster.params(selected).extra_incense
+		var tactic := "自动烧疏会等至少三敌聚在目标附近。选定一名敌人可提前烧。" if session.roster.humans.waits_for_petition_group(selected) else "烧疏以选中敌人为中心，灼伤同层敌群。"
+		_label(content,"%s　基础总耗 %d 香" % [tactic,fee],17)
 	if selected.unit_id=="H13":
 		var rule: Dictionary = session.roster.params(selected)
 		_label(content,"行刑 · 只列同层 %.1f 身位内，生命不高于 %d%% 的普通鬼。技能耗 %d 香，行刑扣 %d 名分。" % [rule.radius_body,roundi(rule.hp_threshold*100),selected.skill_cost,rule.name_penalty],17)
@@ -999,6 +1003,7 @@ func open_unit_skill() -> void:
 	skill_target_ids.append("")
 	skill_target_picker.add_item(tr("P8_TARGET_AUTO"))
 	var targets: Array = session.roster.humans.execution_targets(selected) if selected.unit_id=="H13" else simulation.humans+simulation.targets
+	if selected.unit_id=="H20": targets = session.roster.near(selected,float(session.roster.params(selected).radius_body))
 	if selected.unit_id=="H19": targets = session.roster.humans.lantern_targets(selected)
 	if selected.unit_id=="H22": targets = session.roster.humans.dispel_targets(selected,true)
 	if selected.unit_id=="H24": targets = session.roster.humans.pin_targets(selected)
@@ -1146,6 +1151,10 @@ func _cast_selected_skill(automatic: bool, confirm_market := false) -> void:
 		if is_instance_valid(lit):
 			var paid := cash_before-available_incense()-float(selected.roster.get("reserve_incense",0))
 			feedback.text = "%s%s · 实付 %s 香" % ["借入" if answer.borrowed else "照见",lit.display_name,String.num(paid,2)]
+		open_unit_skill()
+	if answer.has("petition"):
+		var cast: Dictionary = answer.petition
+		feedback.text = "烧疏波及 %d 名敌人 · 实耗 %s 香 · 公共香火余 %s" % [cast.hits,String.num(cast.before-cast.after+cast.reserve_paid,2),String.num(cast.after,2)]
 		open_unit_skill()
 	if answer.has("drum"):
 		var beat: Dictionary = answer.drum

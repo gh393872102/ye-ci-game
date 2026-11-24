@@ -2,11 +2,12 @@
   "Y01": {
     "id": "Y01",
     "name": "余香",
-    "description": "点册完成在目标周围2身位爆香，轻伤且不斩杀精英。",
+    "description": "点册完成在目标周围2身位爆香，轻伤且不斩杀精英。焚词守册时自动等三敌聚在一处再烧疏，手动指定敌人可提前施放。",
     "slot": "art",
     "effect_id": "Y01",
     "status": "active",
     "params": {
+      "petition_min_targets": 3,
       "radius_body": 2,
       "damage": 6
     },

@@ -332,7 +332,17 @@ static func _weapon(u: Node2D,id: String,c: Color,t: Color,s: Color,m: Color,g: 
 		"mourning_staff":_line(u,Vector2(22,-79),Vector2(22,-1),t,5);_r(u,13,-71,21,7,m);_r(u,29,-65,4,20,m.lightened(.1))
 		"seal_paper":_r(u,-31,-59+lift,15,30,t);_r(u,-25,-54+lift,3,19,Color("934b40"));_line(u,Vector2(13,-46),Vector2(25,-63),m,3)
 		"mirror":u.draw_circle(Vector2(23,-50),13,t);u.draw_circle(Vector2(23,-50),10,Color("91aea9"));_r(u,21,-38,4,17,t);_line(u,Vector2(16,-57),Vector2(27,-46),m.lightened(.3),2)
-		"burning_petition":_r(u,-29,-50,25,18,t);_poly(u,[[-28,-51],[-26,-68],[-19,-58],[-13,-71],[-8,-58],[-4,-51]],Color("c39360"));_r(u,14,-40,17,9,m.darkened(.4))
+		"burning_petition":
+			# Idle: folded memorial at the belt. Casting: raised sheet, red seal and a lit edge.
+			if cast:
+				_poly(u,[[-34,-63],[-15,-67],[-12,-47],[-30,-44]],t.lightened(.2))
+				_line(u,Vector2(-28,-58),Vector2(-18,-60),m,2)
+				_r(u,-23,-53,4,4,Color("a04436"))
+				_poly(u,[[-34,-63],[-33,-74],[-29,-68],[-26,-78],[-23,-66]],Color("e5a056"))
+			else:
+				_r(u,-28,-46,22,10,t)
+				_line(u,Vector2(-27,-41),Vector2(-9,-41),m,2)
+			_r(u,14,-40,17,9,m.darkened(.4))
 		"lotus_lamp":_poly(u,[[-22,-44],[-10,-35],[2,-45],[14,-35],[25,-44],[19,-30],[-15,-30]],t);_r(u,-4,-47,7,14,g)
 		"three_ring_staff":_line(u,Vector2(24,-75),Vector2(24,0),t,4);u.draw_circle(Vector2(24,-68),7,m,false,2);u.draw_circle(Vector2(15,-64),6,m,false,2);u.draw_circle(Vector2(32,-61),6,m,false,2)
 		"almanac":_r(u,-18,-49,22,25,t.darkened(.2));_r(u,-15,-45,16,3,m);_line(u,Vector2(18,-58),Vector2(30,-40),t,3)
